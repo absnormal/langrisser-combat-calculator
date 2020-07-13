@@ -4,7 +4,7 @@ function display_version(){
 };
 
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
-var offense, defense;
+var offense="僧", defense="魔";
 
 function display_offense(offense){
     document.getElementById("offense").innerHTML = offense;
@@ -12,6 +12,10 @@ function display_offense(offense){
 
 function display_defense(defense){
     document.getElementById("defense").innerHTML = defense;
+};
+
+function display_counter(offense, defense){
+    document.getElementById("counter").innerHTML = cal_counter(offense, defense);
 };
 
 function cal_counter(offense, defense){
@@ -39,7 +43,7 @@ function cal_counter(offense, defense){
                 return 0.3;
             else return 0.0; break;
         case "僧":
-            if(defnese == "魔")
+            if(defense == "魔")
                 return 0.8;
             else return 0.0; break;
         case "魔":
