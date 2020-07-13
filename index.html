@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="ch-TW">
 <body>
 
-<h2>What Can JavaScript Do?</h2>
+<h1>Langrisser Combat Calculator</h1>
 
-<p>JavaScript can change HTML attribute values.</p>
+<p>A simple fanmake github webpage for Langrisser players.</p>
 
-<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+<!-- where to -->
+<script src="/js/cal.js"></script>
 
-<button onclick="document.getElementById('myImage').src='https://www.animatedimages.org/data/media/510/animated-light-bulb-image-0002.gif'">Turn on the light</button>
+<button onclick="offense = 'INFANTRY'">劍兵</button>
+<button onclick="offense = 'SPEARMAN'">槍兵</button>
+<button onclick="offense = 'CAVALRY'">騎兵</button>
 
-<img id="myImage" src="https://www.animatedimages.org/data/media/510/animated-light-bulb-image-0002.gif" style="width:100px">
+<button onclick="defense = 'INFANTRY'">劍兵</button>
+<button onclick="defense = 'SPEARMAN'">槍兵</button>
+<button onclick="defense = 'CAVALRY'">騎兵</button>
 
-<button onclick="document.getElementById('myImage').src='https://www.animatedimages.org/data/media/510/animated-light-bulb-image-0002.gif'">Turn off the light</button>
+<button onclick="document.getElementById('counter').innerHTML
+    = '克制 = ' + cal_counter(offense, defense)">BATTLE</button>
+
+<p id="counter">克制 = 0.0</p>
 
 </body>
 </html>
