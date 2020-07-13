@@ -9,18 +9,38 @@
 <!-- where to -->
 <script src="/js/cal.js"></script>
 
-<button onclick="offense = 'INFANTRY'">劍兵</button>
-<button onclick="offense = 'SPEARMAN'">槍兵</button>
-<button onclick="offense = 'CAVALRY'">騎兵</button>
+<h2>進攻方</h2>
+<button onclick="offense = 'INFANTRY',
+    document.getElementById('offense').innerHTML
+    = display(offense)">劍兵</button>
+<button onclick="offense = 'SPEARMAN',
+    document.getElementById('offense').innerHTML
+    = display(offense)">槍兵</button>
+<button onclick="offense = 'CAVALRY',
+    document.getElementById('offense').innerHTML 
+    = display(offense)">騎兵</button>
 
-<button onclick="defense = 'INFANTRY'">劍兵</button>
-<button onclick="defense = 'SPEARMAN'">槍兵</button>
-<button onclick="defense = 'CAVALRY'">騎兵</button>
+<h2>防守方</h2>
+<button onclick="defense = 'INFANTRY',
+    document.getElementById('defense').innerHTML 
+    = display(offense)">劍兵</button>
+<button onclick="defense = 'SPEARMAN',
+    document.getElementById('defense').innerHTML 
+    = display(offense)">槍兵</button>
+<button onclick="defense = 'CAVALRY',
+    document.getElementById('defense').innerHTML 
+    = display(offense)">騎兵</button>
+
+<p>進攻方兵種:</p>
+<p id="offense">進攻方兵種</p>
+<p>防守方兵種:</p>
+<p id="defense">防守方兵種</p>
 
 <button onclick="document.getElementById('counter').innerHTML
-    = '克制 = ' + cal_counter(offense, defense)">BATTLE</button>
+    = cal_counter(offense, defense)">BATTLE</button>
 
-<p id="counter">克制 = 0.0</p>
+<p>克制</p>
+<p id="counter">0.0</p>
 
 </body>
 </html>

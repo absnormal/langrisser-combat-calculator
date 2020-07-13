@@ -2,6 +2,10 @@
 // INFANTRY, SPEARMAN, CAVALRY, FLYERS, SAILOR, ASSASSIN, ARCHER, MAGE, MONK, MONSTER, DRAGON;
 var offense = "MONK", defense = "MONSTER";
 
+function display(variable){
+    return variable;
+}
+
 function cal_counter(offense, defense){
     switch(offense){
         case "INFANTRY":
