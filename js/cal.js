@@ -1,12 +1,18 @@
+function display_version(){
+    var ver = "0.1.2";
+    document.getElementById("version").innerHTML = ver;
+};
+
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
+var offense, defense;
 
 function display_offense(offense){
     document.getElementById("offense").innerHTML = offense;
-}
+};
 
 function display_defense(defense){
     document.getElementById("defense").innerHTML = defense;
-}
+};
 
 function cal_counter(offense, defense){
     switch(offense){
@@ -42,4 +48,5 @@ function cal_counter(offense, defense){
             else return 0.0; break;
         default:
             return 0.0;
-}
+    }
+};

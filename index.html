@@ -1,33 +1,39 @@
 <!DOCTYPE html>
-<html lang="ch-TW">
+<html lang="zh-TW">
 <body>
 
 <h1>Langrisser Combat Calculator</h1>
 
 <p>A simple fanmake github webpage for Langrisser players.</p>
 
-<!-- where to 
-<script src="/js/cal.js"></script> -->
+<!-- local test
+--> 
+<script src="file:///home/absnormal/langrisser-combat-calculator/js/cal.js"></script>
+
+<!-- hithub version
+<script src="/js/cal.js"></script>
+-->
 
 <h2>進攻方</h2>
-<button onclick='var offense = "劍"'>劍兵</button>
+<button style='color:red;'   onclick='offense = "劍"'>劍兵</button>
+<button style='color:green;' onclick='offense = "槍"'>槍兵</button>
+<button style='color:blue;'  onclick='offense = "騎"'>騎兵</button>
 
 <h2>防守方</h2>
-<button onclick='var defense = "槍"'>槍兵</button>
+<button style='color:red;'   onclick='defense = "劍"'>劍兵</button>
+<button style='color:green;' onclick='defense = "槍"'>槍兵</button>
+<button style='color:blue;'  onclick='defense = "騎"'>騎兵</button>
 
-<script>
-    function display_offense(offense){
-        document.getElementById("offense").innerHTML = offense;
-    }
-    function display_defense(defense){
-        document.getElementById("defense").innerHTML = defense;
-    }
-</script>
+<hr>
 
-<button onclick='display_offense(offense)'>顯示進攻方兵種</button>
+<button onclick='display_offense(offense)' style='color:red;'>
+    顯示進攻方兵種
+</button>
 <p id='offense'>進攻方兵種</p>
 
-<button onclick='display_defense(defense)'>顯示防守方兵種</button>
+<button onclick='display_defense(defense)' style='color:blue;'>
+    顯示防守方兵種
+</button>
 <p id="defense">防守方兵種</p>
 
 <!--
@@ -38,7 +44,16 @@
 <p>克制</p>
 <p id="counter">0.0</p>
 
-<button onclick='this.innerHTML = "0.1"'>version</button>
+<button id='version' onclick='display_version()'>version</button>
+
+<script>
+    if(typeof display_version !== 'function'){
+        alert('not loaded');
+    }
+    else{
+        alert('loaded');
+    }
+</script>
 
 </body>
 </html>
