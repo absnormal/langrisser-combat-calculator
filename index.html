@@ -6,24 +6,34 @@
 
 <p>A simple fanmake github webpage for Langrisser players.</p>
 
-<!-- where to -->
-<script src="/js/cal.js"></script>
+<!-- where to 
+<script src="/js/cal.js"></script> -->
 
 <h2>進攻方</h2>
-<button onclick='
-    var offense = "劍",
-    document.getElementById("offense").innerHTML = display(offense)
-    '>劍兵</button>
+<button onclick='var offense = "劍"'>劍兵</button>
 
 <h2>防守方</h2>
+<button onclick='var defense = "槍"'>槍兵</button>
 
-<p>進攻方兵種:</p>
-<p id="offense">進攻方兵種</p>
-<p>防守方兵種:</p>
+<script>
+    function display_offense(offense){
+        document.getElementById("offense").innerHTML = offense;
+    }
+    function display_defense(defense){
+        document.getElementById("defense").innerHTML = defense;
+    }
+</script>
+
+<button onclick='display_offense(offense)'>顯示進攻方兵種</button>
+<p id='offense'>進攻方兵種</p>
+
+<button onclick='display_defense(defense)'>顯示防守方兵種</button>
 <p id="defense">防守方兵種</p>
 
+<!--
 <button onclick="document.getElementById('counter').innerHTML
     = cal_counter(offense, defense)">BATTLE</button>
+-->
 
 <p>克制</p>
 <p id="counter">0.0</p>

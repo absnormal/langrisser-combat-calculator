@@ -1,7 +1,11 @@
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
 
-function display(variable){
-    return variable;
+function display_offense(offense){
+    document.getElementById("offense").innerHTML = offense;
+}
+
+function display_defense(defense){
+    document.getElementById("defense").innerHTML = defense;
 }
 
 function cal_counter(offense, defense){
