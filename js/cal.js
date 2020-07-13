@@ -1,6 +1,4 @@
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
-// INFANTRY, SPEARMAN, CAVALRY, FLYERS, SAILOR, ASSASSIN, ARCHER, MAGE, MONK, MONSTER, DRAGON;
-var offense = "MONK", defense = "MONSTER";
 
 function display(variable){
     return variable;
@@ -8,34 +6,34 @@ function display(variable){
 
 function cal_counter(offense, defense){
     switch(offense){
-        case "INFANTRY":
-            if(defense == "SPEARMAN")
+        case "劍":
+            if(defense == "槍")
                 return 0.4;
-            else if(defense == "CAVALRY")
+            else if(defense == "騎")
                 return -0.3;
             else return 0.0; break;
-        case "SPEARMAN":
-            if(defense == "INFANTRY")
+        case "槍":
+            if(defense == "劍")
                 return -0.2;
-            else if(defense == "CAVALRY")
+            else if(defense == "騎")
                 return 0.3;
             else return 0.0; break;
-        case "CAVALRY":
-            if(defense == "INFANTRY")
+        case "騎":
+            if(defense == "劍")
                 return 0.2;
-            else if(defense == "SPEARMAN")
+            else if(defense == "槍")
                 return -0.3;
             else return 0.0; break;
-        case "ARCHER":
-            if(defense == "FLYERS")
+        case "弓":
+            if(defense == "飛")
                 return 0.3;
             else return 0.0; break;
-        case "MONK":
-            if(defnese == "MONSTER")
+        case "僧":
+            if(defnese == "魔")
                 return 0.8;
             else return 0.0; break;
-        case "MONSTER":
-            if(defense == "MONK")
+        case "魔":
+            if(defense == "僧")
                 return -0.4;
             else return 0.0; break;
         default:
