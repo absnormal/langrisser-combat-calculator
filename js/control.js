@@ -24,7 +24,7 @@ function display_path(path){
             document.getElementById(functs[i]).href = local + rep + functs[i] + '.html';
         }
         else{
-            document.getElementById(functs[i]).href = rep + functs[i];
+            document.getElementById(functs[i]).href = functs[i];
         }
     }
 };
