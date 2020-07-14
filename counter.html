@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<!-- local
+-->
+<link rel="stylesheet" type="text/css" 
+    href="file:///home/absnormal/langrisser-combat-calculator/css/mainpage.css">
+<script src="file:///home/absnormal/langrisser-combat-calculator/js/counter.js"></script>
+<script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
+<!-- github
+-->
+<link rel="stylesheet" type="text/css" 
+    href="/langrisser-combat-calculator/css/mainpage.css">
+<script src="/langrisser-combat-calculator/js/counter.js"></script>
+<script src="/langrisser-combat-calculator/js/control.js"></script>
+</head>
+
+<body>
+
+<h1>Langrisser Counter Calculator</h1>
+
+<p>Display counter rate by choosen arms.</p>
+
+<h2>進攻方</h2>
+<ul class='offense'>
+    <button style='color:red;' onclick='offense="劍"'>劍兵</button>
+    <button style='color:green;' onclick='offense="槍"'>槍兵</button>
+    <button style='color:blue;' onclick='offense="騎"'>騎兵</button>
+    <button style='color:yellow;' onclick='offense="飛"'>飛兵</button>
+    <button style='color:purple;' onclick='offense="弓"'>弓兵</button>
+    <button style='color:white;' onclick='offense="僧"'>僧侶</button>
+    <button style='color:black;' onclick='offense="魔"'>魔物</button>
+</ul>
+
+<h2>防守方</h2>
+<ul class='defense'>
+    <button style='color:red;' onclick='defense="劍"'>劍兵</button>
+    <button style='color:green;' onclick='defense="槍"'>槍兵</button>
+    <button style='color:blue;' onclick='defense="騎"'>騎兵</button>
+    <button style='color:yellow;' onclick='defense="飛"'>飛兵</button>
+    <button style='color:purple;' onclick='defense="弓"'>弓兵</button>
+    <button style='color:white;' onclick='defense="僧"'>僧侶</button>
+    <button style='color:black;' onclick='defense="魔"'>魔物</button>
+</ul>
+
+<hr>
+
+<p>進攻方兵種:</p><p id='offense'>僧</p>
+
+<p>防守方兵種:</p><p id='defense'>魔</p>
+
+<p>克制</p>
+<p id="counter">0.8</p>
+
+<!-- local
+-->
+<a id='mainpage' href='file:///home/absnormal/langrisser-combat-calculator/index.html'>
+<!-- github
+<a id='mainpage' href='/langrisser-combat-calculator/index.html'>
+-->
+    Back to Main
+</a>
+
+</body>
+</html>

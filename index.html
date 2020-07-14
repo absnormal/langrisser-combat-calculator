@@ -16,53 +16,22 @@
 <script src="/langrisser-combat-calculator/js/control.js"></script>
 </head>
 
-<body>
+<body onload='display_version()'>
 
 <h1>Langrisser Combat Calculator</h1>
 
+<h6 id='version'>some version</h6>
+
 <p>A simple fanmake github webpage for Langrisser players.</p>
 
-<h2>進攻方</h2>
-<ul class='offense'>
-    <button style='color:red;' onclick='offense="劍"'>劍兵</button>
-    <button style='color:green;' onclick='offense="槍"'>槍兵</button>
-    <button style='color:blue;' onclick='offense="騎"'>騎兵</button>
-    <button style='color:yellow;' onclick='offense="飛"'>飛兵</button>
-    <button style='color:purple;' onclick='offense="弓"'>弓兵</button>
-    <button style='color:white;' onclick='offense="僧"'>僧侶</button>
-    <button style='color:black;' onclick='offense="魔"'>魔物</button>
-</ul>
-
-<h2>防守方</h2>
-<ul class='defense'>
-    <button style='color:red;' onclick='defense="劍"'>劍兵</button>
-    <button style='color:green;' onclick='defense="槍"'>槍兵</button>
-    <button style='color:blue;' onclick='defense="騎"'>騎兵</button>
-    <button style='color:yellow;' onclick='defense="飛"'>飛兵</button>
-    <button style='color:purple;' onclick='defense="弓"'>弓兵</button>
-    <button style='color:white;' onclick='defense="僧"'>僧侶</button>
-    <button style='color:black;' onclick='defense="魔"'>魔物</button>
-</ul>
-
-<hr>
-
-<p>進攻方兵種:</p><p id='offense'>僧</p>
-
-<p>防守方兵種:</p><p id='defense'>魔</p>
-
-<p>克制</p>
-<p id="counter">0.8</p>
-
-<button id='version' onclick='display_version()'>version</button>
-
-<script>
-    if(typeof display_version !== 'function'){
-        alert('not loaded');
-    }
-    else{
-        alert('loaded');
-    }
-</script>
+<!-- local 
+-->
+<a id='counter' href='file:///home/absnormal/langrisser-combat-calculator/counter.html'>
+<!-- github 
+<a id='counter' href='/langrisser-combat-calculator/counter.html'>
+-->
+    Counter Calculator
+</a>
 
 </body>
 </html>

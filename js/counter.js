@@ -1,8 +1,3 @@
-function display_version(){
-    var ver = "0.1.2";
-    document.getElementById("version").innerHTML = ver;
-};
-
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
 var offense="僧", defense="魔";
 
