@@ -1,0 +1,88 @@
+@charset "utf-8";
+html{width:100%;}
+body{width:100%; margin:0; padding:0; font-size:100%; font-family:"Microsoft YaHei",宋体,Arial, Helvetica, sans-serif; background-color:#fff;}
+div,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,select,textarea,table,td{ margin:0; padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+area{outline:none;}
+img{border:0;}
+ol,ul{list-style:none;}
+a{text-decoration:none;outline:none;color: #ffe79d;}
+body{background:#20203e;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{content: ''; display: block;clear: both;}
+.clear{zoom: 1;}
+
+.topBox{background: #fbfeff;}
+.topBox .pubMain{width: 1200px;height: 62px; margin: 0 auto; position: relative;}
+.topBox .icon{display: block; width: 73px; height: 73px; position: absolute; left: 0; top: 12px;}
+.topBox .gameTitle{float: left; width: 190px; padding: 14px 0 0 85px;}
+.topBox .gameTitle h2{font-size: 20px; padding-bottom:0px;}
+.topBox .nav{float: right; width: 724px; height: 62px;}
+.topBox .nav a{float: left; /* width: 133px; */padding-right:40px; height: 62px; line-height: 62px; text-indent: 36px; font-size: 16px; background: url(../../img/mz/icon_01.png) no-repeat 0  center; color: #000;}
+.topBox .nav a.l{/*width: 185px;*/}
+.topBox .nav a.s{width: 106px;}
+.topBox .nav a:hover{text-decoration: underline;}
+
+/* index */
+.container{position: relative; width:750px;min-height: 600px;margin: 0 auto;padding-bottom:20px;padding-right: 200px;}
+.wrap-top{height: 400px;background:url(../../img/mz/data/data_top.jpg) no-repeat center 0;margin-bottom: 20px;}
+.wrap-con{width:750px;}
+
+.news{width: 664px;color:#fff;margin: 0 auto;padding: 22px 0 40px 0;}
+.news_nav{height: 35px;border-bottom: 1px solid #d2d2d2;}
+.news_nav a{float: left; width: 52px; height: 32px;color:#fff;line-height: 32px; text-align: center;font-size: 16px;margin-right: 10px;}
+.news_nav a.on{color: #82edff; border-bottom: 3px solid #82edff;}
+.news_nav a:hover{color: #82edff; border-bottom: 3px solid #82edff;}
+.news_list{padding: 18px 0 0 0;min-width: 460px;}
+.news_list li{height: 45px;line-height: 45px;border-bottom: 1px solid #33334b; padding: 0 10px;font-size: 14px;}
+.news_list li a{float:left;width: 540px;color:#fff; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.news_list li a:hover{color: #82edff;}
+.news_list li span{float: right;color:#928d8d;}
+.page {height: 30px;line-height: 30px;padding: 20px 0;text-align: center;font-size: 14px;}
+.page a{color:#fff;}
+.page a:hover{color:#82edff;}
+
+
+.news_title{padding: 20px 0;border-bottom: 1px solid #d2d2d2;text-align:center;}
+.news_title h2{font-size:28px;line-height: 36px;padding-left:10px;color: #fff;padding-bottom: 20px;}
+.news_title h2 span{color: #fff;}
+.news_title p{font-size:14px;line-height: 24px;padding-left:30px;color:#999;visibility:hidden;}
+.news_con{ line-height: 24px;padding: 30px 30px 0;height: auto !important; min-width: 400px;color: #fff;font-size:14px;}
+.news_con h3{font-size: 28px;color:#fff;padding-left: 30px;margin-top:30px;}
+.news_con p{text-indent: 30px;}
+.news_con img{display:block;max-width:80%;height: auto!important;margin:12px auto;}
+
+.calculators_main{width:1800px;height: 50px;color: #fff;padding: 10px 10px 0;margin-top: 20px;overflow: hidden;}
+.calculators_main a{color: #fff;}
+.calculators_main .nav{padding: 0 0px; height: 45px;border-bottom: 1px solid #1e2541;}
+.calculators_main .nav a{float: left;width: 150px; height: 36px;line-height: 36px;font-size:20px;margin-right: 0px;text-align: center;}
+.calculators_main .nav .item.on { border-bottom: 3px solid #82edff;}
+.calculators_main .nav .item:hover { border-bottom: 3px solid #82edff;}
+.calculators_main .nav .more{float: right;width: 43px;margin-right: 50px;padding-right:20px;background:url(../../img/mz/news/more.png) right center no-repeat;}
+.calculators_main .list .item{display:none;}
+.calculators_main .list li{height: 60px;padding-left:22px;border-bottom: 1px solid #1e2541;}
+.calculators_main .list li.top{font-weight:bold;font-size:20px;}
+.calculators_main .list li.top a{width:460px;color: #82edff;}
+.calculators_main .list li:not(.top){background:url(../../img/mz/news/list_icon.png) left center no-repeat;}
+.calculators_main .list li a {float: left;width: 420px;line-height: 60px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;color: #fff;}
+.calculators_main .list li span {float: right;line-height: 60px;}
+
+/*頁腳*/
+.footer_box { width: 100%; height: 270px; background-color: #FFF;}
+.footer_wrap{ margin: 0 auto;width:750px;height: 230px;background: #fff; padding: 40px 0 0 0; letter-spacing:0.2px; font-family: 微軟正黑體;}
+.footer_wrap.footer{width: 750px;height: 270px;margin: 0 auto;color: #000;}
+.foot_link{ width: 600px; height:16px; line-height: 16px; color:#000; margin: 0 auto; display:block; font-size: 16px;}
+.foot_link_wrap a{position:relative;float: left;color: #000; line-height: 16px;}
+.footer .link_wrap .foot_link .foot_link_wrap em{float: left;width:1px;height: 16px;background-color: #000;margin:0px 55px 0;}
+.foot_logo{float:left;display: block; width: 680px; height: 70px; margin: 5px 35px; background: url("http://news.game-beans.com/r/cms/www/default/img/mz/foot_logo.png") top center no-repeat;}
+.foot_logo .foot_gb{float: left;display: block;width:24%;height:100%;}
+.foot_logo .foot_zl{float: left;display: block;width:33%;height:100%;}
+.foot_logo .foot_extreme{float: left;display: block;width:21%;height:100%;}
+.foot_logo .foot_masaya{float: left;display: block;width:22%;height:100%;}
+.footer .warning{float: left;margin-top: 10px; display: inline-block;margin: 0 auto;}
+.warn_word{float: left; width: 680px;height: auto; background: url("http://news.game-beans.com/r/cms/www/default/img/mz/warning.jpg") no-repeat; background-size: 55px 55px; background-position:right bottom; margin: 0px 35px;}
+.warn_word ul {width:660px; height: auto;line-height: 17px;}
+.warn_word li { padding-left:8px;-webkit-text-size-adjust:none;-webkit-transform : scale(0.96); -o-transform : scale(0.96);font-size: 12px;}
+.warn_word .icon_warn_word { background:url("http://news.game-beans.com/r/cms/www/default/img/mz/icon_warn_word.png") left no-repeat;}
+

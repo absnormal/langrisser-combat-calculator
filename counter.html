@@ -5,22 +5,22 @@
 <!-- local
 -->
 <link rel="stylesheet" type="text/css" 
-    href="file:///home/absnormal/langrisser-combat-calculator/css/mainpage.css">
+    href="file:///home/absnormal/langrisser-combat-calculator/css/counter.css">
 <script src="file:///home/absnormal/langrisser-combat-calculator/js/counter.js"></script>
 <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
 <!-- github
 -->
 <link rel="stylesheet" type="text/css" 
-    href="/langrisser-combat-calculator/css/mainpage.css">
+    href="/langrisser-combat-calculator/css/counter.css">
 <script src="/langrisser-combat-calculator/js/counter.js"></script>
 <script src="/langrisser-combat-calculator/js/control.js"></script>
 </head>
 
 <body>
 
-<h1>Langrisser Counter Calculator</h1>
+<h1>克制計算器</h1>
 
-<p>Display counter rate by choosen arms.</p>
+<p>顯示兵種克制倍率。</p>
 
 <h2>進攻方</h2>
 <ul class='offense'>
@@ -31,6 +31,10 @@
     <button style='color:purple;' onclick='offense="弓"'>弓兵</button>
     <button style='color:white;' onclick='offense="僧"'>僧侶</button>
     <button style='color:black;' onclick='offense="魔"'>魔物</button>
+    <button style='color:gray;' onclick='offense="水"'>水兵</button>
+    <button style='color:gray;' onclick='offense="法"'>法師</button>
+    <button style='color:gray;' onclick='offense="刺"'>刺客</button>
+    <button style='color:gray;' onclick='offense="龍"'> 龍 </button>
 </ul>
 
 <h2>防守方</h2>
@@ -42,6 +46,10 @@
     <button style='color:purple;' onclick='defense="弓"'>弓兵</button>
     <button style='color:white;' onclick='defense="僧"'>僧侶</button>
     <button style='color:black;' onclick='defense="魔"'>魔物</button>
+    <button style='color:gray;' onclick='defense="水"'>水兵</button>
+    <button style='color:gray;' onclick='defense="法"'>法師</button>
+    <button style='color:gray;' onclick='defense="刺"'>刺客</button>
+    <button style='color:gray;' onclick='defense="龍"'>龍</button>
 </ul>
 
 <hr>
@@ -54,12 +62,12 @@
 <p id="counter">0.8</p>
 
 <!-- local
+-->
 <a id='mainpage' href='file:///home/absnormal/langrisser-combat-calculator/index.html'>
--->
 <!-- github
+<a id='mainpage' href='/langrisser-combat-calculator/index'>
 -->
-<a id='mainpage' href='/langrisser-combat-calculator/index.html'>
-    Back to Main
+    回主頁
 </a>
 
 </body>
