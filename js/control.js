@@ -1,6 +1,5 @@
 // display version
-function display_version(){
-    var ver = "0.2.2";
+function display_version(ver){
     document.getElementById("version").innerHTML = "version " + ver;
 };
 
