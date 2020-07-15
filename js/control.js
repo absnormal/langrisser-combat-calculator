@@ -15,7 +15,7 @@ function display_path(path){
         if(path == 'local'){
             document.getElementById(functs[i]).href = local + rep + functs[i] + '.html';
         }
-        else(path == 'github'){
+        else if(path == 'github'){
             document.getElementById(functs[i]).href = rep + functs[i];
         }
     }
