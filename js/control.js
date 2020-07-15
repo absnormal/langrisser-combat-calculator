@@ -7,7 +7,7 @@ function display_version(){
 // display local path
 function display_path(path){
     var local='file:///home/absnormal/';
-    var rep = 'langrisser-combat-calculator/';
+    var rep = '/langrisser-combat-calculator/';
     var functs = ['overall', 'testing', 'baseatk', 'preatk', 'fixatk', 'counter', 'predef', 'fixdef', 'terrain', 'rate'];
 
     var i;
