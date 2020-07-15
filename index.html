@@ -1,59 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 
-<head>
-<!-- local
--->
-<link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
-<link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/news.css">
-<link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
-<script src="file:///home/absnormal/langrisser-combat-calculator/js/counter.js"></script>
-<script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
-<!-- github
--->
-<link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
-<link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/news.css">
-<link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
-<script src="/langrisser-combat-calculator/js/counter.js"></script>
-<script src="/langrisser-combat-calculator/js/control.js"></script>
-</head>
+    <head>
+        <!-- local
+        -->
+        <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
+        <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
+        <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/counter.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/character.js"></script>
+        <!-- github
+        -->
+        <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
+        <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/box.css">
+        <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="/langrisser-combat-calculator/js/counter.js"></script>
+        <script src="/langrisser-combat-calculator/js/control.js"></script>
+        <script src="/langrisser-combat-calculator/js/character.js"></script>
+    </head>
 
-<body onload='display_version(), display_path("github")'>
-<div class='topBox'>
-    <div class='pubMain'>
-        <a href='index.html'>
-            <img class='icon' src='image/popteamppic.png'>
-        </a>
-        <div class='gameTitle'>
-            <h2>夢戰戰鬥計算器</h2>
-            <h3 id='version'></h3>
-        </div>
-        <div id='nav' class='nav'>
-            <a href='https://github.com/absnormal/langrisser-combat-calculator' target='_blank'>github 程式碼</a>
-            <a href='https://forum.gamer.com.tw/A.php?bsn=33596' target='_blank'>巴哈夢戰版</a>
-            <a href='https://mz.game-beans.com/' target='_blank'>夢戰官網</a>
-        </div>
-    </div>
-</div>
-
-<div class='page2'>
-    <div class='page2-news'>                
-        <div class='calculators_main'>
-            <div id='newsNav' class='nav'>
-                <a class='item' id='overall' href='#'>巔峰試算</a>
-                <a class='item' id='testing' href='#'>數字測試</a>
-                <a class='item' id='baseatk' href='#'>基礎攻擊</a>
-                <a class='item' id='preatk' href='#'>戰前攻擊</a>
-                <a class='item' id='fixatk' href='#'>戰鬥修正</a>
-                <a class='item' id='counter' href='#'>克制</a>
-                <a class='item' id='predef' href='#'>戰前防禦</a>
-                <a class='item' id='fixdef' href='#'>防禦修正</a>
-                <a class='item' id='terrain' href='#'>地形加成</a>
-                <a class='item' id='rate' href='#'>加成</a>
+    <body onload='display_version(), display_path("github")'>
+        <div class='topBox'>
+            <div class='pubMain'>
+                <a href='index.html'>
+                    <img class='icon' src='image/popteamppic.png'>
+                </a>
+                <div class='gameTitle'>
+                    <h2>夢戰戰鬥計算器</h2>
+                    <h3 id='version'></h3>
+                </div>
+                <div id='nav' class='nav'>
+                    <a href='https://github.com/absnormal/langrisser-combat-calculator' target='_blank'>github 程式碼</a>
+                    <a href='https://forum.gamer.com.tw/A.php?bsn=33596' target='_blank'>巴哈夢戰版</a>
+                    <a href='https://mz.game-beans.com/' target='_blank'>夢戰官網</a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    
-</body>
+
+        <div class='page2'>
+            <div class='calculators_main'>
+                <div id='newsNav' class='nav'>
+                    <a class='item' id='overall' href='#'>巔峰試算</a>
+                    <a class='item' id='testing' href='#'>數字測試</a>
+                    <a class='item' id='baseatk' href='#'>基礎攻擊</a>
+                    <a class='item' id='preatk' href='#'>戰前攻擊</a>
+                    <a class='item' id='fixatk' href='#'>戰鬥修正</a>
+                    <a class='item' id='counter' href='#'>克制</a>
+                    <a class='item' id='predef' href='#'>戰前防禦</a>
+                    <a class='item' id='fixdef' href='#'>防禦修正</a>
+                    <a class='item' id='terrain' href='#'>地形加成</a>
+                    <a class='item' id='rate' href='#'>加成</a>
+                </div>
+            </div>
+        </div>
+
+        <div class='charList'>
+            <ul>
+                <li class='character imgbtn' id='Lana' style='display: none;'>
+                    <img src='image/拉娜.png' onclick='selectChar("Lana")'/>
+                </li>
+                <li class='character imgbtn' id='Riana'>
+                    <img src='image/莉亞娜.png' onclick='selectChar("Riana")'/>
+                </li>
+            </ul>
+        </div>
+
+        <div class='skillList'>
+            <tr class='skill Lana' id='thunder' style='display: none;'>
+                <img src='image/雷擊.png'/>
+            </tr>
+        </div>
+
+    </body>
 </html>

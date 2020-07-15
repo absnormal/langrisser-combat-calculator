@@ -68,21 +68,3 @@ body{background:#20203e;}
 .calculators_main .list li a {float: left;width: 420px;line-height: 60px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;color: #fff;}
 .calculators_main .list li span {float: right;line-height: 60px;}
 
-/*頁腳*/
-.footer_box { width: 100%; height: 270px; background-color: #FFF;}
-.footer_wrap{ margin: 0 auto;width:750px;height: 230px;background: #fff; padding: 40px 0 0 0; letter-spacing:0.2px; font-family: 微軟正黑體;}
-.footer_wrap.footer{width: 750px;height: 270px;margin: 0 auto;color: #000;}
-.foot_link{ width: 600px; height:16px; line-height: 16px; color:#000; margin: 0 auto; display:block; font-size: 16px;}
-.foot_link_wrap a{position:relative;float: left;color: #000; line-height: 16px;}
-.footer .link_wrap .foot_link .foot_link_wrap em{float: left;width:1px;height: 16px;background-color: #000;margin:0px 55px 0;}
-.foot_logo{float:left;display: block; width: 680px; height: 70px; margin: 5px 35px; background: url("http://news.game-beans.com/r/cms/www/default/img/mz/foot_logo.png") top center no-repeat;}
-.foot_logo .foot_gb{float: left;display: block;width:24%;height:100%;}
-.foot_logo .foot_zl{float: left;display: block;width:33%;height:100%;}
-.foot_logo .foot_extreme{float: left;display: block;width:21%;height:100%;}
-.foot_logo .foot_masaya{float: left;display: block;width:22%;height:100%;}
-.footer .warning{float: left;margin-top: 10px; display: inline-block;margin: 0 auto;}
-.warn_word{float: left; width: 680px;height: auto; background: url("http://news.game-beans.com/r/cms/www/default/img/mz/warning.jpg") no-repeat; background-size: 55px 55px; background-position:right bottom; margin: 0px 35px;}
-.warn_word ul {width:660px; height: auto;line-height: 17px;}
-.warn_word li { padding-left:8px;-webkit-text-size-adjust:none;-webkit-transform : scale(0.96); -o-transform : scale(0.96);font-size: 12px;}
-.warn_word .icon_warn_word { background:url("http://news.game-beans.com/r/cms/www/default/img/mz/icon_warn_word.png") left no-repeat;}
-

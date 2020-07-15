@@ -17,6 +17,14 @@
 </head>
 
 <body>
+<script>
+    window.addEventListener("click", refresh);
+    function refresh(){
+        display_offense(offense);
+        display_defense(defense);
+        display_counter(offense, defense);
+    };
+</script>
 
 <h1>克制計算器</h1>
 
