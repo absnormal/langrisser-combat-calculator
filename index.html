@@ -20,6 +20,7 @@
         <script src="/langrisser-combat-calculator/js/character.js"></script>
     </head>
 
+    <!-- change path to local/github -->
     <body onload='display_version(), display_path("github")'>
         <div class='topBox'>
             <div class='pubMain'>
@@ -58,18 +59,26 @@
         <div class='charList'>
             <ul>
                 <li class='character imgbtn' id='Lana'>
-                    <img src='image/拉娜.png' onclick='selectChar("Lana")'/>
+                    <img src='image/character/拉娜.png' onclick='selectChar("Lana")'/>
                 </li>
                 <li class='character imgbtn' id='Riana'>
-                    <img src='image/莉亞娜.png' onclick='selectChar("Riana")'/>
+                    <img src='image/character/莉亞娜.png' onclick='selectChar("Riana")'/>
                 </li>
             </ul>
         </div>
 
         <div class='skillList'>
-            <li class='skill Lana' id='thunder' style='display: none;'>
-                <img src='image/雷擊.png'/>
-            </li>
+            <ul>
+                <li class='skill Lana' id='thunder' style='display: none;'>
+                    <img src='image/skill/雷擊.png'/>
+                </li>
+                <li class='skill Lana Riana' id='freeze' style='display: none;'>
+                    <img src='image/skill/冰凍.png'/>
+                </li>
+                <li class='skill Riana' id='windblade' style='display: none;'>
+                    <img src='image/skill/風刃.png'/>
+                </li>
+            </ul>
         </div>
 
     </body>
