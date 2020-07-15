@@ -86,3 +86,10 @@ ul > li{
 .imgbtn.selected{
     border-bottom: 3px solid #82edff;
 }
+
+/* 技能 */
+.skill{
+    background-color: white;
+    padding-top: 5px; padding-right: 3px; padding-left: 3px;
+}
+
