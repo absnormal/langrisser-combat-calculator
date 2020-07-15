@@ -1,6 +1,6 @@
 // display version
 function display_version(){
-    var ver = "0.2.1";
+    var ver = "0.2.2";
     document.getElementById("version").innerHTML = "version " + ver;
 };
 
@@ -15,8 +15,8 @@ function display_path(path){
         if(path == 'local'){
             document.getElementById(functs[i]).href = local + rep + functs[i] + '.html';
         }
-        else{
-            document.getElementById(functs[i]).href = functs[i];
+        else(path == 'github'){
+            document.getElementById(functs[i]).href = rep + functs[i];
         }
     }
 };
