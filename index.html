@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 
     <head>
-  	<!-- local
+  	    <!-- local
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
@@ -10,27 +10,26 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/character.js"></script>
         -->
-
-        <!-- vj local-->
+        <!-- vj local
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\master.css">
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\box.css">
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\swiper.min.css">
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\counter.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\control.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\character.js"></script>
-        
+        -->
         <!-- github
+	    -->
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
         <script src="/langrisser-combat-calculator/js/counter.js"></script>
         <script src="/langrisser-combat-calculator/js/control.js"></script>
         <script src="/langrisser-combat-calculator/js/character.js"></script>
-	-->
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.2.3"), display_path("github")'>
+    <body onload='display_version("0.2.4"), display_path("github"), selectParty("Chosen")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -65,106 +64,145 @@
             </div>
         </div>
 
+        <div class='partylist'>
+            <ul>
+                <li class='party imgbtn' id='Chosen'>
+                    <img src='image/party/主角.png' onclick='selectParty("Chosen")'/>
+                </li>
+                <li class='party imgbtn' id='Glory'>
+                    <img src='image/party/光輝.png' onclick='selectParty("Glory")'/>
+                </li>
+                <li class='party imgbtn' id='Origin'>
+                    <img src='image/party/起源.png' onclick='selectParty("Origin")'/>
+                </li>
+                <li class='party imgbtn' id='Empire'>
+                    <img src='image/party/帝國.png' onclick='selectParty("Empire")'/>
+                </li>
+                <li class='party imgbtn' id='Darkness'>
+                    <img src='image/party/黑暗.png' onclick='selectParty("Darkness")'/>
+                </li>
+                <li class='party imgbtn' id='Princess'>
+                    <img src='image/party/公主.png' onclick='selectParty("Princess")'/>
+                </li>
+                <li class='party imgbtn' id='Tactic'>
+                    <img src='image/party/戰略.png' onclick='selectParty("Tactic")'/>
+                </li>
+                <li class='party imgbtn' id='Meteor'>
+                    <img src='image/party/流星.png' onclick='selectParty("Meteor")'/>
+                </li>
+                <li class='party imgbtn' id='Legend'>
+                    <img src='image/party/傳說.png' onclick='selectParty("Legend")'/>
+                </li>
+                <li class='party imgbtn' id='Gate'>
+                    <img src='image/party/時空.png' onclick='selectParty("Gate")'/>
+                </li>
+                <li class='party imgbtn' id='Beyond'>
+                    <img src='image/party/超凡.png' onclick='selectParty("Beyond")'/>
+                </li>
+                <li class='party imgbtn' id='Fantasy'>
+                    <img src='image/party/轉生.png' onclick='selectParty("Fantasy")'/>
+                </li>
+            </ul>
+        </div>
+
         <div class='charList'>
             <ul>
-                <li class='character imgbtn' id='Lana'>
+                <li class='character imgbtn Princess Darkness' id='Lana'>
                     <img src='image/character/拉娜.png' onclick='selectChar("Lana")'/>
                 </li>
-                <li class='character imgbtn' id='Riana'>
+                <li class='character imgbtn Chosen Glory Princess' id='Riana'>
                     <img src='image/character/莉亞娜.png' onclick='selectChar("Riana")'/>
                 </li>
-                <li class='character imgbtn' id='Tialice'>
+                <li class='character imgbtn Chosen Origin Princess' id='Tialice'>
                     <img src='image/character/蒂亞莉絲.png' onclick='selectChar("Tialice")'/>
                 </li>
-                <li class='character imgbtn' id='Rachel'>
+                <li class='character imgbtn Chosen Legend' id='Rachel'>
                     <img src='image/character/蕾伽爾.png' onclick='selectChar("Rachel")'/>
                 </li>
-                <li class='character imgbtn' id='PrimeJessica'>
+                <li class='character imgbtn Glory Origin Beyond' id='PrimeJessica'>
                     <img src='image/character/女神化身.png' onclick='selectChar("Rachel")'/>
                 </li>
-                <li class='character imgbtn' id='Hein'>
+                <li class='character imgbtn Glory Empire' id='Hein'>
                     <img src='image/character/海恩.png' onclick='selectChar("Hein")'/>
                 </li>
-                <li class='character imgbtn' id='Eggbert'>
+                <li class='character imgbtn Darkness Empire Tactic' id='Eggbert'>
                     <img src='image/character/埃格貝爾特.png' onclick='selectChar("Eggbert")'/>
                 </li>
-                <li class='character imgbtn' id='Angelica'>
+                <li class='character imgbtn Glory Gate' id='Angelica'>
                     <img src='image/character/安潔莉卡.png' onclick='selectChar("Angelica")'/>
                 </li>
-                <li class='character imgbtn' id='Leafani'>
+                <li class='character imgbtn Princess Origin' id='Leafani'>
                     <img src='image/character/莉法妮.png' onclick='selectChar("Leafani")'/>
                 </li>
-                <li class='character imgbtn' id='Imelda'>
+                <li class='character imgbtn Empire Tactic' id='Imelda'>
                     <img src='image/character/伊梅爾達.png' onclick='selectChar("Imelda")'/>
                 </li>
-                <li class='character imgbtn' id='Altina'>
+                <li class='character imgbtn Meteor Gate Empire' id='Altina'>
                     <img src='image/character/亞爾緹娜.png' onclick='selectChar("Altina")'/>
                 </li>
-                <li class='character imgbtn' id='Klose'>
+                <li class='character imgbtn Legend Princess Gate' id='Klose'>
                     <img src='image/character/克蘿賽.png' onclick='selectChar("Klose")'/>
                 </li>
-                <li class='character imgbtn' id='Chris'>
+                <li class='character imgbtn Glory Princess Chosen' id='Chris'>
                     <img src='image/character/克麗絲.png' onclick='selectChar("Chris")'/>
                 </li>
-                <li class='character imgbtn' id='Sofia'>
+                <li class='character imgbtn Beyond Origin Princess' id='Sofia'>
                     <img src='image/character/索菲亞.png' onclick='selectChar("Sofia")'/>
                 </li>
-                <li class='character imgbtn' id='Kurama'>
+                <li class='character imgbtn Gate Legend Tactic' id='Kurama'>
                     <img src='image/character/藏馬.png' onclick='selectChar("Kurama")'/>
                 </li>
-                <li class='character imgbtn' id='Schelfaniel'>
+                <li class='character imgbtn Princess Legend' id='Schelfaniel'>
                     <img src='image/character/雪露法妮爾.png' onclick='selectChar("Schelfaniel")'/>
                 </li>
-                <li class='character imgbtn' id='Maiya'>
+                <li class='character imgbtn Fantasy Empire' id='Maiya'>
                     <img src='image/character/梅雅.png' onclick='selectChar("Maiya")'/>
                 </li>
-                <li class='character imgbtn' id='Renne'>
+                <li class='character imgbtn Legend Darkness Gate' id='Renne'>
                     <img src='image/character/蕾恩.png' onclick='selectChar("Renne")'/>
                 </li>
-                <li class='character imgbtn' id='Gizlof'>
+                <li class='character imgbtn Beyond Darkness' id='Gizlof'>
                     <img src='image/character/基札洛夫.png' onclick='selectChar("Gizlof")'/>
                 </li>
-                <li class='character imgbtn' id='MagusofTheTree'>
+                <li class='character imgbtn Beyond Legend' id='MagusofTheTree'>
                     <img src='image/character/樹之賢者.png' onclick='selectChar("MagusofTheTree")'/>
                 </li>
-                <li class='character imgbtn' id='Lambda'>
+                <li class='character imgbtn Beyond Legend Chosen' id='Lambda'>
                     <img src='image/character/拉姆達.png' onclick='selectChar("Lambda")'/>
                 </li>
-                <li class='character imgbtn' id='Bozel'>
+                <li class='character imgbtn Darkness Beyond' id='Bozel'>
                     <img src='image/character/波贊魯.png' onclick='selectChar("Bozel")'/>
                 </li>
-                <li class='character imgbtn' id='Noemi'>
+                <li class='character imgbtn Glory Fantasy' id='Noemi'>
                     <img src='image/character/諾埃米.png' onclick='selectChar("Noemi")'/>
                 </li>
-                <li class='character imgbtn' id='JellioruLela'>
+                <li class='character imgbtn Origin Tactic' id='JellioruLela'>
                     <img src='image/character/傑利奧魯&蕾拉.png' onclick='selectChar("JellioruLela")'/>
                 </li>
-                <li class='character imgbtn' id='Aka'>
+                <li class='character imgbtn Beyond Glory Origin' id='Aka'>
                     <img src='image/character/阿卡婭.png' onclick='selectChar("Aka")'/>
                 </li>
-                <li class='character imgbtn' id='Listell'>
+                <li class='character imgbtn Darkness Legend' id='Listell'>
                     <img src='image/character/妮絲蒂爾.png' onclick='selectChar("Listell")'/>
                 </li>
-                <li class='character imgbtn' id='MysteryKnight'>
+                <li class='character imgbtn Legend Tactic' id='MysteryKnight'>
                     <img src='image/character/謎之騎士.png' onclick='selectChar("MysteryKnight")'/>
                 </li>
-                <li class='character imgbtn' id='Deedlit'>
+                <li class='character imgbtn Origin Princess Gate' id='Deedlit'>
                     <img src='image/character/蒂德莉特.png' onclick='selectChar("Deedlit")'/>
                 </li>
-                <li class='character imgbtn' id='Yulia'>
+                <li class='character imgbtn Glory Princess Beyond' id='Yulia'>
                     <img src='image/character/尤莉婭.png' onclick='selectChar("Yulia")'/>
                 </li>
-                <li class='character imgbtn' id='Arianrhod'>
+                <li class='character imgbtn Gate Beyond Fantasy' id='Arianrhod'>
                     <img src='image/character/雅里安洛德.png' onclick='selectChar("Arianrhod")'/>
                 </li>
-                <li class='character imgbtn' id='Freya'>
+                <li class='character imgbtn Origin Princess' id='Freya'>
                     <img src='image/character/芙蕾雅.png' onclick='selectChar("Freya")'/>
                 </li>
- 		<li class='character imgbtn' id='Jessica'>
+ 		<li class='character imgbtn Beyond Glory Origin' id='Jessica'>
                     <img src='image/character/潔西卡.png' onclick='selectChar("Jessica")'/>
                 </li>
-
-
             </ul>
         </div>
 

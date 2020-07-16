@@ -74,17 +74,26 @@ body{background: url(https://mz.game-beans.com/images/page3.jpg); font-size:12px
             .page2-link .a-link{float: left;margin-right:12px;}
             .page2-link .a-link:last-child{float: right;margin-right:0px;}
 
-/* 英雄 */
-.imgbtn{
-    display: inline-block;
-    padding-right: 3px; padding-left: 3px;
-    width: 60px; height: 86px;
-}
+/* 全域 */
 ul > li{
     display: inline-block;
 }
 .imgbtn.selected{
     border-bottom: 3px solid #82edff;
+}
+
+/* 陣營 */
+.party .imgbtn{
+    display: inline-block;
+    padding-right: 3px; padding-left: 3px;
+    width: 40px; height: 40px;
+}
+
+/* 英雄 */
+.character .imgbtn{
+    display: inline-block;
+    padding-right: 3px; padding-left: 3px;
+    width: 60px; height: 86px;
 }
 
 /* 技能 */
