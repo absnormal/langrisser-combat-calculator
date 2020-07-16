@@ -78,20 +78,49 @@ body{background: url(https://mz.game-beans.com/images/page3.jpg); font-size:12px
 ul > li{
     display: inline-block;
 }
+tr > td{
+    height: 24px; width: 317px;
+}
+tbody > p{
+    width: 628px;
+}
 .imgbtn.selected{
     border-bottom: 3px solid #82edff;
 }
-
+.offense{
+    height: 400px; width: 640px;
+}
+.banner{
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+.partyList{
+    border-style: solid;
+    border-color: white;
+    height: 53px;
+}
+.charList{
+    border-style: solid;
+    border-color: white;
+    height: 190px;
+}
+.skillList{
+    border-style: solid;
+    border-color: white;
+    height: 200px;
+}
 /* 陣營 */
 .party .imgbtn{
-    display: inline-block;
     padding-right: 3px; padding-left: 3px;
+    display: inline-block;
     width: 40px; height: 40px;
 }
 
 /* 英雄 */
 .character .imgbtn{
     display: inline-block;
+    position: static;
     padding-right: 3px; padding-left: 3px;
     width: 60px; height: 86px;
 }
@@ -99,6 +128,9 @@ ul > li{
 /* 技能 */
 .skill{
     background-color: white;
-    padding-top: 5px; padding-right: 3px; padding-left: 3px;
+    padding-top: 1px; padding-right: 1px; padding-left: 1px;
+}
+.skillinfo{
+    color: white;
 }
 

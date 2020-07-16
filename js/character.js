@@ -1,4 +1,4 @@
-var selectedChar = 'Rachel', selectedParty = 'Chosen';
+var selectedParty = 'Chosen', selectedChar = 'Riana', selectedSkill = 'freeze-strike';
 
 function displaySkill(charName){
     var skills = document.getElementsByClassName(charName);
@@ -12,6 +12,16 @@ function hideSkill(){
     for(var i=0; i<skills.length; i++){
         skills[i].style = 'display: none;';
     }
+};
+
+function selectSkill(skillName){
+    // de-select old skill
+    if(document.getElementById(selectedSkill).classList.contains('selected')){
+        document.getElementById(selectedSkill).classList.remove('selected');
+    }
+    // select new skill
+    document.getElementById(skillName).classList.add('selected');
+    selectedSkill = skillName;
 };
 
 function displayChar(partyName){
@@ -33,12 +43,13 @@ function selectChar(charName){
     if(document.getElementById(selectedChar).classList.contains('selected')){
         document.getElementById(selectedChar).classList.remove('selected');
     }
-    // select new char
-    document.getElementById(charName).classList.add('selected');
-    selectedChar = charName;
     // hide all skills and display skills in char
     hideSkill();
     displaySkill(charName);
+    // select new char & first skill
+    document.getElementById(charName).classList.add('selected');
+    selectedChar = charName;
+    selectSkill(document.getElementByClassName(charName)[0].id);
 };
 
 function selectParty(partyName){
@@ -46,12 +57,12 @@ function selectParty(partyName){
     if(document.getElementById(selectedParty).classList.contains('selected')){
         document.getElementById(selectedParty).classList.remove('selected');
     }
-    // select new party & char
-    document.getElementById(partyName).classList.add('selected');
-    selectedParty = partyName;
-    selectChar(document.getElementsByClassName(partyName)[0].id);
     // hide all chars and display all chars in party
     hideChar();
     displayChar(partyName);
+    // select new party & first char
+    document.getElementById(partyName).classList.add('selected');
+    selectedParty = partyName;
+    selectChar(document.getElementsByClassName(partyName)[0].id);
 };
 
