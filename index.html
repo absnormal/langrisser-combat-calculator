@@ -29,7 +29,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.2.4"), display_path("github"), selectParty("Chosen")'>
+    <body onload='display_version("0.2.5"), display_path("github"), selectParty("Chosen")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -110,11 +110,11 @@
             </div>
             <div class='charList'>
                 <ul>
-                    <li class='character imgbtn Princess Darkness' id='Lana' style='display: none;'>
-                        <img src='image/character/拉娜.png' onclick='selectChar("Lana")'/>
-                    </li>
                     <li class='character imgbtn Chosen Glory Princess' id='Riana' style='display: none;'>
                         <img src='image/character/莉亞娜.png' onclick='selectChar("Riana")'/>
+                    </li>
+                    <li class='character imgbtn Princess Darkness' id='Lana' style='display: none;'>
+                        <img src='image/character/拉娜.png' onclick='selectChar("Lana")'/>
                     </li>
                     <li class='character imgbtn Chosen Origin Princess' id='Tialice' style='display: none;'>
                         <img src='image/character/蒂亞莉絲.png' onclick='selectChar("Tialice")'/>
@@ -301,6 +301,26 @@
                     </tbody>
                 </table>
             </div>
+            <div class='soldierList'>
+                <ul>
+                    <li class='soldier imgbtn Rachel Noemi Alice Altina Renne MysteryKnight Olivier Jessica Leafani Lambda Kurama PrimeJessica Lana JellioruLela Bozel Licorice Flakia Tialice' id='witch' style='display: none;'>
+                        <img src='image/soldier/魔女.png' onclick='selectSoldier("witch")'/>
+                    </li>
+                    <li class='soldier imgbtn Hein Wiler Schelfaniel Sofia Riana' id='miko' style='display: none;'>
+                        <img src='image/soldier/巫女.png' onclick='selectSoldier("miko")'/>
+                    </li>
+                    <li class='soldier imgbtn Tialice Imelda Alice JellioruLela' id='priest-knight' style='display: none;'>
+                        <img src='image/soldier/神官騎士.png' onclick='selectSoldier("priest-knight")'/>
+                    </li>
+                    <li class='soldier imgbtn Klose Freya Yuusuke Maiya Virash Estelle Lainforce Rozalia Chris Emilia Ledyn Serena Riana Yulia Arianrhod Sofia SakuraShinguji MagusofTheTree' id='exorcist' style='display: none;'>
+                        <img src='image/soldier/驅魔師.png' onclick='selectSoldier("exorcist")'/>
+                    </li>
+                    <li class='soldier imgbtn Deedlit Aimeeda PrimeJessica Wiler' id='forest-priest' style='display: none;'>
+                        <img src='image/soldier/森林祭司.png' onclick='selectSoldier("forest-priest")'/>
+                    </li>
+                </ul>
+            </div>
+            <a id='error'>nothing</a>
         </div>
     </body>
 </html>

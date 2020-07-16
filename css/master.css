@@ -103,12 +103,17 @@ tbody > p{
 .charList{
     border-style: solid;
     border-color: white;
-    height: 190px;
+    height: 285px;
 }
 .skillList{
     border-style: solid;
     border-color: white;
     height: 200px;
+}
+.soldierList{
+    border-style: solid;
+    border-color: white;
+    height: 190px;
 }
 /* 陣營 */
 .party .imgbtn{
@@ -126,7 +131,7 @@ tbody > p{
 }
 
 /* 技能 */
-.skill{
+.skill .imgbtn{
     background-color: white;
     padding-top: 1px; padding-right: 1px; padding-left: 1px;
 }
@@ -134,3 +139,9 @@ tbody > p{
     color: white;
 }
 
+/* 英雄 */
+.soldier .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}

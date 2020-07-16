@@ -1,9 +1,13 @@
-var selectedParty = 'Chosen', selectedChar = 'Riana', selectedSkill = 'freeze-strike';
+var selectedParty = 'Chosen';
+var selectedChar = 'Riana';
+var selectedSkill = 'freeze-strike', selectedSoldier = 'miko';
 
 function displaySkill(charName){
     var skills = document.getElementsByClassName(charName);
     for(var i=0; i<skills.length; i++){
-        skills[i].style = '';
+        if(skills[i].classList.contains('skill')){
+            skills[i].style = '';
+        }
     }
 };
 
@@ -22,6 +26,32 @@ function selectSkill(skillName){
     // select new skill
     document.getElementById(skillName).classList.add('selected');
     selectedSkill = skillName;
+};
+
+function displaySoldier(charName){
+    var soldiers = document.getElementsByClassName(charName);
+    for(var i=0; i<soldiers.length; i++){
+        if(soldiers[i].classList.contains('soldier')){
+            soldiers[i].style = '';
+        }
+    }
+};
+
+function hideSoldier(){
+    var soldiers = document.getElementsByClassName('soldier');
+    for(var i=0; i<soldiers.length; i++){
+        soldiers[i].style = 'display: none;';
+    }
+};
+
+function selectSoldier(soldierName){
+    // de-select old soldier
+    if(document.getElementById(selectedSoldier).classList.contains('selected')){
+        document.getElementById(selectedSoldier).classList.remove('selected');
+    }
+    // select new soldier
+    document.getElementById(soldierName).classList.add('selected');
+    selectedSoldier = soldierName;
 };
 
 function displayChar(partyName){
@@ -43,13 +73,17 @@ function selectChar(charName){
     if(document.getElementById(selectedChar).classList.contains('selected')){
         document.getElementById(selectedChar).classList.remove('selected');
     }
+    // hide all soldiers and display soldiers in char
+    hideSoldier();
+    displaySoldier(charName);
     // hide all skills and display skills in char
     hideSkill();
     displaySkill(charName);
-    // select new char & first skill
+    // select new char & first skill / soldier
     document.getElementById(charName).classList.add('selected');
     selectedChar = charName;
-    selectSkill(document.getElementByClassName(charName)[0].id);
+    selectSkill(document.getElementsByClassName(charName+' skill')[0].id);
+    selectSoldier(document.getElementsByClassName(charName+' soldier')[0].id);
 };
 
 function selectParty(partyName){
