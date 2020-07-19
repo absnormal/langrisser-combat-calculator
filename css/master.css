@@ -79,7 +79,8 @@ ul > li{
     display: inline-block;
 }
 tr > td{
-    height: 24px; width: 317px;
+    color: white;
+    height: 24px; width: 150px;
 }
 tbody > p{
     width: 628px;
@@ -87,35 +88,21 @@ tbody > p{
 .imgbtn.selected{
     border-bottom: 3px solid #82edff;
 }
-.offense{
-    height: 400px; width: 640px;
+.cell{
+    height: 800px; width: 640px;
 }
 .banner{
     background-color: white;
     color: black;
     text-align: center;
 }
+
+/* 陣營 */
 .partyList{
     border-style: solid;
     border-color: white;
     height: 53px;
 }
-.charList{
-    border-style: solid;
-    border-color: white;
-    height: 285px;
-}
-.skillList{
-    border-style: solid;
-    border-color: white;
-    height: 200px;
-}
-.soldierList{
-    border-style: solid;
-    border-color: white;
-    height: 190px;
-}
-/* 陣營 */
 .party .imgbtn{
     padding-right: 3px; padding-left: 3px;
     display: inline-block;
@@ -123,6 +110,11 @@ tbody > p{
 }
 
 /* 英雄 */
+.charList{
+    border-style: solid;
+    border-color: white;
+    height: 190px;
+}
 .character .imgbtn{
     display: inline-block;
     position: static;
@@ -131,6 +123,11 @@ tbody > p{
 }
 
 /* 技能 */
+.skillList{
+    border-style: solid;
+    border-color: white;
+    height: 200px;
+}
 .skill .imgbtn{
     background-color: white;
     padding-top: 1px; padding-right: 1px; padding-left: 1px;
@@ -139,9 +136,39 @@ tbody > p{
     color: white;
 }
 
-/* 英雄 */
+/* 士兵 */
+.soldierList{
+    border-style: solid;
+    border-color: white;
+    height: 190px;
+}
 .soldier .imgbtn{
     display: inline-block;
     position: static;
     padding-right: 3px; padding-left: 3px;
 }
+
+/* 地形 */
+.terrainList{
+    border-style: solid;
+    border-color: white;
+    height: 70px;
+}
+.terrain .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}
+
+/* 附魔 */
+.enchantList{
+    border-style: solid;
+    border-color: white;
+    height: 115px;
+}
+.enchant .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}
+

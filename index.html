@@ -6,31 +6,33 @@
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/button.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/counter.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/character.js"></script>
         -->
-        <!-- vj local -->
+        <!-- vj local
             <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\master.css">
             <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\box.css">
             <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\swiper.min.css">
+            <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\button.js"></script>
             <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\counter.js"></script>
             <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\control.js"></script>
             <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\character.js"></script>
-           
+            -->
             <!-- github
-            
+            -->
             <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
             <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/box.css">
             <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
+            <script src="/langrisser-combat-calculator/js/button.js"></script>
             <script src="/langrisser-combat-calculator/js/counter.js"></script>
             <script src="/langrisser-combat-calculator/js/control.js"></script>
             <script src="/langrisser-combat-calculator/js/character.js"></script>
-		-->
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.2.5"), display_path("github"), selectParty("Chosen")'>
+    <body onload='display_version("0.2.5"), display_path("github"), selectParty("主角光環")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -50,278 +52,351 @@
 
         <div class='page2'>
             <div class='calculators_main'>
-                <div id='newsNav' class='nav'>
-                    <a class='item' id='overall' href='#'>巔峰試算</a>
-                    <a class='item' id='testing' href='#'>數字測試</a>
-                    <a class='item' id='baseatk' href='#'>基礎攻擊</a>
-                    <a class='item' id='preatk' href='#'>戰前攻擊</a>
-                    <a class='item' id='fixatk' href='#'>戰鬥修正</a>
-                    <a class='item' id='counter' href='#'>克制</a>
-                    <a class='item' id='predef' href='#'>戰前防禦</a>
-                    <a class='item' id='fixdef' href='#'>防禦修正</a>
-                    <a class='item' id='terrain' href='#'>地形加成</a>
-                    <a class='item' id='rate' href='#'>加成</a>
-                </div>
             </div>
         </div>
 
-        <div class='offense'>
-            <div class='banner'>
-                <h2>進攻方</h2>
-            </div>
-            <div class='partyList'>
-                <ul>
-                    <li class='party imgbtn' id='Chosen'>
-                        <img src='image/party/主角.png' onclick='selectParty("Chosen")'/>
-                    </li>
-                    <li class='party imgbtn' id='Glory'>
-                        <img src='image/party/光輝.png' onclick='selectParty("Glory")'/>
-                    </li>
-                    <li class='party imgbtn' id='Origin'>
-                        <img src='image/party/起源.png' onclick='selectParty("Origin")'/>
-                    </li>
-                    <li class='party imgbtn' id='Empire'>
-                        <img src='image/party/帝國.png' onclick='selectParty("Empire")'/>
-                    </li>
-                    <li class='party imgbtn' id='Darkness'>
-                        <img src='image/party/黑暗.png' onclick='selectParty("Darkness")'/>
-                    </li>
-                    <li class='party imgbtn' id='Princess'>
-                        <img src='image/party/公主.png' onclick='selectParty("Princess")'/>
-                    </li>
-                    <li class='party imgbtn' id='Tactic'>
-                        <img src='image/party/戰略.png' onclick='selectParty("Tactic")'/>
-                    </li>
-                    <li class='party imgbtn' id='Meteor'>
-                        <img src='image/party/流星.png' onclick='selectParty("Meteor")'/>
-                    </li>
-                    <li class='party imgbtn' id='Legend'>
-                        <img src='image/party/傳說.png' onclick='selectParty("Legend")'/>
-                    </li>
-                    <li class='party imgbtn' id='Gate'>
-                        <img src='image/party/時空.png' onclick='selectParty("Gate")'/>
-                    </li>
-                    <li class='party imgbtn' id='Beyond'>
-                        <img src='image/party/超凡.png' onclick='selectParty("Beyond")'/>
-                    </li>
-                    <li class='party imgbtn' id='Fantasy'>
-                        <img src='image/party/轉生.png' onclick='selectParty("Fantasy")'/>
-                    </li>
-                </ul>
-            </div>
-            <div class='charList'>
-                <ul>
-                    <li class='character imgbtn Chosen Glory Princess' id='Riana' style='display: none;'>
-                        <img src='image/character/莉亞娜.png' onclick='selectChar("Riana")'/>
-                    </li>
-                    <li class='character imgbtn Princess Darkness' id='Lana' style='display: none;'>
-                        <img src='image/character/拉娜.png' onclick='selectChar("Lana")'/>
-                    </li>
-                    <li class='character imgbtn Chosen Origin Princess' id='Tialice' style='display: none;'>
-                        <img src='image/character/蒂亞莉絲.png' onclick='selectChar("Tialice")'/>
-                    </li>
-                    <li class='character imgbtn Chosen Legend' id='Rachel' style='display: none;'>
-                        <img src='image/character/蕾伽爾.png' onclick='selectChar("Rachel")'/>
-                    </li>
-                    <li class='character imgbtn Glory Origin Beyond' id='PrimeJessica' style='display: none;'>
-                        <img src='image/character/女神化身.png' onclick='selectChar("PrimeJessica")'/>
-                    </li>
-                    <li class='character imgbtn Glory Empire' id='Hein' style='display: none;'>
-                        <img src='image/character/海恩.png' onclick='selectChar("Hein")'/>
-                    </li>
-                    <li class='character imgbtn Darkness Empire Tactic' id='Eggbert' style='display: none;'>
-                        <img src='image/character/埃格貝爾特.png' onclick='selectChar("Eggbert")'/>
-                    </li>
-                    <li class='character imgbtn Glory Gate' id='Angelica' style='display: none;'>
-                        <img src='image/character/安潔莉卡.png' onclick='selectChar("Angelica")'/>
-                    </li>
-                    <li class='character imgbtn Princess Origin' id='Leafani' style='display: none;'>
-                        <img src='image/character/莉法妮.png' onclick='selectChar("Leafani")'/>
-                    </li>
-                    <li class='character imgbtn Empire Tactic' id='Imelda' style='display: none;'>
-                        <img src='image/character/伊梅爾達.png' onclick='selectChar("Imelda")'/>
-                    </li>
-                    <li class='character imgbtn Meteor Gate Empire' id='Altina' style='display: none;'>
-                        <img src='image/character/亞爾緹娜.png' onclick='selectChar("Altina")'/>
-                    </li>
-                    <li class='character imgbtn Legend Princess Gate' id='Klose' style='display: none;'>
-                        <img src='image/character/克蘿賽.png' onclick='selectChar("Klose")'/>
-                    </li>
-                    <li class='character imgbtn Glory Princess Chosen' id='Chris' style='display: none;'>
-                        <img src='image/character/克麗絲.png' onclick='selectChar("Chris")'/>
-                    </li>
-                    <li class='character imgbtn Beyond Origin Princess' id='Sofia' style='display: none;'>
-                        <img src='image/character/索菲亞.png' onclick='selectChar("Sofia")'/>
-                    </li>
-                    <li class='character imgbtn Gate Legend Tactic' id='Kurama' style='display: none;'>
-                        <img src='image/character/藏馬.png' onclick='selectChar("Kurama")'/>
-                    </li>
-                    <li class='character imgbtn Princess Legend' id='Schelfaniel' style='display: none;'>
-                        <img src='image/character/雪露法妮爾.png' onclick='selectChar("Schelfaniel")'/>
-                    </li>
-                    <li class='character imgbtn Fantasy Empire' id='Maiya' style='display: none;'>
-                        <img src='image/character/梅雅.png' onclick='selectChar("Maiya")'/>
-                    </li>
-                    <li class='character imgbtn Legend Darkness Gate' id='Renne' style='display: none;'>
-                        <img src='image/character/蕾恩.png' onclick='selectChar("Renne")'/>
-                    </li>
-                    <li class='character imgbtn Beyond Darkness' id='Gizlof' style='display: none;'>
-                        <img src='image/character/基札洛夫.png' onclick='selectChar("Gizlof")'/>
-                    </li>
-                    <li class='character imgbtn Beyond Legend' id='MagusofTheTree' style='display: none;'>
-                        <img src='image/character/樹之賢者.png' onclick='selectChar("MagusofTheTree")'/>
-                    </li>
-                    <li class='character imgbtn Beyond Legend Chosen' id='Lambda' style='display: none;'>
-                        <img src='image/character/拉姆達.png' onclick='selectChar("Lambda")'/>
-                    </li>
-                    <li class='character imgbtn Darkness Beyond' id='Bozel' style='display: none;'>
-                        <img src='image/character/波贊魯.png' onclick='selectChar("Bozel")'/>
-                    </li>
-                    <li class='character imgbtn Glory Fantasy' id='Noemi' style='display: none;'>
-                        <img src='image/character/諾埃米.png' onclick='selectChar("Noemi")'/>
-                    </li>
-                    <li class='character imgbtn Origin Tactic' id='JellioruLela' style='display: none;'>
-                        <img src='image/character/傑利奧魯&蕾拉.png' onclick='selectChar("JellioruLela")'/>
-                    </li>
-                    <li class='character imgbtn Beyond Glory Origin' id='Aka' style='display: none;'>
-                        <img src='image/character/阿卡婭.png' onclick='selectChar("Aka")'/>
-                    </li>
-                    <li class='character imgbtn Darkness Legend' id='Listell' style='display: none;'>
-                        <img src='image/character/妮絲蒂爾.png' onclick='selectChar("Listell")'/>
-                    </li>
-                    <li class='character imgbtn Legend Tactic' id='MysteryKnight' style='display: none;'>
-                        <img src='image/character/謎之騎士.png' onclick='selectChar("MysteryKnight")'/>
-                    </li>
-                    <li class='character imgbtn Origin Princess Gate' id='Deedlit' style='display: none;'>
-                        <img src='image/character/蒂德莉特.png' onclick='selectChar("Deedlit")'/>
-                    </li>
-                    <li class='character imgbtn Glory Princess Beyond' id='Yulia' style='display: none;'>
-                        <img src='image/character/尤莉婭.png' onclick='selectChar("Yulia")'/>
-                    </li>
-                    <li class='character imgbtn Gate Beyond Fantasy' id='Arianrhod' style='display: none;'>
-                        <img src='image/character/雅里安洛德.png' onclick='selectChar("Arianrhod")'/>
-                    </li>
-                    <li class='character imgbtn Origin Princess' id='Freya' style='display: none;'>
-                        <img src='image/character/芙蕾雅.png' onclick='selectChar("Freya")'/>
-                    </li>
-                    <li class='character imgbtn Beyond Glory Origin' id='Jessica' style='display: none;'>
-                        <img src='image/character/潔西卡.png' onclick='selectChar("Jessica")'/>
-                    </li>
-                </ul>
-            </div>
-            <div class='skillList'>
-                <ul>
-                    <li class='skill imgbtn Bozel Eggbert Gizlof Hein Noemi PrimeJessica Renne Tialice' id='fire-ball' style='display: none;'>
-                        <img src='image/skill/火球.png' onclick='selectSkill("fire-ball")'/>
-                    </li>
-                    <li class='skill imgbtn Altina Eggbert Gizlof Hein Lana Leafani MagusofTheTree MysteryKnight Rachel' id='thunder-strike' style='display: none;'>
-                        <img src='image/skill/雷擊.png' onclick='selectSkill("thunder-strike")'/>
-                    </li>
-                    <li class='skill imgbtn Imelda Lambda Lana Maiya Noemi Renne Riana' id='freeze-strike' style='display: none;'>
-                        <img src='image/skill/冰凍.png' onclick='selectSkill("freeze-strike")'/>
-                    </li>
-                    <li class='skill imgbtn Angelica Deedlit Jessica Kurama Lambda Leafani Renne Riana' id='wind-blade' style='display: none;'>
-                        <img src='image/skill/風刃.png' onclick='selectSkill("wind-blade")'/>
-                    </li>
-                    <li class='skill imgbtn Altina Hein Lana Maiya MagusofTheTree Noemi PrimeJessica Schelfaniel' id='cleanse' style='display: none;'>
-                        <img src='image/skill/淨化.png' onclick='selectSkill("cleanse")'/>
-                    </li>
-                    <li class='skill imgbtn Aka Bozel Eggbert Lana Rachel' id='dark-scythe' style='display: none;'>
-                        <img src='image/skill/暗鐮.png' onclick='selectSkill("dark-scythe")'/>
-                    </li>
-                    <li class='skill imgbtn Aimeeda JellioruLela Rachel Sofia' id='holy-word' style='display: none;'>
-                        <img src='image/skill/聖言.png' onclick='selectSkill("holy-word")'/>
-                    </li>
-                    <li class='skill imgbtn Lana' id='elemental-destroy' style='display: none;'>
-                        <img src='image/skill/元素毀滅.png' onclick='selectSkill("elemental-destroy")'/>
-                    </li>
-                    <li class='skill imgbtn Yulia' id='holy-sanction' style='display: none;'>
-                        <img src='image/skill/聖裁.png' onclick='selectSkill("holy-sanction")'/>
-                    </li>
-                    <li class='skill imgbtn Chris Yulia Klose' id='punishment' style='display: none;'>
-                        <img src='image/skill/懲戒.png' onclick='selectSkill("punishment")'/>
-                    </li>
-                    <li class='skill imgbtn Chris' id='salvation' style='display: none;'>
-                        <img src='image/skill/救贖.png' onclick='selectSkill("salvation")'/>
-                    </li>
-                    <li class='skill imgbtn Renne' id='dark-lance' style='display: none;'>
-                        <img src='image/skill/暗影之矛.png' onclick='selectSkill("dark-lance")'/>
-                    </li>
-                    <li class='skill imgbtn Renne' id='dark-matter' style='display: none;'>
-                        <img src='image/skill/暗物質.png' onclick='selectSkill("dark-matter")'/>
-                    </li>
-                    <li class='skill imgbtn Noemi' id='fire-pillar' style='display: none;'>
-                        <img src='image/skill/火柱.png' onclick='selectSkill("fire-pillar")'/>
-                    </li>
-                    <li class='skill imgbtn MysteryKnight' id='shattering-lance' style='display: none;'>
-                        <img src='image/skill/破滅之矛.png' onclick='selectSkill("shattering-lance")'/>
-                    </li>
-                    <li class='skill imgbtn Chris' id='holy-pray' style='display: none;'>
-                        <img src='image/skill/神聖祈福.png' onclick='selectSkill("holy-pray")'/>
-                    </li>
-                    <li class='skill imgbtn Yulia' id='god-presitige' style='display: none;'>
-                        <img src='image/skill/神威.png' onclick='selectSkill("god-presitige")'/>
-                    </li>
-                    <li class='skill imgbtn Deedlit' id='elf-breathe' style='display: none;'>
-                        <img src='image/skill/精靈之息.png' onclick='selectSkill("elf-breathe")'/>
-                    </li>
-                    <li class='skill imgbtn Deedlit' id='elf-dance' style='display: none;'>
-                        <img src='image/skill/精靈之舞.png' onclick='selectSkill("elf-dance")'/>
-                    </li>
-                    <li class='skill imgbtn MysteryKnight Listell' id='siphon' style='display: none;'>
-                        <img src='image/skill/虹吸.png' onclick='selectSkill("siphon")'/>
-                    </li>
-                    <li class='skill imgbtn Deedlit' id='wind-slash' style='display: none;'>
-                        <img src='image/skill/風斬.png' onclick='selectSkill("wind-slash")'/>
-                    </li>
-                    <li class='skill imgbtn Kurama' id='hellish-plant' style='display: none;'>
-                        <img src='image/skill/魔界植物.png' onclick='selectSkill("hellish-plant")'/>
-                    </li>
-                    <li class='skill imgbtn Renne' id='Renne-annhilate' style='display: none;'>
-                        <img src='image/skill/蕾恩·殲滅.png' onclick='selectSkill("Renne-annhilate")'/>
-                    </li>
-                    <li class='skill imgbtn Noemi' id='ice-lance' style='display: none;'>
-                        <img src='image/skill/冰槍.png' onclick='selectSkill("ice-lance")'/>
-                    </li>
-                </ul>
-                <table>
-                    <tbody class='skillinfo fire-ball' style='display: none;'>
-                        <tr>
-                            <td><b>火球</b></td>
-                            <td><b>COST:</b>1</td>
-                        </tr>
-                        <tr>
-                            <td class='type'><b>類別:</b>魔法傷害</td>
-                            <td class='cooldown'><b>冷卻:</b>1回合</td>
-                        </tr>
-                        <tr>
-                            <td class='range'><b>射程:</b>2格</td>
-                            <td class='area'><b>範圍:</b>單體</td>
-                        </tr>
-                        <td class='info' colspan='2'>[魔法傷害]攻擊單個敵軍，造成<b style="color:red;">1.5</b>倍傷害，對「步兵」有特效。</td>
-                    </tbody>
-                </table>
-            </div>
-            <div class='soldierList'>
-                <ul>
-                    <li class='soldier imgbtn Rachel Noemi Alice Altina Renne MysteryKnight Olivier Jessica Leafani Lambda Kurama PrimeJessica Lana JellioruLela Bozel Licorice Flakia Tialice' id='witch' style='display: none;'>
-                        <img src='image/soldier/魔女.png' onclick='selectSoldier("witch")'/>
-                    </li>
-                    <li class='soldier imgbtn Hein Wiler Schelfaniel Sofia Riana' id='miko' style='display: none;'>
-                        <img src='image/soldier/巫女.png' onclick='selectSoldier("miko")'/>
-                    </li>
-                    <li class='soldier imgbtn Tialice Imelda Alice JellioruLela' id='priest-knight' style='display: none;'>
-                        <img src='image/soldier/神官騎士.png' onclick='selectSoldier("priest-knight")'/>
-                    </li>
-                    <li class='soldier imgbtn Klose Freya Yuusuke Maiya Virash Estelle Lainforce Rozalia Chris Emilia Ledyn Serena Riana Yulia Arianrhod Sofia SakuraShinguji MagusofTheTree' id='exorcist' style='display: none;'>
-                        <img src='image/soldier/驅魔師.png' onclick='selectSoldier("exorcist")'/>
-                    </li>
-                    <li class='soldier imgbtn Deedlit Aimeeda PrimeJessica Wiler' id='forest-priest' style='display: none;'>
-                        <img src='image/soldier/森林祭司.png' onclick='selectSoldier("forest-priest")'/>
-                    </li>
-                </ul>
-            </div>
-            <a id='error'>nothing</a>
+        <table>
+            <tr>
+                <td>
+                    <div class='cell offense'>
+                        <div class='banner'>
+                            <h2>進攻方</h2>
+                        </div>
+                        <div class='partyList'>
+                            <ul>
+                                <li class='party imgbtn' id='主角光環'>
+                                    <img src='image/party/主角光環.png' onclick='selectParty("主角光環")'/>
+                                </li>
+                                <li class='party imgbtn' id='光輝軍團'>
+                                    <img src='image/party/光輝軍團.png' onclick='selectParty("光輝軍團")'/>
+                                </li>
+                                <li class='party imgbtn' id='光之起源'>
+                                    <img src='image/party/光之起源.png' onclick='selectParty("光之起源")'/>
+                                </li>
+                                <li class='party imgbtn' id='帝國之輝'>
+                                    <img src='image/party/帝國之輝.png' onclick='selectParty("帝國之輝")'/>
+                                </li>
+                                <li class='party imgbtn' id='黑暗輪迴'>
+                                    <img src='image/party/黑暗輪迴.png' onclick='selectParty("黑暗輪迴")'/>
+                                </li>
+                                <li class='party imgbtn' id='公主聯盟'>
+                                    <img src='image/party/公主聯盟.png' onclick='selectParty("公主聯盟")'/>
+                                </li>
+                                <li class='party imgbtn' id='戰略大師'>
+                                    <img src='image/party/戰略大師.png' onclick='selectParty("戰略大師")'/>
+                                </li>
+                                <li class='party imgbtn' id='流星直擊'>
+                                    <img src='image/party/流星直擊.png' onclick='selectParty("流星直擊")'/>
+                                </li>
+                                <li class='party imgbtn' id='傳說彼端'>
+                                    <img src='image/party/傳說彼端.png' onclick='selectParty("傳說彼端")'/>
+                                </li>
+                                <li class='party imgbtn' id='時空之門'>
+                                    <img src='image/party/時空之門.png' onclick='selectParty("時空之門")'/>
+                                </li>
+                                <li class='party imgbtn' id='超凡領域'>
+                                    <img src='image/party/超凡領域.png' onclick='selectParty("超凡領域")'/>
+                                </li>
+                                <li class='party imgbtn' id='夢幻轉生'>
+                                    <img src='image/party/夢幻轉生.png' onclick='selectParty("夢幻轉生")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='charList'>
+                            <ul>
+                                <li class='character imgbtn 主角光環 光輝軍團 公主聯盟' id='莉亞娜' style='display: none;'>
+                                    <img src='image/character/莉亞娜.png' onclick='selectChar("莉亞娜")'/>
+                                </li>
+                                <li class='character imgbtn 公主聯盟 黑暗輪迴' id='拉娜' style='display: none;'>
+                                    <img src='image/character/拉娜.png' onclick='selectChar("拉娜")'/>
+                                </li>
+                                <li class='character imgbtn 主角光環 光之起源 公主聯盟' id='蒂亞莉絲' style='display: none;'>
+                                    <img src='image/character/蒂亞莉絲.png' onclick='selectChar("蒂亞莉絲")'/>
+                                </li>
+                                <li class='character imgbtn 主角光環 傳說彼端' id='蕾伽爾' style='display: none;'>
+                                    <img src='image/character/蕾伽爾.png' onclick='selectChar("蕾伽爾")'/>
+                                </li>
+                                <li class='character imgbtn 光輝軍團 光之起源 超凡領域' id='女神化身' style='display: none;'>
+                                    <img src='image/character/女神化身.png' onclick='selectChar("女神化身")'/>
+                                </li>
+                                <li class='character imgbtn 時空之門 傳說彼端 戰略大師' id='藏馬' style='display: none;'>
+                                    <img src='image/character/藏馬.png' onclick='selectChar("藏馬")'/>
+                                </li>
+                                <li class='character imgbtn 公主聯盟 傳說彼端' id='雪露法妮爾' style='display: none;'>
+                                    <img src='image/character/雪露法妮爾.png' onclick='selectChar("雪露法妮爾")'/>
+                                </li>
+                                <li class='character imgbtn 夢幻轉生 帝國之輝' id='梅雅' style='display: none;'>
+                                    <img src='image/character/梅雅.png' onclick='selectChar("梅雅")'/>
+                                </li>
+                                <li class='character imgbtn 傳說彼端 黑暗輪迴 時空之門' id='蕾恩' style='display: none;'>
+                                    <img src='image/character/蕾恩.png' onclick='selectChar("蕾恩")'/>
+                                </li>
+                                <li class='character imgbtn 超凡領域 黑暗輪迴' id='基札洛夫' style='display: none;'>
+                                    <img src='image/character/基札洛夫.png' onclick='selectChar("基札洛夫")'/>
+                                </li>
+                                <li class='character imgbtn 超凡領域 傳說彼端 主角光環' id='拉姆達' style='display: none;'>
+                                    <img src='image/character/拉姆達.png' onclick='selectChar("拉姆達")'/>
+                                </li>
+                                <li class='character imgbtn 黑暗輪迴 超凡領域' id='波贊魯' style='display: none;'>
+                                    <img src='image/character/波贊魯.png' onclick='selectChar("波贊魯")'/>
+                                </li>
+                                <li class='character imgbtn 超凡領域 光輝軍團 光之起源' id='阿卡婭' style='display: none;'>
+                                    <img src='image/character/阿卡婭.png' onclick='selectChar("阿卡婭")'/>
+                                </li>
+                                <li class='character imgbtn 黑暗輪迴 傳說彼端' id='妮絲蒂爾' style='display: none;'>
+                                    <img src='image/character/妮絲蒂爾.png' onclick='selectChar("妮絲蒂爾")'/>
+                                </li>
+                                <li class='character imgbtn 傳說彼端 戰略大師' id='謎之騎士' style='display: none;'>
+                                    <img src='image/character/謎之騎士.png' onclick='selectChar("謎之騎士")'/>
+                                </li>
+                                <li class='character imgbtn 光輝軍團 公主聯盟 超凡領域' id='尤莉婭' style='display: none;'>
+                                    <img src='image/character/尤莉婭.png' onclick='selectChar("尤莉婭")'/>
+                                </li>
+                                <li class='character imgbtn 光之起源 公主聯盟 時空之門' id='蒂德莉特' style='display: none;'>
+                                    <img src='image/character/蒂德莉特.png' onclick='selectChar("蒂德莉特")'/>
+                                </li>
+                                <li class='character imgbtn 光輝軍團 夢幻轉生' id='諾埃米' style='display: none;'>
+                                    <img src='image/character/諾埃米.png' onclick='selectChar("諾埃米")'/>
+                                </li>
+                                <li class='character imgbtn 時空之門 超凡領域 夢幻轉生' id='雅里安洛德' style='display: none;'>
+                                    <img src='image/character/雅里安洛德.png' onclick='selectChar("雅里安洛德")'/>
+                                </li>
+                                <li class='character imgbtn 光之起源 戰略大師' id='傑利奧魯&蕾拉' style='display: none;'>
+                                    <img src='image/character/傑利奧魯&蕾拉.png' onclick='selectChar("傑利奧魯&蕾拉")'/>
+                                </li>
+                                <li class='character imgbtn 光之起源 公主聯盟' id='芙蕾雅' style='display: none;'>
+                                    <img src='image/character/芙蕾雅.png' onclick='selectChar("芙蕾雅")'/>
+                                </li>
+                                <li class='character imgbtn 光輝軍團 帝國之輝' id='海恩' style='display: none;'>
+                                    <img src='image/character/海恩.png' onclick='selectChar("海恩")'/>
+                                </li>
+                                <li class='character imgbtn 黑暗輪迴 帝國之輝 戰略大師' id='埃格貝爾特' style='display: none;'>
+                                    <img src='image/character/埃格貝爾特.png' onclick='selectChar("埃格貝爾特")'/>
+                                </li>
+                                <li class='character imgbtn 光輝軍團 時空之門' id='安潔莉卡' style='display: none;'>
+                                    <img src='image/character/安潔莉卡.png' onclick='selectChar("安潔莉卡")'/>
+                                </li>
+                                <li class='character imgbtn 公主聯盟 光之起源' id='莉法妮' style='display: none;'>
+                                    <img src='image/character/莉法妮.png' onclick='selectChar("莉法妮")'/>
+                                </li>
+                                <li class='character imgbtn 帝國之輝 戰略大師' id='伊梅爾達' style='display: none;'>
+                                    <img src='image/character/伊梅爾達.png' onclick='selectChar("伊梅爾達")'/>
+                                </li>
+                                <li class='character imgbtn 流星直擊 時空之門 帝國之輝' id='亞爾緹娜' style='display: none;'>
+                                    <img src='image/character/亞爾緹娜.png' onclick='selectChar("亞爾緹娜")'/>
+                                </li>
+                                <li class='character imgbtn 傳說彼端 公主聯盟 時空之門' id='克蘿賽' style='display: none;'>
+                                    <img src='image/character/克蘿賽.png' onclick='selectChar("克蘿賽")'/>
+                                </li>
+                                <li class='character imgbtn 光輝軍團 公主聯盟 主角光環' id='克麗絲' style='display: none;'>
+                                    <img src='image/character/克麗絲.png' onclick='selectChar("克麗絲")'/>
+                                </li>
+                                <li class='character imgbtn 超凡領域 光之起源 公主聯盟' id='索菲亞' style='display: none;'>
+                                    <img src='image/character/索菲亞.png' onclick='selectChar("索菲亞")'/>
+                                </li>
+                                <li class='character imgbtn 超凡領域 光輝軍團 光之起源' id='潔西卡' style='display: none;'>
+                                    <img src='image/character/潔西卡.png' onclick='selectChar("潔西卡")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='skillList'>
+                            <ul>
+                                <li class='skill imgbtn 波贊魯 埃格貝爾特 基札洛夫 海恩 諾埃米 女神化身 蕾恩 蒂亞莉絲' id='火球' style='display: none;'>
+                                    <img src='image/skill/火球.png' onclick='selectSkill("火球")'/>
+                                </li>
+                                <li class='skill imgbtn 亞爾緹娜 埃格貝爾特 基札洛夫 海恩 拉娜 莉法妮 樹之賢者 謎之騎士 蕾伽爾' id='雷擊' style='display: none;'>
+                                    <img src='image/skill/雷擊.png' onclick='selectSkill("雷擊")'/>
+                                </li>
+                                <li class='skill imgbtn 伊梅爾達 拉姆達 拉娜 梅雅 諾埃米 蕾恩 莉亞娜' id='冰凍' style='display: none;'>
+                                    <img src='image/skill/冰凍.png' onclick='selectSkill("冰凍")'/>
+                                </li>
+                                <li class='skill imgbtn 安潔莉卡 蒂德莉特 潔西卡 藏馬 拉姆達 莉法妮 蕾恩 莉亞娜' id='風刃' style='display: none;'>
+                                    <img src='image/skill/風刃.png' onclick='selectSkill("風刃")'/>
+                                </li>
+                                <li class='skill imgbtn 亞爾緹娜 海恩 拉娜 梅雅 樹之賢者 諾埃米 女神化身 雪露法妮爾' id='淨化' style='display: none;'>
+                                    <img src='image/skill/淨化.png' onclick='selectSkill("淨化")'/>
+                                </li>
+                                <li class='skill imgbtn 阿卡婭 波贊魯 埃格貝爾特 拉娜 蕾伽爾' id='暗鐮' style='display: none;'>
+                                    <img src='image/skill/暗鐮.png' onclick='selectSkill("暗鐮")'/>
+                                </li>
+                                <li class='skill imgbtn 艾梅達 傑利奧魯&蕾拉 蕾伽爾 索菲亞' id='聖言' style='display: none;'>
+                                    <img src='image/skill/聖言.png' onclick='selectSkill("聖言")'/>
+                                </li>
+                                <li class='skill imgbtn 拉娜' id='元素毀滅' style='display: none;'>
+                                    <img src='image/skill/元素毀滅.png' onclick='selectSkill("元素毀滅")'/>
+                                </li>
+                                <li class='skill imgbtn 尤莉婭' id='聖裁' style='display: none;'>
+                                    <img src='image/skill/聖裁.png' onclick='selectSkill("聖裁")'/>
+                                </li>
+                                <li class='skill imgbtn 克麗絲 尤莉婭 克蘿賽' id='懲戒' style='display: none;'>
+                                    <img src='image/skill/懲戒.png' onclick='selectSkill("懲戒")'/>
+                                </li>
+                                <li class='skill imgbtn 克麗絲' id='救贖' style='display: none;'>
+                                    <img src='image/skill/救贖.png' onclick='selectSkill("救贖")'/>
+                                </li>
+                                <li class='skill imgbtn 蕾恩' id='暗影之矛' style='display: none;'>
+                                    <img src='image/skill/暗影之矛.png' onclick='selectSkill("暗影之矛")'/>
+                                </li>
+                                <li class='skill imgbtn 蕾恩' id='暗物質' style='display: none;'>
+                                    <img src='image/skill/暗物質.png' onclick='selectSkill("暗物質")'/>
+                                </li>
+                                <li class='skill imgbtn 諾埃米' id='火柱' style='display: none;'>
+                                    <img src='image/skill/火柱.png' onclick='selectSkill("火柱")'/>
+                                </li>
+                                <li class='skill imgbtn 謎之騎士' id='破滅之矛' style='display: none;'>
+                                    <img src='image/skill/破滅之矛.png' onclick='selectSkill("破滅之矛")'/>
+                                </li>
+                                <li class='skill imgbtn 克麗絲' id='神聖祈福' style='display: none;'>
+                                    <img src='image/skill/神聖祈福.png' onclick='selectSkill("神聖祈福")'/>
+                                </li>
+                                <li class='skill imgbtn 尤莉婭' id='神威' style='display: none;'>
+                                    <img src='image/skill/神威.png' onclick='selectSkill("神威")'/>
+                                </li>
+                                <li class='skill imgbtn 蒂德莉特' id='精靈之息' style='display: none;'>
+                                    <img src='image/skill/精靈之息.png' onclick='selectSkill("精靈之息")'/>
+                                </li>
+                                <li class='skill imgbtn 蒂德莉特' id='精靈之舞' style='display: none;'>
+                                    <img src='image/skill/精靈之舞.png' onclick='selectSkill("精靈之舞")'/>
+                                </li>
+                                <li class='skill imgbtn 謎之騎士 妮絲蒂爾' id='虹吸' style='display: none;'>
+                                    <img src='image/skill/虹吸.png' onclick='selectSkill("虹吸")'/>
+                                </li>
+                                <li class='skill imgbtn 蒂德莉特' id='風斬' style='display: none;'>
+                                    <img src='image/skill/風斬.png' onclick='selectSkill("風斬")'/>
+                                </li>
+                                <li class='skill imgbtn 藏馬' id='魔界植物' style='display: none;'>
+                                    <img src='image/skill/魔界植物.png' onclick='selectSkill("魔界植物")'/>
+                                </li>
+                                <li class='skill imgbtn 蕾恩' id='蕾恩·殲滅' style='display: none;'>
+                                    <img src='image/skill/蕾恩·殲滅.png' onclick='selectSkill("蕾恩·殲滅")'/>
+                                </li>
+                                <li class='skill imgbtn 諾埃米' id='冰槍' style='display: none;'>
+                                    <img src='image/skill/冰槍.png' onclick='selectSkill("冰槍")'/>
+                                </li>
+                            </ul>
+                            <table>
+                                <tbody class='skillinfo 火球' style='display: none;'>
+                                    <tr>
+                                        <td><b>火球</b></td>
+                                        <td><b>COST:</b>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='type'><b>類別:</b>魔法傷害</td>
+                                        <td class='cooldown'><b>冷卻:</b>1回合</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='range'><b>射程:</b>2格</td>
+                                        <td class='area'><b>範圍:</b>單體</td>
+                                    </tr>
+                                    <td class='info' colspan='2'>[魔法傷害]攻擊單個敵軍，造成<b style="color:red;">1.5</b>倍傷害，對「步兵」有特效。</td>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class='soldierList'>
+                            <ul>
+                                <li class='soldier imgbtn 蕾伽爾 諾埃米 愛麗絲 亞爾緹娜 蕾恩 謎之騎士 奧力佛 潔西卡 莉法妮 拉姆達 藏馬 女神化身 拉娜 傑利奧魯&蕾拉 波贊魯 妮可莉絲 佛拉基亞 蒂亞莉絲' id='魔女' style='display: none;'>
+                                    <img src='image/soldier/魔女.png' onclick='selectSoldier("魔女")'/>
+                                </li>
+                                <li class='soldier imgbtn 海恩 維拉 雪露法妮爾 索菲亞 莉亞娜' id='巫女' style='display: none;'>
+                                    <img src='image/soldier/巫女.png' onclick='selectSoldier("巫女")'/>
+                                </li>
+                                <li class='soldier imgbtn 蒂亞莉絲 伊梅爾達 愛麗絲 傑利奧魯&蕾拉' id='神官騎士' style='display: none;'>
+                                    <img src='image/soldier/神官騎士.png' onclick='selectSoldier("神官騎士")'/>
+                                </li>
+                                <li class='soldier imgbtn 克蘿賽 芙蕾雅 浦飯幽助 梅雅 維拉玖 艾絲蒂爾 雷因法魯斯 羅莎莉婭 克麗絲 艾米莉亞 雷丁 賽蓮娜 莉亞娜 尤莉婭 雅里安洛德 索菲亞 真宮寺櫻 樹之賢者' id='驅魔師' style='display: none;'>
+                                    <img src='image/soldier/驅魔師.png' onclick='selectSoldier("驅魔師")'/>
+                                </li>
+                                <li class='soldier imgbtn 蒂德莉特 艾梅達 女神化身 維拉' id='森林祭司' style='display: none;'>
+                                    <img src='image/soldier/森林祭司.png' onclick='selectSoldier("森林祭司")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='terrainList'>
+                            <ul>
+                                <li class='terrain imgbtn' id='道路'>
+                                    <img src='image/terrain/道路.png' onclick='selectTerrain("道路")'/>
+                                </li>
+                                <li class='terrain imgbtn' id='樹林'>
+                                    <img src='image/terrain/樹林.png' onclick='selectTerrain("樹林")'/>
+                                </li>
+                                <li class='terrain imgbtn' id='城牆'>
+                                    <img src='image/terrain/城牆.png' onclick='selectTerrain("城牆")'/>
+                                </li>
+                                <li class='terrain imgbtn' id='水'>
+                                    <img src='image/terrain/水.png' onclick='selectTerrain("水")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='enchantList'>
+                            <ul>
+                                <li class='enchant imgbtn' id='時鐘'>
+                                    <img src='image/enchant/時鐘.png' onclick='selectEnchant("時鐘")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='魔術'>
+                                    <img src='image/enchant/魔術.png' onclick='selectEnchant("魔術")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='滿月'>
+                                    <img src='image/enchant/滿月.png' onclick='selectEnchant("滿月")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='怒濤'>
+                                    <img src='image/enchant/怒濤.png' onclick='selectEnchant("怒濤")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='輕風'>
+                                    <img src='image/enchant/輕風.png' onclick='selectEnchant("輕風")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='烈日'>
+                                    <img src='image/enchant/烈日.png' onclick='selectEnchant("烈日")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='流星'>
+                                    <img src='image/enchant/流星.png' onclick='selectEnchant("流星")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='鋼鐵'>
+                                    <img src='image/enchant/鋼鐵.png' onclick='selectEnchant("鋼鐵")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='荊棘'>
+                                    <img src='image/enchant/荊棘.png' onclick='selectEnchant("荊棘")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='大樹'>
+                                    <img src='image/enchant/大樹.png' onclick='selectEnchant("大樹")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='頑石'>
+                                    <img src='image/enchant/頑石.png' onclick='selectEnchant("頑石")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='寒冰'>
+                                    <img src='image/enchant/寒冰.png' onclick='selectEnchant("寒冰")'/>
+                                </li>
+                                <li class='enchant imgbtn' id='水晶'>
+                                    <img src='image/enchant/水晶.png' onclick='selectEnchant("水晶")'/>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class='cell data'>
+                            <table>
+                                <tr>
+                                    <td id='partydata'>nothing</td>
+                                    <td id='chardata'>nothing</td>
+                                </tr>
+                                <tr>
+                                    <td id='skilldata'>nothing</td>
+                                    <td id='soldierdata'>nothing</td>
+                                </tr>
+                                <tr>
+                                    <td id='terraindata'>nothing</td>
+                                    <td id='enchantdata'>nothing</td>
+                                </tr>
+                                <tr>
+                                    <td colspan=2>戰鬥前數值 = 進場前數值×(1+裝備技能百分比+Buff百分比+附魔特效百分比)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan=2>一段傷害 = [(戰鬥前攻擊+戰鬥修正)×剋制加成－(戰鬥前防禦+防禦修正)×地形加成]÷2×傷害加成×技能加成×暴擊加成×近戰減免</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>
