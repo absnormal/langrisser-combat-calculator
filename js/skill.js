@@ -1,11 +1,31 @@
-function skill(name, cost, type, cooldown, range, area, rate){
-    this.name = name;
-    this.cost = cost;
-    this.type = type;
-    this.cooldown = cooldown;
-    this.range = range;
-    this.area = area;
-    this.rate = rate;
-};
+/* 技能/基本資訊/倍率/克制/增傷/強弱化/無視防禦/戰前後固傷/敘述 */
+var skill = [{
+    NAME: '火球', COST: 1,
+    TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
+    RATE: 1.5, COUNTER: '劍兵',
+    INCDMG: 0, STREFF: '無', WEAKEFF: '無',
+    NEGDEF: 0, NEGMDEF: 0, PRETDMG: 0, POSTDMG: 0, DISPERSE: 0,
+    DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害，對「步兵」有特效。'
+},{
+    NAME: '雷擊', COST: 1,
+    TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
+    RATE: 1.5, COUNTER: '騎兵',
+    INCDMG: 0, STREFF: '無', WEAKEFF: '無',
+    NEGDEF: 0, NEGMDEF: 0, PRETDMG: 0, POSTDMG: 0, DISPERSE: 0,
+    DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害，對「騎兵」有特效。'
+},{
+    NAME: '冰凍', COST: 1,
+    TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
+    RATE: 1.5, COUNTER: '槍兵',
+    INCDMG: 0, STREFF: '無', WEAKEFF: '無',
+    NEGDEF: 0, NEGMDEF: 0, PRETDMG: 0, POSTDMG: 0, DISPERSE: 0,
+    DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害，對「槍兵」有特效。'
+},{
+    NAME: '風刃', COST: 1,
+    TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
+    RATE: 1.5, COUNTER: '飛兵',
+    INCDMG: 0, STREFF: '無', WEAKEFF: '無',
+    NEGDEF: 0, NEGMDEF: 0, PRETDMG: 0, POSTDMG: 0, DISPERSE: 0,
+    DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害，對「飛兵」有特效。'
+}];
 
-var fireball = new skill("火球", 1, "magic", 1, "遠", "單體", 1.5);

@@ -80,7 +80,7 @@ ul > li{
 }
 tr > td{
     color: white;
-    height: 24px; width: 150px;
+    height: 24px; width: 160px;
 }
 tbody > p{
     width: 628px;
@@ -90,6 +90,9 @@ tbody > p{
 }
 .cell{
     height: 800px; width: 640px;
+}
+.cell.data{
+    height: 800px; width: 500px;
 }
 .banner{
     background-color: white;
@@ -171,4 +174,3 @@ tbody > p{
     position: static;
     padding-right: 3px; padding-left: 3px;
 }
-
