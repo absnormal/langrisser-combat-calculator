@@ -44,7 +44,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.3.1"), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.3.2"), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -103,14 +103,17 @@
                                 <li class='party imgbtn offense' id='傳說彼端'>
                                     <img src='image/party/傳說彼端.png' onclick='selectParty("傳說彼端")'/>
                                 </li>
-                                <li class='party imgbtn offense' id='時空之門'>
-                                    <img src='image/party/時空之門.png' onclick='selectParty("時空之門")'/>
+                                <li class='party imgbtn offense' id='時空樞紐'>
+                                    <img src='image/party/時空樞紐.png' onclick='selectParty("時空樞紐")'/>
                                 </li>
                                 <li class='party imgbtn offense' id='超凡領域'>
                                     <img src='image/party/超凡領域.png' onclick='selectParty("超凡領域")'/>
                                 </li>
                                 <li class='party imgbtn offense' id='夢幻轉生'>
                                     <img src='image/party/夢幻轉生.png' onclick='selectParty("夢幻轉生")'/>
+                                </li>
+                                <li>
+                                    <button onclick='changeJob("offense")'>換職業</button>
                                 </li>
                             </ul>
                         </div>
@@ -131,7 +134,7 @@
                                 <li class='character imgbtn offense 光輝軍團 光之起源 超凡領域' id='女神化身' style='display: none;'>
                                     <img src='image/character/女神化身.png' onclick='selectChar("女神化身")'/>
                                 </li>
-                                <li class='character imgbtn offense 時空之門 傳說彼端 戰略大師' id='藏馬' style='display: none;'>
+                                <li class='character imgbtn offense 時空樞紐 傳說彼端 戰略大師' id='藏馬' style='display: none;'>
                                     <img src='image/character/藏馬.png' onclick='selectChar("藏馬")'/>
                                 </li>
                                 <li class='character imgbtn offense 公主聯盟 傳說彼端' id='雪露法妮爾' style='display: none;'>
@@ -140,7 +143,7 @@
                                 <li class='character imgbtn offense 夢幻轉生 帝國之輝' id='梅雅' style='display: none;'>
                                     <img src='image/character/梅雅.png' onclick='selectChar("梅雅")'/>
                                 </li>
-                                <li class='character imgbtn offense 傳說彼端 黑暗輪迴 時空之門' id='蕾恩' style='display: none;'>
+                                <li class='character imgbtn offense 傳說彼端 黑暗輪迴 時空樞紐' id='蕾恩' style='display: none;'>
                                     <img src='image/character/蕾恩.png' onclick='selectChar("蕾恩")'/>
                                 </li>
                                 <li class='character imgbtn offense 超凡領域 黑暗輪迴' id='基札洛夫' style='display: none;'>
@@ -164,50 +167,17 @@
                                 <li class='character imgbtn offense 光輝軍團 公主聯盟 超凡領域' id='尤莉婭' style='display: none;'>
                                     <img src='image/character/尤莉婭.png' onclick='selectChar("尤莉婭")'/>
                                 </li>
-                                <li class='character imgbtn offense 光之起源 公主聯盟 時空之門' id='蒂德莉特' style='display: none;'>
+                                <li class='character imgbtn offense 光之起源 公主聯盟 時空樞紐' id='蒂德莉特' style='display: none;'>
                                     <img src='image/character/蒂德莉特.png' onclick='selectChar("蒂德莉特")'/>
                                 </li>
                                 <li class='character imgbtn offense 光輝軍團 夢幻轉生' id='諾埃米' style='display: none;'>
                                     <img src='image/character/諾埃米.png' onclick='selectChar("諾埃米")'/>
                                 </li>
-                                <li class='character imgbtn offense 時空之門 超凡領域 夢幻轉生' id='雅里安洛德' style='display: none;'>
+                                <li class='character imgbtn offense 時空樞紐 超凡領域 夢幻轉生' id='雅里安洛德' style='display: none;'>
                                     <img src='image/character/雅里安洛德.png' onclick='selectChar("雅里安洛德")'/>
                                 </li>
                                 <li class='character imgbtn offense 光之起源 戰略大師' id='傑利奧魯&蕾拉' style='display: none;'>
                                     <img src='image/character/傑利奧魯&蕾拉.png' onclick='selectChar("傑利奧魯&蕾拉")'/>
-                                </li>
-                                <li class='character imgbtn offense 光之起源 公主聯盟' id='芙蕾雅' style='display: none;'>
-                                    <img src='image/character/芙蕾雅.png' onclick='selectChar("芙蕾雅")'/>
-                                </li>
-                                <li class='character imgbtn offense 光輝軍團 帝國之輝' id='海恩' style='display: none;'>
-                                    <img src='image/character/海恩.png' onclick='selectChar("海恩")'/>
-                                </li>
-                                <li class='character imgbtn offense 黑暗輪迴 帝國之輝 戰略大師' id='埃格貝爾特' style='display: none;'>
-                                    <img src='image/character/埃格貝爾特.png' onclick='selectChar("埃格貝爾特")'/>
-                                </li>
-                                <li class='character imgbtn offense 光輝軍團 時空之門' id='安潔莉卡' style='display: none;'>
-                                    <img src='image/character/安潔莉卡.png' onclick='selectChar("安潔莉卡")'/>
-                                </li>
-                                <li class='character imgbtn offense 公主聯盟 光之起源' id='莉法妮' style='display: none;'>
-                                    <img src='image/character/莉法妮.png' onclick='selectChar("莉法妮")'/>
-                                </li>
-                                <li class='character imgbtn offense 帝國之輝 戰略大師' id='伊梅爾達' style='display: none;'>
-                                    <img src='image/character/伊梅爾達.png' onclick='selectChar("伊梅爾達")'/>
-                                </li>
-                                <li class='character imgbtn offense 流星直擊 時空之門 帝國之輝' id='亞爾緹娜' style='display: none;'>
-                                    <img src='image/character/亞爾緹娜.png' onclick='selectChar("亞爾緹娜")'/>
-                                </li>
-                                <li class='character imgbtn offense 傳說彼端 公主聯盟 時空之門' id='克蘿賽' style='display: none;'>
-                                    <img src='image/character/克蘿賽.png' onclick='selectChar("克蘿賽")'/>
-                                </li>
-                                <li class='character imgbtn offense 光輝軍團 公主聯盟 主角光環' id='克麗絲' style='display: none;'>
-                                    <img src='image/character/克麗絲.png' onclick='selectChar("克麗絲")'/>
-                                </li>
-                                <li class='character imgbtn offense 超凡領域 光之起源 公主聯盟' id='索菲亞' style='display: none;'>
-                                    <img src='image/character/索菲亞.png' onclick='selectChar("索菲亞")'/>
-                                </li>
-                                <li class='character imgbtn offense 超凡領域 光輝軍團 光之起源' id='潔西卡' style='display: none;'>
-                                    <img src='image/character/潔西卡.png' onclick='selectChar("潔西卡")'/>				
                                 </li>
                                 <li class='character imgbtn offense 主角光環 超凡領域 時空樞紐' id='浦飯幽助' style='display: none;'>
                                     <img src='image/character/浦飯幽助.png' onclick='selectChar("浦飯幽助")'/>
@@ -278,9 +248,6 @@
                                 <li class='character imgbtn offense 光輝軍團 主角光環 時空樞紐' id='艾絲蒂爾' style='display: none;'>
                                     <img src='image/character/艾絲蒂爾.png' onclick='selectChar("艾絲蒂爾")'/>
                                 </li>
-                                <li class='character imgbtn offense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲' style='display: none;'>
-                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲")'/>
-                                </li>
                                 <li class='character imgbtn offense 傳說彼端 公主聯盟 流星直擊' id='安潔麗娜' style='display: none;'>
                                     <img src='image/character/安潔麗娜.png' onclick='selectChar("安潔麗娜")'/>
                                 </li>
@@ -335,6 +302,36 @@
                                 <li class='character imgbtn offense 夢幻轉生 帝國之輝 戰略大師' id='弗洛朗蒂婭' style='display: none;'>
                                     <img src='image/character/弗洛朗蒂婭.png' onclick='selectChar("弗洛朗蒂婭")'/>
                                 </li>
+                                <li class='character imgbtn offense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲' style='display: none;'>
+                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 公主聯盟' id='芙蕾雅' style='display: none;'>
+                                    <img src='image/character/芙蕾雅.png' onclick='selectChar("芙蕾雅")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 帝國之輝' id='海恩' style='display: none;'>
+                                    <img src='image/character/海恩.png' onclick='selectChar("海恩")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 帝國之輝 戰略大師' id='埃格貝爾特' style='display: none;'>
+                                    <img src='image/character/埃格貝爾特.png' onclick='selectChar("埃格貝爾特")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 時空樞紐' id='安潔莉卡' style='display: none;'>
+                                    <img src='image/character/安潔莉卡.png' onclick='selectChar("安潔莉卡")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 光之起源' id='莉法妮' style='display: none;'>
+                                    <img src='image/character/莉法妮.png' onclick='selectChar("莉法妮")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師' id='伊梅爾達' style='display: none;'>
+                                    <img src='image/character/伊梅爾達.png' onclick='selectChar("伊梅爾達")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 時空樞紐 帝國之輝' id='亞爾緹娜' style='display: none;'>
+                                    <img src='image/character/亞爾緹娜.png' onclick='selectChar("亞爾緹娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 公主聯盟 時空樞紐' id='克蘿賽' style='display: none;'>
+                                    <img src='image/character/克蘿賽.png' onclick='selectChar("克蘿賽")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 光之起源 公主聯盟' id='索菲亞' style='display: none;'>
+                                    <img src='image/character/索菲亞.png' onclick='selectChar("索菲亞")'/>
+                                </li>
                                 <li class='character imgbtn offense 流星直擊 光輝軍團 時空樞紐' id='桑原和真' style='display: none;'>
                                     <img src='image/character/桑原和真.png' onclick='selectChar("桑原和真")'/>
                                 </li>
@@ -359,6 +356,9 @@
                                 <li class='character imgbtn offense 帝國之輝 戰略大師 時空樞紐' id='奧利維爾' style='display: none;'>
                                     <img src='image/character/奧利維爾.png' onclick='selectChar("奧利維爾")'/>
                                 </li>
+                                <li class='character imgbtn offense 光輝軍團 公主聯盟 主角光環' id='克麗絲' style='display: none;'>
+                                    <img src='image/character/克麗絲.png' onclick='selectChar("克麗絲")'/>
+                                </li>
                                 <li class='character imgbtn offense 光之起源 主角光環 時空樞紐' id='帕恩' style='display: none;'>
                                     <img src='image/character/帕恩.png' onclick='selectChar("帕恩")'/>
                                 </li>
@@ -373,9 +373,6 @@
                                 </li>
                                 <li class='character imgbtn offense 光之起源 流星直擊' id='銀狼' style='display: none;'>
                                     <img src='image/character/銀狼.png' onclick='selectChar("銀狼")'/>
-                                </li>
-                                <li class='character imgbtn offense 黑暗輪迴 時空樞紐 流星直擊' id='比蘿蒂絲' style='display: none;'>
-                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲")'/>
                                 </li>
                                 <li class='character imgbtn offense 公主聯盟 帝國之輝 黑暗輪迴' id='索尼婭' style='display: none;'>
                                     <img src='image/character/索尼婭.png' onclick='selectChar("索尼婭")'/>
@@ -392,14 +389,8 @@
                                 <li class='character imgbtn offense 帝國之輝 戰略大師' id='蕾蒂西亞' style='display: none;'>
                                     <img src='image/character/蕾蒂西亞.png' onclick='selectChar("蕾蒂西亞")'/>
                                 </li>
-                                <li class='character imgbtn offense 主角光環 光輝軍團' id='馬修' style='display: none;'>
-                                    <img src='image/character/馬修.png' onclick='selectChar("馬修")'/>
-                                </li>
-                                <li class='character imgbtn offense 主角光環 光輝軍團 超凡領域' id='艾梅達' style='display: none;'>
-                                    <img src='image/character/艾梅達.png' onclick='selectChar("艾梅達")'/>
-                                </li>
-                                <li class='character imgbtn offense 光輝軍團' id='格尼爾' style='display: none;'>
-                                    <img src='image/character/格尼爾.png' onclick='selectChar("格尼爾")'/>
+                                <li class='character imgbtn offense 超凡領域 光輝軍團 光之起源' id='潔西卡' style='display: none;'>
+                                    <img src='image/character/潔西卡.png' onclick='selectChar("潔西卡")'/>				
                                 </li>
                                 <li class='character imgbtn offense 光輝軍團eliminate' id='基斯' style='display: none;'>
                                     <img src='image/character/基斯.png' onclick='selectChar("基斯")'/>
@@ -425,300 +416,315 @@
                                 <li class='character imgbtn offense 光輝軍團eliminate' id='阿倫' style='display: none;'>
                                     <img src='image/character/阿倫.png' onclick='selectChar("阿倫")'/>
                                 </li>
+                                <li class='character imgbtn offense 主角光環 光輝軍團' id='馬修' style='display: none;'>
+                                    <img src='image/character/馬修.png' onclick='selectChar("馬修")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 光輝軍團 超凡領域' id='艾梅達' style='display: none;'>
+                                    <img src='image/character/艾梅達.png' onclick='selectChar("艾梅達")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團' id='格尼爾' style='display: none;'>
+                                    <img src='image/character/格尼爾.png' onclick='selectChar("格尼爾")'/>
+                                </li>
                             </ul>
                         </div>
                         <div class='skillList'>
                             <ul>
+                                <li class='skill imgbtn offense' id='普攻(物)' style='display: none;'>
+                                    <img src='image/skill/普攻(物).png' style='width: 60px' onclick='selectSkill("普攻(物)")'/>
+                                </li>
+                                <li class='skill imgbtn offense' id='普攻(法)' style='display: none;'>
+                                    <img src='image/skill/普攻(法).png' style='width: 60px' onclick='selectSkill("普攻(法)")'/>
+                                </li>
                                 <li class='skill imgbtn offense 波贊魯 埃格貝爾特 基札洛夫 海恩 諾埃米 女神化身 蕾恩 蒂亞莉絲' id='火球' style='display: none;'>
-                                    <img src='image/skill/火球.png' onclick='selectSkill("火球")'/>
+                                    <img src='image/skill/火球.png' style='width: 60px' onclick='selectSkill("火球")'/>
                                 </li>
                                 <li class='skill imgbtn offense 亞爾緹娜 埃格貝爾特 基札洛夫 海恩 拉娜 莉法妮 樹之賢者 謎之騎士 蕾伽爾' id='雷擊' style='display: none;'>
-                                    <img src='image/skill/雷擊.png' onclick='selectSkill("雷擊")'/>
+                                    <img src='image/skill/雷擊.png' style='width: 60px' onclick='selectSkill("雷擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 伊梅爾達 拉姆達 拉娜 梅雅 諾埃米 蕾恩 莉亞娜' id='冰凍' style='display: none;'>
-                                    <img src='image/skill/冰凍.png' onclick='selectSkill("冰凍")'/>
+                                    <img src='image/skill/冰凍.png' style='width: 60px' onclick='selectSkill("冰凍")'/>
                                 </li>
                                 <li class='skill imgbtn offense 安潔莉卡 蒂德莉特 潔西卡 藏馬 拉姆達 莉法妮 蕾恩 莉亞娜' id='風刃' style='display: none;'>
-                                    <img src='image/skill/風刃.png' onclick='selectSkill("風刃")'/>
+                                    <img src='image/skill/風刃.png' style='width: 60px' onclick='selectSkill("風刃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 亞爾緹娜 海恩 拉娜 梅雅 樹之賢者 諾埃米 女神化身 雪露法妮爾' id='淨化' style='display: none;'>
-                                    <img src='image/skill/淨化.png' onclick='selectSkill("淨化")'/>
+                                    <img src='image/skill/淨化.png' style='width: 60px' onclick='selectSkill("淨化")'/>
                                 </li>
                                 <li class='skill imgbtn offense 阿卡婭 波贊魯 埃格貝爾特 拉娜 蕾伽爾' id='暗鐮' style='display: none;'>
-                                    <img src='image/skill/暗鐮.png' onclick='selectSkill("暗鐮")'/>
+                                    <img src='image/skill/暗鐮.png' style='width: 60px' onclick='selectSkill("暗鐮")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾梅達 傑利奧魯&蕾拉 蕾伽爾 索菲亞' id='聖言' style='display: none;'>
-                                    <img src='image/skill/聖言.png' onclick='selectSkill("聖言")'/>
+                                    <img src='image/skill/聖言.png' style='width: 60px' onclick='selectSkill("聖言")'/>
                                 </li>
                                 <li class='skill imgbtn offense 拉娜' id='元素毀滅' style='display: none;'>
-                                    <img src='image/skill/元素毀滅.png' onclick='selectSkill("元素毀滅")'/>
+                                    <img src='image/skill/元素毀滅.png' style='width: 60px' onclick='selectSkill("元素毀滅")'/>
                                 </li>
                                 <li class='skill imgbtn offense 尤莉婭' id='聖裁' style='display: none;'>
-                                    <img src='image/skill/聖裁.png' onclick='selectSkill("聖裁")'/>
+                                    <img src='image/skill/聖裁.png' style='width: 60px' onclick='selectSkill("聖裁")'/>
                                 </li>
                                 <li class='skill imgbtn offense 克麗絲 尤莉婭 克蘿賽' id='懲戒' style='display: none;'>
-                                    <img src='image/skill/懲戒.png' onclick='selectSkill("懲戒")'/>
+                                    <img src='image/skill/懲戒.png' style='width: 60px' onclick='selectSkill("懲戒")'/>
                                 </li>
                                 <li class='skill imgbtn offense 克麗絲' id='救贖' style='display: none;'>
-                                    <img src='image/skill/救贖.png' onclick='selectSkill("救贖")'/>
+                                    <img src='image/skill/救贖.png' style='width: 60px' onclick='selectSkill("救贖")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蕾恩' id='暗影之矛' style='display: none;'>
-                                    <img src='image/skill/暗影之矛.png' onclick='selectSkill("暗影之矛")'/>
+                                    <img src='image/skill/暗影之矛.png' style='width: 60px' onclick='selectSkill("暗影之矛")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蕾恩' id='暗物質' style='display: none;'>
-                                    <img src='image/skill/暗物質.png' onclick='selectSkill("暗物質")'/>
+                                    <img src='image/skill/暗物質.png' style='width: 60px' onclick='selectSkill("暗物質")'/>
                                 </li>
                                 <li class='skill imgbtn offense 諾埃米' id='火柱' style='display: none;'>
-                                    <img src='image/skill/火柱.png' onclick='selectSkill("火柱")'/>
+                                    <img src='image/skill/火柱.png' style='width: 60px' onclick='selectSkill("火柱")'/>
                                 </li>
                                 <li class='skill imgbtn offense 謎之騎士' id='破滅之矛' style='display: none;'>
-                                    <img src='image/skill/破滅之矛.png' onclick='selectSkill("破滅之矛")'/>
+                                    <img src='image/skill/破滅之矛.png' style='width: 60px' onclick='selectSkill("破滅之矛")'/>
                                 </li>
                                 <li class='skill imgbtn offense 克麗絲' id='神聖祈福' style='display: none;'>
-                                    <img src='image/skill/神聖祈福.png' onclick='selectSkill("神聖祈福")'/>
+                                    <img src='image/skill/神聖祈福.png' style='width: 60px' onclick='selectSkill("神聖祈福")'/>
                                 </li>
                                 <li class='skill imgbtn offense 尤莉婭' id='神威' style='display: none;'>
-                                    <img src='image/skill/神威.png' onclick='selectSkill("神威")'/>
+                                    <img src='image/skill/神威.png' style='width: 60px' onclick='selectSkill("神威")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蒂德莉特' id='精靈之息' style='display: none;'>
-                                    <img src='image/skill/精靈之息.png' onclick='selectSkill("精靈之息")'/>
+                                    <img src='image/skill/精靈之息.png' style='width: 60px' onclick='selectSkill("精靈之息")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蒂德莉特' id='精靈之舞' style='display: none;'>
-                                    <img src='image/skill/精靈之舞.png' onclick='selectSkill("精靈之舞")'/>
+                                    <img src='image/skill/精靈之舞.png' style='width: 60px' onclick='selectSkill("精靈之舞")'/>
                                 </li>
                                 <li class='skill imgbtn offense 謎之騎士 妮絲蒂爾' id='虹吸' style='display: none;'>
-                                    <img src='image/skill/虹吸.png' onclick='selectSkill("虹吸")'/>
+                                    <img src='image/skill/虹吸.png' style='width: 60px' onclick='selectSkill("虹吸")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蒂德莉特' id='風斬' style='display: none;'>
-                                    <img src='image/skill/風斬.png' onclick='selectSkill("風斬")'/>
+                                    <img src='image/skill/風斬.png' style='width: 60px' onclick='selectSkill("風斬")'/>
                                 </li>
                                 <li class='skill imgbtn offense 藏馬' id='魔界植物' style='display: none;'>
-                                    <img src='image/skill/魔界植物.png' onclick='selectSkill("魔界植物")'/>
+                                    <img src='image/skill/魔界植物.png' style='width: 60px' onclick='selectSkill("魔界植物")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蕾恩' id='蕾恩·殲滅' style='display: none;'>
-                                    <img src='image/skill/蕾恩·殲滅.png' onclick='selectSkill("蕾恩·殲滅")'/>
+                                    <img src='image/skill/蕾恩·殲滅.png' style='width: 60px' onclick='selectSkill("蕾恩·殲滅")'/>
                                 </li>
                                 <li class='skill imgbtn offense 諾埃米' id='冰槍' style='display: none;'>
-                                    <img src='image/skill/冰槍.png' onclick='selectSkill("冰槍")'/>
+                                    <img src='image/skill/冰槍.png' style='width: 60px' onclick='selectSkill("冰槍")'/>
                                 </li>
                                 <li class='skill imgbtn offense 霧風 黎恩' id='一閃' style='display: none;'>
-                                    <img src='image/skill/一閃.png' onclick='selectSkill("一閃")'/>
+                                    <img src='image/skill/一閃.png' style='width: 60px' onclick='selectSkill("一閃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 歐米伽 奧利佛' id='會心直擊' style='display: none;'>
-                                    <img src='image/skill/會心直擊.png' onclick='selectSkill("會心直擊")'/>
+                                    <img src='image/skill/會心直擊.png' style='width: 60px' onclick='selectSkill("會心直擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾爾文' id='劍魂' style='display: none;'>
-                                    <img src='image/skill/劍魂.png' onclick='selectSkill("劍魂")'/>
+                                    <img src='image/skill/劍魂.png' style='width: 60px' onclick='selectSkill("劍魂")'/>
                                 </li>
                                 <li class='skill imgbtn offense 巴爾加斯 阿倫 格尼爾' id='力突' style='display: none;'>
-                                    <img src='image/skill/力突.png' onclick='selectSkill("力突")'/>
+                                    <img src='image/skill/力突.png' style='width: 60px' onclick='selectSkill("力突")'/>
                                 </li>
                                 <li class='skill imgbtn offense 迪哈爾特 利昂 利亞特 羅莎莉婭' id='千騎' style='display: none;'>
-                                    <img src='image/skill/.png千騎' onclick='selectSkill("千騎")'/>
+                                    <img src='image/skill/千騎.png' style='width: 60px' onclick='selectSkill("千騎")'/>
                                 </li>
                                 <li class='skill imgbtn offense 西格瑪 艾斯拉卓' id='壓制射擊' style='display: none;'>
-                                    <img src='image/skill/壓制射擊.png' onclick='selectSkill("壓制射擊")'/>
+                                    <img src='image/skill/壓制射擊.png' style='width: 60px' onclick='selectSkill("壓制射擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 約書亞' id='雙連擊' style='display: none;'>
-                                    <img src='image/skill/雙連擊.png' onclick='selectSkill("雙連擊")'/>
+                                    <img src='image/skill/雙連擊.png' style='width: 60px' onclick='selectSkill("雙連擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 霧峰 銀狼 比蘿蒂絲 奧利佛' id='回刺' style='display: none;'>
-                                    <img src='image/skill/回刺.png' onclick='selectSkill("回刺")'/>
+                                    <img src='image/skill/回刺.png' style='width: 60px' onclick='selectSkill("回刺")'/>
                                 </li>
                                 <li class='skill imgbtn offense 弗拉基亞' id='迴旋' style='display: none;'>
-                                    <img src='image/skill/迴旋.png' onclick='selectSkill("迴旋")'/>
+                                    <img src='image/skill/迴旋.png' style='width: 60px' onclick='selectSkill("迴旋")'/>
                                 </li>
                                 <li class='skill imgbtn offense 路因 阿雷斯 真宮寺櫻 黎恩 帕恩 蘭芳特 霧風 克拉蕾特 艾爾文 維拉玖' id='大喝' style='display: none;'>
-                                    <img src='image/skill/大喝.png' onclick='selectSkill("大喝")'/>
+                                    <img src='image/skill/大喝.png' style='width: 60px' onclick='selectSkill("大喝")'/>
                                 </li>
                                 <li class='skill imgbtn offense 亞魯特繆拉 露娜' id='奔雷' style='display: none;'>
-                                    <img src='image/skill/奔雷.png' onclick='selectSkill("奔雷")'/>
+                                    <img src='image/skill/奔雷.png' style='width: 60px' onclick='selectSkill("奔雷")'/>
                                 </li>
                                 <li class='skill imgbtn offense 阿雷斯' id='威風衝陣' style='display: none;'>
-                                    <img src='image/skill/威風衝陣.png' onclick='selectSkill("威風衝陣")'/>
+                                    <img src='image/skill/威風衝陣.png' style='width: 60px' onclick='selectSkill("威風衝陣")'/>
                                 </li>
                                 <li class='skill imgbtn offense 雷丁 雅里安洛德 浦飯幽助 udaudauda!' id='審判' style='display: none;'>
-                                    <img src='image/skill/審判.png' onclick='selectSkill("審判")'/>
+                                    <img src='image/skill/審判.png' style='width: 60px' onclick='selectSkill("審判")'/>
                                 </li>
                                 <li class='skill imgbtn offense 歐米伽' id='弱點狙擊' style='display: none;'>
-                                    <img src='image/skill/弱點狙擊.png' onclick='selectSkill("弱點狙擊")'/>
+                                    <img src='image/skill/弱點狙擊.png' style='width: 60px' onclick='selectSkill("弱點狙擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 戶愚呂兄弟' id='彈指' style='display: none;'>
-                                    <img src='image/skill/彈指.png' onclick='selectSkill("彈指")'/>
+                                    <img src='image/skill/彈指.png' style='width: 60px' onclick='selectSkill("彈指")'/>
                                 </li>
                                 <li class='skill imgbtn offense 西格瑪' id='強風狙擊' style='display: none;'>
-                                    <img src='image/skill/強風狙擊.png' onclick='selectSkill("強風狙擊")'/>
+                                    <img src='image/skill/強風狙擊.png' style='width: 60px' onclick='selectSkill("強風狙擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 燕 馬修 澤瑞達 雪莉' id='影襲' style='display: none;'>
-                                    <img src='image/skill/影襲.png' onclick='selectSkill("影襲")'/>
+                                    <img src='image/skill/影襲.png' style='width: 60px' onclick='selectSkill("影襲")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蘭芳特 阿卡婭' id='投槍' style='display: none;'>
-                                    <img src='image/skill/投槍.png' onclick='selectSkill("投槍")'/>
+                                    <img src='image/skill/投槍.png' style='width: 60px' onclick='selectSkill("投槍")'/>
                                 </li>
                                 <li class='skill imgbtn offense 洛加 奧利佛 弗拉基亞 皮耶魯 比蘿蒂絲' id='掠奪' style='display: none;'>
-                                    <img src='image/skill/掠奪.png' onclick='selectSkill("掠奪")'/>
+                                    <img src='image/skill/掠奪.png' style='width: 60px' onclick='selectSkill("掠奪")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蕾娜塔' id='掠空折翼' style='display: none;'>
-                                    <img src='image/skill/掠空折翼.png' onclick='selectSkill("掠空折翼")'/>
+                                    <img src='image/skill/掠空折翼.png' style='width: 60px' onclick='selectSkill("掠空折翼")'/>
                                 </li>
                                 <li class='skill imgbtn offense 斯科特 艾馬林克 蘭斯 海倫娜 賽蕾娜 安潔麗娜 帕恩' id='撞擊' style='display: none;'>
-                                    <img src='image/skill/撞擊.png' onclick='selectSkill("撞擊")'/>
+                                    <img src='image/skill/撞擊.png' style='width: 60px' onclick='selectSkill("撞擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾爾文 雷丁 蘭迪烏斯 萊恩哈特 路因' id='斬陽' style='display: none;'>
-                                    <img src='image/skill/斬陽.png' onclick='selectSkill("斬陽")'/>
+                                    <img src='image/skill/斬陽.png' style='width: 60px' onclick='selectSkill("斬陽")'/>
                                 </li>
                                 <li class='skill imgbtn offense 海倫娜' id='晶耀突襲' style='display: none;'>
-                                    <img src='image/skill/晶耀突襲.png' onclick='selectSkill("晶耀突襲")'/>
+                                    <img src='image/skill/晶耀突襲.png' style='width: 60px' onclick='selectSkill("晶耀突襲")'/>
                                 </li>
                                 <li class='skill imgbtn offense 亞修拉姆' id='暗影突擊' style='display: none;'>
-                                    <img src='image/skill/暗影突擊.png' onclick='selectSkill("暗影突擊")'/>
+                                    <img src='image/skill/暗影突擊.png' style='width: 60px' onclick='selectSkill("暗影突擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 羅莎莉婭' id='最終審判' style='display: none;'>
-                                    <img src='image/skill/最終審判.png' onclick='selectSkill("最終審判")'/>
+                                    <img src='image/skill/最終審判.png' style='width: 60px' onclick='selectSkill("最終審判")'/>
                                 </li>
                                 <li class='skill imgbtn offense 桑原和真' id='次元斬' style='display: none;'>
-                                    <img src='image/skill/次元斬.png' onclick='selectSkill("次元斬")'/>
+                                    <img src='image/skill/次元斬.png' style='width: 60px' onclick='selectSkill("次元斬")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾米莉亞' id='正義' style='display: none;'>
-                                    <img src='image/skill/正義.png' onclick='selectSkill("正義")'/>
+                                    <img src='image/skill/正義.png' style='width: 60px' onclick='selectSkill("正義")'/>
                                 </li>
                                 <li class='skill imgbtn offense 雷丁' id='正義對決' style='display: none;'>
-                                    <img src='image/skill/正義對決.png' onclick='selectSkill("正義對決")'/>
+                                    <img src='image/skill/正義對決.png' style='width: 60px' onclick='selectSkill("正義對決")'/>
                                 </li>
                                 <li class='skill imgbtn offense 馬修 希琳卡 霧風 萊恩哈特 雷因法魯斯' id='氣刃' style='display: none;'>
-                                    <img src='image/skill/氣刃.png' onclick='selectSkill("氣刃")'/>
+                                    <img src='image/skill/氣刃.png' style='width: 60px' onclick='selectSkill("氣刃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 利斯塔 維拉玖 基斯 迪歐斯 皮耶魯' id='水槍' style='display: none;'>
-                                    <img src='image/skill/水槍.png' onclick='selectSkill("水槍")'/>
+                                    <img src='image/skill/水槍.png' style='width: 60px' onclick='selectSkill("水槍")'/>
                                 </li>
                                 <li class='skill imgbtn offense 迪哈爾特' id='浪子回頭' style='display: none;'>
-                                    <img src='image/skill/浪子回頭.png' onclick='selectSkill("浪子回頭")'/>
+                                    <img src='image/skill/浪子回頭.png' style='width: 60px' onclick='selectSkill("浪子回頭")'/>
                                 </li>
                                 <li class='skill imgbtn offense 索尼婭' id='混沌螺旋' style='display: none;'>
-                                    <img src='image/skill/混沌螺旋.png' onclick='selectSkill("混沌螺旋")'/>
+                                    <img src='image/skill/混沌螺旋.png' style='width: 60px' onclick='selectSkill("混沌螺旋")'/>
                                 </li>
                                 <li class='skill imgbtn offense 阿爾弗雷德 伊露希亞' id='激浪' style='display: none;'>
-                                    <img src='image/skill/激浪.png' onclick='selectSkill("激浪")'/>
+                                    <img src='image/skill/激浪.png' style='width: 60px' onclick='selectSkill("激浪")'/>
                                 </li>
                                 <li class='skill imgbtn offense 浦飯幽助' id='靈丸' style='display: none;'>
-                                    <img src='image/skill/靈丸.png' onclick='selectSkill("靈丸")'/>
+                                    <img src='image/skill/靈丸.png' style='width: 60px' onclick='selectSkill("靈丸")'/>
                                 </li>
                                 <li class='skill imgbtn offense 雷丁' id='烈陽' style='display: none;'>
-                                    <img src='image/skill/烈陽.png' onclick='selectSkill("烈陽")'/>
+                                    <img src='image/skill/烈陽.png' style='width: 60px' onclick='selectSkill("烈陽")'/>
                                 </li>
                                 <li class='skill imgbtn offense 馬修 奧利維爾 希琳卡 娜姆 露娜' id='狙擊' style='display: none;'>
-                                    <img src='image/skill/狙擊.png' onclick='selectSkill("狙擊")'/>
+                                    <img src='image/skill/狙擊.png' style='width: 60px' onclick='selectSkill("狙擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 迪歐斯 霧峰 燕 弗拉基亞 法娜 銀狼' id='狙足' style='display: none;'>
-                                    <img src='image/skill/狙足.png' onclick='selectSkill("狙足")'/>
+                                    <img src='image/skill/狙足.png' style='width: 60px' onclick='selectSkill("狙足")'/>
                                 </li>
                                 <li class='skill imgbtn offense 利亞特 利昂 真宮寺櫻 利斯塔 亞修拉姆 傑利奧魯&蕾拉' id='猛撞' style='display: none;'>
-                                    <img src='image/skill/猛撞.png' onclick='selectSkill("猛撞")'/>
+                                    <img src='image/skill/猛撞.png' style='width: 60px' onclick='selectSkill("猛撞")'/>
                                 </li>
                                 <li class='skill imgbtn offense 海倫娜' id='璨晶綻放' style='display: none;'>
-                                    <img src='image/skill/璨晶綻放.png' onclick='selectSkill("璨晶綻放")'/>
+                                    <img src='image/skill/璨晶綻放.png' style='width: 60px' onclick='selectSkill("璨晶綻放")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾馬林克 布琳達 傑利奧魯&蕾拉 迪哈爾特 海倫娜 蕾蒂西亞 艾斯拉卓 戶愚呂兄弟' id='疾突' style='display: none;'>
-                                    <img src='image/skill/疾突.png' onclick='selectSkill("疾突")'/>
+                                    <img src='image/skill/疾突.png' style='width: 60px' onclick='selectSkill("疾突")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蕾娜塔' id='疾霆閃襲' style='display: none;'>
-                                    <img src='image/skill/疾霆閃襲.png' onclick='selectSkill("疾霆閃襲")'/>
+                                    <img src='image/skill/疾霆閃襲.png' style='width: 60px' onclick='selectSkill("疾霆閃襲")'/>
                                 </li>
                                 <li class='skill imgbtn offense 浦飯幽助' id='百烈拳' style='display: none;'>
-                                    <img src='image/skill/百烈拳.png' onclick='selectSkill("百烈拳")'/>
+                                    <img src='image/skill/百烈拳.png' style='width: 60px' onclick='selectSkill("百烈拳")'/>
                                 </li>
                                 <li class='skill imgbtn offense 賽蕾娜 巴恩哈特 阿倫' id='盾擊' style='display: none;'>
-                                    <img src='image/skill/盾擊.png' onclick='selectSkill("盾擊")'/>
+                                    <img src='image/skill/盾擊.png' style='width: 60px' onclick='selectSkill("盾擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾米利亞' id='破刃' style='display: none;'>
-                                    <img src='image/skill/破刃.png' onclick='selectSkill("破刃")'/>
+                                    <img src='image/skill/破刃.png' style='width: 60px' onclick='selectSkill("破刃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 亞魯特繆拉' id='無雙鏖戰' style='display: none;'>
-                                    <img src='image/skill/無雙鏖戰.png' onclick='selectSkill("無雙鏖戰")'/>
+                                    <img src='image/skill/無雙鏖戰.png' style='width: 60px' onclick='selectSkill("無雙鏖戰")'/>
                                 </li>
                                 <li class='skill imgbtn offense 希琳卡' id='破夢' style='display: none;'>
-                                    <img src='image/skill/破夢.png' onclick='selectSkill("破夢")'/>
+                                    <img src='image/skill/破夢.png' style='width: 60px' onclick='selectSkill("破夢")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蘭迪烏斯 迪歐斯 海倫娜 索尼婭 艾馬林克 帕恩' id='破陣' style='display: none;'>
-                                    <img src='image/skill/破陣.png' onclick='selectSkill("破陣")'/>
+                                    <img src='image/skill/破陣.png' style='width: 60px' onclick='selectSkill("破陣")'/>
                                 </li>
                                 <li class='skill imgbtn offense 娜姆' id='神射' style='display: none;'>
-                                    <img src='image/skill/神射.png' onclick='selectSkill("神射")'/>
+                                    <img src='image/skill/神射.png' style='width: 60px' onclick='selectSkill("神射")'/>
                                 </li>
                                 <li class='skill imgbtn offense 雅里安洛德 布琳達 巴爾加斯 夏提雅 艾斯蒂爾 阿倫 神崎堇' id='穿甲' style='display: none;'>
-                                    <img src='image/skill/穿甲.png' onclick='selectSkill("穿甲")'/>
+                                    <img src='image/skill/穿甲.png' style='width: 60px' onclick='selectSkill("穿甲")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蕾蒂西亞 利昂 利亞特 格尼爾 馬修 斯科特 索尼婭' id='突擊' style='display: none;'>
-                                    <img src='image/skill/突擊.png' onclick='selectSkill("突擊")'/>
+                                    <img src='image/skill/突擊.png' style='width: 60px' onclick='selectSkill("突擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 澤瑞達' id='絕命一擊' style='display: none;'>
-                                    <img src='image/skill/絕命一擊.png' onclick='selectSkill("絕命一擊")'/>
+                                    <img src='image/skill/絕命一擊.png' style='width: 60px' onclick='selectSkill("絕命一擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾斯拉卓' id='翡翠破風' style='display: none;'>
-                                    <img src='image/skill/翡翠破風.png' onclick='selectSkill("翡翠破風")'/>
+                                    <img src='image/skill/翡翠破風.png' style='width: 60px' onclick='selectSkill("翡翠破風")'/>
                                 </li>
                                 <li class='skill imgbtn offense 艾斯拉卓' id='翡翠魔矢' style='display: none;'>
-                                    <img src='image/skill/翡翠魔矢.png' onclick='selectSkill("翡翠魔矢")'/>
+                                    <img src='image/skill/翡翠魔矢.png' style='width: 60px' onclick='selectSkill("翡翠魔矢")'/>
                                 </li>
                                 <li class='skill imgbtn offense 維拉玖' id='背摔' style='display: none;'>
-                                    <img src='image/skill/背摔.png' onclick='selectSkill("背摔")'/>
+                                    <img src='image/skill/背摔.png' style='width: 60px' onclick='selectSkill("背摔")'/>
                                 </li>
                                 <li class='skill imgbtn offense 帕恩 阿爾弗雷德' id='自由之刃' style='display: none;'>
-                                    <img src='image/skill/自由之刃.png' onclick='selectSkill("自由之刃")'/>
+                                    <img src='image/skill/自由之刃.png' style='width: 60px' onclick='selectSkill("自由之刃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 希琳卡' id='血腥之凜' style='display: none;'>
-                                    <img src='image/skill/血腥之凜.png' onclick='selectSkill("血腥之凜")'/>
+                                    <img src='image/skill/血腥之凜.png' style='width: 60px' onclick='selectSkill("血腥之凜")'/>
                                 </li>
                                 <li class='skill imgbtn offense 比蘿蒂絲' id='詭狙' style='display: none;'>
-                                    <img src='image/skill/詭狙.png' onclick='selectSkill("詭狙")'/>
+                                    <img src='image/skill/詭狙.png' style='width: 60px' onclick='selectSkill("詭狙")'/>
                                 </li>
                                 <li class='skill imgbtn offense 雪莉' id='轟雷一閃' style='display: none;'>
-                                    <img src='image/skill/轟雷一閃.png' onclick='selectSkill("轟雷一閃")'/>
+                                    <img src='image/skill/轟雷一閃.png' style='width: 60px' onclick='selectSkill("轟雷一閃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 雪莉' id='迅雷' style='display: none;'>
-                                    <img src='image/skill/迅雷.png' onclick='selectSkill("迅雷")'/>
+                                    <img src='image/skill/迅雷.png' style='width: 60px' onclick='selectSkill("迅雷")'/>
                                 </li>
                                 <li class='skill imgbtn offense 布琳達 艾爾文' id='迎頭痛擊' style='display: none;'>
-                                    <img src='image/skill/迎頭痛擊.png' onclick='selectSkill("迎頭痛擊")'/>
+                                    <img src='image/skill/迎頭痛擊.png' style='width: 60px' onclick='selectSkill("迎頭痛擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蘭芳特' id='連閃' style='display: none;'>
-                                    <img src='image/skill/連閃.png' onclick='selectSkill("連閃")'/>
+                                    <img src='image/skill/連閃.png' style='width: 60px' onclick='selectSkill("連閃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 亞修拉姆' id='逆襲' style='display: none;'>
-                                    <img src='image/skill/逆襲.png' onclick='selectSkill("逆襲")'/>
+                                    <img src='image/skill/逆襲.png' style='width: 60px' onclick='selectSkill("逆襲")'/>
                                 </li>
                                 <li class='skill imgbtn offense 飛影' id='邪王炎殺劍' style='display: none;'>
-                                    <img src='image/skill/邪王炎殺劍.png' onclick='selectSkill("邪王炎殺劍")'/>
+                                    <img src='image/skill/邪王炎殺劍.png' style='width: 60px' onclick='selectSkill("邪王炎殺劍")'/>
                                 </li>
                                 <li class='skill imgbtn offense 飛影' id='邪王炎殺煉獄焦' style='display: none;'>
-                                    <img src='image/skill/邪王炎殺煉獄焦.png' onclick='selectSkill("邪王炎殺煉獄焦")'/>
+                                    <img src='image/skill/邪王炎殺煉獄焦.png' style='width: 60px' onclick='selectSkill("邪王炎殺煉獄焦")'/>
                                 </li>
                                 <li class='skill imgbtn offense 貝蒂 西格瑪 蕾娜塔' id='重擊' style='display: none;'>
-                                    <img src='image/skill/重擊.png' onclick='selectSkill("重擊")'/>
+                                    <img src='image/skill/重擊.png' style='width: 60px' onclick='selectSkill("重擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 古巨拉' id='野獸震懾' style='display: none;'>
-                                    <img src='image/skill/野獸震懾.png' onclick='selectSkill("野獸震懾")'/>
+                                    <img src='image/skill/野獸震懾.png' style='width: 60px' onclick='selectSkill("野獸震懾")'/>
                                 </li>
                                 <li class='skill imgbtn offense 羅莎莉婭' id='銀色之矛' style='display: none;'>
-                                    <img src='image/skill/銀色之矛.png' onclick='selectSkill("銀色之矛")'/>
+                                    <img src='image/skill/銀色之矛.png' style='width: 60px' onclick='selectSkill("銀色之矛")'/>
                                 </li>
                                 <li class='skill imgbtn offense 基斯 阿雷斯 蘭斯 雪莉 安潔麗娜' id='雷光' style='display: none;'>
-                                    <img src='image/skill/雷光.png' onclick='selectSkill("雷光")'/>
+                                    <img src='image/skill/雷光.png' style='width: 60px' onclick='selectSkill("雷光")'/>
                                 </li>
                                 <li class='skill imgbtn offense 克拉蕾特' id='雷閃' style='display: none;'>
-                                    <img src='image/skill/雷閃.png' onclick='selectSkill("雷閃")'/>
+                                    <img src='image/skill/雷閃.png' style='width: 60px' onclick='selectSkill("雷閃")'/>
                                 </li>
                                 <li class='skill imgbtn offense 利昂' id='青龍破陣' style='display: none;'>
-                                    <img src='image/skill/青龍破陣.png' onclick='selectSkill("青龍破陣")'/>
+                                    <img src='image/skill/青龍破陣.png' style='width: 60px' onclick='selectSkill("青龍破陣")'/>
                                 </li>
                                 <li class='skill imgbtn offense 蘭芳特' id='領戰迅擊' style='display: none;'>
-                                    <img src='image/skill/領戰迅擊.png' onclick='selectSkill("領戰迅擊")'/>
+                                    <img src='image/skill/領戰迅擊.png' style='width: 60px' onclick='selectSkill("領戰迅擊")'/>
                                 </li>
                                 <li class='skill imgbtn offense 浦飯幽助' id='黑靈丸' style='display: none;'>
-                                    <img src='image/skill/黑靈丸.png' onclick='selectSkill("黑靈丸")'/>
+                                    <img src='image/skill/黑靈丸.png' style='width: 60px' onclick='selectSkill("黑靈丸")'/>
                                 </li>
                                 <li class='skill imgbtn offense 布琳達' id='黑耀突擊' style='display: none;'>
-                                    <img src='image/skill/黑耀突擊.png' onclick='selectSkill("黑耀突擊")'/>
+                                    <img src='image/skill/黑耀突擊.png' style='width: 60px' onclick='selectSkill("黑耀突擊")'/>
                                 </li>
                             </ul>
                             <table>
@@ -847,8 +853,8 @@
                                 <li class='soldier imgbtn offense 雅兒貝德 克麗絲 芙蕾雅 克拉蕾特' id='王女親衛' style='display: none;'>
                                     <img src='image/soldier/王女親衛.png' style='width: 60px' onclick='selectSoldier("王女親衛")'/>
                                 </li>
-                                <li class='soldier imgbtn offense 約書亞 基札洛夫 格尼爾 巴爾加斯 亞魯特繆拉 艾米莉亞 浦飯幽助 古巨拉' id=' ' style='display: none;'>
-                                    <img src='image/soldier/ .png' style='width: 60px' onclick='selectSoldier(" ")'/>
+                                <li class='soldier imgbtn offense 約書亞 基札洛夫 格尼爾 巴爾加斯 亞魯特繆拉 艾米莉亞 浦飯幽助 古巨拉' id='食人巨魔' style='display: none;'>
+                                    <img src='image/soldier/食人巨魔.png' style='width: 60px' onclick='selectSoldier("食人巨魔")'/>
                                 </li>
                                 <li class='soldier imgbtn offense 芙蕾亞 真宮寺櫻 萊恩哈特 黎恩 蘭迪烏斯 巴恩哈特 法娜' id='暗黑衛隊' style='display: none;'>
                                     <img src='image/soldier/暗黑衛隊.png' style='width: 60px' onclick='selectSoldier("暗黑衛隊")'/>
@@ -1025,8 +1031,8 @@
                                 <td>智力:<input type='text' id='offINT' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td id='offcharJOB' onclick='changeJob("offense")'>職業:NA</td>
-                                <td id='offcharATK'>NA</td>
+                                <td id='offcharJOB'>職業:NA</td>
+                                <td id='offcharARMY'>兵種:NA</td>
                                 <td>防禦:<input type='text' id='offDEF' style='width:90px' value=100></td>
                             </tr>
                             <tr>
@@ -1043,22 +1049,46 @@
                                 <td colspan=3>戰前數值 = 進場前白字×(1+裝備技能+Buff+滿月)</td>
                             </tr>
                             <tr>
-                                <td id='PREATK' colspan=3>NA = NA×[1+NA+NA+NA]</td>
+                                <td id='PREATK' colspan=3>戰前數值: NA = NA×[1+NA+NA+NA]</td>
                             </tr>
                             <tr>
-                                <td colspan=3>一段傷害 = {[戰前數值+(1+近戰裝備技能+怒濤)]×剋制加成-(戰鬥前防禦+防禦修正)×地形加成}÷2×傷害加成×技能加成×暴擊加成×近戰減免</td>
+                                <td id='PREDEF' colspan=3>戰前數值: NA = NA×[1+NA+NA+NA]</td>
                             </tr>
                             <tr>
-                                <td id='partydatad'>nothing</td>
-                                <td id='chardatad'>nothing</td>
+                                <td colspan=3>一段傷害 = {[戰前數值×(1+進戰裝備技能+怒濤)×剋制加成]-[戰鬥前防禦×(1+進戰裝備技能)×地形加成]}÷2×傷害加成×技能加成×暴擊加成×近戰減免</td>
                             </tr>
                             <tr>
-                                <td id='skilldatad'>nothing</td>
-                                <td id='soldierdatad'>nothing</td>
+                                <td id='FORMULA' colspan=3>一段傷害: NA = {[NA×(1+NA+NA)×NA]-[NA×(1+NA)×NA]}÷2×NA×NA×NA×NA</td>
                             </tr>
                             <tr>
-                                <td id='terraindatad'>nothing</td>
-                                <td id='enchantdatad'>nothing</td>
+                                <td id='partydatad'>陣營:NA</td>
+                                <td id='chardatad'>角色:NA</td>
+                                <td>生命:<input type='text' id='defHP' style='width:90px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td id='skilldatad'>技能:NA</td>
+                                <td id='soldierdatad'>士兵:NA</td>
+                                <td>攻擊:<input type='text' id='defATK' style='width:90px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td id='terraindatad'>地形:NA</td>
+                                <td id='enchantdatad'>附魔:NA</td>
+                                <td>智力:<input type='text' id='defINT' style='width:90px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td id='defcharJOB'>職業:NA</td>
+                                <td id='defcharARMY'>兵種:NA</td>
+                                <td>防禦:<input type='text' id='defDEF' style='width:90px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>魔防:<input type='text' id='defMDEF' style='width:90px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>技巧:<input type='text' id='defDEX' style='width:90px' value=100></td>
                             </tr>
                         </table>
                     </div>
@@ -1097,8 +1127,8 @@
                                 <li class='party imgbtn defense' id='傳說彼端d'>
                                     <img src='image/party/傳說彼端.png' onclick='selectParty("傳說彼端d")'/>
                                 </li>
-                                <li class='party imgbtn defense' id='時空之門d'>
-                                    <img src='image/party/時空之門.png' onclick='selectParty("時空之門d")'/>
+                                <li class='party imgbtn defense' id='時空樞紐d'>
+                                    <img src='image/party/時空樞紐.png' onclick='selectParty("時空樞紐d")'/>
                                 </li>
                                 <li class='party imgbtn defense' id='超凡領域d'>
                                     <img src='image/party/超凡領域.png' onclick='selectParty("超凡領域d")'/>
@@ -1125,7 +1155,7 @@
                                 <li class='character imgbtn defense 光輝軍團 光之起源 超凡領域' id='女神化身d' style='display: none;'>
                                     <img src='image/character/女神化身.png' onclick='selectChar("女神化身d")'/>
                                 </li>
-                                <li class='character imgbtn defense 時空之門 傳說彼端 戰略大師' id='藏馬d' style='display: none;'>
+                                <li class='character imgbtn defense 時空樞紐 傳說彼端 戰略大師' id='藏馬d' style='display: none;'>
                                     <img src='image/character/藏馬.png' onclick='selectChar("藏馬d")'/>
                                 </li>
                                 <li class='character imgbtn defense 公主聯盟 傳說彼端' id='雪露法妮爾d' style='display: none;'>
@@ -1134,7 +1164,7 @@
                                 <li class='character imgbtn defense 夢幻轉生 帝國之輝' id='梅雅d' style='display: none;'>
                                     <img src='image/character/梅雅.png' onclick='selectChar("梅雅d")'/>
                                 </li>
-                                <li class='character imgbtn defense 傳說彼端 黑暗輪迴 時空之門' id='蕾恩d' style='display: none;'>
+                                <li class='character imgbtn defense 傳說彼端 黑暗輪迴 時空樞紐' id='蕾恩d' style='display: none;'>
                                     <img src='image/character/蕾恩.png' onclick='selectChar("蕾恩d")'/>
                                 </li>
                                 <li class='character imgbtn defense 超凡領域 黑暗輪迴' id='基札洛夫d' style='display: none;'>
@@ -1158,50 +1188,17 @@
                                 <li class='character imgbtn defense 光輝軍團 公主聯盟 超凡領域' id='尤莉婭d' style='display: none;'>
                                     <img src='image/character/尤莉婭.png' onclick='selectChar("尤莉婭d")'/>
                                 </li>
-                                <li class='character imgbtn defense 光之起源 公主聯盟 時空之門' id='蒂德莉特d' style='display: none;'>
+                                <li class='character imgbtn defense 光之起源 公主聯盟 時空樞紐' id='蒂德莉特d' style='display: none;'>
                                     <img src='image/character/蒂德莉特.png' onclick='selectChar("蒂德莉特d")'/>
                                 </li>
                                 <li class='character imgbtn defense 光輝軍團 夢幻轉生' id='諾埃米d' style='display: none;'>
                                     <img src='image/character/諾埃米.png' onclick='selectChar("諾埃米d")'/>
                                 </li>
-                                <li class='character imgbtn defense 時空之門 超凡領域 夢幻轉生' id='雅里安洛德d' style='display: none;'>
+                                <li class='character imgbtn defense 時空樞紐 超凡領域 夢幻轉生' id='雅里安洛德d' style='display: none;'>
                                     <img src='image/character/雅里安洛德.png' onclick='selectChar("雅里安洛德d")'/>
                                 </li>
                                 <li class='character imgbtn defense 光之起源 戰略大師' id='傑利奧魯&蕾拉d' style='display: none;'>
                                     <img src='image/character/傑利奧魯&蕾拉.png' onclick='selectChar("傑利奧魯&蕾拉d")'/>
-                                </li>
-                                <li class='character imgbtn defense 光之起源 公主聯盟' id='芙蕾雅d' style='display: none;'>
-                                    <img src='image/character/芙蕾雅.png' onclick='selectChar("芙蕾雅d")'/>
-                                </li>
-                                <li class='character imgbtn defense 光輝軍團 帝國之輝' id='海恩d' style='display: none;'>
-                                    <img src='image/character/海恩.png' onclick='selectChar("海恩d")'/>
-                                </li>
-                                <li class='character imgbtn defense 黑暗輪迴 帝國之輝 戰略大師' id='埃格貝爾特d' style='display: none;'>
-                                    <img src='image/character/埃格貝爾特.png' onclick='selectChar("埃格貝爾特d")'/>
-                                </li>
-                                <li class='character imgbtn defense 光輝軍團 時空之門' id='安潔莉卡d' style='display: none;'>
-                                    <img src='image/character/安潔莉卡.png' onclick='selectChar("安潔莉卡d")'/>
-                                </li>
-                                <li class='character imgbtn defense 公主聯盟 光之起源' id='莉法妮d' style='display: none;'>
-                                    <img src='image/character/莉法妮.png' onclick='selectChar("莉法妮d")'/>
-                                </li>
-                                <li class='character imgbtn defense 帝國之輝 戰略大師' id='伊梅爾達d' style='display: none;'>
-                                    <img src='image/character/伊梅爾達.png' onclick='selectChar("伊梅爾達d")'/>
-                                </li>
-                                <li class='character imgbtn defense 流星直擊 時空之門 帝國之輝' id='亞爾緹娜d' style='display: none;'>
-                                    <img src='image/character/亞爾緹娜.png' onclick='selectChar("亞爾緹娜d")'/>
-                                </li>
-                                <li class='character imgbtn defense 傳說彼端 公主聯盟 時空之門' id='克蘿賽d' style='display: none;'>
-                                    <img src='image/character/克蘿賽.png' onclick='selectChar("克蘿賽d")'/>
-                                </li>
-                                <li class='character imgbtn defense 光輝軍團 公主聯盟 主角光環' id='克麗絲d' style='display: none;'>
-                                    <img src='image/character/克麗絲.png' onclick='selectChar("克麗絲d")'/>
-                                </li>
-                                <li class='character imgbtn defense 超凡領域 光之起源 公主聯盟' id='索菲亞d' style='display: none;'>
-                                    <img src='image/character/索菲亞.png' onclick='selectChar("索菲亞d")'/>
-                                </li>
-                                <li class='character imgbtn defense 超凡領域 光輝軍團 光之起源' id='潔西卡d' style='display: none;'>
-                                    <img src='image/character/潔西卡.png' onclick='selectChar("潔西卡d")'/>				
                                 </li>
                                 <li class='character imgbtn defense 主角光環 超凡領域 時空樞紐' id='浦飯幽助d' style='display: none;'>
                                     <img src='image/character/浦飯幽助.png' onclick='selectChar("浦飯幽助d")'/>
@@ -1272,9 +1269,6 @@
                                 <li class='character imgbtn defense 光輝軍團 主角光環 時空樞紐' id='艾絲蒂爾d' style='display: none;'>
                                     <img src='image/character/艾絲蒂爾.png' onclick='selectChar("艾絲蒂爾d")'/>
                                 </li>
-                                <li class='character imgbtn defense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲d' style='display: none;'>
-                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲d")'/>
-                                </li>
                                 <li class='character imgbtn defense 傳說彼端 公主聯盟 流星直擊' id='安潔麗娜d' style='display: none;'>
                                     <img src='image/character/安潔麗娜.png' onclick='selectChar("安潔麗娜d")'/>
                                 </li>
@@ -1329,6 +1323,36 @@
                                 <li class='character imgbtn defense 夢幻轉生 帝國之輝 戰略大師' id='弗洛朗蒂婭d' style='display: none;'>
                                     <img src='image/character/弗洛朗蒂婭.png' onclick='selectChar("弗洛朗蒂婭d")'/>
                                 </li>
+                                <li class='character imgbtn defense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲d' style='display: none;'>
+                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲d")'/>
+                                </li>
+                                <li class='character imgbtn defense 光之起源 公主聯盟' id='芙蕾雅d' style='display: none;'>
+                                    <img src='image/character/芙蕾雅.png' onclick='selectChar("芙蕾雅d")'/>
+                                </li>
+                                <li class='character imgbtn defense 光輝軍團 帝國之輝' id='海恩d' style='display: none;'>
+                                    <img src='image/character/海恩.png' onclick='selectChar("海恩d")'/>
+                                </li>
+                                <li class='character imgbtn defense 黑暗輪迴 帝國之輝 戰略大師' id='埃格貝爾特d' style='display: none;'>
+                                    <img src='image/character/埃格貝爾特.png' onclick='selectChar("埃格貝爾特d")'/>
+                                </li>
+                                <li class='character imgbtn defense 光輝軍團 時空樞紐' id='安潔莉卡d' style='display: none;'>
+                                    <img src='image/character/安潔莉卡.png' onclick='selectChar("安潔莉卡d")'/>
+                                </li>
+                                <li class='character imgbtn defense 公主聯盟 光之起源' id='莉法妮d' style='display: none;'>
+                                    <img src='image/character/莉法妮.png' onclick='selectChar("莉法妮d")'/>
+                                </li>
+                                <li class='character imgbtn defense 帝國之輝 戰略大師' id='伊梅爾達d' style='display: none;'>
+                                    <img src='image/character/伊梅爾達.png' onclick='selectChar("伊梅爾達d")'/>
+                                </li>
+                                <li class='character imgbtn defense 流星直擊 時空樞紐 帝國之輝' id='亞爾緹娜d' style='display: none;'>
+                                    <img src='image/character/亞爾緹娜.png' onclick='selectChar("亞爾緹娜d")'/>
+                                </li>
+                                <li class='character imgbtn defense 傳說彼端 公主聯盟 時空樞紐' id='克蘿賽d' style='display: none;'>
+                                    <img src='image/character/克蘿賽.png' onclick='selectChar("克蘿賽d")'/>
+                                </li>
+                                <li class='character imgbtn defense 超凡領域 光之起源 公主聯盟' id='索菲亞d' style='display: none;'>
+                                    <img src='image/character/索菲亞.png' onclick='selectChar("索菲亞d")'/>
+                                </li>
                                 <li class='character imgbtn defense 流星直擊 光輝軍團 時空樞紐' id='桑原和真d' style='display: none;'>
                                     <img src='image/character/桑原和真.png' onclick='selectChar("桑原和真d")'/>
                                 </li>
@@ -1353,6 +1377,9 @@
                                 <li class='character imgbtn defense 帝國之輝 戰略大師 時空樞紐' id='奧利維爾d' style='display: none;'>
                                     <img src='image/character/奧利維爾.png' onclick='selectChar("奧利維爾d")'/>
                                 </li>
+                                <li class='character imgbtn defense 光輝軍團 公主聯盟 主角光環' id='克麗絲d' style='display: none;'>
+                                    <img src='image/character/克麗絲.png' onclick='selectChar("克麗絲d")'/>
+                                </li>
                                 <li class='character imgbtn defense 光之起源 主角光環 時空樞紐' id='帕恩d' style='display: none;'>
                                     <img src='image/character/帕恩.png' onclick='selectChar("帕恩d")'/>
                                 </li>
@@ -1367,9 +1394,6 @@
                                 </li>
                                 <li class='character imgbtn defense 光之起源 流星直擊' id='銀狼d' style='display: none;'>
                                     <img src='image/character/銀狼.png' onclick='selectChar("銀狼d")'/>
-                                </li>
-                                <li class='character imgbtn defense 黑暗輪迴 時空樞紐 流星直擊' id='比蘿蒂絲d' style='display: none;'>
-                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲d")'/>
                                 </li>
                                 <li class='character imgbtn defense 公主聯盟 帝國之輝 黑暗輪迴' id='索尼婭d' style='display: none;'>
                                     <img src='image/character/索尼婭.png' onclick='selectChar("索尼婭d")'/>
@@ -1386,14 +1410,8 @@
                                 <li class='character imgbtn defense 帝國之輝 戰略大師' id='蕾蒂西亞d' style='display: none;'>
                                     <img src='image/character/蕾蒂西亞.png' onclick='selectChar("蕾蒂西亞d")'/>
                                 </li>
-                                <li class='character imgbtn defense 主角光環 光輝軍團' id='馬修d' style='display: none;'>
-                                    <img src='image/character/馬修.png' onclick='selectChar("馬修d")'/>
-                                </li>
-                                <li class='character imgbtn defense 主角光環 光輝軍團 超凡領域' id='艾梅達d' style='display: none;'>
-                                    <img src='image/character/艾梅達.png' onclick='selectChar("艾梅達d")'/>
-                                </li>
-                                <li class='character imgbtn defense 光輝軍團' id='格尼爾d' style='display: none;'>
-                                    <img src='image/character/格尼爾.png' onclick='selectChar("格尼爾d")'/>
+                                <li class='character imgbtn defense 超凡領域 光輝軍團 光之起源' id='潔西卡d' style='display: none;'>
+                                    <img src='image/character/潔西卡.png' onclick='selectChar("潔西卡d")'/>				
                                 </li>
                                 <li class='character imgbtn defense 光輝軍團eliminate' id='基斯d' style='display: none;'>
                                     <img src='image/character/基斯.png' onclick='selectChar("基斯d")'/>
@@ -1418,6 +1436,15 @@
                                 </li>
                                 <li class='character imgbtn defense 光輝軍團eliminate' id='阿倫d' style='display: none;'>
                                     <img src='image/character/阿倫.png' onclick='selectChar("阿倫d")'/>
+                                </li>
+                                <li class='character imgbtn defense 主角光環 光輝軍團' id='馬修d' style='display: none;'>
+                                    <img src='image/character/馬修.png' onclick='selectChar("馬修d")'/>
+                                </li>
+                                <li class='character imgbtn defense 主角光環 光輝軍團 超凡領域' id='艾梅達d' style='display: none;'>
+                                    <img src='image/character/艾梅達.png' onclick='selectChar("艾梅達d")'/>
+                                </li>
+                                <li class='character imgbtn defense 光輝軍團' id='格尼爾d' style='display: none;'>
+                                    <img src='image/character/格尼爾.png' onclick='selectChar("格尼爾d")'/>
                                 </li>
                             </ul>
                         </div>

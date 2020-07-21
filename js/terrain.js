@@ -1,4 +1,4 @@
-function terrain(terrain){
+function cal_terrain(terrain){
     switch(terrain){
 	    case "柵欄":
 	        return 0.05; break;

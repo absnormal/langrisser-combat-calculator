@@ -10,6 +10,8 @@ var defenseTerrain = '道路d', defenseEnchant = '時鐘d';
 
 // skills depend on character
 function displaySkill(P_charName, side){
+    document.getElementById('普攻(物)').style = '';
+    document.getElementById('普攻(法)').style = '';
     var skills = document.getElementsByClassName(P_charName + ' ' + side);
     for(var i=0; i<skills.length; i++){
         if(skills[i].classList.contains('skill')){
@@ -174,10 +176,10 @@ function selectChar(charName){
         // hide all soldiers and display soldiers in char
         hideSoldier('offense');
         displaySoldier(charName, 'offense');
-        // select new char & first skill / soldier
+        // select new char & normal attack & first soldier
         document.getElementById(charName).classList.add('selected');
         offenseChar = charName;
-        selectSkill(document.getElementsByClassName(charName+' skill offense')[0].id);
+        selectSkill(document.getElementById('普攻(物)').id);
         selectSoldier(document.getElementsByClassName(charName+' soldier offense')[0].id);
         selectTerrain(offenseTerrain);
         selectEnchant(offenseEnchant);

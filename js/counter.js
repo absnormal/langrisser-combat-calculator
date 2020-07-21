@@ -1,48 +1,34 @@
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
-var offense="僧", defense="魔";
-
-function display_offense(offense){
-    document.getElementById("offense").innerHTML = offense;
-};
-
-function display_defense(defense){
-    document.getElementById("defense").innerHTML = defense;
-};
-
-function display_counter(offense, defense){
-    document.getElementById("counter").innerHTML = cal_counter(offense, defense);
-};
-
 function cal_counter(offense, defense){
     switch(offense){
-        case "劍":
-            if(defense == "槍")
+        case "劍兵":
+            if(defense == "槍兵")
                 return 0.4;
-            else if(defense == "騎")
+            else if(defense == "騎兵")
                 return -0.3;
             else return 0.0; break;
-        case "槍":
-            if(defense == "劍")
+        case "槍兵":
+            if(defense == "劍兵")
                 return -0.2;
-            else if(defense == "騎")
+            else if(defense == "騎兵")
                 return 0.3;
             else return 0.0; break;
-        case "騎":
-            if(defense == "劍")
+        case "騎兵":
+            if(defense == "劍兵")
                 return 0.2;
-            else if(defense == "槍")
+            else if(defense == "槍兵")
                 return -0.3;
             else return 0.0; break;
-        case "弓":
-            if(defense == "飛")
+        case "弓兵":
+            if(defense == "飛兵")
                 return 0.3;
             else return 0.0; break;
-        case "僧":
-            if(defense == "魔")
+        case "僧侶":
+            if(defense == "魔物")
                 return 0.8;
             else return 0.0; break;
-        case "魔":
-            if(defense == "僧")
+        case "魔物":
+            if(defense == "僧侶")
                 return -0.4;
             else return 0.0; break;
         default:
