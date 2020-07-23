@@ -174,3 +174,45 @@ tbody > p{
     position: static;
     padding-right: 3px; padding-left: 3px;
 }
+
+/* 裝備 */
+.weaponList{
+    border-style: solid;
+    border-color: white;
+    height: 45px;
+}
+.weapon .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}
+.armorList{
+    border-style: solid;
+    border-color: white;
+    height: 45px;
+}
+.weapon .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}
+.helmetList{
+    border-style: solid;
+    border-color: white;
+    height: 45px;
+}
+.weapon .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}
+.accessoryList{
+    border-style: solid;
+    border-color: white;
+    height: 45px;
+}
+.weapon .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}

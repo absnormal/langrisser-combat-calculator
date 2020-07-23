@@ -42,7 +42,7 @@ var skill = [{
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害，對「飛兵」有特效。'
 },{
-    NAME: '暗鐮', COST 2:  ,
+    NAME: '暗鐮', COST: 2,
     TYPE: '魔法傷害', CD: 2, RANGE: '2格', AREA: '單體',
     RATE: 1.3, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
@@ -70,7 +70,7 @@ var skill = [{
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害，進入戰鬥前士兵射程+1，戰鬥後，恢復傷害數值30%的生命。對「步兵」、「騎兵」、「槍兵」、「飛兵」有特效。'
 },{
-    NAME: '冰槍', COST:  ,
+    NAME: '冰槍', COST: 2,
     TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
     RATE: 1.5, COUNTER: '槍兵',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
@@ -342,7 +342,7 @@ var skill = [{
     RATE:  1.6, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍的傷害。戰後使敵軍“飾品技能失效”，持續2回合，無法被驅散。當目標為非玩家英雄時，該效果替換為'遭受傷害提升30% '，持續2回合，無法被驅散。”'
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍的傷害。戰後使敵軍“飾品技能失效”，持續2回合，無法被驅散。當目標為非玩家英雄時，該效果替換為"遭受傷害提升30%"，持續2回合，無法被驅散。'
 },{
     NAME: '暗影突擊', COST: 2,
     TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
@@ -351,12 +351,12 @@ var skill = [{
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '物理傷害]攻擊單個敵軍，造成1.4倍傷害。進入戰鬥前使敵軍“攻擊”“智力”降低20%，持續2回合。'
 },{
-    NAME: '最終審判', COST: ,
-    TYPE: '物理傷害', CD: , RANGE: ' 格', AREA: '單體',
-    RATE:  , COUNTER: '無',
+    NAME: '最終審判', COST: 3,
+    TYPE: '物理傷害', CD: 5, RANGE: ' 格', AREA: '單體',
+    RATE: 1.6 , COUNTER: '無',
     STREFF: '無', WEAKEFF: '部隊射程-1', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '[物理傷害]攻擊單個敵軍造成1.6倍的傷害，對敵軍所在地形施加加[庇護之劍]：“該地形擁有'[指揮]：周圍1格以內的所有友軍部隊除生命以外全屬性提升10% '，持續3回合。”戰前令敵軍“部隊射程-1 ”，持續1回合，該效果不可驅散。自身在[庇護之劍]效果範圍內時，戰後可以獲得再次移動3格的機會。當羅莎莉婭擁有1個[信仰]時[庇護之劍]的指揮範圍提升至2格，擁有3個[信仰]時[庇護之劍]追加指揮效果：“主動攻擊進入戰鬥，戰後恢復造成傷害的20%的生命值。'
+    DISC: '[物理傷害]攻擊單個敵軍造成1.6倍的傷害，對敵軍所在地形施加加[庇護之劍]：“該地形擁有"[指揮]：周圍1格以內的所有友軍部隊除生命以外全屬性提升10% "，持續3回合。”戰前令敵軍“部隊射程-1 ”，持續1回合，該效果不可驅散。自身在[庇護之劍]效果範圍內時，戰後可以獲得再次移動3格的機會。當羅莎莉婭擁有1個[信仰]時[庇護之劍]的指揮範圍提升至2格，擁有3個[信仰]時[庇護之劍]追加指揮效果：“主動攻擊進入戰鬥，戰後恢復造成傷害的20%的生命值。'
 },{
     NAME: '次元斬', COST: 2,
     TYPE: '物理傷害', CD: 5, RANGE: '2格', AREA: '單體',
@@ -373,7 +373,7 @@ var skill = [{
     DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍的戰鬥傷害。戰鬥前，獲得[聖衛]效果：用“魔防”的1.6倍來代替“攻擊”，可以反擊2格的遠程攻擊，持續2回合。'
 },{
     NAME: '正義對決', COST: 3,
-    TYPE: '物理傷害', CD: , RANGE: '3格', AREA: '單體',
+    TYPE: '物理傷害', CD: 4, RANGE: '3格', AREA: '單體',
     RATE:  1.2, COUNTER: '無',
     STREFF: '高階神衛', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
@@ -402,21 +402,21 @@ var skill = [{
 },{
     //物傷OR魔傷 數值浮動
     NAME: '混沌螺旋', COST: 3,
-    TYPE: '物理傷害', CD: , RANGE: '2格', AREA: '單體',
+    TYPE: '物理傷害', CD: 5, RANGE: '2格', AREA: '單體',
     RATE:  1.6, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍傷害，攜帶近戰士兵時，士兵也會同時進行攻擊。如果敵軍物防低於魔防，在戰鬥前將智力的70%附加於攻擊之上；反之，則在戰鬥前將攻擊的70%附加於智力之上，並造成魔法傷害。同時使得敵軍獲得[傷口詛咒]：“被施加的治療直接轉變為治療量20%的傷害”，持續2回合。如果敵軍英雄為「僧侶」，則在戰前令其“技能射程-1 ”，持續1回合，該效果不可驅散。'
 },{
     NAME: '激浪', COST: 2,
-    TYPE: '物理傷害', CD: , RANGE: '1格', AREA: '單體',
+    TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
     RATE:  1.5, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍的傷害。戰鬥後，將自己移動時所有可以通過的地形都視為“水中”，持續1回合。'
 },{
     NAME: '靈丸', COST: 2,
-    TYPE: '物理傷害', CD: , RANGE: '2格', AREA: '單體',
+    TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
     RATE:  1.3, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '有',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
@@ -455,7 +455,7 @@ var skill = [{
     RATE:  1.6, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍的傷害，戰後使敵軍“武器技能失效”，持續2回合，無法被驅散，當目標為非玩家英雄時，該效果替換為'造成傷害降低30% '，持續2回合，無法被驅散。戰鬥後，對自身周圍2格內的所有敵軍造成0.2倍範圍傷害，並使命中的地形獲得1回合的特殊效果[璨晶]（該效果與天賦的[璨晶]效果一致'
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍的傷害，戰後使敵軍“武器技能失效”，持續2回合，無法被驅散，當目標為非玩家英雄時，該效果替換為"造成傷害降低30%"，持續2回合，無法被驅散。戰鬥後，對自身周圍2格內的所有敵軍造成0.2倍範圍傷害，並使命中的地形獲得1回合的特殊效果[璨晶]（該效果與天賦的[璨晶]效果一致)'
 },{
     NAME: '疾突', COST: 2,
     TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
@@ -490,8 +490,7 @@ var skill = [{
     RATE:  1.5, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '破刃
-[物理傷害]攻擊單個敵軍，造成1.5倍的戰鬥傷害。戰鬥後，使得敵軍“造成傷害”降低20%，持續2回合。'
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍的戰鬥傷害。戰鬥後，使得敵軍“造成傷害”降低20%，持續2回合。'
 },{
     NAME: '破夢', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
@@ -515,14 +514,14 @@ var skill = [{
     DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的戰鬥傷害，對「飛兵」有特效。戰鬥前，造成傷害提升30%，戰鬥後，使得敵軍“無法遭受任何強化狀態”，持續2回合。'
 },{
     NAME: '穿甲', COST: 2,
-    TYPE: '物理傷害', CD: , RANGE: '1格', AREA: '單體',
+    TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
     RATE:  1.5, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍的戰鬥傷害。戰鬥後，降低敵軍防禦30%，持續2回合。'
 },{
     NAME: '突擊', COST: 2,
-    TYPE: '物理傷害', CD: , RANGE: '1格', AREA: '單體',
+    TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
     RATE:  1, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
@@ -530,13 +529,13 @@ var skill = [{
 },{
     NAME: '絕命一擊', COST: 2,
     TYPE: '物理傷害', CD: 2, RANGE: '2格', AREA: '單體',
-    RATE:  , COUNTER: '無',
+    RATE: 1.4 , COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: '[物理傷害]攻擊單個敵軍，造成1.4倍傷害。如果進入戰鬥前自己攜帶的士兵已經全部陣亡，則本次攻擊可以無視護衛，並直接對英雄造成傷害。'
 },{
     NAME: '絕戮', COST: 2,
-    TYPE: '物理傷害', CD: NA, RANGE: '1格', AREA: '單體',
+    TYPE: '物理傷害', CD: 0, RANGE: '1格', AREA: '單體',
     RATE:  1.5, COUNTER: '無',
     STREFF: '無', WEAKEFF: '攻擊、防禦降低10% 遭受暴擊率增加10%', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
@@ -557,7 +556,7 @@ var skill = [{
     DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的戰鬥傷害。對「飛兵」有特效。戰前將敵軍2個強化狀態轉化為隨機弱化效果，每轉化1個強化狀態則獲得20%的傷害加成。戰後，使自己所處的地形視為“樹林”，持續1回合。'
 },{
     NAME: '翡翠魔矢', COST: 2,
-    TYPE: '物理傷害', CD: , RANGE: '2格', AREA: '單體',
+    TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
     RATE:  1.3, COUNTER: '飛兵',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
@@ -628,7 +627,7 @@ var skill = [{
 },{
     NAME: '邪王炎殺劍', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
-    RATE:  , COUNTER: '無',
+    RATE: 1.2, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 2,
     DISC: '[物理傷害]無視護衛攻擊單個敵軍，造成1.2倍傷害，戰鬥前驅散敵軍2個強化狀態。如果發生暴擊，戰後對敵軍和自己造成一次[固定傷害]（傷害數值為英雄攻擊的2倍）。若自身處於[黑龍波]效果下，則不會遭受副作用。'
@@ -682,7 +681,7 @@ var skill = [{
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
     DISC: ''
 },{
-    NAME: '領戰迅擊', COST: ,
+    NAME: '領戰迅擊', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '1格', AREA: '單體',
     RATE:  1.6, COUNTER: '無',
     STREFF: '暴擊提升20%', WEAKEFF: '無', SOLDATK: '無',
