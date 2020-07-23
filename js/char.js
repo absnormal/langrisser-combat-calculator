@@ -40,6 +40,16 @@ var char = [{
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
+    NAME: '克拉蕾特', JOBS: 2,
+    SOLDHPPLUS:0.1, SOLDATKPLUS:0.25, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.3,
+    TALENT: '主動攻擊進入戰鬥時，傷害提升20%，遭受傷害降低20%。行動結束時，會將剩餘的初始移動力附加於自身，最高不超過5格',
+    JOB1:'龍騎統帥', ARMY1: '飛兵',
+    JOB1DISCA:'受到近戰攻擊時，遭受物理傷害降低10%。',
+    JOB1DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
+    JOB2:'劍姬', ARMY2: '劍兵',
+    JOB2DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
+    JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
+},{
     NAME: '#', JOBS: 2,
     SOLDHPPLUS:0.0, SOLDATKPLUS:0.0, SOLDDEFPLUS:0.0, SOLDMDEFPLUS:0.0,
     TALENT: '#',

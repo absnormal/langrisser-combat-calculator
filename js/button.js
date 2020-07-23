@@ -176,6 +176,10 @@ function selectChar(charName){
         // hide all soldiers and display soldiers in char
         hideSoldier('offense');
         displaySoldier(charName, 'offense');
+        // hide and display equipments by JOB1
+        combat.offChar = char.find(x => x.NAME === charName);
+        hideWeapon('offense');
+        displayWeapon('offense');
         // select new char & normal attack & first soldier
         document.getElementById(charName).classList.add('selected');
         offenseChar = charName;

@@ -1,10 +1,12 @@
 var combat = {
     offParty:undefined, offChar:undefined, offSkill:undefined, offSoldier:undefined,
     offTerrain:undefined, offEnchant:undefined,
-    offJobNo:1, offbaseATK:undefined,
+    offWeapon:undefined, offArmor:undefined, offHelmet:undefined, offAccessory:undefined,
+    offJobNo:1,
     defParty:undefined, defChar:undefined, defSkill:undefined, defSoldier:undefined,
     defTerrain:undefined, defEnchant:undefined,
-    defJobNo:1, defbaseATK:undefined,
+    defWeapon:undefined, defArmor:undefined, defHelmet:undefined, defAccessory:undefined,
+    defJobNo:1
 };
 
 function getArmy(side){
@@ -78,6 +80,7 @@ function displayJob(side){
     }
 };
 
+// change JOB and change weapon depends on JOB
 function changeJob(side){
     var jobNo;
     if(side == 'defense') jobNo = combat.defJobNo;
@@ -91,28 +94,42 @@ function changeJob(side){
         if(jobNo > combat.offChar.JOBS) jobNo = 1;
         combat.offJobNo = jobNo;
     }
+    hideWeapon(side);
+    displayWeapon(side);
 };
 
 function displayPREATK(side){
-    var job, ATK, equipEFF = 0, BUFFEFF = 0, enchantEFF = 0, PREATK, dmg;
+    var job, ATK, equipEFF = 0, BUFFEFF = 0, moon = 0, PREATK, dmg;
 
     /* get ATK */
     if(combat.offSkill.TYPE == '魔法傷害'){
         dmg = '智力';
-        if(side == 'offense') ATK = document.getElementById('offINT').value;
-        else if(side == 'defense')  ATK = document.getElementById('defINT').value;
+        if(side == 'offense'){
+            ATK = document.getElementById('offINT').value;
+            equipEFF = combat.offWeapon.INT;
+        }
+        else if(side == 'defense'){
+            ATK = document.getElementById('defINT').value;
+            // equipEFF = combat.defWeapon.INT;
+        }
     }
     else if(combat.offSkill.TYPE == '物理傷害'){
         dmg = '攻擊';
-        if(side == 'offense') ATK = document.getElementById('offATK').value;
-        else if(side == 'defense')  ATK = document.getElementById('defATK').value;
+        if(side == 'offense'){
+            ATK = document.getElementById('offATK').value;
+            equipEFF = combat.offWeapon.ATK;
+        }
+        else if(side == 'defense'){
+            ATK = document.getElementById('defATK').value;
+            // equipEFF = combat.defWeapon.ATK
+        }
     }
     /* 滿月全屬性+10% */
-    if(side == 'offense' && combat.offEnchant.NAME == '滿月') enchantEFF = 0.1;
-    else if(side == 'defense' && combat.defEnchant.NAME == '滿月') enchantEFF = 0.1;
+    if(side == 'offense' && combat.offEnchant.NAME == '滿月') moon = 0.1;
+    else if(side == 'defense' && combat.defEnchant.NAME == '滿月') moon = 0.1;
 
     /* calculate */
-    PREATK = ATK * (1 + equipEFF + BUFFEFF + enchantEFF);
+    PREATK = ATK * (1 + equipEFF + BUFFEFF + moon);
     PREATK = Math.round(PREATK);
     // display job when calculate
     if(side == 'offense'){
@@ -124,13 +141,13 @@ function displayPREATK(side){
         displayJob(side);
     }
     // display PREATK formula
-    document.getElementById('PREATK').innerHTML = "戰前" + dmg + ":<br>" + PREATK + "=" + ATK + "×" + "[1+" + equipEFF + "+" + BUFFEFF + "+" + enchantEFF + "]";
+    document.getElementById('PREATK').innerHTML = "戰前" + dmg + ":<br>" + PREATK + "=" + ATK + "×" + "[1+" + equipEFF + "+" + BUFFEFF + "+" + moon + "]";
 
     return PREATK;
 };
 
 function displayPREDEF(side){
-    var job, DEF, equipEFF = 0, BUFFEFF = 0, enchantEFF = 0, PREDEF, dmg;
+    var job, DEF, equipEFF = 0, BUFFEFF = 0, moon = 0, PREDEF, dmg;
 
     /* get DEF */
     if(combat.offSkill.TYPE == '魔法傷害'){
@@ -144,11 +161,11 @@ function displayPREDEF(side){
         else if(side == 'defense') DEF = document.getElementById('defDEF').value;
     }
     /* 滿月全屬性+10% */
-    if(side == 'offense' && combat.offEnchant.NAME == '滿月') enchantEFF = 0.1;
-    else if(side == 'defense' && combat.defEnchant.NAME == '滿月') enchantEFF = 0.1;
+    if(side == 'offense' && combat.offEnchant.NAME == '滿月') moon = 0.1;
+    else if(side == 'defense' && combat.defEnchant.NAME == '滿月') moon = 0.1;
 
     /* calculate */
-    PREDEF = DEF * (1 + equipEFF + BUFFEFF + enchantEFF);
+    PREDEF = DEF * (1 + equipEFF + BUFFEFF + moon);
     PREDEF = Math.round(PREDEF);
     // display job when calculate
     if(side == 'offense'){
@@ -160,7 +177,7 @@ function displayPREDEF(side){
         displayJob(side);
     }
     // display PREDEF formula
-    document.getElementById('PREDEF').innerHTML = "戰前" + dmg + ":<br> " + PREDEF + " = " + DEF + "×" + "[1+" + equipEFF + "+" + BUFFEFF + "+" + enchantEFF + "]";
+    document.getElementById('PREDEF').innerHTML = "戰前" + dmg + ":<br> " + PREDEF + " = " + DEF + "×" + "[1+" + equipEFF + "+" + BUFFEFF + "+" + moon + "]";
 
     return PREDEF;
 };
@@ -168,7 +185,7 @@ function displayPREDEF(side){
 function bigFormula(){
     /* get parameter & calculate */
     var PREATK = displayPREATK('offense');
-    var offEquipEFF=0, offEnchantEFF=0;
+    var offEquipEFF=0, wave=0;
     var PREDEF = displayPREDEF('defense');
     var defEquipEFF=0, defEnchantEFF=0;
     var counterRate = cal_counter(getArmy('offense'), getArmy('defense'));
@@ -178,8 +195,14 @@ function bigFormula(){
     var onehit, HConehit;
 
     skillRate = combat.offSkill.RATE;
-    if(combat.offSkill.TYPE == '物理傷害' && combat.offEnchant.NAME == '怒濤') offEnchantEFF = 0.1;
-    onehit = (PREATK*(1+offEquipEFF+offEnchantEFF)*(1+counterRate+skillCounterRate)-PREDEF*(1+defEquipEFF)*(1+terrainRate))/2*(1+dmgRate)*skillRate*combatNEG;
+    /* enchant: 怒濤 */
+    if(combat.offSkill.TYPE == '物理傷害' && combat.offEnchant.NAME == '怒濤') wave = 0.1;
+    /* weapon skills */
+    if(combat.offSkill.TYPE == '物理傷害') offEquipEFF = combat.offWeapon.CATK;
+    else if(combat.offSkill.TYPE == '魔法傷害') offEquipEFF = combat.offWeapon.CINT;
+
+    /* calculate onehits */
+    onehit = (PREATK*(1+offEquipEFF+wave)*(1+counterRate+skillCounterRate)-PREDEF*(1+defEquipEFF)*(1+terrainRate))/2*(1+dmgRate)*skillRate*combatNEG;
     onehit = Math.round(onehit);
     if(onehit <= 0) onehit = 1;
     HConehit = onehit*critRate;
@@ -187,9 +210,9 @@ function bigFormula(){
 
     /* display */
     // no crit
-    document.getElementById('FORMULA').innerHTML = "一段傷害:<br>" + onehit + " = {[" + PREATK + "×(1+" + offEquipEFF + "+" + offEnchantEFF + ")×" + (1+counterRate+skillCounterRate) + "]-[" + PREDEF + "×(1+" + defEquipEFF + ")×" + (1+terrainRate) + "]}÷2×" + (1+dmgRate) + "×" + skillRate + "×" + combatNEG
+    document.getElementById('FORMULA').innerHTML = "一段傷害:<br>" + onehit + " = {[" + PREATK + "×(1+" + offEquipEFF + "+" + wave + ")×" + (1+counterRate+skillCounterRate) + "]-[" + PREDEF + "×(1+" + defEquipEFF + ")×" + (1+terrainRate) + "]}÷2×" + (1+dmgRate) + "×" + skillRate + "×" + combatNEG
     // hero crit
-    document.getElementById('HCFORMULA').innerHTML = "一段傷害(英雄爆擊):<br>" + HConehit + " = {[" + PREATK + "×(1+" + offEquipEFF + "+" + offEnchantEFF + ")×" + (1+counterRate+skillCounterRate) + "]-[" + PREDEF + "×(1+" + defEquipEFF + ")×" + (1+terrainRate) + "]}÷2×" + (1+dmgRate) + "×" + skillRate + "×" + critRate + "×" + combatNEG
+    document.getElementById('HCFORMULA').innerHTML = "一段傷害(英雄爆擊):<br>" + HConehit + " = {[" + PREATK + "×(1+" + offEquipEFF + "+" + wave + ")×" + (1+counterRate+skillCounterRate) + "]-[" + PREDEF + "×(1+" + defEquipEFF + ")×" + (1+terrainRate) + "]}÷2×" + (1+dmgRate) + "×" + skillRate + "×" + critRate + "×" + combatNEG
 };
 
 window.addEventListener("click", function getSelected(){

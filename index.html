@@ -14,6 +14,7 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/enchant.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/skill.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/terrain.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/weapon.js"></script>
         -->
         <!-- vj local
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\master.css">
@@ -27,6 +28,7 @@
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\enchant.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\skill.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\terrain.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\weapon.js"></script>
         -->
         <!-- github
         -->
@@ -41,10 +43,11 @@
         <script src="/langrisser-combat-calculator/js/enchant.js"></script>
         <script src="/langrisser-combat-calculator/js/skill.js"></script>
         <script src="/langrisser-combat-calculator/js/terrain.js"></script>
+        <script src="/langrisser-combat-calculator/js/weapon.js"></script>
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.3.3"), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.3.4"), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -947,155 +950,143 @@
                         </div>
                         <div class='weaponList'>
                             <ul>
-                                <li class='equipment imgbtn offense weapon' id='真理的門扉' >
-                                    <img src='image/equipment/weapon/真理的門扉.png' style='width: 40px' onclick='selectEquipment("真理的門扉")'/>
-                                </li>
                                 <li class='equipment imgbtn offense weapon' id='屠龍劍格拉姆' >
-                                    <img src='image/equipment/weapon/屠龍劍格拉姆.png' style='width: 40px' onclick='selectEquipment("屠龍劍格拉姆")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='亞斯塔祿' >
-                                    <img src='image/equipment/weapon/亞斯塔祿.png' style='width: 40px' onclick='selectEquipment("亞斯塔祿")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='米約爾尼爾' >
-                                    <img src='image/equipment/weapon/米約爾尼爾.png' style='width: 40px' onclick='selectEquipment("米約爾尼爾")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='女神的左手' >
-                                    <img src='image/equipment/weapon/女神的左手.png' style='width: 40px' onclick='selectEquipment("女神的左手")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='逸才權杖' >
-                                    <img src='image/equipment/weapon/逸才權杖.png' style='width: 40px' onclick='selectEquipment("逸才權杖")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='海德拉之弓' >
-                                    <img src='image/equipment/weapon/海德拉之弓.png' style='width: 40px' onclick='selectEquipment("海德拉之弓")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='■ ■ ■ ■ ' >
-                                    <img src='image/equipment/weapon/■ ■ ■ ■ .png' style='width: 40px' onclick='selectEquipment("■ ■ ■ ■ ")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='夜鷹' >
-                                    <img src='image/equipment/weapon/夜鷹.png' style='width: 40px' onclick='selectEquipment("夜鷹")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='藍色之月' >
-                                    <img src='image/equipment/weapon/藍色之月.png' style='width: 40px' onclick='selectEquipment("藍色之月")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='真紅死神' >
-                                    <img src='image/equipment/weapon/真紅死神.png' style='width: 40px' onclick='selectEquipment("真紅死神")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='彌米爾的戰錘' >
-                                    <img src='image/equipment/weapon/彌米爾的戰錘.png' style='width: 40px' onclick='selectEquipment("彌米爾的戰錘")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='信仰的試煉' >
-                                    <img src='image/equipment/weapon/信仰的試煉.png' style='width: 40px' onclick='selectEquipment("信仰的試煉")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='妖精之嘆' >
-                                    <img src='image/equipment/weapon/妖精之嘆.png' style='width: 40px' onclick='selectEquipment("妖精之嘆")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='最後的騎士' >
-                                    <img src='image/equipment/weapon/最後的騎士.png' style='width: 40px' onclick='selectEquipment("最後的騎士")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='滅創之權杖' >
-                                    <img src='image/equipment/weapon/滅創之權杖.png' style='width: 40px' onclick='selectEquipment("滅創之權杖")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='藍色惑星' >
-                                    <img src='image/equipment/weapon/藍色惑星.png' style='width: 40px' onclick='selectEquipment("藍色惑星")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='永生者的饋贈' >
-                                    <img src='image/equipment/weapon/永生者的饋贈.png' style='width: 40px' onclick='selectEquipment("永生者的饋贈")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='紅色之月' >
-                                    <img src='image/equipment/weapon/紅色之月.png' style='width: 40px' onclick='selectEquipment("紅色之月")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='家用曬衣杆' >
-                                    <img src='image/equipment/weapon/家用曬衣杆.png' style='width: 40px' onclick='selectEquipment("家用曬衣杆")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='靈劍荒鷹' >
-                                    <img src='image/equipment/weapon/靈劍荒鷹.png' style='width: 40px' onclick='selectEquipment("靈劍荒鷹")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='世界樹的嫩枝' >
-                                    <img src='image/equipment/weapon/世界樹的嫩枝.png' style='width: 40px' onclick='selectEquipment("世界樹的嫩枝")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='血之三弦琴' >
-                                    <img src='image/equipment/weapon/血之三弦琴.png' style='width: 40px' onclick='selectEquipment("血之三弦琴")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='拉格納羅克' >
-                                    <img src='image/equipment/weapon/拉格納羅克.png' style='width: 40px' onclick='selectEquipment("拉格納羅克")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='魔導杖' >
-                                    <img src='image/equipment/weapon/魔導杖.png' style='width: 40px' onclick='selectEquipment("魔導杖")'/>
+                                    <img src='image/equipment/weapon/屠龍劍格拉姆.png' style='width: 40px' onclick='selectWeapon("offense","屠龍劍格拉姆")'/>
                                 </li>
                                 <li class='equipment imgbtn offense weapon' id='嗜血劍赫倫汀' >
-                                    <img src='image/equipment/weapon/嗜血劍赫倫汀.png' style='width: 40px' onclick='selectEquipment("嗜血劍赫倫汀")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='惡魔之吻' >
-                                    <img src='image/equipment/weapon/惡魔之吻.png' style='width: 40px' onclick='selectEquipment("惡魔之吻")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='風斬' >
-                                    <img src='image/equipment/weapon/風斬.png' style='width: 40px' onclick='selectEquipment("風斬")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='王座守衛' >
-                                    <img src='image/equipment/weapon/王座守衛.png' style='width: 40px' onclick='selectEquipment("王座守衛")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='紛爭調停者' >
-                                    <img src='image/equipment/weapon/紛爭調停者.png' style='width: 40px' onclick='selectEquipment("紛爭調停者")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='寄生樹' >
-                                    <img src='image/equipment/weapon/寄生樹.png' style='width: 40px' onclick='selectEquipment("寄生樹")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='極限魔弓' >
-                                    <img src='image/equipment/weapon/極限魔弓.png' style='width: 40px' onclick='selectEquipment("極限魔弓")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='烏勒爾之弓' >
-                                    <img src='image/equipment/weapon/烏勒爾之弓.png' style='width: 40px' onclick='selectEquipment("烏勒爾之弓")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='奇蹟之杖' >
-                                    <img src='image/equipment/weapon/奇蹟之杖.png' style='width: 40px' onclick='selectEquipment("奇蹟之杖")'/>
+                                    <img src='image/equipment/weapon/嗜血劍赫倫汀.png' style='width: 40px' onclick='selectWeapon("offense","嗜血劍赫倫汀")'/>
                                 </li>
                                 <li class='equipment imgbtn offense weapon' id='斬魔刀' >
-                                    <img src='image/equipment/weapon/斬魔刀.png' style='width: 40px' onclick='selectEquipment("斬魔刀")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='雞毛撢子' >
-                                    <img src='image/equipment/weapon/雞毛撢子.png' style='width: 40px' onclick='selectEquipment("雞毛撢子")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='碎星' >
-                                    <img src='image/equipment/weapon/碎星.png' style='width: 40px' onclick='selectEquipment("碎星")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='噬岩者' >
-                                    <img src='image/equipment/weapon/噬岩者.png' style='width: 40px' onclick='selectEquipment("噬岩者")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='蒼白之杖' >
-                                    <img src='image/equipment/weapon/蒼白之杖.png' style='width: 40px' onclick='selectEquipment("蒼白之杖")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='風暴卡路里' >
-                                    <img src='image/equipment/weapon/風暴卡路里.png' style='width: 40px' onclick='selectEquipment("風暴卡路里")'/>
+                                    <img src='image/equipment/weapon/斬魔刀.png' style='width: 40px' onclick='selectWeapon("offense","斬魔刀")'/>
                                 </li>
                                 <li class='equipment imgbtn offense weapon' id='冰霜之刃' >
-                                    <img src='image/equipment/weapon/冰霜之刃.png' style='width: 40px' onclick='selectEquipment("冰霜之刃")'/>
+                                    <img src='image/equipment/weapon/冰霜之刃.png' style='width: 40px' onclick='selectWeapon("offense","冰霜之刃")'/>
                                 </li>
                                 <li class='equipment imgbtn offense weapon' id='封印守護者' >
-                                    <img src='image/equipment/weapon/封印守護者.png' style='width: 40px' onclick='selectEquipment("封印守護者")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='正義誓言' >
-                                    <img src='image/equipment/weapon/正義誓言.png' style='width: 40px' onclick='selectEquipment("正義誓言")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='煉獄' >
-                                    <img src='image/equipment/weapon/煉獄.png' style='width: 40px' onclick='selectEquipment("煉獄")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='奧瓦的手杖' >
-                                    <img src='image/equipment/weapon/奧瓦的手杖.png' style='width: 40px' onclick='selectEquipment("奧瓦的手杖")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='詛咒之槍' >
-                                    <img src='image/equipment/weapon/詛咒之槍.png' style='width: 40px' onclick='selectEquipment("詛咒之槍")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='黑色曙光' >
-                                    <img src='image/equipment/weapon/黑色曙光.png' style='width: 40px' onclick='selectEquipment("黑色曙光")'/>
-                                </li>
-                                <li class='equipment imgbtn offense weapon' id='流浪的騎士' >
-                                    <img src='image/equipment/weapon/流浪的騎士.png' style='width: 40px' onclick='selectEquipment("流浪的騎士")'/>
+                                    <img src='image/equipment/weapon/封印守護者.png' style='width: 40px' onclick='selectWeapon("offense","封印守護者")'/>
                                 </li>
                                 <li class='equipment imgbtn offense weapon' id='均衡之刃' >
-                                    <img src='image/equipment/weapon/均衡之刃.png' style='width: 40px' onclick='selectEquipment("均衡之刃")'/>
+                                    <img src='image/equipment/weapon/均衡之刃.png' style='width: 40px' onclick='selectWeapon("offense","均衡之刃")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='夜鷹' >
+                                    <img src='image/equipment/weapon/夜鷹.png' style='width: 40px' onclick='selectWeapon("offense","夜鷹")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='妖精之嘆' >
+                                    <img src='image/equipment/weapon/妖精之嘆.png' style='width: 40px' onclick='selectWeapon("offense","妖精之嘆")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='風斬' >
+                                    <img src='image/equipment/weapon/風斬.png' style='width: 40px' onclick='selectWeapon("offense","風斬")'/>
                                 </li>
                                 <li class='equipment imgbtn offense weapon' id='莎拉維爾' >
-                                    <img src='image/equipment/weapon/莎拉維爾.png' style='width: 40px' onclick='selectEquipment("莎拉維爾")'/>
+                                    <img src='image/equipment/weapon/莎拉維爾.png' style='width: 40px' onclick='selectWeapon("offense","莎拉維爾")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='海德拉之弓' >
+                                    <img src='image/equipment/weapon/海德拉之弓.png' style='width: 40px' onclick='selectWeapon("offense","海德拉之弓")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='血之三弦琴' >
+                                    <img src='image/equipment/weapon/血之三弦琴.png' style='width: 40px' onclick='selectWeapon("offense","血之三弦琴")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='極限魔弓' >
+                                    <img src='image/equipment/weapon/極限魔弓.png' style='width: 40px' onclick='selectWeapon("offense","極限魔弓")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='烏勒爾之弓' >
+                                    <img src='image/equipment/weapon/烏勒爾之弓.png' style='width: 40px' onclick='selectWeapon("offense","烏勒爾之弓")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='亞斯塔祿' >
+                                    <img src='image/equipment/weapon/亞斯塔祿.png' style='width: 40px' onclick='selectWeapon("offense","亞斯塔祿")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='蒼白之杖' >
+                                    <img src='image/equipment/weapon/蒼白之杖.png' style='width: 40px' onclick='selectWeapon("offense","蒼白之杖")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='逸才權杖' >
+                                    <img src='image/equipment/weapon/逸才權杖.png' style='width: 40px' onclick='selectWeapon("offense","逸才權杖")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='煉獄' >
+                                    <img src='image/equipment/weapon/煉獄.png' style='width: 40px' onclick='selectWeapon("offense","煉獄")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='藍色之月' >
+                                    <img src='image/equipment/weapon/藍色之月.png' style='width: 40px' onclick='selectWeapon("offense","藍色之月")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='紅色之月' >
+                                    <img src='image/equipment/weapon/紅色之月.png' style='width: 40px' onclick='selectWeapon("offense","紅色之月")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='奇蹟之杖' >
+                                    <img src='image/equipment/weapon/奇蹟之杖.png' style='width: 40px' onclick='selectWeapon("offense","奇蹟之杖")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='女神的左手' >
+                                    <img src='image/equipment/weapon/女神的左手.png' style='width: 40px' onclick='selectWeapon("offense","女神的左手")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='寄生樹' >
+                                    <img src='image/equipment/weapon/寄生樹.png' style='width: 40px' onclick='selectWeapon("offense","寄生樹")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='奧瓦的手杖' >
+                                    <img src='image/equipment/weapon/奧瓦的手杖.png' style='width: 40px' onclick='selectWeapon("offense","奧瓦的手杖")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='永生者的饋贈' >
+                                    <img src='image/equipment/weapon/永生者的饋贈.png' style='width: 40px' onclick='selectWeapon("offense","永生者的饋贈")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='風暴卡路里' >
+                                    <img src='image/equipment/weapon/風暴卡路里.png' style='width: 40px' onclick='selectWeapon("offense","風暴卡路里")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='真理的門扉' >
+                                    <img src='image/equipment/weapon/真理的門扉.png' style='width: 40px' onclick='selectWeapon("offense","真理的門扉")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='米約爾尼爾' >
+                                    <img src='image/equipment/weapon/米約爾尼爾.png' style='width: 40px' onclick='selectWeapon("offense","米約爾尼爾")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='彌米爾的戰錘' >
+                                    <img src='image/equipment/weapon/彌米爾的戰錘.png' style='width: 40px' onclick='selectWeapon("offense","彌米爾的戰錘")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='碎星' >
+                                    <img src='image/equipment/weapon/碎星.png' style='width: 40px' onclick='selectWeapon("offense","碎星")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='正義誓言' >
+                                    <img src='image/equipment/weapon/正義誓言.png' style='width: 40px' onclick='selectWeapon("offense","正義誓言")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='最後的騎士' >
+                                    <img src='image/equipment/weapon/最後的騎士.png' style='width: 40px' onclick='selectWeapon("offense","最後的騎士")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='藍色惑星' >
+                                    <img src='image/equipment/weapon/藍色惑星.png' style='width: 40px' onclick='selectWeapon("offense","藍色惑星")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='世界樹的嫩枝' >
+                                    <img src='image/equipment/weapon/世界樹的嫩枝.png' style='width: 40px' onclick='selectWeapon("offense","世界樹的嫩枝")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='雞毛撢子' >
+                                    <img src='image/equipment/weapon/雞毛撢子.png' style='width: 40px' onclick='selectWeapon("offense","雞毛撢子")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='詛咒之槍' >
+                                    <img src='image/equipment/weapon/詛咒之槍.png' style='width: 40px' onclick='selectWeapon("offense","詛咒之槍")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='■ ■ ■ ■ ' >
+                                    <img src='image/equipment/weapon/■ ■ ■ ■ .png' style='width: 40px' onclick='selectWeapon("offense","■ ■ ■ ■ ")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='真紅死神' >
+                                    <img src='image/equipment/weapon/真紅死神.png' style='width: 40px' onclick='selectWeapon("offense","真紅死神")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='拉格納羅克' >
+                                    <img src='image/equipment/weapon/拉格納羅克.png' style='width: 40px' onclick='selectWeapon("offense","拉格納羅克")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='惡魔之吻' >
+                                    <img src='image/equipment/weapon/惡魔之吻.png' style='width: 40px' onclick='selectWeapon("offense","惡魔之吻")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='王座守衛' >
+                                    <img src='image/equipment/weapon/王座守衛.png' style='width: 40px' onclick='selectWeapon("offense","王座守衛")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='紛爭調停者' >
+                                    <img src='image/equipment/weapon/紛爭調停者.png' style='width: 40px' onclick='selectWeapon("offense","紛爭調停者")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='信仰的試煉' >
+                                    <img src='image/equipment/weapon/信仰的試煉.png' style='width: 40px' onclick='selectWeapon("offense","信仰的試煉")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='滅創之權杖' >
+                                    <img src='image/equipment/weapon/滅創之權杖.png' style='width: 40px' onclick='selectWeapon("offense","滅創之權杖")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='黑色曙光' >
+                                    <img src='image/equipment/weapon/黑色曙光.png' style='width: 40px' onclick='selectWeapon("offense","黑色曙光")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='流浪的騎士' >
+                                    <img src='image/equipment/weapon/流浪的騎士.png' style='width: 40px' onclick='selectWeapon("offense","流浪的騎士")'/>
                                 </li>
                             </ul>
                         </div>
@@ -1192,17 +1183,17 @@
                                 <td>攻擊:<input type='text' id='offATK' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td id='terraindata'>地形:NA</td>
-                                <td id='enchantdata'>附魔:NA</td>
+                                <td id='offcharJOB'>職業:NA</td>
+                                <td id='offcharARMY'>兵種:NA</td>
                                 <td>智力:<input type='text' id='offINT' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td id='offcharJOB'>職業:NA</td>
-                                <td id='offcharARMY'>兵種:NA</td>
+                                <td id='terraindata'>地形:NA</td>
+                                <td id='enchantdata'>附魔:NA</td>
                                 <td>防禦:<input type='text' id='offDEF' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td></td>
+                                <td id='offWeapon'>武器:NA</td>
                                 <td></td>
                                 <td>魔防:<input type='text' id='offMDEF' style='width:90px' value=100></td>
                             </tr>
@@ -1240,13 +1231,13 @@
                                 <td>攻擊:<input type='text' id='defATK' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td id='terraindatad'>地形:NA</td>
-                                <td id='enchantdatad'>附魔:NA</td>
+                                <td id='defcharJOB'>職業:NA</td>
+                                <td id='defcharARMY'>兵種:NA</td>
                                 <td>智力:<input type='text' id='defINT' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td id='defcharJOB'>職業:NA</td>
-                                <td id='defcharARMY'>兵種:NA</td>
+                                <td id='terraindatad'>地形:NA</td>
+                                <td id='enchantdatad'>附魔:NA</td>
                                 <td>防禦:<input type='text' id='defDEF' style='width:90px' value=100></td>
                             </tr>
                             <tr>

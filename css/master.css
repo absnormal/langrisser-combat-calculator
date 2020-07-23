@@ -179,7 +179,7 @@ tbody > p{
 .weaponList{
     border-style: solid;
     border-color: white;
-    height: 45px;
+    height: 95px;
 }
 .weapon .imgbtn{
     display: inline-block;
@@ -189,7 +189,7 @@ tbody > p{
 .armorList{
     border-style: solid;
     border-color: white;
-    height: 45px;
+    height: 50px;
 }
 .weapon .imgbtn{
     display: inline-block;
@@ -199,7 +199,7 @@ tbody > p{
 .helmetList{
     border-style: solid;
     border-color: white;
-    height: 45px;
+    height: 50px;
 }
 .weapon .imgbtn{
     display: inline-block;
@@ -209,7 +209,7 @@ tbody > p{
 .accessoryList{
     border-style: solid;
     border-color: white;
-    height: 45px;
+    height: 50px;
 }
 .weapon .imgbtn{
     display: inline-block;
