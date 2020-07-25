@@ -12,16 +12,16 @@ var defenseTerrain = '道路d', defenseEnchant = '時鐘d';
 function displaySkill(P_charName, side){
     document.getElementById('普攻(物)').style = '';
     document.getElementById('普攻(法)').style = '';
-    var skills = document.getElementsByClassName(P_charName + ' ' + side);
-    for(var i=0; i<skills.length; i++){
+    let skills = document.getElementsByClassName(P_charName + ' ' + side);
+    for(let i=0; i<skills.length; i++){
         if(skills[i].classList.contains('skill')){
             skills[i].style = '';
         }
     }
 };
 function hideSkill(side){
-    var skills = document.getElementsByClassName('skill ' + side);
-    for(var i=0; i<skills.length; i++){
+    let skills = document.getElementsByClassName('skill ' + side);
+    for(let i=0; i<skills.length; i++){
         skills[i].style = 'display: none;';
     }
 };
@@ -50,16 +50,16 @@ function selectSkill(skillName){
 
 // soldiers depend on character
 function displaySoldier(P_charName, side){
-    var soldiers = document.getElementsByClassName(P_charName + ' ' + side);
-    for(var i=0; i<soldiers.length; i++){
+    let soldiers = document.getElementsByClassName(P_charName + ' ' + side);
+    for(let i=0; i<soldiers.length; i++){
         if(soldiers[i].classList.contains('soldier')){
             soldiers[i].style = '';
         }
     }
 };
 function hideSoldier(side){
-    var soldiers = document.getElementsByClassName('soldier ' + side);
-    for(var i=0; i<soldiers.length; i++){
+    let soldiers = document.getElementsByClassName('soldier ' + side);
+    for(let i=0; i<soldiers.length; i++){
         soldiers[i].style = 'display: none;';
     }
 };
@@ -136,14 +136,14 @@ function selectEnchant(enchantName){
 
 // characters depend on party
 function displayChar(P_partyName, side){
-    var chars = document.getElementsByClassName(P_partyName + ' ' + side);
-    for(var i=0; i<chars.length; i++){
+    let chars = document.getElementsByClassName(P_partyName + ' ' + side);
+    for(let i=0; i<chars.length; i++){
         chars[i].style = '';
     }
 };
 function hideChar(side){
-    var chars = document.getElementsByClassName('character ' + side);
-    for(var i=0; i<chars.length; i++){
+    let chars = document.getElementsByClassName('character ' + side);
+    for(let i=0; i<chars.length; i++){
         chars[i].style = 'display: none;'
     }
 };

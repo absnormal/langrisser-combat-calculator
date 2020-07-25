@@ -45,7 +45,7 @@ var weapon = [{
     CATK: 0, CINT: 0, CDEF: 0, CMDEF: 0, CCRIT: 0.15,
     DESC: '主動攻擊時，暴擊率提升15%，同時遭受傷害降低30%'
 },{
-    NAME: '風斬', TYPE: '匕首',
+    NAME: '風斬刀', TYPE: '匕首',
     HP: 0, ATK: 0.1, INT: 0, DEF: 0, MDEF: 0, DEX: 0, CRIT: 0,
     CATK: 0, CINT: 0, CDEF: 0, CMDEF: 0, CCRIT: 0,
     DESC: '攻擊+10%，主動攻擊進入戰鬥時，戰後有50%機率使敵軍「防禦」降低20%，持續1回合'
@@ -359,6 +359,7 @@ function selectWeapon(side, weaponName){
             document.getElementById(combat.offWeapon.NAME).classList.remove('selected')
         }
         // select new weapon
+        document.getElementById('ERROR').innerHTML = weaponName;
         document.getElementById(weaponName).classList.add('selected');
         combat.offWeapon = weapon.find(x => x.NAME === weaponName);
         document.getElementById('offWeapon').innerHTML = "武器:" + weaponName;
