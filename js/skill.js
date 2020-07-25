@@ -5,14 +5,14 @@ var skill = [{
     RATE: 1, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '用攻擊普攻。'
+    DISC: '用攻擊普攻，造成1倍傷害。'
 },{
     NAME: '普攻(法)', COST: 0,
     TYPE: '魔法傷害', CD: 0, RANGE: '?', AREA: '單體',
     RATE: 1, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '用智力普攻。'
+    DISC: '用智力普攻，造成1倍傷害。'
 },{
     NAME: '火球', COST: 1,
     TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
@@ -703,3 +703,15 @@ var skill = [{
     DISC: '[物理傷害]攻擊單個敵軍，造成1.1倍傷害，並造成[位移]效果：將目標撞開2格。攻擊前每移動一格，傷害提升20%（最多提升60%）。戰鬥前使得敵軍獲得[傷口詛咒]：“被施加的治療直接轉變為治療量20%的傷害”，持續1回合。（該效果無法被驅散）'
 }];
 
+function displaySkillInfo(side){
+    if(side == 'defense'){}
+    else if(side == 'offense'){
+        document.getElementById('offSkillNAME').innerHTML = "<b>"+combat.offSkill.NAME+"</b>";
+        document.getElementById('offSkillCOST').innerHTML = "<b>COST:</b>"+combat.offSkill.COST;
+        document.getElementById('offSkillTYPE').innerHTML = "<b>類別:</b>"+combat.offSkill.TYPE;
+        document.getElementById('offSkillCD').innerHTML = "<b>冷卻:</b>"+combat.offSkill.CD;
+        document.getElementById('offSkillRANGE').innerHTML="<b>射程:</b>"+combat.offSkill.RANGE;
+        document.getElementById('offSkillAREA').innerHTML = "<b>範圍:</b>"+combat.offSkill.AREA;
+        document.getElementById('offSkillDISC').innerHTML = combat.offSkill.DISC;
+    }
+};

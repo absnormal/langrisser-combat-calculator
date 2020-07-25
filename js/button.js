@@ -157,6 +157,16 @@ function selectChar(charName){
         // hide all soldiers and display soldiers in char
         hideSoldier('defense');
         displaySoldier(charName.slice(0, -1), 'defense');
+        // hide and display equipments by JOB1
+        combat.defChar = char.find(x => x.NAME === charName.slice(0, -1));
+        displayArmy('defense');
+        displayJob('defense');
+        hideWeapon('defense');
+        displayWeapon('defense');
+        hideArmor('defense');
+        displayArmor('defense');
+        hideHelmet('defense');
+        displayHelmet('defense');
         // select new char & first soldier
         document.getElementById(charName).classList.add('selected');
         defenseChar = charName;
@@ -178,8 +188,14 @@ function selectChar(charName){
         displaySoldier(charName, 'offense');
         // hide and display equipments by JOB1
         combat.offChar = char.find(x => x.NAME === charName);
+        displayArmy('offense');
+        displayJob('offense');
         hideWeapon('offense');
         displayWeapon('offense');
+        hideArmor('offense');
+        displayArmor('offense');
+        hideHelmet('offense');
+        displayHelmet('offense');
         // select new char & normal attack & first soldier
         document.getElementById(charName).classList.add('selected');
         offenseChar = charName;

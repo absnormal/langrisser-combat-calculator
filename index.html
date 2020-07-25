@@ -3,6 +3,7 @@
 
     <head>
         <!-- local
+        -->
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
@@ -15,7 +16,8 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/skill.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/terrain.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/weapon.js"></script>
-        -->
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/armor.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/helmet.js"></script>
         <!-- vj local
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\master.css">
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\box.css">
@@ -29,6 +31,8 @@
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\skill.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\terrain.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\weapon.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\armor.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\helmet.js"></script>
         -->
         <!-- github
         -->
@@ -44,6 +48,8 @@
         <script src="/langrisser-combat-calculator/js/skill.js"></script>
         <script src="/langrisser-combat-calculator/js/terrain.js"></script>
         <script src="/langrisser-combat-calculator/js/weapon.js"></script>
+        <script src="/langrisser-combat-calculator/js/armor.js"></script>
+        <script src="/langrisser-combat-calculator/js/helmet.js"></script>
     </head>
 
     <!-- change version / path to local/github -->
@@ -731,20 +737,20 @@
                                 </li>
                             </ul>
                             <table>
-                                <tbody class='skillinfo 火球' style='display: none;'>
+                                <tbody class='skillinfo'>
                                     <tr>
-                                        <td><b>火球</b></td>
-                                        <td><b>COST:</b>1</td>
+                                        <td id='offSkillNAME' style='width: 320px'><b>技能名稱</b></td>
+                                        <td id='offSkillCOST' style='width: 320px'><b>COST:</b>1</td>
                                     </tr>
                                     <tr>
-                                        <td class='type'><b>類別:</b>魔法傷害</td>
-                                        <td class='cooldown'><b>冷卻:</b>1回合</td>
+                                        <td id='offSkillTYPE' style='width: 320px'><b>類別:</b></td>
+                                        <td id='offSkillCD' style='width: 320px'><b>冷卻:</b></td>
                                     </tr>
                                     <tr>
-                                        <td class='range'><b>射程:</b>2格</td>
-                                        <td class='area'><b>範圍:</b>單體</td>
+                                        <td id='offSkillRANGE' style='width: 320px'><b>射程:</b></td>
+                                        <td id='offSkillAREA' style='width: 320px'><b>範圍:</b></td>
                                     </tr>
-                                    <td class='info' colspan='2'>[魔法傷害]攻擊單個敵軍，造成<b style="color:red;">1.5</b>倍傷害，對「步兵」有特效。</td>
+                                    <td id='offSkillDISC' style='width: 640px' colspan='2'>技能敘述</td>
                                 </tbody>
                             </table>
                         </div>
@@ -950,152 +956,401 @@
                         </div>
                         <div class='weaponList'>
                             <ul>
-                                <li class='equipment imgbtn offense weapon' id='屠龍劍格拉姆' >
+                                <li class='equipment imgbtn offense weapon' id='沒有武器' style='display: none;' >
+                                    <img src='image/equipment/weapon/沒有武器.png' style='width: 40px' onclick='selectWeapon("offense","沒有武器")'/>
+                                </li>
+                                <li class='equipment imgbtn offense weapon' id='屠龍劍格拉姆' style='display: none;' >
                                     <img src='image/equipment/weapon/屠龍劍格拉姆.png' style='width: 40px' onclick='selectWeapon("offense","屠龍劍格拉姆")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='嗜血劍赫倫汀' >
+                                <li class='equipment imgbtn offense weapon' id='嗜血劍赫倫汀' style='display: none;' >
                                     <img src='image/equipment/weapon/嗜血劍赫倫汀.png' style='width: 40px' onclick='selectWeapon("offense","嗜血劍赫倫汀")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='斬魔刀' >
+                                <li class='equipment imgbtn offense weapon' id='斬魔刀' style='display: none;' >
                                     <img src='image/equipment/weapon/斬魔刀.png' style='width: 40px' onclick='selectWeapon("offense","斬魔刀")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='冰霜之刃' >
+                                <li class='equipment imgbtn offense weapon' id='冰霜之刃' style='display: none;' >
                                     <img src='image/equipment/weapon/冰霜之刃.png' style='width: 40px' onclick='selectWeapon("offense","冰霜之刃")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='封印守護者' >
+                                <li class='equipment imgbtn offense weapon' id='封印守護者' style='display: none;' >
                                     <img src='image/equipment/weapon/封印守護者.png' style='width: 40px' onclick='selectWeapon("offense","封印守護者")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='均衡之刃' >
+                                <li class='equipment imgbtn offense weapon' id='均衡之刃' style='display: none;' >
                                     <img src='image/equipment/weapon/均衡之刃.png' style='width: 40px' onclick='selectWeapon("offense","均衡之刃")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='夜鷹' >
+                                <li class='equipment imgbtn offense weapon' id='夜鷹' style='display: none;' >
                                     <img src='image/equipment/weapon/夜鷹.png' style='width: 40px' onclick='selectWeapon("offense","夜鷹")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='妖精之嘆' >
+                                <li class='equipment imgbtn offense weapon' id='妖精之嘆' style='display: none;' >
                                     <img src='image/equipment/weapon/妖精之嘆.png' style='width: 40px' onclick='selectWeapon("offense","妖精之嘆")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='風斬' >
+                                <li class='equipment imgbtn offense weapon' id='風斬' style='display: none;' >
                                     <img src='image/equipment/weapon/風斬.png' style='width: 40px' onclick='selectWeapon("offense","風斬")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='莎拉維爾' >
+                                <li class='equipment imgbtn offense weapon' id='莎拉維爾' style='display: none;' >
                                     <img src='image/equipment/weapon/莎拉維爾.png' style='width: 40px' onclick='selectWeapon("offense","莎拉維爾")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='海德拉之弓' >
+                                <li class='equipment imgbtn offense weapon' id='海德拉之弓' style='display: none;' >
                                     <img src='image/equipment/weapon/海德拉之弓.png' style='width: 40px' onclick='selectWeapon("offense","海德拉之弓")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='血之三弦琴' >
+                                <li class='equipment imgbtn offense weapon' id='血之三弦琴' style='display: none;' >
                                     <img src='image/equipment/weapon/血之三弦琴.png' style='width: 40px' onclick='selectWeapon("offense","血之三弦琴")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='極限魔弓' >
+                                <li class='equipment imgbtn offense weapon' id='極限魔弓' style='display: none;' >
                                     <img src='image/equipment/weapon/極限魔弓.png' style='width: 40px' onclick='selectWeapon("offense","極限魔弓")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='烏勒爾之弓' >
+                                <li class='equipment imgbtn offense weapon' id='烏勒爾之弓' style='display: none;' >
                                     <img src='image/equipment/weapon/烏勒爾之弓.png' style='width: 40px' onclick='selectWeapon("offense","烏勒爾之弓")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='亞斯塔祿' >
+                                <li class='equipment imgbtn offense weapon' id='亞斯塔祿' style='display: none;' >
                                     <img src='image/equipment/weapon/亞斯塔祿.png' style='width: 40px' onclick='selectWeapon("offense","亞斯塔祿")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='蒼白之杖' >
+                                <li class='equipment imgbtn offense weapon' id='蒼白之杖' style='display: none;' >
                                     <img src='image/equipment/weapon/蒼白之杖.png' style='width: 40px' onclick='selectWeapon("offense","蒼白之杖")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='逸才權杖' >
+                                <li class='equipment imgbtn offense weapon' id='逸才權杖' style='display: none;' >
                                     <img src='image/equipment/weapon/逸才權杖.png' style='width: 40px' onclick='selectWeapon("offense","逸才權杖")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='煉獄' >
+                                <li class='equipment imgbtn offense weapon' id='煉獄' style='display: none;' >
                                     <img src='image/equipment/weapon/煉獄.png' style='width: 40px' onclick='selectWeapon("offense","煉獄")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='藍色之月' >
+                                <li class='equipment imgbtn offense weapon' id='藍色之月' style='display: none;' >
                                     <img src='image/equipment/weapon/藍色之月.png' style='width: 40px' onclick='selectWeapon("offense","藍色之月")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='紅色之月' >
+                                <li class='equipment imgbtn offense weapon' id='紅色之月' style='display: none;' >
                                     <img src='image/equipment/weapon/紅色之月.png' style='width: 40px' onclick='selectWeapon("offense","紅色之月")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='奇蹟之杖' >
+                                <li class='equipment imgbtn offense weapon' id='奇蹟之杖' style='display: none;' >
                                     <img src='image/equipment/weapon/奇蹟之杖.png' style='width: 40px' onclick='selectWeapon("offense","奇蹟之杖")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='女神的左手' >
+                                <li class='equipment imgbtn offense weapon' id='女神的左手' style='display: none;' >
                                     <img src='image/equipment/weapon/女神的左手.png' style='width: 40px' onclick='selectWeapon("offense","女神的左手")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='寄生樹' >
+                                <li class='equipment imgbtn offense weapon' id='寄生樹' style='display: none;' >
                                     <img src='image/equipment/weapon/寄生樹.png' style='width: 40px' onclick='selectWeapon("offense","寄生樹")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='奧瓦的手杖' >
+                                <li class='equipment imgbtn offense weapon' id='奧瓦的手杖' style='display: none;' >
                                     <img src='image/equipment/weapon/奧瓦的手杖.png' style='width: 40px' onclick='selectWeapon("offense","奧瓦的手杖")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='永生者的饋贈' >
+                                <li class='equipment imgbtn offense weapon' id='永生者的饋贈' style='display: none;' >
                                     <img src='image/equipment/weapon/永生者的饋贈.png' style='width: 40px' onclick='selectWeapon("offense","永生者的饋贈")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='風暴卡路里' >
+                                <li class='equipment imgbtn offense weapon' id='風暴卡路里' style='display: none;' >
                                     <img src='image/equipment/weapon/風暴卡路里.png' style='width: 40px' onclick='selectWeapon("offense","風暴卡路里")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='真理的門扉' >
+                                <li class='equipment imgbtn offense weapon' id='真理的門扉' style='display: none;' >
                                     <img src='image/equipment/weapon/真理的門扉.png' style='width: 40px' onclick='selectWeapon("offense","真理的門扉")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='米約爾尼爾' >
+                                <li class='equipment imgbtn offense weapon' id='米約爾尼爾' style='display: none;' >
                                     <img src='image/equipment/weapon/米約爾尼爾.png' style='width: 40px' onclick='selectWeapon("offense","米約爾尼爾")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='彌米爾的戰錘' >
+                                <li class='equipment imgbtn offense weapon' id='彌米爾的戰錘' style='display: none;' >
                                     <img src='image/equipment/weapon/彌米爾的戰錘.png' style='width: 40px' onclick='selectWeapon("offense","彌米爾的戰錘")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='碎星' >
+                                <li class='equipment imgbtn offense weapon' id='碎星' style='display: none;' >
                                     <img src='image/equipment/weapon/碎星.png' style='width: 40px' onclick='selectWeapon("offense","碎星")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='正義誓言' >
+                                <li class='equipment imgbtn offense weapon' id='正義誓言' style='display: none;' >
                                     <img src='image/equipment/weapon/正義誓言.png' style='width: 40px' onclick='selectWeapon("offense","正義誓言")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='最後的騎士' >
+                                <li class='equipment imgbtn offense weapon' id='最後的騎士' style='display: none;' >
                                     <img src='image/equipment/weapon/最後的騎士.png' style='width: 40px' onclick='selectWeapon("offense","最後的騎士")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='藍色惑星' >
+                                <li class='equipment imgbtn offense weapon' id='藍色惑星' style='display: none;' >
                                     <img src='image/equipment/weapon/藍色惑星.png' style='width: 40px' onclick='selectWeapon("offense","藍色惑星")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='世界樹的嫩枝' >
+                                <li class='equipment imgbtn offense weapon' id='世界樹的嫩枝' style='display: none;' >
                                     <img src='image/equipment/weapon/世界樹的嫩枝.png' style='width: 40px' onclick='selectWeapon("offense","世界樹的嫩枝")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='雞毛撢子' >
+                                <li class='equipment imgbtn offense weapon' id='雞毛撢子' style='display: none;' >
                                     <img src='image/equipment/weapon/雞毛撢子.png' style='width: 40px' onclick='selectWeapon("offense","雞毛撢子")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='詛咒之槍' >
+                                <li class='equipment imgbtn offense weapon' id='詛咒之槍' style='display: none;' >
                                     <img src='image/equipment/weapon/詛咒之槍.png' style='width: 40px' onclick='selectWeapon("offense","詛咒之槍")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='■ ■ ■ ■ ' >
+                                <li class='equipment imgbtn offense weapon' id='■ ■ ■ ■ ' style='display: none;' >
                                     <img src='image/equipment/weapon/■ ■ ■ ■ .png' style='width: 40px' onclick='selectWeapon("offense","■ ■ ■ ■ ")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='真紅死神' >
+                                <li class='equipment imgbtn offense weapon' id='真紅死神' style='display: none;' >
                                     <img src='image/equipment/weapon/真紅死神.png' style='width: 40px' onclick='selectWeapon("offense","真紅死神")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='拉格納羅克' >
+                                <li class='equipment imgbtn offense weapon' id='拉格納羅克' style='display: none;' >
                                     <img src='image/equipment/weapon/拉格納羅克.png' style='width: 40px' onclick='selectWeapon("offense","拉格納羅克")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='惡魔之吻' >
+                                <li class='equipment imgbtn offense weapon' id='惡魔之吻' style='display: none;' >
                                     <img src='image/equipment/weapon/惡魔之吻.png' style='width: 40px' onclick='selectWeapon("offense","惡魔之吻")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='王座守衛' >
+                                <li class='equipment imgbtn offense weapon' id='王座守衛' style='display: none;' >
                                     <img src='image/equipment/weapon/王座守衛.png' style='width: 40px' onclick='selectWeapon("offense","王座守衛")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='紛爭調停者' >
+                                <li class='equipment imgbtn offense weapon' id='紛爭調停者' style='display: none;' >
                                     <img src='image/equipment/weapon/紛爭調停者.png' style='width: 40px' onclick='selectWeapon("offense","紛爭調停者")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='信仰的試煉' >
+                                <li class='equipment imgbtn offense weapon' id='信仰的試煉' style='display: none;' >
                                     <img src='image/equipment/weapon/信仰的試煉.png' style='width: 40px' onclick='selectWeapon("offense","信仰的試煉")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='滅創之權杖' >
+                                <li class='equipment imgbtn offense weapon' id='滅創之權杖' style='display: none;' >
                                     <img src='image/equipment/weapon/滅創之權杖.png' style='width: 40px' onclick='selectWeapon("offense","滅創之權杖")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='黑色曙光' >
+                                <li class='equipment imgbtn offense weapon' id='黑色曙光' style='display: none;' >
                                     <img src='image/equipment/weapon/黑色曙光.png' style='width: 40px' onclick='selectWeapon("offense","黑色曙光")'/>
                                 </li>
-                                <li class='equipment imgbtn offense weapon' id='流浪的騎士' >
+                                <li class='equipment imgbtn offense weapon' id='流浪的騎士' style='display: none;' >
                                     <img src='image/equipment/weapon/流浪的騎士.png' style='width: 40px' onclick='selectWeapon("offense","流浪的騎士")'/>
                                 </li>
                             </ul>
                         </div>
                         <div class='armorList'>
                             <ul>
+                                <li class='equipment imgbtn offense armor' id='沒有盔甲' style='display: none;'>
+                                    <img src='image/equipment/armor/沒有盔甲.png' style='width: 40px' onclick='selectArmor("offense","沒有盔甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='萬古板甲' style='display: none;'>
+                                    <img src='image/equipment/armor/萬古板甲.png' style='width: 40px' onclick='selectArmor("offense","萬古板甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='巨人的抗爭' style='display: none;'>
+                                    <img src='image/equipment/armor/巨人的抗爭.png' style='width: 40px' onclick='selectArmor("offense","巨人的抗爭")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='鏡面鎧甲' style='display: none;'>
+                                    <img src='image/equipment/armor/鏡面鎧甲.png' style='width: 40px' onclick='selectArmor("offense","鏡面鎧甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='血紋魔鎧' style='display: none;'>
+                                    <img src='image/equipment/armor/血紋魔鎧.png' style='width: 40px' onclick='selectArmor("offense","血紋魔鎧")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='埃尼亞斯之甲' style='display: none;'>
+                                    <img src='image/equipment/armor/埃尼亞斯之甲.png' style='width: 40px' onclick='selectArmor("offense","埃尼亞斯之甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='冰鋒戰甲' style='display: none;'>
+                                    <img src='image/equipment/armor/冰鋒戰甲.png' style='width: 40px' onclick='selectArmor("offense","冰鋒戰甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='大地之鎧' style='display: none;'>
+                                    <img src='image/equipment/armor/大地之鎧.png' style='width: 40px' onclick='selectArmor("offense","大地之鎧")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='原質之鎧' style='display: none;'>
+                                    <img src='image/equipment/armor/原質之鎧.png' style='width: 40px' onclick='selectArmor("offense","原質之鎧")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='風王戰甲' style='display: none;'>
+                                    <img src='image/equipment/armor/風王戰甲.png' style='width: 40px' onclick='selectArmor("offense","風王戰甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='石像鬼外套' style='display: none;'>
+                                    <img src='image/equipment/armor/石像鬼外套.png' style='width: 40px' onclick='selectArmor("offense","石像鬼外套")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='暮色輕甲' style='display: none;'>
+                                    <img src='image/equipment/armor/暮色輕甲.png' style='width: 40px' onclick='selectArmor("offense","暮色輕甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='逆矢外殼' style='display: none;'>
+                                    <img src='image/equipment/armor/逆矢外殼.png' style='width: 40px' onclick='selectArmor("offense","逆矢外殼")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='影淵鱗衣' style='display: none;'>
+                                    <img src='image/equipment/armor/影淵鱗衣.png' style='width: 40px' onclick='selectArmor("offense","影淵鱗衣")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='最後之服' style='display: none;'>
+                                    <img src='image/equipment/armor/最後之服.png' style='width: 40px' onclick='selectArmor("offense","最後之服")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='魔蜥外皮' style='display: none;'>
+                                    <img src='image/equipment/armor/魔蜥外皮.png' style='width: 40px' onclick='selectArmor("offense","魔蜥外皮")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='金剛背心' style='display: none;'>
+                                    <img src='image/equipment/armor/金剛背心.png' style='width: 40px' onclick='selectArmor("offense","金剛背心")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='突擊獵裝' style='display: none;'>
+                                    <img src='image/equipment/armor/突擊獵裝.png' style='width: 40px' onclick='selectArmor("offense","突擊獵裝")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='巴德爾的白袍' style='display: none;'>
+                                    <img src='image/equipment/armor/巴德爾的白袍.png' style='width: 40px' onclick='selectArmor("offense","巴德爾的白袍")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='死神之衣' style='display: none;'>
+                                    <img src='image/equipment/armor/死神之衣.png' style='width: 40px' onclick='selectArmor("offense","死神之衣")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='暗之法衣' style='display: none;'>
+                                    <img src='image/equipment/armor/暗之法衣.png' style='width: 40px' onclick='selectArmor("offense","暗之法衣")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='群星斗篷' style='display: none;'>
+                                    <img src='image/equipment/armor/群星斗篷.png' style='width: 40px' onclick='selectArmor("offense","群星斗篷")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='福金之翼' style='display: none;'>
+                                    <img src='image/equipment/armor/福金之翼.png' style='width: 40px' onclick='selectArmor("offense","福金之翼")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='天女羽衣' style='display: none;'>
+                                    <img src='image/equipment/armor/天女羽衣.png' style='width: 40px' onclick='selectArmor("offense","天女羽衣")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='女神法衣' style='display: none;'>
+                                    <img src='image/equipment/armor/女神法衣.png' style='width: 40px' onclick='selectArmor("offense","女神法衣")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='黑色新娘' style='display: none;'>
+                                    <img src='image/equipment/armor/黑色新娘.png' style='width: 40px' onclick='selectArmor("offense","黑色新娘")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='1UP' style='display: none;'>
+                                    <img src='image/equipment/armor/1UP.png' style='width: 40px' onclick='selectArmor("offense","1UP")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='失落的穹光' style='display: none;'>
+                                    <img src='image/equipment/armor/失落的穹光.png' style='width: 40px' onclick='selectArmor("offense","失落的穹光")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='強襲異鎧' style='display: none;'>
+                                    <img src='image/equipment/armor/強襲異鎧.png' style='width: 40px' onclick='selectArmor("offense","強襲異鎧")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='浴火之衣' style='display: none;'>
+                                    <img src='image/equipment/armor/浴火之衣.png' style='width: 40px' onclick='selectArmor("offense","浴火之衣")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='魔導防護服' style='display: none;'>
+                                    <img src='image/equipment/armor/魔導防護服.png' style='width: 40px' onclick='selectArmor("offense","魔導防護服")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='月之回憶' style='display: none;'>
+                                    <img src='image/equipment/armor/月之回憶.png' style='width: 40px' onclick='selectArmor("offense","月之回憶")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='霸王戰甲' style='display: none;'>
+                                    <img src='image/equipment/armor/霸王戰甲.png' style='width: 40px' onclick='selectArmor("offense","霸王戰甲")'/>
+                                </li>
+                                <li class='equipment imgbtn offense armor' id='黎明守護者' style='display: none;'>
+                                    <img src='image/equipment/armor/黎明守護者.png' style='width: 40px' onclick='selectArmor("offense","黎明守護者")'/>
+                                </li>
                             </ul>
                         </div>
                         <div class='helmetList'>
                             <ul>
+                                <li class='equipment imgbtn offense helmet' id='沒有頭盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/沒有頭盔.png' style='width: 40px' onclick='selectHelmet("offense","沒有頭盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='埃尼亞斯之盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/埃尼亞斯之盔.png' style='width: 40px' onclick='selectHelmet("offense","埃尼亞斯之盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='提爾之怒' style='display: none;'>
+                                    <img src='image/equipment/helmet/提爾之怒.png' style='width: 40px' onclick='selectHelmet("offense","提爾之怒")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='大地之盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/大地之盔.png' style='width: 40px' onclick='selectHelmet("offense","大地之盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='原質頭盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/原質頭盔.png' style='width: 40px' onclick='selectHelmet("offense","原質頭盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='死神的呼吸' style='display: none;'>
+                                    <img src='image/equipment/helmet/死神的呼吸.png' style='width: 40px' onclick='selectHelmet("offense","死神的呼吸")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='領袖之盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/領袖之盔.png' style='width: 40px' onclick='selectHelmet("offense","領袖之盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='吸血鬼假面' style='display: none;'>
+                                    <img src='image/equipment/helmet/吸血鬼假面.png' style='width: 40px' onclick='selectHelmet("offense","吸血鬼假面")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='暮色頭盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/暮色頭盔.png' style='width: 40px' onclick='selectHelmet("offense","暮色頭盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='鮮花禮帽' style='display: none;'>
+                                    <img src='image/equipment/helmet/鮮花禮帽.png' style='width: 40px' onclick='selectHelmet("offense","鮮花禮帽")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='突擊頭飾' style='display: none;'>
+                                    <img src='image/equipment/helmet/突擊頭飾.png' style='width: 40px' onclick='selectHelmet("offense","突擊頭飾")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='王者之冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/王者之冠.png' style='width: 40px' onclick='selectHelmet("offense","王者之冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='尼約德的羽冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/尼約德的羽冠.png' style='width: 40px' onclick='selectHelmet("offense","尼約德的羽冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='耶夢加得之眼' style='display: none;'>
+                                    <img src='image/equipment/helmet/耶夢加得之眼.png' style='width: 40px' onclick='selectHelmet("offense","耶夢加得之眼")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='洛基的假面' style='display: none;'>
+                                    <img src='image/equipment/helmet/洛基的假面.png' style='width: 40px' onclick='selectHelmet("offense","洛基的假面")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='攝魂法帽' style='display: none;'>
+                                    <img src='image/equipment/helmet/攝魂法帽.png' style='width: 40px' onclick='selectHelmet("offense","攝魂法帽")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='光輝頭飾' style='display: none;'>
+                                    <img src='image/equipment/helmet/光輝頭飾.png' style='width: 40px' onclick='selectHelmet("offense","光輝頭飾")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='天女頭飾' style='display: none;'>
+                                    <img src='image/equipment/helmet/天女頭飾.png' style='width: 40px' onclick='selectHelmet("offense","天女頭飾")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='馴鹿禮帽' style='display: none;'>
+                                    <img src='image/equipment/helmet/馴鹿禮帽.png' style='width: 40px' onclick='selectHelmet("offense","馴鹿禮帽")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='霜火之冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/霜火之冠.png' style='width: 40px' onclick='selectHelmet("offense","霜火之冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='奧丁的寬簷帽' style='display: none;'>
+                                    <img src='image/equipment/helmet/奧丁的寬簷帽.png' style='width: 40px' onclick='selectHelmet("offense","奧丁的寬簷帽")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='冥府渡神' style='display: none;'>
+                                    <img src='image/equipment/helmet/冥府渡神.png' style='width: 40px' onclick='selectHelmet("offense","冥府渡神")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='魔女的追想' style='display: none;'>
+                                    <img src='image/equipment/helmet/魔女的追想.png' style='width: 40px' onclick='selectHelmet("offense","魔女的追想")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='暗之法冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/暗之法冠.png' style='width: 40px' onclick='selectHelmet("offense","暗之法冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='勇者的手工課' style='display: none;'>
+                                    <img src='image/equipment/helmet/勇者的手工課.png' style='width: 40px' onclick='selectHelmet("offense","勇者的手工課")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='風中之花' style='display: none;'>
+                                    <img src='image/equipment/helmet/風中之花.png' style='width: 40px' onclick='selectHelmet("offense","風中之花")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='逐夢之冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/逐夢之冠.png' style='width: 40px' onclick='selectHelmet("offense","逐夢之冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='卡爾薩斯之冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/卡爾薩斯之冠.png' style='width: 40px' onclick='selectHelmet("offense","卡爾薩斯之冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='銳目透鏡' style='display: none;'>
+                                    <img src='image/equipment/helmet/銳目透鏡.png' style='width: 40px' onclick='selectHelmet("offense","銳目透鏡")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='溫暖的回憶' style='display: none;'>
+                                    <img src='image/equipment/helmet/溫暖的回憶.png' style='width: 40px' onclick='selectHelmet("offense","溫暖的回憶")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='荊棘皇冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/荊棘皇冠.png' style='width: 40px' onclick='selectHelmet("offense","荊棘皇冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='義賊的假面' style='display: none;'>
+                                    <img src='image/equipment/helmet/義賊的假面.png' style='width: 40px' onclick='selectHelmet("offense","義賊的假面")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='風之翎羽' style='display: none;'>
+                                    <img src='image/equipment/helmet/風之翎羽.png' style='width: 40px' onclick='selectHelmet("offense","風之翎羽")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='卡昆西斯之冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/卡昆西斯之冠.png' style='width: 40px' onclick='selectHelmet("offense","卡昆西斯之冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='風襲翼盔' style='display: none;'>
+                                    <img src='image/equipment/helmet/風襲翼盔.png' style='width: 40px' onclick='selectHelmet("offense","風襲翼盔")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='黃金獅子' style='display: none;'>
+                                    <img src='image/equipment/helmet/黃金獅子.png' style='width: 40px' onclick='selectHelmet("offense","黃金獅子")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='夢魘的面容' style='display: none;'>
+                                    <img src='image/equipment/helmet/夢魘的面容.png' style='width: 40px' onclick='selectHelmet("offense","夢魘的面容")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='笠' style='display: none;'>
+                                    <img src='image/equipment/helmet/笠.png' style='width: 40px' onclick='selectHelmet("offense","笠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='我我我公主' style='display: none;'>
+                                    <img src='image/equipment/helmet/我我我公主.png' style='width: 40px' onclick='selectHelmet("offense","我我我公主")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='蘭芳特的次選' style='display: none;'>
+                                    <img src='image/equipment/helmet/蘭芳特的次選.png' style='width: 40px' onclick='selectHelmet("offense","蘭芳特的次選")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='斬男色' style='display: none;'>
+                                    <img src='image/equipment/helmet/斬男色.png' style='width: 40px' onclick='selectHelmet("offense","斬男色")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='古巨美的餽贈' style='display: none;'>
+                                    <img src='image/equipment/helmet/古巨美的餽贈.png' style='width: 40px' onclick='selectHelmet("offense","古巨美的餽贈")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='燎星之隕' style='display: none;'>
+                                    <img src='image/equipment/helmet/燎星之隕.png' style='width: 40px' onclick='selectHelmet("offense","燎星之隕")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='神諭者' style='display: none;'>
+                                    <img src='image/equipment/helmet/神諭者.png' style='width: 40px' onclick='selectHelmet("offense","神諭者")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='女武神燦星' style='display: none;'>
+                                    <img src='image/equipment/helmet/女武神燦星.png' style='width: 40px' onclick='selectHelmet("offense","女武神燦星")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='遠見' style='display: none;'>
+                                    <img src='image/equipment/helmet/遠見.png' style='width: 40px' onclick='selectHelmet("offense","遠見")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='利古里亞之冠' style='display: none;'>
+                                    <img src='image/equipment/helmet/利古里亞之冠.png' style='width: 40px' onclick='selectHelmet("offense","利古里亞之冠")'/>
+                                </li>
+                                <li class='equipment imgbtn offense helmet' id='萬能工具帽' style='display: none;'>
+                                    <img src='image/equipment/helmet/萬能工具帽.png' style='width: 40px' onclick='selectHelmet("offense","萬能工具帽")'/>
+                                </li>
                             </ul>
                         </div>
                         <div class='accessoryList'>
@@ -1194,12 +1449,12 @@
                             </tr>
                             <tr>
                                 <td id='offWeapon'>武器:NA</td>
-                                <td></td>
+                                <td id='offArmor'>盔甲:NA</td>
                                 <td>魔防:<input type='text' id='offMDEF' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td id='offHelmet'>頭盔:NA</td>
+                                <td id='offAccessory'>飾品:NA</td>
                                 <td>技巧:<input type='text' id='offDEX' style='width:90px' value=100></td>
                             </tr>
                             <tr>
@@ -1219,6 +1474,9 @@
                             </tr
                             <tr>
                                 <td id='HCFORMULA' colspan=3>一段傷害:<br>NA = {[NA×(1+NA+NA)×NA]-[NA×(1+NA)×NA]}÷2×NA×NA×NA×NA</td>
+                            </tr>
+                            <tr>
+                                <td id='ERROR' colspan=3>DEBUG LOG</td>
                             </tr>
                             <tr>
                                 <td id='partydatad'>陣營:NA</td>
@@ -1241,13 +1499,13 @@
                                 <td>防禦:<input type='text' id='defDEF' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td id='defWeapon'>武器:NA</td>
+                                <td id='defArmor'>盔甲:NA</td>
                                 <td>魔防:<input type='text' id='defMDEF' style='width:90px' value=100></td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td id='defHelmet'>頭盔:NA</td>
+                                <td id='defAccessory'>飾品:NA</td>
                                 <td>技巧:<input type='text' id='defDEX' style='width:90px' value=100></td>
                             </tr>
                         </table>
@@ -1600,7 +1858,7 @@
                                 <li class='character imgbtn defense 光輝軍團eliminate' id='阿倫d' style='display: none;'>
                                     <img src='image/character/阿倫.png' onclick='selectChar("阿倫d")'/>
                                 </li>
-                                <li class='character imgbtn defense 主角光環 光輝軍團' id='馬修d' style='display: none;'>
+                                 <li class='character imgbtn defense 主角光環 光輝軍團' id='馬修d' style='display: none;'>
                                     <img src='image/character/馬修.png' onclick='selectChar("馬修d")'/>
                                 </li>
                                 <li class='character imgbtn defense 主角光環 光輝軍團 超凡領域' id='艾梅達d' style='display: none;'>
@@ -1808,6 +2066,409 @@
                                 <li class='soldier imgbtn defense 阿卡婭 諾埃米 埃格貝爾特 安茲·烏爾·恭 索尼婭 傑利奧魯&蕾拉' id='蛛魔精靈d' style='display: none;'>
                                     <img src='image/soldier/蛛魔精靈.png' style='width: 60px' onclick='selectSoldier("蛛魔精靈d")'/>
                                 </li>
+                            </ul>
+                        </div>
+                        <div class='weaponList'>
+                            <ul>
+                                <li class='equipment imgbtn defense weapon' id='沒有武器d' style='display: none;' >
+                                    <img src='image/equipment/weapon/沒有武器.png' style='width: 40px' onclick='selectWeapon("defense","沒有武器d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='屠龍劍格拉姆d' style='display: none;' >
+                                    <img src='image/equipment/weapon/屠龍劍格拉姆.png' style='width: 40px' onclick='selectWeapon("defense","屠龍劍格拉姆d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='嗜血劍赫倫汀d' style='display: none;' >
+                                    <img src='image/equipment/weapon/嗜血劍赫倫汀.png' style='width: 40px' onclick='selectWeapon("defense","嗜血劍赫倫汀d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='斬魔刀d' style='display: none;' >
+                                    <img src='image/equipment/weapon/斬魔刀.png' style='width: 40px' onclick='selectWeapon("defense","斬魔刀d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='冰霜之刃d' style='display: none;' >
+                                    <img src='image/equipment/weapon/冰霜之刃.png' style='width: 40px' onclick='selectWeapon("defense","冰霜之刃d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='封印守護者d' style='display: none;' >
+                                    <img src='image/equipment/weapon/封印守護者.png' style='width: 40px' onclick='selectWeapon("defense","封印守護者d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='均衡之刃d' style='display: none;' >
+                                    <img src='image/equipment/weapon/均衡之刃.png' style='width: 40px' onclick='selectWeapon("defense","均衡之刃d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='夜鷹d' style='display: none;' >
+                                    <img src='image/equipment/weapon/夜鷹.png' style='width: 40px' onclick='selectWeapon("defense","夜鷹d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='妖精之嘆d' style='display: none;' >
+                                    <img src='image/equipment/weapon/妖精之嘆.png' style='width: 40px' onclick='selectWeapon("defense","妖精之嘆d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='風斬d' style='display: none;' >
+                                    <img src='image/equipment/weapon/風斬.png' style='width: 40px' onclick='selectWeapon("defense","風斬d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='莎拉維爾d' style='display: none;' >
+                                    <img src='image/equipment/weapon/莎拉維爾.png' style='width: 40px' onclick='selectWeapon("defense","莎拉維爾d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='海德拉之弓d' style='display: none;' >
+                                    <img src='image/equipment/weapon/海德拉之弓.png' style='width: 40px' onclick='selectWeapon("defense","海德拉之弓d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='血之三弦琴d' style='display: none;' >
+                                    <img src='image/equipment/weapon/血之三弦琴.png' style='width: 40px' onclick='selectWeapon("defense","血之三弦琴d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='極限魔弓d' style='display: none;' >
+                                    <img src='image/equipment/weapon/極限魔弓.png' style='width: 40px' onclick='selectWeapon("defense","極限魔弓d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='烏勒爾之弓d' style='display: none;' >
+                                    <img src='image/equipment/weapon/烏勒爾之弓.png' style='width: 40px' onclick='selectWeapon("defense","烏勒爾之弓d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='亞斯塔祿d' style='display: none;' >
+                                    <img src='image/equipment/weapon/亞斯塔祿.png' style='width: 40px' onclick='selectWeapon("defense","亞斯塔祿d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='蒼白之杖d' style='display: none;' >
+                                    <img src='image/equipment/weapon/蒼白之杖.png' style='width: 40px' onclick='selectWeapon("defense","蒼白之杖d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='逸才權杖d' style='display: none;' >
+                                    <img src='image/equipment/weapon/逸才權杖.png' style='width: 40px' onclick='selectWeapon("defense","逸才權杖d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='煉獄d' style='display: none;' >
+                                    <img src='image/equipment/weapon/煉獄.png' style='width: 40px' onclick='selectWeapon("defense","煉獄d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='藍色之月d' style='display: none;' >
+                                    <img src='image/equipment/weapon/藍色之月.png' style='width: 40px' onclick='selectWeapon("defense","藍色之月d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='紅色之月d' style='display: none;' >
+                                    <img src='image/equipment/weapon/紅色之月.png' style='width: 40px' onclick='selectWeapon("defense","紅色之月d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='奇蹟之杖d' style='display: none;' >
+                                    <img src='image/equipment/weapon/奇蹟之杖.png' style='width: 40px' onclick='selectWeapon("defense","奇蹟之杖d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='女神的左手d' style='display: none;' >
+                                    <img src='image/equipment/weapon/女神的左手.png' style='width: 40px' onclick='selectWeapon("defense","女神的左手d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='寄生樹d' style='display: none;' >
+                                    <img src='image/equipment/weapon/寄生樹.png' style='width: 40px' onclick='selectWeapon("defense","寄生樹d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='奧瓦的手杖d' style='display: none;' >
+                                    <img src='image/equipment/weapon/奧瓦的手杖.png' style='width: 40px' onclick='selectWeapon("defense","奧瓦的手杖d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='永生者的饋贈d' style='display: none;' >
+                                    <img src='image/equipment/weapon/永生者的饋贈.png' style='width: 40px' onclick='selectWeapon("defense","永生者的饋贈d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='風暴卡路里d' style='display: none;' >
+                                    <img src='image/equipment/weapon/風暴卡路里.png' style='width: 40px' onclick='selectWeapon("defense","風暴卡路里d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='真理的門扉d' style='display: none;' >
+                                    <img src='image/equipment/weapon/真理的門扉.png' style='width: 40px' onclick='selectWeapon("defense","真理的門扉d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='米約爾尼爾d' style='display: none;' >
+                                    <img src='image/equipment/weapon/米約爾尼爾.png' style='width: 40px' onclick='selectWeapon("defense","米約爾尼爾d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='彌米爾的戰錘d' style='display: none;' >
+                                    <img src='image/equipment/weapon/彌米爾的戰錘.png' style='width: 40px' onclick='selectWeapon("defense","彌米爾的戰錘d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='碎星d' style='display: none;' >
+                                    <img src='image/equipment/weapon/碎星.png' style='width: 40px' onclick='selectWeapon("defense","碎星d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='正義誓言d' style='display: none;' >
+                                    <img src='image/equipment/weapon/正義誓言.png' style='width: 40px' onclick='selectWeapon("defense","正義誓言d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='最後的騎士d' style='display: none;' >
+                                    <img src='image/equipment/weapon/最後的騎士.png' style='width: 40px' onclick='selectWeapon("defense","最後的騎士d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='藍色惑星d' style='display: none;' >
+                                    <img src='image/equipment/weapon/藍色惑星.png' style='width: 40px' onclick='selectWeapon("defense","藍色惑星d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='世界樹的嫩枝d' style='display: none;' >
+                                    <img src='image/equipment/weapon/世界樹的嫩枝.png' style='width: 40px' onclick='selectWeapon("defense","世界樹的嫩枝d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='雞毛撢子d' style='display: none;' >
+                                    <img src='image/equipment/weapon/雞毛撢子.png' style='width: 40px' onclick='selectWeapon("defense","雞毛撢子d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='詛咒之槍d' style='display: none;' >
+                                    <img src='image/equipment/weapon/詛咒之槍.png' style='width: 40px' onclick='selectWeapon("defense","詛咒之槍d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='■ ■ ■ ■ d' style='display: none;' >
+                                    <img src='image/equipment/weapon/■ ■ ■ ■ .png' style='width: 40px' onclick='selectWeapon("defense","■ ■ ■ ■ d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='真紅死神d' style='display: none;' >
+                                    <img src='image/equipment/weapon/真紅死神.png' style='width: 40px' onclick='selectWeapon("defense","真紅死神d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='拉格納羅克d' style='display: none;' >
+                                    <img src='image/equipment/weapon/拉格納羅克.png' style='width: 40px' onclick='selectWeapon("defense","拉格納羅克d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='惡魔之吻d' style='display: none;' >
+                                    <img src='image/equipment/weapon/惡魔之吻.png' style='width: 40px' onclick='selectWeapon("defense","惡魔之吻d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='王座守衛d' style='display: none;' >
+                                    <img src='image/equipment/weapon/王座守衛.png' style='width: 40px' onclick='selectWeapon("defense","王座守衛d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='紛爭調停者d' style='display: none;' >
+                                    <img src='image/equipment/weapon/紛爭調停者.png' style='width: 40px' onclick='selectWeapon("defense","紛爭調停者d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='信仰的試煉d' style='display: none;' >
+                                    <img src='image/equipment/weapon/信仰的試煉.png' style='width: 40px' onclick='selectWeapon("defense","信仰的試煉d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='滅創之權杖d' style='display: none;' >
+                                    <img src='image/equipment/weapon/滅創之權杖.png' style='width: 40px' onclick='selectWeapon("defense","滅創之權杖d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='黑色曙光d' style='display: none;' >
+                                    <img src='image/equipment/weapon/黑色曙光.png' style='width: 40px' onclick='selectWeapon("defense","黑色曙光d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense weapon' id='流浪的騎士d' style='display: none;' >
+                                    <img src='image/equipment/weapon/流浪的騎士.png' style='width: 40px' onclick='selectWeapon("defense","流浪的騎士d")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='armorList'>
+                            <ul>
+                                <li class='equipment imgbtn defense armor' id='沒有盔甲d' style='display: none;' >
+                                    <img src='image/equipment/armor/沒有盔甲.png' style='width: 40px' onclick='selectArmor("defense","沒有盔甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='萬古板甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/萬古板甲.png' style='width: 40px' onclick='selectArmor("defense","萬古板甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='巨人的抗爭d' style='display: none;'>
+                                    <img src='image/equipment/armor/巨人的抗爭.png' style='width: 40px' onclick='selectArmor("defense","巨人的抗爭d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='鏡面鎧甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/鏡面鎧甲.png' style='width: 40px' onclick='selectArmor("defense","鏡面鎧甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='血紋魔鎧d' style='display: none;'>
+                                    <img src='image/equipment/armor/血紋魔鎧.png' style='width: 40px' onclick='selectArmor("defense","血紋魔鎧d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='埃尼亞斯之甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/埃尼亞斯之甲.png' style='width: 40px' onclick='selectArmor("defense","埃尼亞斯之甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='冰鋒戰甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/冰鋒戰甲.png' style='width: 40px' onclick='selectArmor("defense","冰鋒戰甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='大地之鎧d' style='display: none;'>
+                                    <img src='image/equipment/armor/大地之鎧.png' style='width: 40px' onclick='selectArmor("defense","大地之鎧d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='原質之鎧d' style='display: none;'>
+                                    <img src='image/equipment/armor/原質之鎧.png' style='width: 40px' onclick='selectArmor("defense","原質之鎧d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='風王戰甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/風王戰甲.png' style='width: 40px' onclick='selectArmor("defense","風王戰甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='石像鬼外套d' style='display: none;'>
+                                    <img src='image/equipment/armor/石像鬼外套.png' style='width: 40px' onclick='selectArmor("defense","石像鬼外套d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='暮色輕甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/暮色輕甲.png' style='width: 40px' onclick='selectArmor("defense","暮色輕甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='逆矢外殼d' style='display: none;'>
+                                    <img src='image/equipment/armor/逆矢外殼.png' style='width: 40px' onclick='selectArmor("defense","逆矢外殼d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='影淵鱗衣d' style='display: none;'>
+                                    <img src='image/equipment/armor/影淵鱗衣.png' style='width: 40px' onclick='selectArmor("defense","影淵鱗衣d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='最後之服d' style='display: none;'>
+                                    <img src='image/equipment/armor/最後之服.png' style='width: 40px' onclick='selectArmor("defense","最後之服d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='魔蜥外皮d' style='display: none;'>
+                                    <img src='image/equipment/armor/魔蜥外皮.png' style='width: 40px' onclick='selectArmor("defense","魔蜥外皮d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='金剛背心d' style='display: none;'>
+                                    <img src='image/equipment/armor/金剛背心.png' style='width: 40px' onclick='selectArmor("defense","金剛背心d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='突擊獵裝d' style='display: none;'>
+                                    <img src='image/equipment/armor/突擊獵裝.png' style='width: 40px' onclick='selectArmor("defense","突擊獵裝d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='巴德爾的白袍d' style='display: none;'>
+                                    <img src='image/equipment/armor/巴德爾的白袍.png' style='width: 40px' onclick='selectArmor("defense","巴德爾的白袍d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='死神之衣d' style='display: none;'>
+                                    <img src='image/equipment/armor/死神之衣.png' style='width: 40px' onclick='selectArmor("defense","死神之衣d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='暗之法衣d' style='display: none;'>
+                                    <img src='image/equipment/armor/暗之法衣.png' style='width: 40px' onclick='selectArmor("defense","暗之法衣d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='群星斗篷d' style='display: none;'>
+                                    <img src='image/equipment/armor/群星斗篷.png' style='width: 40px' onclick='selectArmor("defense","群星斗篷d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='福金之翼d' style='display: none;'>
+                                    <img src='image/equipment/armor/福金之翼.png' style='width: 40px' onclick='selectArmor("defense","福金之翼d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='天女羽衣d' style='display: none;'>
+                                    <img src='image/equipment/armor/天女羽衣.png' style='width: 40px' onclick='selectArmor("defense","天女羽衣d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='女神法衣d' style='display: none;'>
+                                    <img src='image/equipment/armor/女神法衣.png' style='width: 40px' onclick='selectArmor("defense","女神法衣d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='黑色新娘d' style='display: none;'>
+                                    <img src='image/equipment/armor/黑色新娘.png' style='width: 40px' onclick='selectArmor("defense","黑色新娘d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='1UPd' style='display: none;'>
+                                    <img src='image/equipment/armor/1UP.png' style='width: 40px' onclick='selectArmor("defense","1UPd")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='失落的穹光d' style='display: none;'>
+                                    <img src='image/equipment/armor/失落的穹光.png' style='width: 40px' onclick='selectArmor("defense","失落的穹光d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='強襲異鎧d' style='display: none;'>
+                                    <img src='image/equipment/armor/強襲異鎧.png' style='width: 40px' onclick='selectArmor("defense","強襲異鎧d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='浴火之衣d' style='display: none;'>
+                                    <img src='image/equipment/armor/浴火之衣.png' style='width: 40px' onclick='selectArmor("defense","浴火之衣d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='魔導防護服d' style='display: none;'>
+                                    <img src='image/equipment/armor/魔導防護服.png' style='width: 40px' onclick='selectArmor("defense","魔導防護服d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='月之回憶d' style='display: none;'>
+                                    <img src='image/equipment/armor/月之回憶.png' style='width: 40px' onclick='selectArmor("defense","月之回憶d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='霸王戰甲d' style='display: none;'>
+                                    <img src='image/equipment/armor/霸王戰甲.png' style='width: 40px' onclick='selectArmor("defense","霸王戰甲d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense armor' id='黎明守護者d' style='display: none;'>
+                                    <img src='image/equipment/armor/黎明守護者.png' style='width: 40px' onclick='selectArmor("defense","黎明守護者d")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='helmetList'>
+                            <ul>
+                                <li class='equipment imgbtn defense helmet' id='沒有頭盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/沒有頭盔.png' style='width: 40px' onclick='selectHelmet("defense","沒有頭盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='埃尼亞斯之盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/埃尼亞斯之盔.png' style='width: 40px' onclick='selectHelmet("defense","埃尼亞斯之盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='提爾之怒d' style='display: none;'>
+                                    <img src='image/equipment/helmet/提爾之怒.png' style='width: 40px' onclick='selectHelmet("defense","提爾之怒d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='大地之盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/大地之盔.png' style='width: 40px' onclick='selectHelmet("defense","大地之盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='原質頭盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/原質頭盔.png' style='width: 40px' onclick='selectHelmet("defense","原質頭盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='死神的呼吸d' style='display: none;'>
+                                    <img src='image/equipment/helmet/死神的呼吸.png' style='width: 40px' onclick='selectHelmet("defense","死神的呼吸d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='領袖之盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/領袖之盔.png' style='width: 40px' onclick='selectHelmet("defense","領袖之盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='吸血鬼假面d' style='display: none;'>
+                                    <img src='image/equipment/helmet/吸血鬼假面.png' style='width: 40px' onclick='selectHelmet("defense","吸血鬼假面d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='暮色頭盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/暮色頭盔.png' style='width: 40px' onclick='selectHelmet("defense","暮色頭盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='鮮花禮帽d' style='display: none;'>
+                                    <img src='image/equipment/helmet/鮮花禮帽.png' style='width: 40px' onclick='selectHelmet("defense","鮮花禮帽d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='突擊頭飾d' style='display: none;'>
+                                    <img src='image/equipment/helmet/突擊頭飾.png' style='width: 40px' onclick='selectHelmet("defense","突擊頭飾d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='王者之冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/王者之冠.png' style='width: 40px' onclick='selectHelmet("defense","王者之冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='尼約德的羽冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/尼約德的羽冠.png' style='width: 40px' onclick='selectHelmet("defense","尼約德的羽冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='耶夢加得之眼d' style='display: none;'>
+                                    <img src='image/equipment/helmet/耶夢加得之眼.png' style='width: 40px' onclick='selectHelmet("defense","耶夢加得之眼d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='洛基的假面d' style='display: none;'>
+                                    <img src='image/equipment/helmet/洛基的假面.png' style='width: 40px' onclick='selectHelmet("defense","洛基的假面d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='攝魂法帽d' style='display: none;'>
+                                    <img src='image/equipment/helmet/攝魂法帽.png' style='width: 40px' onclick='selectHelmet("defense","攝魂法帽d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='光輝頭飾d' style='display: none;'>
+                                    <img src='image/equipment/helmet/光輝頭飾.png' style='width: 40px' onclick='selectHelmet("defense","光輝頭飾d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='天女頭飾d' style='display: none;'>
+                                    <img src='image/equipment/helmet/天女頭飾.png' style='width: 40px' onclick='selectHelmet("defense","天女頭飾d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='馴鹿禮帽d' style='display: none;'>
+                                    <img src='image/equipment/helmet/馴鹿禮帽.png' style='width: 40px' onclick='selectHelmet("defense","馴鹿禮帽d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='霜火之冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/霜火之冠.png' style='width: 40px' onclick='selectHelmet("defense","霜火之冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='奧丁的寬簷帽d' style='display: none;'>
+                                    <img src='image/equipment/helmet/奧丁的寬簷帽.png' style='width: 40px' onclick='selectHelmet("defense","奧丁的寬簷帽d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='冥府渡神d' style='display: none;'>
+                                    <img src='image/equipment/helmet/冥府渡神.png' style='width: 40px' onclick='selectHelmet("defense","冥府渡神d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='魔女的追想d' style='display: none;'>
+                                    <img src='image/equipment/helmet/魔女的追想.png' style='width: 40px' onclick='selectHelmet("defense","魔女的追想d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='暗之法冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/暗之法冠.png' style='width: 40px' onclick='selectHelmet("defense","暗之法冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='勇者的手工課d' style='display: none;'>
+                                    <img src='image/equipment/helmet/勇者的手工課.png' style='width: 40px' onclick='selectHelmet("defense","勇者的手工課d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='風中之花d' style='display: none;'>
+                                    <img src='image/equipment/helmet/風中之花.png' style='width: 40px' onclick='selectHelmet("defense","風中之花d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='逐夢之冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/逐夢之冠.png' style='width: 40px' onclick='selectHelmet("defense","逐夢之冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='卡爾薩斯之冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/卡爾薩斯之冠.png' style='width: 40px' onclick='selectHelmet("defense","卡爾薩斯之冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='銳目透鏡d' style='display: none;'>
+                                    <img src='image/equipment/helmet/銳目透鏡.png' style='width: 40px' onclick='selectHelmet("defense","銳目透鏡d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='溫暖的回憶d' style='display: none;'>
+                                    <img src='image/equipment/helmet/溫暖的回憶.png' style='width: 40px' onclick='selectHelmet("defense","溫暖的回憶d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='荊棘皇冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/荊棘皇冠.png' style='width: 40px' onclick='selectHelmet("defense","荊棘皇冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='義賊的假面d' style='display: none;'>
+                                    <img src='image/equipment/helmet/義賊的假面.png' style='width: 40px' onclick='selectHelmet("defense","義賊的假面d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='風之翎羽d' style='display: none;'>
+                                    <img src='image/equipment/helmet/風之翎羽.png' style='width: 40px' onclick='selectHelmet("defense","風之翎羽d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='卡昆西斯之冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/卡昆西斯之冠.png' style='width: 40px' onclick='selectHelmet("defense","卡昆西斯之冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='風襲翼盔d' style='display: none;'>
+                                    <img src='image/equipment/helmet/風襲翼盔.png' style='width: 40px' onclick='selectHelmet("defense","風襲翼盔d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='黃金獅子d' style='display: none;'>
+                                    <img src='image/equipment/helmet/黃金獅子.png' style='width: 40px' onclick='selectHelmet("defense","黃金獅子d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='夢魘的面容d' style='display: none;'>
+                                    <img src='image/equipment/helmet/夢魘的面容.png' style='width: 40px' onclick='selectHelmet("defense","夢魘的面容d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='笠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/笠.png' style='width: 40px' onclick='selectHelmet("defense","笠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='我我我公主d' style='display: none;'>
+                                    <img src='image/equipment/helmet/我我我公主.png' style='width: 40px' onclick='selectHelmet("defense","我我我公主d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='蘭芳特的次選d' style='display: none;'>
+                                    <img src='image/equipment/helmet/蘭芳特的次選.png' style='width: 40px' onclick='selectHelmet("defense","蘭芳特的次選d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='斬男色d' style='display: none;'>
+                                    <img src='image/equipment/helmet/斬男色.png' style='width: 40px' onclick='selectHelmet("defense","斬男色d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='古巨美的餽贈d' style='display: none;'>
+                                    <img src='image/equipment/helmet/古巨美的餽贈.png' style='width: 40px' onclick='selectHelmet("defense","古巨美的餽贈d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='燎星之隕d' style='display: none;'>
+                                    <img src='image/equipment/helmet/燎星之隕.png' style='width: 40px' onclick='selectHelmet("defense","燎星之隕d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='神諭者d' style='display: none;'>
+                                    <img src='image/equipment/helmet/神諭者.png' style='width: 40px' onclick='selectHelmet("defense","神諭者d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='女武神燦星d' style='display: none;'>
+                                    <img src='image/equipment/helmet/女武神燦星.png' style='width: 40px' onclick='selectHelmet("defense","女武神燦星d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='遠見d' style='display: none;'>
+                                    <img src='image/equipment/helmet/遠見.png' style='width: 40px' onclick='selectHelmet("defense","遠見d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='利古里亞之冠d' style='display: none;'>
+                                    <img src='image/equipment/helmet/利古里亞之冠.png' style='width: 40px' onclick='selectHelmet("defense","利古里亞之冠d")'/>
+                                </li>
+                                <li class='equipment imgbtn defense helmet' id='萬能工具帽d' style='display: none;'>
+                                    <img src='image/equipment/helmet/萬能工具帽.png' style='width: 40px' onclick='selectHelmet("defense","萬能工具帽d")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='accessoryList'>
+                            <ul>
                             </ul>
                         </div>
                         <div class='terrainList'>

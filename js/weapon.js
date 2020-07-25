@@ -1,5 +1,10 @@
 /* 劍 匕首 弓 法杖 錘 槍 斧 */
 var weapon = [{
+    NAME: '沒有武器', TYPE: 'NO',
+    HP: 0, ATK: 0, INT: 0, DEF: 0, MDEF: 0, DEX: 0, CRIT: 0,
+    CATK: 0, CINT: 0, CDEF: 0, CMDEF: 0, CCRIT: 0,
+    DESC: '沒有裝備的可撥仔，或著被燦晶禁掉了QQ'
+},{
     NAME: '屠龍劍格拉姆', TYPE: '劍',
     HP: 0.08, ATK: 0.08, INT: 0, DEF: 0, MDEF: 0, DEX: 0, CRIT: 0,
     CATK: 0, CINT: 0, CDEF: 0, CMDEF: 0, CCRIT: 0,
@@ -177,7 +182,7 @@ var weapon = [{
 },{
     NAME: '詛咒之槍', TYPE: '槍',
     HP: 0, ATK: 0, INT: 0, DEF: 0, MDEF: 0, DEX: 0, CRIT: 0,
-    CATK: 0, CINT: 0, CDEF: 0.15, CMDEF: 0.15, CCRIT: 0,
+    CATK: 0, CINT: 0, CDEF: 0, CMDEF: 0, CCRIT: 0,
     DESC: '主動進入戰鬥時，防禦、魔防提升15%，戰鬥後，有50%機率使敵軍無法使用主動技能，無法遭受治療，持續1回合'
 },{
     NAME: '真紅死神', TYPE: '斧',
@@ -232,41 +237,41 @@ var weapon = [{
 }]
 
 /* side depends the char, job equipment = army equipment + job specials + char specials */
-function hold(side, army, job){
+function holdWeapon(side, army, job){
     var holds = [];
     switch(army){
         case '劍兵':
-            holds = ['劍', '匕首', '錘'];
+            holds = ['NO', '劍', '匕首', '錘'];
             break;
         case '槍兵':
-            holds = ['槍', '斧'];
+            holds = ['NO', '槍', '斧'];
             break;
         case '騎兵':
-            holds = ['劍', '槍'];
+            holds = ['NO', '劍', '槍'];
             break;
         case '飛兵':
-            holds = ['槍', '斧'];
+            holds = ['NO', '槍', '斧'];
             break;
         case '弓兵':
-            holds = ['匕首', '弓'];
+            holds = ['NO', '匕首', '弓'];
             break;
         case '刺客':
-            holds = ['匕首', '弓'];
+            holds = ['NO', '匕首', '弓'];
             break;
         case '水兵':
-            holds = ['錘', '斧'];
+            holds = ['NO', '錘', '斧'];
             break;
         case '法師':
-            holds = ['法杖'];
+            holds = ['NO', '法杖'];
             break;
         case '魔物':
-            holds = ['法杖'];
+            holds = ['NO', '法杖'];
             break;
         case '僧侶':
-            holds = ['法杖', '錘'];
+            holds = ['NO', '法杖', '錘'];
             break;
         case '龍':
-            holds = [];
+            holds = ['NO'];
             break;
     }
     /* add new cases to new heros */
@@ -288,39 +293,44 @@ function hold(side, army, job){
 function displayWeapon(side){
     var army = getArmy(side)
     var job = getJob(side);
-    var holds = hold(side, army, job);
-    if(side == 'defense'){
+    var holds = holdWeapon(side, army, job);
 
-    }
-    else if(side == 'offense'){
-        var weaponList = [];
-        // get all usable weaponList
-        for(var i=0; i<holds.length; i++){
-            // filter objects
-            var weaponfilter = weapon.filter(x => x.TYPE === holds[i]);
-            for(var j=0; j<weaponfilter.length; j++){
-                // get NAMES only
-                weaponList.push(weaponfilter[j].NAME);
-            }
-        }
-        // display weapon by NAMES
-        var selected = false;
-        for(var i=0; i<weaponList.length; i++){
-            if(side == 'defense'){
-                document.getElementById(weaponList[i]+'d').style = '';
-            }
-            else if(side == 'offense'){
-                document.getElementById(weaponList[i]).style = '';
-                // select first item found
-                if(!selected){
-                    document.getElementById(weaponList[i]).classList.add('selected');
-                    combat.offWeapon = weapon.find(x => x.NAME === weaponList[i]);
-                    document.getElementById('offWeapon').innerHTML = "武器:" + weaponList[i];
-                    selected = true;
-                }
-            }
+    var weaponList = [];
+    // get all usable weaponList
+    for(var i=0; i<holds.length; i++){
+        // filter objects
+        var weaponfilter = weapon.filter(x => x.TYPE === holds[i]);
+        for(var j=0; j<weaponfilter.length; j++){
+            // get NAMES only
+            weaponList.push(weaponfilter[j].NAME);
         }
     }
+    // display weapon by NAMES
+    for(var i=0; i<weaponList.length; i++){
+        if(side == 'defense'){
+            document.getElementById(weaponList[i]+'d').style = '';
+            // select first item found when no weapon selected
+            if(!combat.defWeaSel){
+                document.getElementById(weaponList[i]+'d').classList.add('selected');
+                combat.defWeapon = weapon.find(x => x.NAME === weaponList[i]);
+                document.getElementById('defWeapon').innerHTML = "武器:" + weaponList[i];
+                combat.defWeaSel = true;
+            }
+        }
+        else if(side == 'offense'){
+            document.getElementById(weaponList[i]).style = '';
+            // select first item found when no weapon selected
+            if(!combat.offWeaSel){
+                document.getElementById(weaponList[i]).classList.add('selected');
+                combat.offWeapon = weapon.find(x => x.NAME === weaponList[i]);
+                document.getElementById('offWeapon').innerHTML = "武器:" + weaponList[i];
+                combat.offWeaSel = true;
+            }
+        }
+    }
+    // select first item when weapon is selected
+    if(side == 'defense') selectWeapon(side, weaponList[0]+'d');
+    else if(side == 'offense') selectWeapon(side, weaponList[0]);
 };
 function hideWeapon(side){
     var weaponList = document.getElementsByClassName('weapon ' + side);
@@ -331,7 +341,16 @@ function hideWeapon(side){
 function selectWeapon(side, weaponName){
     // defense
     if(side == 'defense'){
-
+        // remove d for defense
+        weaponName = weaponName.slice(0, -1);
+        // de-select old weapon
+        if(document.getElementById(combat.defWeapon.NAME + 'd').classList.contains('selected')){
+            document.getElementById(combat.defWeapon.NAME + 'd').classList.remove('selected')
+        }
+        // select new weapon
+        document.getElementById(weaponName+'d').classList.add('selected');
+        combat.defWeapon = weapon.find(x => x.NAME === weaponName);
+        document.getElementById('defWeapon').innerHTML = "武器:" + weaponName;
     }
     // offense
     else if(side == 'offense'){
