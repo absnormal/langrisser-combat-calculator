@@ -200,7 +200,6 @@ tbody > p{
 .weaponList{
     border-style: solid;
     border-color: white;
-    height: 95px;
 }
 .weapon .imgbtn{
     display: inline-block;
@@ -210,7 +209,6 @@ tbody > p{
 .armorList{
     border-style: solid;
     border-color: white;
-    height: 50px;
 }
 .armor .imgbtn{
     display: inline-block;
@@ -220,7 +218,6 @@ tbody > p{
 .helmetList{
     border-style: solid;
     border-color: white;
-    height: 50px;
 }
 .helmet .imgbtn{
     display: inline-block;
@@ -230,7 +227,6 @@ tbody > p{
 .accessoryList{
     border-style: solid;
     border-color: white;
-    height: 50px;
 }
 .accessory .imgbtn{
     display: inline-block;

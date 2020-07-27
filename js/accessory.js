@@ -186,7 +186,7 @@ var accessory = [{
     DATK: 0, DINT: 0, DDEF: 0, DMDEF: 0, DCRIT: 0,
     DESC: '智力+5%，本回合如果造成過傷害，行動結束時為周圍1格的其他友軍回复15%的生命。'
 },{
-    NAME: '海洋之心', TYPE: '飾品',
+    NAME: '海洋之心', TYPE: '阿爾弗雷德',
     HP: 0, ATK: 0.08, INT: 0, DEF: 0, MDEF: 0, DEX: 0, CRIT: 0,
     OATK: 0, OINT: 0, ODEF: 0, OMDEF: 0, OCRIT: 0,
     DATK: 0, DINT: 0, DDEF: 0, DMDEF: 0, DCRIT: 0,
@@ -300,7 +300,7 @@ function displayAccessory(side){
             if(!combat.defAccSel){
                 document.getElementById(accessoryList[i]+'d').classList.add('selected');
                 combat.defAccessory = accessory.find(x => x.NAME === accessoryList[i]);
-                document.getElementById('defAccessory').innerHTML = "盔甲:" + accessoryList[i];
+                document.getElementById('defAccessory').innerHTML = "飾品:" + accessoryList[i];
                 combat.defAccSel = true;
             }
         }
@@ -310,7 +310,7 @@ function displayAccessory(side){
             if(!combat.offAccSel){
                 document.getElementById(accessoryList[i]).classList.add('selected');
                 combat.offAccessory = accessory.find(x => x.NAME === accessoryList[i]);
-                document.getElementById('offAccessory').innerHTML = "盔甲:" + accessoryList[i];
+                document.getElementById('offAccessory').innerHTML = "飾品:" + accessoryList[i];
                 combat.offAccSel = true;
             }
         }
@@ -352,4 +352,20 @@ function selectAccessory(side, accessoryName){
     }
 };
 
+function loadAccessoryDesc(side, equipment){
+    for(let i=0; i<accessory.length; i++){
+        if((side == 'defense' && equipment.slice(0,-1) == accessory[i].NAME) ||
+            (side == 'offense' && equipment == accessory[i].NAME)){
+            let table = document.getElementById(equipment+"TABLE");
+            let baseAccessory = document.getElementById(equipment);
+            let x = baseAccessory.getBoundingClientRect().top + 30;
+            let y = baseAccessory.getBoundingClientRect().left + 30;
+            document.getElementById(equipment+"NAME").innerHTML = accessory[i].NAME;
+            document.getElementById(equipment+"DESC").innerHTML = accessory[i].DESC;
+            table.style.top = x + 'px';
+            table.style.left = y + 'px';
+            break;
+        }
+    }
+};
 

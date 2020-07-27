@@ -167,6 +167,8 @@ function selectChar(charName){
         displayArmor('defense');
         hideHelmet('defense');
         displayHelmet('defense');
+        hideAccessory('defense');
+        displayAccessory('defense');
         // select new char & first soldier
         document.getElementById(charName).classList.add('selected');
         defenseChar = charName;
@@ -196,6 +198,8 @@ function selectChar(charName){
         displayArmor('offense');
         hideHelmet('offense');
         displayHelmet('offense');
+        hideAccessory('offense');
+        displayAccessory('offense');
         // select new char & normal attack & first soldier
         document.getElementById(charName).classList.add('selected');
         offenseChar = charName;

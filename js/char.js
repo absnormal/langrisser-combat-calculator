@@ -1136,11 +1136,11 @@ function loadTalent(side, character){
         if((side == 'defense' && character.slice(0,-1) == char[i].NAME) ||
             (side == 'offense' && character == char[i].NAME)){
             let talent = document.getElementById(character+"TALENT");
-            let baseChar = document.getElementById(char[i].NAME);
+            let baseChar = document.getElementById(character);
             let y = baseChar.getBoundingClientRect().top + 50;
             let x = baseChar.getBoundingClientRect().left + 50;
-            document.getElementById(char[i].NAME+"TALENTNAME").innerHTML = char[i].TALENTNAME;
-            document.getElementById(char[i].NAME+"DESC").innerHTML = char[i].TALENT;
+            document.getElementById(character+"TALENTNAME").innerHTML = char[i].TALENTNAME;
+            document.getElementById(character+"DESC").innerHTML = char[i].TALENT;
             talent.style.top = y + 'px';
             talent.style.left = x + 'px';
             break;

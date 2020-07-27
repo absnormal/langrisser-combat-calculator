@@ -12,30 +12,20 @@ var combat = {
 };
 
 function getArmy(side){
+    var eJobNo, eChar;
     if(side == 'defense'){
-        if(combat.defJobNo == 1)
-            return combat.defChar.ARMY1;
-        else if(combat.defJobNo == 2)
-            return combat.defChar.ARMY2;
-        else if(combat.defJobNo == 3)
-            return combat.defChar.ARMY3;
-        else if(combat.defJobNo == 4)
-            return combat.defChar.ARMY4;
-        else if(combat.defJobNo == 5)
-            return combat.defChar.ARMY5;
+        eJobNo = combat.defJobNo;
+        eChar = combat.defChar;
     }
     else if(side == 'offense'){
-        if(combat.offJobNo == 1)
-            return combat.offChar.ARMY1;
-        else if(combat.offJobNo == 2)
-            return combat.offChar.ARMY2;
-        else if(combat.offJobNo == 3)
-            return combat.offChar.ARMY3;
-        else if(combat.offJobNo == 4)
-            return combat.offChar.ARMY4;
-        else if(combat.offJobNo == 5)
-            return combat.offChar.ARMY5;
+        eJobNo = combat.offJobNo;
+        eChar = combat.offChar;
     }
+    if(eJobNo == 1)      return eChar.ARMY1;
+    else if(eJobNo == 2) return eChar.ARMY2;
+    else if(eJobNo == 3) return eChar.ARMY3;
+    else if(eJobNo == 4) return eChar.ARMY4;
+    else if(eJobNo == 5) return eChar.ARMY5;
 };
 
 function displayArmy(side){
@@ -48,31 +38,22 @@ function displayArmy(side){
 };
 
 function getJob(side){
+    var eJobNo, eChar;
     if(side == 'defense'){
-        if(combat.defJobNo == 1)
-            return combat.defChar.JOB1;
-        else if(combat.defJobNo == 2)
-            return combat.defChar.JOB2;
-        else if(combat.defJobNo == 3)
-            return combat.defChar.JOB3;
-        else if(combat.defJobNo == 4)
-            return combat.defChar.ARMY4;
-        else if(combat.defJobNo == 5)
-            return combat.defChar.ARMY5;
+        eJobNo = combat.defJobNo;
+        eChar = combat.defChar;
     }
     else if(side == 'offense'){
-        if(combat.offJobNo == 1)
-            return combat.offChar.JOB1;
-        else if(combat.offJobNo == 2)
-            return combat.offChar.JOB2;
-        else if(combat.offJobNo == 3)
-            return combat.offChar.JOB3;
-        else if(combat.offJobNo == 4)
-            return combat.offChar.JOB4;
-        else if(combat.offJobNo == 5)
-            return combat.offChar.JOB5;
+        eJobNo = combat.offJobNo;
+        eChar = combat.offChar;
     }
+    if(eJobNo == 1)      return eChar.JOB1;
+    else if(eJobNo == 2) return eChar.JOB2;
+    else if(eJobNo == 3) return eChar.JOB3;
+    else if(eJobNo == 4) return eChar.JOB4;
+    else if(eJobNo == 5) return eChar.JOB5;
 };
+
 function displayJob(side){
     if(side == 'defense'){
         document.getElementById('defcharJOB').innerHTML = '職業:' + getJob(side);
@@ -84,17 +65,16 @@ function displayJob(side){
 
 // change JOB and change equipments depends on JOB
 function changeJob(side){
-    var jobNo;
-    if(side == 'defense') jobNo = combat.defJobNo;
-    else if(side == 'offense') jobNo = combat.offJobNo;
-    jobNo += 1;
+    var eJobNo;
     if(side == 'defense'){
-        if(jobNo > combat.defChar.JOBS) jobNo = 1;
-        combat.defJobNo = jobNo;
+        eJobNo = combat.defJobNo + 1;
+        if(eJobNo > combat.defChar.JOBS) eJobNo = 1;
+        combat.defJobNo = eJobNo;
     }
     else if(side == 'offense'){
-        if(jobNo > combat.offChar.JOBS) jobNo = 1;
-        combat.offJobNo = jobNo;
+        eJobNo = combat.offJobNo + 1;
+        if(eJobNo > combat.offChar.JOBS) eJobNo = 1;
+        combat.offJobNo = eJobNo;
     }
     // display job when changed
     displayArmy(side);
@@ -105,6 +85,8 @@ function changeJob(side){
     displayArmor(side);
     hideHelmet(side);
     displayHelmet(side);
+    hideAccessory(side);
+    displayAccessory(side);
 };
 
 function displayPREATK(side){
