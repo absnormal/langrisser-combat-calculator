@@ -371,3 +371,20 @@ function selectHelmet(side, helmetName){
 };
 
 
+function loadHelmetDesc(side, equipment){
+    for(let i=0; i<helmet.length; i++){
+        if((side == 'defense' && equipment.slice(0,-1) == helmet[i].NAME) ||
+            (side == 'offense' && equipment == helmet[i].NAME)){
+            let table = document.getElementById(equipment+"TABLE");
+            let baseHelmet = document.getElementById(helmet[i].NAME);
+            let x = baseHelmet.getBoundingClientRect().top + 30;
+            let y = baseHelmet.getBoundingClientRect().left + 30;
+            document.getElementById(equipment+"NAME").innerHTML = helmet[i].NAME;
+            document.getElementById(equipment+"DESC").innerHTML = helmet[i].DESC;
+            table.style.top = x + 'px';
+            table.style.left = y + 'px';
+            break;
+        }
+    }
+};
+

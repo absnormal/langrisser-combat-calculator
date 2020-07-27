@@ -359,11 +359,26 @@ function selectWeapon(side, weaponName){
             document.getElementById(combat.offWeapon.NAME).classList.remove('selected')
         }
         // select new weapon
-        document.getElementById('ERROR').innerHTML = weaponName;
         document.getElementById(weaponName).classList.add('selected');
         combat.offWeapon = weapon.find(x => x.NAME === weaponName);
         document.getElementById('offWeapon').innerHTML = "武器:" + weaponName;
     }
 };
 
+function loadWeaponDesc(side, equipment){
+    for(let i=0; i<weapon.length; i++){
+        if((side == 'defense' && equipment.slice(0,-1) == weapon[i].NAME) ||
+            (side == 'offense' && equipment == weapon[i].NAME)){
+            let table = document.getElementById(equipment+"TABLE");
+            let baseWeapon = document.getElementById(weapon[i].NAME);
+            let x = baseWeapon.getBoundingClientRect().top + 30;
+            let y = baseWeapon.getBoundingClientRect().left + 30;
+            document.getElementById(equipment+"NAME").innerHTML = weapon[i].NAME;
+            document.getElementById(equipment+"DESC").innerHTML = weapon[i].DESC;
+            table.style.top = x + 'px';
+            table.style.left = y + 'px';
+            break;
+        }
+    }
+};
 

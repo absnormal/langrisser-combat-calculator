@@ -80,6 +80,9 @@ ul > li{
 }
 tr > td{
     color: white;
+}
+tr.data > td{
+    color: white;
     height: 24px; width: 160px;
 }
 tbody > p{
@@ -116,7 +119,6 @@ tbody > p{
 .charList{
     border-style: solid;
     border-color: white;
-    height: 285px;
 }
 .character .imgbtn{
     display: inline-block;
@@ -124,12 +126,21 @@ tbody > p{
     padding-right: 3px; padding-left: 3px;
     width: 60px; height: 86px;
 }
+.talent{
+    display: none;
+    width: 300px; 
+    position: fixed;
+    border: 1px solid red;
+    background-color: black;
+}
+.character:hover > .talent{
+    display: block
+}
 
 /* 技能 */
 .skillList{
     border-style: solid;
     border-color: white;
-    height: 220px;
 }
 .skill .imgbtn{
     background-color: white;
@@ -176,6 +187,16 @@ tbody > p{
 }
 
 /* 裝備 */
+.equipmentDESC{
+    display: none;
+    width: 400px; 
+    position: fixed;
+    border: 1px solid red;
+    background-color: black;
+}
+.equipment:hover > .equipmentDESC{
+    display: block;
+}
 .weaponList{
     border-style: solid;
     border-color: white;
@@ -191,7 +212,7 @@ tbody > p{
     border-color: white;
     height: 50px;
 }
-.weapon .imgbtn{
+.armor .imgbtn{
     display: inline-block;
     position: static;
     padding-right: 3px; padding-left: 3px;
@@ -201,7 +222,7 @@ tbody > p{
     border-color: white;
     height: 50px;
 }
-.weapon .imgbtn{
+.helmet .imgbtn{
     display: inline-block;
     position: static;
     padding-right: 3px; padding-left: 3px;
@@ -211,7 +232,7 @@ tbody > p{
     border-color: white;
     height: 50px;
 }
-.weapon .imgbtn{
+.accessory .imgbtn{
     display: inline-block;
     position: static;
     padding-right: 3px; padding-left: 3px;

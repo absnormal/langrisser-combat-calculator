@@ -301,3 +301,20 @@ function selectArmor(side, armorName){
 };
 
 
+function loadArmorDesc(side, equipment){
+    for(let i=0; i<armor.length; i++){
+        if((side == 'defense' && equipment.slice(0,-1) == armor[i].NAME) ||
+            (side == 'offense' && equipment == armor[i].NAME)){
+            let table = document.getElementById(equipment+"TABLE");
+            let baseArmor = document.getElementById(armor[i].NAME);
+            let x = baseArmor.getBoundingClientRect().top + 30;
+            let y = baseArmor.getBoundingClientRect().left + 30;
+            document.getElementById(equipment+"NAME").innerHTML = armor[i].NAME;
+            document.getElementById(equipment+"DESC").innerHTML = armor[i].DESC;
+            table.style.top = x + 'px';
+            table.style.left = y + 'px';
+            break;
+        }
+    }
+};
+
