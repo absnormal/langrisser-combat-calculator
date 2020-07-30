@@ -3,9 +3,16 @@
 
     <head>
         <!-- local
+        -->
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/char.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/talent.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/weapon.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/armor.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/helmet.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/accessory.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/char.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/enchant.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/skill.js"></script>
@@ -18,11 +25,16 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/counter.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/main.js"></script>
-        -->
         <!-- vj local
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\master.css">
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\box.css">
         <link rel="stylesheet" type="text/css" href="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\css\swiper.min.css">
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\data\char.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\data\talent.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\data\weapon.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\data\armor.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\data\helmet.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\data\accessory.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\char.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\enchant.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\skill.js"></script>
@@ -41,6 +53,12 @@
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="/langrisser-combat-calculator/data/char.js"></script>
+        <script src="/langrisser-combat-calculator/data/talent.js"></script>
+        <script src="/langrisser-combat-calculator/data/weapon.js"></script>
+        <script src="/langrisser-combat-calculator/data/armor.js"></script>
+        <script src="/langrisser-combat-calculator/data/helmet.js"></script>
+        <script src="/langrisser-combat-calculator/data/accessory.js"></script>
         <script src="/langrisser-combat-calculator/js/char.js"></script>
         <script src="/langrisser-combat-calculator/js/enchant.js"></script>
         <script src="/langrisser-combat-calculator/js/skill.js"></script>
@@ -750,7 +768,7 @@
                                 <li class='character imgbtn offense 公主聯盟 帝國之輝 黑暗輪迴' id='索尼婭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
                                     <table class='talent' id='索尼婭TALENT'>
                                         <tr><th id='索尼婭TALENTNAME'></th></tr>
-                                        <tr><td id='索尼婭ESC'></td></tr>
+                                        <tr><td id='索尼婭DESC'></td></tr>
                                     </table>
                                     <img src='image/character/索尼婭.png' onclick='selectChar("索尼婭")'/>
                                 </li>
@@ -2559,44 +2577,96 @@
                             <tr class='data'>
                                 <td id='partydata'>陣營:NA</td>
                                 <td id='chardata'>角色:NA</td>
-                                <td>生命:<input type='text' id='offHP' style='width:90px' value=100></td>
+                                <td colspan=2>生命:<input type='text' id='offHP' style='width:100px' value='1000/1000'></td>
                             </tr>
                             <tr class='data'>
                                 <td id='skilldata'>技能:NA</td>
                                 <td id='soldierdata'>士兵:NA</td>
-                                <td>攻擊:<input type='text' id='offATK' style='width:90px' value=100></td>
+                                <td>進場前攻擊:<input type='text' id='offATK' style='width:40px' value=100></td>
                             </tr>
                             <tr class='data'>
                                 <td id='offcharJOB'>職業:NA</td>
                                 <td id='offcharARMY'>兵種:NA</td>
-                                <td>智力:<input type='text' id='offINT' style='width:90px' value=100></td>
+                                <td>競技精通攻擊:<input type='text' id='offAATK' style='width:40px' value=20></td>
                             </tr>
                             <tr class='data'>
                                 <td id='terraindata'>地形:NA</td>
                                 <td id='enchantdata'>附魔:NA</td>
-                                <td>防禦:<input type='text' id='offDEF' style='width:90px' value=100></td>
+                                <td>進場前智力:<input type='text' id='offINT' style='width:40px' value=100></td>
                             </tr>
                             <tr class='data'>
                                 <td id='offWeapon'>武器:NA</td>
                                 <td id='offArmor'>盔甲:NA</td>
-                                <td>魔防:<input type='text' id='offMDEF' style='width:90px' value=100></td>
+                                <td>競技精通智力:<input type='text' id='offAINT' style='width:40px' value=20></td>
                             </tr>
                             <tr class='data'>
                                 <td id='offHelmet'>頭盔:NA</td>
                                 <td id='offAccessory'>飾品:NA</td>
-                                <td>技巧:<input type='text' id='offDEX' style='width:90px' value=100></td>
+                                <td>進場前防禦:<input type='text' id='offDEF' style='width:40px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td id='offHEAL'>治療效果:NA</td>
+                                <td id='offHEALED'>遭受治療效果:NA</td>
+                                <td>競技精通防禦:<input type='text' id='offADEF' style='width:40px' value=20></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>進場前魔防:<input type='text' id='offMDEF' style='width:40px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>競技精通魔防:<input type='text' id='offAMDEF' style='width:40px' value=20></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>進場前技巧:<input type='text' id='offDEX' style='width:40px' value=100></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>競技精通技巧:<input type='text' id='offADEX' style='width:40px' value=20></td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=3>戰前數值 = 進場前白字×(1+裝備技能+Buff+滿月)</td>
+                                <td colspan=3>戰前數值 = 進場前白字×(1+天賦+武器+頭盔+盔甲+飾品+強化弱化+滿月)+競技精通</td>
+                            </tr>
+                            <tr>
+                                <td><b>進攻方</b></td>
                             </tr>
                             <tr class='data'>
-                                <td id='PREATK' colspan=3>戰前數值:<br>NA = NA×[1+NA+NA+NA]</td>
+                                <td id='PREATK' colspan=3>戰前攻擊:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
                             </tr>
                             <tr class='data'>
-                                <td id='PREDEF' colspan=3>戰前數值:<br>NA = NA×[1+NA+NA+NA]</td>
+                                <td id='PREINT' colspan=3>戰前智力:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=3>一段傷害 = {[戰前數值×(1+進戰裝備技能+怒濤)×剋制加成]-[戰鬥前防禦×(1+進戰裝備技能)×地形加成]}÷2×傷害加成×技能加成×暴擊加成×近戰減免</td>
+                                <td id='PREDEF' colspan=3>戰前防禦:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
+                            </tr>
+                            <tr class='data'>
+                                <td id='PREMDEF' colspan=3>戰前魔防:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
+                            </tr>
+                            <tr>
+                                <td><b>防守方</b></td>
+                            </tr>
+                            <tr class='data'>
+                                <td id='PREATKd' colspan=3>戰前攻擊:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
+                            </tr>
+                            <tr class='data'>
+                                <td id='PREINTd' colspan=3>戰前智力:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
+                            </tr>
+                            <tr class='data'>
+                                <td id='PREDEFd' colspan=3>戰前防禦:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
+                            </tr>
+                            <tr class='data'>
+                                <td id='PREMDEFd' colspan=3>戰前魔防:NA = NA×[1+NA+NA+NA+NA+NA+NA+NA]</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=3>戰中數值 = 進場前白字×(1+裝備技能+進戰裝備技能+Buff+滿月+怒濤)+競技精通</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=3>一段傷害 = {[戰中數值×剋制加成]-[戰中防禦×地形加成]}÷2×技能倍率×一般增傷×技能增傷×暴擊加成×近戰減免</td>
                             </tr>
                             <tr class='data'>
                                 <td id='FORMULA' colspan=3>一段傷害:<br>NA = {[NA×(1+NA+NA)×NA]-[NA×(1+NA)×NA]}÷2×NA×NA×NA×NA</td>

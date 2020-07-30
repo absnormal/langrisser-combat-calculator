@@ -1,233 +1,266 @@
 var combat = {
+        /* offense character info */
     offParty:undefined, offChar:undefined, offSkill:undefined, offSoldier:undefined,
-    offTerrain:undefined, offEnchant:undefined,
+    offTalent:undefined, offTerrain:undefined, offEnchant:undefined,
     offWeapon:undefined, offArmor:undefined, offHelmet:undefined, offAccessory:undefined,
+    // character currnet data
+    offFULLHP:undefined, offHP:undefined, offATK:undefined, offINT:undefined,
+    offDEF:undefined, offMDEF:undefined, offDEX:undefined, offHITS:undefined,
+    offHEAL:undefined, offHEALED:undefined,
+    // character arena plus
+    offAATK:undefined,offAINT:undefined,offADEF:undefined,offAMDEF:undefined,offADEX:undefined,
+    offACRITDMG:undefined, offAPCRITDMG:undefined,
+    offACRITRATE:undefined, offAPCRITRATE:undefined,
+    // equipment selected
     offWeaSel:false, offArmSel:false, offHelSel:false, offAccSel:false,
+    // current JobNo
     offJobNo:1,
+
+        /* combat accumulate rates */
+    offATKRATE:undefined, offINTRATE:undefined, offDEFRATE:undefined,
+    offMDEFRATE:undefined, offDEXRATE:undefined, offCRITDMG:undefined, offCRITRATE:undefined,
+    defATKRATE:undefined, defINTRATE:undefined, defDEFRATE:undefined,
+    defMDEFRATE:undefined, defDEXRATE:undefined, defCRITDMG:undefined, defCRITRATE:undefined,
+    dmgRATE:undefined, skillRATE:undefined,
+    counterRATE:undefined, terrainRATE:undefined,
+    dmgType:undefined, range:undefined, run:undefined, combatNEG:undefined,
+
+        /* defense character info */
     defParty:undefined, defChar:undefined, defSkill:undefined, defSoldier:undefined,
-    defTerrain:undefined, defEnchant:undefined,
+    defTalent:undefined, defTerrain:undefined, defEnchant:undefined,
     defWeapon:undefined, defArmor:undefined, defHelmet:undefined, defAccessory:undefined,
+    // character currnet data
+    defFULLHP:undefined, defHP:undefined, defATK:undefined, defINT:undefined,
+    defDEF:undefined, defMDEF:undefined, defDEX:undefined, defHITS:undefined,
+    defHEAL:undefined, defHEALED:undefined,
+    // character arena plus
+    defAATK:undefined,defAINT:undefined,defADEF:undefined,defAMDEF:undefined,defADEX:undefined,
+    defACRITDMG:undefined, defAPCRITDMG:undefined,
+    defACRITRATE:undefined, defAPCRITRATE:undefined,
+    // equipment selected
     defWeaSel:false, defArmSel:false, defHelSel:false, defAccSel:false,
-    defJobNo:1
+    // current JobNo
+    defJobNo:1,
+
+        /* reset numbers */
+    baseCRITRATE:0, baseCRITDMG:1.3, baseHITS:20, baseRATE:1, baseCombatNEG:0
 };
 
-function getArmy(side){
-    var eJobNo, eChar;
-    if(side == 'defense'){
-        eJobNo = combat.defJobNo;
-        eChar = combat.defChar;
-    }
-    else if(side == 'offense'){
-        eJobNo = combat.offJobNo;
-        eChar = combat.offChar;
-    }
-    if(eJobNo == 1)      return eChar.ARMY1;
-    else if(eJobNo == 2) return eChar.ARMY2;
-    else if(eJobNo == 3) return eChar.ARMY3;
-    else if(eJobNo == 4) return eChar.ARMY4;
-    else if(eJobNo == 5) return eChar.ARMY5;
+function resetAllRATE(){
+    /* offense accumulative rates */
+    combat.offATKRATE = combat.baseRATE;
+    combat.offINTRATE = combat.baseRATE;
+    combat.offDEFRATE = combat.baseRATE;
+    combat.offMDEFRATE = combat.baseRATE;
+    combat.offDEXRATE = combat.baseRATE;
+    combat.offCRITDMG = combat.baseCRITDMG;
+    combat.offCRITRATE = combat.baseCRITRATE;
+    /* defense accumulative rates */
+    combat.defATKRATE = combat.baseRATE;
+    combat.defINTRATE = combat.baseRATE;
+    combat.defDEFRATE = combat.baseRATE;
+    combat.defMDEFRATE = combat.baseRATE;
+    combat.defDEXRATE = combat.baseRATE;
+    combat.defCRITDMG = combat.baseCRITDMG;
+    combat.defCRITRATE = combat.baseCRITRATE;
+    /* other rates */
+    combat.offHITS = combat.baseHITS;
+    combat.defHITS = combat.baseHITS;
+    combat.offHEAL = combat.baseRATE;
+    combat.defHEAL = combat.baseRATE;
+    combat.offHEALED = combat.baseRATE;
+    combat.defHEALED = combat.baseRATE;
+    combat.dmgRATE = combat.baseRATE;
+    combat.skillRATE = combat.baseRATE;
+    combat.combatNEG = combat.baseCombatNEG;
+    combat.counterRATE = combat.baseRATE;
+    combat.terrainRATE = combat.baseRATE;
 };
 
-function displayArmy(side){
-    if(side == 'defense'){
-        document.getElementById('defcharARMY').innerHTML = '兵種:' + getArmy(side);
+function getCharData(side){
+    if(side == 'offense'){
+        /* 白字 */
+        combat.offFULLHP = Number(document.getElementById('offHP').value.split('/')[1]);
+        combat.offHP = Number(document.getElementById('offHP').value.split('/')[0]);
+        combat.offATK = Number(document.getElementById('offATK').value);
+        combat.offINT = Number(document.getElementById('offINT').value);
+        combat.offDEF = Number(document.getElementById('offDEF').value);
+        combat.offMDEF = Number(document.getElementById('offMDEF').value);
+        combat.offDEX = Number(document.getElementById('offDEX').value);
+        /* 競技精通 */
+        combat.offAATK = Number(document.getElementById('offAATK').value);
+        combat.offAINT = Number(document.getElementById('offAINT').value);
+        combat.offADEF = Number(document.getElementById('offADEF').value);
+        combat.offAMDEF = Number(document.getElementById('offAMDEF').value);
+        combat.offADEX = Number(document.getElementById('offADEX').value);
     }
-    else if(side == 'offense'){
-        document.getElementById('offcharARMY').innerHTML = '兵種:' + getArmy(side);
-    }
-};
-
-function getJob(side){
-    var eJobNo, eChar;
-    if(side == 'defense'){
-        eJobNo = combat.defJobNo;
-        eChar = combat.defChar;
-    }
-    else if(side == 'offense'){
-        eJobNo = combat.offJobNo;
-        eChar = combat.offChar;
-    }
-    if(eJobNo == 1)      return eChar.JOB1;
-    else if(eJobNo == 2) return eChar.JOB2;
-    else if(eJobNo == 3) return eChar.JOB3;
-    else if(eJobNo == 4) return eChar.JOB4;
-    else if(eJobNo == 5) return eChar.JOB5;
-};
-
-function displayJob(side){
-    if(side == 'defense'){
-        document.getElementById('defcharJOB').innerHTML = '職業:' + getJob(side);
-    }
-    else if(side == 'offense'){
-        document.getElementById('offcharJOB').innerHTML = '職業:' + getJob(side);
+    else if(side == 'defense'){
+        /* 白字 */
+        combat.defFULLHP = Number(document.getElementById('defHP').value.split('/')[1]);
+        combat.defHP = Number(document.getElementById('defHP').value.split('/')[0]);
+        combat.defATK = Number(document.getElementById('defATK').value);
+        combat.defINT = Number(document.getElementById('defINT').value);
+        combat.defDEF = Number(document.getElementById('defDEF').value);
+        combat.defMDEF = Number(document.getElementById('defMDEF').value);
+        combat.defDEX = Number(document.getElementById('defDEX').value);
     }
 };
 
-// change JOB and change equipments depends on JOB
-function changeJob(side){
-    var eJobNo;
-    if(side == 'defense'){
-        eJobNo = combat.defJobNo + 1;
-        if(eJobNo > combat.defChar.JOBS) eJobNo = 1;
-        combat.defJobNo = eJobNo;
-    }
-    else if(side == 'offense'){
-        eJobNo = combat.offJobNo + 1;
-        if(eJobNo > combat.offChar.JOBS) eJobNo = 1;
-        combat.offJobNo = eJobNo;
-    }
-    // display job when changed
-    displayArmy(side);
-    displayJob(side);
-    hideWeapon(side);
-    displayWeapon(side);
-    hideArmor(side);
-    displayArmor(side);
-    hideHelmet(side);
-    displayHelmet(side);
-    hideAccessory(side);
-    displayAccessory(side);
+/* get side->otherside counter */
+function getCounterRATE(side){
+    var sideA, sideB;
+    if(side == 'offense') sideA = 'offense', sideB = 'defense';
+    else if(side == 'defense') sideA = 'defense', sideB = 'offense';
+    combat.counterRATE += cal_counter(getArmy(sideA), getArmy(sideB));
+    combat.counterRATE += cal_skillCounter(combat.offSkill.COUNTER, getArmy(sideB));
 };
 
-function displayPREATK(side){
-    var job, ATK, equipEFF = 0, BUFFEFF = 0, moon = 0, PREATK, dmg;
-
-    /* get ATK */
-    if(combat.offSkill.TYPE == '魔法傷害'){
-        dmg = '智力';
-        if(side == 'offense'){
-            ATK = document.getElementById('offINT').value;
-            equipEFF += combat.offWeapon.INT;
-            equipEFF += combat.offArmor.INT;
-            equipEFF += combat.offHelmet.INT;
-        }
-        else if(side == 'defense'){
-            ATK = document.getElementById('defINT').value;
-            equipEFF += combat.defWeapon.INT;
-            equipEFF += combat.defArmor.INT;
-            equipEFF += combat.defHelmet.INT;
-        }
-    }
-    else if(combat.offSkill.TYPE == '物理傷害'){
-        dmg = '攻擊';
-        if(side == 'offense'){
-            ATK = document.getElementById('offATK').value;
-            equipEFF += combat.offWeapon.ATK;
-            equipEFF += combat.offArmor.ATK;
-            equipEFF += combat.offHelmet.ATK;
-        }
-        else if(side == 'defense'){
-            ATK = document.getElementById('defATK').value;
-            equipEFF += combat.defWeapon.ATK
-            equipEFF += combat.defArmor.ATK;
-            equipEFF += combat.defHelmet.ATK;
-        }
-    }
-    /* 滿月全屬性+10% */
-    if(side == 'offense' && combat.offEnchant.NAME == '滿月') moon = 0.1;
-    else if(side == 'defense' && combat.defEnchant.NAME == '滿月') moon = 0.1;
-
-    /* calculate */
-    PREATK = ATK * (1 + equipEFF + BUFFEFF + moon);
-    PREATK = Math.round(PREATK);
-    // display PREATK formula
-    document.getElementById('PREATK').innerHTML = "戰前" + dmg + ":<br>" + PREATK + "=" + ATK + "×" + "[1+" + equipEFF.toFixed(2) + "+" + BUFFEFF + "+" + moon + "]";
-
-    return PREATK;
+function getTerrainRATE(side){
+    if(side == 'offense')
+        combat.terrainRATE += cal_terrain(combat.offTerrain);
+    else if(side == 'defense')
+        combat.terrainRATE += cal_terrain(combat.defTerrain);
 };
 
-function displayPREDEF(side){
-    var job, DEF, equipEFF = 0, BUFFEFF = 0, moon = 0, PREDEF, dmg;
-
-    /* get DEF */
-    if(combat.offSkill.TYPE == '魔法傷害'){
-        dmg = '魔防';
-        if(side == 'offense'){
-            DEF = document.getElementById('offMDEF').value;
-            equipEFF += combat.offWeapon.MDEF;
-            equipEFF += combat.offArmor.MDEF;
-            equipEFF += combat.offHelmet.MDEF;
-        }
-        else if(side == 'defense'){
-            DEF = document.getElementById('defMDEF').value;
-            equipEFF += combat.defWeapon.MDEF;
-            equipEFF += combat.defArmor.MDEF;
-            equipEFF += combat.defHelmet.MDEF;
-        }
+function displayHEALS(side){
+    if(side == 'offense'){
+        var HEAL = document.getElementById('offHEAL');
+        var HEALED = document.getElementById('offHEALED');
+        if(HEAL != undefined) HEAL.innerHTML = "治療效果:" + Math.round(combat.offHEAL*100) + "%";
+        if(HEALED != undefined) HEALED.innerHTML = "遭受治療效果:" + Math.round(combat.offHEALED*100) + "%";
     }
-    else if(combat.offSkill.TYPE == '物理傷害'){
-        dmg = '物防';
-        if(side == 'offense'){
-            DEF = document.getElementById('offDEF').value;
-            equipEFF += combat.offWeapon.DEF;
-            equipEFF += combat.offArmor.DEF;
-            equipEFF += combat.offHelmet.DEF;
-        }
-        else if(side == 'defense'){
-            DEF = document.getElementById('defDEF').value;
-            equipEFF += combat.defWeapon.DEF;
-            equipEFF += combat.defArmor.DEF;
-            equipEFF += combat.defHelmet.DEF;
-        }
+    else if(side == 'defense'){
+        var HEAL = document.getElementById('defHEAL');
+        var HEALED = document.getElementById('defHEALED');
+        if(HEAL != undefined) HEAL.innerHTML = "治療效果:" + Math.round(combat.defHEAL*100) + "%";
+        if(HEALED != undefined) HEALED.innerHTML = "遭受治療效果:" + Math.round(combat.defHEALED*100) + "%";
     }
-    /* 滿月全屬性+10% */
-    if(side == 'offense' && combat.offEnchant.NAME == '滿月') moon = 0.1;
-    else if(side == 'defense' && combat.defEnchant.NAME == '滿月') moon = 0.1;
 
-    /* calculate */
-    PREDEF = DEF * (1 + equipEFF + BUFFEFF + moon);
-    PREDEF = Math.round(PREDEF);
-    // display PREDEF formula
-    document.getElementById('PREDEF').innerHTML = "戰前" + dmg + ":<br> " + PREDEF + " = " + DEF + "×" + "[1+" + equipEFF.toFixed(2) + "+" + BUFFEFF + "+" + moon + "]";
-
-    return PREDEF;
 };
 
-function bigFormula(){
-    /* get parameter & calculate */
-    var PREATK = displayPREATK('offense');
-    var offEquipEFF=0, wave=0;
-    var PREDEF = displayPREDEF('defense');
-    var defEquipEFF=0, defEnchantEFF=0;
-    var counterRate = cal_counter(getArmy('offense'), getArmy('defense'));
-    var skillCounterRate = cal_skillCounter(combat.offSkill.COUNTER, getArmy('defense'))
-    var terrainRate = cal_terrain(combat.defTerrain);
-    var dmgRate=0, skillRate, critRate=1.3, combatNEG=1;
-    var onehit, HConehit;
+/* ATK*(1+EQUIP+TALENT+BUFF+DEBUFF+COMMAND+ENCHANT:MOON) */
+function displayPRENUMS(side){
+    var PREATK, PREINT, PREDEF, PREMDEF;
+    var weapon, armor, helmet, accessory, enchant, talent;
+    var weaponNUM, armorNUM, helmetNUM, accessoryNUM, talentNUM, moon = 0;
+    var base, arena, rate, NUMS, text;
 
-    skillRate = combat.offSkill.RATE;
-    /* enchant: 怒濤 */
-    if(combat.offSkill.TYPE == '物理傷害' && combat.offEnchant.NAME == '怒濤') wave = 0.1;
-    /* equipment skills */
-    if(combat.offSkill.TYPE == '物理傷害'){
-        offEquipEFF += combat.offWeapon.CATK;
-        offEquipEFF += combat.offArmor.CATK;
-        offEquipEFF += combat.offHelmet.CATK;
-        defEquipEFF += combat.defWeapon.CDEF;
-        defEquipEFF += combat.defArmor.CDEF;
-        defEquipEFF += combat.defHelmet.CDEF;
+    if(side == 'offense'){
+        PREATK = document.getElementById('PREATK');
+        PREINT = document.getElementById('PREINT');
+        PREDEF = document.getElementById('PREDEF');
+        PREMDEF = document.getElementById('PREMDEF');
+        weapon = combat.offWeapon;
+        armor = combat.offArmor;
+        helmet = combat.offHelmet;
+        accessory = combat.offAccessory;
+        enchant = combat.offEnchant;
+        talent = combat.offTalent;
+        perHP = combat.offHP/combat.offFULLHP;
+        base = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF];
+        arena = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF];
+        rate = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE];
     }
-    else if(combat.offSkill.TYPE == '魔法傷害'){
-        offEquipEFF += combat.offWeapon.CINT;
-        offEquipEFF += combat.offArmor.CINT;
-        offEquipEFF += combat.offHelmet.CINT;
-        defEquipEFF += combat.defWeapon.CMDEF;
-        defEquipEFF += combat.defArmor.CMDEF;
-        defEquipEFF += combat.defHelmet.CMDEF;
+    else if(side == 'defense'){
+        PREATK = document.getElementById('PREATKd');
+        PREINT = document.getElementById('PREINTd');
+        PREDEF = document.getElementById('PREDEFd');
+        PREMDEF = document.getElementById('PREMDEFd');
+        weapon = combat.defWeapon;
+        armor = combat.defArmor;
+        helmet = combat.defHelmet;
+        accessory = combat.defAccessory;
+        enchant = combat.defEnchant;
+        talent = combat.defTalent;
+        perHP = combat.defHP/combat.defFULLHP;
+        base = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF];
+        arena = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF];
+        rate = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE];
     }
 
-    /* calculate onehits */
-    onehit = (PREATK*(1+offEquipEFF+wave)*(1+counterRate+skillCounterRate)-PREDEF*(1+defEquipEFF)*(1+terrainRate))/2*(1+dmgRate)*skillRate*combatNEG;
-    onehit = Math.round(onehit);
-    if(onehit <= 0) onehit = 1;
-    HConehit = onehit*critRate;
-    HConehit = Math.round(HConehit);
+    NUMS = [PREATK, PREINT, PREDEF, PREMDEF];
+    text = ["戰前攻擊", "戰前智力", "戰前防禦", "戰前魔防"];
+    weaponNUM = [weapon.ATK, weapon.INT, weapon.DEF, weapon.MDEF];
+    armorNUM = [armor.ATK, armor.INT, armor.DEF, armor.MDEF];
+    helmetNUM = [helmet.ATK, helmet.INT, helmet.DEF, helmet.MDEF];
+    accessoryNUM = [accessory.ATK, accessory.INT, accessory.DEF, accessory.MDEF];
+    talentNUM = [talent.ATK, talent.INT, talent.DEF, talent.MDEF];
 
-    /* display */
-    // no crit
-    document.getElementById('FORMULA').innerHTML = "一段傷害:<br>" + onehit + " = {[" + PREATK + "×(1+" + offEquipEFF.toFixed(2) + "+" + wave + ")×" + (1+counterRate+skillCounterRate) + "]-[" + PREDEF + "×(1+" + defEquipEFF.toFixed(2) + ")×" + (1+terrainRate) + "]}÷2×" + (1+dmgRate) + "×" + skillRate + "×" + combatNEG
-    // hero crit
-    document.getElementById('HCFORMULA').innerHTML = "一段傷害(英雄爆擊):<br>" + HConehit + " = {[" + PREATK + "×(1+" + offEquipEFF.toFixed(2) + "+" + wave + ")×" + (1+counterRate+skillCounterRate) + "]-[" + PREDEF + "×(1+" + defEquipEFF.toFixed(2) + ")×" + (1+terrainRate) + "]}÷2×" + (1+dmgRate) + "×" + skillRate + "×" + critRate + "×" + combatNEG
+    if(enchant.NAME == "滿月" && perHP > 0.8){
+        moon = 0.1;
+    }
+
+    for(let i=0; i<NUMS.length; i++){
+        let number = base[i]*rate[i]+arena[i];
+        NUMS[i].innerHTML = text[i] + ":" + Math.round(number) + "=" + base[i] + "×(1";
+        if(talentNUM[i] != undefined) NUMS[i].innerHTML += "+" + talentNUM[i];
+        if(weaponNUM[i] != undefined) NUMS[i].innerHTML += "+" + weaponNUM[i];
+        if(armorNUM[i] != undefined) NUMS[i].innerHTML += "+" + armorNUM[i];
+        if(helmetNUM[i] != undefined) NUMS[i].innerHTML += "+" + helmetNUM[i];
+        if(accessoryNUM[i] != undefined) NUMS[i].innerHTML += "+" + accessoryNUM[i];
+        if(moon != 0) NUMS[i].innerHTML += "+" + moon;
+        NUMS[i].innerHTML += ")+" + arena[i];
+    }
+};
+
+/* ATK*(1+EQUIP+OEQUIP+TALENT+BUFF+DEBUFF+COMMAND+ENCHANT:MOON+ENCHENT:WAVE) */
+function displayMIDATK(side){
+};
+
+/* all additional functions are here
+ *  Skill Talent Equipments
+*/
+function getAllSkill(stage, side){
+    /* PRE STAGE */
+    if(stage == 'PRE'){
+        getPRETalentSkill(side);
+        getPREWeaponSkill(side);
+        getPREArmorSkill(side);
+        getPREHelmetSkill(side);
+        getPREAccessorySkill(side);
+        displayHEALS(side);
+        displayPRENUMS(side);
+    }
+    /* MID STAGE */
+    /*
+    getSkillSkill(side);
+    getTalentSkill(side);
+    getWeaponSkill(side);
+    getArmorSkill(side);
+    getHelmetSkill(side);
+    getAccessorySkill(side);
+    displayMIDATK(side);
+    displayMIDDEF(side);
+    */
+};
+
+function wholeCombat(){
+    /* get all data/functions */
+    resetAllRATE();
+    getCharData('offense');
+    getCharData('defense');
+    getCounterRATE('offense');
+    getTerrainRATE('defense');
+    getAllSkill('PRE', 'offense');
+    getAllSkill('PRE', 'defense');
+};
+
+function displayCharInfo(side){
+    if(side == 'offense'){
+        document.getElementById('partydata').innerHTML = "陣營:" + combat.offParty;//.NAME;
+        document.getElementById('chardata').innerHTML = "角色:" + combat.offChar.NAME;
+        document.getElementById('skilldata').innerHTML = "技能:" + combat.offSkill.NAME;
+        document.getElementById('soldierdata').innerHTML = "士兵:" + combat.offSoldier;//.NAME;
+        document.getElementById('terraindata').innerHTML = "地形:" + combat.offTerrain;//.NAME;
+        document.getElementById('enchantdata').innerHTML = "附魔:" + combat.offEnchant.NAME;
+    }
+    else if(side == 'defense'){
+        document.getElementById('partydatad').innerHTML = "陣營:" + combat.defParty;//.NAME;
+        document.getElementById('chardatad').innerHTML = "角色:" + combat.defChar.NAME;
+        document.getElementById('soldierdatad').innerHTML = "士兵:"+combat.defSoldier;//.NAME;
+        document.getElementById('terraindatad').innerHTML = "地形:"+combat.defTerrain;//.NAME;
+        document.getElementById('enchantdatad').innerHTML = "附魔:"+combat.defEnchant.NAME;
+    }
 };
 
 window.addEventListener("click", function getSelected(){
@@ -241,6 +274,7 @@ window.addEventListener("click", function getSelected(){
         else if(selected[i].classList.contains('character')){
             combat.offChar = selected[i].id;
             combat.offChar = char.find(x => x.NAME === combat.offChar);
+            combat.offTalent = talent.find(x => x.NAME === combat.offChar.TALENTNAME);
         }
         else if(selected[i].classList.contains('skill')){
             combat.offSkill = selected[i].id;
@@ -260,12 +294,7 @@ window.addEventListener("click", function getSelected(){
             combat.offEnchant = enchant.find(x => x.NAME === combat.offEnchant);
         }
     }
-    document.getElementById('partydata').innerHTML = "陣營:" + combat.offParty;//.NAME;
-    document.getElementById('chardata').innerHTML = "角色:" + combat.offChar.NAME;
-    document.getElementById('skilldata').innerHTML = "技能:" + combat.offSkill.NAME;
-    document.getElementById('soldierdata').innerHTML = "士兵:" + combat.offSoldier;//.NAME;
-    document.getElementById('terraindata').innerHTML = "地形:" + combat.offTerrain;//.NAME;
-    document.getElementById('enchantdata').innerHTML = "附魔:" + combat.offEnchant.NAME;
+    displayCharInfo('offense');
 
     // defense
     var selected = document.getElementsByClassName('defense selected');
@@ -277,6 +306,7 @@ window.addEventListener("click", function getSelected(){
         else if(selected[i].classList.contains('character')){
             combat.defChar = selected[i].id.slice(0, -1);
             combat.defChar = char.find(x => x.NAME === combat.defChar);
+            combat.defTalent = talent.find(x => x.NAME === combat.defChar.TALENTNAME);
         }
         else if(selected[i].classList.contains('soldier')){
             combat.defSoldier = selected[i].id.slice(0, -1);
@@ -291,13 +321,9 @@ window.addEventListener("click", function getSelected(){
             combat.defEnchant = enchant.find(x => x.NAME === combat.defEnchant);
         }
     }
-    document.getElementById('partydatad').innerHTML = "陣營:" + combat.defParty;//.NAME;
-    document.getElementById('chardatad').innerHTML = "角色:" + combat.defChar.NAME;
-    document.getElementById('soldierdatad').innerHTML = "士兵:" + combat.defSoldier;//.NAME;
-    document.getElementById('terraindatad').innerHTML = "地形:" + combat.defTerrain;//.NAME;
-    document.getElementById('enchantdatad').innerHTML = "附魔:" + combat.defEnchant.NAME;
+    displayCharInfo('defense');
 
-    /* big formula */
-    bigFormula();
+    /* combat */
+    wholeCombat();
 });
 
