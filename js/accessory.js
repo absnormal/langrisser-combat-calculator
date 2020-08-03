@@ -1,8 +1,80 @@
+/* create accessory html */
+function createAccessoryList(side, listID){
+    eAccessoryList = document.getElementById(listID);
+    ul = document.createElement('ul');
+    eAccessoryList.appendChild(ul);
+
+    for(let i=0; i<accessory.length; i++){
+        li = document.createElement('li');
+        li.className = 'equipment imgbtn ' + side + ' accessory';
+        if(side == 'offense'){
+            li.id = accessory[i].NAME;
+            li.onmouseover = function onmouseover(event){
+                loadAccessoryDesc('offense', this.id);
+            };
+        }
+        else if(side == 'defense'){
+            li.id = accessory[i].NAME+'d';
+            li.onmouseover = function onmouseover(event){
+                loadAccessoryDesc('defense', this.id);
+            };
+        }
+        li.style = 'display: none;';
+
+        table = document.createElement('table');
+        table.className = 'equipmentDESC';
+        table.id = li.id+'TABLE';
+
+        tr1 = document.createElement('tr');
+        tr2 = document.createElement('tr');
+        th = document.createElement('th');
+        th.id = li.id+'NAME';
+        td = document.createElement('td');
+        td.id = li.id+'DESC';
+
+        img = document.createElement('img');
+        img.id = li.id+'IMG'
+        img.src = 'image/equipment/accessory/' + accessory[i].NAME + '.png';
+        img.style = 'width: 40px;';
+        if(side == 'offense'){
+            img.onclick = function onclick(event){
+                selectAccessory('offense', this.id.split('IMG')[0]);
+            };
+        }
+        else if(side == 'defense'){
+            img.onclick = function onclick(event){
+                selectAccessory('defense', this.id.split('IMG')[0]);
+            };
+        }
+
+        whitespace = document.createTextNode(' ');
+
+        /*
+         *  <li>
+         *      <table>
+         *          <tr><th></th></tr>
+         *          <tr><td></td></tr>
+         *      </table>
+         *      <img/>
+         *  </li>
+         *  <whitespace>
+         * */
+        ul.appendChild(li);
+        ul.appendChild(whitespace);
+        li.appendChild(table);
+        li.appendChild(img);
+        table.appendChild(tr1);
+        table.appendChild(tr2);
+        tr1.appendChild(th);
+        tr2.appendChild(td);
+    }
+};
+
 /* side depends the char, job equipment = army equipment + job specials + char specials */
 function holdAccessory(side, army, job){
     var holds = [];
     switch(army){
-        case '劍兵':
+        case '步兵':
             holds = ['NO', '飾品', '尊爵不凡的鞋子', '鞋子', '妖步'];
             break;
         case '槍兵':
@@ -75,7 +147,7 @@ function displayAccessory(side){
             if(!combat.defAccSel){
                 document.getElementById(accessoryList[i]+'d').classList.add('selected');
                 combat.defAccessory = accessory.find(x => x.NAME === accessoryList[i]);
-                document.getElementById('defAccessory').innerHTML = "飾品:" + accessoryList[i];
+                //document.getElementById('defAccessory').innerHTML = "飾品:"+accessoryList[i];
                 combat.defAccSel = true;
             }
         }
@@ -85,7 +157,7 @@ function displayAccessory(side){
             if(!combat.offAccSel){
                 document.getElementById(accessoryList[i]).classList.add('selected');
                 combat.offAccessory = accessory.find(x => x.NAME === accessoryList[i]);
-                document.getElementById('offAccessory').innerHTML = "飾品:" + accessoryList[i];
+                //document.getElementById('offAccessory').innerHTML = "飾品:"+accessoryList[i];
                 combat.offAccSel = true;
             }
         }
@@ -112,7 +184,7 @@ function selectAccessory(side, accessoryName){
         // select new accessory
         document.getElementById(accessoryName+'d').classList.add('selected');
         combat.defAccessory = accessory.find(x => x.NAME === accessoryName);
-        document.getElementById('defAccessory').innerHTML = "盔甲:" + accessoryName;
+        //document.getElementById('defAccessory').innerHTML = "盔甲:" + accessoryName;
     }
     // offense
     else if(side == 'offense'){
@@ -123,28 +195,33 @@ function selectAccessory(side, accessoryName){
         // select new accessory
         document.getElementById(accessoryName).classList.add('selected');
         combat.offAccessory = accessory.find(x => x.NAME === accessoryName);
-        document.getElementById('offAccessory').innerHTML = "盔甲:" + accessoryName;
+        //document.getElementById('offAccessory').innerHTML = "盔甲:" + accessoryName;
     }
 };
 
-function loadAccessoryDesc(side, equipment){
-    for(let i=0; i<accessory.length; i++){
-        if((side == 'defense' && equipment.slice(0,-1) == accessory[i].NAME) ||
-            (side == 'offense' && equipment == accessory[i].NAME)){
-            let table = document.getElementById(equipment+"TABLE");
-            let baseAccessory = document.getElementById(equipment);
-            let x = baseAccessory.getBoundingClientRect().top + 30;
-            let y = baseAccessory.getBoundingClientRect().left + 30;
-            document.getElementById(equipment+"NAME").innerHTML = accessory[i].NAME;
-            document.getElementById(equipment+"DESC").innerHTML = accessory[i].DESC;
-            table.style.top = x + 'px';
-            table.style.left = y + 'px';
-            break;
-        }
-    }
+function loadAccessoryDesc(side, accessoryID){
+
+    if(side == "offense") accessoryNAME = accessoryID;
+    else if(side == 'defense') accessoryNAME = accessoryID.slice(0, -1);
+
+    accessoryOBJ = accessory.find(x => x.NAME === accessoryNAME);
+    eAccessory = document.getElementById(accessoryID);
+    eAccessorybox = document.getElementById(accessoryID+"TABLE");
+    eAccessoryname = document.getElementById(accessoryID+"NAME");
+    eAccessorydesc = document.getElementById(accessoryID+"DESC");
+
+    // down shift 30px
+    y = eAccessory.getBoundingClientRect().top + 30;
+    // right shift 30px
+    x = eAccessory.getBoundingClientRect().left + 30;
+
+    eAccessoryname.innerHTML = accessoryOBJ.NAME;
+    eAccessorydesc.innerHTML = accessoryOBJ.DESC;
+    eAccessorybox.style.top = y + 'px';
+    eAccessorybox.style.left = x + 'px';
 };
 
-function getPREAccessorySkill(side){
+function getAccessorySkill(side){
     if(side == 'offense'){
         var accessory = combat.offAccessory;
         if(accessory.ATK != undefined) combat.offATKRATE += accessory.ATK;
@@ -155,7 +232,7 @@ function getPREAccessorySkill(side){
         if(accessory.HEAL != undefined) combat.offHEAL += accessory.HEAL;
         if(accessory.HEALED != undefined) combat.offHEALED += accessory.HEALED;
     }
-    else if(side == 'defefnse'){
+    else if(side == 'defense'){
         var accessory = combat.defAccessory;
         if(accessory.ATK != undefined) combat.defATKRATE += accessory.ATK;
         if(accessory.INT != undefined) combat.defINTRATE += accessory.INT;

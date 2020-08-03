@@ -154,7 +154,6 @@ tbody > p{
 .soldierList{
     border-style: solid;
     border-color: white;
-    height: 165px;
 }
 .soldier .imgbtn{
     display: inline-block;
@@ -162,11 +161,31 @@ tbody > p{
     padding-right: 3px; padding-left: 3px;
 }
 
+/* 兵營 */
+.trainingList{
+    border-style: solid;
+    border-color: white;
+}
+.training .imgbtn{
+    display: inline-block;
+    position: static;
+    padding-right: 3px; padding-left: 3px;
+}
+.trainingDESC{
+    display: none;
+    width: 400px; 
+    position: fixed;
+    border: 1px solid red;
+    background-color: black;
+}
+.training:hover > .trainingDESC{
+    display: block;
+}
+
 /* 地形 */
 .terrainList{
     border-style: solid;
     border-color: white;
-    height: 70px;
 }
 .terrain .imgbtn{
     display: inline-block;
@@ -178,7 +197,6 @@ tbody > p{
 .enchantList{
     border-style: solid;
     border-color: white;
-    height: 115px;
 }
 .enchant .imgbtn{
     display: inline-block;
@@ -232,4 +250,16 @@ tbody > p{
     display: inline-block;
     position: static;
     padding-right: 3px; padding-left: 3px;
+}
+/* 強化 */
+.BUFFList{
+    border-style: solid;
+    border-color: white;
+}
+.BUFF .imgbtn{
+    background-color: white;
+    padding-top: 1px; padding-right: 1px; padding-left: 1px;
+}
+.BUFFinfo{
+    color: white;
 }

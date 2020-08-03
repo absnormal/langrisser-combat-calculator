@@ -1,8 +1,79 @@
-/* side depends the char, job equipment = army equipment + job specials + char specials */
+/* create weapon html */
+function createWeaponList(side, listID){
+    eWeaponList = document.getElementById(listID);
+    ul = document.createElement('ul');
+    eWeaponList.appendChild(ul);
+
+    for(let i=0; i<weapon.length; i++){
+        li = document.createElement('li');
+        li.className = 'equipment imgbtn ' + side + ' weapon';
+        if(side == 'offense'){
+            li.id = weapon[i].NAME;
+            li.onmouseover = function onmouseover(event){
+                loadWeaponDesc('offense', this.id);
+            };
+        }
+        else if(side == 'defense'){
+            li.id = weapon[i].NAME+'d';
+            li.onmouseover = function onmouseover(event){
+                loadWeaponDesc('defense', this.id);
+            };
+        }
+        li.style = 'display: none;';
+
+        table = document.createElement('table');
+        table.className = 'equipmentDESC';
+        table.id = li.id+'TABLE';
+
+        tr1 = document.createElement('tr');
+        tr2 = document.createElement('tr');
+        th = document.createElement('th');
+        th.id = li.id+'NAME';
+        td = document.createElement('td');
+        td.id = li.id+'DESC';
+
+        img = document.createElement('img');
+        img.id = li.id+'IMG'
+        img.src = 'image/equipment/weapon/' + weapon[i].NAME + '.png';
+        img.style = 'width: 40px;';
+        if(side == 'offense'){
+            img.onclick = function onclick(event){
+                selectWeapon('offense', this.id.split('IMG')[0]);
+            };
+        }
+        else if(side == 'defense'){
+            img.onclick = function onclick(event){
+                selectWeapon('defense', this.id.split('IMG')[0]);
+            };
+        }
+
+        whitespace = document.createTextNode(' ');
+
+        /*
+         *  <li>
+         *      <table>
+         *          <tr><th></th></tr>
+         *          <tr><td></td></tr>
+         *      </table>
+         *      <img/>
+         *  </li>
+         *  <whitespace>
+         * */
+        ul.appendChild(li);
+        ul.appendChild(whitespace);
+        li.appendChild(table);
+        li.appendChild(img);
+        table.appendChild(tr1);
+        table.appendChild(tr2);
+        tr1.appendChild(th);
+        tr2.appendChild(td);
+    }
+};
+
 function holdWeapon(side, army, job){
     var holds = [];
     switch(army){
-        case '劍兵':
+        case '步兵':
             holds = ['NO', '劍', '匕首', '錘'];
             break;
         case '槍兵':
@@ -75,7 +146,7 @@ function displayWeapon(side){
             if(!combat.defWeaSel){
                 document.getElementById(weaponList[i]+'d').classList.add('selected');
                 combat.defWeapon = weapon.find(x => x.NAME === weaponList[i]);
-                document.getElementById('defWeapon').innerHTML = "武器:" + weaponList[i];
+                // document.getElementById('defWeapon').innerHTML = "武器:" + weaponList[i];
                 combat.defWeaSel = true;
             }
         }
@@ -85,7 +156,7 @@ function displayWeapon(side){
             if(!combat.offWeaSel){
                 document.getElementById(weaponList[i]).classList.add('selected');
                 combat.offWeapon = weapon.find(x => x.NAME === weaponList[i]);
-                document.getElementById('offWeapon').innerHTML = "武器:" + weaponList[i];
+                // document.getElementById('offWeapon').innerHTML = "武器:" + weaponList[i];
                 combat.offWeaSel = true;
             }
         }
@@ -114,7 +185,7 @@ function selectWeapon(side, weaponName){
         // select new weapon
         document.getElementById(weaponName+'d').classList.add('selected');
         combat.defWeapon = weapon.find(x => x.NAME === weaponName);
-        document.getElementById('defWeapon').innerHTML = "武器:" + weaponName;
+        //document.getElementById('defWeapon').innerHTML = "武器:" + weaponName;
     }
     // offense
     else if(side == 'offense'){
@@ -125,47 +196,29 @@ function selectWeapon(side, weaponName){
         // select new weapon
         document.getElementById(weaponName).classList.add('selected');
         combat.offWeapon = weapon.find(x => x.NAME === weaponName);
-        document.getElementById('offWeapon').innerHTML = "武器:" + weaponName;
+        //document.getElementById('offWeapon').innerHTML = "武器:" + weaponName;
     }
 };
 
-function loadWeaponDesc(side, equipment){
-    for(let i=0; i<weapon.length; i++){
-        if((side == 'defense' && equipment.slice(0,-1) == weapon[i].NAME) ||
-            (side == 'offense' && equipment == weapon[i].NAME)){
-            let table = document.getElementById(equipment+"TABLE");
-            let baseWeapon = document.getElementById(equipment);
-            let x = baseWeapon.getBoundingClientRect().top + 30;
-            let y = baseWeapon.getBoundingClientRect().left + 30;
-            document.getElementById(equipment+"NAME").innerHTML = weapon[i].NAME;
-            document.getElementById(equipment+"DESC").innerHTML = weapon[i].DESC;
-            table.style.top = x + 'px';
-            table.style.left = y + 'px';
-            break;
-        }
-    }
-};
+function loadWeaponDesc(side, weaponID){
 
-function getPREWeaponSkill(side){
-    if(side == 'offense'){
-        var weapon = combat.offWeapon;
-        if(weapon.ATK != undefined) combat.offATKRATE += weapon.ATK;
-        if(weapon.INT != undefined) combat.offINTRATE += weapon.INT;
-        if(weapon.DEF != undefined) combat.offDEFRATE += weapon.DEF;
-        if(weapon.MDEF != undefined) combat.offMDEFRATE += weapon.MDEF;
-        if(weapon.DEX != undefined) combat.offDEXRATE += weapon.DEX;
-        if(weapon.HEAL != undefined) combat.offHEAL += weapon.HEAL;
-        if(weapon.HEALED != undefined) combat.offHEALED += weapon.HEALED;
-    }
-    else if(side == 'defefnse'){
-        var weapon = combat.defWeapon;
-        if(weapon.ATK != undefined) combat.defATKRATE += weapon.ATK;
-        if(weapon.INT != undefined) combat.defINTRATE += weapon.INT;
-        if(weapon.DEF != undefined) combat.defDEFRATE += weapon.DEF;
-        if(weapon.MDEF != undefined) combat.defMDEFRATE += weapon.MDEF;
-        if(weapon.DEX != undefined) combat.defDEXRATE += weapon.DEX;
-        if(weapon.HEAL != undefined) combat.defHEAL += weapon.HEAL;
-        if(weapon.HEALED != undefined) combat.defHEALED += weapon.HEALED;
-    }
+    if(side == "offense") weaponNAME = weaponID;
+    else if(side == 'defense') weaponNAME = weaponID.slice(0, -1);
+
+    weaponOBJ = weapon.find(x => x.NAME === weaponNAME);
+    eWeapon = document.getElementById(weaponID);
+    eWeaponbox = document.getElementById(weaponID+"TABLE");
+    eWeaponname = document.getElementById(weaponID+"NAME");
+    eWeapondesc = document.getElementById(weaponID+"DESC");
+
+    // down shift 30px
+    y = eWeapon.getBoundingClientRect().top + 30;
+    // right shift 30px
+    x = eWeapon.getBoundingClientRect().left + 30;
+
+    eWeaponname.innerHTML = weaponOBJ.NAME;
+    eWeapondesc.innerHTML = weaponOBJ.DESC;
+    eWeaponbox.style.top = y + 'px';
+    eWeaponbox.style.left = x + 'px';
 };
 

@@ -1,22 +1,28 @@
-function loadTalent(side, character){
-    for(let i=0; i<char.length; i++){
-        if((side == 'defense' && character.slice(0,-1) == char[i].NAME) ||
-            (side == 'offense' && character == char[i].NAME)){
-            let talent = document.getElementById(character+"TALENT");
-            let baseChar = document.getElementById(character);
-            let y = baseChar.getBoundingClientRect().top + 50;
-            let x = baseChar.getBoundingClientRect().left + 50;
-            document.getElementById(character+"TALENTNAME").innerHTML = char[i].TALENTNAME;
-            document.getElementById(character+"DESC").innerHTML = char[i].TALENT;
-            talent.style.top = y + 'px';
-            talent.style.left = x + 'px';
-            break;
-        }
-    }
+function loadTalent(side, characterID){
+
+    if(side == "offense") charNAME = characterID;
+    else if(side == 'defense') charNAME = characterID.slice(0, -1);
+
+    charOBJ = char.find(x => x.NAME === charNAME);
+    talentOBJ = talent.find(x => x.NAME === charOBJ.TALENT);
+    eChar = document.getElementById(characterID);
+    eTalent = document.getElementById(characterID+"TALENT");
+    eTalentname = document.getElementById(characterID+"TALENTNAME");
+    eTalentdesc = document.getElementById(characterID+"DESC");
+
+    // down shift 50px
+    y = eChar.getBoundingClientRect().top + 50;
+    // right shift 50px
+    x = eChar.getBoundingClientRect().left + 50;
+
+    eTalentname.innerHTML = talentOBJ.NAME;
+    eTalentdesc.innerHTML = talentOBJ.DESC;
+    eTalent.style.top = y + 'px';
+    eTalent.style.left = x + 'px';
 };
 
 function getArmy(side){
-    var eJobNo, eChar;
+
     if(side == 'defense'){
         eJobNo = combat.defJobNo;
         eChar = combat.defChar;
@@ -32,7 +38,7 @@ function getArmy(side){
     else if(eJobNo == 5) return eChar.ARMY5;
 };
 
-function getPRETalentSkill(side){
+function getTalentSkill(side){
     if(side == 'offense'){
         var talent = combat.offTalent;
         if(talent.ATK != undefined) combat.offATKRATE += talent.ATK;
@@ -43,7 +49,7 @@ function getPRETalentSkill(side){
         if(talent.HEAL != undefined) combat.offHEAL += talent.HEAL;
         if(talent.HEALED != undefined) combat.offHEALED += talent.HEALED;
     }
-    else if(side == 'defefnse'){
+    else if(side == 'defense'){
         var talent = combat.defTalent;
         if(talent.ATK != undefined) combat.defATKRATE += talent.ATK;
         if(talent.INT != undefined) combat.defINTRATE += talent.INT;
@@ -90,6 +96,43 @@ function displayJob(side){
     }
 };
 
+function getHeart(side, LV){
+    var eJobNo, eChar;
+    if(side == 'defense'){
+        eJobNo = combat.defJobNo;
+        eChar = combat.defChar;
+    }
+    else if(side == 'offense'){
+        eJobNo = combat.offJobNo;
+        eChar = combat.offChar;
+    }
+    if(LV == "LV4"){
+        if(eJobNo == 1)      return eChar.JOB1DISCA;
+        else if(eJobNo == 2) return eChar.JOB2DISCA;
+        else if(eJobNo == 3) return eChar.JOB3DISCA;
+        else if(eJobNo == 4) return eChar.JOB4DISCA;
+        else if(eJobNo == 5) return eChar.JOB5DISCA;
+    }
+    else if(LV == "LV7"){
+        if(eJobNo == 1)      return eChar.JOB1DISCB;
+        else if(eJobNo == 2) return eChar.JOB2DISCB;
+        else if(eJobNo == 3) return eChar.JOB3DISCB;
+        else if(eJobNo == 4) return eChar.JOB4DISCB;
+        else if(eJobNo == 5) return eChar.JOB5DISCB;
+    }
+};
+
+function displayHeart(side){
+    if(side == 'defense'){
+        document.getElementById('defHeart1').innerHTML = 'LV4大心:' + getHeart(side, "LV4");
+        document.getElementById('defHeart2').innerHTML = 'LV7大心:' + getHeart(side, "LV7");
+    }
+    else if(side == 'offense'){
+        document.getElementById('offHeart1').innerHTML = 'LV4大心:' + getHeart(side, "LV4");
+        document.getElementById('offHeart2').innerHTML = 'LV7大心:' + getHeart(side, "LV7");
+    }
+};
+
 // change JOB and change equipments depends on JOB
 function changeJob(side){
     var eJobNo;
@@ -106,6 +149,7 @@ function changeJob(side){
     // display job when changed
     displayArmy(side);
     displayJob(side);
+    displayHeart(side);
     hideWeapon(side);
     displayWeapon(side);
     hideArmor(side);

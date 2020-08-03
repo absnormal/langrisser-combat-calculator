@@ -1,8 +1,80 @@
+/* create helmet html */
+function createHelmetList(side, listID){
+    eHelmetList = document.getElementById(listID);
+    ul = document.createElement('ul');
+    eHelmetList.appendChild(ul);
+
+    for(let i=0; i<helmet.length; i++){
+        li = document.createElement('li');
+        li.className = 'equipment imgbtn ' + side + ' helmet';
+        if(side == 'offense'){
+            li.id = helmet[i].NAME;
+            li.onmouseover = function onmouseover(event){
+                loadHelmetDesc('offense', this.id);
+            };
+        }
+        else if(side == 'defense'){
+            li.id = helmet[i].NAME+'d';
+            li.onmouseover = function onmouseover(event){
+                loadHelmetDesc('defense', this.id);
+            };
+        }
+        li.style = 'display: none;';
+
+        table = document.createElement('table');
+        table.className = 'equipmentDESC';
+        table.id = li.id+'TABLE';
+
+        tr1 = document.createElement('tr');
+        tr2 = document.createElement('tr');
+        th = document.createElement('th');
+        th.id = li.id+'NAME';
+        td = document.createElement('td');
+        td.id = li.id+'DESC';
+
+        img = document.createElement('img');
+        img.id = li.id+'IMG'
+        img.src = 'image/equipment/helmet/' + helmet[i].NAME + '.png';
+        img.style = 'width: 40px;';
+        if(side == 'offense'){
+            img.onclick = function onclick(event){
+                selectHelmet('offense', this.id.split('IMG')[0]);
+            };
+        }
+        else if(side == 'defense'){
+            img.onclick = function onclick(event){
+                selectHelmet('defense', this.id.split('IMG')[0]);
+            };
+        }
+
+        whitespace = document.createTextNode(' ');
+
+        /*
+         *  <li>
+         *      <table>
+         *          <tr><th></th></tr>
+         *          <tr><td></td></tr>
+         *      </table>
+         *      <img/>
+         *  </li>
+         *  <whitespace>
+         * */
+        ul.appendChild(li);
+        ul.appendChild(whitespace);
+        li.appendChild(table);
+        li.appendChild(img);
+        table.appendChild(tr1);
+        table.appendChild(tr2);
+        tr1.appendChild(th);
+        tr2.appendChild(td);
+    }
+};
+
 /* side depends the char, job equipment = army equipment + job specials + char specials */
 function holdHelmet(side, army, job){
     var holds = [];
     switch(army){
-        case '劍兵':
+        case '步兵':
             holds = ['NO', '重盔'];
             break;
         case '槍兵':
@@ -75,7 +147,7 @@ function displayHelmet(side){
             if(!combat.defHelSel){
                 document.getElementById(helmetList[i]+'d').classList.add('selected');
                 combat.defHelmet = helmet.find(x => x.NAME === helmetList[i]);
-                document.getElementById('defHelmet').innerHTML = "頭盔:" + helmetList[i];
+                //document.getElementById('defHelmet').innerHTML = "頭盔:" + helmetList[i];
                 combat.defHelSel = true;
             }
         }
@@ -85,7 +157,7 @@ function displayHelmet(side){
             if(!combat.offHelSel){
                 document.getElementById(helmetList[i]).classList.add('selected');
                 combat.offHelmet = helmet.find(x => x.NAME === helmetList[i]);
-                document.getElementById('offHelmet').innerHTML = "頭盔:" + helmetList[i];
+                //document.getElementById('offHelmet').innerHTML = "頭盔:" + helmetList[i];
                 combat.offHelSel = true;
             }
         }
@@ -112,7 +184,7 @@ function selectHelmet(side, helmetName){
         // select new helmet
         document.getElementById(helmetName+'d').classList.add('selected');
         combat.defHelmet = helmet.find(x => x.NAME === helmetName);
-        document.getElementById('defHelmet').innerHTML = "頭盔:" + helmetName;
+        //document.getElementById('defHelmet').innerHTML = "頭盔:" + helmetName;
     }
     // offense
     else if(side == 'offense'){
@@ -123,29 +195,33 @@ function selectHelmet(side, helmetName){
         // select new helmet
         document.getElementById(helmetName).classList.add('selected');
         combat.offHelmet = helmet.find(x => x.NAME === helmetName);
-        document.getElementById('offHelmet').innerHTML = "頭盔:" + helmetName;
+        //document.getElementById('offHelmet').innerHTML = "頭盔:" + helmetName;
     }
 };
 
+function loadHelmetDesc(side, helmetID){
 
-function loadHelmetDesc(side, equipment){
-    for(let i=0; i<helmet.length; i++){
-        if((side == 'defense' && equipment.slice(0,-1) == helmet[i].NAME) ||
-            (side == 'offense' && equipment == helmet[i].NAME)){
-            let table = document.getElementById(equipment+"TABLE");
-            let baseHelmet = document.getElementById(equipment);
-            let x = baseHelmet.getBoundingClientRect().top + 30;
-            let y = baseHelmet.getBoundingClientRect().left + 30;
-            document.getElementById(equipment+"NAME").innerHTML = helmet[i].NAME;
-            document.getElementById(equipment+"DESC").innerHTML = helmet[i].DESC;
-            table.style.top = x + 'px';
-            table.style.left = y + 'px';
-            break;
-        }
-    }
+    if(side == "offense") helmetNAME = helmetID;
+    else if(side == 'defense') helmetNAME = helmetID.slice(0, -1);
+
+    helmetOBJ = helmet.find(x => x.NAME === helmetNAME);
+    eHelmet = document.getElementById(helmetID);
+    eHelmetbox = document.getElementById(helmetID+"TABLE");
+    eHelmetname = document.getElementById(helmetID+"NAME");
+    eHelmetdesc = document.getElementById(helmetID+"DESC");
+
+    // down shift 30px
+    y = eHelmet.getBoundingClientRect().top + 30;
+    // right shift 30px
+    x = eHelmet.getBoundingClientRect().left + 30;
+
+    eHelmetname.innerHTML = helmetOBJ.NAME;
+    eHelmetdesc.innerHTML = helmetOBJ.DESC;
+    eHelmetbox.style.top = y + 'px';
+    eHelmetbox.style.left = x + 'px';
 };
 
-function getPREHelmetSkill(side){
+function getHelmetSkill(side){
     if(side == 'offense'){
         var helmet = combat.offHelmet;
         if(helmet.ATK != undefined) combat.offATKRATE += helmet.ATK;
@@ -156,7 +232,7 @@ function getPREHelmetSkill(side){
         if(helmet.HEAL != undefined) combat.offHEAL += helmet.HEAL;
         if(helmet.HEALED != undefined) combat.offHEALED += helmet.HEALED;
     }
-    else if(side == 'defefnse'){
+    else if(side == 'defense'){
         var helmet = combat.defHelmet;
         if(helmet.ATK != undefined) combat.defATKRATE += helmet.ATK;
         if(helmet.INT != undefined) combat.defINTRATE += helmet.INT;

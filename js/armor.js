@@ -1,8 +1,80 @@
+/* create armor html */
+function createArmorList(side, listID){
+    eArmorList = document.getElementById(listID);
+    ul = document.createElement('ul');
+    eArmorList.appendChild(ul);
+
+    for(let i=0; i<armor.length; i++){
+        li = document.createElement('li');
+        li.className = 'equipment imgbtn ' + side + ' armor';
+        if(side == 'offense'){
+            li.id = armor[i].NAME;
+            li.onmouseover = function onmouseover(event){
+                loadArmorDesc('offense', this.id);
+            };
+        }
+        else if(side == 'defense'){
+            li.id = armor[i].NAME+'d';
+            li.onmouseover = function onmouseover(event){
+                loadArmorDesc('defense', this.id);
+            };
+        }
+        li.style = 'display: none;';
+
+        table = document.createElement('table');
+        table.className = 'equipmentDESC';
+        table.id = li.id+'TABLE';
+
+        tr1 = document.createElement('tr');
+        tr2 = document.createElement('tr');
+        th = document.createElement('th');
+        th.id = li.id+'NAME';
+        td = document.createElement('td');
+        td.id = li.id+'DESC';
+
+        img = document.createElement('img');
+        img.id = li.id+'IMG'
+        img.src = 'image/equipment/armor/' + armor[i].NAME + '.png';
+        img.style = 'width: 40px;';
+        if(side == 'offense'){
+            img.onclick = function onclick(event){
+                selectArmor('offense', this.id.split('IMG')[0]);
+            };
+        }
+        else if(side == 'defense'){
+            img.onclick = function onclick(event){
+                selectArmor('defense', this.id.split('IMG')[0]);
+            };
+        }
+
+        whitespace = document.createTextNode(' ');
+
+        /*
+         *  <li>
+         *      <table>
+         *          <tr><th></th></tr>
+         *          <tr><td></td></tr>
+         *      </table>
+         *      <img/>
+         *  </li>
+         *  <whitespace>
+         * */
+        ul.appendChild(li);
+        ul.appendChild(whitespace);
+        li.appendChild(table);
+        li.appendChild(img);
+        table.appendChild(tr1);
+        table.appendChild(tr2);
+        tr1.appendChild(th);
+        tr2.appendChild(td);
+    }
+};
+
 /* side depends the char, job equipment = army equipment + job specials + char specials */
 function holdArmor(side, army, job){
     var holds = [];
     switch(army){
-        case '劍兵':
+        case '步兵':
             holds = ['NO', '重甲'];
             break;
         case '槍兵':
@@ -75,7 +147,7 @@ function displayArmor(side){
             if(!combat.defArmSel){
                 document.getElementById(armorList[i]+'d').classList.add('selected');
                 combat.defArmor = armor.find(x => x.NAME === armorList[i]);
-                document.getElementById('defArmor').innerHTML = "盔甲:" + armorList[i];
+                //document.getElementById('defArmor').innerHTML = "盔甲:" + armorList[i];
                 combat.defArmSel = true;
             }
         }
@@ -85,7 +157,7 @@ function displayArmor(side){
             if(!combat.offArmSel){
                 document.getElementById(armorList[i]).classList.add('selected');
                 combat.offArmor = armor.find(x => x.NAME === armorList[i]);
-                document.getElementById('offArmor').innerHTML = "盔甲:" + armorList[i];
+                //document.getElementById('offArmor').innerHTML = "盔甲:" + armorList[i];
                 combat.offArmSel = true;
             }
         }
@@ -112,7 +184,7 @@ function selectArmor(side, armorName){
         // select new armor
         document.getElementById(armorName+'d').classList.add('selected');
         combat.defArmor = armor.find(x => x.NAME === armorName);
-        document.getElementById('defArmor').innerHTML = "盔甲:" + armorName;
+        //document.getElementById('defArmor').innerHTML = "盔甲:" + armorName;
     }
     // offense
     else if(side == 'offense'){
@@ -123,28 +195,33 @@ function selectArmor(side, armorName){
         // select new armor
         document.getElementById(armorName).classList.add('selected');
         combat.offArmor = armor.find(x => x.NAME === armorName);
-        document.getElementById('offArmor').innerHTML = "盔甲:" + armorName;
+        //document.getElementById('offArmor').innerHTML = "盔甲:" + armorName;
     }
 };
 
-function loadArmorDesc(side, equipment){
-    for(let i=0; i<armor.length; i++){
-        if((side == 'defense' && equipment.slice(0,-1) == armor[i].NAME) ||
-            (side == 'offense' && equipment == armor[i].NAME)){
-            let table = document.getElementById(equipment+"TABLE");
-            let baseArmor = document.getElementById(equipment);
-            let x = baseArmor.getBoundingClientRect().top + 30;
-            let y = baseArmor.getBoundingClientRect().left + 30;
-            document.getElementById(equipment+"NAME").innerHTML = armor[i].NAME;
-            document.getElementById(equipment+"DESC").innerHTML = armor[i].DESC;
-            table.style.top = x + 'px';
-            table.style.left = y + 'px';
-            break;
-        }
-    }
+function loadArmorDesc(side, armorID){
+
+    if(side == "offense") armorNAME = armorID;
+    else if(side == 'defense') armorNAME = armorID.slice(0, -1);
+
+    armorOBJ = armor.find(x => x.NAME === armorNAME);
+    eArmor = document.getElementById(armorID);
+    eArmorbox = document.getElementById(armorID+"TABLE");
+    eArmorname = document.getElementById(armorID+"NAME");
+    eArmordesc = document.getElementById(armorID+"DESC");
+
+    // down shift 30px
+    y = eArmor.getBoundingClientRect().top + 30;
+    // right shift 30px
+    x = eArmor.getBoundingClientRect().left + 30;
+
+    eArmorname.innerHTML = armorOBJ.NAME;
+    eArmordesc.innerHTML = armorOBJ.DESC;
+    eArmorbox.style.top = y + 'px';
+    eArmorbox.style.left = x + 'px';
 };
 
-function getPREArmorSkill(side){
+function getArmorSkill(side){
     if(side == 'offense'){
         var armor = combat.offArmor;
         if(armor.ATK != undefined) combat.offATKRATE += armor.ATK;
@@ -155,7 +232,7 @@ function getPREArmorSkill(side){
         if(armor.HEAL != undefined) combat.offHEAL += armor.HEAL;
         if(armor.HEALED != undefined) combat.offHEALED += armor.HEALED;
     }
-    else if(side == 'defefnse'){
+    else if(side == 'defense'){
         var armor = combat.defArmor;
         if(armor.ATK != undefined) combat.defATKRATE += armor.ATK;
         if(armor.INT != undefined) combat.defINTRATE += armor.INT;

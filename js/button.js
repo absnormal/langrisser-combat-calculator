@@ -73,6 +73,8 @@ function selectSoldier(soldierName){
         // select new soldier
         document.getElementById(soldierName).classList.add('selected');
         defenseSoldier = soldierName;
+        hideTraining('defense');
+        displayTraining('defense', soldierName);
     }
     // offense
     else{
@@ -83,6 +85,8 @@ function selectSoldier(soldierName){
         // select new soldier
         document.getElementById(soldierName).classList.add('selected');
         offenseSoldier = soldierName;
+        hideTraining('offense');
+        displayTraining('offense', soldierName);
     }
 };
 
@@ -161,6 +165,7 @@ function selectChar(charName){
         combat.defChar = char.find(x => x.NAME === charName.slice(0, -1));
         displayArmy('defense');
         displayJob('defense');
+        displayHeart('defense');
         hideWeapon('defense');
         displayWeapon('defense');
         hideArmor('defense');
@@ -192,6 +197,7 @@ function selectChar(charName){
         combat.offChar = char.find(x => x.NAME === charName);
         displayArmy('offense');
         displayJob('offense');
+        displayHeart('offense');
         hideWeapon('offense');
         displayWeapon('offense');
         hideArmor('offense');
