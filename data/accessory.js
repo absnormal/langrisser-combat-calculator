@@ -25,6 +25,16 @@ var accessory = [{
 },{
     NAME: '星之耳墜', TYPE: '飾品',
     INT: 0.08,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') oppArmy = getArmy('defense');
+        else oppArmy = getArmy('offense');
+        armyLIST = ['刺客', '弓兵'];
+        if(armyLIST.includes(oppArmy)){
+            return [0, 0, 0.3, 0, 0];
+        }
+        return false;
+    },
     DESC: '智力+8%，和“刺客”、“弓手”戰鬥時，防禦提升+30%。'
 },{
     NAME: 'Q巨拉', TYPE: '飾品',
@@ -37,6 +47,16 @@ var accessory = [{
 },{
     NAME: '真十字架', TYPE: '飾品',
     HEAL: 0.15,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') oppArmy = getArmy('defense');
+        else oppArmy = getArmy('offense');
+        armyLIST = ['魔物', '法師'];
+        if(armyLIST.includes(oppArmy)){
+            return [0, 0.2, 0.2, 0.2, 0];
+        }
+        return false;
+    },
     DESC: '治療效果+15%，和魔族、法師戰鬥時，智力、魔防、防禦提升20%。'
 },{
     NAME: '女神之淚', TYPE: '飾品',
@@ -49,6 +69,15 @@ var accessory = [{
 },{
     NAME: '審判魔符', TYPE: '飾品',
     ATK: 0.08,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') oppArmy = getArmy('defense');
+        else oppArmy = getArmy('offense');
+        if(oppArmy == '僧侶'){
+            return [0.12, 0, 0, 0, 0];
+        }
+        return false;
+    },
     DESC: '攻擊+8%，和“僧侶”戰鬥時，攻擊額外提升12%'
 },{
     NAME: '索爾的項鍊', TYPE: '飾品',
@@ -61,6 +90,15 @@ var accessory = [{
 },{
     NAME: '屠龍勳章', TYPE: '飾品',
     ATK: 0.08,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') oppArmy = getArmy('defense');
+        else oppArmy = getArmy('offense');
+        if(oppArmy == '飛兵'){
+            return [0.12, 0, 0, 0, 0];
+        }
+        return false;
+    },
     DESC: '攻擊+8%，與“飛兵”戰鬥時，攻擊額外提升12%。'
 },{
     NAME: '精靈石之戒', TYPE: '飾品',
@@ -68,6 +106,13 @@ var accessory = [{
     DESC: '主動進入戰鬥時，攻擊、防禦提升8%。'
 },{
     NAME: '孤星腕輪', TYPE: '飾品',
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') friend = combat.off2BFriend;
+        else if(side == 'defense') friend = combat.def2BFriend;
+        if(friend == 0) return [0.1, 0, 0.1, 0, 0];
+        else return false;
+    },
     DESC: '周圍2格沒有友軍時，戰鬥中攻擊、防禦提升10%'
 },{
     NAME: '紅色小棉襪', TYPE: '尊爵不凡的鞋子',
@@ -103,6 +148,13 @@ var accessory = [{
     DESC: '防禦+8%，攻擊後可以自由的移動2格'
 },{
     NAME: '聖王護符', TYPE: '飾品',
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') friend = combat.off2BFriend;
+        else if(side == 'defense') friend = combat.def2BFriend;
+        if(friend == 0) return [0, 0, 0.1, 0.1, 0];
+        else return false;
+    },
     DESC: '當周圍2格有我方友軍時，戰鬥中，防禦、魔防提升10%。'
 },{
     NAME: '神行靴', TYPE: '鞋子',
@@ -110,9 +162,23 @@ var accessory = [{
     DESC: '防禦+8%。移動力+1'
 },{
     NAME: '精靈腰帶', TYPE: '飾品',
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') return false;
+        range = combat.range;
+        if(range > 1) return [0, 0, 0.1, 0.1, 0];
+        else return false;
+    },
     DESC: '被遠程攻擊時，戰鬥中防禦、魔防提升10%'
 },{
     NAME: '巨人腰帶', TYPE: '飾品',
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') return false;
+        range = combat.range;
+        if(range == 1) return [0, 0, 0.1, 0.1, 0];
+        else return false;
+    },
     DESC: '被近戰攻擊時，戰鬥中防禦、魔防提升10%'
 },{
     NAME: '聖杯', TYPE: '飾品',
@@ -132,6 +198,13 @@ var accessory = [{
     DESC: '智力+5%。使用技能時，每對1個目標造成傷害則有10%概率使技能冷卻時間-5 (概率最高可以提升至50% )'
 },{
     NAME: '團結', TYPE: '馬修',
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') friend = combat.off2BFriend;
+        else if(side == 'defense') friend = combat.def2BFriend;
+        if(friend == 0) return [0.1, 0, 0.1, 0.1, 0];
+        else return false;
+    },
     DESC: '當周圍2格有我方友軍時，攻擊、防禦、魔防提升10%。'
 },{
     NAME: '增速靴', TYPE: '鞋子',

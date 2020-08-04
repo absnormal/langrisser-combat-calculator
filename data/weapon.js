@@ -1,10 +1,20 @@
 /* 劍 匕首 弓 法杖 錘 槍 斧 */
+/* SKILLTYPE:RATE return [ATK, INT, DEF, MDEF, DEX] */
 var weapon = [{
     NAME: '沒有武器', TYPE: 'NO',
     DESC: '沒有裝備的可撥仔，或著被璨晶禁掉了QQ'
 },{
     NAME: '屠龍劍格拉姆', TYPE: '劍',
     HP: 0.08, ATK: 0.08,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') otherside = 'defense';
+        else otherside = 'offense';
+        if(getArmy(otherside) == '龍'){
+            return [0.1, 0, 0.1, 0.1, 0];
+        }
+        return false;
+    },
     DESC: '攻擊、生命+8%，與「龍」戰鬥時，攻擊、防禦、魔防額外提升10%'
 },{
     NAME: '嗜血劍赫倫汀', TYPE: '劍',
@@ -100,6 +110,14 @@ var weapon = [{
     DESC: '智力+5%，主動攻擊進入戰鬥時，戰後為生命最低的友軍部隊恢復生命，恢復量為師法者智力的3倍'
 },{
     NAME: '風暴卡路里', TYPE: '錘',
+    SKILLTYPE: 'RATE',
+    SKILL: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP >= 0.8)
+            return [0, 0.15, 0, 0, 0];
+        else return false;
+    },
     DESC: '部隊生命80%以上時，智力提升15%'
 },{
     NAME: '真理的門扉', TYPE: '錘',
@@ -127,6 +145,21 @@ var weapon = [{
     DESC: '攻擊+10%，主動進入戰鬥前，有50%的機率使得敵軍「攻擊、智力」降低20%，持續1回合'
 },{
     NAME: '藍色惑星', TYPE: '槍',
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'defense') return false;
+        run = combat.run;
+        switch(run){
+            case 0:
+                return false;
+            case 1:
+                return [0.05, 0, 0.05, 0.05, 0];
+            case 2:
+                return [0.1, 0, 0.1, 0.1, 0];
+            default:
+                return [0.15, 0, 0.15, 0.15, 0];
+        }
+    },
     DESC: '進入戰鬥前，每移動1格，攻擊、防禦、魔防各提升5%(最多提升15%)'
 },{
     NAME: '世界樹的嫩枝', TYPE: '槍',

@@ -8,7 +8,7 @@ var armor = [{
     DESC: '防禦+10%。遭受固定傷害降低10%。'
 },{
     NAME: '巨人的抗爭', TYPE: '重甲',
-    DEF: 0.1,
+    DEF: 0.1, CRITRATEDEC: 0.2,
     DESC: '防禦+10%。遭受暴擊率降低20%。'
 },{
     NAME: '鏡面鎧甲', TYPE: '重甲',
@@ -32,6 +32,13 @@ var armor = [{
     DESC: '被攻擊進入戰鬥時，防禦提升15%。部隊生命80%以上時，遭受魔法傷害降低10%。'
 },{
     NAME: '原質之鎧', TYPE: '重甲',
+    SKILLTYPE: 'RATE',
+    SKILL: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP >= 0.5) return [0, 0, 0.08, 0.08, 0];
+        else return [0.08, 0, 0, 0, 0.08];
+    },
     DESC: '部隊生命50%以上時，防禦、魔防提升8%，部隊生命50%以下時，攻擊、技巧提升8%'
 },{
     NAME: '風王戰甲', TYPE: '重甲',
@@ -52,6 +59,13 @@ var armor = [{
 },{
     NAME: '影淵鱗衣', TYPE: '輕甲',
     HP: 0.1,
+    SKILLTYPE: 'RATE',
+    SKILL: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP >= 0.5) return [0, 0, 0.1, 0, 0];
+        else return [0, 0, 0, 0.1, 0];
+    },
     DESC: '生命+10%。部隊生命50%以上時，防禦+10%。部隊生命50%以下時，魔防+10%。'
 },{
     NAME: '最後之服', TYPE: '輕甲',
@@ -80,6 +94,12 @@ var armor = [{
 },{
     NAME: '暗之法衣', TYPE: '布甲',
     HP: 0.05,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') return false;
+        if(combat.range > 1) return [0, 0, 0.15, 0.15, 0];
+        else return false;
+    },
     DESC: '生命+5%。被遠程攻擊時，防禦、魔防提升15%。'
 },{
     NAME: '群星斗篷', TYPE: '布甲',
@@ -88,6 +108,12 @@ var armor = [{
 },{
     NAME: '福金之翼', TYPE: '布甲',
     HP: 0.05,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') return false;
+        if(combat.range == 1) return [0, 0, 0.15, 0.15, 0];
+        else return false;
+    },
     DESC: '生命+5%。被近戰攻擊時，防禦、魔防提升15%。'
 },{
     NAME: '天女羽衣', TYPE: '布甲',

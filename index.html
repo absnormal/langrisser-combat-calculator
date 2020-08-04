@@ -101,7 +101,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.4.1"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.4.2"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -2089,14 +2089,29 @@
                                 <td>競技技巧:<input type='text' id='offADEX' style='width:40px' value=20></td>
                             </tr>
                             <tr>
+                                <td id='offHEAL'>治療效果:NA</td>
+                                <td id='offHEALED'>遭受治療效果:NA</td>
+                                <td>競技暴擊:<input type='text' id='offACRITRATEINC' style='width:40px' value=20%></td>
+                            </tr>
+                            <tr>
                                 <td>攻擊距離:<input type='text' id='offRange' style='width:40px' value=2></td>
                                 <td>移動距離:<input type='text' id='offRun' style='width:40px' value=3></td>
                                 <td>競技暴傷:<input type='text' id='offACRITDMGINC' style='width:40px' value=20%></td>
                             </tr>
                             <tr>
-                                <td id='offHEAL'>治療效果:NA</td>
-                                <td id='offHEALED'>遭受治療效果:NA</td>
+                                <td>周圍1格友軍:<input type='text' id='off1BFriend' style='width:40px' value=0></td>
+                                <td>周圍3格敵軍:<input type='text' id='off3BEnemy' style='width:40px' value=0></td>
+                                <td>競技降暴擊:<input type='text' id='offACRITRATEDEC' style='width:40px' value=20%></td>
+                            </tr>
+                            <tr>
+                                <td>周圍2格友軍:<input type='text' id='off2BFriend' style='width:40px' value=0></td>
+                                <td>周圍3圈敵軍:<input type='text' id='off3CEnemy' style='width:40px' value=0></td>
                                 <td>競技降暴傷:<input type='text' id='offACRITDMGDEC' style='width:40px' value=20%></td>
+                            </tr>
+                            <tr>
+                                <td>周圍3格友軍:<input type='text' id='off3BFriend' style='width:40px' value=0></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td colspan=3 id='offHeart1'>LV4大心:</td>
@@ -2239,10 +2254,20 @@
                             <tr>
                                 <td id='defHEAL'>治療效果:NA</td>
                                 <td id='defHEALED'>遭受治療效果:NA</td>
+                                <td>競技暴擊:<input type='text' id='defACRITRATEINC' style='width:40px' value=20%></td>
+                            </tr>
+                            <tr>
+                                <td>周圍1格友軍:<input type='text' id='def1BFriend' style='width:40px' value=0></td>
+                                <td>周圍3格敵軍:<input type='text' id='def3BEnemy' style='width:40px' value=0></td>
                                 <td>競技暴傷:<input type='text' id='defACRITDMGINC' style='width:40px' value=20%></td>
                             </tr>
                             <tr>
-                                <td></td>
+                                <td>周圍2格友軍:<input type='text' id='def2BFriend' style='width:40px' value=0></td>
+                                <td>周圍3圈敵軍:<input type='text' id='def3CEnemy' style='width:40px' value=0></td>
+                                <td>競技降暴擊:<input type='text' id='defACRITRATEDEC' style='width:40px' value=20%></td>
+                            </tr>
+                            <tr>
+                                <td>周圍3格友軍:<input type='text' id='def3BFriend' style='width:40px' value=0></td>
                                 <td></td>
                                 <td>競技降暴傷:<input type='text' id='defACRITDMGDEC' style='width:40px' value=20%></td>
                             </tr>

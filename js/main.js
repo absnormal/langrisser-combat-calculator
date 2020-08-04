@@ -7,7 +7,9 @@ var combat = {
     offFULLHP:undefined, offHP:undefined, offBASEKNOWN:true,
     offBASEATK:undefined, offBASEINT:undefined, offBASEDEF:undefined, offBASEMDEF:undefined, offBASEDEX:undefined,
     offATK:undefined, offINT:undefined, offDEF:undefined, offMDEF:undefined, offDEX:undefined,
-    offHITS:undefined, offHEAL:undefined, offHEALED:undefined,
+    offHITS:undefined, offHEAL:undefined, offHEALED:undefined, range:undefined, run:undefined,
+    off1BFriend:undefined, off2BFriend:undefined, off3BFriend:undefined,
+    off3BEnemy:undefined, off3CEnemy:undefined,
     // character arena plus
     offAATK:undefined,offAINT:undefined,offADEF:undefined,offAMDEF:undefined,offADEX:undefined,
     offACRITDMGINC:undefined, offACRITDMGDEC:undefined,
@@ -21,11 +23,13 @@ var combat = {
     offATKRATE:undefined, offINTRATE:undefined, offDEFRATE:undefined,
     offMDEFRATE:undefined, offDEXRATE:undefined, offDMGTYPE:undefined,
     offCRITDMG:undefined, offCRITRATE:undefined, offDMGRATE:undefined, offSKILLDMG:undefined,
+    offDEFNEG:undefined, offMDEFNEG:undefined,
     defATKRATE:undefined, defINTRATE:undefined, defDEFRATE:undefined,
     defMDEFRATE:undefined, defDEXRATE:undefined, defDMGTYPE:undefined,
+    defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined, defSKILLDMG:undefined,
+    defDEFNEG:undefined, defMDEFNEG:undefined,
     counterRATE:undefined, terrainRATE:undefined,
-    defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined,
-    skillRATE:undefined, range:undefined, run:undefined, combatNEG:undefined,
+    skillRATE:undefined, combatNEG:undefined,
 
         /* defense character info */
     defParty:undefined, defChar:undefined, defSkill:undefined, defSoldier:undefined,
@@ -36,6 +40,8 @@ var combat = {
     defBASEATK:undefined, defBASEINT:undefined, defBASEDEF:undefined, defBASEMDEF:undefined, defBASEDEX:undefined,
     defATK:undefined, defINT:undefined, defDEF:undefined, defMDEF:undefined, defDEX:undefined,
     defHITS:undefined, defHEAL:undefined, defHEALED:undefined,
+    def1BFriend:undefined, def2BFriend:undefined, def3BFriend:undefined,
+    def3BEnemy:undefined, def3CEnemy:undefined,
     // character arena plus
     defAATK:undefined,defAINT:undefined,defADEF:undefined,defAMDEF:undefined,defADEX:undefined,
     defACRITDMGINC:undefined, defACRITDMGDEC:undefined,
@@ -46,7 +52,7 @@ var combat = {
     defJobNo:1,
 
         /* reset numbers */
-    baseCRITRATE:0, baseCRITDMG:1.3, baseHITS:20, baseRATE:1, baseCombatNEG:0
+    baseCRITRATE:0, baseCRITDMG:1.3, baseHITS:20, baseRATE:1, baseCombatNEG:0, baseNUM:0,
 };
 
 function resetAllRATE(){
@@ -135,6 +141,14 @@ function getCharData(side){
         combat.offADEF = Number(document.getElementById('offADEF').value);
         combat.offAMDEF = Number(document.getElementById('offAMDEF').value);
         combat.offADEX = Number(document.getElementById('offADEX').value);
+        /* 移動/射程/敵軍/友軍 */
+        combat.range = Number(document.getElementById('offRange').value);
+        combat.run = Number(document.getElementById('offRun').value);
+        combat.off1BFriend = Number(document.getElementById('off1BFriend').value);
+        combat.off2BFriend = Number(document.getElementById('off2BFriend').value);
+        combat.off3BFriend = Number(document.getElementById('off3BFriend').value);
+        combat.off3BEnemy = Number(document.getElementById('off3BEnemy').value);
+        combat.off3CEnemy = Number(document.getElementById('off3BEnemy').value);
     }
     else if(side == 'defense'){
         /* 白字 */
@@ -161,6 +175,12 @@ function getCharData(side){
         combat.defADEF = Number(document.getElementById('defADEF').value);
         combat.defAMDEF = Number(document.getElementById('defAMDEF').value);
         combat.defADEX = Number(document.getElementById('defADEX').value);
+        /* 敵軍/友軍 */
+        combat.def1BFriend = Number(document.getElementById('def1BFriend').value);
+        combat.def2BFriend = Number(document.getElementById('def2BFriend').value);
+        combat.def3BFriend = Number(document.getElementById('def3BFriend').value);
+        combat.def3BEnemy = Number(document.getElementById('def3BEnemy').value);
+        combat.def3CEnemy = Number(document.getElementById('def3CEnemy').value);
     }
 };
 
@@ -278,8 +298,18 @@ function displayBASENUMS(side){
     helmetNUM = [helmet.ATK, helmet.INT, helmet.DEF, helmet.MDEF, helmet.DEX];
     accessoryNUM = [accessory.ATK, accessory.INT, accessory.DEF, accessory.MDEF, accessory.DEX];
     talentNUM = [talent.ATK, talent.INT, talent.DEF, talent.MDEF, talent.DEX];
+    if(talent.SKILLTYPE == 'RATE' && talent.SKILL(side)) talentSKILL = talent.SKILL(side);
+    else talentSKILL = [0, 0, 0, 0, 0];
+    if(weapon.SKILLTYPE == 'RATE' && weapon.SKILL(side)) weaponSKILL = weapon.SKILL(side);
+    else weaponSKILL = [0, 0, 0, 0, 0];
+    if(armor.SKILLTYPE == 'RATE' && armor.SKILL(side)) armorSKILL = armor.SKILL(side);
+    else armorSKILL = [0, 0, 0, 0, 0];
+    if(helmet.SKILLTYPE == 'RATE' && helmet.SKILL(side)) helmetSKILL = helmet.SKILL(side);
+    else helmetSKILL = [0, 0, 0, 0, 0];
+    if(accessory.SKILLTYPE == 'RATE' && accessory.SKILL(side)) accessorySKILL = accessory.SKILL(side);
+    else accessorySKILL = [0, 0, 0, 0, 0];
 
-    if(enchant.NAME == "滿月" && perHP > 0.8){
+    if(enchant.NAME == "滿月" && perHP >= 0.8){
         moon = 0.1;
     }
 
@@ -287,16 +317,32 @@ function displayBASENUMS(side){
         let eDATA = document.getElementById(SIDE+BASE+NUMS[i]+DATA);
         let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
-        let number = (pre[i]-arena[i])/(rate[i]+moon);
+        let number = (pre[i]-arena[i])/(rate[i]+talentSKILL[i]+weaponSKILL[i]+armorSKILL[i]+helmetSKILL[i]+accessorySKILL[i]+moon);
         eDATA.innerHTML = text[i] + ":" + Math.round(number);
         ePREDESC.innerHTML = pre[i];
         eBASEDESC.innerHTML = Math.round(number) + "=(" + pre[i] + "-" + arena[i] + ")÷(1";
-        if(talentNUM[i] != undefined) eBASEDESC.innerHTML += "+" + talentNUM[i];
-        if(weaponNUM[i] != undefined) eBASEDESC.innerHTML += "+" + weaponNUM[i];
-        if(armorNUM[i] != undefined) eBASEDESC.innerHTML += "+" + armorNUM[i];
-        if(helmetNUM[i] != undefined) eBASEDESC.innerHTML += "+" + helmetNUM[i];
-        if(accessoryNUM[i] != undefined) eBASEDESC.innerHTML += "+" + accessoryNUM[i];
-        if(moon != 0) eBASEDESC.innerHTML += "+" + moon;
+        if(talentNUM[i] != undefined)
+            eBASEDESC.innerHTML += "+" + talentNUM[i] + "[" + talent.NAME + "]";
+        if(talentSKILL[i] != 0)
+            eBASEDESC.innerHTML += "+" + talentSKILL[i].toFixed(2) + "[" + talent.NAME + "]";
+        if(weaponNUM[i] != undefined)
+            eBASEDESC.innerHTML += "+" + weaponNUM[i] + "[" + weapon.NAME + "]";
+        if(weaponSKILL[i] != 0)
+            eBASEDESC.innerHTML += "+" + weaponSKILL[i].toFixed(2) + "[" + weapon.NAME + "]";
+        if(armorNUM[i] != undefined)
+            eBASEDESC.innerHTML += "+" + armorNUM[i] + "[" + armor.NAME + "]";
+        if(armorSKILL[i] != 0)
+            eBASEDESC.innerHTML += "+" + armorSKILL[i].toFixed(2) + "[" + armor.NAME + "]";
+        if(helmetNUM[i] != undefined)
+            eBASEDESC.innerHTML += "+" + armorNUM[i] + "[" + armor.NAME + "]";
+        if(helmetSKILL[i] != 0)
+            eBASEDESC.innerHTML += "+" + helmetSKILL[i].toFixed(2) + "[" + helmet.NAME + "]";
+        if(accessoryNUM[i] != undefined)
+            eBASEDESC.innerHTML += "+" + accessoryNUM[i] + "[" + accessory.NAME + "]";
+        if(accessorySKILL[i] != 0)
+            eBASEDESC.innerHTML += "+" + accessorySKILL[i].toFixed(2) + "[" + accessory.NAME + "]";
+        if(moon != 0)
+            eBASEDESC.innerHTML += "+" + moon + "[" + enchant.NAME + "]";
         eBASEDESC.innerHTML += ")";
     }
 };
@@ -342,8 +388,18 @@ function displayPRENUMS(side){
     helmetNUM = [helmet.ATK, helmet.INT, helmet.DEF, helmet.MDEF, helmet.DEX];
     accessoryNUM = [accessory.ATK, accessory.INT, accessory.DEF, accessory.MDEF, accessory.DEX];
     talentNUM = [talent.ATK, talent.INT, talent.DEF, talent.MDEF, talent.DEX];
+    if(talent.SKILLTYPE == 'RATE' && talent.SKILL(side)) talentSKILL = talent.SKILL(side);
+    else talentSKILL = [0, 0, 0, 0, 0];
+    if(weapon.SKILLTYPE == 'RATE' && weapon.SKILL(side)) weaponSKILL = weapon.SKILL(side);
+    else weaponSKILL = [0, 0, 0, 0, 0];
+    if(armor.SKILLTYPE == 'RATE' && armor.SKILL(side)) armorSKILL = armor.SKILL(side);
+    else armorSKILL = [0, 0, 0, 0, 0];
+    if(helmet.SKILLTYPE == 'RATE' && helmet.SKILL(side)) helmetSKILL = helmet.SKILL(side);
+    else helmetSKILL = [0, 0, 0, 0, 0];
+    if(accessory.SKILLTYPE == 'RATE' && accessory.SKILL(side)) accessorySKILL = accessory.SKILL(side);
+    else accessorySKILL = [0, 0, 0, 0, 0];
 
-    if(enchant.NAME == "滿月" && perHP > 0.8){
+    if(enchant.NAME == "滿月" && perHP >= 0.8){
         moon = 0.1;
     }
 
@@ -351,16 +407,32 @@ function displayPRENUMS(side){
         let eDATA = document.getElementById(SIDE+PRE+NUMS[i]+DATA);
         let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
-        let number = base[i]*(rate[i]+moon)+arena[i];
+        let number = base[i]*(rate[i]+talentSKILL[i]+weaponSKILL[i]+armorSKILL[i]+helmetSKILL[i]+accessorySKILL[i]+moon)+arena[i];
         eDATA.innerHTML = text[i] + ":" + Math.round(number);
         eBASEDESC.innerHTML = base[i];
         ePREDESC.innerHTML = Math.round(number) + "=" + base[i] + "×(1";
-        if(talentNUM[i] != undefined) ePREDESC.innerHTML += "+" + talentNUM[i];
-        if(weaponNUM[i] != undefined) ePREDESC.innerHTML += "+" + weaponNUM[i];
-        if(armorNUM[i] != undefined) ePREDESC.innerHTML += "+" + armorNUM[i];
-        if(helmetNUM[i] != undefined) ePREDESC.innerHTML += "+" + helmetNUM[i];
-        if(accessoryNUM[i] != undefined) ePREDESC.innerHTML += "+" + accessoryNUM[i];
-        if(moon != 0) ePREDESC.innerHTML += "+" + moon;
+        if(talentNUM[i] != undefined)
+            ePREDESC.innerHTML += "+" + talentNUM[i] + "[" + talent.NAME + "]";
+        if(talentSKILL[i] != 0)
+            ePREDESC.innerHTML += "+" + talentSKILL[i].toFixed(2) + "[" + talent.NAME + "]";
+        if(weaponNUM[i] != undefined)
+            ePREDESC.innerHTML += "+" + weaponNUM[i] + "[" + weapon.NAME + "]";
+        if(weaponSKILL[i] != 0)
+            ePREDESC.innerHTML += "+" + weaponSKILL[i].toFixed(2) + "[" + weapon.NAME + "]";
+        if(armorNUM[i] != undefined)
+            ePREDESC.innerHTML += "+" + armorNUM[i] + "[" + armor.NAME + "]";
+        if(armorSKILL[i] != 0)
+            ePREDESC.innerHTML += "+" + armorSKILL[i].toFixed(2) + "[" + armor.NAME + "]";
+        if(helmetNUM[i] != undefined)
+            ePREDESC.innerHTML += "+" + helmetNUM[i] + "[" + helmet.NAME + "]";
+        if(helmetSKILL[i] != 0)
+            ePREDESC.innerHTML += "+" + helmetSKILL[i].toFixed(2) + "[" + helmet.NAME + "]";
+        if(accessoryNUM[i] != undefined)
+            ePREDESC.innerHTML += "+" + accessoryNUM[i] + "[" + accessory.NAME + "]";
+        if(accessorySKILL[i] != 0)
+            ePREDESC.innerHTML += "+" + accessorySKILL[i].toFixed(2) + "[" + accessory.NAME + "]";
+        if(moon != 0)
+            ePREDESC.innerHTML += "+" + moon + "[" + enchant.NAME + "]";
         ePREDESC.innerHTML += ")+" + arena[i];
     }
 };
@@ -402,10 +474,10 @@ function getAllSkill(stage, side){
         displayHEALS(side);
         displayHEALS(otherside);
         // display NUMS
-        if(sideBASE) displayPRENUMS(side);// getPRENUMS(side);
-        else displayBASENUMS(side);// getBASENUMS(side);
-        if(othersideBASE) displayPRENUMS(otherside);// getPRENUMS(otherside);
-        else displayBASENUMS(otherside);// getBASENUMS(otherside);
+        if(sideBASE) displayPRENUMS(side),  getPRENUMS(side);
+        else         displayBASENUMS(side), getBASENUMS(side);
+        if(othersideBASE) displayPRENUMS(otherside),  getPRENUMS(otherside);
+        else              displayBASENUMS(otherside), getBASENUMS(otherside);
     }
     /* MID STAGE */
     if(stage == 'MID'){

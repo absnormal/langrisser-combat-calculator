@@ -16,6 +16,13 @@ var helmet = [{
     DESC: '被攻擊時，魔防提升15%，部隊生命80%以上時，遭受物理傷害降低10%。'
 },{
     NAME: '原質頭盔', TYPE: '重盔',
+    SKILLTYPE: 'RATE',
+    SKILL: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP >= 0.5) return [0, 0, 0.08, 0.08, 0];
+        else return [0.08, 0, 0, 0, 0.08];
+    },
     DESC: '部隊生命50%以上時，防禦、魔防提升8%，部隊生命50%以下時，攻擊、技巧提升8%'
 },{
     NAME: '死神的呼吸', TYPE: '重盔',
@@ -49,6 +56,13 @@ var helmet = [{
 },{
     NAME: '尼約德的羽冠', TYPE: '皮盔',
     HP: 0.1,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') HP = combat.offHP, oppHP = combat.defHP;
+        else if(side == 'defense') HP = combat.defHP, oppHP = combat.offHP;
+        if(HP > oppHP) return [0, 0, 0.15, 0.15, 0];
+        else return false;
+    },
     DESC: '生命+10%，和生命數值低於自己的部隊戰鬥時，防禦和魔防提升15% '
 },{
     NAME: '耶夢加得之眼', TYPE: '皮盔',
@@ -57,6 +71,13 @@ var helmet = [{
 },{
     NAME: '洛基的假面', TYPE: '皮盔',
     HP: 0.05,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') return false;
+        range = combat.range;
+        if(range == 1) return [0, 0, 0.15, 0, 0];
+        else return false;
+    },
     DESC: '生命+5%，被近身戰鬥時，防禦提升15% '
 },{
     NAME: '攝魂法帽', TYPE: '法帽',
@@ -64,6 +85,13 @@ var helmet = [{
     DESC: '魔防+10%，行動結束時，50%的概率使自身3格範圍內的1個敵軍「無法使用主動技能」，持續1回合 '
 },{
     NAME: '光輝頭飾', TYPE: '法帽',
+    SKILLTYPE: 'RATE',
+    SKILL: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP == 1) return [0, 0, 0.15, 0.15, 0];
+        else return false;
+    },
     DESC: '部隊生命100%時，魔防和防禦提升15% '
 },{
     NAME: '天女頭飾', TYPE: '法帽',
@@ -75,7 +103,7 @@ var helmet = [{
     DESC: '生命+10%，行動結束時，使相鄰的1個友軍「魔防」提升20%，且免疫「暈眩」、「無法遭受強化效果」，「移動力降低」，持續1回合'
 },{
     NAME: '霜火之冠', TYPE: '法帽',
-    MDEF: 0.1,
+    MDEF: 0.1, ODMGDEC: 0.1,
     DESC: '魔防+10%。主動攻擊進入戰鬥時，遭受傷害降低10%。'
 },{
     NAME: '奧丁的寬簷帽', TYPE: '法帽',
@@ -143,10 +171,24 @@ var helmet = [{
 },{
     NAME: '夢魘的面容', TYPE: '弗拉基亞',
     HP: 0.05,
+    SKILLTYPE: 'MIDRATE',
+    SKILL: function(side){
+        if(side == 'offense') army = getArmy('offense'), oppArmy = getArmy('defense');
+        else if(side == 'defense') army = getArmy('defense'), oppArmy = getArmy('offense');
+        if(cal_counter(army, oppArmy) > 0) return [0.2, 0, 0, 0, 0];
+        else return false;
+    },
     DESC: '生命+5%。與克制的部隊交戰時，攻擊額外提升20%。'
 },{
     NAME: '笠', TYPE: '霧風',
     DEF: 0.05, MDEF: 0.05,
+    SKILLTYPE: 'RATE',
+    SKILL: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP == 1) return [0, 0, 0, 0, 0.3];
+        else return false;
+    },
     DESC: '防禦、魔防+5%。部隊生命值100%時，技巧+30%。'
 },{
     NAME: '我我我公主', TYPE: '海恩',
