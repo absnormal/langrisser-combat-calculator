@@ -221,26 +221,3 @@ function loadAccessoryDesc(side, accessoryID){
     eAccessorybox.style.left = x + 'px';
 };
 
-function getAccessorySkill(side){
-    if(side == 'offense'){
-        var accessory = combat.offAccessory;
-        if(accessory.ATK != undefined) combat.offATKRATE += accessory.ATK;
-        if(accessory.INT != undefined) combat.offINTRATE += accessory.INT;
-        if(accessory.DEF != undefined) combat.offDEFRATE += accessory.DEF;
-        if(accessory.MDEF != undefined) combat.offMDEFRATE += accessory.MDEF;
-        if(accessory.DEX != undefined) combat.offDEXRATE += accessory.DEX;
-        if(accessory.HEAL != undefined) combat.offHEAL += accessory.HEAL;
-        if(accessory.HEALED != undefined) combat.offHEALED += accessory.HEALED;
-    }
-    else if(side == 'defense'){
-        var accessory = combat.defAccessory;
-        if(accessory.ATK != undefined) combat.defATKRATE += accessory.ATK;
-        if(accessory.INT != undefined) combat.defINTRATE += accessory.INT;
-        if(accessory.DEF != undefined) combat.defDEFRATE += accessory.DEF;
-        if(accessory.MDEF != undefined) combat.defMDEFRATE += accessory.MDEF;
-        if(accessory.DEX != undefined) combat.defDEXRATE += accessory.DEX;
-        if(accessory.HEAL != undefined) combat.defHEAL += accessory.HEAL;
-        if(accessory.HEALED != undefined) combat.defHEALED += accessory.HEALED;
-    }
-};
-

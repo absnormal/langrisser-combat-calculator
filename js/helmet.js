@@ -221,26 +221,3 @@ function loadHelmetDesc(side, helmetID){
     eHelmetbox.style.left = x + 'px';
 };
 
-function getHelmetSkill(side){
-    if(side == 'offense'){
-        var helmet = combat.offHelmet;
-        if(helmet.ATK != undefined) combat.offATKRATE += helmet.ATK;
-        if(helmet.INT != undefined) combat.offINTRATE += helmet.INT;
-        if(helmet.DEF != undefined) combat.offDEFRATE += helmet.DEF;
-        if(helmet.MDEF != undefined) combat.offMDEFRATE += helmet.MDEF;
-        if(helmet.DEX != undefined) combat.offDEXRATE += helmet.DEX;
-        if(helmet.HEAL != undefined) combat.offHEAL += helmet.HEAL;
-        if(helmet.HEALED != undefined) combat.offHEALED += helmet.HEALED;
-    }
-    else if(side == 'defense'){
-        var helmet = combat.defHelmet;
-        if(helmet.ATK != undefined) combat.defATKRATE += helmet.ATK;
-        if(helmet.INT != undefined) combat.defINTRATE += helmet.INT;
-        if(helmet.DEF != undefined) combat.defDEFRATE += helmet.DEF;
-        if(helmet.MDEF != undefined) combat.defMDEFRATE += helmet.MDEF;
-        if(helmet.DEX != undefined) combat.defDEXRATE += helmet.DEX;
-        if(helmet.HEAL != undefined) combat.defHEAL += helmet.HEAL;
-        if(helmet.HEALED != undefined) combat.defHEALED += helmet.HEALED;
-    }
-};
-

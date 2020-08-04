@@ -221,26 +221,3 @@ function loadArmorDesc(side, armorID){
     eArmorbox.style.left = x + 'px';
 };
 
-function getArmorSkill(side){
-    if(side == 'offense'){
-        var armor = combat.offArmor;
-        if(armor.ATK != undefined) combat.offATKRATE += armor.ATK;
-        if(armor.INT != undefined) combat.offINTRATE += armor.INT;
-        if(armor.DEF != undefined) combat.offDEFRATE += armor.DEF;
-        if(armor.MDEF != undefined) combat.offMDEFRATE += armor.MDEF;
-        if(armor.DEX != undefined) combat.offDEXRATE += armor.DEX;
-        if(armor.HEAL != undefined) combat.offHEAL += armor.HEAL;
-        if(armor.HEALED != undefined) combat.offHEALED += armor.HEALED;
-    }
-    else if(side == 'defense'){
-        var armor = combat.defArmor;
-        if(armor.ATK != undefined) combat.defATKRATE += armor.ATK;
-        if(armor.INT != undefined) combat.defINTRATE += armor.INT;
-        if(armor.DEF != undefined) combat.defDEFRATE += armor.DEF;
-        if(armor.MDEF != undefined) combat.defMDEFRATE += armor.MDEF;
-        if(armor.DEX != undefined) combat.defDEXRATE += armor.DEX;
-        if(armor.HEAL != undefined) combat.defHEAL += armor.HEAL;
-        if(armor.HEALED != undefined) combat.defHEALED += armor.HEALED;
-    }
-};
-

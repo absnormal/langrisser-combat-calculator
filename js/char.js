@@ -38,29 +38,6 @@ function getArmy(side){
     else if(eJobNo == 5) return eChar.ARMY5;
 };
 
-function getTalentSkill(side){
-    if(side == 'offense'){
-        var talent = combat.offTalent;
-        if(talent.ATK != undefined) combat.offATKRATE += talent.ATK;
-        if(talent.INT != undefined) combat.offINTRATE += talent.INT;
-        if(talent.DEF != undefined) combat.offDEFRATE += talent.DEF;
-        if(talent.MDEF != undefined) combat.offMDEFRATE += talent.MDEF;
-        if(talent.DEX != undefined) combat.offDEXRATE += talent.DEX;
-        if(talent.HEAL != undefined) combat.offHEAL += talent.HEAL;
-        if(talent.HEALED != undefined) combat.offHEALED += talent.HEALED;
-    }
-    else if(side == 'defense'){
-        var talent = combat.defTalent;
-        if(talent.ATK != undefined) combat.defATKRATE += talent.ATK;
-        if(talent.INT != undefined) combat.defINTRATE += talent.INT;
-        if(talent.DEF != undefined) combat.defDEFRATE += talent.DEF;
-        if(talent.MDEF != undefined) combat.defMDEFRATE += talent.MDEF;
-        if(talent.DEX != undefined) combat.defDEXRATE += talent.DEX;
-        if(talent.HEAL != undefined) combat.defHEAL += talent.HEAL;
-        if(talent.HEALED != undefined) combat.defHEALED += talent.HEALED;
-    }
-};
-
 function displayArmy(side){
     if(side == 'defense'){
         document.getElementById('defcharARMY').innerHTML = '兵種:' + getArmy(side);
@@ -158,5 +135,43 @@ function changeJob(side){
     displayHelmet(side);
     hideAccessory(side);
     displayAccessory(side);
+};
+
+function changeBASEKNOWN(side){
+    if(side == 'defense') SIDE = 'def', KNOWN = combat.defBASEKNOWN;
+    else if(side == 'offense') SIDE = 'off', KNOWN = combat.offBASEKNOWN;
+    KNOWNTEXT = '已知戰前數字';
+    UNKNOWNTEXT = '未知戰前數字';
+    eKNOWNTEXT = document.getElementById(SIDE+'KNOWNTEXT');
+    BASE = 'BASE', PRE = 'PRE', DATA = 'DATA', INPUT = 'input';
+    NUM = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
+    width = 'width: 40px;', clear = 'display: none;';
+
+    for(let i=0; i<NUM.length; i++){
+        if(KNOWN){
+            eKNOWN = document.getElementById(SIDE+BASE+NUM[i]+INPUT);
+            eKNOWNDATA = document.getElementById(SIDE+BASE+NUM[i]+DATA);
+            eUNKNOWN = document.getElementById(SIDE+PRE+NUM[i]+INPUT);
+            eUNKNOWNDATA = document.getElementById(SIDE+PRE+NUM[i]+DATA);
+        }
+        else{
+            eKNOWN = document.getElementById(SIDE+PRE+NUM[i]+INPUT);
+            eKNOWNDATA = document.getElementById(SIDE+PRE+NUM[i]+DATA);
+            eUNKNOWN = document.getElementById(SIDE+BASE+NUM[i]+INPUT);
+            eUNKNOWNDATA = document.getElementById(SIDE+BASE+NUM[i]+DATA);
+        }
+        eKNOWN.style = "";
+        eKNOWN.style = width + clear;
+        eKNOWNDATA.innerHTML = eKNOWNDATA.innerHTML.split(':')[0];
+        eUNKNOWN.style = "";
+        eUNKNOWN.style = width;
+        eUNKNOWNDATA.innerHTML = eUNKNOWNDATA.innerHTML.split(':')[0];
+    }
+
+    if(KNOWN) eKNOWNTEXT.innerHTML = UNKNOWNTEXT;
+    else eKNOWNTEXT.innerHTML = KNOWNTEXT;
+
+    if(side == 'defense') combat.defBASEKNOWN = !KNOWN;
+    else if(side == 'offense') combat.offBASEKNOWN = !KNOWN;
 };
 
