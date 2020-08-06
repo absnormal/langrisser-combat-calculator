@@ -202,21 +202,21 @@ var skill = [{
     RATE:  1.8, COUNTER: '無',
     STREFF: '無', WEAKEFF: '禁療', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 5,
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍傷害。戰鬥前每移動1格，技巧提升10%。（最多提升30%）'
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.8倍傷害。戰前驅散敵軍5個強化效果。並使其「無法被治療」，持續2回合。無法被驅散。'
 },{
     NAME: '力突', COST: 2,
     TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
     RATE:  1.5, COUNTER: '無',
     STREFF: '力突', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍傷害。戰鬥前每移動1格，技巧提升10%。（最多提升30%）'
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍的戰鬥傷害。戰鬥前，獲得[力突]效果:用「防禦」的1.6倍代替「攻擊」，持續2回合。'
 },{
     NAME: '千騎', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '1格', AREA: '單體',
     RATE:  1.7, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無', SOLDATK: '無',
     NEGDEF: 0, NEGMDEF: 0, DISPERSE: 0,
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍傷害。戰鬥前每移動1格，技巧提升10%。（最多提升30%）'
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.7倍傷害。戰後，使對方移動力-2，且無法進行護衛，持續2回合，無法被驅散。'
 },{
     NAME: '壓制射擊', COST: 2,
     TYPE: '物理傷害', CD: 2, RANGE: '2格', AREA: '單體',

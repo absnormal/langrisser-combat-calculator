@@ -22,7 +22,6 @@ function loadTalent(side, characterID){
 };
 
 function getArmy(side){
-
     if(side == 'defense'){
         eJobNo = combat.defJobNo;
         eChar = combat.defChar;
@@ -97,6 +96,23 @@ function getHeart(side, LV){
         else if(eJobNo == 4) return eChar.JOB4DISCB;
         else if(eJobNo == 5) return eChar.JOB5DISCB;
     }
+};
+
+function getDmgtype(side){
+    var char, jobNo;
+    if(side == 'offense'){
+        char = combat.offChar;
+        jobNo = combat.offJobNo;
+    }
+    else if(side == 'defense'){
+        char = combat.defChar;
+        jobNo = combat.defJobNo;
+    }
+    if(jobNo == 1) return char.DMGTYPE1;
+    else if(jobNo == 2) return char.DMGTYPE2;
+    else if(jobNo == 3) return char.DMGTYPE3;
+    else if(jobNo == 4) return char.DMGTYPE4;
+    else if(jobNo == 5) return char.DMGTYPE5;
 };
 
 function displayHeart(side){

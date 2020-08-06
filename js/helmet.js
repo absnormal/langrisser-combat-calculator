@@ -109,13 +109,14 @@ function holdHelmet(side, army, job){
             break;
     }
     /* add new cases to new heros */
-    /*
     switch(job){
-        case '':
-            holds.push('');
+        case '龍族統帥':
+            holds.push('皮盔');
+            break;
+        case '巴哈姆特':
+            holds.push('皮盔');
             break;
     }
-    */
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);
     else if(side == 'defense') holds.push(combat.defChar.NAME);

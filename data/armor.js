@@ -12,10 +12,12 @@ var armor = [{
     DESC: '防禦+10%。遭受暴擊率降低20%。'
 },{
     NAME: '鏡面鎧甲', TYPE: '重甲',
+    /* TRUE DMG */
     HP: 0.05, DEF: 0.05,
     DESC: '生命、防禦+5%，被近戰攻擊前，對敵軍造成固定傷害，傷害值為英雄防禦的1.5倍'
 },{
     NAME: '血紋魔鎧', TYPE: '重甲',
+    /* PROBABILITY SKILLS */
     HP: 0.05, DEF: 0.05,
     DESC: '生命、防禦+5%，被近戰攻擊時，有30%的概率發動，本次戰鬥部隊遭受傷害降低30%'
 },{
@@ -24,16 +26,30 @@ var armor = [{
     DESC: '防禦+10% 遭受治療效果+10%'
 },{
     NAME: '冰鋒戰甲', TYPE: '重甲',
+    /* TRUE DMG */
     HP: 0.05, MDEF: 0.05,
     DESC: '生命、魔防+5%。主動進入戰鬥時，戰後對敵軍造成1次固定傷害，傷害值為英雄魔防的1.5倍。'
 },{
     NAME: '大地之鎧', TYPE: '重甲',
     DDEF: 0.15,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            perHP = combat.offHP/combat.offFULLHP;
+            oppDmgtype = combat.defDMGTYPE;
+        }
+        else if(side == 'defense'){
+            perHP = combat.defHP/combat.defFULLHP;
+            oppDmgtype = combat.offDMGTYPE;
+        }
+        if(perHP >= 0.8 && oppDmgtype == '魔法傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1];
+        else return false;
+    },
     DESC: '被攻擊進入戰鬥時，防禦提升15%。部隊生命80%以上時，遭受魔法傷害降低10%。'
 },{
     NAME: '原質之鎧', TYPE: '重甲',
-    SKILLTYPE: 'RATE',
-    SKILL: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
         else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
         if(perHP >= 0.5) return [0, 0, 0.08, 0.08, 0];
@@ -43,6 +59,7 @@ var armor = [{
 },{
     NAME: '風王戰甲', TYPE: '重甲',
     HP: 0.05, DEF: 0.05,
+    /* PROBABILITY SKILL */
     DESC: '生命、防禦+5%，被遠程攻擊時，有30%的概率發動，本次戰鬥遭受傷害降低30% '
 },{
     NAME: '石像鬼外套', TYPE: '輕甲',
@@ -55,12 +72,13 @@ var armor = [{
 },{
     NAME: '逆矢外殼', TYPE: '輕甲',
     DEF: 0.05, MDEF: 0.05,
+    /* TRUE DMG */
     DESC: '防禦、魔防+5%。被遠程攻擊進入戰鬥前，對故軍造成固定傷害，傷害值為英雄魔防的1.5倍。'
 },{
     NAME: '影淵鱗衣', TYPE: '輕甲',
     HP: 0.1,
-    SKILLTYPE: 'RATE',
-    SKILL: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
         else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
         if(perHP >= 0.5) return [0, 0, 0.1, 0, 0];
@@ -70,6 +88,13 @@ var armor = [{
 },{
     NAME: '最後之服', TYPE: '輕甲',
     DEF: 0.1,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(perHP == 1) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.4];
+        else return false;
+    },
     DESC: '防禦+10%，部隊生命值100%時，遭受所有傷害降低40% '
 },{
     NAME: '魔蜥外皮', TYPE: '輕甲',
@@ -85,6 +110,7 @@ var armor = [{
     DESC: '生命+5%，主動攻擊時，防禦和魔防提升10%。'
 },{
     NAME: '巴德爾的白袍', TYPE: '布甲',
+    /* combat neg */
     MDEF: 0.1,
     DESC: '魔防+10%，被近戰攻擊進入戰鬥前，有20%的概率使得本次戰鬥中，部隊不會受到近戰傷害減免效果的影響。'
 },{
@@ -94,10 +120,10 @@ var armor = [{
 },{
     NAME: '暗之法衣', TYPE: '布甲',
     HP: 0.05,
-    SKILLTYPE: 'MIDRATE',
-    SKILL: function(side){
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
         if(side == 'offense') return false;
-        if(combat.range > 1) return [0, 0, 0.15, 0.15, 0];
+        if(combat.range > 1) return [0, 0, 0.15, 0.15, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '生命+5%。被遠程攻擊時，防禦、魔防提升15%。'
@@ -108,10 +134,10 @@ var armor = [{
 },{
     NAME: '福金之翼', TYPE: '布甲',
     HP: 0.05,
-    SKILLTYPE: 'MIDRATE',
-    SKILL: function(side){
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
         if(side == 'offense') return false;
-        if(combat.range == 1) return [0, 0, 0.15, 0.15, 0];
+        if(combat.range == 1) return [0, 0, 0.15, 0.15, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '生命+5%。被近戰攻擊時，防禦、魔防提升15%。'
@@ -146,10 +172,12 @@ var armor = [{
 },{
     NAME: '魔導防護服', TYPE: '蕾伽爾',
     HP: 0.05,
+    /* TRUE DMG */
     DESC: '生命+5%。被近戰攻擊進入戰鬥前，對敵軍造成1次固定傷害，傷害值為英雄智力的1倍'
 },{
     NAME: '月之回憶', TYPE: '布琳達',
     HP: 0.05, DEF: 0.05,
+    /* ??? */
     DESC: '生命、防禦+5%。 當觸發風華典範額外行動時，驅散自身2個弱化效果並使自己獲得造成傷害提高10%，遭受傷害降低+10%，持續1回合。'
 },{
     NAME: '霸王戰甲', TYPE: '巴恩哈特',

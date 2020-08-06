@@ -13,11 +13,24 @@ var helmet = [{
 },{
     NAME: '大地之盔', TYPE: '重盔',
     DMDEF: 0.15,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            perHP = combat.offHP/combat.offFULLHP;
+            oppDmgtype = combat.defDMGTYPE;
+        }
+        else if(side == 'defense'){
+            perHP = combat.defHP/combat.defFULLHP;
+            oppDmgtype = combat.offDMGTYPE;
+        }
+        if(perHP >= 0.8 && oppDmgtype == '物理傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1];
+        else return false;
+    },
     DESC: '被攻擊時，魔防提升15%，部隊生命80%以上時，遭受物理傷害降低10%。'
 },{
     NAME: '原質頭盔', TYPE: '重盔',
-    SKILLTYPE: 'RATE',
-    SKILL: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
         else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
         if(perHP >= 0.5) return [0, 0, 0.08, 0.08, 0];
@@ -46,8 +59,7 @@ var helmet = [{
     DESC: '生命+10%。行動結束時， 如果部隊生命低於50%，則恢復20%生命'
 },{
     NAME: '突擊頭飾', TYPE: '皮盔',
-    HP: 0.05,
-    ODEF: 0.1, OMDEF: 0.1,
+    HP: 0.05, ODEF: 0.1, OMDEF: 0.1,
     DESC: '生命+5%，主動攻擊時，防禦和魔防提升10%。'
 },{
     NAME: '王者之冠', TYPE: '皮盔',
@@ -56,11 +68,11 @@ var helmet = [{
 },{
     NAME: '尼約德的羽冠', TYPE: '皮盔',
     HP: 0.1,
-    SKILLTYPE: 'MIDRATE',
-    SKILL: function(side){
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
         if(side == 'offense') HP = combat.offHP, oppHP = combat.defHP;
         else if(side == 'defense') HP = combat.defHP, oppHP = combat.offHP;
-        if(HP > oppHP) return [0, 0, 0.15, 0.15, 0];
+        if(HP > oppHP) return [0, 0, 0.15, 0.15, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '生命+10%，和生命數值低於自己的部隊戰鬥時，防禦和魔防提升15% '
@@ -71,11 +83,11 @@ var helmet = [{
 },{
     NAME: '洛基的假面', TYPE: '皮盔',
     HP: 0.05,
-    SKILLTYPE: 'MIDRATE',
-    SKILL: function(side){
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
         if(side == 'offense') return false;
         range = combat.range;
-        if(range == 1) return [0, 0, 0.15, 0, 0];
+        if(range == 1) return [0, 0, 0.15, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '生命+5%，被近身戰鬥時，防禦提升15% '
@@ -85,8 +97,8 @@ var helmet = [{
     DESC: '魔防+10%，行動結束時，50%的概率使自身3格範圍內的1個敵軍「無法使用主動技能」，持續1回合 '
 },{
     NAME: '光輝頭飾', TYPE: '法帽',
-    SKILLTYPE: 'RATE',
-    SKILL: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
         else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
         if(perHP == 1) return [0, 0, 0.15, 0.15, 0];
@@ -132,9 +144,18 @@ var helmet = [{
 },{
     NAME: '逐夢之冠', TYPE: '格尼爾',
     MDEF: 0.05,
+    /* BUFF RELATED */
     DESC: '魔防+5%。當自身強化狀態數量大於或等於7個時，反擊傷害提高50%。'
 },{
     NAME: '卡爾薩斯之冠', TYPE: '蘭斯',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        army = getArmy(side);
+        if(side == 'offense') soldArmy = combat.offSoldier.ARMY;
+        else if(side == 'defense') soldArmy = combat.defSoldier.ARMY;
+        if(army != soldArmy) return [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0];
+        else return false;
+    },
     DESC: '生命+5%。自身為[混合部隊]時，傷害額外提升+20%。'
 },{
     NAME: '銳目透鏡', TYPE: '西格瑪',
@@ -147,13 +168,17 @@ var helmet = [{
 },{
     NAME: '荊棘皇冠', TYPE: '芙蕾雅',
     MDEF: 0.1,
+    /* TRUE DMG */
     DESC: '魔防+10%。被攻擊進入戰鬥前，對敵軍造成固定傷害，傷害值為英雄魔防的2倍。'
 },{
     NAME: '義賊的假面', TYPE: '銀狼',
+    /* FIRST ATTACK */
+    /* BUFF RELATED */
     MDEF: 0.05,
     DESC: '魔防+5%。主動攻擊進入戰鬥時，如果自身強化狀態數量大於等於敵軍強化狀態數量的2倍，會先於敵軍進行攻擊。'
 },{
     NAME: '風之翎羽', TYPE: '艾拉斯卓',
+    /* HEAL AFTER ATTACK */
     MDEF: 0.1,
     DESC: '魔防+10%。自身處於「樹林」「山地」和「草地」 上時，攻擊可以無視護衛，並在戰後恢復傷害數值20%的生命。'
 },{
@@ -171,8 +196,8 @@ var helmet = [{
 },{
     NAME: '夢魘的面容', TYPE: '弗拉基亞',
     HP: 0.05,
-    SKILLTYPE: 'MIDRATE',
-    SKILL: function(side){
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
         if(side == 'offense') army = getArmy('offense'), oppArmy = getArmy('defense');
         else if(side == 'defense') army = getArmy('defense'), oppArmy = getArmy('offense');
         if(cal_counter(army, oppArmy) > 0) return [0.2, 0, 0, 0, 0];
@@ -182,8 +207,8 @@ var helmet = [{
 },{
     NAME: '笠', TYPE: '霧風',
     DEF: 0.05, MDEF: 0.05,
-    SKILLTYPE: 'RATE',
-    SKILL: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
         else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
         if(perHP == 1) return [0, 0, 0, 0, 0.3];
@@ -204,10 +229,12 @@ var helmet = [{
     DESC: '魔防+10%，行動結束時，使相鄰2格的4個其他友軍免疫「固定傷害」，持續1回合。'
 },{
     NAME: '古巨美的餽贈', TYPE: '古巨拉',
+    /* HEAL AFTER BATTLE */
     HP: 0.05,
     DESC: '生命+5%。戰鬥後，恢復自身部隊10%的生命。攜帶技能無視COST限制。'
 },{
     NAME: '燎星之隕', TYPE: '貝蒂',
+    /* DATA? */
     HP: 0.1,
     DESC: '部隊血量越低時，造成的固定傷害越高，最多提升30%。'
 },{

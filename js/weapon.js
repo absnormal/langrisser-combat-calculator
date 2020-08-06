@@ -111,6 +111,11 @@ function holdWeapon(side, army, job){
     switch(job){
         case '龍族統帥':
             holds.push('錘');
+            holds.push('斧');
+            break;
+        case '巴哈姆特':
+            holds.push('錘');
+            holds.push('斧');
             break;
     }
     // add hero name to type for char specials

@@ -148,7 +148,7 @@ function getCharData(side){
         combat.off2BFriend = Number(document.getElementById('off2BFriend').value);
         combat.off3BFriend = Number(document.getElementById('off3BFriend').value);
         combat.off3BEnemy = Number(document.getElementById('off3BEnemy').value);
-        combat.off3CEnemy = Number(document.getElementById('off3BEnemy').value);
+        combat.off3CEnemy = Number(document.getElementById('off3CEnemy').value);
     }
     else if(side == 'defense'){
         /* 白字 */
@@ -186,43 +186,35 @@ function getCharData(side){
 
 function getBASENUMS(side){
     if(side == 'offense'){
-        if(combat.offHP/combat.offFULLHP > 0.8) moon = 0.1;
-        else moon = 0;
-        combat.offBASEATK=Math.round((combat.offATK-combat.offAATK)/(combat.offATKRATE+moon));
-        combat.offBASEINT=Math.round((combat.offINT-combat.offAINT)/(combat.offINTRATE+moon));
-        combat.offBASEDEF=Math.round((combat.offDEF-combat.offADEF)/(combat.offDEFRATE+moon));
-        combat.offBASEMDEF=Math.round((combat.offMDEF-combat.offAMDEF)/(combat.offMDEFRATE+moon));
-        combat.offBASEDEX=Math.round((combat.offDEX-combat.offADEX)/(combat.offDEXRATE+moon));
+        combat.offBASEATK=Math.round((combat.offATK-combat.offAATK)/combat.offATKRATE);
+        combat.offBASEINT=Math.round((combat.offINT-combat.offAINT)/combat.offINTRATE);
+        combat.offBASEDEF=Math.round((combat.offDEF-combat.offADEF)/combat.offDEFRATE);
+        combat.offBASEMDEF=Math.round((combat.offMDEF-combat.offAMDEF)/combat.offMDEFRATE);
+        combat.offBASEDEX=Math.round((combat.offDEX-combat.offADEX)/combat.offDEXRATE);
     }
     else if(side == 'defense'){
-        if(combat.defHP/combat.defFULLHP > 0.8) moon = 0.1;
-        else moon = 0;
-        combat.defBASEATK=Math.round((combat.defATK-combat.defAATK)/(combat.defATKRATE+moon));
-        combat.defBASEINT=Math.round((combat.defINT-combat.defAINT)/(combat.defINTRATE+moon));
-        combat.defBASEDEF=Math.round((combat.defDEF-combat.defADEF)/(combat.defDEFRATE+moon));
-        combat.defBASEMDEF=Math.round((combat.defMDEF-combat.defAMDEF)/(combat.defMDEFRATE+moon));
-        combat.defBASEDEX=Math.round((combat.defDEX-combat.defADEX)/(combat.defDEXRATE+moon));
+        combat.defBASEATK=Math.round((combat.defATK-combat.defAATK)/combat.defATKRATE);
+        combat.defBASEINT=Math.round((combat.defINT-combat.defAINT)/combat.defINTRATE);
+        combat.defBASEDEF=Math.round((combat.defDEF-combat.defADEF)/combat.defDEFRATE);
+        combat.defBASEMDEF=Math.round((combat.defMDEF-combat.defAMDEF)/combat.defMDEFRATE);
+        combat.defBASEDEX=Math.round((combat.defDEX-combat.defADEX)/combat.defDEXRATE);
     }
 };
 
 function getPRENUMS(side){
     if(side == 'offense'){
-        if(combat.offHP/combat.offFULLHP > 0.8) moon = 0.1;
-        else moon = 0;
-        combat.offATK=Math.round(combat.BASEATK*(combat.offATKRATE+moon)+combat.offAATK);
-        combat.offINT=Math.round(combat.BASEINT*(combat.offATKRATE+moon)+combat.offAINT);
-        combat.offDEF=Math.round(combat.BASEDEF*(combat.offATKRATE+moon)+combat.offADEF);
-        combat.offMDEF=Math.round(combat.BASEMDEF*(combat.offATKRATE+moon)+combat.offAMDEF);
-        combat.offDEX=Math.round(combat.BASEDEX*(combat.offATKRATE+moon)+combat.offADEX);
+        combat.offATK=Math.round(combat.offBASEATK*combat.offATKRATE+combat.offAATK);
+        combat.offINT=Math.round(combat.offBASEINT*combat.offINTRATE+combat.offAINT);
+        combat.offDEF=Math.round(combat.offBASEDEF*combat.offDEFRATE+combat.offADEF);
+        combat.offMDEF=Math.round(combat.offBASEMDEF*combat.offMDEFRATE+combat.offAMDEF);
+        combat.offDEX=Math.round(combat.offBASEDEX*combat.offDEXRATE+combat.offADEX);
     }
     else if(side == 'defense'){
-        if(combat.defHP/combat.defFULLHP > 0.8) moon = 0.1;
-        else moon = 0;
-        combat.defATK=Math.round(combat.BASEATK*(combat.defATKRATE+moon)+combat.defAATK);
-        combat.defINT=Math.round(combat.BASEINT*(combat.defATKRATE+moon)+combat.defAINT);
-        combat.defDEF=Math.round(combat.BASEDEF*(combat.defATKRATE+moon)+combat.defADEF);
-        combat.defMDEF=Math.round(combat.BASEMDEF*(combat.defATKRATE+moon)+combat.defAMDEF);
-        combat.defDEX=Math.round(combat.BASEDEX*(combat.defATKRATE+moon)+combat.defADEX);
+        combat.defATK=Math.round(combat.defBASEATK*combat.defATKRATE+combat.defAATK);
+        combat.defINT=Math.round(combat.defBASEINT*combat.defINTRATE+combat.defAINT);
+        combat.defDEF=Math.round(combat.defBASEDEF*combat.defDEFRATE+combat.defADEF);
+        combat.defMDEF=Math.round(combat.defBASEMDEF*combat.defMDEFRATE+combat.defAMDEF);
+        combat.defDEX=Math.round(combat.defBASEDEX*combat.defDEXRATE+combat.defADEX);
     }
 };
 
@@ -258,187 +250,170 @@ function displayHEALS(side){
 };
 
 /* BASENUM = (PRENUM-ARENA)/(1+EQUIP+TALENT+BUFF+DEBUFF+COMMAND+ENCHANT:MOON) */
-function displayBASENUMS(side){
+function displayBASENUMS(side, sideRate){
     BASE = 'BASE', DATA = 'DATA', DESC = 'DESC';
     NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
     text = ["進場前攻擊", "進場前智力", "進場前防禦", "進場前魔防", "進場前技巧"];
-    var weapon, armor, helmet, accessory, enchant, talent;
-    var weaponNUM, armorNUM, helmetNUM, accessoryNUM, talentNUM, moon = 0;
     var base, arena, rate, NUMS, text;
 
     if(side == 'offense'){
         SIDE = 'off'
-        weapon = combat.offWeapon;
-        armor = combat.offArmor;
-        helmet = combat.offHelmet;
-        accessory = combat.offAccessory;
-        enchant = combat.offEnchant;
-        perHP = combat.offHP/combat.offFULLHP;
-        talent = combat.offTalent;
         pre = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
         arena = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
         rate = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE];
     }
     else if(side == 'defense'){
         SIDE = 'def';
-        weapon = combat.defWeapon;
-        armor = combat.defArmor;
-        helmet = combat.defHelmet;
-        accessory = combat.defAccessory;
-        enchant = combat.defEnchant;
-        perHP = combat.defHP/combat.defFULLHP;
-        talent = combat.defTalent;
         pre = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF, combat.defDEX];
         arena = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF, combat.defADEX];
         rate = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE, combat.defDEXRATE];
-    }
-
-    weaponNUM = [weapon.ATK, weapon.INT, weapon.DEF, weapon.MDEF, weapon.DEX];
-    armorNUM = [armor.ATK, armor.INT, armor.DEF, armor.MDEF, armor.DEX];
-    helmetNUM = [helmet.ATK, helmet.INT, helmet.DEF, helmet.MDEF, helmet.DEX];
-    accessoryNUM = [accessory.ATK, accessory.INT, accessory.DEF, accessory.MDEF, accessory.DEX];
-    talentNUM = [talent.ATK, talent.INT, talent.DEF, talent.MDEF, talent.DEX];
-    if(talent.SKILLTYPE == 'RATE' && talent.SKILL(side)) talentSKILL = talent.SKILL(side);
-    else talentSKILL = [0, 0, 0, 0, 0];
-    if(weapon.SKILLTYPE == 'RATE' && weapon.SKILL(side)) weaponSKILL = weapon.SKILL(side);
-    else weaponSKILL = [0, 0, 0, 0, 0];
-    if(armor.SKILLTYPE == 'RATE' && armor.SKILL(side)) armorSKILL = armor.SKILL(side);
-    else armorSKILL = [0, 0, 0, 0, 0];
-    if(helmet.SKILLTYPE == 'RATE' && helmet.SKILL(side)) helmetSKILL = helmet.SKILL(side);
-    else helmetSKILL = [0, 0, 0, 0, 0];
-    if(accessory.SKILLTYPE == 'RATE' && accessory.SKILL(side)) accessorySKILL = accessory.SKILL(side);
-    else accessorySKILL = [0, 0, 0, 0, 0];
-
-    if(enchant.NAME == "滿月" && perHP >= 0.8){
-        moon = 0.1;
     }
 
     for(let i=0; i<NUMS.length; i++){
         let eDATA = document.getElementById(SIDE+BASE+NUMS[i]+DATA);
         let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
-        let number = (pre[i]-arena[i])/(rate[i]+talentSKILL[i]+weaponSKILL[i]+armorSKILL[i]+helmetSKILL[i]+accessorySKILL[i]+moon);
+        let number = (pre[i]-arena[i])/rate[i];
         eDATA.innerHTML = text[i] + ":" + Math.round(number);
         ePREDESC.innerHTML = pre[i];
         eBASEDESC.innerHTML = Math.round(number) + "=(" + pre[i] + "-" + arena[i] + ")÷(1";
-        if(talentNUM[i] != undefined)
-            eBASEDESC.innerHTML += "+" + talentNUM[i] + "[" + talent.NAME + "]";
-        if(talentSKILL[i] != 0)
-            eBASEDESC.innerHTML += "+" + talentSKILL[i].toFixed(2) + "[" + talent.NAME + "]";
-        if(weaponNUM[i] != undefined)
-            eBASEDESC.innerHTML += "+" + weaponNUM[i] + "[" + weapon.NAME + "]";
-        if(weaponSKILL[i] != 0)
-            eBASEDESC.innerHTML += "+" + weaponSKILL[i].toFixed(2) + "[" + weapon.NAME + "]";
-        if(armorNUM[i] != undefined)
-            eBASEDESC.innerHTML += "+" + armorNUM[i] + "[" + armor.NAME + "]";
-        if(armorSKILL[i] != 0)
-            eBASEDESC.innerHTML += "+" + armorSKILL[i].toFixed(2) + "[" + armor.NAME + "]";
-        if(helmetNUM[i] != undefined)
-            eBASEDESC.innerHTML += "+" + armorNUM[i] + "[" + armor.NAME + "]";
-        if(helmetSKILL[i] != 0)
-            eBASEDESC.innerHTML += "+" + helmetSKILL[i].toFixed(2) + "[" + helmet.NAME + "]";
-        if(accessoryNUM[i] != undefined)
-            eBASEDESC.innerHTML += "+" + accessoryNUM[i] + "[" + accessory.NAME + "]";
-        if(accessorySKILL[i] != 0)
-            eBASEDESC.innerHTML += "+" + accessorySKILL[i].toFixed(2) + "[" + accessory.NAME + "]";
-        if(moon != 0)
-            eBASEDESC.innerHTML += "+" + moon + "[" + enchant.NAME + "]";
+        for(let j=0; j<sideRate.length; j++)
+            if(sideRate[j].RATE[i] != 0)
+               eBASEDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
         eBASEDESC.innerHTML += ")";
     }
 };
 
 /* PRENUM = BASENUM*(1+EQUIP+TALENT+BUFF+DEBUFF+COMMAND+ENCHANT:MOON)+ARENA */
-function displayPRENUMS(side){
+function displayPRENUMS(side, sideRate){
     BASE = 'BASE', PRE = 'PRE', DATA = 'DATA', DESC = 'DESC';
     NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
     text = ["戰前攻擊", "戰前智力", "戰前防禦", "戰前魔防", "戰前技巧"];
-    var weapon, armor, helmet, accessory, enchant, talent;
-    var weaponNUM, armorNUM, helmetNUM, accessoryNUM, talentNUM, moon = 0;
     var base, arena, rate, NUMS, text;
 
     if(side == 'offense'){
         SIDE = 'off'
-        weapon = combat.offWeapon;
-        armor = combat.offArmor;
-        helmet = combat.offHelmet;
-        accessory = combat.offAccessory;
-        enchant = combat.offEnchant;
-        perHP = combat.offHP/combat.offFULLHP;
-        talent = combat.offTalent;
         base = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
         arena = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
         rate = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE];
     }
     else if(side == 'defense'){
         SIDE = 'def';
-        weapon = combat.defWeapon;
-        armor = combat.defArmor;
-        helmet = combat.defHelmet;
-        accessory = combat.defAccessory;
-        enchant = combat.defEnchant;
-        perHP = combat.defHP/combat.defFULLHP;
-        talent = combat.defTalent;
         base = [combat.defBASEATK, combat.defBASEINT, combat.defBASEDEF, combat.defBASEMDEF, combat.defBASEDEX];
         arena = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF, combat.defADEX];
         rate = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE, combat.defDEXRATE];
-    }
-
-    weaponNUM = [weapon.ATK, weapon.INT, weapon.DEF, weapon.MDEF, weapon.DEX];
-    armorNUM = [armor.ATK, armor.INT, armor.DEF, armor.MDEF, armor.DEX];
-    helmetNUM = [helmet.ATK, helmet.INT, helmet.DEF, helmet.MDEF, helmet.DEX];
-    accessoryNUM = [accessory.ATK, accessory.INT, accessory.DEF, accessory.MDEF, accessory.DEX];
-    talentNUM = [talent.ATK, talent.INT, talent.DEF, talent.MDEF, talent.DEX];
-    if(talent.SKILLTYPE == 'RATE' && talent.SKILL(side)) talentSKILL = talent.SKILL(side);
-    else talentSKILL = [0, 0, 0, 0, 0];
-    if(weapon.SKILLTYPE == 'RATE' && weapon.SKILL(side)) weaponSKILL = weapon.SKILL(side);
-    else weaponSKILL = [0, 0, 0, 0, 0];
-    if(armor.SKILLTYPE == 'RATE' && armor.SKILL(side)) armorSKILL = armor.SKILL(side);
-    else armorSKILL = [0, 0, 0, 0, 0];
-    if(helmet.SKILLTYPE == 'RATE' && helmet.SKILL(side)) helmetSKILL = helmet.SKILL(side);
-    else helmetSKILL = [0, 0, 0, 0, 0];
-    if(accessory.SKILLTYPE == 'RATE' && accessory.SKILL(side)) accessorySKILL = accessory.SKILL(side);
-    else accessorySKILL = [0, 0, 0, 0, 0];
-
-    if(enchant.NAME == "滿月" && perHP >= 0.8){
-        moon = 0.1;
     }
 
     for(let i=0; i<NUMS.length; i++){
         let eDATA = document.getElementById(SIDE+PRE+NUMS[i]+DATA);
         let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
-        let number = base[i]*(rate[i]+talentSKILL[i]+weaponSKILL[i]+armorSKILL[i]+helmetSKILL[i]+accessorySKILL[i]+moon)+arena[i];
+        let number = base[i]*rate[i]+arena[i];
         eDATA.innerHTML = text[i] + ":" + Math.round(number);
         eBASEDESC.innerHTML = base[i];
         ePREDESC.innerHTML = Math.round(number) + "=" + base[i] + "×(1";
-        if(talentNUM[i] != undefined)
-            ePREDESC.innerHTML += "+" + talentNUM[i] + "[" + talent.NAME + "]";
-        if(talentSKILL[i] != 0)
-            ePREDESC.innerHTML += "+" + talentSKILL[i].toFixed(2) + "[" + talent.NAME + "]";
-        if(weaponNUM[i] != undefined)
-            ePREDESC.innerHTML += "+" + weaponNUM[i] + "[" + weapon.NAME + "]";
-        if(weaponSKILL[i] != 0)
-            ePREDESC.innerHTML += "+" + weaponSKILL[i].toFixed(2) + "[" + weapon.NAME + "]";
-        if(armorNUM[i] != undefined)
-            ePREDESC.innerHTML += "+" + armorNUM[i] + "[" + armor.NAME + "]";
-        if(armorSKILL[i] != 0)
-            ePREDESC.innerHTML += "+" + armorSKILL[i].toFixed(2) + "[" + armor.NAME + "]";
-        if(helmetNUM[i] != undefined)
-            ePREDESC.innerHTML += "+" + helmetNUM[i] + "[" + helmet.NAME + "]";
-        if(helmetSKILL[i] != 0)
-            ePREDESC.innerHTML += "+" + helmetSKILL[i].toFixed(2) + "[" + helmet.NAME + "]";
-        if(accessoryNUM[i] != undefined)
-            ePREDESC.innerHTML += "+" + accessoryNUM[i] + "[" + accessory.NAME + "]";
-        if(accessorySKILL[i] != 0)
-            ePREDESC.innerHTML += "+" + accessorySKILL[i].toFixed(2) + "[" + accessory.NAME + "]";
-        if(moon != 0)
-            ePREDESC.innerHTML += "+" + moon + "[" + enchant.NAME + "]";
+        for(let j=0; j<sideRate.length; j++)
+            if(sideRate[j].RATE[i] != 0)
+                ePREDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
         ePREDESC.innerHTML += ")+" + arena[i];
     }
 };
 
 /* ATK*(1+EQUIP+OEQUIP+TALENT+HEART+BUFF+DEBUFF+COMMAND+ENCHANT:MOON+ENCHENT:WAVE) */
-function displayMIDNUMS(side){
+function displayONEHIT(side, sideRate, oppRate){
+    ONEHIT = 'ONEHIT', DATA = 'DATA', DESC = 'DESC', DMGTYPE = 'DMGTYPE';
+    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4;
+    CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
+    CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
+    DMGRATE = 2;
+    text = ['一段傷害'];
+    offBASE = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
+    offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
+    offARENA = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
+    offRATE = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE];
+    offOTHER = [combat.offCRITRATE, combat.offCRITDMG, combat.offDMGRATE];
+    defBASE = [combat.defBASEATK, combat.defBASEINT, combat.defBASEDEF, combat.defBASEMDEF, combat.defBASEDEX];
+    defPRE = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF, combat.defDEX];
+    defARENA = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF, combat.defADEX];
+    defRATE = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE, combat.defDEXRATE];
+    defOTHER = [combat.defCRITRATE, combat.defCRITDMG, combat.defDMGRATE];
+
+    if(side == 'offense'){
+        SIDE = 'off';
+        skilltype = combat.offSkill.TYPE;
+        skillrate = combat.offSkill.RATE;
+        otherside = 'defense';
+        base = offBASE, oppbase = defBASE;
+        pre = offPRE, opppre = defPRE;
+        arena = offARENA, opparena = defARENA;
+        rate = offRATE, opprate = defRATE;
+        other = offOTHER, oppother = defOTHER;
+    }
+    else if(side == 'defense'){
+        SIDE = 'def';
+        skilltype = combat.defSkill.TYPE;
+        skillrate = combat.defSkill.RATE;
+        otherside == 'offense';
+        base = defBASE, oppbase = offBASE;
+        pre = defPRE, opppre = offPRE;
+        arena = defARENA, opparena = offARENA;
+        rate = defRATE, opprate = offRATE;
+        other = defOTHER, oppother = offOTHER;
+    }
+
+    if(skilltype == '物理傷害'){
+        offNUM = (base[ATK]*rate[ATK]+arena[ATK])*combat.counterRATE;
+        defNUM = (oppbase[DEF]*opprate[DEF]+arena[DEF])*combat.terrainRATE;
+    }
+    else if(skilltype == '魔法傷害'){
+        offNUM = (base[INT]*rate[INT]+arena[INT])*combat.counterRATE;
+        defNUM = (oppbase[MDEF]*opprate[MDEF]+arena[MDEF])*combat.terrainRATE;
+    }
+    number = (offNUM-defNUM)/2*skillrate*other[DMGRATE];
+    if(number <= 0) number = 1;
+
+    eTYPE = document.getElementById(SIDE+DMGTYPE);
+    eDATA = document.getElementById(SIDE+ONEHIT+DATA);
+    eDESC = document.getElementById(SIDE+ONEHIT+DESC);
+    eTYPE.innerHTML = "["+skilltype+"]";
+    eDATA.innerHTML = text[0] + ":" + Math.round(number);
+    eDESC.innerHTML = Math.round(number) + "=";
+    if(skilltype == '物理傷害') offNUM = ATK, defNUM = DEF;
+    else if(skilltype == '魔法傷害') offNUM = INT, defNUM = MDEF;
+
+
+    /* offNUM */
+    eDESC.innerHTML += "[(" + pre[offNUM] + "+" + base[offNUM] +"×(0";
+    for(let j=0; j<sideRate.length; j++)
+        if(sideRate[j].MIDRATE[offNUM] != 0)
+           eDESC.innerHTML+="+"+sideRate[j].MIDRATE[offNUM].toFixed(2)+"["+sideRate[j].NAME+"]";
+    eDESC.innerHTML += "))";
+    /* counterRATE */
+    eDESC.innerHTML += "×" + combat.counterRATE;
+    /* defNUM */
+    eDESC.innerHTML += "-(" + opppre[defNUM] + "+" + oppbase[defNUM] + "×(0";
+    for(let j=0; j<oppRate.length; j++)
+        if(oppRate[j].MIDRATE[defNUM] != 0)
+           eDESC.innerHTML += "+"+oppRate[j].MIDRATE[defNUM].toFixed(2)+"["+oppRate[j].NAME+"]";
+    eDESC.innerHTML += "))";
+    /* terrainRATE */
+    eDESC.innerHTML += "×" + combat.terrainRATE + "]";
+
+    /* skillrate */
+    eDESC.innerHTML += "÷2×" + skillrate;
+    /* off DMGRATEINC */
+    eDESC.innerHTML += "×(1";
+    for(let j=0; j<sideRate.length; j++){
+      if(sideRate[j].MIDRATE[DMGRATEINC] > 0)
+       eDESC.innerHTML+="+"+sideRate[j].MIDRATE[DMGRATEINC].toFixed(2)+"["+sideRate[j].NAME+"]";
+      if(sideRate[j].MIDRATE[DMGRATEINC] < 0)
+       eDESC.innerHTML+=sideRate[j].MIDRATE[DMGRATEINC].toFixed(2)+"["+sideRate[j].NAME+"]";
+    }
+    /* def DMGRATEDEC */
+    for(let j=0; j<oppRate.length; j++)
+      if(oppRate[j].MIDRATE[DMGRATEDEC] > 0)
+       eDESC.innerHTML+="-"+oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
+    eDESC.innerHTML += ")";
 };
 
 /* all additional functions are here
@@ -458,46 +433,59 @@ function getAllSkill(stage, side){
     }
     /* PRE STAGE */
     if(stage == 'PRE'){
+        let sideRate = [], othersideRate = [];
         // talent
-        getTalentSkill(side);
-        getTalentSkill(otherside);
+        sideRate.push(getTalentSkill(side));
+        othersideRate.push(getTalentSkill(otherside));
         // equipment
-        getWeaponSkill(side);
-        getWeaponSkill(otherside);
-        getArmorSkill(side);
-        getArmorSkill(otherside);
-        getHelmetSkill(side);
-        getHelmetSkill(otherside);
-        getAccessorySkill(side);
-        getAccessorySkill(otherside);
+        sideRate.push(getWeaponSkill(side));
+        othersideRate.push(getWeaponSkill(otherside));
+        sideRate.push(getArmorSkill(side));
+        othersideRate.push(getArmorSkill(otherside));
+        sideRate.push(getHelmetSkill(side));
+        othersideRate.push(getHelmetSkill(otherside));
+        sideRate.push(getAccessorySkill(side));
+        othersideRate.push(getAccessorySkill(otherside));
         // display HEAL & HEALED
         displayHEALS(side);
         displayHEALS(otherside);
         // display NUMS
-        if(sideBASE) displayPRENUMS(side),  getPRENUMS(side);
-        else         displayBASENUMS(side), getBASENUMS(side);
-        if(othersideBASE) displayPRENUMS(otherside),  getPRENUMS(otherside);
-        else              displayBASENUMS(otherside), getBASENUMS(otherside);
+        if(sideBASE){
+            displayPRENUMS(side, sideRate);
+            getPRENUMS(side);
+        }
+        else{
+            displayBASENUMS(side, sideRate);
+            getBASENUMS(side);
+        }
+        if(othersideBASE){
+            displayPRENUMS(otherside, othersideRate);
+            getPRENUMS(otherside);
+        }
+        else{
+            displayBASENUMS(otherside, othersideRate);
+            getBASENUMS(otherside);
+        }
     }
     /* MID STAGE */
     if(stage == 'MID'){
-        // do all true dmg stuff and check enchant:moon
+        // do all true dmg stuff and check perHP related skills
+        let sideRate = [], othersideRate = [];
         // talent
-        getMIDTalentSkill(side);
-        getMIDTalentSkill(otherside);
+        sideRate.push(getMIDTalentSkill(side));
+        othersideRate.push(getMIDTalentSkill(otherside));
         // equipment
-        getMIDWeaponSkill(side);
-        getMIDWeaponSkill(otherside);
-        getMIDArmorSkill(side);
-        getMIDArmorSkill(otherside);
-        getMIDHelmetSkill(side);
-        getMIDHelmetSkill(otherside);
-        getMIDAccessorySkill(side);
-        getMIDAccessorySkill(otherside);
+        sideRate.push(getMIDWeaponSkill(side));
+        othersideRate.push(getMIDWeaponSkill(otherside));
+        sideRate.push(getMIDArmorSkill(side));
+        othersideRate.push(getMIDArmorSkill(otherside));
+        sideRate.push(getMIDHelmetSkill(side));
+        othersideRate.push(getMIDHelmetSkill(otherside));
+        sideRate.push(getMIDAccessorySkill(side));
+        othersideRate.push(getMIDAccessorySkill(otherside));
         // display NUMS
-        //displayMIDNUMS(side);
-        //displayMIDNUMS(otherside);
-        //displayONEHIT(side);
+        displayONEHIT(side, sideRate, othersideRate);
+        displayONEHIT(otherside, othersideRate, sideRate);
     }
 };
 
@@ -509,7 +497,7 @@ function wholeCombat(){
     getCounterRATE('offense');
     getTerrainRATE('defense');
     getAllSkill('PRE', 'offense');
-    //getAllSkill('MID', 'offense');
+    getAllSkill('MID', 'offense');
 };
 
 window.addEventListener("click", function getSelected(){
@@ -528,6 +516,7 @@ window.addEventListener("click", function getSelected(){
         else if(selected[i].classList.contains('skill')){
             combat.offSkill = selected[i].id;
             combat.offSkill = skill.find(x => x.NAME === combat.offSkill);
+            combat.offDMGTYPE = combat.offSkill.TYPE;
             displaySkillInfo('offense');
         }
         else if(selected[i].classList.contains('soldier')){
@@ -568,8 +557,14 @@ window.addEventListener("click", function getSelected(){
             combat.defEnchant = selected[i].id.slice(0, -1);
             combat.defEnchant = enchant.find(x => x.NAME === combat.defEnchant);
         }
+        // combat.defSkill depends on char
+        if(getDmgtype('defense') == '物理傷害')
+            combat.defSkill = skill.find(x => x.NAME === "普攻(物)");
+        else if(getDmgtype('defense') == '魔法傷害')
+            combat.defSkill = skill.find(x => x.NAME === "普攻(法)");
+        // DMGTYPE depend on char
+        combat.defDMGTYPE = getDmgtype('defense');
     }
-
     /* combat */
     wholeCombat();
 });

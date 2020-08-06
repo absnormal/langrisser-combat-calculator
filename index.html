@@ -101,7 +101,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.4.2"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.4.3"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -2120,19 +2120,45 @@
                                 <td colspan=3 id='offHeart2'>LV7大心:</td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offMIDATK'>戰中攻擊: NA</td>
+                                <td colspan=3><br></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offMIDINT'>戰中智力: NA</td>
+                                <td colspan=3 style='text-align: center;'><b>交戰數值</b></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offMIDDEF'>戰中防禦: NA</td>
+                                <td><b>進攻方</b></td>
+                                <td><b>防守方</b></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offMIDMDEF'>戰中魔防: NA</td>
+                                <td id='offDMGTYPE'>[傷害類型]</td>
+                                <td id='defDMGTYPE'>[傷害類型]</td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offMIDDEX'>戰中技巧: NA</td>
+                                <td>
+                                    <li class='NUM' id='offONEHIT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offONEHITDATA'>一段傷害: NA</p>
+                                        <table class='NUMDESC' id='offONEHITTABLE'>
+                                            <tr><td id='offONEHITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defONEHIT' style='display:inline-block' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defONEHITDATA'>一段傷害: NA</p>
+                                        <table class='NUMDESC' id='defONEHITTABLE'>
+                                            <tr><td id='defONEHITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=3>戰前數值 = 進場前白字×(1+天賦+武器+頭盔+盔甲+飾品+強化弱化+滿月)+競技精通</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=3>戰中數值 = 戰前數值+進場前白字×(0+進戰天賦+進戰裝備技能+滿月+怒濤)</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=3>一段傷害 = {[戰中數值×剋制加成]-[戰中防禦×地形加成]}÷2×技能倍率×暴擊加成×一般增傷×技能增傷×近戰減免</td>
                             </tr>
                             <tr>
                                 <td colspan=3><br></td>
@@ -2278,28 +2304,7 @@
                                 <td colspan=3 id='defHeart2'>LV7大心:</td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='defMIDATK'>戰中攻擊: NA</td>
-                            </tr>
-                            <tr>
-                                <td colspan=3 id='defMIDINT'>戰中智力: NA</td>
-                            </tr>
-                            <tr>
-                                <td colspan=3 id='defMIDDEF'>戰中防禦: NA</td>
-                            </tr>
-                            <tr>
-                                <td colspan=3 id='defMIDMDEF'>戰中魔防: NA</td>
-                            </tr>
-                            <tr>
-                                <td colspan=3 id='defMIDDEX'>戰中技巧: NA</td>
-                            </tr>
-                            <tr class='data'>
-                                <td colspan=3>戰前數值 = 進場前白字×(1+天賦+武器+頭盔+盔甲+飾品+強化弱化+滿月)+競技精通</td>
-                            </tr>
-                            <tr class='data'>
-                                <td colspan=3>戰中數值 = 進場前白字×(1+裝備技能+進戰裝備技能+Buff+滿月+怒濤)+競技精通</td>
-                            </tr>
-                            <tr class='data'>
-                                <td colspan=3>一段傷害 = {[戰中數值×剋制加成]-[戰中防禦×地形加成]}÷2×技能倍率×一般增傷×技能增傷×暴擊加成×近戰減免</td>
+                                <td colspan=3><br></td>
                             </tr>
                             <tr class='data'>
                                 <td id='ERROR' colspan=3>DEBUG LOG</td>

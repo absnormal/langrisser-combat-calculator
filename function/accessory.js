@@ -1,67 +1,121 @@
 /*  */
 function getAccessorySkill(side){
+    var accessory;
+    if(side == 'offense') accessory = combat.offAccessory;
+    else if(side == 'defense') accessory = combat.defAccessory;
+
+    // collect display
+    var display = {
+        NAME: accessory.NAME,
+        RATE: [0, 0, 0, 0, 0]
+    };
+    if(accessory.SKILLTYPE != undefined && accessory.SKILLTYPE.includes('RATE') && accessory.RATE(side)){
+        display.RATE = accessory.RATE(side);
+    }
+    if(accessory.ATK != undefined) display.RATE[0] += accessory.ATK;
+    if(accessory.INT != undefined) display.RATE[1] += accessory.INT;
+    if(accessory.DEF != undefined) display.RATE[2] += accessory.DEF;
+    if(accessory.MDEF != undefined) display.RATE[3] += accessory.MDEF;
+    if(accessory.DEX != undefined) display.RATE[4] += accessory.DEX;
+
+    // add to combat
     if(side == 'offense'){
-        var accessory = combat.offAccessory;
-        if(accessory.ATK != undefined) combat.offATKRATE += accessory.ATK;
-        if(accessory.INT != undefined) combat.offINTRATE += accessory.INT;
-        if(accessory.DEF != undefined) combat.offDEFRATE += accessory.DEF;
-        if(accessory.MDEF != undefined) combat.offMDEFRATE += accessory.MDEF;
-        if(accessory.DEX != undefined) combat.offDEXRATE += accessory.DEX;
-        if(accessory.DMGINC != undefined) combat.offDMGRATE += accessory.DMGINC;
-        if(accessory.DMGDEC != undefined) combat.defDMGRATE -= accessory.DMGDEC;
-        if(accessory.CRITDMGINC != undefined) combat.offCRITDMG += accessory.CRITDMGINC;
-        if(accessory.CRITDMGDEC != undefined) combat.defCRITDMG -= accessory.CRITDMGDEC;
-        if(accessory.CRITRATEINC != undefined) combat.offCRITRATE += accessory.CRITRATEINC;
-        if(accessory.CRITRATEDEC != undefined) combat.defCRITRATE -= accessory.CRITRATEDEC;
+        combat.offATKRATE += display.RATE[0];
+        combat.offINTRATE += display.RATE[1];
+        combat.offDEFRATE += display.RATE[2];
+        combat.offMDEFRATE += display.RATE[3];
+        combat.offDEXRATE += display.RATE[4];
         if(accessory.HEAL != undefined) combat.offHEAL += accessory.HEAL;
         if(accessory.HEALED != undefined) combat.offHEALED += accessory.HEALED;
     }
     else if(side == 'defense'){
-        var accessory = combat.defAccessory;
-        if(accessory.ATK != undefined) combat.defATKRATE += accessory.ATK;
-        if(accessory.INT != undefined) combat.defINTRATE += accessory.INT;
-        if(accessory.DEF != undefined) combat.defDEFRATE += accessory.DEF;
-        if(accessory.MDEF != undefined) combat.defMDEFRATE += accessory.MDEF;
-        if(accessory.DEX != undefined) combat.defDEXRATE += accessory.DEX;
-        if(accessory.DMGINC != undefined) combat.defDMGRATE += accessory.DMGINC;
-        if(accessory.DMGDEC != undefined) combat.offDMGRATE -= accessory.DMGDEC;
-        if(accessory.CRITDMGINC != undefined) combat.defCRITDMG += accessory.CRITDMGINC;
-        if(accessory.CRITDMGDEC != undefined) combat.offCRITDMG -= accessory.CRITDMGDEC;
-        if(accessory.CRITRATEINC != undefined) combat.defCRITRATE += accessory.CRITRATEINC;
-        if(accessory.CRITRATEDEC != undefined) combat.offCRITRATE -= accessory.CRITRATEDEC;
+        combat.defATKRATE += display.RATE[0];
+        combat.defINTRATE += display.RATE[1];
+        combat.defDEFRATE += display.RATE[2];
+        combat.defMDEFRATE += display.RATE[3];
+        combat.defDEXRATE += display.RATE[4];
         if(accessory.HEAL != undefined) combat.defHEAL += accessory.HEAL;
         if(accessory.HEALED != undefined) combat.defHEALED += accessory.HEALED;
     }
+    return display;
 };
 
 function getMIDAccessorySkill(side){
+    var accessory;
+    if(side == 'offense') accessory = combat.offAccessory;
+    else if(side == 'defense') accessory = combat.defAccessory;
+
+    // collect display
+    var display = {
+        NAME: accessory.NAME,
+        /* ATK, INT, DEF, MDEF, DEX,
+         * CRITRATE+, CRITDMG+, DMGRATE+,
+         * CRITRATE-, CRITDMG-, DMGRATE- */
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    };
+    if(accessory.SKILLTYPE != undefined && accessory.SKILLTYPE.includes('MIDRATE') && accessory.MIDRATE(side)){
+        display.MIDRATE = accessory.MIDRATE(side);
+    }
     if(side == 'offense'){
-        var accessory = combat.offAccessory;
-        if(accessory.OATK != undefined) combat.offATKRATE += accessory.OATK;
-        if(accessory.OINT != undefined) combat.offINTRATE += accessory.OINT;
-        if(accessory.ODEF != undefined) combat.offDEFRATE += accessory.ODEF;
-        if(accessory.OMDEF != undefined) combat.offMDEFRATE += accessory.OMDEF;
-        if(accessory.ODEX != undefined) combat.offDEXRATE += accessory.ODEX;
-        if(accessory.ODMGINC != undefined) combat.offDMGRATE += accessory.ODMGINC;
-        if(accessory.ODMGDEC != undefined) combat.defDMGRATE -= accessory.ODMGDEC;
-        if(accessory.OCRITDMGINC != undefined) combat.offCRITDMG += accessory.OCRITDMGINC;
-        if(accessory.OCRITDMGDEC != undefined) combat.defCRITDMG -= accessory.OCRITDMGDEC;
-        if(accessory.OCRITRATEINC != undefined) combat.offCRITRATE += accessory.OCRITRATEINC;
-        if(accessory.OCRITRATEDEC != undefined) combat.defCRITRATE -= accessory.OCRITRATEDEC;
+        if(accessory.OATK != undefined) display.MIDRATE[0] += accessory.OATK;
+        if(accessory.OINT != undefined) display.MIDRATE[1] += accessory.OINT;
+        if(accessory.ODEF != undefined) display.MIDRATE[2] += accessory.ODEF;
+        if(accessory.OMDEF != undefined) display.MIDRATE[3] += accessory.OMDEF;
+        if(accessory.ODEX != undefined) display.MIDRATE[4] += accessory.ODEX;
+        if(accessory.OCRITRATEINC != undefined) display.MIDRATE[5] += accessory.OCRITRATEINC;
+        if(accessory.OCRITDMGINC != undefined) display.MIDRATE[6] += accessory.OCRITDMGINC;
+        if(accessory.ODMGINC != undefined) display.MIDRATE[7] += accessory.ODMGINC;
+        if(accessory.OCRITRATEDEC != undefined) display.MIDRATE[8] += accessory.OCRITRATEDEC;
+        if(accessory.OCRITDMGDEC != undefined) display.MIDRATE[9] += accessory.OCRITDMGDEC;
+        if(accessory.ODMGDEC != undefined) display.MIDRATE[10] += accessory.ODMGDEC;
     }
     else if(side == 'defense'){
-        var accessory = combat.defAccessory;
-        if(accessory.DATK != undefined) combat.defATKRATE += accessory.DATK;
-        if(accessory.DINT != undefined) combat.defINTRATE += accessory.DINT;
-        if(accessory.DDEF != undefined) combat.defDEFRATE += accessory.DDEF;
-        if(accessory.DMDEF != undefined) combat.defMDEFRATE += accessory.DMDEF;
-        if(accessory.DDEX != undefined) combat.defDEXRATE += accessory.DDEX;
-        if(accessory.DDMGINC != undefined) combat.defDMGRATE += accessory.DDMGINC;
-        if(accessory.DDMGDEC != undefined) combat.offDMGRATE -= accessory.DDMGDEC;
-        if(accessory.DCRITDMGINC != undefined) combat.defCRITDMG += accessory.DCRITDMGINC;
-        if(accessory.DCRITDMGDEC != undefined) combat.offCRITDMG -= accessory.DCRITDMGDEC;
-        if(accessory.DCRITRATEINC != undefined) combat.defCRITRATE += accessory.DCRITRATEINC;
-        if(accessory.DCRITRATEDEC != undefined) combat.offCRITRATE -= accessory.DCRITRATEDEC;
+        if(accessory.DATK != undefined) display.MIDRATE[0] += accessory.DATK;
+        if(accessory.DINT != undefined) display.MIDRATE[1] += accessory.DINT;
+        if(accessory.DDEF != undefined) display.MIDRATE[2] += accessory.DDEF;
+        if(accessory.DMDEF != undefined) display.MIDRATE[3] += accessory.DMDEF;
+        if(accessory.DDEX != undefined) display.MIDRATE[4] += accessory.DDEX;
+        if(accessory.DCRITRATEINC != undefined) display.MIDRATE[5] += accessory.DCRITRATEINC;
+        if(accessory.DCRITDMGINC != undefined) display.MIDRATE[6] += accessory.DCRITDMGINC;
+        if(accessory.DDMGINC != undefined) display.MIDRATE[7] += accessory.DDMGINC;
+        if(accessory.DCRITRATEDEC != undefined) display.MIDRATE[8] += accessory.DCRITRATEDEC;
+        if(accessory.DCRITDMGDEC != undefined) display.MIDRATE[9] += accessory.DCRITDMGDEC;
+        if(accessory.DDMGDEC != undefined) display.MIDRATE[10] += accessory.DDMGDEC;
     }
+    if(accessory.CRITRATEINC != undefined) display.MIDRATE[5] += accessory.CRITRATEINC;
+    if(accessory.CRITDMGINC != undefined) display.MIDRATE[6] += accessory.CRITDMGINC;
+    if(accessory.DMGINC != undefined) display.MIDRATE[7] += accessory.DMGINC;
+    if(accessory.CRITRATEDEC != undefined) display.MIDRATE[8] += accessory.CRITRATEDEC;
+    if(accessory.CRITDMGDEC != undefined) display.MIDRATE[9] += accessory.CRITDMGDEC;
+    if(accessory.DMGDEC != undefined) display.MIDRATE[10] += accessory.DMGDEC;
+
+    // add to combat
+    if(side == 'offense'){
+        combat.offATKRATE += display.MIDRATE[0];
+        combat.offINTRATE += display.MIDRATE[1];
+        combat.offDEFRATE += display.MIDRATE[2];
+        combat.offMDEFRATE += display.MIDRATE[3];
+        combat.offDEXRATE += display.MIDRATE[4];
+        combat.offCRITRATE += display.MIDRATE[5];
+        combat.offCRITDMG += display.MIDRATE[6];
+        combat.offDMGRATE += display.MIDRATE[7];
+        combat.defCRITRATE -= display.MIDRATE[8];
+        combat.defCRITDMG -= display.MIDRATE[9];
+        combat.defDMGRATE -= display.MIDRATE[10];
+    }
+    else if(side == 'defense'){
+        combat.defATKRATE += display.MIDRATE[0];
+        combat.defINTRATE += display.MIDRATE[1];
+        combat.defDEFRATE += display.MIDRATE[2];
+        combat.defMDEFRATE += display.MIDRATE[3];
+        combat.defDEXRATE += display.MIDRATE[4];
+        combat.defCRITRATE += display.MIDRATE[5];
+        combat.defCRITDMG += display.MIDRATE[6];
+        combat.defDMGRATE += display.MIDRATE[7];
+        combat.offCRITRATE -= display.MIDRATE[8];
+        combat.offCRITDMG -= display.MIDRATE[9];
+        combat.offDMGRATE -= display.MIDRATE[10];
+    }
+    return display;
 };
 
