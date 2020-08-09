@@ -8,7 +8,7 @@ var char = [{
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'隱士', ARMY2: '法師', DMGTYPE2: '魔法傷害',
     JOB2DISCA:'受到遠程攻擊時，遭受魔法傷害降低10%。',
-    JOB2DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。'
+    JOB2DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。',
 },{
     NAME: '浦飯幽助', JOBS: 2,
     SOLDHPPLUS:0.15, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.15,

@@ -89,6 +89,8 @@ function resetAllRATE(){
 };
 
 function createAllList(){
+    createBUFFList('offense', 'offBUFFList');
+    createBUFFList('defense', 'defBUFFList');
     createWeaponList('offense', 'offWeaponList');
     createWeaponList('defense', 'defWeaponList');
     createArmorList('offense', 'offArmorList');
@@ -437,6 +439,8 @@ function getAllSkill(stage, side){
         // talent
         sideRate.push(getTalentSkill(side));
         othersideRate.push(getTalentSkill(otherside));
+        sideRate.push(getHeartSkill(side));
+        othersideRate.push(getHeartSkill(otherside));
         // equipment
         sideRate.push(getWeaponSkill(side));
         othersideRate.push(getWeaponSkill(otherside));
@@ -471,9 +475,11 @@ function getAllSkill(stage, side){
     if(stage == 'MID'){
         // do all true dmg stuff and check perHP related skills
         let sideRate = [], othersideRate = [];
-        // talent
+        // talent & heart
         sideRate.push(getMIDTalentSkill(side));
         othersideRate.push(getMIDTalentSkill(otherside));
+        sideRate.push(getMIDHeartSkill(side));
+        othersideRate.push(getMIDHeartSkill(otherside));
         // equipment
         sideRate.push(getMIDWeaponSkill(side));
         othersideRate.push(getMIDWeaponSkill(otherside));
@@ -512,6 +518,7 @@ window.addEventListener("click", function getSelected(){
             combat.offChar = selected[i].id;
             combat.offChar = char.find(x => x.NAME === combat.offChar);
             combat.offTalent = talent.find(x => x.NAME === combat.offChar.TALENT);
+            combat.offHeart = heart.find(x => x.NAME === combat.offChar.NAME+'大心');
         }
         else if(selected[i].classList.contains('skill')){
             combat.offSkill = selected[i].id;
@@ -544,6 +551,7 @@ window.addEventListener("click", function getSelected(){
             combat.defChar = selected[i].id.slice(0, -1);
             combat.defChar = char.find(x => x.NAME === combat.defChar);
             combat.defTalent = talent.find(x => x.NAME === combat.defChar.TALENT);
+            combat.defHeart = heart.find(x => x.NAME === combat.defChar.NAME+'大心');
         }
         else if(selected[i].classList.contains('soldier')){
             combat.defSoldier = selected[i].id.slice(0, -1);
@@ -567,5 +575,18 @@ window.addEventListener("click", function getSelected(){
     }
     /* combat */
     wholeCombat();
+    /*
+    aaa = [];
+    bbb = {NAME: "B"};
+    ccc = {NAME: "C"};
+    def = [{NAME: "D"}, {NAME: "E"}, {NAME: "F"}];
+    aaa.push(bbb);
+    aaa.push(ccc);
+    all = [...aaa, ...def]
+    dis = "";
+    for(let i=0; i<all.length; i++)
+        dis += all[i].NAME;
+    document.getElementById('ERROR').innerHTML = all.length + " " + dis;
+    */
 });
 

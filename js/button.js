@@ -166,6 +166,8 @@ function selectChar(charName){
         displayArmy('defense');
         displayJob('defense');
         displayHeart('defense');
+        hideBUFF('defense');
+        displayBUFF('defense');
         hideWeapon('defense');
         displayWeapon('defense');
         hideArmor('defense');
@@ -198,6 +200,8 @@ function selectChar(charName){
         displayArmy('offense');
         displayJob('offense');
         displayHeart('offense');
+        hideBUFF('offense');
+        displayBUFF('offense');
         hideWeapon('offense');
         displayWeapon('offense');
         hideArmor('offense');
