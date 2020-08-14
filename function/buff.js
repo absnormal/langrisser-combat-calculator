@@ -62,7 +62,8 @@ function getMIDBUFFSkill(side){
             /* ATK, INT, DEF, MDEF, DEX,
              * CRITRATE+, CRITDMG+, DMGRATE+,
              * CRITRATE-, CRITDMG-, DMGRATE- */
-            MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            SKILLDMG: 0
         };
         if(buff.SKILLTYPE != undefined && buff.SKILLTYPE.includes('MIDRATE') && buff.MIDRATE(side)){
             display.MIDRATE = buff.MIDRATE(side);
@@ -79,6 +80,7 @@ function getMIDBUFFSkill(side){
             if(buff.OCRITRATEDEC != undefined) display.MIDRATE[8] += buff.OCRITRATEDEC;
             if(buff.OCRITDMGDEC != undefined) display.MIDRATE[9] += buff.OCRITDMGDEC;
             if(buff.ODMGDEC != undefined) display.MIDRATE[10] += buff.ODMGDEC;
+            if(buff.SKILLDMG != undefined) display.SKILLDMG += buff.SKILLDMG;
         }
         else if(side == 'defense'){
             if(buff.DATK != undefined) display.MIDRATE[0] += buff.DATK;
@@ -113,6 +115,7 @@ function getMIDBUFFSkill(side){
             combat.defCRITRATE -= display.MIDRATE[8];
             combat.defCRITDMG -= display.MIDRATE[9];
             combat.defDMGRATE -= display.MIDRATE[10];
+            combat.offSKILLDMG += display.SKILLDMG;
         }
         else if(side == 'defense'){
             combat.defATKRATE += display.MIDRATE[0];

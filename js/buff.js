@@ -130,11 +130,15 @@ function hideBUFF(side){
     if(side == 'offense') combat.offBUFFLIST = [];
     else if(side == 'defense') combat.defBUFFLIST = [];
     var buffList = document.getElementsByClassName('buff ' + side);
-    for(var i=0; i<buffList.length; i++){
+    for(let i=0; i<buffList.length; i++){
         buffList[i].style = 'display: none;';
+        ebuffINDEX = document.getElementById(buffList[i].id+'INDEX');
+        ebuffINDEX.innerHTML = 0;
         if(buffList[i].classList.contains('selected'))
             buffList[i].classList.remove('selected');
     }
+    for(let i=0; i<buff.length; i++)
+        if(buff[i].INDEX != undefined) buff[i].INDEX = 1;
 };
 
 function selectBUFF(side, buffID){

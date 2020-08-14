@@ -4,22 +4,19 @@ var enchant = [{
     DISC: '使用技能造成傷害時，30%機率使技能冷卻時間-5。'
 },{
     NAME: '怒濤',
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        if(side == 'defense') return false;
-        else return [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.15];
-    },
+    OATK: 0.1, ODMGDEC: 0.15,
     DISC: '主動攻擊時，增加10%攻擊，遭受傷害降低15%。'
 },{
     NAME: '魔術',
-    /* SKILLDMG RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') this.SKILLDMG = undefined;
+        else this.SKILLDMG = 0.1;
+    },
     DISC: '技能傷害提升10%，範圍技能再提升5%。'
 },{
     NAME: '輕風',
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0];
-    },
+    DMGINC: 0.1,
     DISC: '造成傷害增加10%，行動結束時，30%的機率移動力+2，持續1回合。'
 },{
     NAME: '滿月',
@@ -27,16 +24,13 @@ var enchant = [{
     RATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
         else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
-        if(perHP >= 0.8) return [0.1, 0.1, 0.1, 0.1, 0.1];
+        if(perHP >= 0.8) return [0.1, 0.1, 0.1, 0.1, 0];
         else return false;
     },
     DISC: '生命80%以上，所有攻防屬性提升10%。'
 },{
     NAME: '烈日',
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0.07, 0.25, 0, 0, 0, 0];
-    },
+    CRITRATEINC: 0.07, CRITDMGINC: 0.25,
     DISC: '暴擊率增加7%，暴擊傷害增加25%。'
 },{
     NAME: '流星',
@@ -50,10 +44,7 @@ var enchant = [{
     DISC: '暴擊率增加7%，攻擊生命值高於60%的部隊時，進入戰鬥後所有傷害+20%。'
 },{
     NAME: '鋼鐵',
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1];
-    },
+    DMGDEC: 0.1,
     DISC: '遭受傷害降低10%。'
 },{
     NAME: '荊棘',

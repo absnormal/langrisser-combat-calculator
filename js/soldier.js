@@ -146,6 +146,8 @@ function hideSoldier(side){
     var soldierList = document.getElementsByClassName('soldier ' + side);
     for(var i=0; i<soldierList.length; i++){
         soldierList[i].style = 'display: none;';
+        if(soldierList[i].classList.contains('selected'))
+            soldierList[i].classList.remove('selected');
     }
 };
 

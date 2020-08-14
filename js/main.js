@@ -28,7 +28,7 @@ var combat = {
     offDEFNEG:undefined, offMDEFNEG:undefined,
     defATKRATE:undefined, defINTRATE:undefined, defDEFRATE:undefined,
     defMDEFRATE:undefined, defDEXRATE:undefined, defDMGTYPE:undefined,
-    defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined, defSKILLDMG:undefined,
+    defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined,
     defDEFNEG:undefined, defMDEFNEG:undefined,
     skillRATE:undefined, combatNEG:undefined,
 
@@ -200,35 +200,35 @@ function getCharData(side){
 
 function getBASENUMS(side){
     if(side == 'offense'){
-        combat.offBASEATK=Math.round((combat.offATK-combat.offAATK)/combat.offATKRATE);
-        combat.offBASEINT=Math.round((combat.offINT-combat.offAINT)/combat.offINTRATE);
-        combat.offBASEDEF=Math.round((combat.offDEF-combat.offADEF)/combat.offDEFRATE);
-        combat.offBASEMDEF=Math.round((combat.offMDEF-combat.offAMDEF)/combat.offMDEFRATE);
-        combat.offBASEDEX=Math.round((combat.offDEX-combat.offADEX)/combat.offDEXRATE);
+        combat.offBASEATK=(combat.offATK-combat.offAATK)/combat.offATKRATE;
+        combat.offBASEINT=(combat.offINT-combat.offAINT)/combat.offINTRATE;
+        combat.offBASEDEF=(combat.offDEF-combat.offADEF)/combat.offDEFRATE;
+        combat.offBASEMDEF=(combat.offMDEF-combat.offAMDEF)/combat.offMDEFRATE;
+        combat.offBASEDEX=(combat.offDEX-combat.offADEX)/combat.offDEXRATE;
     }
     else if(side == 'defense'){
-        combat.defBASEATK=Math.round((combat.defATK-combat.defAATK)/combat.defATKRATE);
-        combat.defBASEINT=Math.round((combat.defINT-combat.defAINT)/combat.defINTRATE);
-        combat.defBASEDEF=Math.round((combat.defDEF-combat.defADEF)/combat.defDEFRATE);
-        combat.defBASEMDEF=Math.round((combat.defMDEF-combat.defAMDEF)/combat.defMDEFRATE);
-        combat.defBASEDEX=Math.round((combat.defDEX-combat.defADEX)/combat.defDEXRATE);
+        combat.defBASEATK=(combat.defATK-combat.defAATK)/combat.defATKRATE;
+        combat.defBASEINT=(combat.defINT-combat.defAINT)/combat.defINTRATE;
+        combat.defBASEDEF=(combat.defDEF-combat.defADEF)/combat.defDEFRATE;
+        combat.defBASEMDEF=(combat.defMDEF-combat.defAMDEF)/combat.defMDEFRATE;
+        combat.defBASEDEX=(combat.defDEX-combat.defADEX)/combat.defDEXRATE;
     }
 };
 
 function getPRENUMS(side){
     if(side == 'offense'){
-        combat.offATK=Math.round(combat.offBASEATK*combat.offATKRATE+combat.offAATK);
-        combat.offINT=Math.round(combat.offBASEINT*combat.offINTRATE+combat.offAINT);
-        combat.offDEF=Math.round(combat.offBASEDEF*combat.offDEFRATE+combat.offADEF);
-        combat.offMDEF=Math.round(combat.offBASEMDEF*combat.offMDEFRATE+combat.offAMDEF);
-        combat.offDEX=Math.round(combat.offBASEDEX*combat.offDEXRATE+combat.offADEX);
+        combat.offATK=combat.offBASEATK*combat.offATKRATE+combat.offAATK;
+        combat.offINT=combat.offBASEINT*combat.offINTRATE+combat.offAINT;
+        combat.offDEF=combat.offBASEDEF*combat.offDEFRATE+combat.offADEF;
+        combat.offMDEF=combat.offBASEMDEF*combat.offMDEFRATE+combat.offAMDEF;
+        combat.offDEX=combat.offBASEDEX*combat.offDEXRATE+combat.offADEX;
     }
     else if(side == 'defense'){
-        combat.defATK=Math.round(combat.defBASEATK*combat.defATKRATE+combat.defAATK);
-        combat.defINT=Math.round(combat.defBASEINT*combat.defINTRATE+combat.defAINT);
-        combat.defDEF=Math.round(combat.defBASEDEF*combat.defDEFRATE+combat.defADEF);
-        combat.defMDEF=Math.round(combat.defBASEMDEF*combat.defMDEFRATE+combat.defAMDEF);
-        combat.defDEX=Math.round(combat.defBASEDEX*combat.defDEXRATE+combat.defADEX);
+        combat.defATK=combat.defBASEATK*combat.defATKRATE+combat.defAATK;
+        combat.defINT=combat.defBASEINT*combat.defINTRATE+combat.defAINT;
+        combat.defDEF=combat.defBASEDEF*combat.defDEFRATE+combat.defADEF;
+        combat.defMDEF=combat.defBASEMDEF*combat.defMDEFRATE+combat.defAMDEF;
+        combat.defDEX=combat.defBASEDEX*combat.defDEXRATE+combat.defADEX;
     }
 };
 
@@ -292,7 +292,7 @@ function displayBASENUMS(side, sideRate){
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
         let number = (pre[i]-arena[i])/rate[i];
         eDATA.innerHTML = text[i] + ":" + Math.round(number);
-        ePREDESC.innerHTML = pre[i];
+        ePREDESC.innerHTML = Math.round(pre[i]);
         eBASEDESC.innerHTML = Math.round(number) + "=(" + pre[i] + "-" + arena[i] + ")÷(1";
         for(let j=0; j<sideRate.length; j++)
             if(sideRate[j].RATE[i] != 0)
@@ -327,7 +327,7 @@ function displayPRENUMS(side, sideRate){
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
         let number = base[i]*rate[i]+arena[i];
         eDATA.innerHTML = text[i] + ":" + Math.round(number);
-        eBASEDESC.innerHTML = base[i];
+        eBASEDESC.innerHTML = Math.round(base[i]);
         ePREDESC.innerHTML = Math.round(number) + "=" + base[i] + "×(1";
         for(let j=0; j<sideRate.length; j++)
             if(sideRate[j].RATE[i] != 0)
@@ -335,6 +335,43 @@ function displayPRENUMS(side, sideRate){
         ePREDESC.innerHTML += ")+" + arena[i];
     }
 };
+
+/* number interacting buffs/talents */
+/*
+function displaySUBNUMS(side, sideRate){
+    BASE = 'BASE', PRE = 'PRE', DATA = 'DATA', DESC = 'DESC';
+    NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
+    text = ["戰前攻擊", "戰前智力", "戰前防禦", "戰前魔防", "戰前技巧"];
+    var base, arena, rate, NUMS, text;
+
+    if(side == 'offense'){
+        SIDE = 'off'
+        base = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
+        arena = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
+        rate = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE];
+    }
+    else if(side == 'defense'){
+        SIDE = 'def';
+        base = [combat.defBASEATK, combat.defBASEINT, combat.defBASEDEF, combat.defBASEMDEF, combat.defBASEDEX];
+        arena = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF, combat.defADEX];
+        rate = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE, combat.defDEXRATE];
+    }
+
+    for(let i=0; i<NUMS.length; i++){
+        let eDATA = document.getElementById(SIDE+PRE+NUMS[i]+DATA);
+        let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
+        let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
+        let number = base[i]*rate[i]+arena[i];
+        eDATA.innerHTML = text[i] + ":" + Math.round(number);
+        eBASEDESC.innerHTML = Math.round(base[i]);
+        ePREDESC.innerHTML = Math.round(number) + "=" + base[i] + "×(1";
+        for(let j=0; j<sideRate.length; j++)
+            if(sideRate[j].RATE[i] != 0)
+                ePREDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+        ePREDESC.innerHTML += ")+" + arena[i];
+    }
+};
+*/
 
 /* ATK*(1+EQUIP+OEQUIP+TALENT+HEART+BUFF+DEBUFF+COMMAND+ENCHANT:MOON+ENCHENT:WAVE) */
 function displayONEHIT(side, sideRate, oppRate){
@@ -359,6 +396,7 @@ function displayONEHIT(side, sideRate, oppRate){
         SIDE = 'off';
         skilltype = combat.offSkill.TYPE;
         skillrate = combat.offSkill.RATE;
+        skilldmg = combat.offSKILLDMG;
         otherside = 'defense';
         base = offBASE, oppbase = defBASE;
         pre = offPRE, opppre = defPRE;
@@ -372,6 +410,7 @@ function displayONEHIT(side, sideRate, oppRate){
         SIDE = 'def';
         skilltype = combat.defSkill.TYPE;
         skillrate = combat.defSkill.RATE;
+        skilldmg = 1;
         otherside == 'offense';
         base = defBASE, oppbase = offBASE;
         pre = defPRE, opppre = offPRE;
@@ -390,7 +429,7 @@ function displayONEHIT(side, sideRate, oppRate){
         offNUM = (base[INT]*rate[INT]+arena[INT])*counterRate;
         defNUM = (oppbase[MDEF]*opprate[MDEF]+arena[MDEF])*terrainRate;
     }
-    number = (offNUM-defNUM)/2*skillrate*other[DMGRATE];
+    number = (offNUM-defNUM)/2*skillrate*other[DMGRATE]*skilldmg;
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+DMGTYPE);
@@ -435,6 +474,16 @@ function displayONEHIT(side, sideRate, oppRate){
       if(oppRate[j].MIDRATE[DMGRATEDEC] > 0)
        eDESC.innerHTML+="-"+oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
     eDESC.innerHTML += ")";
+
+    /* skill dmg rate */
+    if(side == 'offense'){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<sideRate.length; j++)
+            if(sideRate[j].SKILLDMG != undefined && sideRate[j].SKILLDMG != 0)
+                eDESC.innerHTML+="+"+sideRate[j].SKILLDMG.toFixed(2)+"["+sideRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
+
 };
 
 /* all additional functions are here

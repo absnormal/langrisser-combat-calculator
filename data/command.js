@@ -1,31 +1,27 @@
 var command = [{
     NAME: '攻擊指揮',
     SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        return [0.1, 0.1, 0, 0, 0];
-    },
+    ATK: 0.1, INT: 0.1,
     DESC: '[指揮]攻擊、智力+10%'
 },{
     NAME: '防禦指揮',
     SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        return [0, 0, 0.1, 0, 0];
-    },
+    DEF: 0.1,
     DESC: '[指揮]防禦+10%'
 },{
     NAME: '魔防指揮',
     SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        return [0, 0, 0, 0.15, 0];
-    },
+    MDEF: 0.15,
     DESC: '[指揮]魔防+15%'
 },{
     NAME: '技巧指揮',
     SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        return [0, 0, 0, 0, 0.2];
-    },
+    DEX: 0.2,
     DESC: '[指揮]技巧+20%'
+},{
+    NAME: '水戰',
+    DEF: 0.3,
+    DESC: '[水戰]在水中戰鬥時，部隊防禦+30%(不可驅散)'
 },{
     NAME: '無懈可擊(指揮)',
     SKILLTYPE: ['RATE'],

@@ -51,7 +51,8 @@ function getMIDWeaponSkill(side){
         /* ATK, INT, DEF, MDEF, DEX,
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
-        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        SKILLDMG: 0
     };
     if(weapon.SKILLTYPE != undefined && weapon.SKILLTYPE.includes('MIDRATE') && weapon.MIDRATE(side)){
         display.MIDRATE = weapon.MIDRATE(side);
@@ -68,6 +69,7 @@ function getMIDWeaponSkill(side){
         if(weapon.OCRITRATEDEC != undefined) display.MIDRATE[8] += weapon.OCRITRATEDEC;
         if(weapon.OCRITDMGDEC != undefined) display.MIDRATE[9] += weapon.OCRITDMGDEC;
         if(weapon.ODMGDEC != undefined) display.MIDRATE[10] += weapon.ODMGDEC;
+        if(weapon.SKILLDMG != undefined) display.SKILLDMG += weapon.SKILLDMG;
     }
     else if(side == 'defense'){
         if(weapon.DATK != undefined) display.MIDRATE[0] += weapon.DATK;
@@ -102,6 +104,7 @@ function getMIDWeaponSkill(side){
         combat.defCRITRATE -= display.MIDRATE[8];
         combat.defCRITDMG -= display.MIDRATE[9];
         combat.defDMGRATE -= display.MIDRATE[10];
+        combat.offSKILLDMG += display.SKILLDMG;
     }
     else if(side == 'defense'){
         combat.defATKRATE += display.MIDRATE[0];

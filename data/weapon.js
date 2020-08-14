@@ -89,7 +89,12 @@ var weapon = [{
     DESC: '和有弱化效果的敵軍進入戰鬥時，智力提升15%，主動進入戰鬥時，戰後有30%機率使敵軍「暈眩」，持續1回合'
 },{
     NAME: '蒼白之杖', TYPE: '法杖',
-    /* SKILLDMG RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') this.SKILLDMG = undefined;
+        else if(combat.offSkill.NAME != "普攻(物)" && combat.offSkill.NAME != "普攻(法)")
+            this.SKILLDMG = 0.15;
+    },
     DESC: '使用單體技能時，<b>「技能」</b>傷害提升15%，主動進入戰鬥時，有50%的機率使得敵軍遭受1個弱化狀態'
 },{
     NAME: '逸才權杖', TYPE: '法杖',

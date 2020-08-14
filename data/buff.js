@@ -196,11 +196,16 @@ var buff = [{
 },{
     NAME: '戰神怒火',
     TYPE: ['一般'],
-    /* SKILL DMG INC */
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') return false;
-        else return [0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0];
+        if(side == 'defense'){
+            this.SKILLDMG = undefined;
+            return [0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0];
+        }
+        else if(side == 'offense'){
+            this.SKILLDMG = 0.1;
+            return false;
+        }
     },
     DESC: '技能傷害提升10%，反擊傷害提升10%'
 },{

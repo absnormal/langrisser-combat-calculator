@@ -51,7 +51,8 @@ function getMIDEnchantSkill(side){
         /* ATK, INT, DEF, MDEF, DEX,
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
-        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        SKILLDMG: 0,
     };
     if(enchant.SKILLTYPE != undefined && enchant.SKILLTYPE.includes('MIDRATE') && enchant.MIDRATE(side)){
         display.MIDRATE = enchant.MIDRATE(side);
@@ -68,6 +69,7 @@ function getMIDEnchantSkill(side){
         if(enchant.OCRITRATEDEC != undefined) display.MIDRATE[8] += enchant.OCRITRATEDEC;
         if(enchant.OCRITDMGDEC != undefined) display.MIDRATE[9] += enchant.OCRITDMGDEC;
         if(enchant.ODMGDEC != undefined) display.MIDRATE[10] += enchant.ODMGDEC;
+        if(enchant.SKILLDMG != undefined) display.SKILLDMG += enchant.SKILLDMG;
     }
     else if(side == 'defense'){
         if(enchant.DATK != undefined) display.MIDRATE[0] += enchant.DATK;
@@ -102,6 +104,7 @@ function getMIDEnchantSkill(side){
         combat.defCRITRATE -= display.MIDRATE[8];
         combat.defCRITDMG -= display.MIDRATE[9];
         combat.defDMGRATE -= display.MIDRATE[10];
+        combat.offSKILLDMG += display.SKILLDMG;
     }
     else if(side == 'defense'){
         combat.defATKRATE += display.MIDRATE[0];
