@@ -13,3 +13,10 @@ function cal_terrain(terrain){
     }
 };
 
+function getTerrainRATE(side){
+    if(side == 'offense')
+        combat.offTerrainRate += cal_terrain(combat.offTerrain);
+    else if(side == 'defense')
+        combat.defTerrainRate += cal_terrain(combat.defTerrain);
+};
+

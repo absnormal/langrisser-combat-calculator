@@ -232,25 +232,6 @@ function getPRENUMS(side){
     }
 };
 
-/* get side->otherside counter */
-function getCounterRATE(side){
-    if(side == 'offense'){
-        combat.offCounterRate += cal_counter(getArmy('offense'), getArmy('defense'));
-        combat.offCounterRate += cal_skillCounter(combat.offSkill.COUNTER, getArmy('defense'));
-    }
-    else if(side == 'defense'){
-        combat.defCounterRate += cal_counter(getArmy('defense'), getArmy('offense'));
-        combat.defCounterRate += cal_skillCounter(combat.defSkill.COUNTER, getArmy('offense'));
-    }
-};
-
-function getTerrainRATE(side){
-    if(side == 'offense')
-        combat.offTerrainRate += cal_terrain(combat.offTerrain);
-    else if(side == 'defense')
-        combat.defTerrainRate += cal_terrain(combat.defTerrain);
-};
-
 function displayHEALS(side){
     if(side == 'offense'){
         var HEAL = document.getElementById('offHEAL');
