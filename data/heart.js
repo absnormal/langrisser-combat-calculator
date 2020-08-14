@@ -4,7 +4,7 @@ var heart = [{
     NAME: '莉亞娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -41,7 +41,7 @@ var heart = [{
 },{
     NAME: '浦飯幽助大心',
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -79,7 +79,7 @@ var heart = [{
     NAME: '麗可麗絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -117,7 +117,7 @@ var heart = [{
     NAME: '蕾伽爾大心',
     SKILLTYPE: ['RATE','MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -155,7 +155,7 @@ var heart = [{
     NAME: '蒂亞莉絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -194,7 +194,7 @@ var heart = [{
     NAME: '古巨拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -240,7 +240,7 @@ var heart = [{
     NAME: '尤莉婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -277,7 +277,7 @@ var heart = [{
     NAME: '艾米莉亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -316,7 +316,7 @@ var heart = [{
     NAME: '神崎堇大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -351,7 +351,7 @@ var heart = [{
     NAME: '雅里安洛德大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -388,7 +388,7 @@ var heart = [{
     NAME: '蒂德莉特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -423,7 +423,7 @@ var heart = [{
     NAME: '維拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -458,7 +458,7 @@ var heart = [{
     NAME: '弗洛朗蒂婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -493,7 +493,7 @@ var heart = [{
     NAME: '西格瑪大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -534,7 +534,7 @@ var heart = [{
     NAME: '艾拉斯卓大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -571,7 +571,7 @@ var heart = [{
     NAME: '雷因法魯斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 5, CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 10,  DMGINC = 10;
+        CRITRATEINC = 5, CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 10,  DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -610,7 +610,7 @@ var heart = [{
     NAME: '維拉玖大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -650,7 +650,7 @@ var heart = [{
     NAME: '阿雷斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -688,7 +688,7 @@ var heart = [{
     NAME: '黎恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -725,7 +725,7 @@ var heart = [{
     NAME: '萊恩哈特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -762,7 +762,7 @@ var heart = [{
     NAME: '巴恩哈特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -797,7 +797,7 @@ var heart = [{
     NAME: '希琳卡大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -836,7 +836,7 @@ var heart = [{
     NAME: '艾爾文大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -873,7 +873,7 @@ var heart = [{
     NAME: '貝蒂大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITDMGDEC = 9, CRITRATEDEC = 10, DMGINC = 10;
+        DMGINC = 7, CRITDMGDEC = 9, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -910,7 +910,7 @@ var heart = [{
     NAME: '真宮寺櫻大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -949,7 +949,7 @@ var heart = [{
     NAME: '雷丁大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -988,7 +988,7 @@ var heart = [{
     NAME: '約書亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1025,7 +1025,7 @@ var heart = [{
     NAME: '澤瑞達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1062,7 +1062,7 @@ var heart = [{
     NAME: '燕大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
+        CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1101,7 +1101,7 @@ var heart = [{
     NAME: '歐米伽大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 6, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        CRITDMGINC = 6, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1140,7 +1140,7 @@ var heart = [{
     NAME: '戶愚呂兄弟大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1179,7 +1179,7 @@ var heart = [{
     NAME: '伊露希亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             terrainName = combat.offTerrain;
@@ -1215,7 +1215,7 @@ var heart = [{
     NAME: '謎之騎士大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1247,7 +1247,7 @@ var heart = [{
     NAME: '艾絲蒂爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1279,7 +1279,7 @@ var heart = [{
     NAME: '妮絲蒂爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1314,7 +1314,7 @@ var heart = [{
     NAME: '阿卡婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1351,7 +1351,7 @@ var heart = [{
     NAME: '安潔麗娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             terrainName = combat.offTerrain;
@@ -1390,7 +1390,7 @@ var heart = [{
     NAME: '露娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1429,7 +1429,7 @@ var heart = [{
     NAME: '迪哈爾特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
+        CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1466,7 +1466,7 @@ var heart = [{
     NAME: '利昂大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1503,7 +1503,7 @@ var heart = [{
     NAME: '亞修拉姆大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1538,7 +1538,7 @@ var heart = [{
     NAME: '海倫娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1573,7 +1573,7 @@ var heart = [{
     NAME: '傑利奧魯&蕾拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1616,7 +1616,7 @@ var heart = [{
     NAME: '蘭芳特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1656,7 +1656,7 @@ var heart = [{
     NAME: '布琳達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1697,7 +1697,7 @@ var heart = [{
     NAME: '羅莎莉婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1736,7 +1736,7 @@ var heart = [{
     NAME: '蘭迪烏斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1773,7 +1773,7 @@ var heart = [{
     NAME: '諾埃米大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1810,7 +1810,7 @@ var heart = [{
     NAME: '波贊魯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1851,7 +1851,7 @@ var heart = [{
     NAME: '拉姆達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1888,7 +1888,7 @@ var heart = [{
     NAME: '拉娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1927,7 +1927,7 @@ var heart = [{
     NAME: '樹之賢者大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1966,7 +1966,7 @@ var heart = [{
     NAME: '基扎洛夫大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2003,7 +2003,7 @@ var heart = [{
     NAME: '女神化身大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2042,7 +2042,7 @@ var heart = [{
     NAME: '蕾恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2079,7 +2079,7 @@ var heart = [{
     NAME: '梅雅大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2118,7 +2118,7 @@ var heart = [{
     NAME: '雪露法妮爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2157,7 +2157,7 @@ var heart = [{
     NAME: '飛影大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2196,7 +2196,7 @@ var heart = [{
     NAME: '藏馬大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2233,7 +2233,7 @@ var heart = [{
     NAME: '亞魯特繆拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2268,7 +2268,7 @@ var heart = [{
     NAME: '克拉蕾特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2307,7 +2307,7 @@ var heart = [{
     NAME: '雪莉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2342,7 +2342,7 @@ var heart = [{
     NAME: '蕾娜塔大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2383,7 +2383,7 @@ var heart = [{
     NAME: '桑原和真大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2418,7 +2418,7 @@ var heart = [{
     NAME: '愛麗絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2454,7 +2454,7 @@ var heart = [{
     NAME: '梅露帕妮大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2488,7 +2488,7 @@ var heart = [{
     NAME: '索菲亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2524,7 +2524,7 @@ var heart = [{
     NAME: '弗拉基亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2561,7 +2561,7 @@ var heart = [{
     NAME: '芙蕾雅大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2598,7 +2598,7 @@ var heart = [{
     NAME: '巴爾加斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2638,7 +2638,7 @@ var heart = [{
     NAME: '塞蕾娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2675,7 +2675,7 @@ var heart = [{
     NAME: '娜姆大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2716,7 +2716,7 @@ var heart = [{
     NAME: '法娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2758,7 +2758,7 @@ var heart = [{
     NAME: '奧利維爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2797,7 +2797,7 @@ var heart = [{
     NAME: '克麗絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2834,7 +2834,7 @@ var heart = [{
     NAME: '克蘿賽大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2871,7 +2871,7 @@ var heart = [{
     NAME: '帕恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2911,7 +2911,7 @@ var heart = [{
     NAME: '阿爾弗雷德大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10, CRITRATEINC = 5;
+        DMGINC = 7, DMGDEC = 10, CRITRATEINC = 5;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             terrainName = combat.offTerrain;
@@ -2951,7 +2951,7 @@ var heart = [{
     NAME: '霧風大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
+        CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2990,7 +2990,7 @@ var heart = [{
     NAME: '奧利佛大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3029,7 +3029,7 @@ var heart = [{
     NAME: '銀狼大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
+        CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3068,7 +3068,7 @@ var heart = [{
     NAME: '比蘿蒂絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 5, DMGINC = 7, DMGINC = 10;
+        CRITRATEINC = 5, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3110,7 +3110,7 @@ var heart = [{
     NAME: '索尼婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             run = combat.run;
             jobNo = combat.offJobNo;
@@ -3154,7 +3154,7 @@ var heart = [{
     NAME: '艾馬林克大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3193,7 +3193,7 @@ var heart = [{
     NAME: '亞爾緹娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3232,7 +3232,7 @@ var heart = [{
     NAME: '伊梅爾達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3266,7 +3266,7 @@ var heart = [{
     NAME: '莉法妮大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3307,7 +3307,7 @@ var heart = [{
     NAME: '安潔莉卡大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3338,7 +3338,7 @@ var heart = [{
     NAME: '埃格貝爾特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3379,7 +3379,7 @@ var heart = [{
     NAME: '海恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3421,7 +3421,7 @@ var heart = [{
     NAME: '蘭斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3510,7 +3510,7 @@ var heart = [{
     NAME: '艾梅達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3547,7 +3547,7 @@ var heart = [{
     NAME: '格尼爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3586,7 +3586,7 @@ var heart = [{
     NAME: '馬修大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGINC = 10;
+        DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             BUFFNUM = combat.offBUFFLIST.length;
