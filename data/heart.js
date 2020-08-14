@@ -4,7 +4,7 @@ var heart = [{
     NAME: '莉亞娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -41,7 +41,7 @@ var heart = [{
 },{
     NAME: '浦飯幽助大心',
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -79,7 +79,7 @@ var heart = [{
     NAME: '麗可麗絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -115,9 +115,9 @@ var heart = [{
     JOB2B:'受到魔法攻擊進入戰鬥時，傷害提升10%。'
 },{
     NAME: '蕾伽爾大心',
-    SKILLTYPE: ['MIDRATE'],
+    SKILLTYPE: ['RATE','MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -141,6 +141,12 @@ var heart = [{
         }
         return midrate;
     },
+    RATE: function(side){
+        if(side == 'offense') jobNo = combat.offJobNo;
+        else if(side == 'defense') jobNo = combat.defJobNo;
+        if(jobNo == 2) this.HEAL = 0.1;
+        else this.HEAL = undefined;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'部隊血量100%時，傷害提高10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -149,7 +155,7 @@ var heart = [{
     NAME: '蒂亞莉絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -188,7 +194,7 @@ var heart = [{
     NAME: '古巨拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -219,11 +225,8 @@ var heart = [{
             case 3:
                 if(perHP == 1)
                     midrate[DMGDEC] += 0.1;
-/*
-                if(side == 'defense' && oppDMGTYPE == '魔法傷害')
-                    midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
                 break;
-*/
         }
         return midrate;
     },
@@ -237,7 +240,7 @@ var heart = [{
     NAME: '尤莉婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -274,7 +277,7 @@ var heart = [{
     NAME: '艾米莉亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -313,7 +316,7 @@ var heart = [{
     NAME: '神崎堇大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -348,7 +351,7 @@ var heart = [{
     NAME: '雅里安洛德大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -385,7 +388,7 @@ var heart = [{
     NAME: '蒂德莉特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -420,7 +423,7 @@ var heart = [{
     NAME: '維拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -455,7 +458,7 @@ var heart = [{
     NAME: '弗洛朗蒂婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -490,12 +493,13 @@ var heart = [{
     NAME: '西格瑪大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -503,6 +507,7 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -513,9 +518,9 @@ var heart = [{
                 if(range = 1)
                     midrate[DMGINC] += 0.1;
             case 2:
-//        if(side == 'offense')
-//                  midrate[DMGDEC] += 0.1;
-                if(side == 'offense', && perHP < oppPerHP)
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'offense' && perHP < oppPerHP)
                     midrate[DMGINC] += 0.1;
                 break;
         }
@@ -529,7 +534,7 @@ var heart = [{
     NAME: '艾拉斯卓大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -566,7 +571,7 @@ var heart = [{
     NAME: '雷因法魯斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 6, CRITDMGINC = 7,  DMGINC = 8, CRITRATEDEC = 10,  DMGDEC = 11;
+        CRITRATEINC = 5, CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 10,  DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -605,17 +610,19 @@ var heart = [{
     NAME: '維拉玖大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -629,8 +636,8 @@ var heart = [{
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
-//        if(side == 'defense' && oppDMGTYPE == '物理傷害')
-//                  midrate[DMGINC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
                 break;
         }
         return midrate;
@@ -643,7 +650,7 @@ var heart = [{
     NAME: '阿雷斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 7,  DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -681,7 +688,7 @@ var heart = [{
     NAME: '黎恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -718,7 +725,7 @@ var heart = [{
     NAME: '萊恩哈特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -755,7 +762,7 @@ var heart = [{
     NAME: '巴恩哈特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -790,7 +797,7 @@ var heart = [{
     NAME: '希琳卡大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -829,7 +836,7 @@ var heart = [{
     NAME: '艾爾文大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -866,7 +873,7 @@ var heart = [{
     NAME: '貝蒂大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITDMGDEC = 9, CRITRATEDEC = 10, DMGDEC = 11;
+        DMGINC = 7, CRITDMGDEC = 9, CRITRATEDEC = 10, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -903,7 +910,7 @@ var heart = [{
     NAME: '真宮寺櫻大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -932,6 +939,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1B:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2A:'受到近戰攻擊時，遭受物理傷害降低10%。',
@@ -940,26 +949,28 @@ var heart = [{
     NAME: '雷丁大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppBUFFNUM = combat.defBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppBUFFNUM = combat.offBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
-//        if(perHP > 0.8)
-//                  midrate[DMGINC] += 0.1;
+                if(side == 'defense' && oppBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -967,6 +978,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'受到具有“強化效果”的部隊攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -975,7 +988,7 @@ var heart = [{
     NAME: '約書亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 6, DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1002,6 +1015,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量100%時，遭受暴擊率降低10%。',
     JOB1B:'部隊血量100%時，暴擊率提升10%。',
     JOB2A:'部隊血量100%時，遭受傷害降低10%。',
@@ -1010,7 +1025,7 @@ var heart = [{
     NAME: '澤瑞達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1037,6 +1052,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1B:'受到物理攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量100%時，遭受傷害降低10%。',
@@ -1045,18 +1062,20 @@ var heart = [{
     NAME: '燕大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 7, DMGINC = 8, DMGDEC = 11;
+        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
@@ -1066,12 +1085,14 @@ var heart = [{
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
             case 2:
-//        if(perHP > oppPerHP)
-//                  midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[CRITDMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
@@ -1080,7 +1101,7 @@ var heart = [{
     NAME: '歐米伽大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 7, DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        CRITDMGINC = 6, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1109,6 +1130,8 @@ var heart = [{
                     midrate[CRITDMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB1B:'受到物理攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量高於80%時，遭受暴擊率降低10%。',
@@ -1117,16 +1140,18 @@ var heart = [{
     NAME: '戶愚呂兄弟大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
+            BUFFNUM = combat.offBUFFLIST.length;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
+            BUFFNUM = combat.defBUFFLIST.length;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
         }
@@ -1137,15 +1162,15 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP == 1)
                     midrate[DMGINC] += 0.1;
-/*    
             case 2:
-                if(perHP > oppPerHP)
+                if(BUFFNUM > 10)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > oppPerHP)
+                if(BUFFNUM > 10)
                     midrate[DMGINC] += 0.1;
-*/
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量100%時，遭受傷害降低10%。',
     JOB1B:'部隊血量100%時，傷害提升10%。',
     JOB2A:'本部隊有10個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
@@ -1154,9 +1179,10 @@ var heart = [{
     NAME: '伊露希亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
+            terrainName = combat.offTerrain;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
@@ -1172,14 +1198,15 @@ var heart = [{
             case 1:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
-/*                if(perHP > 0.8)
-            midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
+                break;
             case 2:
-                if(perHP > oppPerHP)
-                    midrate[DMGINC] += 0.1; 
-*/
+                if(terrainName == '水')
+                    midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'主動攻擊時，士兵傷害提升20%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -1188,7 +1215,7 @@ var heart = [{
     NAME: '謎之騎士大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1210,6 +1237,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -1218,7 +1247,7 @@ var heart = [{
     NAME: '艾絲蒂爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1240,6 +1269,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'部隊血量高於80%時，進入戰鬥後傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -1248,7 +1279,7 @@ var heart = [{
     NAME: '妮絲蒂爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1273,6 +1304,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1B:'部隊血量低於50%時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -1281,7 +1314,7 @@ var heart = [{
     NAME: '阿卡婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1308,6 +1341,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
@@ -1316,28 +1351,28 @@ var heart = [{
     NAME: '安潔麗娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
+            terrainName = combat.offTerrain;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
+            terrainName = combat.defTerrain;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
-/*
             case 1:
-                if(perHP > 0.8)
+                if(terrainName == '水' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
-                if(perHP > 0.8)
+                if(terrainName == '水')
                     midrate[DMGINC] += 0.1;
-*/
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -1345,6 +1380,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'在水中時，遭受物理傷害降低10%。',
     JOB1B:'在水中時，物理傷害提升10%。',
     JOB2A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
@@ -1353,7 +1390,7 @@ var heart = [{
     NAME: '露娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1382,6 +1419,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
@@ -1390,7 +1429,7 @@ var heart = [{
     NAME: '迪哈爾特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 7, DMGINC = 8, DMGDEC = 11;
+        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1417,6 +1456,8 @@ var heart = [{
                     midrate[CRITDMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2A:'部隊血量低於70%時，暴擊傷害提升10%。',
@@ -1425,7 +1466,7 @@ var heart = [{
     NAME: '利昂大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1452,6 +1493,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2A:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
@@ -1460,7 +1503,7 @@ var heart = [{
     NAME: '亞修拉姆大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1485,6 +1528,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'範圍傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
@@ -1493,7 +1538,7 @@ var heart = [{
     NAME: '海倫娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1518,6 +1563,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -1526,10 +1573,12 @@ var heart = [{
     NAME: '傑利奧魯&蕾拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
+            BUFFNUM = combat.offBUFFLIST.length;
+            DEBUFFNUM = combat.offDEBUFFLIST.length;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
@@ -1537,6 +1586,8 @@ var heart = [{
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
+            BUFFNUM = combat.defBUFFLIST.length;
+            DEBUFFNUM = combat.defDEBUFFLIST.length;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
@@ -1544,17 +1595,19 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//                if(perHP > 0.8)
-//                    midrate[DMGDEC] += 0.1;
+                if(BUFFNUM > 5)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && range == 1)
                     midrate[DMGINC] += 0.1;
             case 2:
-//                if()
-//                    midrate[DMGDEC] += 0.1;
+                if(DEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && range > 1)
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'本部隊有5個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB1B:'主動近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'本部隊有弱化狀態時，戰鬥中遭受傷害降低10%。',
@@ -1563,7 +1616,7 @@ var heart = [{
     NAME: '蘭芳特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1593,6 +1646,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2A:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
@@ -1601,12 +1656,13 @@ var heart = [{
     NAME: '布琳達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -1614,6 +1670,7 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1621,8 +1678,8 @@ var heart = [{
             case 1:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
-//                if(perHP > 0.8)
-//                    midrate[DMGINC] += 0.1;
+                if(oppDEBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -1630,6 +1687,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB1B:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
@@ -1638,7 +1697,7 @@ var heart = [{
     NAME: '羅莎莉婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1667,6 +1726,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，傷害提升10%。',
     JOB2A:'部隊血量高於80%時，遭受暴擊率降低10%。',
@@ -1675,7 +1736,7 @@ var heart = [{
     NAME: '蘭迪烏斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1702,6 +1763,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -1710,24 +1773,26 @@ var heart = [{
     NAME: '諾埃米大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//                if(perHP > 0.8)
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == defense && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
             case 2:
@@ -1735,6 +1800,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'受到魔法攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -1743,12 +1810,13 @@ var heart = [{
     NAME: '波贊魯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -1756,13 +1824,14 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//                if(perHP > 0.8)
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
             case 2:
@@ -1772,6 +1841,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'受到魔法攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到遠程攻擊時，遭受物理傷害降低10%。',
@@ -1780,7 +1851,7 @@ var heart = [{
     NAME: '拉姆達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1807,6 +1878,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1B:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2A:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
@@ -1815,18 +1888,20 @@ var heart = [{
     NAME: '拉娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
@@ -1836,12 +1911,14 @@ var heart = [{
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
             case 2:
-//                if(perHP )
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量100%時，遭受傷害降低10%。',
     JOB1B:'受到魔法攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
@@ -1850,24 +1927,26 @@ var heart = [{
     NAME: '樹之賢者大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//                if(perHP > 0.8)
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && perHP > oppPerHP )
                     midrate[DMGINC] += 0.1;
             case 2:
@@ -1877,6 +1956,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -1885,7 +1966,7 @@ var heart = [{
     NAME: '基扎洛夫大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 6, DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -1912,6 +1993,8 @@ var heart = [{
                     midrate[CRITRATEINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2A:'部隊血量100%時，遭受暴擊率降低10%。',
@@ -1920,18 +2003,20 @@ var heart = [{
     NAME: '女神化身大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
@@ -1941,12 +2026,14 @@ var heart = [{
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
             case 2:
-//                if(side == 'defense')
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，傷害提升10%。',
     JOB2A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
@@ -1955,24 +2042,26 @@ var heart = [{
     NAME: '蕾恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//弱化                if(side == 'defense')
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -1980,6 +2069,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害-10%',
     JOB1B:'範圍傷害+10%',
     JOB2A:'部隊血量低於70%時，進入戰鬥後遭受傷害-10%',
@@ -1988,18 +2079,20 @@ var heart = [{
     NAME: '梅雅大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
@@ -2009,12 +2102,14 @@ var heart = [{
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
             case 2:
-//弱化                if(perHP > oppPerHP)
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量100%時，遭受傷害降低10%。',
     JOB1B:'部隊血量低於70%時，傷害提升10%。',
     JOB2A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
@@ -2023,33 +2118,37 @@ var heart = [{
     NAME: '雪露法妮爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-                if(perHP > 0.8)
+                if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[DMGINC] += 0.1;
             case 2:
-                if(perHP > oppPerHP)
+                if(perHP > 0.8)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > oppPerHP)
+                if(side == 'offense' && perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'部隊血量高於80%時，進入戰鬥後傷害提升10%。',
     JOB2A:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
@@ -2058,7 +2157,7 @@ var heart = [{
     NAME: '飛影大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 6, DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2083,10 +2182,12 @@ var heart = [{
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
-                if(side == 'defense')
+                if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1B:'部隊血量高於80%時，暴擊率提升10%。',
     JOB2A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
@@ -2095,7 +2196,7 @@ var heart = [{
     NAME: '藏馬大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2122,6 +2223,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'範圍傷害提升10%。',
     JOB2A:'到近戰攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -2130,29 +2233,33 @@ var heart = [{
     NAME: '亞魯特繆拉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//弱化                if(perHP > 0.8)
-//                    midrate[DMGINC] += 0.1;
+                if(oppDEBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'遭受範圍傷害降低10%。',
     JOB1B:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
@@ -2161,7 +2268,7 @@ var heart = [{
     NAME: '克拉蕾特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2190,6 +2297,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB1B:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2A:'受到遠程攻擊時，遭受物理傷害降低10%。',
@@ -2198,7 +2307,7 @@ var heart = [{
     NAME: '雪莉大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2223,6 +2332,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'範圍傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -2231,12 +2342,13 @@ var heart = [{
     NAME: '蕾娜塔大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFLIST = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -2244,6 +2356,7 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFLIST = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2251,8 +2364,8 @@ var heart = [{
             case 1:
                 if(side == 'defense' && range > 1 && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
-//弱化                if(side == 'defense' && range > 1 && oppDMGTYPE == '物理傷害')
-//                    midrate[DMGDEC] += 0.1;
+                if(oppDEBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -2260,6 +2373,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB1B:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量高於80%時，遭受暴擊率降低10%。',
@@ -2268,7 +2383,7 @@ var heart = [{
     NAME: '桑原和真大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2293,6 +2408,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'遭受範圍傷害降低10%。',
     JOB1B:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
@@ -2301,7 +2418,7 @@ var heart = [{
     NAME: '愛麗絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2319,8 +2436,7 @@ var heart = [{
             case 1:
                 if(perHP < 0.5)
                     midrate[DMGDEC] += 0.1;
-//士兵                if(perHP > 0.8)
-//                    midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -2328,6 +2444,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1B:'主動攻擊進入戰鬥時，士兵傷害提升20%。',
     JOB2A:'部隊血量高於80%時，遭受暴擊率降低10%。',
@@ -2336,7 +2454,7 @@ var heart = [{
     NAME: '梅露帕妮大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2360,6 +2478,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -2368,7 +2488,7 @@ var heart = [{
     NAME: '索菲亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2391,10 +2511,11 @@ var heart = [{
             case 2:
                 if(perHP < 0.5)
                     midrate[DMGDEC] += 0.1;
-//士兵                if(side == 'offense')
-//                    midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量低於50%時，遭受傷害降低10%。',
@@ -2403,7 +2524,7 @@ var heart = [{
     NAME: '弗拉基亞大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2430,6 +2551,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -2438,7 +2561,7 @@ var heart = [{
     NAME: '芙蕾雅大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2458,15 +2581,15 @@ var heart = [{
             case 1:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
-//士兵                if(side == 'defense')           星爆氣流斬0wo
-//                    midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
-//士兵                if(side == 'offense')
-//                    midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'受到攻擊時，士兵傷害提升20%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -2475,12 +2598,13 @@ var heart = [{
     NAME: '巴爾加斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -2488,6 +2612,7 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2498,12 +2623,13 @@ var heart = [{
                 if(side == 'offense')
                     midrate[DMGINC] += 0.1;
             case 2:
-//弱化                if(side == 'defense')
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
@@ -2512,7 +2638,7 @@ var heart = [{
     NAME: '塞蕾娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2539,6 +2665,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -2547,12 +2675,13 @@ var heart = [{
     NAME: '娜姆大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -2560,13 +2689,14 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//       if(perHP > 0.8)
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[DMGINC] += 0.1;
             case 2:
@@ -2576,6 +2706,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'部隊血量高於80%時，暴擊傷害提升10%。',
     JOB2A:'受到遠程攻擊時，遭受物理傷害降低10%。',
@@ -2584,19 +2716,23 @@ var heart = [{
     NAME: '法娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
+            BUFFNUM = combat.offBUFFLIST.length;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
+            BUFFNUM = combat.defBUFFLIST.length;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2604,14 +2740,16 @@ var heart = [{
             case 1:
                 if(perHP == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
-/*                if(side == 'defense')
+                if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > oppPerHP)
+                if(BUFFNUM > 5)
                     midrate[DMGINC] += 0.1;
-*/
                 break;
         }
+        return midrate;
+    },
     JOB1A:'遭受範圍傷害降低10%。',
     JOB1B:'部隊血量100%時，傷害提高10%。',
     JOB2A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
@@ -2620,7 +2758,7 @@ var heart = [{
     NAME: '奧利維爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2649,6 +2787,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
@@ -2657,7 +2797,7 @@ var heart = [{
     NAME: '克麗絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2684,6 +2824,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到遠程攻擊時，遭受魔法傷害降低10%。',
     JOB1B:'範圍傷害提升10%。',
     JOB2A:'受到近戰攻擊時，遭受物理傷害降低10%。',
@@ -2692,7 +2834,7 @@ var heart = [{
     NAME: '克蘿賽大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2719,6 +2861,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB1B:'範圍傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
@@ -2727,7 +2871,7 @@ var heart = [{
     NAME: '帕恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2757,6 +2901,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB1B:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -2765,9 +2911,10 @@ var heart = [{
     NAME: '阿爾弗雷德大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10, CRITRATEINC = 5;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
+            terrainName = combat.offTerrain;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
@@ -2775,6 +2922,7 @@ var heart = [{
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
+            terrainName = combat.defTerrain;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
@@ -2783,16 +2931,18 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-                if(side == 'offense' && perHP > )
-                    midrate[DMGINC] += 0.1;
-/*            case 2:
-                if(perHP > oppPerHP)
-                    midrate[DMGDEC] += 0.1;
-                if(perHP > oppPerHP)
+                if(side == 'offense' && perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
                 break;
-*/
+            case 2:
+                if(terrainName == '水' && oppDMGTYPE == '魔法傷害')
+                    midrate[DMGDEC] += 0.1;
+                if(terrainName == '水')
+                    midrate[CRITRATEINC] += 0.1;
+                break;
         }
+        return midrate;
+    },
     JOB1A:'遭受範圍傷害降低10%。',
     JOB1B:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2A:'在水中時，遭受魔法傷害降低10%。',
@@ -2801,7 +2951,7 @@ var heart = [{
     NAME: '霧風大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 7, DMGINC = 8, DMGDEC = 11;
+        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2830,6 +2980,8 @@ var heart = [{
                     midrate[CRITDMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'部隊血量低於70%時，暴擊傷害提升10%。',
     JOB2A:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
@@ -2838,10 +2990,11 @@ var heart = [{
     NAME: '奧利佛大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 6, DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
+            BUFFNUM = combat.offBUFFLIST.length;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
@@ -2849,6 +3002,7 @@ var heart = [{
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
+            BUFFNUM = combat.defBUFFLIST.length;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
@@ -2861,10 +3015,12 @@ var heart = [{
             case 2:
                 if(perHP == 1 && oppDMGTYPE == '物理傷害')
                     midrate[CRITRATEDEC] += 0.1;
-//                if(perHP > oppPerHP)
-//                    midrate[DMGINC] += 0.1;
+                if(BUFFNUM > 6)
+                    midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'遭受範圍傷害降低10%。',
     JOB1B:'部隊血量100%時，暴擊率提升10%。',
     JOB2A:'部隊血量100%時，遭受暴擊率降低10%。',
@@ -2873,7 +3029,7 @@ var heart = [{
     NAME: '銀狼大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITDMGINC = 7, DMGINC = 8, DMGDEC = 11;
+        CRITDMGINC = 6, DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2902,6 +3058,8 @@ var heart = [{
                     midrate[CRITDMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'受到攻擊進入戰鬥時，暴擊傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -2910,10 +3068,11 @@ var heart = [{
     NAME: '比蘿蒂絲大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        CRITRATEINC = 6, DMGINC = 8, DMGDEC = 11;
+        CRITRATEINC = 5, DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
+            BUFFNUM = combat.offBUFFLIST.length;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
@@ -2921,6 +3080,7 @@ var heart = [{
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
+            BUFFNUM = combat.defBUFFLIST.length;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
@@ -2928,11 +3088,11 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-/*                if(perHP > 0.8)
+                if(BUFFNUM >= 5)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > 0.8)
+                if(BUFFNUM >= 5)
                     midrate[DMGINC] += 0.1;
-*/
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -2940,16 +3100,17 @@ var heart = [{
                     midrate[CRITRATEINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'本部隊有5個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB1B:'本部隊有5個以上的強化狀態時，戰鬥中傷害提升10%。',
     JOB2A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB2B:'部隊血量高於80%時，暴擊率提升10%。'
 },{
-//
     NAME: '索尼婭大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             run = combat.run;
             jobNo = combat.offJobNo;
@@ -2974,11 +3135,14 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
             case 2:
-                if(side == 'defense' && oppPerHP > perHP)
-                    midrate[DMGDEC] += 0.1;
-                if(side == 'defense' && oppDMGTYPE == '魔法傷害')
-                    midrate[DMGINC] += 0.1;
-                break;
+                if(side == 'offense' && run >= 5){
+                    midrate[DMGDEC] += 0.15;
+                    midrate[DMGINC] += 0.15;
+                }
+                if(side == 'offense' && run > 0){
+                    midrate[DMGDEC] += 0.03*run;
+                    midrate[DMGINC] += 0.03*run;
+            }
         }
         return midrate;
     },
@@ -2990,7 +3154,7 @@ var heart = [{
     NAME: '艾馬林克大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3019,6 +3183,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB1B:'部隊血量高於80%時，傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
@@ -3027,7 +3193,7 @@ var heart = [{
     NAME: '亞爾緹娜大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3053,10 +3219,11 @@ var heart = [{
             case 2:
                 if(run <= 4)
                     midrate[DMGDEC] += 0.03*run;
-//                if(perHP > oppPerHP)
-//                    midrate[DMGINC] += 0.1;
+                /* SOLDIER RELATED */
                 break;
         }
+        return midrate;
+    },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1B:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2A:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
@@ -3065,7 +3232,7 @@ var heart = [{
     NAME: '伊梅爾達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3089,6 +3256,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB1B:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'遭受範圍傷害降低10%。',
@@ -3097,12 +3266,13 @@ var heart = [{
     NAME: '莉法妮大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -3110,16 +3280,16 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-/*                if(perHP > 0.8)
+                if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > 0.8)
+                if(oppDEBUFFNUM > 0)
                     midrate[DMGINC] += 0.1;
-*/
             case 2:
                 if(perHP == 1)
                     midrate[DMGDEC] += 0.1;
@@ -3127,6 +3297,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量100%時，遭受傷害降低10%。',
@@ -3135,7 +3307,7 @@ var heart = [{
     NAME: '安潔莉卡大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3155,9 +3327,10 @@ var heart = [{
             case 1:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
-//                if(perHP > 0.8)
-//                    midrate[] += 0.1;
+                /* SOLDIER RELATED */
         }
+        return midrate;
+    },
     JOB1A:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1B:'受到攻擊時，士兵傷害提升20%。',
 
@@ -3165,12 +3338,13 @@ var heart = [{
     NAME: '埃格貝爾特大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
@@ -3178,13 +3352,14 @@ var heart = [{
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-//                if(perHP > 0.8)
-//                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
             case 2:
@@ -3194,6 +3369,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1B:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量低於70%時，遭受傷害降低10%。',
@@ -3202,10 +3379,11 @@ var heart = [{
     NAME: '海恩大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
+            BUFFNUM = combat.offBUFFLIST.length;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
@@ -3213,6 +3391,7 @@ var heart = [{
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             perHP = combat.defHP/combat.defFULLHP;
+            BUFFNUM = combat.defBUFFLIST.length;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
@@ -3224,14 +3403,16 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP == 1)
                     midrate[DMGINC] += 0.1;
-/*            case 2:
-                if()
+                break;
+            case 2:
+                if(BUFFNUM >= 7)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > oppPerHP)
+                if(BUFFNUM >= 7)
                     midrate[DMGINC] += 0.1;
-*/
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量100%時，遭受傷害降低10%。',
     JOB1B:'部隊血量100%時，傷害提高10%。',
     JOB2A:'本部隊有7個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
@@ -3240,7 +3421,7 @@ var heart = [{
     NAME: '蘭斯大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3269,6 +3450,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'部隊血量低於70%時，傷害提升10%。',
     JOB2A:'部隊血量100%時，遭受傷害降低10%。',
@@ -3327,7 +3510,7 @@ var heart = [{
     NAME: '艾梅達大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, CRITRATEDEC = 9, DMGDEC = 11;
+        DMGINC = 7, CRITRATEDEC = 8, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3354,6 +3537,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1B:'範圍傷害提升10%。',
     JOB2A:'部隊血量100%時，遭受傷害降低10%。',
@@ -3362,7 +3547,7 @@ var heart = [{
     NAME: '格尼爾大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -3391,6 +3576,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1B:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
@@ -3399,9 +3586,10 @@ var heart = [{
     NAME: '馬修大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 8, DMGDEC = 11;
+        DMGINC = 7, DMGINC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
+            BUFFNUM = combat.offBUFFLIST.length;
             perHP = combat.offHP/combat.offFULLHP;
             oppPerHP = combat.defHP/combat.defFULLHP;
             oppDMGTYPE = combat.defDMGTYPE;
@@ -3409,6 +3597,7 @@ var heart = [{
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
+            BUFFNUM = combat.defBUFFLIST.length;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
@@ -3417,11 +3606,10 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-/*                if(perHP > 0.8)
+                if(BUFFNUM >= 5)
                     midrate[DMGDEC] += 0.1;
-                if(perHP > 0.8)
+                if(BUFFNUM >= 5)
                     midrate[DMGINC] += 0.1;
-*/
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -3444,6 +3632,8 @@ var heart = [{
                     midrate[DMGINC] += 0.1;
                 break;
         }
+        return midrate;
+    },
     JOB1A:'本部隊有5個以上增益效果時，進入戰鬥後遭受傷害降低10%。',
     JOB1B:'本部隊有5個以上增益效果時，進入戰鬥後傷害提升10%。',
     JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
