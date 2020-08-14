@@ -48,48 +48,6 @@ function selectSkill(skillName){
     }
 };
 
-// soldiers depend on character
-function displaySoldier(P_charName, side){
-    let soldiers = document.getElementsByClassName(P_charName + ' ' + side);
-    for(let i=0; i<soldiers.length; i++){
-        if(soldiers[i].classList.contains('soldier')){
-            soldiers[i].style = '';
-        }
-    }
-};
-function hideSoldier(side){
-    let soldiers = document.getElementsByClassName('soldier ' + side);
-    for(let i=0; i<soldiers.length; i++){
-        soldiers[i].style = 'display: none;';
-    }
-};
-function selectSoldier(soldierName){
-    // defense
-    if(soldierName.charAt(soldierName.length - 1) == 'd'){
-        // de-select old soldier
-        if(document.getElementById(defenseSoldier).classList.contains('selected')){
-            document.getElementById(defenseSoldier).classList.remove('selected');
-        }
-        // select new soldier
-        document.getElementById(soldierName).classList.add('selected');
-        defenseSoldier = soldierName;
-        hideTraining('defense');
-        displayTraining('defense', soldierName);
-    }
-    // offense
-    else{
-        // de-select old soldier
-        if(document.getElementById(offenseSoldier).classList.contains('selected')){
-            document.getElementById(offenseSoldier).classList.remove('selected');
-        }
-        // select new soldier
-        document.getElementById(soldierName).classList.add('selected');
-        offenseSoldier = soldierName;
-        hideTraining('offense');
-        displayTraining('offense', soldierName);
-    }
-};
-
 // terrains are independent
 function selectTerrain(terrainName){
     // defense
@@ -158,14 +116,18 @@ function selectChar(charName){
         if(document.getElementById(defenseChar).classList.contains('selected')){
             document.getElementById(defenseChar).classList.remove('selected');
         }
+        combat.defChar = char.find(x => x.NAME === charName.slice(0, -1));
         // hide all soldiers and display soldiers in char
         hideSoldier('defense');
-        displaySoldier(charName.slice(0, -1), 'defense');
+        displaySoldier('defense');
         // hide and display equipments by JOB1
-        combat.defChar = char.find(x => x.NAME === charName.slice(0, -1));
         displayArmy('defense');
         displayJob('defense');
         displayHeart('defense');
+        hideCommand('defense');
+        displayCommand('defense');
+        hidePassive('defense');
+        displayPassive('defense');
         hideBUFF('defense');
         displayBUFF('defense');
         hideWeapon('defense');
@@ -179,7 +141,6 @@ function selectChar(charName){
         // select new char & first soldier
         document.getElementById(charName).classList.add('selected');
         defenseChar = charName;
-        selectSoldier(document.getElementsByClassName(charName.slice(0, -1) + ' soldier defense')[0].id);
         selectTerrain(defenseTerrain);
         selectEnchant(defenseEnchant);
     }
@@ -192,14 +153,18 @@ function selectChar(charName){
         // hide all skills and display skills in char
         hideSkill('offense');
         displaySkill(charName, 'offense');
+        combat.offChar = char.find(x => x.NAME === charName);
         // hide all soldiers and display soldiers in char
         hideSoldier('offense');
-        displaySoldier(charName, 'offense');
+        displaySoldier('offense');
         // hide and display equipments by JOB1
-        combat.offChar = char.find(x => x.NAME === charName);
         displayArmy('offense');
         displayJob('offense');
         displayHeart('offense');
+        hideCommand('offense');
+        displayCommand('offense');
+        hidePassive('offense');
+        displayPassive('offense');
         hideBUFF('offense');
         displayBUFF('offense');
         hideWeapon('offense');
@@ -214,7 +179,6 @@ function selectChar(charName){
         document.getElementById(charName).classList.add('selected');
         offenseChar = charName;
         selectSkill(document.getElementById('普攻(物)').id);
-        selectSoldier(document.getElementsByClassName(charName+' soldier offense')[0].id);
         selectTerrain(offenseTerrain);
         selectEnchant(offenseEnchant);
     }
@@ -234,6 +198,7 @@ function selectParty(partyName){
         // select new party & first char
         document.getElementById(partyName).classList.add('selected');
         defenseParty = partyName;
+        combat.defParty = partyName.slice(0, -1);
         selectChar(document.getElementsByClassName(partyName.slice(0, -1) + ' ' + 'defense')[0].id);
     }
     // offense
@@ -248,6 +213,7 @@ function selectParty(partyName){
         // select new party & first char
         document.getElementById(partyName).classList.add('selected');
         offenseParty = partyName;
+        combat.offParty = partyName;
         selectChar(document.getElementsByClassName(partyName + ' ' + 'offense')[0].id);
     }
 };

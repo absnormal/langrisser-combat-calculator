@@ -144,7 +144,13 @@ var helmet = [{
 },{
     NAME: '逐夢之冠', TYPE: '格尼爾',
     MDEF: 0.05,
-    /* BUFF RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') return false;
+        buffNUM = combat.defBUFFLIST.length;
+        if(buffNUM >= 7) return [0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0];
+        else return false;
+    },
     DESC: '魔防+5%。當自身強化狀態數量大於或等於7個時，反擊傷害提高50%。'
 },{
     NAME: '卡爾薩斯之冠', TYPE: '蘭斯',
@@ -173,7 +179,6 @@ var helmet = [{
 },{
     NAME: '義賊的假面', TYPE: '銀狼',
     /* FIRST ATTACK */
-    /* BUFF RELATED */
     MDEF: 0.05,
     DESC: '魔防+5%。主動攻擊進入戰鬥時，如果自身強化狀態數量大於等於敵軍強化狀態數量的2倍，會先於敵軍進行攻擊。'
 },{

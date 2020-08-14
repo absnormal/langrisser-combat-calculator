@@ -79,7 +79,13 @@ var weapon = [{
     DESC: '物理傷害降低10%，部隊的射程+1'
 },{
     NAME: '亞斯塔祿', TYPE: '法杖',
-    /* DEBUFF RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') oppDEBUFFNUM = combat.defDEBUFFLIST.length;
+        else if(side == 'defense') oppDEBUFFNUM = combat.offDEBUFFLIST.length;
+        if(oppDEBUFFNUM > 0) return [0, 0.15, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
     DESC: '和有弱化效果的敵軍進入戰鬥時，智力提升15%，主動進入戰鬥時，戰後有30%機率使敵軍「暈眩」，持續1回合'
 },{
     NAME: '蒼白之杖', TYPE: '法杖',

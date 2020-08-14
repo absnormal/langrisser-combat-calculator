@@ -44,16 +44,31 @@ var talent = [{
     DESC: '當部隊生命高於和等於70%時獲得效果：傷害提升30%，且無法被一擊致命（每場戰鬥最多觸發3次），並在每次進入戰鬥後，有100%的概率恢復生命，恢復量為部隊造成傷害的30%。',
 },{
     NAME: '神力的傳承',
-    /* DATA? */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            perHP = combat.offHP/combat.offFULLHP;
+            oppDMGTYPE = combat.defDMGTYPE;
+        }
+        else if(side == 'defense'){
+            perHP = combat.defHP/combat.defFULLHP;
+            oppDMGTYPE = combat.offDMGTYPE;
+        }
+        if(oppDMGTYPE == '物理傷害') return false;
+        switch(perHP){
+            case 1:
+                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+            /*
+             DATA?
+             */
+            default:
+                return false;
+        }
+    },
     DESC: '部隊血量越高時，減少遭受魔法傷害越多，最多減少30%。並且在遭受致命傷害時不會死亡，之後生命值恢復30%。該效果每場戰鬥最多觸發1次。',
 },{
     NAME: '華麗獨舞',
-    /*
-    SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        SOLDIER RELATED
-    },
-    */
+    /* SOLDIER RELATED */
     DESC: '普通攻擊時，英雄的射程增加1。<br>每損失一個士兵，則獲得攻擊、技巧提升4%的效果。',
 },{
     NAME: '鋼之聖女',
@@ -107,7 +122,18 @@ var talent = [{
     DESC: '每對一名敵軍造成傷害後，可以獲得一個“異星之力”:除生命以外全屬性提升4%，可累積，最高可以累積7個。<br>行動結束時，若擁有7個“異星之力”，可以額外行動1次，並在此次行動結束時，將自己傳送至距離最近的友軍身邊，並將身上所有“異星之力”效果清除。',
 },{
     NAME: '月民的執念',
-    /* DATA? */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        switch(perHP){
+            /*
+             DATA?
+             */
+            default:
+                return false;
+        }
+    },
     DESC: '部隊血量越低時，物理傷害越高，最多增加50%。在遭受致命傷害時不會死亡，並獲得效果“不死者”：該狀態生效期間，英雄受到致命傷害時不會死亡，一旦該狀態消失，則英雄在回合結束時直接死亡，持續3回合。不屈效果每場戰鬥最多觸發6次。（該效果無法被免疫和驅散）',
 },{
     NAME: '無畏的意志',
@@ -144,7 +170,7 @@ var talent = [{
     DESC: '周圍1格沒有友軍時，除生命以外全屬性提升20%。若一次攻擊對2名及以上的敵軍造成傷害，則可以恢復50%生命，並額外行動1次。（[觸發冷卻]再行動效果需要間隔2回合才可以再次觸發。）',
 },{
     NAME: '霸者的意志',
-    ODMGINC: 0.2,
+    DMGINC: 0.2,
     /* COMMAND DEBUFF */
     DESC: '進入戰鬥時，造成傷害提升20%。周圍2格內所有敵軍攻防降低15%。',
 },{
@@ -157,7 +183,6 @@ var talent = [{
     DESC: '主動攻擊進入戰鬥時，傷害提升30%。戰鬥後，有100%概率恢復生命，恢復量為英雄造成傷害的30%。',
 },{
     NAME: '劍刃領域',
-    /* BUFF */
     DESC: '遭受範圍傷害降低30%。當周圍3格內的一名友軍被攻擊後，對攻擊者造成貝蒂攻擊1倍的[固定傷害]（該效果無法免疫），並有30%的概率對其施加1個隨機的弱化效果。之後提升自身20%攻擊和魔防，持續2回合。',
 },{
     NAME: '居合一閃',
@@ -182,7 +207,6 @@ var talent = [{
     DESC: '暴擊率提升20%。造成暴擊後，對敵軍再造成一次[固定傷害]。（數值為英雄攻擊的2倍）。',
 },{
     NAME: '捉迷藏',
-    /* BUFF */
     CRITRATE: 0.2,
     DESC: '暴擊率提升20%。在行動結束時，如果處於[危險範圍]外，則進入“潛行”狀態：“暴擊率、暴擊傷害提升30%，遭受傷害降低30%，移動力提升4，持續1回合”。',
 },{
@@ -215,7 +239,6 @@ var talent = [{
     DESC: '與生命高於和等於70%的部隊戰鬥時，攻擊和暴擊率提升20%。擊殺敵方部隊後，傳送回攻擊之前所在位置，並可以再次移動3格。',
 },{
     NAME: '肉體操縱',
-    /* BUFF NOT SKILL */
     DESC: '行動結束時，獲得[肉體強化]：攻擊、技巧提升2%，可以累積，最多可以累積15個。主動攻擊進入戰鬥前和擊殺敵軍後，也可獲得以上效果。',
 },{
     NAME: '夏湖之花',
@@ -259,7 +282,6 @@ var talent = [{
     DESC: '每移動1格，傷害提升4%（最高20%），魔防提升20%（最高100%）。當移動累積20格後，在回合結束時，將自身所有技能冷卻時間清零。',
 },{
     NAME: '光之少女',
-    /* BUFF NOT SKILL */
     DESC: '替相鄰友軍承受物理攻擊。主動攻擊造成傷害後，獲得效果：攻擊、防禦提升15%，護衛範圍提升至2格，持續2回合。行動結束時，令周圍3格的4名其他友軍部隊“造成傷害”提升10%，持續2回合。',
 },{
     NAME: '鮮血女王',
@@ -267,7 +289,6 @@ var talent = [{
     DESC: '將自身魔防的1.5倍代替智力。部隊無視兵種克制。對敵方部隊造成傷害後，施加“傷口詛咒”：被施加的治療直接轉變為治療量50%的傷害，持續1回合。',
 },{
     NAME: '聖靈的守護',
-    /* BUFF NOT SKILL */
     DESC: '當戰場上有部隊陣亡時，則在自己身邊召喚一個[狼魂]，此狼魂的屬性繼承自此部隊將領的屬性，但是不能超過阿卡婭對應屬性的150%。（該效果需要間隔1回合才可以再次觸發，狼魂同時只能存在一隻，且狼魂陣亡同時無法觸發召喚）當狼魂陣亡後，會將其除生命以外全部屬性的20%附加於阿卡婭身上，並恢復阿卡婭的生命，恢復量為狼魂最高生命值的20%。',
 },{
     NAME: '戰爭女神',
@@ -293,7 +314,6 @@ var talent = [{
 },{
     NAME: '自由的意志',
     CRITRATEINC: 0.3,
-    /* BUFF NOT SKILL */
     DESC: '暴擊率提升30%。擊殺敵軍後，觸發[煙霧]:遭受所有傷害降低30%，持續1回合，[觸發冷卻]該效果需要間隔1回合才可以再次觸發。',
 },{
     NAME: '傳說的騎士',
@@ -467,12 +487,13 @@ var talent = [{
     DESC: '距離目標越遠，則傷害越高，每相隔多1格距離傷害提高8%。若本回合原地待機，則在行動結束時，獲得「移動力+2 」，持續1回合。',
 },{
     NAME: '殲滅天使',
-    /*
-    SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        DEBUFF RELATED
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') buffNUM = combat.defDEBUFFLIST.length;
+        else if(side == 'defense') buffNUM = combat.offDEBUFFLIST.length;
+        if(buffNUM > 0) return [0, 0.15, 0.15, 0.15, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
     },
-    */
     DESC: '與帶有“弱化效果”的敵軍交戰時，智力、防禦、魔防提升15%。對敵方部隊造成傷害後，為敵軍施加2個隨機的弱化效果。',
 },{
     NAME: '全能女僕',
@@ -486,12 +507,20 @@ var talent = [{
     DESC: '周圍3格內有敵軍時，智力提升15%。對敵方部隊主動造成傷害前，有100%概率驅散敵軍1個強化效果並使其遭受傷害提升20%，持續1回合。在行動結束時驅散3格內其他友軍部隊1個弱化效果。',
 },{
     NAME: '魔法眷屬',
-    /*
-    SKILLRATE: ['RATE'],
+    SKILLTYPE: ['RATE'],
     RATE: function(side){
-        DATA?
+        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
+        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        switch(perHP){
+            case 1:
+                return [0, 0.2, 0, 0, 0];
+            /*
+             DATA?
+             */
+            default:
+                return false;
+        }
     },
-    */
     DESC: '部隊血量越高時，智力越高，最高提升20%。每當使用技能造成傷害後，該技能的冷卻時間減少3。',
 },{
     NAME: '邪眼',
@@ -530,6 +559,7 @@ var talent = [{
     DESC: '若周圍1圈有任意友軍被攻擊受到傷害，則自身獲得“移動力”+ 2，持續1回合。並對造成傷害的敵方目標施加[龍印]：“受到來自蕾娜塔的攻擊時，自身無法被護衛且遭受傷害增加40% ”，無法觸發“再移動”類效果，以及“被動技能無法生效”，持續1回合。',
 },{
     NAME: '愛即正義',
+    /* HEAL AFTER BATTLE */
     DESC: '行動結束時，如果自身3格範圍內存在“女性”友軍或名為“浦飯幽助”的友軍時，遭受物理傷害降低30%，持續1回合。戰鬥結束時如果生命低於40%，可以恢復30%的生命。',
 },{
     NAME: '超能靈力',
@@ -557,7 +587,27 @@ var talent = [{
     DESC: '遭受暴擊率降低50%，進入戰鬥前，如果自身生命在50%以上，對敵軍造成一次傷害，傷害數值為英雄防禦的2倍。',
 },{
     NAME: '勇將的神力',
-    /* DATA? */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            perHP = combat.offHP/combat.offFULLHP;
+            oppDMGTYPE = combat.defDMGTYPE;
+        }
+        else if(side == 'defense'){
+            perHP = combat.defHP/combat.defFULLHP;
+            oppDMGTYPE = combat.offDMGTYPE;
+        }
+        if(oppDMGTYPE == '魔法傷害') return false;
+        switch(perHP){
+            case 1:
+                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+            /*
+             DATA?
+             */
+            default:
+                return false;
+        }
+    },
     DESC: '部隊血量越高時，減少遭受物理傷害越多，最多減少30%，並且在遭受致命傷害時不會死亡，之後生命值恢復30%，該效果每場戰鬥最多觸發1次。',
 },{
     NAME: '挺身而出',
@@ -596,7 +646,15 @@ var talent = [{
     DESC: '治療效果提升30%。行動結束時，令周圍2格的4名其他友軍隨機附加1個額外的免疫效果，持續2回合',
 },{
     NAME: '自由的騎士',
-    /* BUFF RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') buffList = combat.offBUFFLIST;
+        else if(side == 'defense') buffList = combat.defBUFFLIST;
+        for(let i=0; i<buffList.length; i++)
+            if(buffList[i].MOVE != undefined)
+                return [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0];
+        return false
+    },
     DESC: '受到傷害後，獲得效果[猛進]：攻擊、技巧+3%，移動力+1，持續2回合，可累積，最高可以累積3個。當自身擁有移動力提升的強化效果時造成的傷害提升20%。',
 },{
     NAME: '新晉!兩棲勇士',
@@ -649,6 +707,21 @@ var talent = [{
     DESC: '除生命以外全屬性提升25%，自身周圍2格每有1名友軍，全屬性降低5%（最多降低25%）。進入戰鬥前，如果自身技巧高於敵軍，會偷取1個強化狀態。',
 },{
     NAME: '狼性',
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') buffList = combat.offBUFFLIST;
+        else if(side == 'defense') buffList = combat.defBUFFLIST;
+        switch(buffList.length){
+            case 0:
+                return false;
+            case 1:
+                return [0.07, 0, 0.07, 0, 0];
+            case 2:
+                return [0.14, 0, 0.14, 0, 0];
+            default:
+                return [0.21, 0, 0.21, 0, 0];
+        }
+    },
     DESC: '身上每有一個強化狀態，則攻防提升7%，最高可以提升21%。如果發生了暴擊，戰鬥後偷取對方身上的2個強化狀態。',
 },{
     NAME: '暗之國的黑妖精',
@@ -666,11 +739,6 @@ var talent = [{
 },{
     NAME: '智將的帷幕',
     OATK: 0.2, DDMGDEC: 0.2,
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        if(side == 'offense') return false;
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
-    },
     DESC: '主動攻擊時，攻擊提升20%，被攻擊時，遭受傷害降低20%。周圍2格內所有敵軍移動力降低2，且無法進行護衛。',
 },{
     NAME: '情報分析',

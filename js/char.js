@@ -156,13 +156,15 @@ function changeJob(side){
 function changeBASEKNOWN(side){
     if(side == 'defense') SIDE = 'def', KNOWN = combat.defBASEKNOWN;
     else if(side == 'offense') SIDE = 'off', KNOWN = combat.offBASEKNOWN;
-    KNOWNTEXT = '已知戰前數字';
-    UNKNOWNTEXT = '未知戰前數字';
+    KNOWNTEXT = '已知進場前數字';
+    UNKNOWNTEXT = '未知進場前數字';
     eKNOWNTEXT = document.getElementById(SIDE+'KNOWNTEXT');
     BASE = 'BASE', PRE = 'PRE', DATA = 'DATA', INPUT = 'input';
     NUM = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
     width = 'width: 40px;', clear = 'display: none;';
 
+    if(!KNOWN) switchDATAtoINPUT(side, 'BASE');
+    else switchDATAtoINPUT(side, 'PRE');
     for(let i=0; i<NUM.length; i++){
         if(KNOWN){
             eKNOWN = document.getElementById(SIDE+BASE+NUM[i]+INPUT);
@@ -178,10 +180,10 @@ function changeBASEKNOWN(side){
         }
         eKNOWN.style = "";
         eKNOWN.style = width + clear;
-        eKNOWNDATA.innerHTML = eKNOWNDATA.innerHTML.split(':')[0];
+        eKNOWNDATA.innerHTML = eKNOWNDATA.innerHTML.split(':')[0]+":";
         eUNKNOWN.style = "";
         eUNKNOWN.style = width;
-        eUNKNOWNDATA.innerHTML = eUNKNOWNDATA.innerHTML.split(':')[0];
+        eUNKNOWNDATA.innerHTML = eUNKNOWNDATA.innerHTML.split(':')[0]+":";
     }
 
     if(KNOWN) eKNOWNTEXT.innerHTML = UNKNOWNTEXT;
@@ -189,5 +191,19 @@ function changeBASEKNOWN(side){
 
     if(side == 'defense') combat.defBASEKNOWN = !KNOWN;
     else if(side == 'offense') combat.offBASEKNOWN = !KNOWN;
+};
+
+function switchDATAtoINPUT(side, KNOWN){
+    NUM = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
+    DATA = 'DATA', INPUT = 'input';
+
+    if(side == 'offense') SIDE = 'off';
+    else if(side == 'defense') SIDE = 'def';
+
+    for(let i=0; i<NUM.length; i++){
+        eDATA = document.getElementById(SIDE+KNOWN+NUM[i]+DATA);
+        eINPUT = document.getElementById(SIDE+KNOWN+NUM[i]+INPUT);
+        eINPUT.value = eDATA.innerHTML.split(':')[1];
+    }
 };
 

@@ -117,6 +117,45 @@ function holdWeapon(side, army, job){
             holds.push('錘');
             holds.push('斧');
             break;
+        case '法騎統帥':
+            holds.push('錘');
+            holds.push('法杖');
+            break;
+        case '帝國密使':
+            holds.push('法杖');
+            break;
+        case '聖騎統帥':
+            holds.push('劍');
+            break;
+        case '鋼之聖女':
+            holds.push('槍');
+            holds.push('斧');
+            break;
+        case '混沌化身':
+            holds.push('弓');
+            holds.push('匕首');
+            break;
+        case '魔神':
+            holds.push('錘');
+            break;
+        case '血魔姬':
+            holds.push('錘');
+            break;
+        case '幻影魔姬':
+            holds.push('弓');
+            holds.push('匕首');
+            break;
+        case '邪王炎殺':
+            holds.push('弓');
+            holds.push('匕首');
+            break;
+        case '漆黑之牙':
+            holds.push('弓');
+            holds.push('匕首');
+            break;
+        case '魔界王選':
+            holds.push('錘');
+            break;
     }
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);

@@ -1,20 +1,20 @@
 /* 劍, 槍, 騎, 飛, 水, 刺, 弓, 僧, 魔, 龍 */
 function cal_counter(offenseArmy, defenseArmy){
     switch(offenseArmy){
-        case "劍兵":
+        case "步兵":
             if(defenseArmy == "槍兵")
                 return 0.4;
             else if(defenseArmy == "騎兵")
                 return -0.3;
             else return 0.0; break;
         case "槍兵":
-            if(defenseArmy == "劍兵")
+            if(defenseArmy == "步兵")
                 return -0.2;
             else if(defenseArmy == "騎兵")
                 return 0.3;
             else return 0.0; break;
         case "騎兵":
-            if(defenseArmy == "劍兵")
+            if(defenseArmy == "步兵")
                 return 0.2;
             else if(defenseArmy == "槍兵")
                 return -0.3;

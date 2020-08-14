@@ -251,6 +251,32 @@ tbody > p{
     position: static;
     padding-right: 3px; padding-left: 3px;
 }
+/* 被動 */
+.PassiveList{
+    border-style: solid;
+    border-color: white;
+}
+.Passive .imgbtn{
+    background-color: white;
+    padding-top: 1px; padding-right: 1px; padding-left: 1px;
+}
+.Passiveinfo{
+    color: white;
+}
+
+/* 指揮 */
+.CommandList{
+    border-style: solid;
+    border-color: white;
+}
+.Command .imgbtn{
+    background-color: white;
+    padding-top: 1px; padding-right: 1px; padding-left: 1px;
+}
+.Commandinfo{
+    color: white;
+}
+
 /* 強化 */
 .BUFFList{
     border-style: solid;

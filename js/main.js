@@ -3,11 +3,13 @@ var combat = {
     offParty:undefined, offChar:undefined, offSkill:undefined, offSoldier:undefined,
     offTalent:undefined, offTerrain:undefined, offEnchant:undefined,
     offWeapon:undefined, offArmor:undefined, offHelmet:undefined, offAccessory:undefined,
+    offBUFFLIST: [], offDEBUFFLIST: [], offCommandLIST: [], offPassiveLIST: [],
     // character current data
     offFULLHP:undefined, offHP:undefined, offBASEKNOWN:true,
     offBASEATK:undefined, offBASEINT:undefined, offBASEDEF:undefined, offBASEMDEF:undefined, offBASEDEX:undefined,
     offATK:undefined, offINT:undefined, offDEF:undefined, offMDEF:undefined, offDEX:undefined,
     offHITS:undefined, offHEAL:undefined, offHEALED:undefined, range:undefined, run:undefined,
+    offCounterRate: undefined, offTerrainRate: undefined,
     off1BFriend:undefined, off2BFriend:undefined, off3BFriend:undefined,
     off3BEnemy:undefined, off3CEnemy:undefined,
     // character arena plus
@@ -28,18 +30,19 @@ var combat = {
     defMDEFRATE:undefined, defDEXRATE:undefined, defDMGTYPE:undefined,
     defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined, defSKILLDMG:undefined,
     defDEFNEG:undefined, defMDEFNEG:undefined,
-    counterRATE:undefined, terrainRATE:undefined,
     skillRATE:undefined, combatNEG:undefined,
 
         /* defense character info */
     defParty:undefined, defChar:undefined, defSkill:undefined, defSoldier:undefined,
     defTalent:undefined, defTerrain:undefined, defEnchant:undefined,
     defWeapon:undefined, defArmor:undefined, defHelmet:undefined, defAccessory:undefined,
+    defBUFFLIST: [], defDEBUFFLIST: [], defCommandLIST: [], defPassiveLIST: [],
     // character current data
     defFULLHP:undefined, defHP:undefined, defBASEKNOWN:false,
     defBASEATK:undefined, defBASEINT:undefined, defBASEDEF:undefined, defBASEMDEF:undefined, defBASEDEX:undefined,
     defATK:undefined, defINT:undefined, defDEF:undefined, defMDEF:undefined, defDEX:undefined,
     defHITS:undefined, defHEAL:undefined, defHEALED:undefined,
+    defCounterRate: undefined, defTerrainRate: undefined,
     def1BFriend:undefined, def2BFriend:undefined, def3BFriend:undefined,
     def3BEnemy:undefined, def3CEnemy:undefined,
     // character arena plus
@@ -66,6 +69,8 @@ function resetAllRATE(){
     combat.offCRITDMG = combat.baseCRITDMG;
     combat.offCRITRATE = combat.baseCRITRATE;
     combat.offSKILLDMG = combat.baseRATE;
+    combat.offCounterRate = combat.baseRATE;
+    combat.offTerrainRate = combat.baseRATE;
     /* defense accumulative rates */
     combat.defATKRATE = combat.baseRATE;
     combat.defINTRATE = combat.baseRATE;
@@ -75,6 +80,8 @@ function resetAllRATE(){
     combat.defDMGRATE = combat.baseRATE;
     combat.defCRITDMG = combat.baseCRITDMG;
     combat.defCRITRATE = combat.baseCRITRATE;
+    combat.defCounterRate = combat.baseRATE;
+    combat.defTerrainRate = combat.baseRATE;
     /* other rates */
     combat.offHITS = combat.baseHITS;
     combat.defHITS = combat.baseHITS;
@@ -84,11 +91,15 @@ function resetAllRATE(){
     combat.defHEALED = combat.baseRATE;
     combat.skillRATE = combat.baseRATE;
     combat.combatNEG = combat.baseCombatNEG;
-    combat.counterRATE = combat.baseRATE;
-    combat.terrainRATE = combat.baseRATE;
 };
 
 function createAllList(){
+    createSoldierList('offense', 'offSoldierList');
+    createSoldierList('defense', 'defSoldierList');
+    createCommandList('offense', 'offCommandList');
+    createCommandList('defense', 'defCommandList');
+    createPassiveList('offense', 'offPassiveList');
+    createPassiveList('defense', 'defPassiveList');
     createBUFFList('offense', 'offBUFFList');
     createBUFFList('defense', 'defBUFFList');
     createWeaponList('offense', 'offWeaponList');
@@ -150,6 +161,7 @@ function getCharData(side){
         combat.off2BFriend = Number(document.getElementById('off2BFriend').value);
         combat.off3BFriend = Number(document.getElementById('off3BFriend').value);
         combat.off3BEnemy = Number(document.getElementById('off3BEnemy').value);
+        combat.off2CEnemy = Number(document.getElementById('off2CEnemy').value);
         combat.off3CEnemy = Number(document.getElementById('off3CEnemy').value);
     }
     else if(side == 'defense'){
@@ -222,18 +234,21 @@ function getPRENUMS(side){
 
 /* get side->otherside counter */
 function getCounterRATE(side){
-    var sideA, sideB;
-    if(side == 'offense') sideA = 'offense', sideB = 'defense';
-    else if(side == 'defense') sideA = 'defense', sideB = 'offense';
-    combat.counterRATE += cal_counter(getArmy(sideA), getArmy(sideB));
-    combat.counterRATE += cal_skillCounter(combat.offSkill.COUNTER, getArmy(sideB));
+    if(side == 'offense'){
+        combat.offCounterRate += cal_counter(getArmy('offense'), getArmy('defense'));
+        combat.offCounterRate += cal_skillCounter(combat.offSkill.COUNTER, getArmy('defense'));
+    }
+    else if(side == 'defense'){
+        combat.defCounterRate += cal_counter(getArmy('defense'), getArmy('offense'));
+        combat.defCounterRate += cal_skillCounter(combat.defSkill.COUNTER, getArmy('offense'));
+    }
 };
 
 function getTerrainRATE(side){
     if(side == 'offense')
-        combat.terrainRATE += cal_terrain(combat.offTerrain);
+        combat.offTerrainRate += cal_terrain(combat.offTerrain);
     else if(side == 'defense')
-        combat.terrainRATE += cal_terrain(combat.defTerrain);
+        combat.defTerrainRate += cal_terrain(combat.defTerrain);
 };
 
 function displayHEALS(side){
@@ -327,7 +342,7 @@ function displayONEHIT(side, sideRate, oppRate){
     ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4;
     CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
     CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
-    DMGRATE = 2;
+    CRITRATE = 0, CRITDMG = 1, DMGRATE = 2;
     text = ['一段傷害'];
     offBASE = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
     offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
@@ -350,6 +365,8 @@ function displayONEHIT(side, sideRate, oppRate){
         arena = offARENA, opparena = defARENA;
         rate = offRATE, opprate = defRATE;
         other = offOTHER, oppother = defOTHER;
+        counterRate = combat.offCounterRate;
+        terrainRate = combat.defTerrainRate;
     }
     else if(side == 'defense'){
         SIDE = 'def';
@@ -361,15 +378,17 @@ function displayONEHIT(side, sideRate, oppRate){
         arena = defARENA, opparena = offARENA;
         rate = defRATE, opprate = offRATE;
         other = defOTHER, oppother = offOTHER;
+        counterRate = combat.defCounterRate;
+        terrainRate = combat.offTerrainRate;
     }
 
     if(skilltype == '物理傷害'){
-        offNUM = (base[ATK]*rate[ATK]+arena[ATK])*combat.counterRATE;
-        defNUM = (oppbase[DEF]*opprate[DEF]+arena[DEF])*combat.terrainRATE;
+        offNUM = (base[ATK]*rate[ATK]+arena[ATK])*counterRate;
+        defNUM = (oppbase[DEF]*opprate[DEF]+arena[DEF])*terrainRate;
     }
     else if(skilltype == '魔法傷害'){
-        offNUM = (base[INT]*rate[INT]+arena[INT])*combat.counterRATE;
-        defNUM = (oppbase[MDEF]*opprate[MDEF]+arena[MDEF])*combat.terrainRATE;
+        offNUM = (base[INT]*rate[INT]+arena[INT])*counterRate;
+        defNUM = (oppbase[MDEF]*opprate[MDEF]+arena[MDEF])*terrainRate;
     }
     number = (offNUM-defNUM)/2*skillrate*other[DMGRATE];
     if(number <= 0) number = 1;
@@ -391,7 +410,7 @@ function displayONEHIT(side, sideRate, oppRate){
            eDESC.innerHTML+="+"+sideRate[j].MIDRATE[offNUM].toFixed(2)+"["+sideRate[j].NAME+"]";
     eDESC.innerHTML += "))";
     /* counterRATE */
-    eDESC.innerHTML += "×" + combat.counterRATE;
+    eDESC.innerHTML += "×" + counterRate;
     /* defNUM */
     eDESC.innerHTML += "-(" + opppre[defNUM] + "+" + oppbase[defNUM] + "×(0";
     for(let j=0; j<oppRate.length; j++)
@@ -399,7 +418,7 @@ function displayONEHIT(side, sideRate, oppRate){
            eDESC.innerHTML += "+"+oppRate[j].MIDRATE[defNUM].toFixed(2)+"["+oppRate[j].NAME+"]";
     eDESC.innerHTML += "))";
     /* terrainRATE */
-    eDESC.innerHTML += "×" + combat.terrainRATE + "]";
+    eDESC.innerHTML += "×" + terrainRate + "]";
 
     /* skillrate */
     eDESC.innerHTML += "÷2×" + skillrate;
@@ -436,11 +455,20 @@ function getAllSkill(stage, side){
     /* PRE STAGE */
     if(stage == 'PRE'){
         let sideRate = [], othersideRate = [];
-        // talent
+        // talent & heart & enchant
         sideRate.push(getTalentSkill(side));
         othersideRate.push(getTalentSkill(otherside));
         sideRate.push(getHeartSkill(side));
         othersideRate.push(getHeartSkill(otherside));
+        sideRate.push(getEnchantSkill(side));
+        othersideRate.push(getEnchantSkill(otherside));
+        // command & passive & buff & debuff
+        sideRate = [...sideRate, ...getBUFFSkill(side)];
+        othersideRate = [...othersideRate, ...getBUFFSkill(otherside)];
+        sideRate = [...sideRate, ...getCommandSkill(side)];
+        othersideRate = [...othersideRate, ...getCommandSkill(otherside)];
+        sideRate = [...sideRate, ...getPassiveSkill(side)];
+        othersideRate = [...othersideRate, ...getPassiveSkill(otherside)];
         // equipment
         sideRate.push(getWeaponSkill(side));
         othersideRate.push(getWeaponSkill(otherside));
@@ -475,11 +503,20 @@ function getAllSkill(stage, side){
     if(stage == 'MID'){
         // do all true dmg stuff and check perHP related skills
         let sideRate = [], othersideRate = [];
-        // talent & heart
+        // talent & heart & enchant
         sideRate.push(getMIDTalentSkill(side));
         othersideRate.push(getMIDTalentSkill(otherside));
         sideRate.push(getMIDHeartSkill(side));
         othersideRate.push(getMIDHeartSkill(otherside));
+        sideRate.push(getMIDEnchantSkill(side));
+        othersideRate.push(getMIDEnchantSkill(otherside));
+        // command & passive & buff & debuff
+        sideRate = [...sideRate, ...getMIDBUFFSkill(side)];
+        othersideRate = [...othersideRate, ...getMIDBUFFSkill(otherside)];
+        sideRate = [...sideRate, ...getMIDCommandSkill(side)];
+        othersideRate = [...othersideRate, ...getMIDCommandSkill(otherside)];
+        sideRate = [...sideRate, ...getMIDPassiveSkill(side)];
+        othersideRate = [...othersideRate, ...getMIDPassiveSkill(otherside)];
         // equipment
         sideRate.push(getMIDWeaponSkill(side));
         othersideRate.push(getMIDWeaponSkill(otherside));
@@ -489,6 +526,9 @@ function getAllSkill(stage, side){
         othersideRate.push(getMIDHelmetSkill(otherside));
         sideRate.push(getMIDAccessorySkill(side));
         othersideRate.push(getMIDAccessorySkill(otherside));
+        // skill
+        sideRate.push(getMIDSkillSkill(side));
+        othersideRate.push(getMIDSkillSkill(otherside));
         // display NUMS
         displayONEHIT(side, sideRate, othersideRate);
         displayONEHIT(otherside, othersideRate, sideRate);
@@ -501,6 +541,8 @@ function wholeCombat(){
     getCharData('offense');
     getCharData('defense');
     getCounterRATE('offense');
+    getCounterRATE('defense');
+    getTerrainRATE('offense');
     getTerrainRATE('defense');
     getAllSkill('PRE', 'offense');
     getAllSkill('MID', 'offense');
@@ -575,18 +617,5 @@ window.addEventListener("click", function getSelected(){
     }
     /* combat */
     wholeCombat();
-    /*
-    aaa = [];
-    bbb = {NAME: "B"};
-    ccc = {NAME: "C"};
-    def = [{NAME: "D"}, {NAME: "E"}, {NAME: "F"}];
-    aaa.push(bbb);
-    aaa.push(ccc);
-    all = [...aaa, ...def]
-    dis = "";
-    for(let i=0; i<all.length; i++)
-        dis += all[i].NAME;
-    document.getElementById('ERROR').innerHTML = all.length + " " + dis;
-    */
 });
 

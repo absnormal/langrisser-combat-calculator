@@ -109,13 +109,41 @@ function holdArmor(side, army, job){
             break;
     }
     /* add new cases to new heros */
-    /*
     switch(job){
-        case '':
-            holds.push('');
+        case '女武神':
+            holds.push('輕甲');
+            break;
+        case '聖騎統帥':
+            holds.push('重甲');
+            break;
+        case '鋼之聖女':
+            holds.push('重甲');
+            break;
+        case '混沌化身':
+            holds.push('輕甲');
+            break;
+        case '魔神':
+            holds.push('輕甲');
+            break;
+        case '血魔姬':
+            holds.push('輕甲');
+            break;
+        case '幻影魔姬':
+            holds.push('輕甲');
+            break;
+        case '邪王炎殺':
+            holds.push('輕甲');
+            break;
+        case '漆黑之牙':
+            holds.push('輕甲');
+            break;
+        case '魔界王選':
+            holds.push('輕甲');
+            break;
+        case '靈界偵探':
+            holds.push('輕甲');
             break;
     }
-    */
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);
     else if(side == 'defense') holds.push(combat.defChar.NAME);

@@ -80,6 +80,9 @@ function createBUFFList(side, listID){
 
 function holdBUFF(side){
     var holds = ['一般'];
+    // add party name to type for char specials
+    if(side == 'offense') holds.push(combat.offParty/*.NAME*/);
+    else if(side == 'defense') holds.push(combat.defParty/*.NAME*/);
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);
     else if(side == 'defense') holds.push(combat.defChar.NAME);
@@ -89,40 +92,61 @@ function holdBUFF(side){
 
 /* displayEquipment depends on char JOBS, select first buff found */
 function displayBUFF(side){
+    var char;
+    if(side == 'offense') char = combat.offChar;
+    else if(side == 'defense') char = combat.defChar;
+    stealList = ['雷因法魯斯', '迪哈爾特', '奧利佛', '弗拉基亞', '皮耶魯', '比羅蒂絲', '銀狼', '洛加', '燕'];
     var holds = holdBUFF(side);
 
     var buffList = [];
     // get all usable buffList
     for(var i=0; i<holds.length; i++){
-        // filter objects
-        var bufffilter = buff.filter(x => x.TYPE === holds[i]);
-        for(var j=0; j<bufffilter.length; j++){
+        // filter objects by holds
+        var bufffilter = [];
+        for(var j=0; j<buff.length; j++){
+            if(buff[j].TYPE.includes(holds[i]))
+                bufffilter.push(buff[j]);
+        }
+        for(var j=0; j<bufffilter.length; j++)
             // get NAMES only
             buffList.push(bufffilter[j].NAME);
-        }
+    }
+    // steal buff chars can get all buff
+    if(stealList.includes(char.NAME)){
+        buffList = [];
+        for(let i=0; i<buff.length; i++)
+            buffList.push(buff[i].NAME);
     }
     // display buff by NAMES
     for(var i=0; i<buffList.length; i++){
-        if(side == 'defense'){
+        if(side == 'defense')
             document.getElementById(buffList[i]+'d').style = '';
-        }
-        else if(side == 'offense'){
+        else if(side == 'offense')
             document.getElementById(buffList[i]).style = '';
-        }
     }
 };
 
 function hideBUFF(side){
+    if(side == 'offense') combat.offBUFFLIST = [];
+    else if(side == 'defense') combat.defBUFFLIST = [];
     var buffList = document.getElementsByClassName('buff ' + side);
     for(var i=0; i<buffList.length; i++){
         buffList[i].style = 'display: none;';
+        if(buffList[i].classList.contains('selected'))
+            buffList[i].classList.remove('selected');
     }
 };
 
 function selectBUFF(side, buffID){
     // defense remove 'd'
-    if(side == 'defense') buffNAME = buffID.slice(0, -1);
-    else if(side == 'offense') buffNAME = buffID;
+    if(side == 'defense'){
+        buffNAME = buffID.slice(0, -1);
+        buffList = combat.defBUFFLIST;
+    }
+    else if(side == 'offense'){
+        buffNAME = buffID;
+        buffList = combat.offBUFFLIST;
+    }
 
     buffOBJ = buff.find(x => x.NAME === buffNAME);
     eBUFF = document.getElementById(buffID);
@@ -132,20 +156,38 @@ function selectBUFF(side, buffID){
     if(!eBUFF.classList.contains('selected')){
         eBUFF.classList.add('selected');
         ebuffINDEX.innerHTML = Number(ebuffINDEX.innerHTML)+1;
+        buffList.push(buffOBJ);
     }
-    // if that buff have data
+    // if that buff have DATA
     else if(buffOBJ.DATA != undefined){
         // de-select buff when max number/data achieved
         if(buffINDEX == buffOBJ.MAX){
             eBUFF.classList.remove('selected');
             ebuffINDEX.innerHTML = 0;
+            if(buffOBJ.INDEX != undefined) buffOBJ.INDEX = 1;
+            while(buffList.indexOf(buffOBJ) != -1){
+                index = buffList.indexOf(buffOBJ);
+                buffList.splice(index, 1);
+            }
         }
         // add index if buff selected but not max number/data
-        else ebuffINDEX.innerHTML = Number(ebuffINDEX.innerHTML)+1;
+        else{
+            ebuffINDEX.innerHTML = Number(ebuffINDEX.innerHTML)+1;
+            if(buffOBJ.ACC) buffList.push(buffOBJ);
+            if(buffOBJ.INDEX != undefined) buffOBJ.INDEX += 1;
+        }
+    }
+    // de-select if buff have no DATA
+    else{
+        eBUFF.classList.remove('selected');
+        index = buffList.indexOf(buffOBJ);
+        if(index > -1) buffList.splice(index, 1);
     }
     // reload buff desc
     loadBUFFDesc(side, buffID);
-    //combat.defBUFF = buff.find(x => x.NAME === buffNAME);
+
+    if(side == 'defense') combat.defBUFFLIST = buffList;
+    else if(side == 'offense') combat.offBUFFLIST = buffList;
 };
 
 function getBUFFINDEX(buffID){
@@ -156,6 +198,7 @@ function getBUFFINDEX(buffID){
 function getBUFFDesc(buffOBJ, buffID){
     buffDESC = buffOBJ.DESC;
     buffINDEX = getBUFFINDEX(buffID);
+    // ex. 12.66% -> 0.1266*10000 = 1266 -> 1266/100 = 12.66%
     buffPERC = Math.round(buffOBJ.DATA[buffINDEX] * 10000) / 100;
     return buffDESC.replace('[DATA]', buffPERC);
 };
