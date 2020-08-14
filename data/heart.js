@@ -780,10 +780,10 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-                if(side = defense && range == 1)
+                if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
             case 2:
-                if(side = offense)
+                if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 break;
         }
@@ -1413,7 +1413,7 @@ var heart = [{
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
             case 2:
-                if(side == offense)
+                if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
@@ -1793,7 +1793,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
-                if(side == defense && oppDMGTYPE == '魔法傷害')
+                if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
@@ -2440,7 +2440,7 @@ var heart = [{
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
-                if(side == offense)
+                if(side == 'offense')
                     midrate[DMGINC] += 0.1;
                 break;
         }

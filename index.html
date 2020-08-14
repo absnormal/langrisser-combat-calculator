@@ -152,7 +152,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.5.2"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.5.3"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -1193,6 +1193,9 @@
                                 <li class='skill imgbtn offense 布琳達' id='黑耀突擊' style='display: none;'>
                                     <img src='image/skill/黑耀突擊.png' style='width: 60px' onclick='selectSkill("黑耀突擊")'/>
                                 </li>
+                                <li class='skill imgbtn offense 燕' id='迅隱殺機' style='display: none;'>
+                                    <img src='image/skill/迅隱殺機.png' style='width: 60px' onclick='selectSkill("迅隱殺機")'/>
+                                </li>
                             </ul>
                             <table>
                                 <tbody class='skillinfo'>
@@ -1985,14 +1988,142 @@
                                 <td colspan=3 style='text-align: center;'><b>交戰數值</b></td>
                             </tr>
                             <tr>
-                                <td style='text-align: center;'><b>進攻方</b></td>
+                                <td id='offDMGTYPE'><b>進攻方</b>[傷害類型]</td>
                                 <td></td>
-                                <td style='text-align: center;'><b>防守方</b></td>
+                                <td id='defDMGTYPE'><b>防守方</b>[傷害類型]</td>
                             </tr>
                             <tr>
-                                <td id='offDMGTYPE' style='text-align: center;'>[傷害類型]</td>
+                                <td>
+                                    <li class='NUM' id='offMIDATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDATKDATA'>戰前攻擊:</p>
+                                        <table class='NUMDESC' id='offMIDATKTABLE'>
+                                            <tr><td id='offMIDATKDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td></td>
-                                <td id='defDMGTYPE' style='text-align: center;'>[傷害類型]</td>
+                                <td>
+                                    <li class='NUM' id='defMIDATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDATKDATA'>戰前攻擊:</p>
+                                        <table class='NUMDESC' id='defMIDATKTABLE'>
+                                            <tr><td id='defMIDATKDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li class='NUM' id='offMIDINT' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDINTDATA'>戰前智力:</p>
+                                        <table class='NUMDESC' id='offMIDINTTABLE'>
+                                            <tr><td id='offMIDINTDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defMIDINT' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDINTDATA'>戰前智力:</p>
+                                        <table class='NUMDESC' id='defMIDINTTABLE'>
+                                            <tr><td id='defMIDINTDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li class='NUM' id='offMIDDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDDEFDATA'>戰前防禦:</p>
+                                        <table class='NUMDESC' id='offMIDDEFTABLE'>
+                                            <tr><td id='offMIDDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defMIDDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDDEFDATA'>戰前防禦:</p>
+                                        <table class='NUMDESC' id='defMIDDEFTABLE'>
+                                            <tr><td id='defMIDDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li class='NUM' id='offMIDMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDMDEFDATA'>戰前魔防:</p>
+                                        <table class='NUMDESC' id='offMIDMDEFTABLE'>
+                                            <tr><td id='offMIDMDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defMIDMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDMDEFDATA'>戰前魔防:</p>
+                                        <table class='NUMDESC' id='defMIDMDEFTABLE'>
+                                            <tr><td id='defMIDMDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li class='NUM' id='offMIDDEX' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDDEXDATA'>戰前技巧:</p>
+                                        <table class='NUMDESC' id='offMIDDEXTABLE'>
+                                            <tr><td id='offMIDDEXDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defMIDDEX' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDDEXDATA'>戰前技巧:</p>
+                                        <table class='NUMDESC' id='defMIDDEXTABLE'>
+                                            <tr><td id='defMIDDEXDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li class='NUM' id='offMIDCRITRATE' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDCRITRATEDATA'>暴擊率(不含技巧):</p>
+                                        <table class='NUMDESC' id='offMIDCRITRATETABLE'>
+                                            <tr><td id='offMIDCRITRATEDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defMIDCRITRATE' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDCRITRATEDATA'>暴擊率(不含技巧):</p>
+                                        <table class='NUMDESC' id='defMIDCRITRATETABLE'>
+                                            <tr><td id='defMIDCRITRATEDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li class='NUM' id='offMIDCRITDMG' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offMIDCRITDMGDATA'>暴擊傷害倍率:</p>
+                                        <table class='NUMDESC' id='offMIDCRITDMGTABLE'>
+                                            <tr><td id='offMIDCRITDMGDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defMIDCRITDMG' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defMIDCRITDMGDATA'>暴擊傷害倍率:</p>
+                                        <table class='NUMDESC' id='defMIDCRITDMGTABLE'>
+                                            <tr><td id='defMIDCRITDMGDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                             </tr>
                             <tr>
                                 <td>

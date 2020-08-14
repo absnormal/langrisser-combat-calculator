@@ -108,18 +108,12 @@ var buff = [{
 //情報分析
     NAME: '防禦+10％(情報分析)',
     TYPE: ['一般'],
-    SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        return [0, 0, 0.1, 0, 0];
-    },
+    DEF: 0.1,
     DESC: '防禦+10%(情報分析)'
 },{
     NAME: '魔防+10％(情報分析)',
     TYPE: ['一般'],
-    SKILLTYPE: ['RATE'],
-    RATE: function(side){
-        return [0, 0, 0, 0.1, 0];
-    },
+    MDEF: 0.1,
     DESC: '魔防+10%(情報分析)'
 },{
     NAME: '憐憫之心',
@@ -369,10 +363,7 @@ var buff = [{
 },{
     NAME: '輕靈倩影',
     TYPE: ['布琳達'],
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0.1];
-    },
+    DMGINC: 0.1, DMGDEC: 0.1,
     DESC: '造成傷害提高10%，遭受傷害降低10%'
 },{
     NAME: '布偶娃娃',
@@ -631,7 +622,7 @@ var buff = [{
     ATK: 0.1, INT: 0.1,DEF: 0.1, MDEF: 0.1, DEX: 0.1,
     DESC: '除生命以外全屬性提升10%，可以累積，最高可以累積4層。(當前[DATA]層)'
 },{
-    NAME: '迎頭痛擊',
+    NAME: '[迎頭痛擊]',
     TYPE: ['艾爾文','布琳達'],
     /* NUMBER INTERACTION */
     DESC: '攻擊”的20%增加到“防禦”上'

@@ -10,3 +10,4 @@ function displaySkillInfo(side){
         document.getElementById('offSkillDISC').innerHTML = combat.offSkill.DISC;
     }
 };
+
