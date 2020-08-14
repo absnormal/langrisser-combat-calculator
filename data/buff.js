@@ -1,5 +1,5 @@
 var buff = [{
-    NAME: '攻擊、智力+N%',
+    NAME: '攻擊、智力+N％',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.1266, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
@@ -8,7 +8,7 @@ var buff = [{
     },
     DESC: '攻擊、智力+[DATA]%'
 },{
-    NAME: '防禦+N%',
+    NAME: '防禦+N％',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.1266, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
@@ -17,7 +17,7 @@ var buff = [{
     },
     DESC: '防禦+[DATA]%'
 },{
-    NAME: '魔防+N%',
+    NAME: '魔防+N％',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.1266, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
@@ -26,7 +26,7 @@ var buff = [{
     },
     DESC: '魔防+[DATA]%'
 },{
-    NAME: '技巧+N%',
+    NAME: '技巧+N％',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.1266, 0.20, 0.30], MAX: 3,
     SKILLTYPE: ['RATE'],
@@ -35,7 +35,7 @@ var buff = [{
     },
     DESC: '技巧+[DATA]%'
 },{
-    NAME: '造成傷害提升N%',
+    NAME: '造成傷害提升N％',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.10, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['MIDRATE'],
@@ -44,7 +44,7 @@ var buff = [{
     },
     DESC: '造成傷害提升[DATA]%'
 },{
-    NAME: '受到傷害降低N%',
+    NAME: '受到傷害降低N％',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.10, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['MIDRATE'],
@@ -60,7 +60,7 @@ var buff = [{
     MOVE: 1,
     DESC: '移動力+[DATA]'
 },{
-    NAME: '回合結束恢復N%生命',
+    NAME: '回合結束恢復N％生命',
     TYPE: ['一般'], INDEX: 1,
     DATA: [0, 0.2, 0.5], MAX: 2,
     DESC: '回合結束恢復[DATA]%生命'
@@ -106,7 +106,7 @@ var buff = [{
     DESC: '戰後恢復部隊10%生命'
 },{
 //情報分析
-    NAME: '防禦+10%(情報分析)',
+    NAME: '防禦+10％(情報分析)',
     TYPE: ['一般'],
     SKILLTYPE: ['RATE'],
     RATE: function(side){
@@ -114,7 +114,7 @@ var buff = [{
     },
     DESC: '防禦+10%(情報分析)'
 },{
-    NAME: '魔防+10%(情報分析)',
+    NAME: '魔防+10％(情報分析)',
     TYPE: ['一般'],
     SKILLTYPE: ['RATE'],
     RATE: function(side){
@@ -269,7 +269,7 @@ var buff = [{
     TYPE: ['阿倫','巴爾加斯','賽蕾娜','格尼爾'],
     DESC: '用“防禦”的1.6倍代替“攻擊”'
 },{
-    NAME: '遭受暴擊率降低20%',
+    NAME: '遭受暴擊率降低20％',
     TYPE: ['雷丁','阿倫','賽蕾娜','巴爾加斯'],
     CRITRATEDEC: 0.2,
     DESC: '遭受暴擊率降低20%'
@@ -568,7 +568,7 @@ var buff = [{
     DESC: '攻擊、技巧提升2%，可以累積，最多可以累積15個。(當前[DATA]個)'
 },{
 //不知道是幾個強化，沒人有=w=
-    NAME: '120%',
+    NAME: '120％',
     TYPE: ['戶愚呂兄弟'],
     ATK: 0.2, INT: 0.2, DEF: 0.2, MDEF: 0.2,
     SKILLTYPE: ['MIDRATE'],
