@@ -324,21 +324,23 @@ function displayMIDNUMS(side, sideRate, oppRate){
     offBASE = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
     offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
     offRATE = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE, combat.offCRITRATE, combat.offCRITDMG];
+    offARENA = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
     defBASE = [combat.defBASEATK, combat.defBASEINT, combat.defBASEDEF, combat.defBASEMDEF, combat.defBASEDEX];
     defPRE = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF, combat.defDEX];
     defRATE = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE, combat.defDEXRATE, combat.defCRITRATE, combat.defCRITDMG];
+    defARENA = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF, combat.defADEX];
 
     if(side == 'offense'){
         SIDE = 'off';
         base = offBASE, oppbase = defBASE;
         pre = offPRE, opppre = defPRE;
-        rate = offRATE;
+        rate = offRATE, arena = offARENA;
     }
     else if(side == 'defense'){
         SIDE = 'def';
         base = defBASE, oppbase = offBASE;
         pre = defPRE, opppre = offPRE;
-        rate = defRATE;
+        rate = defRATE, arena = defARENA;
     }
 
     for(let i=0; i<NUMS.length; i++){
@@ -347,7 +349,7 @@ function displayMIDNUMS(side, sideRate, oppRate){
 
         if(i < 5){
             /* MIDNUM FORMULA */
-            let number = pre[i]+base[i]*(rate[i]-1);
+            let number = base[i]*rate[i]+arena[i];
 
             eDATA.innerHTML = text[i] + ":" + Math.round(number);
             eMIDDESC.innerHTML = Math.round(number)+"="+Math.round(pre[i])+"+"+Math.round(base[i])+"×(0";
@@ -432,6 +434,8 @@ function displayONEHIT(side, sideRate, oppRate){
 
     /* ONEHIT MAIN FORMULA */
     number = (offNUM-defNUM)/2*skillrate*other[DMGRATE]*skilldmg;
+    if(side == 'offense')
+    document.getElementById('ERROR').innerHTML = offNUM/counterRate-defNUM/terrainRate;
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+DMGTYPE);
@@ -505,7 +509,7 @@ function getAllSkill(stage, side){
     }
     /* PRE STAGE */
     if(stage == 'PRE'){
-        let sideRate = [], othersideRate = [];
+        var sideRate = [], othersideRate = [];
         // talent & heart & enchant
         sideRate.push(getTalentSkill(side));
         othersideRate.push(getTalentSkill(otherside));
@@ -553,7 +557,7 @@ function getAllSkill(stage, side){
     /* MID STAGE */
     if(stage == 'MID'){
         // do all true dmg stuff and check perHP related skills
-        let sideRate = [], othersideRate = [];
+        var sideRate = [], othersideRate = [];
         // talent & heart & enchant
         sideRate.push(getMIDTalentSkill(side));
         othersideRate.push(getMIDTalentSkill(otherside));

@@ -19,6 +19,16 @@ var command = [{
     DEF: 0.3,
     DESC: '[水戰]在水中戰鬥時，部隊防禦+30%(不可驅散)'
 },{
+    NAME: '風之守護',
+    SKILLRATE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE;
+        else if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE;
+        if(oppDMGTYPE == '魔法傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+        else return false;
+    },
+    DESC: '遭受魔法傷害降低30%'
+},{
     NAME: '無懈可擊(指揮)',
     ATK: 0.15, INT: 0.15, DEF: 0.15, MDEF: 0.15, DEX: 0.15,
     DESC: '[指揮]除生命以外全屬性+15%'

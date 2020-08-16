@@ -157,7 +157,7 @@ var accessory = [{
     MIDRATE: function(side){
         if(side == 'offense') friend = combat.off2BFriend;
         else if(side == 'defense') friend = combat.def2BFriend;
-        if(friend == 0) return [0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0];
+        if(friend == 1) return [0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '當周圍2格有我方友軍時，戰鬥中，防禦、魔防提升10%。'

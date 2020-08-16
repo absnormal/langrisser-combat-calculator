@@ -189,6 +189,7 @@ var talent = [{
     /* FIRST ATTACK */
     DESC: '擊殺敵軍後，除生命以外全屬性提升10%，可以累積，最高可以累積4層。（該效果不可驅散）進入戰鬥前，如果自身技巧高於敵軍，會先於敵軍進行攻擊。',
 },{
+    /* 乘算 */
     NAME: '王者的意志',
     DMGDEC: 0.15,
     SKILLTYPE: ['MIDRATE'],
@@ -306,8 +307,8 @@ var talent = [{
     },
     DESC: '在有防禦增加效果的地形上，遭受所有傷害降低20%。反之，攻擊力提升20%。',
 },{
+    /* 加算 */
     NAME: '風之守護',
-    /* COMMAND */
     MDEF: 0.2,
     DESC: '魔防提升20%。周圍2格友軍遭受魔法傷害降低30%。',
 },{
@@ -544,6 +545,7 @@ var talent = [{
     ODMGINC: 0.2, ODMGDEC: 0.2,
     DESC: '主動攻擊進入戰鬥時，傷害提升20%，遭受傷害降低20%。行動結束時，會將剩餘的初始移動力附加於自身，最高不超過5格。',
 },{
+    /* 乘算 */
     NAME: '落跑公主',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
@@ -585,6 +587,7 @@ var talent = [{
     CRITRATEDEC: 0.5,
     DESC: '遭受暴擊率降低50%，進入戰鬥前，如果自身生命在50%以上，對敵軍造成一次傷害，傷害數值為英雄防禦的2倍。',
 },{
+    /* 乘算 */
     NAME: '勇將的神力',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
@@ -597,18 +600,11 @@ var talent = [{
             oppDMGTYPE = combat.offDMGTYPE;
         }
         if(oppDMGTYPE == '魔法傷害') return false;
-        switch(perHP){
-            case 1:
-                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
-            /*
-             DATA?
-             */
-            default:
-                return false;
-        }
+        if(perHP > 0.8) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
     },
     DESC: '部隊血量越高時，減少遭受物理傷害越多，最多減少30%，並且在遭受致命傷害時不會死亡，之後生命值恢復30%，該效果每場戰鬥最多觸發1次。',
 },{
+    /* 乘算 */
     NAME: '挺身而出',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
@@ -736,6 +732,7 @@ var talent = [{
     NAME: '魔性之血',
     DESC: '每次擊殺一個敵軍，可以再次移動3格。同時自身攻擊、智力、防禦、魔防提升20%，持續3回合，最高可以累積2層。',
 },{
+    /* 加算 */
     NAME: '智將的帷幕',
     OATK: 0.2, DDMGDEC: 0.2,
     DESC: '主動攻擊時，攻擊提升20%，被攻擊時，遭受傷害降低20%。周圍2格內所有敵軍移動力降低2，且無法進行護衛。',
