@@ -19,8 +19,8 @@ var command = [{
     DEF: 0.3,
     DESC: '[水戰]在水中戰鬥時，部隊防禦+30%(不可驅散)'
 },{
-    NAME: '風之守護',
-    SKILLRATE: ['MIDRATE'],
+    NAME: '風之守護(指揮)',
+    SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE;
         else if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE;
@@ -52,6 +52,7 @@ var command = [{
     ATK: 0.1, INT: 0.1, DEF: 0.1, MDEF: 0.1, DEX: 0.1,
     DESC: '[指揮]除生命以外全屬性提升10%。主動攻擊進入戰鬥，戰後恢復造成傷害的20%的生命值。'
 },{
+    /* 止水系列 乘算 */
     NAME: '止水',
     /* RANGE DMG DEC */
     CRITRATEDEC: 0.3,

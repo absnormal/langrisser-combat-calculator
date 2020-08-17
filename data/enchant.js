@@ -34,12 +34,13 @@ var enchant = [{
     DISC: '暴擊率增加7%，暴擊傷害增加25%。'
 },{
     NAME: '流星',
+    CRITRATEINC: 0.07,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') oppPerHP = combat.defHP/combat.defFULLHP;
         else if(side == 'defense') oppPerHP = combat.offHP/combat.offFULLHP;
-        if(oppPerHP > 0.6) return [0, 0, 0, 0, 0, 0.07, 0, 0.2, 0, 0, 0];
-        else return [0, 0, 0, 0, 0, 0.07, 0, 0, 0, 0, 0];
+        if(oppPerHP > 0.6) return [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0];
+        else return false;
     },
     DISC: '暴擊率增加7%，攻擊生命值高於60%的部隊時，進入戰鬥後所有傷害+20%。'
 },{

@@ -251,7 +251,7 @@ function displayHEALS(side){
 function displayBASENUMS(side, sideRate){
     BASE = 'BASE', DATA = 'DATA', DESC = 'DESC';
     NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
-    text = ["進場前攻擊", "進場前智力", "進場前防禦", "進場前魔防", "進場前技巧"];
+    text = ["白字攻擊", "白字智力", "白字防禦", "白字魔防", "白字技巧"];
 
     if(side == 'offense'){
         SIDE = 'off'
@@ -271,9 +271,9 @@ function displayBASENUMS(side, sideRate){
         let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
         let number = (pre[i]-arena[i])/rate[i];
-        eDATA.innerHTML = text[i] + ":" + Math.round(number);
-        ePREDESC.innerHTML = Math.round(pre[i]);
-        eBASEDESC.innerHTML = Math.round(number) + "=(" + pre[i] + "-" + arena[i] + ")÷(1";
+        eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
+        ePREDESC.innerHTML = pre[i].toFixed(2);
+        eBASEDESC.innerHTML = number.toFixed(2) + "=(" + pre[i] + "-" + arena[i] + ")÷(1";
         for(let j=0; j<sideRate.length; j++)
             if(sideRate[j].RATE[i] != 0)
                eBASEDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
@@ -285,10 +285,10 @@ function displayBASENUMS(side, sideRate){
 function displayPRENUMS(side, sideRate){
     BASE = 'BASE', PRE = 'PRE', DATA = 'DATA', DESC = 'DESC';
     NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
-    text = ["戰前攻擊", "戰前智力", "戰前防禦", "戰前魔防", "戰前技巧"];
+    text = ["當前攻擊", "當前智力", "當前防禦", "當前魔防", "當前技巧"];
 
     if(side == 'offense'){
-        SIDE = 'off'
+        SIDE = 'off';
         base = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
         arena = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
         rate = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE];
@@ -305,9 +305,9 @@ function displayPRENUMS(side, sideRate){
         let ePREDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
         let eBASEDESC = document.getElementById(SIDE+BASE+NUMS[i]+DESC);
         let number = base[i]*rate[i]+arena[i];
-        eDATA.innerHTML = text[i] + ":" + Math.round(number);
-        eBASEDESC.innerHTML = Math.round(base[i]);
-        ePREDESC.innerHTML = Math.round(number) + "=" + base[i] + "×(1";
+        eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
+        eBASEDESC.innerHTML = base[i].toFixed(2);
+        ePREDESC.innerHTML = number.toFixed(2) + "=" + base[i] + "×(1";
         for(let j=0; j<sideRate.length; j++)
             if(sideRate[j].RATE[i] != 0)
                 ePREDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
@@ -315,11 +315,128 @@ function displayPRENUMS(side, sideRate){
     }
 };
 
+/* NUMBER INTERACTION (SUBSTITUTION AND ADDITION) */
+function displayINTERACT(side, interact){
+    PRE = 'PRE', DATA = 'DATA', DESC = 'DESC', NUMS = ['ATK', 'INT', 'DEF', 'MDEF'];
+    TARGET = [0, 0, 0, 0], NULLED = [false, false, false, false];
+    text = ["當前攻擊", "當前智力", "當前防禦", "當前魔防"];
+
+    if(side == 'offense'){
+        SIDE = 'off';
+        pre = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
+    }
+    else if(side == 'defense'){
+        SIDE = 'def';
+        pre = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF, combat.defDEX];
+    }
+
+    /* SUB */
+    let subs = [0, 0, 0, 0];
+    for(let i=0; i<interact.length; i++){
+        if(!interact[i].SUBEXIST) continue;
+        var base1 = false, base2 = false, target = false;
+        for(let j=0; j<NUMS.length; j++){
+            // get changing target
+            if(interact[i].SUB[j] != 1 && interact[i].SUB[j] != 0) target = j;
+            // get changing base (up to 2 for 神衛)
+            if(!base1 && interact[i].SUB[j] == 1) base1 = j;
+            else if(base1 && interact[i].SUB[j] == 1) base2 = j;
+        }
+        eTARGETDATA = document.getElementById(SIDE+PRE+NUMS[target]+DATA);
+        eTARGETDESC = document.getElementById(SIDE+PRE+NUMS[target]+DESC);
+        // reset target desc
+        if(subs[target] == 0){
+            eTARGETDATA.innerHTML = text[target]+":";
+            eTARGETDESC.innerHTML = "";
+        }
+        else eTARGETDESC.innerHTML += "+";
+        subs[target] += 1;
+
+        if(base2){
+            base1NUM = pre[base1];
+            base2NUM = pre[base2];
+            // if a SUBBED number be used as a base, the base's target will be set to 0
+            NULLED[base1] = true, NULLED[base2] = true;
+            eTARGETDESC.innerHTML += "("+base1NUM.toFixed(2)+"×"+interact[i].SUB[base1]+"+"+base2NUM.toFixed(2)+"×"+interact[i].SUB[base2]+")["+interact[i].NAME+"]";
+            TARGET[target] += base1NUM*interact[i].SUB[base1]+base2NUM*interact[i].SUB[base2];
+        }
+        else{
+            base1NUM = pre[base1];
+            // if a SUBBED number be used as a base, the base's target will be set to 0
+            NULLED[base1] = true;
+            eTARGETDESC.innerHTML += "("+base1NUM.toFixed(2)+"×"+interact[i].SUB[target]+")["+interact[i].NAME+"]";
+            TARGET[target] += base1NUM*interact[i].SUB[target];
+        }
+    }
+    // display the summed sub targets
+    for(let i=0; i<NUMS.length; i++)
+        if(TARGET[i] != 0){
+            eDATA = document.getElementById(SIDE+PRE+NUMS[i]+DATA);
+            eDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
+            if(!NULLED[i]){
+                eDATA.innerHTML += TARGET[i].toFixed(2);
+                eDESC.innerHTML = TARGET[i].toFixed(2)+"="+eDESC.innerHTML;
+            }
+            else{
+                eDATA.innerHTML += "0.00";
+                eDESC.innerHTML = "0.00=0.00[代替後的數值無法被代替]";
+            }
+        }
+
+    /* ADD */
+    let ADDS = [0, 0, 0, 0];
+    for(let i=0; i<interact.length; i++){
+        if(!interact[i].ADDEXIST) continue;
+        var base1 = false, base2 = false, target1 = false, target2 = false;
+        for(let j=0; j<NUMS.length; j++){
+            // get changing target (up to 2 for 團結的意志)
+            if(!target1 && interact[i].ADD[j] == 1) target1 = j;
+            else if(target1 && interact[i].ADD[j] == 1) target2 = j;
+            // get changing base (up to 2 for 野獸震懾)
+            if(!base1 && interact[i].ADD[j] != 1 && interact[i].ADD[j] != 0) base1 = j;
+            else if(base1 && interact[i].ADD[j] != 1 && interact[i].ADD[j] != 0) base2 = j;
+        }
+        eTARGETDATA = document.getElementById(SIDE+PRE+NUMS[target1]+DATA);
+        eTARGETDESC = document.getElementById(SIDE+PRE+NUMS[target1]+DESC);
+        // append on current target desc
+
+        if(base2){
+            base1NUM = pre[base1];
+            base2NUM = pre[base2];
+            eTARGETDESC.innerHTML += "+("+base1NUM.toFixed(2)+"×"+interact[i].ADD[base1]+"+"+base2NUM.toFixed(2)+"×"+interact[i].ADD[base2]+")["+interact[i].NAME+"]";
+            ADDS[target1] += base1NUM*interact[i].ADD[base1]+base2NUM*interact[i].ADD[base2];
+        }
+        else if(target2){
+            base1NUM = pre[base1];
+            eTARGET1DESC = document.getElementById(SIDE+PRE+NUMS[target1]+DESC);
+            eTARGET2DESC = document.getElementById(SIDE+PRE+NUMS[target2]+DESC);
+            eTARGET1DESC.innerHTML += "+("+base1NUM.toFixed(2)+"×"+interact[i].ADD[base1]+")["+interact[i].NAME+"]";
+            eTARGET2DESC.innerHTML += "+("+base1NUM.toFixed(2)+"×"+interact[i].ADD[base1]+")["+interact[i].NAME+"]";
+            ADDS[target1] += base1NUM*interact[i].ADD[base1];
+            ADDS[target2] += base1NUM*interact[i].ADD[base1];
+        }
+        else{
+            base1NUM = pre[base1];
+            eTARGETDESC.innerHTML += "+("+base1NUM.toFixed(2)+"×"+interact[i].ADD[base1]+")["+interact[i].NAME+"]";
+            ADDS[target1] += base1NUM*interact[i].ADD[base1];
+        }
+    }
+    // display adds
+    for(let i=0; i<NUMS.length; i++)
+        if(ADDS[i] != 0){
+            eDATA = document.getElementById(SIDE+PRE+NUMS[i]+DATA);
+            eDESC = document.getElementById(SIDE+PRE+NUMS[i]+DESC);
+            numAfterAdd = ADDS[i] + Number(eDATA.innerHTML.split(':')[1]);
+            eDATA.innerHTML = text[i]+":"+numAfterAdd.toFixed(2);
+            eDESC.innerHTML = numAfterAdd.toFixed(2)+"="+eDESC.innerHTML.split('=')[1];
+        }
+};
+
 /* MIDNUM = PRENUM+BASENUM*(0+EQUIP+TALENT+ENCHANT) */
 function displayMIDNUMS(side, sideRate, oppRate){
     BASE = 'BASE', PRE = 'PRE', MID = 'MID', DATA = 'DATA', DESC = 'DESC';
     NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX', 'CRITRATE', 'CRITDMG'];
-    text = ["戰中攻擊", "戰中智力", "戰中防禦", "戰中魔防", "戰中技巧", "暴擊率(不含技巧)", "暴擊傷害"];
+    text = ["戰中攻擊", "戰中智力", "戰中防禦", "戰中魔防", "戰中技巧", "暴擊率", "暴擊傷害"];
 
     offBASE = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
     offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
@@ -351,8 +468,8 @@ function displayMIDNUMS(side, sideRate, oppRate){
             /* MIDNUM FORMULA */
             let number = base[i]*rate[i]+arena[i];
 
-            eDATA.innerHTML = text[i] + ":" + Math.round(number);
-            eMIDDESC.innerHTML = Math.round(number)+"="+Math.round(pre[i])+"+"+Math.round(base[i])+"×(0";
+            eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
+            eMIDDESC.innerHTML = number.toFixed(2)+"="+pre[i].toFixed(2)+"+"+base[i].toFixed(2)+"×(0";
             for(let j=0; j<sideRate.length; j++)
                 if(sideRate[j].MIDRATE[i] != 0)
                     eMIDDESC.innerHTML+="+"+sideRate[j].MIDRATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
@@ -379,20 +496,21 @@ function displayMIDNUMS(side, sideRate, oppRate){
 /* ATK*(1+EQUIP+OEQUIP+TALENT+HEART+BUFF+DEBUFF+COMMAND+ENCHANT:MOON+ENCHENT:WAVE) */
 function displayONEHIT(side, sideRate, oppRate){
     ONEHIT = 'ONEHIT', MID = 'MID', DATA = 'DATA', DESC = 'DESC', DMGTYPE = 'DMGTYPE';
-    text = ['一段傷害'], offhtml = '<b>進攻方</b>', defhtml = '<b>防守方</b>';
+    text=['一段傷害'], offhtml='<b>進攻方</b>', defhtml='<b>防守方</b>';
+    NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'/*, 'CRITRATE', 'CRITDMG'*/];
     ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITRATE = 0, CRITDMG = 1, DMGRATE = 2;
     CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
     CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
-    offBASE = [combat.offBASEATK, combat.offBASEINT, combat.offBASEDEF, combat.offBASEMDEF, combat.offBASEDEX];
-    offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
-    offARENA = [combat.offAATK, combat.offAINT, combat.offADEF, combat.offAMDEF, combat.offADEX];
-    offRATE = [combat.offATKRATE, combat.offINTRATE, combat.offDEFRATE, combat.offMDEFRATE, combat.offDEXRATE];
+    offMID = [], defMID = [],
     offOTHER = [combat.offCRITRATE, combat.offCRITDMG, combat.offDMGRATE];
-    defBASE = [combat.defBASEATK, combat.defBASEINT, combat.defBASEDEF, combat.defBASEMDEF, combat.defBASEDEX];
-    defPRE = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF, combat.defDEX];
-    defARENA = [combat.defAATK, combat.defAINT, combat.defADEF, combat.defAMDEF, combat.defADEX];
-    defRATE = [combat.defATKRATE, combat.defINTRATE, combat.defDEFRATE, combat.defMDEFRATE, combat.defDEXRATE];
     defOTHER = [combat.defCRITRATE, combat.defCRITDMG, combat.defDMGRATE];
+
+    for(let i=0; i<NUMS.length; i++){
+        eoffDATA = document.getElementById('off'+MID+NUMS[i]+DATA);
+        edefDATA = document.getElementById('def'+MID+NUMS[i]+DATA);
+        offMID[i] = Number(eoffDATA.innerHTML.split(':')[1]);
+        defMID[i] = Number(edefDATA.innerHTML.split(':')[1]);
+    }
 
     if(side == 'offense'){
         SIDE = 'off', sidetext = offhtml;
@@ -400,9 +518,7 @@ function displayONEHIT(side, sideRate, oppRate){
         skillrate = combat.offSkill.RATE;
         skilldmg = combat.offSKILLDMG;
         otherside = 'defense';
-        base = offBASE, oppbase = defBASE;
-        pre = offPRE, opppre = defPRE;
-        arena = offARENA, opparena = defARENA;
+        mid = offMID, oppmid = defMID;
         rate = offRATE, opprate = defRATE;
         other = offOTHER, oppother = defOTHER;
         counterRate = combat.offCounterRate;
@@ -414,61 +530,43 @@ function displayONEHIT(side, sideRate, oppRate){
         skillrate = combat.defSkill.RATE;
         skilldmg = 1;
         otherside = 'offense';
-        base = defBASE, oppbase = offBASE;
-        pre = defPRE, opppre = offPRE;
-        arena = defARENA, opparena = offARENA;
-        rate = defRATE, opprate = offRATE;
+        mid = defMID, oppmid = offMID;
         other = defOTHER, oppother = offOTHER;
         counterRate = combat.defCounterRate;
         terrainRate = combat.offTerrainRate;
     }
 
     if(skilltype == '物理傷害'){
-        offNUM = (base[ATK]*rate[ATK]+arena[ATK])*counterRate;
-        defNUM = (oppbase[DEF]*opprate[DEF]+arena[DEF])*terrainRate;
+        offNUM = mid[ATK]*counterRate;
+        defNUM = oppmid[DEF]*terrainRate;
     }
     else if(skilltype == '魔法傷害'){
-        offNUM = (base[INT]*rate[INT]+arena[INT])*counterRate;
-        defNUM = (oppbase[MDEF]*opprate[MDEF]+arena[MDEF])*terrainRate;
+        offNUM = mid[INT]*counterRate;
+        defNUM = oppmid[MDEF]*terrainRate;
     }
 
     /* ONEHIT MAIN FORMULA */
     number = (offNUM-defNUM)/2*skillrate*other[DMGRATE]*skilldmg;
-    if(side == 'offense')
-    document.getElementById('ERROR').innerHTML = offNUM/counterRate-defNUM/terrainRate;
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+DMGTYPE);
     eDATA = document.getElementById(SIDE+ONEHIT+DATA);
     eDESC = document.getElementById(SIDE+ONEHIT+DESC);
     eTYPE.innerHTML = sidetext+" ["+skilltype+"]";
-    eDATA.innerHTML = text[0] + ":" + Math.round(number);
-    eDESC.innerHTML = Math.round(number) + "=";
+    eDATA.innerHTML = text[0] + ":" + number.toFixed(2);
+    eDESC.innerHTML = number.toFixed(2) + "=";
 
     /* display skilltype */
     if(skilltype == '物理傷害') offNUM = ATK, defNUM = DEF;
     else if(skilltype == '魔法傷害') offNUM = INT, defNUM = MDEF;
 
 
-    /* offNUM */
-    eDESC.innerHTML += "[("+Math.round(pre[offNUM])+"+"+Math.round(base[offNUM])+"×(0";
-    for(let j=0; j<sideRate.length; j++)
-        if(sideRate[j].MIDRATE[offNUM] != 0)
-           eDESC.innerHTML+="+"+sideRate[j].MIDRATE[offNUM].toFixed(2)+"["+sideRate[j].NAME+"]";
-    eDESC.innerHTML += "))";
-    /* counterRATE */
-    eDESC.innerHTML += "×" + counterRate;
-    /* defNUM */
-    eDESC.innerHTML += "-("+Math.round(opppre[defNUM])+"+"+Math.round(oppbase[defNUM])+"×(0";
-    for(let j=0; j<oppRate.length; j++)
-        if(oppRate[j].MIDRATE[defNUM] != 0)
-           eDESC.innerHTML += "+"+oppRate[j].MIDRATE[defNUM].toFixed(2)+"["+oppRate[j].NAME+"]";
-    eDESC.innerHTML += "))";
-    /* terrainRATE */
-    eDESC.innerHTML += "×" + terrainRate + "]";
-
+    /* offNUM*counterRate */
+    eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate;
+    /* defNUM*terrainRate */
+    eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×"+terrainRate+")";
     /* skillrate */
-    eDESC.innerHTML += "÷2×" + skillrate;
+    eDESC.innerHTML += "÷2×"+skillrate;
     /* off DMGRATEINC */
     eDESC.innerHTML += "×(1";
     for(let j=0; j<sideRate.length; j++){
@@ -491,7 +589,6 @@ function displayONEHIT(side, sideRate, oppRate){
                 eDESC.innerHTML+="+"+sideRate[j].SKILLDMG.toFixed(2)+"["+sideRate[j].NAME+"]";
         eDESC.innerHTML += ")";
     }
-
 };
 
 /* collect RATES from skills */
@@ -510,6 +607,7 @@ function getAllSkill(stage, side){
     /* PRE STAGE */
     if(stage == 'PRE'){
         var sideRate = [], othersideRate = [];
+        var interact = [], oppinteract = [];
         // talent & heart & enchant
         sideRate.push(getTalentSkill(side));
         othersideRate.push(getTalentSkill(otherside));
@@ -517,6 +615,8 @@ function getAllSkill(stage, side){
         othersideRate.push(getHeartSkill(otherside));
         sideRate.push(getEnchantSkill(side));
         othersideRate.push(getEnchantSkill(otherside));
+        interact.push(getInteractTalentSkill(side));
+        oppinteract.push(getInteractTalentSkill(otherside));
         // command & passive & buff & debuff
         sideRate = [...sideRate, ...getBUFFSkill(side)];
         othersideRate = [...othersideRate, ...getBUFFSkill(otherside)];
@@ -524,6 +624,10 @@ function getAllSkill(stage, side){
         othersideRate = [...othersideRate, ...getCommandSkill(otherside)];
         sideRate = [...sideRate, ...getPassiveSkill(side)];
         othersideRate = [...othersideRate, ...getPassiveSkill(otherside)];
+        interact = [...interact, ...getInteractBUFFSkill(side)];
+        oppinteract = [...oppinteract, ...getInteractBUFFSkill(otherside)];
+        interact = [...interact, ...getInteractPassiveSkill(side)];
+        oppinteract = [...oppinteract, ...getInteractPassiveSkill(otherside)];
         // equipment
         sideRate.push(getWeaponSkill(side));
         othersideRate.push(getWeaponSkill(otherside));
@@ -540,6 +644,7 @@ function getAllSkill(stage, side){
         if(sideBASE){
             displayPRENUMS(side, sideRate);
             getPRENUMS(side);
+            displayINTERACT(side, interact);
         }
         else{
             displayBASENUMS(side, sideRate);
@@ -548,6 +653,7 @@ function getAllSkill(stage, side){
         if(othersideBASE){
             displayPRENUMS(otherside, othersideRate);
             getPRENUMS(otherside);
+            displayINTERACT(otherside, oppinteract);
         }
         else{
             displayBASENUMS(otherside, othersideRate);

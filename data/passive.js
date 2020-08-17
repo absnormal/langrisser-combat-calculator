@@ -178,7 +178,11 @@ var passive = [{
 },{
     NAME: '招架',
     TYPE: ['亞魯特繆拉','巴恩哈特','艾馬林克'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['MIDADD'],
+    MIDADD: function(side){
+        if(side == 'defense') return [0.07, 0, 1, 0, 0];
+        else return false;
+    },
     DESC: '[被動]替相鄰友軍承受物理攻擊。被攻擊時，將「攻擊」的7%增加到「防禦」上。'
 },{
     NAME: '整軍',
@@ -339,7 +343,14 @@ var passive = [{
 },{
     NAME: '金剛',
     TYPE: ['艾絲蒂爾'],
-    /* NUMBER INTERACTION */
+    DMGINC: 0.1,
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [0.1, 0, 1, 0, 0];
+    },
+    MIDADD: function(side){
+        return [0.1, 0, 1, 0, 0];
+    },
     DESC: '[被動]造成的所有傷害提升10%，並將「攻擊」的10%增加到「防禦」上。'
 },{
     NAME: '鐵壁',
@@ -369,6 +380,17 @@ var passive = [{
     TYPE: ['約書亞','奧利佛','飛影','布琳達','梅雅','西格瑪','雪莉','馬修'],
     OCRITRATEINC: 0.1, ODMGDEC: 0.2,
     DESC: '[被動]主動進入戰鬥時，暴擊率提升10%，遭受傷害降低20%。'
+},{
+    NAME: '海衛(被動)',
+    TYPE: ['伊露希亞', '古巨拉'],
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1.4, 0, 1, 0, 0];
+    },
+    MIDSUB: function(side){
+        return [1.4, 0, 1, 0, 0];
+    },
+    DESC: '[被動]在水中時，用防禦的1.4倍代替攻擊。'
 },{
     NAME: '鮮血逆流',
     TYPE: ['妮絲蒂爾'],

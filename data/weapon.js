@@ -186,7 +186,10 @@ var weapon = [{
     DESC: '進入戰鬥前，每移動1格，攻擊、防禦、魔防各提升5%(最多提升15%)'
 },{
     NAME: '世界樹的嫩枝', TYPE: '槍',
-    /* DEF NEG */
+    SKILLTYPE: ['NEG'],
+    NEG: function(side){
+        return [0, 0, 0.15, 0, 0];
+    },
     DEF: 0.1,
     DESC: '防禦+10%，戰鬥時無視敵軍防禦15%'
 },{

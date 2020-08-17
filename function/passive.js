@@ -132,3 +132,35 @@ function getMIDPassiveSkill(side){
     return displayList;
 };
 
+function getInteractPassiveSkill(side){
+    var passiveList;
+    if(side == 'offense') passiveList = combat.offPassiveLIST;
+    else if(side == 'defense') passiveList = combat.defPassiveLIST;
+
+    // collect displayList
+    var displayList = [];
+    for(let i=0; i<passiveList.length; i++){
+        var passive = passiveList[i];
+        // collect display
+        var display = {
+            NAME: passive.NAME,
+            /* SUB: [ATK, INT, DEF, MDEF, DEX] */
+            SUB: [0, 0, 0, 0, 0],
+            SUBEXIST: false,
+            /* ADD: [ATK, INT, DEF, MDEF, DEX] */
+            ADD: [0, 0, 0, 0, 0],
+            ADDEXIST: false
+        };
+        if(passive.SUB != undefined && passive.SKILLTYPE.includes('SUB') && passive.SUB(side)){
+            display.SUB = passive.SUB(side);
+            display.SUBEXIST = true;
+        }
+        if(passive.ADD != undefined && passive.SKILLTYPE.includes('ADD') && passive.ADD(side)){
+            display.ADD = passive.ADD(side);
+            display.ADDEXIST = true;
+        }
+        displayList.push(display);
+    }
+    return displayList;
+};
+

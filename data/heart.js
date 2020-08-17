@@ -1189,6 +1189,7 @@ var heart = [{
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
+            terrainName = combat.defTerrain;
             perHP = combat.defHP/combat.defFULLHP;
             oppPerHP = combat.offHP/combat.offFULLHP;
             oppDMGTYPE = combat.offDMGTYPE;
@@ -2675,7 +2676,7 @@ var heart = [{
     NAME: '娜姆大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        DMGINC = 7, DMGDEC = 10;
+        DMGINC = 7, DMGDEC = 10, CRITDMGINC = 6;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             perHP = combat.offHP/combat.offFULLHP;
@@ -2698,7 +2699,7 @@ var heart = [{
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
-                    midrate[DMGINC] += 0.1;
+                    midrate[CRITDMGINC] += 0.1;
             case 2:
                 if(side == 'defense' && range > 1 && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;

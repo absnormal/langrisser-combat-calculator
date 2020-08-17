@@ -253,9 +253,13 @@ var buff = [{
     ATK: 0.2, MDEF: 0.2,
     DESC: '攻擊+20%，魔防+20%'
 },{
-    /* NUMBER INTERACTION */
     NAME: '[招架]',
     TYPE: ['貝蒂', '巴恩哈特', '亞魯特繆拉'],
+    SKILLTYPE: ['MIDADD'],
+    MIDADD: function(side){
+        if(side == 'defense') return [0.07, 0, 1, 0, 0];
+        else return false;
+    },
     DESC: '被攻擊時，將“攻擊”的7%增加到“防禦”上'
 },{
     /* TRUE DMG */
@@ -263,9 +267,15 @@ var buff = [{
     TYPE: ['亞魯特繆拉'],
     DESC: '被近戰攻擊進入戰鬥後，戰後若本部隊生命值大於50%則對敵軍造成一次[固定傷害]'
 },{
-    /* NUMBER INTERACTION */
     NAME: '[力突]',
     TYPE: ['阿倫','巴爾加斯','賽蕾娜','格尼爾'],
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1.6, 0, 1, 0, 0];
+    },
+    MIDSUB: function(side){
+        return [1.6, 0, 1, 0, 0];
+    },
     DESC: '用“防禦”的1.6倍代替“攻擊”'
 },{
     NAME: '遭受暴擊率降低20％',
@@ -340,14 +350,19 @@ var buff = [{
     DESC: '戰鬥結束後，對敵方造成一次英雄魔防2.5倍的[固定傷害]'
 },{
     NAME: '鐵薔薇(魔法減傷)',
-    /* NUMBER INTERACTION */
     TYPE: ['芙蕾雅'],
-    SKILLTYPE: ['MIDRATE'],
+    SKILLTYPE: ['MIDRATE', 'SUB', 'MIDSUB'],
     MIDRATE: function(side){
         if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE;
         else if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE;
         if(oppDMGTYPE == '魔法傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
         else return false;
+    },
+    SUB: function(side){
+        return [0, 0, 0.8, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [0, 0, 0.8, 1, 0];
     },
     DESC: '部隊遭受魔法傷害降低20%，用“魔防”的0.8倍代替“防禦'
 },{
@@ -370,9 +385,12 @@ var buff = [{
     TYPE: ['愛麗絲'],
     DESC: '行動結束時，恢復自身周圍2格範圍內所有友軍部隊生命，恢復量為愛麗絲智力的2倍'
 },{
-    /* NUMBER INTERACTION */
     NAME: '健康',
     TYPE: ['桑原和真'],
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1, 0, 0.6, 0, 0];
+    },
     DESC: '用“攻擊”的0.6倍代替“防禦”'
 },{
     NAME: '愛即正義',
@@ -459,8 +477,14 @@ var buff = [{
 },{
     NAME: '團結的意志',
     TYPE: ['蘭迪烏斯'],
-    /* NUMBER INTERACTION */
     ATK: 0.2,
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [0.15, 0, 1, 1, 0];
+    },
+    MIDADD: function(side){
+        return [0.15, 0, 1, 1, 0];
+    },
     DESC: '攻擊提升20%，並將攻擊的15%增加到防禦和魔防上'
 },{
     NAME: '替相鄰2格友軍承受所有攻擊',
@@ -488,26 +512,50 @@ var buff = [{
 */
     NAME: '魔武',
     TYPE: ['克蘿賽','傑利奧魯&蕾拉'],
-    /* NUMBER INTERACTION */
     /* DMGTYPE CHANGE */
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [0.1, 1, 0, 0, 0];
+    },
+    MIDADD: function(side){
+        return [0.1, 1, 0, 0, 0];
+    },
     DESC: '英雄造成的魔法傷害，全部視為物理傷害，並將“攻擊”的10%增加到“智力”上'
 },{
     NAME: '增幅',
     TYPE: ['傑利奧魯&蕾拉'],
-    /* NUMBER INTERACTION */
     /* DMGTYPE CHANGE */
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [1, 0.1, 0, 0, 0];
+    },
+    MIDADD: function(side){
+        return [1, 0.1, 0, 0, 0];
+    },
     DESC: '英雄造成的物理傷害，全部視為魔法傷害，並將“智力”的10%增加到“攻擊”上'
 },{
     NAME: '高階增幅',
     TYPE: ['傑利奧魯&蕾拉'],
-    /* NUMBER INTERACTION */
     /* DMGTYPE CHANGE */
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [1, 0.5, 0, 0, 0];
+    },
+    MIDADD: function(side){
+        return [1, 0.5, 0, 0, 0];
+    },
     DESC: '英雄所有的傷害全部變為物理傷害，並將“智力”的50%增加到“攻擊”上'
 },{
     NAME: '高階魔武',
     TYPE: ['傑利奧魯&蕾拉'],
-    /* NUMBER INTERACTION */
     /* DMGTYPE CHANGE */
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [0.5, 1, 0, 0, 0];
+    },
+    MIDADD: function(side){
+        return [0.5, 1, 0, 0, 0];
+    },
     DESC: '英雄所有的傷害全部變為魔法傷害，並將“攻擊”的50%增加到“智力”上'
 },{
     NAME: '暗之領域',
@@ -516,12 +564,24 @@ var buff = [{
 },{
     NAME: '風之纏繞',
     TYPE: ['露娜'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1.5, 0, 0, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [1.5, 0, 0, 1, 0];
+    },
     DESC: '將自身的“魔防”的1.5倍代替“攻擊”'
 },{
     NAME: '高階風之纏繞',
     TYPE: ['露娜'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1.5, 0, 0, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [1.5, 0, 0, 1, 0];
+    },
     DESC: '將自身的“魔防”的1.5倍代替“攻擊”（該效果無法被驅散）'
 },{
 //可能要增加輸入欄位
@@ -551,6 +611,13 @@ var buff = [{
     NAME: '[金剛]',
     TYPE: ['艾絲蒂爾'],
     DMGINC: 0.1,
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [0.1, 0, 1, 0, 0];
+    },
+    MIDADD: function(side){
+        return [0.1, 0, 1, 0, 0];
+    },
     DESC: '造成的所有傷害提升10%，並將“攻擊”的10%增加到“防禦”上。'
 },{
     NAME: '寒冰領域',
@@ -604,12 +671,24 @@ var buff = [{
 },{
     NAME: '神衛',
     TYPE: ['雷丁'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [2, 0, 1, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [2, 0, 1, 1, 0];
+    },
     DESC: '用“魔防”+“防禦”的1倍代替攻擊'
 },{
     NAME: '高階神衛',
     TYPE: ['雷丁'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [2, 0, 1, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [2, 0, 1, 1, 0];
+    },
     DESC: '用“魔防”+“防禦”的1倍代替攻擊(該效果無法被驅散)'
 },{
     NAME: '[正義對決]',
@@ -624,7 +703,13 @@ var buff = [{
 },{
     NAME: '[迎頭痛擊]',
     TYPE: ['艾爾文','布琳達'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [0.2, 0, 1, 0, 0];
+    },
+    MIDADD: function(side){
+        return [0.2, 0, 1, 0, 0];
+    },
     DESC: '攻擊”的20%增加到“防禦”上'
 },{
     NAME: '孤芳永生',
@@ -754,7 +839,14 @@ var buff = [{
 },{
     NAME: '聖衛',
     TYPE: ['艾米莉亞'],
-    /* NUMBER INTERACTION */
+    /* RANGE DEFENSE ATTACK */
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1.6, 0, 0, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [1.6, 0, 0, 1, 0];
+    },
     DESC: '用“魔防”的1.6倍來代替“攻擊”，可以反擊2格的遠程攻擊'
 },{
 //需要測測看是不是強化
@@ -777,7 +869,13 @@ var buff = [{
 },{
     NAME: '野獸震懾(加攻)',
     TYPE: ['古巨拉'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [1, 0, 0.4, 0.4, 0];
+    },
+    MIDADD: function(side){
+        return [1, 0, 0.4, 0.4, 0];
+    },
     DESC: '將“魔防”和“防禦” 40%增加到“攻擊”上'
 },{
     NAME: '野獸震懾(光環)',
@@ -786,7 +884,13 @@ var buff = [{
 },{
     NAME: '巨龍屏障(魔防轉攻)',
     TYPE: ['古巨拉'],
-    /* NUMBER INTERACTION */
+    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SUB: function(side){
+        return [1.4, 0, 0, 1, 0];
+    },
+    MIDSUB: function(side){
+        return [1.4, 0, 0, 1, 0];
+    },
     DESC: '用“魔防”的1.4倍代替“攻擊”'
 },{
     NAME: '巨龍屏障(光環)',

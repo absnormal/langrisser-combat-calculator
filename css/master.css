@@ -92,10 +92,10 @@ tbody > p{
     border-bottom: 3px solid #82edff;
 }
 .cell{
-    height: 800px; width: 640px;
+    height: 800px; width: 615px;
 }
 .cell.data{
-    height: 800px; width: 500px;
+    height: 800px; width: 600px;
 }
 .banner{
     background-color: white;

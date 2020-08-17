@@ -135,3 +135,35 @@ function getMIDBUFFSkill(side){
     return displayList;
 };
 
+function getInteractBUFFSkill(side){
+    var buffList;
+    if(side == 'offense') buffList = combat.offBUFFLIST;
+    else if(side == 'defense') buffList = combat.defBUFFLIST;
+
+    // collect displayList
+    var displayList = [];
+    for(let i=0; i<buffList.length; i++){
+        var buff = buffList[i];
+        // collect display
+        var display = {
+            NAME: buff.NAME,
+            /* SUB: [ATK, INT, DEF, MDEF, DEX] */
+            SUB: [0, 0, 0, 0, 0],
+            SUBEXIST: false,
+            /* ADD: [ATK, INT, DEF, MDEF, DEX] */
+            ADD: [0, 0, 0, 0, 0],
+            ADDEXIST: false
+        };
+        if(buff.SUB != undefined && buff.SKILLTYPE.includes('SUB') && buff.SUB(side)){
+            display.SUB = buff.SUB(side);
+            display.SUBEXIST = true;
+        }
+        if(buff.ADD != undefined && buff.SKILLTYPE.includes('ADD') && buff.ADD(side)){
+            display.ADD = buff.ADD(side);
+            display.ADDEXIST = true;
+        }
+        displayList.push(display);
+    }
+    return displayList;
+};
+

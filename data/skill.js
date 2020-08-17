@@ -33,7 +33,11 @@ var skill = [{
     NAME: '暗鐮', COST: 2,
     TYPE: '魔法傷害', CD: 2, RANGE: '2格', AREA: '單體',
     RATE: 1.3, COUNTER: '無',
-    NEGDEF: 0, NEGMDEF: 0.3, DISPERSE: 0,
+    /* HEAL AFTER BATTLE */
+    SKILLTYPE: ['NEG'],
+    NEG: function(side){
+        return [0, 0, 0, 0.3, 0];
+    },
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.3倍傷害。無視敵軍30%的魔防。戰後，恢復造成傷害的50%的生命值'
 },{
     NAME: '淨化', COST: 2,
@@ -60,7 +64,6 @@ var skill = [{
     TYPE: '魔法傷害', CD: 5, RANGE: '1格', AREA: '單體',
     RATE: 1.6, COUNTER: '無',
     STREFF: '無', WEAKEFF: '無法再行動 無法遭受強化', SOLDATK: '無',
-    NEGDEF: 0, NEGMDEF: 0, DISPERSE: 5,
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.6倍傷害。戰前驅散敵軍5個強化狀態。並使其“無法再行動”以及“無法遭受強化狀態”，持續2回合，該效果無法被驅散。'
 },{
     NAME: '懲戒', COST: 2,
@@ -147,7 +150,6 @@ var skill = [{
     NAME: '魔界植物', COST: 2,
     TYPE: '魔法傷害', CD: 6, RANGE: '2格', AREA: '單體',
     RATE: 1.3, COUNTER: '無',
-    NEGDEF: 0, NEGMDEF: 0.5, DISPERSE: 0,
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.3倍傷害，並使敵軍獲得效果[魔界種子]：“回合行動結束時，受到藏馬智力2倍的[固定傷害]；被魔界植物技能攻擊時，魔防額外降低50% ”。在[妖狐]狀態下該技能射程+1，並且士兵可以同時進行攻擊。'
 },{
     NAME: '一閃', COST: 2,
@@ -239,7 +241,13 @@ var skill = [{
     NAME: '弱點狙擊', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
     RATE:  1.3, COUNTER: '無',
-    /* NEG DEF */
+    SKILLTYPE: ['NEG'],
+    NEG: function(side){
+        if(side == 'defense') return false;
+        oppDEBUFFNUM = combat.defDEBUFFLIST.length;
+        if(oppDEFBUFFNUM > 0) return [0, 0, 0.2, 0, 0];
+        else return false;
+    },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍傷害。敵軍身上若有弱化狀態，則攻擊前無視敵方20%的“防禦”，並在攻擊後令本技能的冷卻時間減少2回合。'
 },{
     NAME: '彈指', COST: 2,
@@ -354,11 +362,11 @@ var skill = [{
     },
     DISC: '[物理傷害]無視護衛直接攻擊單個敵軍，造成1.3倍傷害，暴擊率提升20%。如果發生暴擊，則在戰鬥後，恢復傷害數值30%的生命。戰鬥前，偷取敵軍最多2個強化狀態。本次攻擊即使沒有擊殺敵軍也會強制發動自身所有擊殺目標後的觸發效果。'
 },{
-    //物傷OR魔傷 數值浮動
     NAME: '混沌螺旋', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '2格', AREA: '單體',
-    RATE:  1.6, COUNTER: '無',
-    /* ??? */
+    RATE:  1.6, COUNTER: '無', SOLDATK: '有',
+    /* NUMBER INTERACTION */
+    /* CHANGE DMGTYPE */
     DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍傷害，攜帶近戰士兵時，士兵也會同時進行攻擊。如果敵軍物防低於魔防，在戰鬥前將智力的70%附加於攻擊之上；反之，則在戰鬥前將攻擊的70%附加於智力之上，並造成魔法傷害。同時使得敵軍獲得[傷口詛咒]：“被施加的治療直接轉變為治療量20%的傷害”，持續2回合。如果敵軍英雄為「僧侶」，則在戰前令其“技能射程-1 ”，持續1回合，該效果不可驅散。'
 },{
     NAME: '激浪', COST: 2,
@@ -508,7 +516,13 @@ var skill = [{
     NAME: '血腥之凜', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '2格', AREA: '單體',
     RATE:  1.6, COUNTER: '無', SOLDATK: '是',
-    /* DEF NEG */
+    SKILLTYPE: ['NEG'],
+    NEG: function(side){
+        if(side == 'defense') return false;
+        if(combat.def1BFriend == 1) return [0, 0, 0.2, 0, 0];
+        if(combat.def1BFriend >= 2) return [0, 0, 0.4, 0, 0];
+        else return false;
+    },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍傷害，攜帶近戰士兵時，士兵也會同時進行攻擊。戰鬥後，恢復傷害數值30%的生命。如果目標相鄰1格每有一個敵軍則此次攻擊無視其20%防禦（上限40%）；如果目標周圍2格沒有敵軍時，則此次攻擊擊殺目標後可以再次行動。（此再行動效果不能在同一回合連續觸發）'
 },{
     NAME: '詭狙', COST: 2,

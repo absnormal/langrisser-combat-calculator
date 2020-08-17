@@ -119,3 +119,29 @@ function getMIDTalentSkill(side){
     return display;
 };
 
+function getInteractTalentSkill(side){
+    var talent;
+    if(side == 'offense') talent = combat.offTalent;
+    else if(side == 'defense') talent = combat.defTalent;
+
+    // collect display
+    var display = {
+        NAME: talent.NAME,
+        /* SUB: [ATK, INT, DEF, MDEF, DEX] */
+        SUB: [0, 0, 0, 0, 0],
+        SUBEXIST: false,
+        /* ADD: [ATK, INT, DEF, MDEF, DEX] */
+        ADD: [0, 0, 0, 0, 0],
+        ADDEXIST: false
+    };
+    if(talent.SUB != undefined && talent.SKILLTYPE.includes('SUB') && talent.SUB(side)){
+        display.SUB = talent.SUB(side);
+        display.SUBEXIST = true;
+    }
+    if(talent.ADD != undefined && talent.SKILLTYPE.includes('ADD') && talent.ADD(side)){
+        display.ADD = talent.ADD(side);
+        display.ADDEXIST = true;
+    }
+    return display;
+};
+
