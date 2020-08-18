@@ -34,10 +34,7 @@ var skill = [{
     TYPE: '魔法傷害', CD: 2, RANGE: '2格', AREA: '單體',
     RATE: 1.3, COUNTER: '無',
     /* HEAL AFTER BATTLE */
-    SKILLTYPE: ['NEG'],
-    NEG: function(side){
-        return [0, 0, 0, 0.3, 0];
-    },
+    MDEFNEG: 0.3,
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.3倍傷害。無視敵軍30%的魔防。戰後，恢復造成傷害的50%的生命值'
 },{
     NAME: '淨化', COST: 2,
@@ -241,12 +238,11 @@ var skill = [{
     NAME: '弱點狙擊', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
     RATE:  1.3, COUNTER: '無',
-    SKILLTYPE: ['NEG'],
-    NEG: function(side){
-        if(side == 'defense') return false;
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
         oppDEBUFFNUM = combat.defDEBUFFLIST.length;
-        if(oppDEFBUFFNUM > 0) return [0, 0, 0.2, 0, 0];
-        else return false;
+        if(side == 'offense' && oppDEFBUFFNUM > 0) this.DEFNEG = 0.2;
+        else this.DEFNEG = undefined;
     },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍傷害。敵軍身上若有弱化狀態，則攻擊前無視敵方20%的“防禦”，並在攻擊後令本技能的冷卻時間減少2回合。'
 },{
@@ -489,7 +485,6 @@ var skill = [{
     NAME: '絕閃', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
     RATE: 1.3, COUNTER: '無',
-    NEGDEF: 0, NEGMDEF: 0, DISPERSE: 2,
     DISC: '[物理傷害]無視護衛直接攻擊單個敵軍，造成1.3倍傷害。戰鬥前，偷取對方最多2個強化狀態。'
 },{
     NAME: '翡翠破風', COST: 3,
@@ -516,12 +511,12 @@ var skill = [{
     NAME: '血腥之凜', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '2格', AREA: '單體',
     RATE:  1.6, COUNTER: '無', SOLDATK: '是',
-    SKILLTYPE: ['NEG'],
-    NEG: function(side){
-        if(side == 'defense') return false;
-        if(combat.def1BFriend == 1) return [0, 0, 0.2, 0, 0];
-        if(combat.def1BFriend >= 2) return [0, 0, 0.4, 0, 0];
-        else return false;
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') this.DEFNEG = undefined;
+        else if(combat.def1BFriend == 1) this.DEFNEG = 0.2;
+        else if(combat.def1BFriend >= 2) this.DEFNEG = 0.4;
+        else this.DEFNEG = undefined;
     },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.6倍傷害，攜帶近戰士兵時，士兵也會同時進行攻擊。戰鬥後，恢復傷害數值30%的生命。如果目標相鄰1格每有一個敵軍則此次攻擊無視其20%防禦（上限40%）；如果目標周圍2格沒有敵軍時，則此次攻擊擊殺目標後可以再次行動。（此再行動效果不能在同一回合連續觸發）'
 },{

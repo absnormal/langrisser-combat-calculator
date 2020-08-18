@@ -71,6 +71,8 @@ function resetAllRATE(){
     combat.offSKILLDMG = combat.baseRATE;
     combat.offCounterRate = combat.baseRATE;
     combat.offTerrainRate = combat.baseRATE;
+    combat.offDEFNEG = combat.baseCombatNEG;
+    combat.offMDEFNEG = combat.baseCombatNEG;
     /* defense accumulative rates */
     combat.defATKRATE = combat.baseRATE;
     combat.defINTRATE = combat.baseRATE;
@@ -82,6 +84,8 @@ function resetAllRATE(){
     combat.defCRITRATE = combat.baseCRITRATE;
     combat.defCounterRate = combat.baseRATE;
     combat.defTerrainRate = combat.baseRATE;
+    combat.defDEFNEG = combat.baseCombatNEG;
+    combat.defMDEFNEG = combat.baseCombatNEG;
     /* other rates */
     combat.offHITS = combat.baseHITS;
     combat.defHITS = combat.baseHITS;
@@ -90,7 +94,7 @@ function resetAllRATE(){
     combat.offHEALED = combat.baseRATE;
     combat.defHEALED = combat.baseRATE;
     combat.skillRATE = combat.baseRATE;
-    combat.combatNEG = combat.baseCombatNEG;
+    combat.combatNEG = combat.baseRATE;
 };
 
 function createAllList(){
@@ -517,6 +521,8 @@ function displayONEHIT(side, sideRate, oppRate){
         skilltype = combat.offSkill.TYPE;
         skillrate = combat.offSkill.RATE;
         skilldmg = combat.offSKILLDMG;
+        DEFNEG = combat.offDEFNEG;
+        MDEFNEG = combat.offMDEFNEG;
         otherside = 'defense';
         mid = offMID, oppmid = defMID;
         rate = offRATE, opprate = defRATE;
@@ -529,6 +535,8 @@ function displayONEHIT(side, sideRate, oppRate){
         skilltype = combat.defSkill.TYPE;
         skillrate = combat.defSkill.RATE;
         skilldmg = 1;
+        DEFNEG = combat.defDEFNEG;
+        MDEFNEG = combat.defMDEFNEG;
         otherside = 'offense';
         mid = defMID, oppmid = offMID;
         other = defOTHER, oppother = offOTHER;
@@ -539,14 +547,16 @@ function displayONEHIT(side, sideRate, oppRate){
     if(skilltype == '物理傷害'){
         offNUM = mid[ATK]*counterRate;
         defNUM = oppmid[DEF]*terrainRate;
+        negNUM = DEFNEG;
     }
     else if(skilltype == '魔法傷害'){
         offNUM = mid[INT]*counterRate;
         defNUM = oppmid[MDEF]*terrainRate;
+        negNUM = MDEFNEG;
     }
 
     /* ONEHIT MAIN FORMULA */
-    number = (offNUM-defNUM)/2*skillrate*other[DMGRATE]*skilldmg;
+    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*skilldmg;
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+DMGTYPE);
@@ -563,8 +573,9 @@ function displayONEHIT(side, sideRate, oppRate){
 
     /* offNUM*counterRate */
     eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate;
-    /* defNUM*terrainRate */
-    eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×"+terrainRate+")";
+    /* defNUM*(1-negNUM)*terrainRate */
+    if(!negNUM) eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×"+terrainRate+")";
+    else eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×(1-"+negNUM+")×"+terrainRate+")";
     /* skillrate */
     eDESC.innerHTML += "÷2×"+skillrate;
     /* off DMGRATEINC */
