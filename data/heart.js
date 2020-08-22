@@ -7,13 +7,13 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -44,14 +44,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -82,14 +82,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -120,14 +120,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -158,15 +158,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -197,15 +197,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -243,14 +243,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -280,15 +280,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -319,14 +319,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -354,15 +354,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -391,14 +391,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -426,14 +426,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -461,14 +461,14 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -496,16 +496,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -513,9 +513,9 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-                if(side == 'defense')
+                if(side == 'defense' && range > 1)
                     midrate[DMGDEC] += 0.1;
-                if(range = 1)
+                if(range == 1)
                     midrate[DMGINC] += 0.1;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
@@ -537,15 +537,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -574,15 +574,15 @@ var heart = [{
         CRITRATEINC = 5, CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 10,  DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -613,14 +613,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -653,13 +653,13 @@ var heart = [{
         CRITDMGINC = 6,  DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -691,14 +691,14 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -728,14 +728,14 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -765,15 +765,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -800,15 +800,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -839,14 +839,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -876,15 +876,15 @@ var heart = [{
         DMGINC = 7, CRITDMGDEC = 9, CRITRATEDEC = 10, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -913,15 +913,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -952,15 +952,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppBUFFNUM = combat.defBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppBUFFNUM = combat.offBUFFLIST.length;
         }
@@ -991,14 +991,14 @@ var heart = [{
         CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1028,14 +1028,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1065,15 +1065,15 @@ var heart = [{
         CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -1104,15 +1104,15 @@ var heart = [{
         CRITDMGINC = 6, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -1143,16 +1143,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             BUFFNUM = combat.offBUFFLIST.length;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             BUFFNUM = combat.defBUFFLIST.length;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1183,15 +1183,15 @@ var heart = [{
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             terrainName = combat.offTerrain;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             terrainName = combat.defTerrain;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1219,14 +1219,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1251,14 +1251,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1283,14 +1283,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1318,14 +1318,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1356,15 +1356,15 @@ var heart = [{
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             terrainName = combat.offTerrain;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             terrainName = combat.defTerrain;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1394,15 +1394,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -1433,14 +1433,14 @@ var heart = [{
         CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1470,14 +1470,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1507,14 +1507,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1542,14 +1542,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1577,19 +1577,19 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             BUFFNUM = combat.offBUFFLIST.length;
             DEBUFFNUM = combat.offDEBUFFLIST.length;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             BUFFNUM = combat.defBUFFLIST.length;
             DEBUFFNUM = combat.defDEBUFFLIST.length;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -1620,15 +1620,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             run = combat.run;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1660,16 +1660,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -1701,15 +1701,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -1740,14 +1740,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1777,15 +1777,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -1814,16 +1814,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -1855,14 +1855,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1892,15 +1892,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -1931,15 +1931,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -1970,14 +1970,14 @@ var heart = [{
         CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2007,15 +2007,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -2046,15 +2046,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -2083,15 +2083,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -2122,15 +2122,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -2161,15 +2161,15 @@ var heart = [{
         CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2200,15 +2200,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2237,15 +2237,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
         }
@@ -2272,15 +2272,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2311,15 +2311,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2346,16 +2346,16 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFLIST = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFLIST = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -2387,14 +2387,14 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2422,14 +2422,14 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2458,15 +2458,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2492,14 +2492,14 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -2528,15 +2528,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2565,15 +2565,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2602,16 +2602,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -2642,15 +2642,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2679,16 +2679,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10, CRITDMGINC = 6;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -2720,18 +2720,18 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             BUFFNUM = combat.offBUFFLIST.length;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             BUFFNUM = combat.defBUFFLIST.length;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -2762,15 +2762,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2801,15 +2801,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2838,15 +2838,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2875,16 +2875,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
             run = combat.run;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2916,16 +2916,16 @@ var heart = [{
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             terrainName = combat.offTerrain;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             terrainName = combat.defTerrain;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2955,15 +2955,15 @@ var heart = [{
         CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -2994,17 +2994,17 @@ var heart = [{
         CRITRATEINC = 5, DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             BUFFNUM = combat.offBUFFLIST.length;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             BUFFNUM = combat.defBUFFLIST.length;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3033,15 +3033,15 @@ var heart = [{
         CRITDMGINC = 6, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3072,17 +3072,17 @@ var heart = [{
         CRITRATEINC = 5, DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             BUFFNUM = combat.offBUFFLIST.length;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             BUFFNUM = combat.defBUFFLIST.length;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3115,16 +3115,16 @@ var heart = [{
         if(side == 'offense'){
             run = combat.run;
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             run = combat.run;
         }
         else if(side == 'defense'){
             run = combat.run;
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -3158,15 +3158,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3197,16 +3197,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
             run = combat.run
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3236,15 +3236,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3270,16 +3270,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -3311,15 +3311,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3342,16 +3342,16 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             oppDEBUFFNUM = combat.defDEBUFFLIST.length;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             oppDEBUFFNUM = combat.offDEBUFFLIST.length;
             range = combat.range;
@@ -3383,17 +3383,17 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             BUFFNUM = combat.offBUFFLIST.length;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             BUFFNUM = combat.defBUFFLIST.length;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3425,15 +3425,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3514,15 +3514,15 @@ var heart = [{
         DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3551,15 +3551,15 @@ var heart = [{
         DMGINC = 7, DMGDEC = 10;
         if(side == 'offense'){
             jobNo = combat.offJobNo;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }
@@ -3591,16 +3591,16 @@ var heart = [{
         if(side == 'offense'){
             jobNo = combat.offJobNo;
             BUFFNUM = combat.offBUFFLIST.length;
-            perHP = combat.offHP/combat.offFULLHP;
-            oppPerHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
             range = combat.range;
         }
         else if(side == 'defense'){
             jobNo = combat.defJobNo;
             BUFFNUM = combat.defBUFFLIST.length;
-            perHP = combat.defHP/combat.defFULLHP;
-            oppPerHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
             range = combat.range;
         }

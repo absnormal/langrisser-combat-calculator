@@ -210,3 +210,229 @@ function loadSoldierDesc(side, soldierID){
     eSoldierbox.style.left = x + 'px';
 };
 
+function getSoldTrain(army){
+    if(army=='步兵') return '步兵';
+    if(army=='槍兵') return '槍兵';
+    if(army=='騎兵') return '騎兵';
+    if(army=='飛兵'||army=='水兵') return '飛水';
+    if(army=='弓兵'||army=='刺客') return '弓刺';
+    if(army=='僧侶'||army=='魔物'||army=='法師') return '僧魔法';
+};
+
+function displaySoldHP(side, sideRate){
+    SOLD='sold', PRE='PRE', PERC='PERC', PLUS='PLUS', DATA='DATA', DESC='DESC';
+    HP='HP', FULLHP='FULLHP', text='生命';
+    offsoldRATE = combat.offsoldHPRATE;
+    offcharPLUS = combat.offChar.SOLDHPPLUS;
+    defsoldRATE = combat.defsoldHPRATE;
+    defcharPLUS = combat.defChar.SOLDHPPLUS;
+
+    var soldier;
+    if(side == 'offense')
+        SIDE = 'off', soldier = combat.offSoldier, charPLUS = offcharPLUS, rate = offsoldRATE;
+    else
+        SIDE = 'def', soldier = combat.defSoldier, charPLUS = defcharPLUS, rate = defsoldRATE;
+    // 基本屬性
+    soldBASE = soldier.HP;
+    // 全屬性
+    if(soldier.ARMY == '魔物') soldALLRATE = 0.4;
+    else soldALLRATE = 0.3;
+    // 兵營
+    trainTEXT = getSoldTrain(soldier.ARMY);
+
+    eDATA = document.getElementById(SIDE+SOLD+PRE+HP+DATA);
+    eDESC = document.getElementById(SIDE+SOLD+PRE+HP+DESC);
+    // 兵營百分比
+    trainPERC = Number(document.getElementById(trainTEXT+SIDE+HP+PERC).value)/100;
+    // 兵營加值
+    trainPLUS = Number(document.getElementById(trainTEXT+SIDE+HP+PLUS).value);
+    /* 大算式 */
+    let number=(soldBASE*7.4*(1+trainPERC+soldALLRATE)+trainPLUS)*rate;
+    eDATA.innerHTML = text+":"+number.toFixed(0)+" + "+(number*charPLUS).toFixed(0);
+    eDESC.innerHTML = (number*(1+charPLUS)).toFixed(2)+"=("+soldBASE+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1.4";
+
+    for(let j=0; j<sideRate.length; j++){
+        if(sideRate[j].HP != 0)
+            eDESC.innerHTML += "+"+sideRate[j].HP.toFixed(2)+"["+sideRate[j].NAME+"]";
+    }
+    eDESC.innerHTML += ")×"+(1+charPLUS);
+
+    // display HP/FULLHP
+    eHP = document.getElementById(SIDE+SOLD+HP);
+    eFULLHP = document.getElementById(SIDE+SOLD+FULLHP);
+    if(eHP.value > 10*(number*(1+charPLUS))) eHP.value = 10*(number*(1+charPLUS)).toFixed(0);
+    eFULLHP.innerHTML = "/"+10*(number*(1+charPLUS)).toFixed(0);
+    // combat sold HP
+    if(side == 'offense'){
+        combat.offsoldHP = Number(eHP.value);
+        combat.offsoldFULLHP = 10*(number*(1+charPLUS)).toFixed(0);
+    }
+    else if(side == 'defense'){
+        combat.defsoldHP = Number(eHP.value);
+        combat.defsoldFULLHP = 10*(number*(1+charPLUS)).toFixed(0);
+    }
+};
+
+function displaySoldNUMS(side, sideRate){
+    SOLD='sold', PRE='PRE', PERC='PERC', PLUS='PLUS', DATA='DATA', DESC='DESC';
+    NUMS=['ATK','INT','DEF','MDEF'];
+    text=['攻擊','智力','防禦','魔防'];
+    offsoldRATE = [
+        combat.offsoldATKRATE,
+        0,
+        combat.offsoldDEFRATE,
+        combat.offsoldMDEFRATE
+    ];
+    defsoldRATE = [
+        combat.defsoldATKRATE,
+        0,
+        combat.defsoldDEFRATE,
+        combat.defsoldMDEFRATE
+    ];
+    offcharPLUS = [
+        combat.offChar.SOLDATKPLUS,
+        0,
+        combat.offChar.SOLDDEFPLUS,
+        combat.offChar.SOLDMDEFPLUS
+    ];
+    defcharPLUS = [
+        combat.defChar.SOLDATKPLUS,
+        0,
+        combat.defChar.SOLDDEFPLUS,
+        combat.defChar.SOLDMDEFPLUS
+    ];
+
+    var soldier;
+    if(side == 'offense')
+        SIDE = 'off', soldier = combat.offSoldier, charPLUS = offcharPLUS, rate = offsoldRATE;
+    else
+        SIDE = 'def', soldier = combat.defSoldier, charPLUS = defcharPLUS, rate = defsoldRATE;
+    // 基本屬性
+    soldBASE = [soldier.ATK, 0, soldier.DEF, soldier.MDEF];
+    // 全屬性
+    if(soldier.ARMY == '魔物') soldALLRATE = 0.4;
+    else soldALLRATE = 0.3;
+    // 兵營
+    trainTEXT = getSoldTrain(soldier.ARMY);
+
+    for(let i=0; i<NUMS.length; i++){
+        if(NUMS[i] == 'INT') continue;
+        eDATA = document.getElementById(SIDE+SOLD+PRE+NUMS[i]+DATA);
+        eDESC = document.getElementById(SIDE+SOLD+PRE+NUMS[i]+DESC);
+        // 兵營百分比
+        trainPERC = Number(document.getElementById(trainTEXT+SIDE+NUMS[i]+PERC).value)/100;
+        // 兵營加值
+        trainPLUS = Number(document.getElementById(trainTEXT+SIDE+NUMS[i]+PLUS).value);
+        /* 大算式 */
+        let number=(soldBASE[i]*7.4*(1+trainPERC+soldALLRATE)+trainPLUS)*rate[i];
+        eDATA.innerHTML = text[i]+":"+number.toFixed(0)+" + "+(number*charPLUS[i]).toFixed(0);
+        eDESC.innerHTML = (number*(1+charPLUS[i])).toFixed(2)+"=("+soldBASE[i]+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1";
+
+        for(let j=0; j<sideRate.length; j++){
+            if(sideRate[j].CHARONLY) continue;
+            if(sideRate[j].RATE[i] != 0)
+                eDESC.innerHTML += "+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+        }
+        eDESC.innerHTML += ")×"+(1+charPLUS[i]);
+    }
+};
+
+function displayMIDSoldNUMS(side, sideRate, oppRate){
+    SOLD='sold', MID='MID', PERC='PERC', PLUS='PLUS', DATA='DATA', DESC='DESC';
+    NUMS=['ATK','INT','DEF','MDEF','DEX','CRITRATE','CRITDMG'];
+    text=['攻擊','智力','防禦','魔防','技巧','暴擊率','暴擊傷害'];
+    offsoldRATE = [
+        combat.offsoldATKRATE,
+        0,
+        combat.offsoldDEFRATE,
+        combat.offsoldMDEFRATE,
+        0,
+        combat.offsoldCRITRATE,
+        combat.offsoldCRITDMG
+    ];
+    defsoldRATE = [
+        combat.defsoldATKRATE,
+        0,
+        combat.defsoldDEFRATE,
+        combat.defsoldMDEFRATE,
+        0,
+        combat.defsoldCRITRATE,
+        combat.defsoldCRITDMG
+    ];
+    offcharPLUS = [
+        combat.offChar.SOLDATKPLUS,
+        0,
+        combat.offChar.SOLDDEFPLUS,
+        combat.offChar.SOLDMDEFPLUS
+    ];
+    defcharPLUS = [
+        combat.defChar.SOLDATKPLUS,
+        0,
+        combat.defChar.SOLDDEFPLUS,
+        combat.defChar.SOLDMDEFPLUS
+    ];
+
+    var soldier;
+    if(side == 'offense')
+        SIDE = 'off', soldier = combat.offSoldier, charPLUS = offcharPLUS, rate = offsoldRATE;
+    else
+        SIDE = 'def', soldier = combat.defSoldier, charPLUS = defcharPLUS, rate = defsoldRATE;
+    // 基本屬性
+    soldBASE = [soldier.ATK, 0, soldier.DEF, soldier.MDEF];
+    // 全屬性
+    if(soldier.ARMY == '魔物') soldALLRATE = 0.4;
+    else soldALLRATE = 0.3;
+    // 兵營
+    trainTEXT = getSoldTrain(soldier.ARMY);
+
+    for(let i=0; i<NUMS.length; i++){
+        if(NUMS[i] == 'INT' || NUMS[i] == 'DEX') continue;
+
+        eDATA = document.getElementById(SIDE+SOLD+MID+NUMS[i]+DATA);
+        eDESC = document.getElementById(SIDE+SOLD+MID+NUMS[i]+DESC);
+
+        // CRITRATE, CRITDMG
+        if(NUMS[i] == 'CRITRATE' || NUMS[i] == 'CRITDMG'){
+            let number = rate[i];
+            eDATA.innerHTML = text[i]+":"+number.toFixed(2);
+            if(NUMS[i] == 'CRITRATE') eDESC.innerHTML=number.toFixed(2)+"="+combat.baseCRITRATE;
+            if(NUMS[i] == 'CRITDMG') eDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITDMG;
+            // side CRITRATE/DMG INC
+            for(let j=0; j<sideRate.length; j++){
+                if(sideRate[j].CHARONLY) continue;
+                if(sideRate[j].MIDRATE[i] > 0)
+                    eDESC.innerHTML += "+"+sideRate[j].MIDRATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+                if(sideRate[j].MIDRATE[i] < 0)
+                    eDESC.innerHTML += sideRate[j].MIDRATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+            }
+            // oppside CRITRATE/DMG DEC
+            for(let j=0; j<oppRate.length; j++){
+                if(oppRate[j].CHARONLY) continue;
+                if(oppRate[j].MIDRATE[i] > 0)
+                    eDESC.innerHTML += oppRate[j].MIDRATE[i].toFixed(2)+"["+oppRate[j].NAME+"]";
+                if(oppRate[j].MIDRATE[i] < 0)
+                    eDESC.innerHTML += "+"+oppRate[j].MIDRATE[i].toFixed(2)+"["+oppRate[j].NAME+"]";
+            }
+        }
+        // ATK, DEF, MDEF
+        else{
+            // 兵營百分比
+            trainPERC = Number(document.getElementById(trainTEXT+SIDE+NUMS[i]+PERC).value)/100;
+            // 兵營加值
+            trainPLUS = Number(document.getElementById(trainTEXT+SIDE+NUMS[i]+PLUS).value);
+            /* 大算式 */
+            let number=(soldBASE[i]*7.4*(1+trainPERC+soldALLRATE)+trainPLUS)*rate[i];
+            // display: "number + number*charPLUS"
+            eDATA.innerHTML = text[i]+":"+(number*(1+charPLUS[i])).toFixed(0);
+            eDESC.innerHTML = (number*(1+charPLUS[i])).toFixed(2)+"=("+soldBASE[i]+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1+...";
+
+            for(let j=0; j<sideRate.length; j++){
+                if(sideRate[j].CHARONLY) continue;
+                if(sideRate[j].MIDRATE[i] != 0)
+                    eDESC.innerHTML += "+"+sideRate[j].MIDRATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+            }
+            eDESC.innerHTML += ")×"+(1+charPLUS[i]);
+        }
+    }
+};
+

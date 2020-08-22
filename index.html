@@ -33,6 +33,8 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/function/helmet.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/function/accessory.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/function/enchant.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/training.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/soldier.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/char.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/soldier.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/training.js"></script>
@@ -82,6 +84,8 @@
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\function\helmet.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\function\accessory.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\function\enchant.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\function\training.js"></script>
+        <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\function\soldier.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\char.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\soldier.js"></script>
         <script src="C:\Users\USER\Documents\GitHub\langrisser-combat-calculator\js\training.js"></script>
@@ -132,6 +136,8 @@
         <script src="/langrisser-combat-calculator/function/helmet.js"></script>
         <script src="/langrisser-combat-calculator/function/accessory.js"></script>
         <script src="/langrisser-combat-calculator/function/enchant.js"></script>
+        <script src="/langrisser-combat-calculator/function/training.js"></script>
+        <script src="/langrisser-combat-calculator/function/soldier.js"></script>
         <script src="/langrisser-combat-calculator/js/char.js"></script>
         <script src="/langrisser-combat-calculator/js/soldier.js"></script>
         <script src="/langrisser-combat-calculator/js/training.js"></script>
@@ -152,7 +158,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.5.5"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.6.1"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -1233,64 +1239,64 @@
                         </div>
                         <div class='trainingList'>
                             <ul class='步兵 兵營 training offense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='步兵HPPLUS' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='步兵ATKPLUS' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='步兵DEFPLUS' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='步兵MDEFPLUS' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='步兵HPPERC' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='步兵ATKPERC' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='步兵DEFPERC' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='步兵MDEFPERC' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='步兵offHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='步兵offATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='步兵offDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='步兵offMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='步兵offHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='步兵offATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='步兵offDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='步兵offMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='槍兵 兵營 training offense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='槍兵HPPLUS' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='槍兵ATKPLUS' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='槍兵DEFPLUS' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='槍兵MDEFPLUS' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='槍兵HPPERC' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='槍兵ATKPERC' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='槍兵DEFPERC' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='槍兵MDEFPERC' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='槍兵offHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='槍兵offATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='槍兵offDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='槍兵offMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='槍兵offHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='槍兵offATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='槍兵offDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='槍兵offMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='騎兵 兵營 training offense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='騎兵HPPLUS' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='騎兵ATKPLUS' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='騎兵DEFPLUS' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='騎兵MDEFPLUS' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='騎兵HPPERC' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='騎兵ATKPERC' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='騎兵DEFPERC' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='騎兵MDEFPERC' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='騎兵offHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='騎兵offATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='騎兵offDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='騎兵offMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='騎兵offHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='騎兵offATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='騎兵offDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='騎兵offMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='飛兵 水兵 兵營 training offense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='飛水HPPLUS' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='飛水ATKPLUS' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='飛水DEFPLUS' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='飛水MDEFPLUS' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='飛水HPPERC' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='飛水ATKPERC' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='飛水DEFPERC' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='飛水MDEFPERC' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='飛水offHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='飛水offATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='飛水offDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='飛水offMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='飛水offHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='飛水offATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='飛水offDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='飛水offMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='弓兵 刺客 兵營 training offense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='弓刺HPPLUS' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='弓刺ATKPLUS' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='弓刺DEFPLUS' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='弓刺MDEFPLUS' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='弓刺HPPERC' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='弓刺ATKPERC' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='弓刺DEFPERC' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='弓刺MDEFPERC' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='弓刺offHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='弓刺offATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='弓刺offDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='弓刺offMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='弓刺offHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='弓刺offATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='弓刺offDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='弓刺offMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='僧侶 魔物 法師 兵營 training offense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='僧魔法HPPLUS' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='僧魔法ATKPLUS' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='僧魔法DEFPLUS' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='僧魔法MDEFPLUS' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='僧魔法HPPERC' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='僧魔法ATKPERC' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='僧魔法DEFPERC' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='僧魔法MDEFPERC' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='僧魔法offHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='僧魔法offATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='僧魔法offDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='僧魔法offMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='僧魔法offHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='僧魔法offATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='僧魔法offDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='僧魔法offMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul>
                                 <li class='training imgbtn offense'  style='display: none;' id='對槍特訓' onmouseover='loadTrainingDesc("offense", this.id)'>
@@ -1845,7 +1851,8 @@
                                 <td id='offcharARMY'>兵種:NA</td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=2>士兵生命:<input type='text' id='offSOLDHP'  style='width:100px' value='1000/1000'></td>
+                                <td>攻擊距離:<input type='text' id='offRange' style='width:40px' value=1></td>
+                                <td>移動距離:<input type='text' id='offRun' style='width:40px' value=3></td>
                                 <td id='offMOVETYPE'>部隊移動:NA</td>
                                 <td id='offcoldARMY'>士兵兵種:NA</td>
                             </tr>
@@ -1966,18 +1973,56 @@
                                 <td>競技暴擊:<input type='text' id='offACRITRATEINC' style='width:40px' value=20%></td>
                             </tr>
                             <tr>
-                                <td>攻擊距離:<input type='text' id='offRange' style='width:40px' value=1></td>
-                                <td>移動距離:<input type='text' id='offRun' style='width:40px' value=3></td>
+                                <td>士兵生命:<input type='text' id='offsoldHP'  style='width:50px' value='1000'></td>
+                                <td id='offsoldFULLHP'>/1000</td>
                                 <td></td>
                                 <td>競技暴傷:<input type='text' id='offACRITDMGINC' style='width:40px' value=20%></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offHeart1'>LV4大心:</td>
+                                <td>
+                                    <li class='NUM' id='offsoldPREHP' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldPREHPDATA'>生命:</p>
+                                        <table class='NUMDESC' id='offsoldPREHPTABLE'>
+                                            <tr><td id='offsoldPREHPDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offsoldPREDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldPREDEFDATA'>防禦:</p>
+                                        <table class='NUMDESC' id='offsoldPREDEFTABLE'>
+                                            <tr><td id='offsoldPREDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
                                 <td>競技降暴擊:<input type='text' id='offACRITRATEDEC' style='width:40px' value=0%></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='offHeart2'>LV7大心:</td>
+                                <td>
+                                    <li class='NUM' id='offsoldPREATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldPREATKDATA'>攻擊:</p>
+                                        <table class='NUMDESC' id='offsoldPREATKTABLE'>
+                                            <tr><td id='offsoldPREATKDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offsoldPREMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldPREMDEFDATA'>魔防:</p>
+                                        <table class='NUMDESC' id='offsoldPREMDEFTABLE'>
+                                            <tr><td id='offsoldPREMDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
                                 <td>競技降暴傷:<input type='text' id='offACRITDMGDEC' style='width:40px' value=0%></td>
+                            </tr>
+                            <tr>
+                                <td colspan=4 id='offHeart1'>LV4大心:</td>
+                            </tr>
+                            <tr>
+                                <td colspan=4 id='offHeart2'>LV7大心:</td>
                             </tr>
                             <tr>
                                 <td colspan=3><br></td>
@@ -1986,8 +2031,14 @@
                                 <td colspan=4 style='text-align: center;'><b>交戰數值</b></td>
                             </tr>
                             <tr>
-                                <td colspan=2 style='text-align: center;' id='offDMGTYPE'><b>進攻方</b>[傷害類型]</td>
-                                <td colspan=2 style='text-align: center;' id='defDMGTYPE'><b>防守方</b>[傷害類型]</td>
+                                <td colspan=2 style='text-align:center'><b>進攻方</b></td>
+                                <td colspan=2 style='text-align:center'><b>防守方</b></td>
+                            </tr>
+                            <tr>
+                                <td>英雄數值</td>
+                                <td>士兵數值</td>
+                                <td>士兵數值</td>
+                                <td>英雄數值</td>
                             </tr>
                             <tr>
                                 <td>
@@ -1998,8 +2049,22 @@
                                         </table>
                                     </li>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <li class='NUM' id='offsoldMIDATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldMIDATKDATA'>攻擊:</p>
+                                        <table class='NUMDESC' id='offsoldMIDATKTABLE'>
+                                            <tr><td id='offsoldMIDATKDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldMIDATK' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldMIDATKDATA'>攻擊:</p>
+                                        <table class='NUMDESC' id='defsoldMIDATKTABLE'>
+                                            <tr><td id='defsoldMIDATKDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td>
                                     <li class='NUM' id='defMIDATK' onmouseover='loadNUMDesc("offense", this.id)'>
                                         <p id='defMIDATKDATA'>當前攻擊:</p>
@@ -2038,8 +2103,22 @@
                                         </table>
                                     </li>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <li class='NUM' id='offsoldMIDDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldMIDDEFDATA'>防禦:</p>
+                                        <table class='NUMDESC' id='offsoldMIDDEFTABLE'>
+                                            <tr><td id='offsoldMIDDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldMIDDEF' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldMIDDEFDATA'>防禦:</p>
+                                        <table class='NUMDESC' id='defsoldMIDDEFTABLE'>
+                                            <tr><td id='defsoldMIDDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td>
                                     <li class='NUM' id='defMIDDEF' onmouseover='loadNUMDesc("offense", this.id)'>
                                         <p id='defMIDDEFDATA'>當前防禦:</p>
@@ -2058,10 +2137,24 @@
                                         </table>
                                     </li>
                                 </td>
-                                <td></td>
-                                <td></td>
                                 <td>
-                                    <li class='NUM' id='defMIDMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='offsoldMIDMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldMIDMDEFDATA'>魔防:</p>
+                                        <table class='NUMDESC' id='offsoldMIDMDEFTABLE'>
+                                            <tr><td id='offsoldMIDMDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldMIDMDEF' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldMIDMDEFDATA'>魔防:</p>
+                                        <table class='NUMDESC' id='defsoldMIDMDEFTABLE'>
+                                            <tr><td id='defsoldMIDMDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defMIDMMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
                                         <p id='defMIDMDEFDATA'>當前魔防:</p>
                                         <table class='NUMDESC' id='defMIDMDEFTABLE'>
                                             <tr><td id='defMIDMDEFDESC'></td></tr>
@@ -2098,8 +2191,22 @@
                                         </table>
                                     </li>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <li class='NUM' id='offsoldMIDCRITRATE' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldMIDCRITRATEDATA'>暴擊率:</p>
+                                        <table class='NUMDESC' id='offsoldMIDCRITRATETABLE'>
+                                            <tr><td id='offsoldMIDCRITRATEDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldMIDCRITRATE' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldMIDCRITRATEDATA'>暴擊率:</p>
+                                        <table class='NUMDESC' id='defsoldMIDCRITRATETABLE'>
+                                            <tr><td id='defsoldMIDCRITRATEDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td>
                                     <li class='NUM' id='defMIDCRITRATE' onmouseover='loadNUMDesc("offense", this.id)'>
                                         <p id='defMIDCRITRATEDATA'>暴擊率:</p>
@@ -2112,22 +2219,42 @@
                             <tr>
                                 <td>
                                     <li class='NUM' id='offMIDCRITDMG' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offMIDCRITDMGDATA'>暴擊傷害倍率:</p>
+                                        <p id='offMIDCRITDMGDATA'>暴擊傷害:</p>
                                         <table class='NUMDESC' id='offMIDCRITDMGTABLE'>
                                             <tr><td id='offMIDCRITDMGDESC'></td></tr>
                                         </table>
                                     </li>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <li class='NUM' id='offsoldMIDCRITDMG' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldMIDCRITDMGDATA'>暴擊傷害:</p>
+                                        <table class='NUMDESC' id='offsoldMIDCRITDMGTABLE'>
+                                            <tr><td id='offsoldMIDCRITDMGDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldMIDCRITDMG' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldMIDCRITDMGDATA'>暴擊傷害:</p>
+                                        <table class='NUMDESC' id='defsoldMIDCRITDMGTABLE'>
+                                            <tr><td id='defsoldMIDCRITDMGDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td>
                                     <li class='NUM' id='defMIDCRITDMG' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='defMIDCRITDMGDATA'>暴擊傷害倍率:</p>
+                                        <p id='defMIDCRITDMGDATA'>暴擊傷害:</p>
                                         <table class='NUMDESC' id='defMIDCRITDMGTABLE'>
                                             <tr><td id='defMIDCRITDMGDESC'></td></tr>
                                         </table>
                                     </li>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td id='offDMGTYPE'>[傷害類型]</td>
+                                <td></td>
+                                <td></td>
+                                <td id='defDMGTYPE'>[傷害類型]</td>
                             </tr>
                             <tr>
                                 <td>
@@ -2162,7 +2289,8 @@
                                 <td id='defcharARMY'>兵種:NA</td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=2>士兵生命:<input type='text' id='defHP' style='width:100px' value='1000/1000'></td>
+                                <td>反擊距離:<input type='text' id='defRange' style='width:40px' value=1></td>
+                                <td></td>
                                 <td id='defMOVETYPE'>部隊移動:NA</td>
                                 <td id='defsoldARMY'>士兵兵種:NA</td>
                             </tr>
@@ -2283,18 +2411,56 @@
                                 <td>競技暴擊:<input type='text' id='defACRITRATEINC' style='width:40px' value=0%></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='defHeart1'>LV4大心:</td>
+                                <td>士兵生命:<input type='text' id='defsoldHP' style='width:50px' value='1000'></td>
+                                <td id='defsoldFULLHP'>/1000</td>
+                                <td></td>
                                 <td>競技暴傷:<input type='text' id='defACRITDMGINC' style='width:40px' value=0%></td>
                             </tr>
                             <tr>
-                                <td colspan=3 id='defHeart2'>LV7大心:</td>
+                                <td>
+                                    <li class='NUM' id='defsoldPREHP' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defsoldPREHPDATA'>生命:</p>
+                                        <table class='NUMDESC' id='defsoldPREHPTABLE'>
+                                            <tr><td id='defsoldPREHPDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldPREDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defsoldPREDEFDATA'>防禦:</p>
+                                        <table class='NUMDESC' id='defsoldPREDEFTABLE'>
+                                            <tr><td id='defsoldPREDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
                                 <td>競技降暴擊:<input type='text' id='defACRITRATEDEC' style='width:40px' value=20%></td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <li class='NUM' id='defsoldPREATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defsoldPREATKDATA'>攻擊:</p>
+                                        <table class='NUMDESC' id='defsoldPREATKTABLE'>
+                                            <tr><td id='defsoldPREATKDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldPREMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='defsoldPREMDEFDATA'>魔防:</p>
+                                        <table class='NUMDESC' id='defsoldPREMDEFTABLE'>
+                                            <tr><td id='defsoldPREMDEFDESC'></td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td></td>
                                 <td>競技降暴傷:<input type='text' id='defACRITDMGDEC' style='width:40px' value=20%></td>
+                            </tr>
+                            <tr>
+                                <td colspan=4 id='defHeart1'>LV4大心:</td>
+                            </tr>
+                            <tr>
+                                <td colspan=4 id='defHeart2'>LV7大心:</td>
                             </tr>
                             <tr>
                                 <td colspan=3><br></td>
@@ -3051,64 +3217,64 @@
                         </div>
                         <div class='trainingList'>
                             <ul class='步兵 兵營 training defense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='步兵HPPLUSd' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='步兵ATKPLUSd' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='步兵DEFPLUSd' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='步兵MDEFPLUSd' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='步兵HPPERCd' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='步兵ATKPERCd' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='步兵DEFPERCd' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='步兵MDEFPERCd' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='步兵defHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='步兵defATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='步兵defDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='步兵defMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='步兵defHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='步兵defATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='步兵defDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='步兵defMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='槍兵 兵營 training defense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='槍兵HPPLUSd' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='槍兵ATKPLUSd' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='槍兵DEFPLUSd' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='槍兵MDEFPLUSd' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='槍兵HPPERCd' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='槍兵ATKPERCd' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='槍兵DEFPERCd' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='槍兵MDEFPERCd' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='槍兵defHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='槍兵defATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='槍兵defDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='槍兵defMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='槍兵defHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='槍兵defATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='槍兵defDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='槍兵defMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='騎兵 兵營 training defense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='騎兵HPPLUSd' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='騎兵ATKPLUSd' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='騎兵DEFPLUSd' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='騎兵MDEFPLUSd' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='騎兵HPPERCd' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='騎兵ATKPERCd' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='騎兵DEFPERCd' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='騎兵MDEFPERCd' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='騎兵defHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='騎兵defATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='騎兵defDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='騎兵defMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='騎兵defHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='騎兵defATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='騎兵defDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='騎兵defMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='飛兵 水兵 兵營 training defense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='飛水HPPLUSd' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='飛水ATKPLUSd' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='飛水DEFPLUSd' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='飛水MDEFPLUSd' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='飛水HPPERCd' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='飛水ATKPERCd' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='飛水DEFPERCd' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='飛水MDEFPERCd' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='飛水defHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='飛水defATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='飛水defDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='飛水defMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='飛水defHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='飛水defATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='飛水defDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='飛水defMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='弓兵 刺客 兵營 training defense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='弓刺HPPLUSd' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='弓刺ATKPLUSd' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='弓刺DEFPLUSd' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='弓刺MDEFPLUSd' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='弓刺HPPERCd' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='弓刺ATKPERCd' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='弓刺DEFPERCd' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='弓刺MDEFPERCd' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='弓刺defHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='弓刺defATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='弓刺defDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='弓刺defMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='弓刺defHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='弓刺defATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='弓刺defDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='弓刺defMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul class='僧侶 魔物 法師 兵營 training defense' style='display: none;'>
-                                <li>生命加值:<input type='text' id='僧魔法HPPLUSd' style='width: 56px' value=55></li>
-                                <li>攻擊加值:<input type='text' id='僧魔法ATKPLUSd' style='width: 56px' value=55></li>
-                                <li>防禦加值:<input type='text' id='僧魔法DEFPLUSd' style='width: 56px' value=33></li>
-                                <li>魔防加值:<input type='text' id='僧魔法MDEFPLUSd' style='width: 56px' value=33></li>
-                                <li>生命百分比:<input type='text' id='僧魔法HPPERCd' style='width: 40px' value=55></li>
-                                <li>攻擊百分比:<input type='text' id='僧魔法ATKPERCd' style='width: 40px' value=55></li>
-                                <li>防禦百分比:<input type='text' id='僧魔法DEFPERCd' style='width: 40px' value=33></li>
-                                <li>魔防百分比:<input type='text' id='僧魔法MDEFPERCd' style='width: 40px' value=33></li>
+                                <li>生命加值:<input type='text' id='僧魔法defHPPLUS' style='width: 56px' value=55></li>
+                                <li>攻擊加值:<input type='text' id='僧魔法defATKPLUS' style='width: 56px' value=55></li>
+                                <li>防禦加值:<input type='text' id='僧魔法defDEFPLUS' style='width: 56px' value=33></li>
+                                <li>魔防加值:<input type='text' id='僧魔法defMDEFPLUS' style='width: 56px' value=33></li>
+                                <li>生命百分比:<input type='text' id='僧魔法defHPPERC' style='width: 40px' value=70></li>
+                                <li>攻擊百分比:<input type='text' id='僧魔法defATKPERC' style='width: 40px' value=70></li>
+                                <li>防禦百分比:<input type='text' id='僧魔法defDEFPERC' style='width: 40px' value=70></li>
+                                <li>魔防百分比:<input type='text' id='僧魔法defMDEFPERC' style='width: 40px' value=70></li>
                             </ul>
                             <ul>
                                 <li class='training imgbtn defense'  style='display: none;' id='對槍特訓d' onmouseover='loadTrainingDesc("defense", this.id)'>
@@ -3119,8 +3285,8 @@
                                     <img src='image/training/對槍特訓.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='對槍特訓dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("對槍特訓", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("對槍特訓", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對槍特訓d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對槍特訓d", "-")'> - </button></td></tr>
                                         <tr><td id='對槍特訓dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3132,8 +3298,8 @@
                                     <img src='image/training/應急處理.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='應急處理dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("應急處理", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("應急處理", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("應急處理d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("應急處理d", "-")'> - </button></td></tr>
                                         <tr><td id='應急處理dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3145,8 +3311,8 @@
                                     <img src='image/training/壓制戰法.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='壓制戰法dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("壓制戰法", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("壓制戰法", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("壓制戰法d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("壓制戰法d", "-")'> - </button></td></tr>
                                         <tr><td id='壓制戰法dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3158,8 +3324,8 @@
                                     <img src='image/training/孤軍奮戰.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='孤軍奮戰dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("孤軍奮戰", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("孤軍奮戰", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("孤軍奮戰d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("孤軍奮戰d", "-")'> - </button></td></tr>
                                         <tr><td id='孤軍奮戰dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3171,8 +3337,8 @@
                                     <img src='image/training/防空重甲.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='防空重甲dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("防空重甲", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("防空重甲", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("防空重甲d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("防空重甲d", "-")'> - </button></td></tr>
                                         <tr><td id='防空重甲dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3184,8 +3350,8 @@
                                     <img src='image/training/對騎特訓.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='對騎特訓dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("對騎特訓", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("對騎特訓", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對騎特訓d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對騎特訓d", "-")'> - </button></td></tr>
                                         <tr><td id='對騎特訓dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3197,8 +3363,8 @@
                                     <img src='image/training/作戰續行.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='作戰續行dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("作戰續行", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("作戰續行", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("作戰續行d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("作戰續行d", "-")'> - </button></td></tr>
                                         <tr><td id='作戰續行dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3210,8 +3376,8 @@
                                     <img src='image/training/反擊方陣.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='反擊方陣dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("反擊方陣", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("反擊方陣", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("反擊方陣d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("反擊方陣d", "-")'> - </button></td></tr>
                                         <tr><td id='反擊方陣dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3223,8 +3389,8 @@
                                     <img src='image/training/鞏固防線.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='鞏固防線dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("鞏固防線", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("鞏固防線", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("鞏固防線d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("鞏固防線d", "-")'> - </button></td></tr>
                                         <tr><td id='鞏固防線dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3236,8 +3402,8 @@
                                     <img src='image/training/浴血奮戰.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='浴血奮戰dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("浴血奮戰", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("浴血奮戰", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("浴血奮戰d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("浴血奮戰d", "-")'> - </button></td></tr>
                                         <tr><td id='浴血奮戰dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3249,8 +3415,8 @@
                                     <img src='image/training/對步特訓.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='對步特訓dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("對步特訓", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("對步特訓", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對步特訓d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對步特訓d", "-")'> - </button></td></tr>
                                         <tr><td id='對步特訓dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3262,8 +3428,8 @@
                                     <img src='image/training/集團衝鋒.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='集團衝鋒dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("集團衝鋒", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("集團衝鋒", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("集團衝鋒d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("集團衝鋒d", "-")'> - </button></td></tr>
                                         <tr><td id='集團衝鋒dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3275,8 +3441,8 @@
                                     <img src='image/training/高速移動.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='高速移動dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("高速移動", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("高速移動", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("高速移動d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("高速移動d", "-")'> - </button></td></tr>
                                         <tr><td id='高速移動dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3288,8 +3454,8 @@
                                     <img src='image/training/奔襲破陣.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='奔襲破陣dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("奔襲破陣", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("奔襲破陣", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("奔襲破陣d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("奔襲破陣d", "-")'> - </button></td></tr>
                                         <tr><td id='奔襲破陣dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3301,8 +3467,8 @@
                                     <img src='image/training/精鋼鐵蹄.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='精鋼鐵蹄dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("精鋼鐵蹄", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("精鋼鐵蹄", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("精鋼鐵蹄d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("精鋼鐵蹄d", "-")'> - </button></td></tr>
                                         <tr><td id='精鋼鐵蹄dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3314,8 +3480,8 @@
                                     <img src='image/training/先制打擊.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='先制打擊dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("先制打擊", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("先制打擊", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("先制打擊d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("先制打擊d", "-")'> - </button></td></tr>
                                         <tr><td id='先制打擊dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3327,8 +3493,8 @@
                                     <img src='image/training/空海奇襲.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='空海奇襲dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("空海奇襲", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("空海奇襲", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("空海奇襲d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("空海奇襲d", "-")'> - </button></td></tr>
                                         <tr><td id='空海奇襲dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3340,8 +3506,8 @@
                                     <img src='image/training/特技飛行.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='特技飛行dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("特技飛行", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("特技飛行", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("特技飛行d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("特技飛行d", "-")'> - </button></td></tr>
                                         <tr><td id='特技飛行dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3353,8 +3519,8 @@
                                     <img src='image/training/地空協同.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='地空協同dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("地空協同", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("地空協同", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("地空協同d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("地空協同d", "-")'> - </button></td></tr>
                                         <tr><td id='地空協同dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3366,8 +3532,8 @@
                                     <img src='image/training/水戰強化.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='水戰強化dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("水戰強化", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("水戰強化", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("水戰強化d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("水戰強化d", "-")'> - </button></td></tr>
                                         <tr><td id='水戰強化dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3379,8 +3545,8 @@
                                     <img src='image/training/水靈加護.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='水靈加護dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("水靈加護", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("水靈加護", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("水靈加護d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("水靈加護d", "-")'> - </button></td></tr>
                                         <tr><td id='水靈加護dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3392,8 +3558,8 @@
                                     <img src='image/training/野戰特訓.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='野戰特訓dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("野戰特訓", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("野戰特訓", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("野戰特訓d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("野戰特訓d", "-")'> - </button></td></tr>
                                         <tr><td id='野戰特訓dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3405,8 +3571,8 @@
                                     <img src='image/training/暗影打擊.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='暗影打擊dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("暗影打擊", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("暗影打擊", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("暗影打擊d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("暗影打擊d", "-")'> - </button></td></tr>
                                         <tr><td id='暗影打擊dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3418,8 +3584,8 @@
                                     <img src='image/training/密林遊俠.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='密林遊俠dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("密林遊俠", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("密林遊俠", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("密林遊俠d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("密林遊俠d", "-")'> - </button></td></tr>
                                         <tr><td id='密林遊俠dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3431,8 +3597,8 @@
                                     <img src='image/training/閃轉騰挪.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='閃轉騰挪dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("閃轉騰挪", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("閃轉騰挪", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("閃轉騰挪d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("閃轉騰挪d", "-")'> - </button></td></tr>
                                         <tr><td id='閃轉騰挪dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3444,8 +3610,8 @@
                                     <img src='image/training/殺戮氣息.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='殺戮氣息dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("殺戮氣息", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("殺戮氣息", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("殺戮氣息d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("殺戮氣息d", "-")'> - </button></td></tr>
                                         <tr><td id='殺戮氣息dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3457,8 +3623,8 @@
                                     <img src='image/training/對法特訓.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='對法特訓dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("對法特訓", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("對法特訓", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對法特訓d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對法特訓d", "-")'> - </button></td></tr>
                                         <tr><td id='對法特訓dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3470,8 +3636,8 @@
                                     <img src='image/training/對魔特訓.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='對魔特訓dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("對魔特訓", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("對魔特訓", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對魔特訓d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("對魔特訓d", "-")'> - </button></td></tr>
                                         <tr><td id='對魔特訓dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3483,8 +3649,8 @@
                                     <img src='image/training/虔誠信仰.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='虔誠信仰dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("虔誠信仰", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("虔誠信仰", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("虔誠信仰d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("虔誠信仰d", "-")'> - </button></td></tr>
                                         <tr><td id='虔誠信仰dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3496,8 +3662,8 @@
                                     <img src='image/training/聖光護佑.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='聖光護佑dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("聖光護佑", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("聖光護佑", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("聖光護佑d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("聖光護佑d", "-")'> - </button></td></tr>
                                         <tr><td id='聖光護佑dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3509,8 +3675,8 @@
                                     <img src='image/training/污穢鎧甲.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='污穢鎧甲dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("污穢鎧甲", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("污穢鎧甲", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("污穢鎧甲d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("污穢鎧甲d", "-")'> - </button></td></tr>
                                         <tr><td id='污穢鎧甲dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3522,8 +3688,8 @@
                                     <img src='image/training/自我暗示.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='自我暗示dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("自我暗示", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("自我暗示", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("自我暗示d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("自我暗示d", "-")'> - </button></td></tr>
                                         <tr><td id='自我暗示dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3535,8 +3701,8 @@
                                     <img src='image/training/法力虛空.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='法力虛空dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("法力虛空", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("法力虛空", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("法力虛空d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("法力虛空d", "-")'> - </button></td></tr>
                                         <tr><td id='法力虛空dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3548,8 +3714,8 @@
                                     <img src='image/training/暗黑力量.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='暗黑力量dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("暗黑力量", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("暗黑力量", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("暗黑力量d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("暗黑力量d", "-")'> - </button></td></tr>
                                         <tr><td id='暗黑力量dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3561,8 +3727,8 @@
                                     <img src='image/training/聚精會神.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='聚精會神dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("聚精會神", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("聚精會神", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("聚精會神d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("聚精會神d", "-")'> - </button></td></tr>
                                         <tr><td id='聚精會神dLV'>10/10</td></tr>
                                     </table>
                                 </li>
@@ -3574,8 +3740,8 @@
                                     <img src='image/training/祛除不純.png' style='width: 70px'>
                                     </li><li class='training defense'  style='display: none;' id='祛除不純dBUTTON'>
                                     <table>
-                                        <tr><td><button onclick='changeTrainLV("祛除不純", "+")'> + </button></td></tr>
-                                        <tr><td><button onclick='changeTrainLV("祛除不純", "-")'> - </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("祛除不純d", "+")'> + </button></td></tr>
+                                        <tr><td><button onclick='changeTrainLV("祛除不純d", "-")'> - </button></td></tr>
                                         <tr><td id='祛除不純dLV'>10/10</td></tr>
                                     </table>
                                 </li>

@@ -15,8 +15,8 @@ var passive = [{
     TYPE: ['浦飯幽助','索尼婭','澤瑞達','真宮寺櫻'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        offPerHP = combat.offHP/combat.offFULLHP;
-        defPerHP = combat.defHP/combat.defFULLHP;
+        offPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        defPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(side == 'offense') perHP = offPerHP, oppPerHP = defPerHP;
         else if(side == 'defense') perHP = defPerHP, oppPerHP = offPerHP;
         if(perHP < oppPerHP) return [0.1, 0, 0.1, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -33,8 +33,8 @@ var passive = [{
     TYPE: ['蕾伽爾','莉亞娜','艾梅達','傑利奧魯&蕾拉'],
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.9) return [0, 0.1, 0, 0.1, 0];
         else return false;
     },
@@ -106,8 +106,8 @@ var passive = [{
     TYPE: ['艾爾文','阿爾弗雷德','利昂','克拉蕾特'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        offPerHP = combat.offHP/combat.offFULLHP;
-        defPerHP = combat.defHP/combat.defFULLHP;
+        offPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        defPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(side == 'offense') perHP = offPerHP, oppPerHP = defPerHP;
         else if(side == 'defense') perHP = defPerHP, oppPerHP = offPerHP;
         if(perHP > oppPerHP) return [0.12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -160,8 +160,8 @@ var passive = [{
     TYPE: ['蘭斯'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.5) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.15];
     },
     DESC: '[被動]生命大於50%進入戰鬥時，遭受所有傷害降低15%。'
@@ -189,8 +189,8 @@ var passive = [{
     TYPE: ['利昂','雪莉','雷因法魯斯'],
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.9) return [0.1, 0, 0.1, 0, 0];
     },
     DESC: '[被動]部隊生命值高於90%時，攻擊、防禦提升10%。'
@@ -238,7 +238,7 @@ var passive = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'defense') return false;
-        perHP = combat.offHP/combat.offFULLHP;
+        perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
         if(perHP > 0.8) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
     },
     DESC: '[被動]主動進入戰鬥時，如果部隊生命值大於80%，戰鬥中遭受傷害降低30%。'
@@ -267,8 +267,8 @@ var passive = [{
     TYPE: ['阿爾弗雷德','維拉玖','蒂德莉特','藏馬','蕾娜塔','妮絲蒂爾','威拉','巴爾加斯','娜姆','愛麗絲'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP < 0.5) return [0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
@@ -312,8 +312,8 @@ var passive = [{
     NAME: '逆境',
     TYPE: ['飛影','神崎堇','蕾娜塔','歐米伽','阿瑞安赫德','克拉蕾特'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP < 0.7) return [0.1, 0, 0.1, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
@@ -357,8 +357,8 @@ var passive = [{
     TYPE: ['阿卡婭','帕恩','弗洛朗蒂婭'],
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.9) return [0, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },

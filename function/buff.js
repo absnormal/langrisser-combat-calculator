@@ -25,6 +25,7 @@ function getBUFFSkill(side){
 
         // add to combat
         if(side == 'offense'){
+            /* hero */
             combat.offATKRATE += display.RATE[0];
             combat.offINTRATE += display.RATE[1];
             combat.offDEFRATE += display.RATE[2];
@@ -32,8 +33,15 @@ function getBUFFSkill(side){
             combat.offDEXRATE += display.RATE[4];
             if(buff.HEAL != undefined) combat.offHEAL += buff.HEAL;
             if(buff.HEALED != undefined) combat.offHEALED += buff.HEALED;
+            /* soldier */
+            if(!buff.CHARONLY){
+                combat.offsoldATKRATE += display.RATE[0];
+                combat.offsoldDEFRATE += display.RATE[2];
+                combat.offsoldMDEFRATE += display.RATE[3];
+            }
         }
         else if(side == 'defense'){
+            /* hero */
             combat.defATKRATE += display.RATE[0];
             combat.defINTRATE += display.RATE[1];
             combat.defDEFRATE += display.RATE[2];
@@ -41,6 +49,12 @@ function getBUFFSkill(side){
             combat.defDEXRATE += display.RATE[4];
             if(buff.HEAL != undefined) combat.defHEAL += buff.HEAL;
             if(buff.HEALED != undefined) combat.defHEALED += buff.HEALED;
+            /* soldier */
+            if(!buff.CHARONLY){
+                combat.defsoldATKRATE += display.RATE[0];
+                combat.defsoldDEFRATE += display.RATE[2];
+                combat.defsoldMDEFRATE += display.RATE[3];
+            }
         }
         displayList.push(display);
     }
@@ -161,6 +175,38 @@ function getInteractBUFFSkill(side){
         if(buff.ADD != undefined && buff.SKILLTYPE.includes('ADD') && buff.ADD(side)){
             display.ADD = buff.ADD(side);
             display.ADDEXIST = true;
+        }
+        displayList.push(display);
+    }
+    return displayList;
+};
+
+function getMIDInteractBUFFSkill(side){
+    var buffList;
+    if(side == 'offense') buffList = combat.offBUFFLIST;
+    else if(side == 'defense') buffList = combat.defBUFFLIST;
+
+    // collect displayList
+    var displayList = [];
+    for(let i=0; i<buffList.length; i++){
+        var buff = buffList[i];
+        // collect display
+        var display = {
+            NAME: buff.NAME,
+            /* MIDSUB: [ATK, INT, DEF, MDEF, DEX] */
+            MIDSUB: [0, 0, 0, 0, 0],
+            MIDSUBEXIST: false,
+            /* MIDADD: [ATK, INT, DEF, MDEF, DEX] */
+            MIDADD: [0, 0, 0, 0, 0],
+            MIDADDEXIST: false
+        };
+        if(buff.MIDSUB != undefined && buff.SKILLTYPE.includes('MIDSUB') && buff.MIDSUB(side)){
+            display.MIDSUB = buff.MIDSUB(side);
+            display.MIDSUBEXIST = true;
+        }
+        if(buff.MIDADD != undefined && buff.SKILLTYPE.includes('MIDADD') && buff.MIDADD(side)){
+            display.MIDADD = buff.MIDADD(side);
+            display.MIDADDEXIST = true;
         }
         displayList.push(display);
     }

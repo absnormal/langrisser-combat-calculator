@@ -35,11 +35,11 @@ var armor = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense'){
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDmgtype = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDmgtype = combat.offDMGTYPE;
         }
         if(perHP >= 0.8 && oppDmgtype == '魔法傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1];
@@ -50,8 +50,8 @@ var armor = [{
     NAME: '原質之鎧', TYPE: '重甲',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.5) return [0, 0, 0.08, 0.08, 0];
         else return [0.08, 0, 0, 0, 0.08];
     },
@@ -79,8 +79,8 @@ var armor = [{
     HP: 0.1,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.5) return [0, 0, 0.1, 0, 0];
         else return [0, 0, 0, 0.1, 0];
     },
@@ -90,8 +90,8 @@ var armor = [{
     DEF: 0.1,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP == 1) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.4];
         else return false;
     },
@@ -177,6 +177,7 @@ var armor = [{
 },{
     NAME: '月之回憶', TYPE: '布琳達',
     HP: 0.05, DEF: 0.05,
+    /* ??? */
     DESC: '生命、防禦+5%。 當觸發風華典範額外行動時，驅散自身2個弱化效果並使自己獲得造成傷害提高10%，遭受傷害降低+10%，持續1回合。'
 },{
     NAME: '霸王戰甲', TYPE: '巴恩哈特',

@@ -16,11 +16,11 @@ var helmet = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense'){
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDmgtype = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDmgtype = combat.offDMGTYPE;
         }
         if(perHP >= 0.8 && oppDmgtype == '物理傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1];
@@ -31,8 +31,8 @@ var helmet = [{
     NAME: '原質頭盔', TYPE: '重盔',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.5) return [0, 0, 0.08, 0.08, 0];
         else return [0.08, 0, 0, 0, 0.08];
     },
@@ -99,8 +99,8 @@ var helmet = [{
     NAME: '光輝頭飾', TYPE: '法帽',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP == 1) return [0, 0, 0.15, 0.15, 0];
         else return false;
     },
@@ -214,8 +214,8 @@ var helmet = [{
     DEF: 0.05, MDEF: 0.05,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP == 1) return [0, 0, 0, 0, 0.3];
         else return false;
     },

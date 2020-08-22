@@ -25,6 +25,7 @@ function getCommandSkill(side){
 
         // add to combat
         if(side == 'offense'){
+            /* hero */
             combat.offATKRATE += display.RATE[0];
             combat.offINTRATE += display.RATE[1];
             combat.offDEFRATE += display.RATE[2];
@@ -32,8 +33,15 @@ function getCommandSkill(side){
             combat.offDEXRATE += display.RATE[4];
             if(command.HEAL != undefined) combat.offHEAL += command.HEAL;
             if(command.HEALED != undefined) combat.offHEALED += command.HEALED;
+            /* soldier */
+            if(!command.CHARONLY){
+                combat.offsoldATKRATE += display.RATE[0];
+                combat.offsoldDEFRATE += display.RATE[2];
+                combat.offsoldMDEFRATE += display.RATE[3];
+            }
         }
         else if(side == 'defense'){
+            /* hero */
             combat.defATKRATE += display.RATE[0];
             combat.defINTRATE += display.RATE[1];
             combat.defDEFRATE += display.RATE[2];
@@ -41,6 +49,12 @@ function getCommandSkill(side){
             combat.defDEXRATE += display.RATE[4];
             if(command.HEAL != undefined) combat.defHEAL += command.HEAL;
             if(command.HEALED != undefined) combat.defHEALED += command.HEALED;
+            /* soldier */
+            if(!command.CHARONLY){
+                combat.defsoldATKRATE += display.RATE[0];
+                combat.defsoldDEFRATE += display.RATE[2];
+                combat.defsoldMDEFRATE += display.RATE[3];
+            }
         }
         displayList.push(display);
     }

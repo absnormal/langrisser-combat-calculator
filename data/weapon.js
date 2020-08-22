@@ -135,8 +135,8 @@ var weapon = [{
     NAME: '風暴卡路里', TYPE: '錘',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.8)
             return [0, 0.15, 0, 0, 0];
         else return false;

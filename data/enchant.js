@@ -22,8 +22,8 @@ var enchant = [{
     NAME: '滿月',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.8) return [0.1, 0.1, 0.1, 0.1, 0];
         else return false;
     },
@@ -37,8 +37,8 @@ var enchant = [{
     CRITRATEINC: 0.07,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') oppPerHP = combat.defHP/combat.defFULLHP;
-        else if(side == 'defense') oppPerHP = combat.offHP/combat.offFULLHP;
+        if(side == 'offense') oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        else if(side == 'defense') oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
         if(oppPerHP > 0.6) return [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0];
         else return false;
     },

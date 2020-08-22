@@ -25,6 +25,7 @@ function getPassiveSkill(side){
 
         // add to combat
         if(side == 'offense'){
+            /* hero */
             combat.offATKRATE += display.RATE[0];
             combat.offINTRATE += display.RATE[1];
             combat.offDEFRATE += display.RATE[2];
@@ -34,6 +35,7 @@ function getPassiveSkill(side){
             if(passive.HEALED != undefined) combat.offHEALED += passive.HEALED;
         }
         else if(side == 'defense'){
+            /* hero */
             combat.defATKRATE += display.RATE[0];
             combat.defINTRATE += display.RATE[1];
             combat.defDEFRATE += display.RATE[2];
@@ -158,6 +160,38 @@ function getInteractPassiveSkill(side){
         if(passive.ADD != undefined && passive.SKILLTYPE.includes('ADD') && passive.ADD(side)){
             display.ADD = passive.ADD(side);
             display.ADDEXIST = true;
+        }
+        displayList.push(display);
+    }
+    return displayList;
+};
+
+function getMIDInteractPassiveSkill(side){
+    var passiveList;
+    if(side == 'offense') passiveList = combat.offPassiveLIST;
+    else if(side == 'defense') passiveList = combat.defPassiveLIST;
+
+    // collect displayList
+    var displayList = [];
+    for(let i=0; i<passiveList.length; i++){
+        var passive = passiveList[i];
+        // collect display
+        var display = {
+            NAME: passive.NAME,
+            /* MIDSUB: [ATK, INT, DEF, MDEF, DEX] */
+            MIDSUB: [0, 0, 0, 0, 0],
+            MIDSUBEXIST: false,
+            /* MIDADD: [ATK, INT, DEF, MDEF, DEX] */
+            MIDADD: [0, 0, 0, 0, 0],
+            MIDADDEXIST: false
+        };
+        if(passive.MIDSUB != undefined && passive.SKILLTYPE.includes('MIDSUB') && passive.MIDSUB(side)){
+            display.MIDSUB = passive.MIDSUB(side);
+            display.MIDSUBEXIST = true;
+        }
+        if(passive.MIDADD != undefined && passive.SKILLTYPE.includes('MIDADD') && passive.MIDADD(side)){
+            display.MIDADD = passive.MIDADD(side);
+            display.MIDADDEXIST = true;
         }
         displayList.push(display);
     }

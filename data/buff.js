@@ -167,8 +167,8 @@ var buff = [{
     TYPE: ['一般'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP < 0.8) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
         else return false;
     },
@@ -207,8 +207,8 @@ var buff = [{
     TYPE: ['利昂', '蘭芳特', '羅莎莉婭', '海倫娜'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.8) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
         else return false;
     },
@@ -389,6 +389,9 @@ var buff = [{
     TYPE: ['桑原和真'],
     SKILLTYPE: ['SUB', 'MIDSUB'],
     SUB: function(side){
+        return [1, 0, 0.6, 0, 0];
+    },
+    MIDSUB: function(side){
         return [1, 0, 0.6, 0, 0];
     },
     DESC: '用“攻擊”的0.6倍代替“防禦”'
@@ -935,8 +938,8 @@ var buff = [{
     TYPE: ['光輝軍團'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.8) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
         else return false;
     },
@@ -946,8 +949,8 @@ var buff = [{
     TYPE: ['光之起源'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        offPerHP = combat.offHP/combat.offFULLHP;
-        defPerHP = combat.defHP/combat.defFULLHP;
+        offPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        defPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(side == 'offense') perHP = offPerHP, oppPerHP = defPerHP
         else if(side == 'defense') perHP = defPerHP, oppPerHP = offPerHP;
         if(perHP > oppPerHP) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
@@ -1075,8 +1078,8 @@ var buff = [{
     TYPE: ['傳說彼端'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP <= 0.8) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
         else return false;
     },

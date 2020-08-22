@@ -31,14 +31,20 @@ var talent = [{
 },{
     /* 乘算 */
     NAME: '聖獸領域',
-    /* SOLDIER RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') soldNUM = Math.round(combat.offsoldHP*10/combat.offsoldFULLHP);
+        if(side == 'defense') soldNUM = Math.round(combat.defsoldHP*10/combat.defsoldFULLHP);
+        if(soldNUM == 10) return false;
+        else return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (10-soldNUM)*0.03];
+    },
     DESC: '部隊移動時所有可通過地形都視為“平地”。每損失一個士兵，則英雄獲得遭受傷害降低3%的效果。被攻擊受到傷害後，恢復其他友軍生命。（恢復量為古巨拉當前部隊生命的30%）',
 },{
     NAME: '不朽的傳說',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.7) return [0, 0, 0, 0, 0, 0, 0, 0.3, 0, 0, 0];
         else return false;
     },
@@ -48,11 +54,11 @@ var talent = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense'){
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         if(oppDMGTYPE == '物理傷害') return false;
@@ -69,14 +75,20 @@ var talent = [{
     DESC: '部隊血量越高時，減少遭受魔法傷害越多，最多減少30%。並且在遭受致命傷害時不會死亡，之後生命值恢復30%。該效果每場戰鬥最多觸發1次。',
 },{
     NAME: '華麗獨舞',
-    /* SOLDIER RELATED */
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') soldNUM = Math.round(combat.offsoldHP*10/combat.offsoldFULLHP);
+        if(side == 'defense') soldNUM = Math.round(combat.defsoldHP*10/combat.defsoldFULLHP);
+        if(soldNUM == 10) return false;
+        else return [(10-soldNUM)*0.04, 0, 0, 0, (10-soldNUM)*0.04];
+    },
     DESC: '普通攻擊時，英雄的射程增加1。<br>每損失一個士兵，則獲得攻擊、技巧提升4%的效果。',
 },{
     NAME: '鋼之聖女',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.7) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.15];
         else return false;
     },
@@ -86,11 +98,11 @@ var talent = [{
     DESC: '本次行動每移動1格，則在行動結束時為自身附加智力、防禦提升8%（最高24%），持續1回合。在行動結束時，如果處於[危險範圍]內，且未造成過傷害，則可再次行動。（再行動效果需要間隔2回合才可以再次觸發。）',
 },{
     NAME: '天才軍師',
-    /* SOLDIER RELATED */
+    HP: 0.2, ATK: 0.2, DEF: 0.2, MDEF: 0.2, SOLDONLY: true,
     DESC: '使用輔助技能時射程增加2。<br>士兵全屬性提升20%。<br>英雄死亡時，驅散5格以內所有友軍2個弱化效果，並獲得“死守”：戰前恢復威拉智力5倍的生命，持續3回合。',
 },{
     NAME: '帝國遠略',
-    /* SOLDIER RELATED */
+    ATK: 0.25, DEF: 0.25, MDEF: 0.25, SOLDONLY: true,
     DESC: '部隊生命100%時，士兵除生命以外全屬性提升25%，每場戰鬥開始時自身獲得5個[戰謀]。在行動結束時，自身如果擁有“超絕強化”的特殊效果則獲得2個[戰謀]，最高可以累積10個。在行動結束前，可額外釋放一次戰謀技能（[急行]提升目標部隊移動力、[突襲]使目標部隊再次行動、[援軍]恢復目標部隊士兵生命。）',
 },{
     NAME: '孤高的意志',
@@ -125,8 +137,8 @@ var talent = [{
     NAME: '月民的執念',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         switch(perHP){
             /*
              DATA?
@@ -196,7 +208,7 @@ var talent = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') return false;
-        perHP = combat.defHP/combat.defFULLHP;
+        perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP > 0.5) combat.defHITS *= 2;
         else return false;
     },
@@ -232,8 +244,8 @@ var talent = [{
     NAME: '幻影彗星',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') oppPerHP  = combat.defHP/combat.defFULLHP;
-        else if(side == 'defense') oppPerHP  = combat.offHP/combat.offFULLHP;
+        if(side == 'offense') oppPerHP  = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        else if(side == 'defense') oppPerHP  = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
         if(oppPerHP >= 0.7) return [0.2, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0];
         else return false;
     },
@@ -408,8 +420,8 @@ var talent = [{
     NAME: '風華典範',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        offPerHP = combat.offHP/combat.offFULLHP;
-        defPerHP = combat.defHP/combat.defFULLHP;
+        offPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        defPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(side == 'offense') perHP = offPerHP, oppPerHP = defPerHP;
         else if(side == 'defense') perHP = defPerHP, oppPerHP = offPerHP;
         if(oppPerHP <= perHP) return [0, 0, 0, 0, 0, 0, 0, 0.3, 0, 0, 0];
@@ -420,8 +432,8 @@ var talent = [{
     NAME: '光輝的信仰',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.5) return [0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
@@ -523,8 +535,8 @@ var talent = [{
     NAME: '魔法眷屬',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         switch(perHP){
             case 1:
                 return [0, 0.2, 0, 0, 0];
@@ -606,11 +618,11 @@ var talent = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense'){
-            perHP = combat.offHP/combat.offFULLHP;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
             oppDMGTYPE = combat.defDMGTYPE;
         }
         else if(side == 'defense'){
-            perHP = combat.defHP/combat.defFULLHP;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
         if(oppDMGTYPE == '魔法傷害') return false;
@@ -622,8 +634,8 @@ var talent = [{
     NAME: '挺身而出',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP >= 0.6) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
         else return false;
     },
@@ -639,8 +651,8 @@ var talent = [{
     NAME: '琥珀之愛',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP == 1) return [0.3, 0, 0, 0, 0];
         else return false;
     },
@@ -736,8 +748,8 @@ var talent = [{
     NAME: '暗之國的黑妖精',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = combat.offHP/combat.offFULLHP;
-        else if(side == 'defense') perHP = combat.defHP/combat.defFULLHP;
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP < 1) return [0.3, 0, 0, 0, 0.3];
         else return false;
     },
