@@ -110,6 +110,7 @@ var weapon = [{
         if(side == 'defense') this.SKILLDMG = undefined;
         else if(combat.offSkill.NAME != "普攻(物)" && combat.offSkill.NAME != "普攻(法)")
             this.SKILLDMG = 0.15;
+        else this.SKILLDMG = undefined;
     },
     DESC: '使用單體技能時，<b>「技能」</b>傷害提升15%，主動進入戰鬥時，有50%的機率使得敵軍遭受1個弱化狀態'
 },{

@@ -35,8 +35,8 @@ var talent = [{
     MIDRATE: function(side){
         if(side == 'offense') soldNUM = Math.round(combat.offsoldHP*10/combat.offsoldFULLHP);
         if(side == 'defense') soldNUM = Math.round(combat.defsoldHP*10/combat.defsoldFULLHP);
-        if(soldNUM == 10) return false;
-        else return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (10-soldNUM)*0.03];
+        if(soldNUM == 10) this.TALENTDMGDEC = undefined;
+        else this.TALENTDMGDEC = (10-soldNUM)*0.03;
     },
     DESC: '部隊移動時所有可通過地形都視為“平地”。每損失一個士兵，則英雄獲得遭受傷害降低3%的效果。被攻擊受到傷害後，恢復其他友軍生命。（恢復量為古巨拉當前部隊生命的30%）',
 },{
@@ -61,16 +61,10 @@ var talent = [{
             perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
-        if(oppDMGTYPE == '物理傷害') return false;
-        switch(perHP){
-            case 1:
-                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
-            /*
-             DATA?
-             */
-            default:
-                return false;
-        }
+        /* DATA? */
+        if(oppDMGTYPE == '物理傷害') this.TALENTDMGDEC = undefined;
+        else if(perHP == 1) this.TALENTDMGDEC = 0.3;
+        else this.TALENTDMGDEC = undefined;
     },
     DESC: '部隊血量越高時，減少遭受魔法傷害越多，最多減少30%。並且在遭受致命傷害時不會死亡，之後生命值恢復30%。該效果每場戰鬥最多觸發1次。',
 },{
@@ -89,8 +83,8 @@ var talent = [{
     MIDRATE: function(side){
         if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
         else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
-        if(perHP >= 0.7) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.15];
-        else return false;
+        if(perHP >= 0.7) this.TALENTDMGDEC = 0.15;
+        else this.TAALENTDMGDEC = undefined;
     },
     DESC: '部隊生命高於70%時，遭受傷害降低15%。受到傷害後或回合結束時處於[危險範圍]內，獲得效果：攻擊提升5%，傷害提升5%，遭受傷害降低5%，移動力+1。可累積，最高可以累積3個。行動結束時，當部隊生命值低於70%，可以額外行動1次。（[觸發冷卻]再行動效果需要間隔2回合才可以再次觸發。）',
 },{
@@ -204,7 +198,7 @@ var talent = [{
 },{
     /* 乘算 */
     NAME: '王者的意志',
-    DMGDEC: 0.15,
+    TALENTDMGDEC: 0.15,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') return false;
@@ -266,9 +260,8 @@ var talent = [{
             oppDMGTYPE = combat.offDMGTYPE;
             terrain = combat.defTerrain;
         }
-        if(terrain == '水' && oppDMGTYPE == '物理傷害')
-            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
-        else return false;
+        if(terrain == '水' && oppDMGTYPE == '物理傷害') this.TALENTDMGDEC = 0.2;
+        else this.TALENTDMGDEC = undefined;
     },
     DESC: '在水中時，部隊移動方式視作[水行]，同時受到物理傷害降低20%，且在遭受致命傷害時不會死亡，之後生命值恢復20%。該效果每場戰鬥最多觸發1次。被攻擊進入戰鬥後，令敵軍所處地形視為“水中”，持續2回合；若敵軍已經處於“水中”則有50%概率令敵方無法行動，持續1回合。',
 },{
@@ -321,8 +314,8 @@ var talent = [{
     MIDRATE: function(side){
         if(side == 'offense') terrain = combat.offTerrain;
         else if(side == 'defense') terrain = combat.defTerrain;
-        if(cal_terrain(terrain) == 0) return false;
-        else return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
+        if(cal_terrain(terrain) == 0) this.TALENTDMGDEC = undefined;
+        else this.TALENTDMGDEC = 0.2;
     },
     DESC: '在有防禦增加效果的地形上，遭受所有傷害降低20%。反之，攻擊力提升20%。',
 },{
@@ -439,24 +432,24 @@ var talent = [{
     },
     DESC: '當生命50%以上進入戰鬥時攻擊、防禦提升20%。進入戰鬥前或行動結束自身2圈範圍內有敵軍時，獲得[信仰]：造成傷害提升5%，遭受傷害降低5%可以累積，最多可以累積3個。（該效果無法被驅散）',
 },{
-    /* 乘算 */
     NAME: '團結的意志',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') return false;
         range = combat.range;
-        if(range > 1) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
-        else return false;
+        if(range > 1) this.TALENTDMGDEC = 0.2;
+        else this.TALENTDMGDEC = undefined;
     },
     DESC: '行動結束時，如果自身3格範圍內有友軍部隊，則攻擊提升20%，並將攻擊的15%增加到防禦和魔防上，持續1回合。被遠程攻擊時，遭受傷害降低20%，並可以對2格距離的遠程攻擊進行反擊。',
 },{
     NAME: '魔法裁縫',
-    /*
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        DEBUFF RELATED
+        if(side == 'offense') debuffNUM = combat.offDEBUFFLIST.length;
+        if(side == 'defense') debuffNUM = combat.defDEBUFFLIST.length;
+        if(debuffNUM <= 3) return [0, 0.15, 0, 0, 0];
+        else return false;
     },
-    */
     DESC: '本部隊有3個以下的弱化狀態時，智力提升15%。第1次行動結束時和英雄死亡時，為所有友軍部隊施加[魔法新衣]：“如果部隊生命值低於80%時，遭受的下一次傷害降低50% ”（該效果無法驅散）',
 },{
     NAME: '千年的邪念',
@@ -568,17 +561,21 @@ var talent = [{
     DESC: '每次進入戰鬥前，攻擊提升10%，遭受物理傷害降低5%，持續4回合，最高可以累積4層。',
 },{
     NAME: '流浪的公主',
-    ODMGINC: 0.2, ODMGDEC: 0.2,
+    ODMGINC: 0.2,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') this.TALENTDMGDEC = 0.2;
+        else this.TALENTDMGDEC = undefined;
+    },
     DESC: '主動攻擊進入戰鬥時，傷害提升20%，遭受傷害降低20%。行動結束時，會將剩餘的初始移動力附加於自身，最高不超過5格。',
 },{
-    /* 乘算 */
     NAME: '落跑公主',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') friend = combat.off2BFriend;
         else if(side == 'defense') friend = combat.def2BFriend;
-        if(friend == 0) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25];
-        else return false;
+        if(friend == 0) this.TALENTDMGDEC = 0.25;
+        else this.TALENTDMGDEC = undefined;
     },
     DESC: '周圍2格沒有友軍時，遭受所有傷害降低25%。擊殺敵軍後，可以額外行動1次，[觸發冷卻]該效果需要間隔2回合才可以再次觸發。',
 },{
@@ -625,19 +622,22 @@ var talent = [{
             perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
             oppDMGTYPE = combat.offDMGTYPE;
         }
-        if(oppDMGTYPE == '魔法傷害') return false;
-        if(perHP > 0.8) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+        /* DATA? */
+        if(oppDMGTYPE == '魔法傷害') this.TALENTDMGDEC = undefined;
+        else if(perHP > 0.8) this.TALENTDMGDEC = 0.3;
+        else this.TALENTDMGDEC = undefined;
     },
     DESC: '部隊血量越高時，減少遭受物理傷害越多，最多減少30%，並且在遭受致命傷害時不會死亡，之後生命值恢復30%，該效果每場戰鬥最多觸發1次。',
 },{
-    /* 乘算 */
     NAME: '挺身而出',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
-        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
-        if(perHP >= 0.6) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
-        else return false;
+        if(side == 'offense')
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense')
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP >= 0.6) this.TALENTDMGDEC = 0.3;
+        else this.TALENTDMGDEC = undefined;
     },
     DESC: '部隊生命60%及以上時，遭受所有傷害降低30%。替3格以內失去士兵的友軍承受所有攻擊。',
 },{
@@ -651,8 +651,10 @@ var talent = [{
     NAME: '琥珀之愛',
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
-        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(side == 'offense')
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense')
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
         if(perHP == 1) return [0.3, 0, 0, 0, 0];
         else return false;
     },
@@ -758,7 +760,6 @@ var talent = [{
     NAME: '魔性之血',
     DESC: '每次擊殺一個敵軍，可以再次移動3格。同時自身攻擊、智力、防禦、魔防提升20%，持續3回合，最高可以累積2層。',
 },{
-    /* 加算 */
     NAME: '智將的帷幕',
     OATK: 0.2, DDMGDEC: 0.2,
     DESC: '主動攻擊時，攻擊提升20%，被攻擊時，遭受傷害降低20%。周圍2格內所有敵軍移動力降低2，且無法進行護衛。',

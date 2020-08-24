@@ -13,6 +13,7 @@ function getTalentSkill(side){
     if(talent.SKILLTYPE != undefined && talent.SKILLTYPE.includes('RATE') && talent.RATE(side)){
         display.RATE = talent.RATE(side);
     }
+    /* soldier related rates */
     if(!talent.SOLDONLY) display.SOLDONLY = false;
     else display.SOLDONLY = true;
 
@@ -33,6 +34,7 @@ function getTalentSkill(side){
             combat.offMDEFRATE += display.RATE[3];
             combat.offDEXRATE += display.RATE[4];
         }
+        /* HEALS */
         if(talent.HEAL != undefined) combat.offHEAL += talent.HEAL;
         if(talent.HEALED != undefined) combat.offHEALED += talent.HEALED;
         /* soldier */
@@ -50,6 +52,7 @@ function getTalentSkill(side){
             combat.defMDEFRATE += display.RATE[3];
             combat.defDEXRATE += display.RATE[4];
         }
+        /* HEALS */
         if(talent.HEAL != undefined) combat.defHEAL += talent.HEAL;
         if(talent.HEALED != undefined) combat.defHEALED += talent.HEALED;
         /* soldier */
@@ -72,7 +75,8 @@ function getMIDTalentSkill(side){
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
         MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        SOLDONLY: false
+        SOLDONLY: false,
+        TALENTDMGDEC: 0
     };
     if(talent.SKILLTYPE != undefined && talent.SKILLTYPE.includes('MIDRATE') && talent.MIDRATE(side)){
         display.MIDRATE = talent.MIDRATE(side);
@@ -111,6 +115,7 @@ function getMIDTalentSkill(side){
     if(talent.CRITRATEDEC != undefined) display.MIDRATE[8] += talent.CRITRATEDEC;
     if(talent.CRITDMGDEC != undefined) display.MIDRATE[9] += talent.CRITDMGDEC;
     if(talent.DMGDEC != undefined) display.MIDRATE[10] += talent.DMGDEC;
+    if(talent.TALENTDMGDEC != undefined) display.TALENTDMGDEC += talent.TALENTDMGDEC;
 
     // add to combat
     if(side == 'offense'){
@@ -126,6 +131,8 @@ function getMIDTalentSkill(side){
         combat.defCRITRATE -= display.MIDRATE[8];
         combat.defCRITDMG -= display.MIDRATE[9];
         combat.defDMGRATE -= display.MIDRATE[10];
+        /* multiply talent DMGDEC */
+        combat.offTALENTDMGDEC += display.TALENTDMGDEC;
         /* soldier */
         combat.offsoldATKRATE += display.MIDRATE[0];
         combat.offsoldDEFRATE += display.MIDRATE[2];
@@ -150,6 +157,8 @@ function getMIDTalentSkill(side){
         combat.offCRITRATE -= display.MIDRATE[8];
         combat.offCRITDMG -= display.MIDRATE[9];
         combat.offDMGRATE -= display.MIDRATE[10];
+        /* multiply talent DMGDEC */
+        combat.defTALENTDMGDEC += display.TALENTDMGDEC;
         /* soldier */
         combat.defsoldATKRATE += display.MIDRATE[0];
         combat.defsoldDEFRATE += display.MIDRATE[2];

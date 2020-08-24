@@ -196,10 +196,11 @@ var buff = [{
             this.SKILLDMG = undefined;
             return [0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0];
         }
-        else if(side == 'offense'){
+        else if(side == 'offense' && combat.offSkill.NAME != "普攻(物)" && combat.offSkill.NAME != "普攻(法)"){
             this.SKILLDMG = 0.1;
             return false;
         }
+        else this.SKILLDMG = undefined;
     },
     DESC: '技能傷害提升10%，反擊傷害提升10%'
 },{

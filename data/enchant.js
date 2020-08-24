@@ -11,7 +11,9 @@ var enchant = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'defense') this.SKILLDMG = undefined;
-        else this.SKILLDMG = 0.1;
+        else if(combat.offSkill.NAME != "普攻(物)" && combat.offSkill.NAME != "普攻(法)")
+            this.SKILLDMG = 0.15;
+        else this.SKILLDMG = undefined;
     },
     DISC: '技能傷害提升10%，範圍技能再提升5%。'
 },{
