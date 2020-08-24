@@ -158,7 +158,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("0.6.1"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("0.6.2"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -2154,7 +2154,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defMIDMMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
                                         <p id='defMIDMDEFDATA'>當前魔防:</p>
                                         <table class='NUMDESC' id='defMIDMDEFTABLE'>
                                             <tr><td id='defMIDMDEFDESC'></td></tr>
@@ -2252,8 +2252,8 @@
                             </tr>
                             <tr>
                                 <td id='offDMGTYPE'>[傷害類型]</td>
-                                <td></td>
-                                <td></td>
+                                <td id='offsoldDMGTYPE'>[傷害類型]</td>
+                                <td id='defsoldDMGTYPE'>[傷害類型]</td>
                                 <td id='defDMGTYPE'>[傷害類型]</td>
                             </tr>
                             <tr>
@@ -2265,8 +2265,22 @@
                                         </table>
                                     </li>
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    <li class='NUM' id='offsoldONEHIT' style='display:inline-block' style='text-align: center;' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldONEHITDATA'>一段傷害: NA</p>
+                                        <table class='NUMDESC' id='offsoldONEHITTABLE'>
+                                            <tr><td id='offsoldONEHITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldONEHIT' style='display:inline-block' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldONEHITDATA'>一段傷害: NA</p>
+                                        <table class='NUMDESC' id='defsoldONEHITTABLE'>
+                                            <tr><td id='defsoldONEHITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
                                 <td>
                                     <li class='NUM' id='defONEHIT' style='display:inline-block' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defONEHITDATA'>一段傷害: NA</p>

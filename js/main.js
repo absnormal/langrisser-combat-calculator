@@ -9,7 +9,7 @@ var combat = {
     offBASEATK:undefined, offBASEINT:undefined, offBASEDEF:undefined, offBASEMDEF:undefined, offBASEDEX:undefined,
     offATK:undefined, offINT:undefined, offDEF:undefined, offMDEF:undefined, offDEX:undefined,
     offHITS:undefined, offHEAL:undefined, offHEALED:undefined, range:undefined, run:undefined,
-    offCounterRate: undefined, offTerrainRate: undefined,
+    offCounterRate: undefined, offELSECounterRate:undefined, offTerrainRate: undefined,
     off1BFriend:undefined, off2BFriend:undefined, off3BFriend:undefined,
     off3BEnemy:undefined, off3CEnemy:undefined,
     // character arena plus
@@ -51,7 +51,7 @@ var combat = {
     defBASEATK:undefined, defBASEINT:undefined, defBASEDEF:undefined, defBASEMDEF:undefined, defBASEDEX:undefined,
     defATK:undefined, defINT:undefined, defDEF:undefined, defMDEF:undefined, defDEX:undefined,
     defHITS:undefined, defHEAL:undefined, defHEALED:undefined,
-    defCounterRate: undefined, defTerrainRate: undefined,
+    defCounterRate: undefined, defELSECounterRate:undefined, defTerrainRate: undefined,
     def1BFriend:undefined, def2BFriend:undefined, def3BFriend:undefined,
     def3BEnemy:undefined, def3CEnemy:undefined,
     // character arena plus
@@ -80,6 +80,7 @@ function resetAllRATE(){
     combat.offCRITRATE = combat.baseCRITRATE;
     combat.offSKILLDMG = combat.baseRATE;
     combat.offCounterRate = combat.baseRATE;
+    combat.offELSECounterRate = 0;
     combat.offTerrainRate = combat.baseRATE;
     combat.offDEFNEG = combat.baseCombatNEG;
     combat.offMDEFNEG = combat.baseCombatNEG;
@@ -93,6 +94,7 @@ function resetAllRATE(){
     combat.defCRITDMG = combat.baseCRITDMG;
     combat.defCRITRATE = combat.baseCRITRATE;
     combat.defCounterRate = combat.baseRATE;
+    combat.defELSECounterRate = 0;
     combat.defTerrainRate = combat.baseRATE;
     combat.defDEFNEG = combat.baseCombatNEG;
     combat.defMDEFNEG = combat.baseCombatNEG;
@@ -522,7 +524,13 @@ function displayMIDNUMS(side, sideRate, oppRate){
 
             eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
             eMIDDESC.innerHTML = number.toFixed(2);
-            if(i == 5) eMIDDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITRATE;
+            if(i == 5){
+                ePREDEXDATA = document.getElementById(SIDE+MID+'DEX'+DATA);
+                PREDEX = Number(ePREDEXDATA.innerHTML.split(":")[1]).toFixed(0);
+                baseCRIT = PREDEX/1000;
+                eDATA.innerHTML = text[i] + ":" + (baseCRIT+number).toFixed(2);
+                eMIDDESC.innerHTML = (baseCRIT+number).toFixed(2)+"="+baseCRIT.toFixed(2)+"[技巧]";
+            }
             if(i == 6) eMIDDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITDMG;
             for(let j=0; j<sideRate.length; j++){
                 if(sideRate[j].SOLDONLY) continue;
@@ -741,7 +749,7 @@ function displayONEHIT(side, sideRate, oppRate){
 
 
     /* offNUM*counterRate */
-    eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate;
+    eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate.toFixed(2);
     /* defNUM*(1-negNUM)*terrainRate */
     if(!negNUM) eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×"+terrainRate+")";
     else eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×(1-"+negNUM+")×"+terrainRate+")";
@@ -922,6 +930,9 @@ function getAllSkill(stage, side){
         // display ONEHIT
         displayONEHIT(side, sideRate, othersideRate);
         displayONEHIT(otherside, othersideRate, sideRate);
+        // display soldier ONEHIT
+        displaySoldONEHIT(side, sideRate, othersideRate);
+        displaySoldONEHIT(otherside, othersideRate, sideRate);
     }
 };
 
@@ -930,11 +941,11 @@ function wholeCombat(){
     resetAllRATE();
     getCharData('offense');
     getCharData('defense');
-    getCounterRATE('offense');
-    getCounterRATE('defense');
     getTerrainRATE('offense');
     getTerrainRATE('defense');
     getAllSkill('PRE', 'offense');
+    getCounterRATE('offense');
+    getCounterRATE('defense');
     getAllSkill('MID', 'offense');
 };
 

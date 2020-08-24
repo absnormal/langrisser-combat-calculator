@@ -21,6 +21,7 @@
 
 - [夢戰wiki](https://wiki.biligame.com/langrisser/%E9%A6%96%E9%A1%B5) (數據、圖片來源)
 - [【情報】遊戲傷害機制分享](https://forum.gamer.com.tw/C.php?bsn=33596&snA=5643) (主要參考公式)
+- [關於技巧和暴擊的測試計算和結論](https://tieba.baidu.com/p/5978708506?red_tag=0653583826) (暴擊與技巧關係)
 
 ## Contributors
 

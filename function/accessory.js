@@ -7,11 +7,18 @@ function getAccessorySkill(side){
     // collect display
     var display = {
         NAME: accessory.NAME,
-        RATE: [0, 0, 0, 0, 0]
+        RATE: [0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(accessory.SKILLTYPE != undefined && accessory.SKILLTYPE.includes('RATE') && accessory.RATE(side)){
         display.RATE = accessory.RATE(side);
     }
+    /* Counter Rate */
+    if(accessory.COUNTER != undefined){
+        if(side == 'offense') combat.offELSECounterRate += accessory.COUNTER;
+        if(side == 'defense') combat.defELSECounterRate += accessory.COUNTER;
+    }
+
     if(accessory.ATK != undefined) display.RATE[0] += accessory.ATK;
     if(accessory.INT != undefined) display.RATE[1] += accessory.INT;
     if(accessory.DEF != undefined) display.RATE[2] += accessory.DEF;
@@ -51,7 +58,8 @@ function getMIDAccessorySkill(side){
         /* ATK, INT, DEF, MDEF, DEX,
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
-        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(accessory.SKILLTYPE != undefined && accessory.SKILLTYPE.includes('MIDRATE') && accessory.MIDRATE(side)){
         display.MIDRATE = accessory.MIDRATE(side);

@@ -7,7 +7,8 @@ function getArmorSkill(side){
     // collect display
     var display = {
         NAME: armor.NAME,
-        RATE: [0, 0, 0, 0, 0]
+        RATE: [0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(armor.SKILLTYPE != undefined && armor.SKILLTYPE.includes('RATE') && armor.RATE(side)){
         display.RATE = armor.RATE(side);
@@ -51,7 +52,8 @@ function getMIDArmorSkill(side){
         /* ATK, INT, DEF, MDEF, DEX,
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
-        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(armor.SKILLTYPE != undefined && armor.SKILLTYPE.includes('MIDRATE') && armor.MIDRATE(side)){
         display.MIDRATE = armor.MIDRATE(side);

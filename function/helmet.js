@@ -7,7 +7,8 @@ function getHelmetSkill(side){
     // collect display
     var display = {
         NAME: helmet.NAME,
-        RATE: [0, 0, 0, 0, 0]
+        RATE: [0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(helmet.SKILLTYPE != undefined && helmet.SKILLTYPE.includes('RATE') && helmet.RATE(side)){
         display.RATE = helmet.RATE(side);
@@ -51,7 +52,8 @@ function getMIDHelmetSkill(side){
         /* ATK, INT, DEF, MDEF, DEX,
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
-        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(helmet.SKILLTYPE != undefined && helmet.SKILLTYPE.includes('MIDRATE') && helmet.MIDRATE(side)){
         display.MIDRATE = helmet.MIDRATE(side);

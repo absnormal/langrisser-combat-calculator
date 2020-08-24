@@ -55,6 +55,22 @@ var weapon = [{
     CRITRATEINC: 0.1,
     DESC: '暴擊率提升10%，暴擊時戰鬥後，對敵軍造成一次固定傷害，傷害值為自身攻擊的1倍'
 },{
+    NAME: '水晶蜂刺', TYPE: '匕首',
+    CRITRATEINC: 0.1, CRITDMGINC: 0.1,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        /* combat.MIDDEX needed? */
+        eoffMIDDEX = document.getElementById('offMIDDEXDATA');
+        edefMIDDEX = document.getElementById('defMIDDEXDATA');
+        offDEX = Number(eoffMIDDEX.innerHTML.split(":")[1]);
+        defDEX = Number(edefMIDDEX.innerHTML.split(":")[1]);
+        document.getElementById('ERROR').innerHTML = offDEX+" "+(offDEX+1)+" "+defDEX;
+        if(side == 'offense' && offDEX > defDEX) this.DEFNEG = 0.2;
+        else if(side == 'defense' && defDEX > offDEX) this.DEFNEG = 0.2;
+        else this.DEFNEG = undefined;
+    },
+    DESC: '暴擊和暴擊傷害提升10%。進入戰鬥前如果自身技巧高於敵軍，則本次戰鬥無視敵軍20%防禦。'
+},{
     NAME: '海德拉之弓', TYPE: '弓',
     ATK: 0.1,
     DESC: '攻擊+10%，主動進入戰鬥前，有50%的機率使敵軍「造成傷害」降低20%，持續1回合'

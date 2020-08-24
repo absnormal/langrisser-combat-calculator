@@ -270,6 +270,7 @@ var training = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') return false;
+        terrainName = combat.defTerrain;
         LV = getTrainingLV(this.NAME+'d')-1;
         if(terrainName=='水') return [this.DATA[LV], 0, 0, this.DATA[LV], 0, 0, 0, 0, 0, 0, 0];
         else return false;

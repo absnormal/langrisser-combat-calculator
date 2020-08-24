@@ -7,7 +7,8 @@ function getEnchantSkill(side){
     // collect display
     var display = {
         NAME: enchant.NAME,
-        RATE: [0, 0, 0, 0, 0]
+        RATE: [0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(enchant.SKILLTYPE != undefined && enchant.SKILLTYPE.includes('RATE') && enchant.RATE(side)){
         display.RATE = enchant.RATE(side);
@@ -52,7 +53,7 @@ function getMIDEnchantSkill(side){
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
         MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        SKILLDMG: 0,
+        SKILLDMG: 0, CHARONLY: true,
     };
     if(enchant.SKILLTYPE != undefined && enchant.SKILLTYPE.includes('MIDRATE') && enchant.MIDRATE(side)){
         display.MIDRATE = enchant.MIDRATE(side);

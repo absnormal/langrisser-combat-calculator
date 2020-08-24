@@ -54,10 +54,12 @@ function getCounterRATE(side){
     if(side == 'offense'){
         combat.offCounterRate += cal_counter(getArmy('offense'), getArmy('defense'));
         combat.offCounterRate += cal_skillCounter(combat.offSkill.COUNTER, getArmy('defense'));
+        combat.offCounterRate += combat.offELSECounterRate;
     }
     else if(side == 'defense'){
         combat.defCounterRate += cal_counter(getArmy('defense'), getArmy('offense'));
         combat.defCounterRate += cal_skillCounter(combat.defSkill.COUNTER, getArmy('offense'));
+        combat.defCounterRate += combat.defELSECounterRate;
     }
 };
 

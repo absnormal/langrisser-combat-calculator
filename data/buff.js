@@ -982,14 +982,15 @@ var buff = [{
 },{
     NAME: '帝國之力',
     TYPE: ['帝國之輝'],
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        if(side == 'offense') counterRate = combat.offCounterRate;
-        else if(side == 'defense') counterRate = combat.defCounterRate;
-        if(counterRate > 1) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
-        else return false;
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') otherside = 'defense';
+        else if(side == 'defense') otherside = 'offense';
+        counterRate = cal_counter(getArmy(side), getArmy(otherside));
+        if(counterRate > 0) this.COUNTER = 0.1;
+        else this.COUNTER = undefined;
     },
-    DESC: '與克制的部隊交戰時，傷害額外提升20%'
+    DESC: '與克制的部隊交戰時，傷害額外提升20%(克制倍率+10%)'
 },{
     NAME: '暗之輪舞',
     TYPE: ['黑暗輪迴'],
@@ -1065,14 +1066,15 @@ var buff = [{
 },{
     NAME: '璀璨的傳說',
     TYPE: ['傳說彼端'],
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
-        if(side == 'offense') counterRate = combat.offCounterRate;
-        else if(side == 'defense') counterRate = combat.defCounterRate;
-        if(counterRate == 1) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
-        else return false;
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') otherside = 'defense';
+        else if(side == 'defense') otherside = 'offense';
+        counterRate = cal_counter(getArmy(side), getArmy(otherside));
+        if(counterRate == 0) this.COUNTER = 0.08;
+        else this.COUNTER = undefined;
     },
-    DESC: '與不發生剋制關係的部隊交戰時，傷害額外提升15%'
+    DESC: '與不發生剋制關係的部隊交戰時，傷害額外提升15%(克制倍率+8%)'
 },{
     NAME: '傳說的終焉',
     TYPE: ['傳說彼端'],

@@ -7,7 +7,8 @@ function getWeaponSkill(side){
     // collect display
     var display = {
         NAME: weapon.NAME,
-        RATE: [0, 0, 0, 0, 0]
+        RATE: [0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(weapon.SKILLTYPE != undefined && weapon.SKILLTYPE.includes('RATE') && weapon.RATE(side)){
         display.RATE = weapon.RATE(side);
@@ -52,7 +53,7 @@ function getMIDWeaponSkill(side){
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
         MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        SKILLDMG: 0, DEFNEG: 0
+        SKILLDMG: 0, DEFNEG: 0, CHARONLY: true
     };
     if(weapon.SKILLTYPE != undefined && weapon.SKILLTYPE.includes('MIDRATE') && weapon.MIDRATE(side)){
         display.MIDRATE = weapon.MIDRATE(side);

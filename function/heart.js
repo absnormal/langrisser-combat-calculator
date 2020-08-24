@@ -7,7 +7,8 @@ function getHeartSkill(side){
     // collect display
     var display = {
         NAME: heart.NAME,
-        RATE: [0, 0, 0, 0, 0]
+        RATE: [0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(heart.SKILLTYPE != undefined && heart.SKILLTYPE.includes('RATE') && heart.RATE(side)){
         display.RATE = heart.RATE(side);
@@ -51,7 +52,8 @@ function getMIDHeartSkill(side){
         /* ATK, INT, DEF, MDEF, DEX,
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
-        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        CHARONLY: true
     };
     if(heart.SKILLTYPE != undefined && heart.SKILLTYPE.includes('MIDRATE') && heart.MIDRATE(side)){
         display.MIDRATE = heart.MIDRATE(side);

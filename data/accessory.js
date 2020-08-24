@@ -64,22 +64,16 @@ var accessory = [{
     HEAL: 0.15,
     DESC: '治療效果+15%，行動結束時，為周圍2格的3個其他友軍驅散1個弱化效果。'
 },{
-    NAME: '霸者徽章', TYPE: '飾品',
-    HP: 0.05, ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05,
-    DESC: '全屬性+5%，免疫：“防禦、魔防降低”、“攻擊、智力降低”、“移動力降低”。'
-},{
     NAME: '審判魔符', TYPE: '飾品',
     ATK: 0.08,
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') oppArmy = getArmy('defense');
         else oppArmy = getArmy('offense');
-        if(oppArmy == '僧侶'){
-            return [0.12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        }
-        return false;
+        if(oppArmy == '僧侶') this.COUNTER = 0.12;
+        else this.COUNTER = undefined;
     },
-    DESC: '攻擊+8%，和“僧侶”戰鬥時，攻擊額外提升12%'
+    DESC: '攻擊+8%，和“僧侶”戰鬥時，攻擊額外提升12%。(克制倍率+12%)'
 },{
     NAME: '索爾的項鍊', TYPE: '飾品',
     ATK: 0.05,
@@ -93,16 +87,14 @@ var accessory = [{
 },{
     NAME: '屠龍勳章', TYPE: '飾品',
     ATK: 0.08,
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') oppArmy = getArmy('defense');
         else oppArmy = getArmy('offense');
-        if(oppArmy == '飛兵'){
-            return [0.12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        }
-        return false;
+        if(oppArmy == '飛兵') this.COUNTER = 0.12;
+        else this.COUNTER = undefined;
     },
-    DESC: '攻擊+8%，與“飛兵”戰鬥時，攻擊額外提升12%。'
+    DESC: '攻擊+8%，與“飛兵”戰鬥時，攻擊額外提升12%。(克制倍率+12%)'
 },{
     NAME: '精靈石之戒', TYPE: '飾品',
     OATK: 0.08,  ODEF: 0.08,
@@ -122,6 +114,18 @@ var accessory = [{
     ATK: 0.05,  MOVE: 1,
     DESC: '攻擊+5%。移動力+1'
 },{
+    NAME: '霸者徽章', TYPE: '飾品',
+    HP: 0.05, ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05,
+    DESC: '全屬性+5%，免疫：“防禦、魔防降低”、“攻擊、智力降低”、“移動力降低”。'
+},{
+    NAME: '鑄劍者勳章', TYPE: '飾品',
+    HP: 0.05, ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05,
+    DESC: '全屬性+5%，免疫“固定傷害”、“無法使用主動技能”'
+},{
+    NAME: '氤氳之心', TYPE: '飾品',
+    HP: 0.05, ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05,
+    DESC: '全屬性+5%。免疫「傷口詛咒（遭受治療轉化為傷害)」、「治療反轉（施加的治療轉化為傷害）」。'
+},{
     NAME: '暗謀墜飾', TYPE: '飾品',
     HP: 0.05, ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05, OCRITRATEINC: 0.05,
     DESC: '全屬性+5%。進入戰鬥時，暴擊率+5%。'
@@ -130,10 +134,6 @@ var accessory = [{
     ATK: 0.05, INT: 0.05,
     /* TRUE DMG */
     DESC: '攻擊、智力+5%。主動攻擊進入戰鬥前，對敵軍造成1次[固定傷害]，傷害值為英雄攻擊和智力中較低一項屬性的1倍。如果敵軍為[混合部隊]，則此次傷害無法被免疫。'
-},{
-    NAME: '鑄劍者勳章', TYPE: '飾品',
-    HP: 0.05, ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05,
-    DESC: '全屬性+5%，免疫“固定傷害”、“無法使用主動技能”'
 },{
     NAME: '光之面紗', TYPE: '飾品',
     MDEF: 0.08,
