@@ -1448,11 +1448,11 @@ var heart = [{
             case 1:
                 if(side == 'offense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
-                if(side == 'defense' && oppDMGTYPE == '魔法傷害')
-                    midrate[DMGINC] += 0.1;
-            case 2:
                 if(perHP < 0.7)
                     midrate[CRITDMGINC] += 0.1;
+            case 2:
+                if(side == 'defense' && oppDMGTYPE == '魔法傷害')
+                    midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[CRITDMGINC] += 0.1;
                 break;
@@ -1460,8 +1460,8 @@ var heart = [{
         return midrate;
     },
     JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
-    JOB1B:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
-    JOB2A:'部隊血量低於70%時，暴擊傷害提升10%。',
+    JOB1B:'部隊血量低於70%時，暴擊傷害提升10%。',
+    JOB2A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2B:'受到攻擊進入戰鬥時，暴擊傷害提升10%。'
 },{
     NAME: '利昂大心',

@@ -83,11 +83,14 @@ function getMIDBUFFSkill(side){
              * CRITRATE+, CRITDMG+, DMGRATE+,
              * CRITRATE-, CRITDMG-, DMGRATE- */
             MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            SKILLDMG: 0
+            SKILLDMG: 0, CHARONLY: false,
         };
         if(buff.SKILLTYPE != undefined && buff.SKILLTYPE.includes('MIDRATE') && buff.MIDRATE(side)){
             display.MIDRATE = buff.MIDRATE(side);
         }
+        if(buff.CHARONLY != undefined && buff.CHARONLY == true)
+            display.CHARONLY = true;
+
         if(side == 'offense'){
             if(buff.OATK != undefined) display.MIDRATE[0] += buff.OATK;
             if(buff.OINT != undefined) display.MIDRATE[1] += buff.OINT;
@@ -138,17 +141,19 @@ function getMIDBUFFSkill(side){
             combat.defDMGRATE -= display.MIDRATE[10];
             combat.offSKILLDMG += display.SKILLDMG;
             /* soldier */
-            combat.offsoldATKRATE += display.MIDRATE[0];
-            combat.offsoldINTRATE += display.MIDRATE[1];
-            combat.offsoldDEFRATE += display.MIDRATE[2];
-            combat.offsoldMDEFRATE += display.MIDRATE[3];
-            combat.offsoldDEXRATE += display.MIDRATE[4];
-            combat.offsoldCRITRATE += display.MIDRATE[5];
-            combat.offsoldCRITDMG += display.MIDRATE[6];
-            combat.offsoldDMGRATE += display.MIDRATE[7];
-            combat.defsoldCRITRATE -= display.MIDRATE[8];
-            combat.defsoldCRITDMG -= display.MIDRATE[9];
-            combat.defsoldDMGRATE -= display.MIDRATE[10];
+            if(!display.CHARONLY){
+                combat.offsoldATKRATE += display.MIDRATE[0];
+                combat.offsoldINTRATE += display.MIDRATE[1];
+                combat.offsoldDEFRATE += display.MIDRATE[2];
+                combat.offsoldMDEFRATE += display.MIDRATE[3];
+                combat.offsoldDEXRATE += display.MIDRATE[4];
+                combat.offsoldCRITRATE += display.MIDRATE[5];
+                combat.offsoldCRITDMG += display.MIDRATE[6];
+                combat.offsoldDMGRATE += display.MIDRATE[7];
+                combat.defsoldCRITRATE -= display.MIDRATE[8];
+                combat.defsoldCRITDMG -= display.MIDRATE[9];
+                combat.defsoldDMGRATE -= display.MIDRATE[10];
+            }
         }
         else if(side == 'defense'){
             /* hero */
@@ -164,17 +169,19 @@ function getMIDBUFFSkill(side){
             combat.offCRITDMG -= display.MIDRATE[9];
             combat.offDMGRATE -= display.MIDRATE[10];
             /* soldier */
-            combat.defsoldATKRATE += display.MIDRATE[0];
-            combat.defsoldINTRATE += display.MIDRATE[1];
-            combat.defsoldDEFRATE += display.MIDRATE[2];
-            combat.defsoldMDEFRATE += display.MIDRATE[3];
-            combat.defsoldDEXRATE += display.MIDRATE[4];
-            combat.defsoldCRITRATE += display.MIDRATE[5];
-            combat.defsoldCRITDMG += display.MIDRATE[6];
-            combat.defsoldDMGRATE += display.MIDRATE[7];
-            combat.offsoldCRITRATE -= display.MIDRATE[8];
-            combat.offsoldCRITDMG -= display.MIDRATE[9];
-            combat.offsoldDMGRATE -= display.MIDRATE[10];
+            if(!display.CHARONLY){
+                combat.defsoldATKRATE += display.MIDRATE[0];
+                combat.defsoldINTRATE += display.MIDRATE[1];
+                combat.defsoldDEFRATE += display.MIDRATE[2];
+                combat.defsoldMDEFRATE += display.MIDRATE[3];
+                combat.defsoldDEXRATE += display.MIDRATE[4];
+                combat.defsoldCRITRATE += display.MIDRATE[5];
+                combat.defsoldCRITDMG += display.MIDRATE[6];
+                combat.defsoldDMGRATE += display.MIDRATE[7];
+                combat.offsoldCRITRATE -= display.MIDRATE[8];
+                combat.offsoldCRITDMG -= display.MIDRATE[9];
+                combat.offsoldDMGRATE -= display.MIDRATE[10];
+            }
         }
         displayList.push(display);
     }

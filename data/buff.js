@@ -185,7 +185,8 @@ var buff = [{
 },{
     NAME: '遠古智慧',
     TYPE: ['一般'],
-    /* HERO DMG INC */
+    CHARONLY: true,
+    DMGINC: 0.2,
     DESC: '英雄傷害提升20%'
 },{
     NAME: '戰神怒火',
