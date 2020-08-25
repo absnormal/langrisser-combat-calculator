@@ -21,6 +21,7 @@
 - [夢戰wiki](https://wiki.biligame.com/langrisser/%E9%A6%96%E9%A1%B5) (數據、圖片來源)
 - [【情報】遊戲傷害機制分享](https://forum.gamer.com.tw/C.php?bsn=33596&snA=5643) (主要參考公式)
 - [關於技巧和暴擊的測試計算和結論](https://tieba.baidu.com/p/5978708506?red_tag=0653583826) (暴擊與技巧關係)
+- [遊戲內的相關公式計算整理](https://bbs.nga.cn/read.php?tid=15009104&rand=433) (士兵數據公式)
 
 ## Contributors
 
@@ -28,4 +29,4 @@
 
 ## Update
 
-- 2020/08/25 基本功能大致完成
+- 2020/08/25 基本功能大致完成(士兵x士兵/英雄x英雄一段傷害)
