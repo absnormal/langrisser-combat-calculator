@@ -290,6 +290,19 @@ tbody > p{
     color: white;
 }
 
+/* 弱化 */
+.DEBUFFList{
+    border-style: solid;
+    border-color: white;
+}
+.DEBUFF .imgbtn{
+    background-color: white;
+    padding-top: 1px; padding-right: 1px; padding-left: 1px;
+}
+.DEBUFFinfo{
+    color: white;
+}
+
 /* 進場前/戰前數字 */
 .NUMDESC{
     display: none;

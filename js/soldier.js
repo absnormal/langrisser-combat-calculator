@@ -409,9 +409,9 @@ function displayMIDSoldNUMS(side, sideRate, oppRate){
             for(let j=0; j<oppRate.length; j++){
                 if(oppRate[j].CHARONLY) continue;
                 if(oppRate[j].MIDRATE[i] > 0)
-                    eDESC.innerHTML += oppRate[j].MIDRATE[i].toFixed(2)+"["+oppRate[j].NAME+"]";
+                    eDESC.innerHTML +="-"+oppRate[j].MIDRATE[i].toFixed(2)+"["+oppRate[j].NAME+"]";
                 if(oppRate[j].MIDRATE[i] < 0)
-                    eDESC.innerHTML += "+"+oppRate[j].MIDRATE[i].toFixed(2)+"["+oppRate[j].NAME+"]";
+                    eDESC.innerHTML +="+"+(oppRate[j].MIDRATE[i].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
             }
         }
         // ATK, DEF, MDEF
@@ -530,7 +530,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
       if(oppRate[j].MIDRATE[DMGRATEDEC] > 0)
        eDESC.innerHTML+="-"+oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
       if(oppRate[j].MIDRATE[DMGRATEDEC] < 0)
-       eDESC.innerHTML+=oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
+       eDESC.innerHTML+="+"+(oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
     }
     eDESC.innerHTML += ")";
 };

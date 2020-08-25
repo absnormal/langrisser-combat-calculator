@@ -130,6 +130,8 @@ function selectChar(charName){
         displayPassive('defense');
         hideBUFF('defense');
         displayBUFF('defense');
+        hideDEBUFF('defense');
+        displayDEBUFF('defense');
         hideWeapon('defense');
         displayWeapon('defense');
         hideArmor('defense');
@@ -167,6 +169,8 @@ function selectChar(charName){
         displayPassive('offense');
         hideBUFF('offense');
         displayBUFF('offense');
+        hideDEBUFF('offense');
+        displayDEBUFF('offense');
         hideWeapon('offense');
         displayWeapon('offense');
         hideArmor('offense');

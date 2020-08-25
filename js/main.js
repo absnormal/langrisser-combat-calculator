@@ -141,6 +141,8 @@ function createAllList(){
     createPassiveList('defense', 'defPassiveList');
     createBUFFList('offense', 'offBUFFList');
     createBUFFList('defense', 'defBUFFList');
+    createDEBUFFList('offense', 'offDEBUFFList');
+    createDEBUFFList('defense', 'defDEBUFFList');
     createWeaponList('offense', 'offWeaponList');
     createWeaponList('defense', 'defWeaponList');
     createArmorList('offense', 'offArmorList');
@@ -315,8 +317,10 @@ function displayBASENUMS(side, sideRate){
         eBASEDESC.innerHTML = number.toFixed(2) + "=(" + pre[i] + "-" + arena[i] + ")÷(1";
         for(let j=0; j<sideRate.length; j++){
             if(sideRate[j].SOLDONLY) continue;
-            if(sideRate[j].RATE[i] != 0)
+            if(sideRate[j].RATE[i] > 0)
                eBASEDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+            if(sideRate[j].RATE[i] < 0)
+               eBASEDESC.innerHTML+=sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
         }
         eBASEDESC.innerHTML += ")";
     }
@@ -351,8 +355,10 @@ function displayPRENUMS(side, sideRate){
         ePREDESC.innerHTML = number.toFixed(2) + "=" + base[i] + "×(1";
         for(let j=0; j<sideRate.length; j++){
             if(sideRate[j].SOLDONLY) continue;
-            if(sideRate[j].RATE[i] != 0)
+            if(sideRate[j].RATE[i] > 0)
                 ePREDESC.innerHTML+="+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+            if(sideRate[j].RATE[i] < 0)
+                ePREDESC.innerHTML+=sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
         }
         ePREDESC.innerHTML += ")+" + arena[i];
     }
@@ -546,7 +552,7 @@ function displayMIDNUMS(side, sideRate, oppRate){
                 if(oppRate[j].MIDRATE[i+3] > 0)
                     eMIDDESC.innerHTML+="-"+oppRate[j].MIDRATE[i+3].toFixed(2)+"["+oppRate[j].NAME+"]";
                 if(oppRate[j].MIDRATE[i+3] < 0)
-                    eMIDDESC.innerHTML+="+"+oppRate[j].MIDRATE[i+3].toFixed(2)+"["+oppRate[j].NAME+"]";
+                    eMIDDESC.innerHTML+="+"+(oppRate[j].MIDRATE[i+3].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
             }
         }
     }
@@ -774,7 +780,7 @@ function displayONEHIT(side, sideRate, oppRate){
       if(oppRate[j].MIDRATE[DMGRATEDEC] > 0)
        eDESC.innerHTML+="-"+oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
       if(oppRate[j].MIDRATE[DMGRATEDEC] < 0)
-       eDESC.innerHTML+=oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
+       eDESC.innerHTML+="+"+(oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
     }
     eDESC.innerHTML += ")";
 
@@ -845,6 +851,8 @@ function getAllSkill(stage, side){
         // command & passive & buff & debuff
         sideRate = [...sideRate, ...getBUFFSkill(side)];
         othersideRate = [...othersideRate, ...getBUFFSkill(otherside)];
+        sideRate = [...sideRate, ...getDEBUFFSkill(side)];
+        othersideRate = [...othersideRate, ...getDEBUFFSkill(otherside)];
         sideRate = [...sideRate, ...getCommandSkill(side)];
         othersideRate = [...othersideRate, ...getCommandSkill(otherside)];
         sideRate = [...sideRate, ...getPassiveSkill(side)];
@@ -905,6 +913,8 @@ function getAllSkill(stage, side){
         // command & passive & buff & debuff
         sideRate = [...sideRate, ...getMIDBUFFSkill(side)];
         othersideRate = [...othersideRate, ...getMIDBUFFSkill(otherside)];
+        sideRate = [...sideRate, ...getMIDDEBUFFSkill(side)];
+        othersideRate = [...othersideRate, ...getMIDDEBUFFSkill(otherside)];
         sideRate = [...sideRate, ...getMIDCommandSkill(side)];
         othersideRate = [...othersideRate, ...getMIDCommandSkill(otherside)];
         sideRate = [...sideRate, ...getMIDPassiveSkill(side)];

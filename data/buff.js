@@ -53,6 +53,14 @@ var buff = [{
     },
     DESC: '受到傷害降低[DATA]%'
 },{
+    NAME: '暴擊率+15％、暴擊傷害+15％',
+    TYPE: ['一般'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        return [0, 0, 0, 0, 0, 0.15, 0.15, 0, 0, 0, 0];
+    },
+    DESC: '暴擊率+15％、暴擊傷害+15％'
+},{
     /* NOT PERCENTAGE */
     NAME: '移動力+N',
     TYPE: ['一般'], INDEX: 1,
