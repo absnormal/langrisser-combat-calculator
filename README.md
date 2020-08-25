@@ -2,7 +2,7 @@
 
 更新至台版卡池進度
 
-網站在[這裡](https://absnormal.github.io/langrisser-combat-calculator/index.html)(如果是第一次來可以先往下看，由於圖片繁多會loading好一陣子)
+網站在[這裡](https://absnormal.github.io/langrisser-combat-calculator/index.html)(如果是第一次來點完可以先往下看，由於圖片繁多會loading好一陣子)
 
 2個大三生花了2個月從零開始邊學邊寫出來的(純javascript、css、html)
 
