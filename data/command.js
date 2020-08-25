@@ -56,18 +56,33 @@ var command = [{
     NAME: '止水',
     /* RANGE DMG DEC */
     CRITRATEDEC: 0.3,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(combat.range > 1) this.COMMANDDMGDEC = 0.15;
+        else this.COMMANDDMGDEC = undefined;
+    },
     DESC: '遭受暴擊率降低30%，遭受遠程傷害降低15%'
 },{
     NAME: '明鏡止水',
     /* RANGE DMG DEC */
     CRITRATEDEC: 0.3,
     HEALED: 0.15,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(combat.range > 1) this.COMMANDDMGDEC = 0.15;
+        else this.COMMANDDMGDEC = undefined;
+    },
     DESC: '遭受暴擊率降低30%，遭受遠程傷害降低15%，遭受治療效果提升15%'
 },{
     NAME: '止水寧息',
     /* RANGE DMG DEC */
     CRITRATEDEC: 0.3,
     HEALED: 0.15,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(combat.range > 1) this.COMMANDDMGDEC = 0.15;
+        else this.COMMANDDMGDEC = undefined;
+    },
     DESC: '遭受暴擊率降低30%，遭受遠程傷害降低15%，遭受治療效果提升15%'
 },{
     NAME: '精靈之森(指揮)',

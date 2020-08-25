@@ -26,10 +26,12 @@ var combat = {
     offMDEFRATE:undefined, offDEXRATE:undefined, offDMGTYPE:undefined,
     offCRITDMG:undefined, offCRITRATE:undefined, offDMGRATE:undefined, offSKILLDMG:undefined,
     offDEFNEG:undefined, offMDEFNEG:undefined, offTALENTDMGDEC:undefined,
+    offCOMMANDDMGDEC:undefined,
     defATKRATE:undefined, defINTRATE:undefined, defDEFRATE:undefined,
     defMDEFRATE:undefined, defDEXRATE:undefined, defDMGTYPE:undefined,
     defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined,
     defDEFNEG:undefined, defMDEFNEG:undefined, defTALENTDMGDEC:undefined,
+    defCOMMANDDMGDEC:undefined,
     skillRATE:undefined, combatNEG:undefined,
         /* soldier accumulate rates */
     offsoldHP:undefined, offsoldFULLHP:undefined, offsoldHPRATE:undefined,
@@ -85,6 +87,7 @@ function resetAllRATE(){
     combat.offDEFNEG = combat.baseCombatNEG;
     combat.offMDEFNEG = combat.baseCombatNEG;
     combat.offTALENTDMGDEC = combat.baseNUM;
+    combat.offCOMMANDDMGDEC = combat.baseNUM;
     /* defense accumulative rates */
     combat.defATKRATE = combat.baseRATE;
     combat.defINTRATE = combat.baseRATE;
@@ -100,6 +103,7 @@ function resetAllRATE(){
     combat.defDEFNEG = combat.baseCombatNEG;
     combat.defMDEFNEG = combat.baseCombatNEG;
     combat.defTALENTDMGDEC = combat.baseNUM;
+    combat.defCOMMANDDMGDEC = combat.baseNUM;
     /* sold rates */
     combat.offsoldHP = 1000;
     combat.offsoldFULLHP = 1000;
@@ -715,6 +719,7 @@ function displayONEHIT(side, sideRate, oppRate){
         counterRate = combat.offCounterRate;
         terrainRate = combat.defTerrainRate;
         talentDMGDEC = combat.defTALENTDMGDEC;
+        commandDMGDEC = combat.defCOMMANDDMGDEC;
     }
     else if(side == 'defense'){
         SIDE = 'def';
@@ -729,6 +734,7 @@ function displayONEHIT(side, sideRate, oppRate){
         counterRate = combat.defCounterRate;
         terrainRate = combat.offTerrainRate;
         talentDMGDEC = combat.offTALENTDMGDEC;
+        commandDMGDEC = combat.offCOMMANDDMGDEC;
     }
 
     if(skilltype == '物理傷害'){
@@ -743,7 +749,7 @@ function displayONEHIT(side, sideRate, oppRate){
     }
 
     /* ONEHIT MAIN FORMULA */
-    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*skilldmg*(1-talentDMGDEC);
+    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*skilldmg*(1-talentDMGDEC)*(1-commandDMGDEC);
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+DMGTYPE);
@@ -799,6 +805,15 @@ function displayONEHIT(side, sideRate, oppRate){
         for(let j=0; j<oppRate.length; j++)
             if(oppRate[j].TALENTDMGDEC != undefined && oppRate[j].TALENTDMGDEC != 0)
                eDESC.innerHTML+="-"+oppRate[j].TALENTDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
+
+    /* mulitply command DMGDEC */
+    if(commandDMGDEC != 0){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<oppRate.length; j++)
+            if(oppRate[j].COMMANDDMGDEC != undefined && oppRate[j].COMMANDDMGDEC != 0)
+               eDESC.innerHTML+="-"+oppRate[j].COMMANDDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
         eDESC.innerHTML += ")";
     }
 };

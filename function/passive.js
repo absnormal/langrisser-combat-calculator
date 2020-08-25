@@ -33,6 +33,10 @@ function getPassiveSkill(side){
             combat.offDEXRATE += display.RATE[4];
             if(passive.HEAL != undefined) combat.offHEAL += passive.HEAL;
             if(passive.HEALED != undefined) combat.offHEALED += passive.HEALED;
+            /* soldier */
+            combat.offsoldATKRATE += display.RATE[0];
+            combat.offsoldDEFRATE += display.RATE[2];
+            combat.offsoldMDEFRATE += display.RATE[3];
         }
         else if(side == 'defense'){
             /* hero */
@@ -43,6 +47,10 @@ function getPassiveSkill(side){
             combat.defDEXRATE += display.RATE[4];
             if(passive.HEAL != undefined) combat.defHEAL += passive.HEAL;
             if(passive.HEALED != undefined) combat.defHEALED += passive.HEALED;
+            /* soldier */
+            combat.defsoldATKRATE += display.RATE[0];
+            combat.defsoldDEFRATE += display.RATE[2];
+            combat.defsoldMDEFRATE += display.RATE[3];
         }
         displayList.push(display);
     }
@@ -104,6 +112,7 @@ function getMIDPassiveSkill(side){
 
         // add to combat
         if(side == 'offense'){
+            /* hero */
             combat.offATKRATE += display.MIDRATE[0];
             combat.offINTRATE += display.MIDRATE[1];
             combat.offDEFRATE += display.MIDRATE[2];
@@ -115,8 +124,19 @@ function getMIDPassiveSkill(side){
             combat.defCRITRATE -= display.MIDRATE[8];
             combat.defCRITDMG -= display.MIDRATE[9];
             combat.defDMGRATE -= display.MIDRATE[10];
+            /* soldier */
+            combat.offsoldATKRATE += display.MIDRATE[0];
+            combat.offsoldDEFRATE += display.MIDRATE[2];
+            combat.offsoldMDEFRATE += display.MIDRATE[3];
+            combat.offsoldCRITRATE += display.MIDRATE[5];
+            combat.offsoldCRITDMG += display.MIDRATE[6];
+            combat.offsoldDMGRATE += display.MIDRATE[7];
+            combat.defsoldCRITRATE -= display.MIDRATE[8];
+            combat.defsoldCRITDMG -= display.MIDRATE[9];
+            combat.defsoldDMGRATE -= display.MIDRATE[10];
         }
         else if(side == 'defense'){
+            /* hero */
             combat.defATKRATE += display.MIDRATE[0];
             combat.defINTRATE += display.MIDRATE[1];
             combat.defDEFRATE += display.MIDRATE[2];
@@ -128,6 +148,16 @@ function getMIDPassiveSkill(side){
             combat.offCRITRATE -= display.MIDRATE[8];
             combat.offCRITDMG -= display.MIDRATE[9];
             combat.offDMGRATE -= display.MIDRATE[10];
+            /* soldier */
+            combat.defsoldATKRATE += display.MIDRATE[0];
+            combat.defsoldDEFRATE += display.MIDRATE[2];
+            combat.defsoldMDEFRATE += display.MIDRATE[3];
+            combat.defsoldCRITRATE += display.MIDRATE[5];
+            combat.defsoldCRITDMG += display.MIDRATE[6];
+            combat.defsoldDMGRATE += display.MIDRATE[7];
+            combat.offsoldCRITRATE -= display.MIDRATE[8];
+            combat.offsoldCRITDMG -= display.MIDRATE[9];
+            combat.offsoldDMGRATE -= display.MIDRATE[10];
         }
         displayList.push(display);
     }

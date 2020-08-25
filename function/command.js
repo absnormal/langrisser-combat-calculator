@@ -76,7 +76,8 @@ function getMIDCommandSkill(side){
             /* ATK, INT, DEF, MDEF, DEX,
              * CRITRATE+, CRITDMG+, DMGRATE+,
              * CRITRATE-, CRITDMG-, DMGRATE- */
-            MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            COMMANDDMGDEC: 0
         };
         if(command.SKILLTYPE != undefined && command.SKILLTYPE.includes('MIDRATE') && command.MIDRATE(side)){
             display.MIDRATE = command.MIDRATE(side);
@@ -113,9 +114,11 @@ function getMIDCommandSkill(side){
         if(command.CRITRATEDEC != undefined) display.MIDRATE[8] += command.CRITRATEDEC;
         if(command.CRITDMGDEC != undefined) display.MIDRATE[9] += command.CRITDMGDEC;
         if(command.DMGDEC != undefined) display.MIDRATE[10] += command.DMGDEC;
+        if(command.COMMANDDMGDEC != undefined) display.COMMANDDMGDEC += command.COMMANDDMGDEC;
 
         // add to combat
         if(side == 'offense'){
+            /* hero */
             combat.offATKRATE += display.MIDRATE[0];
             combat.offINTRATE += display.MIDRATE[1];
             combat.offDEFRATE += display.MIDRATE[2];
@@ -127,8 +130,21 @@ function getMIDCommandSkill(side){
             combat.defCRITRATE -= display.MIDRATE[8];
             combat.defCRITDMG -= display.MIDRATE[9];
             combat.defDMGRATE -= display.MIDRATE[10];
+            /* mulitply command DMGDEC */
+            combat.offCOMMANDDMGDEC += display.COMMANDDMGDEC;
+            /* soldier */
+            combat.offsoldATKRATE += display.MIDRATE[0];
+            combat.offsoldDEFRATE += display.MIDRATE[2];
+            combat.offsoldMDEFRATE += display.MIDRATE[3];
+            combat.offsoldCRITRATE += display.MIDRATE[5];
+            combat.offsoldCRITDMG += display.MIDRATE[6];
+            combat.offsoldDMGRATE += display.MIDRATE[7];
+            combat.defsoldCRITRATE -= display.MIDRATE[8];
+            combat.defsoldCRITDMG -= display.MIDRATE[9];
+            combat.defsoldDMGRATE -= display.MIDRATE[10];
         }
         else if(side == 'defense'){
+            /* hero */
             combat.defATKRATE += display.MIDRATE[0];
             combat.defINTRATE += display.MIDRATE[1];
             combat.defDEFRATE += display.MIDRATE[2];
@@ -140,6 +156,18 @@ function getMIDCommandSkill(side){
             combat.offCRITRATE -= display.MIDRATE[8];
             combat.offCRITDMG -= display.MIDRATE[9];
             combat.offDMGRATE -= display.MIDRATE[10];
+            /* mulitply command DMGDEC */
+            combat.defCOMMANDDMGDEC += display.COMMANDDMGDEC;
+            /* soldier */
+            combat.defsoldATKRATE += display.MIDRATE[0];
+            combat.defsoldDEFRATE += display.MIDRATE[2];
+            combat.defsoldMDEFRATE += display.MIDRATE[3];
+            combat.defsoldCRITRATE += display.MIDRATE[5];
+            combat.defsoldCRITDMG += display.MIDRATE[6];
+            combat.defsoldDMGRATE += display.MIDRATE[7];
+            combat.offsoldCRITRATE -= display.MIDRATE[8];
+            combat.offsoldCRITDMG -= display.MIDRATE[9];
+            combat.offsoldDMGRATE -= display.MIDRATE[10];
         }
         displayList.push(display);
     }
