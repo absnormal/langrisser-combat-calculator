@@ -2,7 +2,7 @@
 
 更新至台版卡池進度
 
-網站在[這裡](https://absnormal.github.io/langrisser-combat-calculator/index.html)
+網站在[這裡](https://absnormal.github.io/langrisser-combat-calculator/index.html)(如果是第一次來可以先往下看，由於圖片繁多會loading好一陣子)
 
 2個大三生花了2個月從零開始邊學邊寫出來的(純javascript、css、html)
 
@@ -12,8 +12,7 @@
 
 ## 主要功能
 
-- 一段傷害計算 + 自訂各種狀況
-- 推算對手裝備(需要用腦)
+- 自訂條件進行一段傷害計算
 
 ※ 如果資料有誤或公式錯誤且您願意協助改進結果，請提交 issue 並附上截圖以及狀況說明
 
@@ -27,3 +26,6 @@
 
 [![contributors](https://contributors-img.web.app/image?repo=absnormal/langrisser-combat-calculator)](https://github.com/absnormal/langrisser-combat-calculator/graphs/contributors)
 
+## Update
+
+- 2020/08/25 基本功能大致完成
