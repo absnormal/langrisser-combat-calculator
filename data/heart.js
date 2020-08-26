@@ -177,6 +177,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -216,6 +217,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -260,6 +262,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -299,6 +302,7 @@ var heart = [{
                     midrate[CRITRATEDEC] += 0.1;
                 if(side = 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -336,6 +340,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.5)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP < oppPerHP)
                     midrate[DMGINC] += 0.1;
@@ -371,6 +376,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
@@ -408,6 +414,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > oppPerHP)
                     midrate[DMGDEC] += 0.1;
@@ -443,6 +450,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGINC] += 0.1;
@@ -478,6 +486,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -517,6 +526,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
@@ -556,6 +566,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
@@ -593,6 +604,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[CRITDMGDEC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -708,6 +720,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.5)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -745,6 +758,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -782,6 +796,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -819,6 +834,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > oppPerHP)
                     midrate[DMGDEC] += 0.1;
@@ -856,6 +872,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > oppPerHP)
                     midrate[DMGDEC] += 0.1;
@@ -895,6 +912,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITDMGDEC] += 0.1;
@@ -932,6 +950,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range == 1)
                     midrate[DMGDEC] += 0.1;
@@ -971,6 +990,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppBUFFNUM > 0)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -1008,6 +1028,7 @@ var heart = [{
                     midrate[CRITRATEDEC] += 0.1;
                 if(perHP == 1)
                     midrate[CRITRATEINC] += 0.1;
+                break;
             case 2:
                 if(perHP == 1)
                     midrate[DMGDEC] += 0.1;
@@ -1045,6 +1066,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP == 1)
                     midrate[DMGDEC] += 0.1;
@@ -1084,6 +1106,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
@@ -1123,6 +1146,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -1162,6 +1186,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(BUFFNUM > 10)
                     midrate[DMGDEC] += 0.1;
@@ -1300,6 +1325,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.5)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
@@ -1335,6 +1361,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -1374,6 +1401,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(terrainName == '水')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -1413,6 +1441,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -1450,6 +1479,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[CRITDMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
@@ -1487,6 +1517,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && perHP < oppPerHP)
                     midrate[DMGDEC] += 0.1;
@@ -1522,6 +1553,7 @@ var heart = [{
             case 1:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -1559,6 +1591,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense' && perHP < oppPerHP)
                     midrate[DMGINC] += 0.1;
@@ -1600,6 +1633,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(DEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
@@ -1638,6 +1672,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(run <= 4)
                     midrate[DMGDEC] += 0.03*run;
@@ -1681,6 +1716,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(oppDEBUFFNUM > 0)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -1720,6 +1756,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -1757,6 +1794,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -1796,6 +1834,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGINC] += 0.1;
@@ -1835,6 +1874,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害' && range > 1)
                     midrate[DMGDEC] += 0.1;
@@ -1872,6 +1912,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && perHP < oppPerHP)
                     midrate[DMGDEC] += 0.1;
@@ -1911,6 +1952,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
@@ -1950,6 +1992,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && perHP > oppPerHP )
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -1987,6 +2030,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP == 1)
                     midrate[CRITRATEDEC] += 0.1;
@@ -2026,6 +2070,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
@@ -2063,6 +2108,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -2102,6 +2148,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                     midrate[DMGDEC] += 0.1;
@@ -2141,6 +2188,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[DMGDEC] += 0.1;
@@ -2180,6 +2228,7 @@ var heart = [{
                     midrate[CRITRATEDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[CRITRATEINC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -2217,6 +2266,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2254,6 +2304,7 @@ var heart = [{
             case 1:
                 if(oppDEBUFFNUM > 0)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -2291,6 +2342,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range == 1 && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2328,6 +2380,7 @@ var heart = [{
             case 1:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
@@ -2367,6 +2420,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(oppDEBUFFNUM > 0)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -2402,6 +2456,7 @@ var heart = [{
             case 1:
                 if(side == 'offense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2438,6 +2493,7 @@ var heart = [{
                 if(perHP < 0.5)
                     midrate[DMGDEC] += 0.1;
                 /* SOLDIER RELATED */
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
@@ -2509,6 +2565,7 @@ var heart = [{
                     midrate[CRITRATEDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.5)
                     midrate[DMGDEC] += 0.1;
@@ -2547,6 +2604,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
@@ -2583,6 +2641,7 @@ var heart = [{
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
                 /* SOLDIER RELATED */
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2623,6 +2682,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDEBUFFNUM > 0)
                 if(side == 'defense' && range == 1)
@@ -2661,6 +2721,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
@@ -2700,6 +2761,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[CRITDMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range > 1 && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2781,6 +2843,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && perHP < oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2818,6 +2881,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && range > 1 && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && range == 1 && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2855,6 +2919,7 @@ var heart = [{
             case 1:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '魔法傷害')
                     midrate[DMGDEC] += 0.1;
@@ -2897,6 +2962,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.15
                 if(perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGINC] += 0.1;
@@ -2974,6 +3040,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP < 0.7)
                     midrate[CRITDMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP > 0.8)
                     midrate[DMGDEC] += 0.1;
@@ -3013,6 +3080,7 @@ var heart = [{
             case 1:
                 if(perHP == 1)
                     midrate[CRITRATEINC] += 0.1;
+                break;
             case 2:
                 if(perHP == 1 && oppDMGTYPE == '物理傷害')
                     midrate[CRITRATEDEC] += 0.1;
@@ -3052,6 +3120,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[CRITDMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -3143,7 +3212,8 @@ var heart = [{
                 if(side == 'offense' && run > 0){
                     midrate[DMGDEC] += 0.03*run;
                     midrate[DMGINC] += 0.03*run;
-            }
+                }
+                break;
         }
         return midrate;
     },
@@ -3177,6 +3247,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(perHP > 0.8)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
@@ -3217,6 +3288,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'offense' && perHP > oppPerHP)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(run <= 4)
                     midrate[DMGDEC] += 0.03*run;
@@ -3291,6 +3363,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(oppDEBUFFNUM > 0)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP == 1)
                     midrate[DMGDEC] += 0.1;
@@ -3363,6 +3436,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range > 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(perHP < 0.7)
                     midrate[DMGDEC] += 0.1;
@@ -3531,6 +3605,7 @@ var heart = [{
             case 1:
                 if(perHP > 0.8)
                     midrate[CRITRATEDEC] += 0.1;
+                break;
             case 2:
                 if(perHP == 1)
                     midrate[DMGDEC] += 0.1;
@@ -3570,6 +3645,7 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense' && range == 1)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'defense' && oppDMGTYPE == '物理傷害')
                     midrate[DMGDEC] += 0.1;
@@ -3611,21 +3687,25 @@ var heart = [{
                     midrate[DMGDEC] += 0.1;
                 if(BUFFNUM >= 5)
                     midrate[DMGINC] += 0.1;
+                break;
             case 2:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 3:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 4:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
+                break;
             case 5:
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;

@@ -63,3 +63,17 @@ function getCounterRATE(side){
     }
 };
 
+/* 飛行>野戰>步行>水行>騎行 */
+function cal_MOVETYPE(side){
+    charMOVETYPE = getMOVETYPE(side);
+    soldMOVETYPE = getSoldMOVETYPE(side);
+    ORDER = ['飛行', '野戰', '步行', '水行', '騎行'];
+    charNUM = ORDER.indexOf(charMOVETYPE);
+    soldNUM = ORDER.indexOf(soldMOVETYPE);
+    if(charNUM >= soldNUM) movetype = ORDER[charNUM];
+    else movetype = ORDER[soldNUM];
+
+    if(side == 'offense') combat.offMOVETYPE = movetype;
+    if(side == 'defense') combat.defMOVETYPE = movetype;
+};
+

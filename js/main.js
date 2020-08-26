@@ -11,7 +11,7 @@ var combat = {
     offHITS:undefined, offHEAL:undefined, offHEALED:undefined, range:undefined, run:undefined,
     offCounterRate: undefined, offELSECounterRate:undefined, offTerrainRate: undefined,
     off1BFriend:undefined, off2BFriend:undefined, off3BFriend:undefined,
-    off3BEnemy:undefined, off3CEnemy:undefined,
+    off3BEnemy:undefined, off3CEnemy:undefined, offMOVETYPE:undefined,
     // character arena plus
     offAATK:undefined,offAINT:undefined,offADEF:undefined,offAMDEF:undefined,offADEX:undefined,
     offACRITDMGINC:undefined, offACRITDMGDEC:undefined,
@@ -55,7 +55,7 @@ var combat = {
     defHITS:undefined, defHEAL:undefined, defHEALED:undefined,
     defCounterRate: undefined, defELSECounterRate:undefined, defTerrainRate: undefined,
     def1BFriend:undefined, def2BFriend:undefined, def3BFriend:undefined,
-    def3BEnemy:undefined, def3CEnemy:undefined,
+    def3BEnemy:undefined, def3CEnemy:undefined, defMOVETYPE:undefined,
     // character arena plus
     defAATK:undefined,defAINT:undefined,defADEF:undefined,defAMDEF:undefined,defADEX:undefined,
     defACRITDMGINC:undefined, defACRITDMGDEC:undefined,
@@ -981,10 +981,14 @@ function wholeCombat(){
     getCharData('defense');
     getTerrainRATE('offense');
     getTerrainRATE('defense');
+    cal_MOVETYPE('offense');
+    cal_MOVETYPE('defense');
     getAllSkill('PRE', 'offense');
     getCounterRATE('offense');
     getCounterRATE('defense');
     getAllSkill('MID', 'offense');
+    displayMOVETYPE('offense');
+    displayMOVETYPE('defense');
 };
 
 window.addEventListener("click", function getSelected(){

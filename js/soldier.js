@@ -178,6 +178,7 @@ function selectSoldier(side, soldierName){
         hideTraining(side);
         displayTraining(side, combat.offSoldier.NAME);
     }
+    displaySoldArmy(side);
 };
 
 function loadSoldierDesc(side, soldierID){
@@ -217,6 +218,11 @@ function getSoldTrain(army){
     if(army=='飛兵'||army=='水兵') return '飛水';
     if(army=='弓兵'||army=='刺客') return '弓刺';
     if(army=='僧侶'||army=='魔物'||army=='法師') return '僧魔法';
+};
+
+function getSoldMOVETYPE(side){
+    if(side == 'offense') return combat.offSoldier.MOVETYPE;
+    if(side == 'defense') return combat.defSoldier.MOVETYPE;
 };
 
 function displaySoldHP(side, sideRate){

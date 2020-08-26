@@ -1056,8 +1056,14 @@ var buff = [{
     TYPE: ['戰略大師'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') terrainRate = combat.offTerrainRate;
-        else if(side == 'defense') terrainRate = combat.defTerrainRate;
+        if(side == 'offense'){
+            terrainRate = combat.offTerrainRate;
+            combat.offMOVETYPE = '野戰';
+        }
+        else if(side == 'defense'){
+            terrainRate = combat.defTerrainRate;
+            combat.defMOVETYPE = '野戰';
+        }
         if(terrainRate > 1) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
         else return false;
     },

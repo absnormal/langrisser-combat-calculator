@@ -122,6 +122,7 @@ function selectChar(charName){
         displaySoldier('defense');
         // hide and display equipments by JOB1
         displayArmy('defense');
+        displaySoldArmy('defense');
         displayJob('defense');
         displayHeart('defense');
         hideCommand('defense');
@@ -161,6 +162,7 @@ function selectChar(charName){
         displaySoldier('offense');
         // hide and display equipments by JOB1
         displayArmy('offense');
+        displaySoldArmy('offense');
         displayJob('offense');
         displayHeart('offense');
         hideCommand('offense');

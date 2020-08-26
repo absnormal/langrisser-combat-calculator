@@ -332,14 +332,29 @@ var passive = [{
 },{
     NAME: '野戰',
     TYPE: ['燕','奧利佛','約書亞','索尼婭','馬修'],
-    SKILLTYPE: ['RATE'],
+    SKILLTYPE: ['RATE', 'MIDRATE'],
     RATE: function(side){
         if(side == 'offense') terrainRate = combat.offTerrainRate;
         if(side == 'defense') terrainRate = combat.defTerrainRate;
         if(terrainRate == 1) return false;
         else return [terrainRate-1, 0, 0, 0, 0];
     },
+    MIDRATE: function(side){
+        if(side == 'offense') combat.offMOVETYPE = '野戰';
+        if(side == 'defense') combat.defMOVETYPE = '野戰';
+        return false;
+    },
     DESC: '[被動]移動時所有可以通過的地形都視為「平地」。所在地形如果有防禦提升效果，則可以獲得同樣的攻擊提升。'
+},{
+    NAME: '聖樹庇護',
+    TYPE: ['拉姆達'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') combat.offMOVETYPE = '野戰';
+        if(side == 'defense') combat.defMOVETYPE = '野戰';
+        return false;
+    },
+    DESC: '[被動]移動時所有可以通過的地形都視為「樹林」。且部隊不會受到地形導致的移動力下降影響。'
 },{
     NAME: '金剛',
     TYPE: ['艾絲蒂爾'],

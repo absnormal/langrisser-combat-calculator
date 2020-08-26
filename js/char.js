@@ -46,6 +46,20 @@ function displayArmy(side){
     }
 };
 
+function getSoldArmy(side){
+    if(side == 'defense') return combat.defSoldier.ARMY;
+    else if(side == 'offense') return combat.offSoldier.ARMY;
+};
+
+function displaySoldArmy(side){
+    if(side == 'defense'){
+        document.getElementById('defsoldARMY').innerHTML = '士兵兵種:' + getSoldArmy(side);
+    }
+    else if(side == 'offense'){
+        document.getElementById('offsoldARMY').innerHTML = '士兵兵種:' + getSoldArmy(side);
+    }
+};
+
 function getJob(side){
     var eJobNo, eChar;
     if(side == 'defense'){
@@ -69,6 +83,31 @@ function displayJob(side){
     }
     else if(side == 'offense'){
         document.getElementById('offcharJOB').innerHTML = '職業:' + getJob(side);
+    }
+};
+
+function getMOVETYPE(side){
+    if(side == 'defense'){
+        eJobNo = combat.defJobNo;
+        eChar = combat.defChar;
+    }
+    else if(side == 'offense'){
+        eJobNo = combat.offJobNo;
+        eChar = combat.offChar;
+    }
+    if(eJobNo == 1)      return eChar.MOVETYPE1;
+    else if(eJobNo == 2) return eChar.MOVETYPE2;
+    else if(eJobNo == 3) return eChar.MOVETYPE3;
+    else if(eJobNo == 4) return eChar.MOVETYPE4;
+    else if(eJobNo == 5) return eChar.MOVETYPE5;
+}
+
+function displayMOVETYPE(side){
+    if(side == 'defense'){
+        document.getElementById('defMOVETYPE').innerHTML = '部隊移動:' + combat.defMOVETYPE;
+    }
+    else if(side == 'offense'){
+        document.getElementById('offMOVETYPE').innerHTML = '部隊移動:' + combat.offMOVETYPE;
     }
 };
 
@@ -141,6 +180,7 @@ function changeJob(side){
     }
     // display job when changed
     displayArmy(side);
+    displaySoldArmy(side);
     displayJob(side);
     displayHeart(side);
     hideWeapon(side);

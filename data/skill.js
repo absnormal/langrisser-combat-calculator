@@ -289,6 +289,12 @@ var skill = [{
     TYPE: '物理傷害', CD: 2, RANGE: '1格', AREA: '單體',
     RATE:  1.5, COUNTER: '無',
     /* MOVE TYPE RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        oppMOVETYPE = combat.defMOVETYPE;
+        if(oppMOVETYPE == '飛行') return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0.15];
+        else return false;
+    },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍的傷害，如果目標部隊的移動方式為「飛行」，則戰鬥前本部隊遭受所有傷害降低15%，造成傷害提升15%。'
 },{
     NAME: '撞擊', COST: 1,

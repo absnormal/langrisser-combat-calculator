@@ -29,12 +29,17 @@ var talent = [{
     NAME: '治癒之光',
     DESC: '行動結束時，使周圍2格的友軍獲得[治愈]：戰後100%回復蒂亞莉絲智力3倍的生命。',
 },{
-    /* 乘算 */
     NAME: '聖獸領域',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') soldNUM = Math.round(combat.offsoldHP*10/combat.offsoldFULLHP);
-        if(side == 'defense') soldNUM = Math.round(combat.defsoldHP*10/combat.defsoldFULLHP);
+        if(side == 'offense'){
+            soldNUM = Math.round(combat.offsoldHP*10/combat.offsoldFULLHP);
+            combat.offMOVETYPE = '野戰';
+        }
+        if(side == 'defense'){
+            soldNUM = Math.round(combat.defsoldHP*10/combat.defsoldFULLHP);
+            combat.defMOVETYPE = '野戰';
+        }
         if(soldNUM == 10) this.TALENTDMGDEC = undefined;
         else this.TALENTDMGDEC = (10-soldNUM)*0.03;
     },
