@@ -615,11 +615,11 @@ var soldier = [{
     MIDRATE: function(side){
         if(side == 'offense'){
             soldPerHP = combat.offsoldHP/combat.offsoldFULLHP;
-            oppDMGTYPE = combat.defMDGTYPE;
+            oppDMGTYPE = combat.defDMGTYPE;
         }
         if(side == 'defense'){
             soldPerHP = combat.defsoldHP/combat.defsoldFULLHP;
-            oppDMGTYPE = combat.offMDGTYPE;
+            oppDMGTYPE = combat.offDMGTYPE;
         }
         if(soldPerHP > 0.8 && oppDMGTYPE == '物理傷害')
             return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.45];
