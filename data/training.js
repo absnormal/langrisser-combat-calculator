@@ -181,7 +181,14 @@ var training = [{
     NAME: '奔襲破陣',
     ARMY: ['騎兵'],
     DATA: [0.05, 0.06, 0.07, 0.08, 0.09, 0.11, 0.13, 0.15, 0.17, 0.2],
-    /* ??? */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') return false;
+        LV = getTrainingLV(this.NAME)-1;
+        if(combat.offGUARDED)
+            return [this.DATA[LV], 0, this.DATA[LV], 0, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
     DESC: '所有騎兵，在攻擊被「護衛」時，攻防提升[DATA]%。'
 },{
     NAME: '精鋼鐵蹄',

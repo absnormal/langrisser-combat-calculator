@@ -158,7 +158,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("1.0.0"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("1.0.1"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -1975,7 +1975,13 @@
                             <tr>
                                 <td>士兵生命:<input type='text' id='offsoldHP'  style='width:50px' value='1000'></td>
                                 <td id='offsoldFULLHP'>/1000</td>
-                                <td></td>
+                                <td>
+                                    攻擊被護衛
+                                    <select id='offGUARDED'>
+                                        <option value='false'>否</option>
+                                        <option value='true'>是</option>
+                                    </select>
+                                </td>
                                 <td>競技暴傷:<input type='text' id='offACRITDMGINC' style='width:40px' value=20%></td>
                             </tr>
                             <tr>

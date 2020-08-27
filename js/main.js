@@ -32,7 +32,7 @@ var combat = {
     defCRITDMG:undefined, defCRITRATE:undefined, defDMGRATE:undefined,
     defDEFNEG:undefined, defMDEFNEG:undefined, defTALENTDMGDEC:undefined,
     defCOMMANDDMGDEC:undefined,
-    skillRATE:undefined, combatNEG:undefined,
+    skillRATE:undefined, combatNEG:undefined, GUARDED: undefined,
         /* soldier accumulate rates */
     offsoldHP:undefined, offsoldFULLHP:undefined, offsoldHPRATE:undefined,
     offsoldATKRATE:undefined, offsoldDEFRATE:undefined, offsoldMDEFRATE:undefined,
@@ -134,6 +134,7 @@ function resetAllRATE(){
     combat.defHEALED = combat.baseRATE;
     combat.skillRATE = combat.baseRATE;
     combat.combatNEG = combat.baseRATE;
+    combat.GUARDED = false;
 };
 
 function createAllList(){
@@ -199,7 +200,7 @@ function getCharData(side){
         combat.offADEF = Number(document.getElementById('offADEF').value);
         combat.offAMDEF = Number(document.getElementById('offAMDEF').value);
         combat.offADEX = Number(document.getElementById('offADEX').value);
-        /* 移動/射程/敵軍/友軍 */
+        /* 移動/射程/敵軍/友軍/被護衛 */
         combat.range = Number(document.getElementById('offRange').value);
         combat.run = Number(document.getElementById('offRun').value);
         combat.off1BFriend = Number(document.getElementById('off1BFriend').value);
@@ -208,6 +209,9 @@ function getCharData(side){
         combat.off3BEnemy = Number(document.getElementById('off3BEnemy').value);
         combat.off2CEnemy = Number(document.getElementById('off2CEnemy').value);
         combat.off3CEnemy = Number(document.getElementById('off3CEnemy').value);
+        if(document.getElementById('offGUARDED').value == 'true')
+            combat.offGUARDED = true;
+        else combat.offGUARDED = false;
     }
     else if(side == 'defense'){
         /* 白字 */
