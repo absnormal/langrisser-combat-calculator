@@ -472,6 +472,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
         other = offOTHER, oppother = defOTHER;
         counterRate = 1+cal_counter(combat.offSoldier.ARMY, combat.defSoldier.ARMY);
         terrainRate = combat.defTerrainRate;
+        commandDMGDEC = combat.defCOMMANDDMGDEC;
     }
     else if(side == 'defense'){
         SIDE = 'def';
@@ -484,6 +485,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
         other = defOTHER, oppother = offOTHER;
         counterRate = 1+cal_counter(combat.defSoldier.ARMY, combat.offSoldier.ARMY);
         terrainRate = combat.offTerrainRate;
+        commandDMGDEC = combat.offCOMMANDDMGDEC;
     }
 
     if(skilltype == '物理傷害'){
@@ -499,7 +501,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
     }
 
     /* ONEHIT MAIN FORMULA */
-    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE];
+    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*(1-commandDMGDEC);
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+SOLD+DMGTYPE);
@@ -539,5 +541,13 @@ function displaySoldONEHIT(side, sideRate, oppRate){
        eDESC.innerHTML+="+"+(oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
     }
     eDESC.innerHTML += ")";
+    /* multiply command DMGDEC */
+    if(commandDMGDEC != 0){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<oppRate.length; j++)
+            if(oppRate[j].COMMANDDMGDEC != undefined && oppRate[j].COMMANDDMGDEC != 0)
+                eDESC.innerHTML+="-"+oppRate[j].COMMANDDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
 };
 
