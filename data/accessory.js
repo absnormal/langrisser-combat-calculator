@@ -48,17 +48,14 @@ var accessory = [{
 },{
     NAME: '真十字架', TYPE: '飾品',
     HEAL: 0.15,
-    SKILLTYPE: ['MIDRATE'],
-    MIDRATE: function(side){
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
         if(side == 'offense') oppArmy = getArmy('defense');
         else oppArmy = getArmy('offense');
-        armyLIST = ['魔物', '法師'];
-        if(armyLIST.includes(oppArmy)){
-            return [0, 0.2, 0.2, 0.2, 0, 0, 0, 0, 0, 0, 0];
-        }
-        return false;
+        if(oppArmy == '魔物' || oppArmy == '法師') this.COUNTER = 0.2;
+        else this.COUNTER = undefined;
     },
-    DESC: '治療效果+15%，和魔族、法師戰鬥時，智力、魔防、防禦提升20%。'
+    DESC: '治療效果+15%，和魔族、法師戰鬥時，智力、魔防、防禦提升20%。(克制倍率+20%)'
 },{
     NAME: '女神之淚', TYPE: '飾品',
     HEAL: 0.15,
