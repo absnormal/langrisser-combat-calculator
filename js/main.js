@@ -537,8 +537,10 @@ function displayMIDNUMS(side, sideRate, oppRate){
             eMIDDESC.innerHTML = number.toFixed(2)+"="+pre[i].toFixed(2)+"+"+base[i].toFixed(2)+"×(0";
             for(let j=0; j<sideRate.length; j++){
                 if(sideRate[j].SOLDONLY) continue;
-                if(sideRate[j].MIDRATE[i] != 0)
+                if(sideRate[j].MIDRATE[i] > 0)
                     eMIDDESC.innerHTML+="+"+sideRate[j].MIDRATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+                if(sideRate[j].MIDRATE[i] < 0)
+                    eMIDDESC.innerHTML+=sideRate[j].MIDRATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
             }
             eMIDDESC.innerHTML += ")";
         }

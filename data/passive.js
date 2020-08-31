@@ -346,7 +346,7 @@ var passive = [{
     },
     DESC: '[被動]移動時所有可以通過的地形都視為「平地」。所在地形如果有防禦提升效果，則可以獲得同樣的攻擊提升。'
 },{
-    NAME: '聖樹庇護',
+    NAME: '聖樹庇護[被動]',
     TYPE: ['拉姆達'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
@@ -386,15 +386,42 @@ var passive = [{
 },{
     NAME: '鏡花',
     TYPE: ['希琳卡'],
-    /* MOVE TYPE CHANGE */
     /* HEAL BEFORE BATTLE */
     /* TRUE DMG */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense' && combat.offSoldier.RANGE == 1) combat.offMOVETYPE = '飛行';
+        if(side == 'defense' && combat.defSoldier.RANGE == 1) combat.defMOVETYPE = '飛行';
+        else return false;
+    },
     DESC: '[被動]攜帶近戰士兵時，部隊移動方式變為「飛行」。被攻擊進入戰鬥後，敵軍對自身造成一次[固定傷害]（傷害數值為敵軍英雄「攻擊」+「智力」的1倍）並恢復希琳卡生命（恢復量為敵軍英雄「攻擊」+「智力」的1倍），若希琳卡處於[休眠]狀態下，則該效果提升為2倍。'
+},{
+    NAME: '閃現',
+    TYPE: ['希琳卡'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense' && combat.offSoldier.RANGE > 1) combat.offMOVETYPE = '飛行';
+        if(side == 'defense' && combat.defSoldier.RANGE > 1) combat.defMOVETYPE = '飛行';
+        else return false;
+    },
+    DESC: '[被動]攜帶遠程士兵時，部隊移動方式變為「飛行」。'
 },{
     NAME: '隱秘',
     TYPE: ['約書亞','奧利佛','飛影','布琳達','梅雅','西格瑪','雪莉','馬修'],
     OCRITRATEINC: 0.1, ODMGDEC: 0.2,
     DESC: '[被動]主動進入戰鬥時，暴擊率提升10%，遭受傷害降低20%。'
+},{
+    NAME: '翡翠魔矢[增傷]',
+    TYPE: ['艾拉斯卓'], ACC: true,
+    DATA: [0, 0.01, 0.02, 0.03], MAX: 3,
+    DMGINC: 0.1,
+    DESC: '每驅散1個弱化狀態，則獲得10%的傷害加成。(當前[DATA]個)'
+},{
+    NAME: '翡翠破風[增傷]',
+    TYPE: ['艾拉斯卓'], ACC: true,
+    DATA: [0, 0.01, 0.02], MAX: 2,
+    DMGINC: 0.2,
+    DESC: '每轉化一個強化狀態，則獲得20%的傷害加成。(當前[DATA]個)'
 },{
     NAME: '海衛(被動)',
     TYPE: ['伊露希亞', '古巨拉'],

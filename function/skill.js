@@ -2,7 +2,7 @@
 function getMIDSkillSkill(side){
     var skill;
     if(side == 'offense') skill = combat.offSkill;
-    else if(side == 'defense') skill = combat.defSkill;
+    else if(side == 'defense') skill = combat.offSkill;
 
     // collect display
     var display = {
@@ -11,7 +11,7 @@ function getMIDSkillSkill(side){
          * CRITRATE+, CRITDMG+, DMGRATE+,
          * CRITRATE-, CRITDMG-, DMGRATE- */
         MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        DEFNEG: 0, MDEFNEG: 0
+        DEFNEG: 0, MDEFNEG: 0, SKILLDMG: 0
     };
     if(skill.SKILLTYPE != undefined && skill.SKILLTYPE.includes('MIDRATE') && skill.MIDRATE(side)){
         display.MIDRATE = skill.MIDRATE(side);
@@ -28,6 +28,7 @@ function getMIDSkillSkill(side){
         if(skill.OCRITRATEDEC != undefined) display.MIDRATE[8] += skill.OCRITRATEDEC;
         if(skill.OCRITDMGDEC != undefined) display.MIDRATE[9] += skill.OCRITDMGDEC;
         if(skill.ODMGDEC != undefined) display.MIDRATE[10] += skill.ODMGDEC;
+        if(skill.SKILLDMG != undefined) display.SKILLDMG += skill.SKILLDMG;
     }
     else if(side == 'defense'){
         if(skill.DATK != undefined) display.MIDRATE[0] += skill.DATK;
@@ -41,6 +42,7 @@ function getMIDSkillSkill(side){
         if(skill.DCRITRATEDEC != undefined) display.MIDRATE[8] += skill.DCRITRATEDEC;
         if(skill.DCRITDMGDEC != undefined) display.MIDRATE[9] += skill.DCRITDMGDEC;
         if(skill.DDMGDEC != undefined) display.MIDRATE[10] += skill.DDMGDEC;
+        if(skill.SKILLDMG != undefined) display.SKILLDMG += skill.SKILLDMG;
     }
     if(skill.CRITRATEINC != undefined) display.MIDRATE[5] += skill.CRITRATEINC;
     if(skill.CRITDMGINC != undefined) display.MIDRATE[6] += skill.CRITDMGINC;
@@ -66,6 +68,7 @@ function getMIDSkillSkill(side){
         combat.defDMGRATE -= display.MIDRATE[10];
         combat.offDEFNEG += display.DEFNEG;
         combat.offMDEFNEG += display.MDEFNEG;
+        combat.offSKILLDMG += display.SKILLDMG;
     }
     else if(side == 'defense'){
         combat.defATKRATE += display.MIDRATE[0];
@@ -81,6 +84,7 @@ function getMIDSkillSkill(side){
         combat.offDMGRATE -= display.MIDRATE[10];
         combat.defDEFNEG += display.DEFNEG;
         combat.defMDEFNEG += display.MDEFNEG;
+        combat.defSKILLDMG += display.SKILLDMG;
     }
     return display;
 };

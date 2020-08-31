@@ -55,7 +55,7 @@ var skill = [{
     NAME: '冰槍', COST: 2,
     TYPE: '魔法傷害', CD: 1, RANGE: '2格', AREA: '單體',
     RATE: 1.5, COUNTER: '槍兵',
-    DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害。對[槍兵]有特效。戰後令命中的格子獲得2回合的特殊效果[霜境]：“當敵軍移動至其上時獲得「移動力- 2」 ，持續1回合”'
+    DISC: '[魔法傷害]攻擊單個敵軍，造成1.5倍傷害。對[槍兵]有特效。戰後令命中的格子獲得2回合的特殊效果[霜境]：“當敵軍移動至其上時獲得「移動力-2」 ，持續1回合”'
 },{
     NAME: '聖裁', COST: 2,
     TYPE: '魔法傷害', CD: 5, RANGE: '1格', AREA: '單體',
@@ -94,7 +94,13 @@ var skill = [{
     NAME: '蕾恩·殲滅', COST: 2,
     TYPE: '魔法傷害', CD: 2, RANGE: '2格', AREA: '單體',
     RATE: 1.3, COUNTER: '無',
-    /* MDEF DEC 100% */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        debuffNUM = combat.defDEBUFFLIST.length;
+        if(debuffNUM >= 3 && side == 'defense')
+            return [0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.3倍傷害。如果敵軍身上有3個及以上的弱化狀態，則本次攻擊降低敵方100%的魔防，且敵軍無法反擊。'
 },{
     NAME: '破滅之矛', COST: 2,
@@ -103,7 +109,7 @@ var skill = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         run = combat.run;
-        if(run == 0) return false;
+        if(run == 0 || side == 'defense') return false;
         else if(run >= 5) return [0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0];
         else return [0, 0, 0, 0, 0, 0, 0, 0.1*run, 0, 0, 0];
     },
@@ -125,13 +131,11 @@ var skill = [{
     RATE: 1.6, COUNTER: '無', SOLDATK: '有',
     DISC: '[魔法傷害]攻擊單個敵軍，造成1.6倍傷害，攜帶近戰士兵時，士兵也會同時進行攻擊。戰前使自身獲得[精靈之森]：「[指揮]周圍2格內所有友軍移動時所有可以通過的地形都視為「樹林」。且部隊不會受到地形導致的移動力下降影響，並在行動結束時，恢復30%生命」，持續2回合。'
 },{
-/*
     NAME: '精靈之舞', COST: 3,
     TYPE: '魔法傷害', CD: 6, RANGE: '2格', AREA: '單體',
     RATE: 1.6, COUNTER: '無', SOLDATK: '有',
     DISC: '[被動]行動結束時，使相鄰的1個友軍免疫所有弱化效果，持續1回合。[魔法傷害]攻擊單個敵軍，造成1.6倍傷害，攜帶近戰士兵時，士兵也會同時進行攻擊。戰前使自身獲得[精靈之舞]：“移動時所有可以通過的地形都視為“樹林”，且部隊不會受到地形導致的移動力下降影響，並在行動結束時，恢復30%生命” ，持續3回合。戰後可以再移動3格。（該技能不會受到近戰傷害減免影響）'
 },{
-*/
     NAME: '虹吸', COST: 2,
     TYPE: '魔法傷害', CD: 2, RANGE: '1格', AREA: '單體',
     RATE: 1.5, COUNTER: '無',
@@ -154,6 +158,7 @@ var skill = [{
     RATE:  1.4, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         return [0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0];
     },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.4倍傷害，暴擊率提升20%。'
@@ -163,6 +168,7 @@ var skill = [{
     RATE:  1.3, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         run = combat.run;
         if(run == 0) return false;
         else if(run >= 3) return [0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0];
@@ -222,6 +228,7 @@ var skill = [{
     RATE:  1.4, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         enemy = combat.off2CEnemy;
         if(enemy == 0) return false;
         else if(enemy >= 4) return [0, 0, 0, 0, 0, 0, 0.32, 0, 0, 0, 0];
@@ -241,7 +248,7 @@ var skill = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         oppDEBUFFNUM = combat.defDEBUFFLIST.length;
-        if(side == 'offense' && oppDEFBUFFNUM > 0) this.DEFNEG = 0.2;
+        if(side == 'offense' && oppDEBUFFNUM > 0) this.DEFNEG = 0.2;
         else this.DEFNEG = undefined;
     },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍傷害。敵軍身上若有弱化狀態，則攻擊前無視敵方20%的“防禦”，並在攻擊後令本技能的冷卻時間減少2回合。'
@@ -256,6 +263,7 @@ var skill = [{
     RATE:  0.8, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         range = combat.range;
         if(range == 0) return false;
         else if(range >= 6) return [0, 0, 0, 0, 0, 0, 0, 0.9, 0, 0, 0];
@@ -273,6 +281,7 @@ var skill = [{
     RATE:  0.8, COUNTER: '無', SOLDATK: '有',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         run = combat.run;
         if(run == 0) return false;
         if(run >= 3) return [0, 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0];
@@ -291,6 +300,7 @@ var skill = [{
     /* MOVE TYPE RELATED */
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         oppMOVETYPE = combat.defMOVETYPE;
         if(oppMOVETYPE == '飛行') return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0.15];
         else return false;
@@ -360,6 +370,7 @@ var skill = [{
     RATE:  1.3, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         return [0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0];
     },
     DISC: '[物理傷害]無視護衛直接攻擊單個敵軍，造成1.3倍傷害，暴擊率提升20%。如果發生暴擊，則在戰鬥後，恢復傷害數值30%的生命。戰鬥前，偷取敵軍最多2個強化狀態。本次攻擊即使沒有擊殺敵軍也會強制發動自身所有擊殺目標後的觸發效果。'
@@ -381,6 +392,7 @@ var skill = [{
     RATE:  1.3, COUNTER: '無', SOLDATK: '有',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         for(let i=0; i<combat.offBUFFLIST.length; i++)
             if(combat.offBUFFLIST[i].NAME == '魔人')
                 return [0, 0, 0, 0, 0, 0, 0, 0.3, 0, 0, 0];
@@ -419,6 +431,7 @@ var skill = [{
     RATE:  1.5, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         return [0, 0, 0.3, 0.3, 0, 0, 0, 0, 0, 0, 0];
     },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍攻擊傷害。戰鬥前，部隊的防禦和魔防提升30%。'
@@ -432,7 +445,17 @@ var skill = [{
     NAME: '百烈拳', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '1格', AREA: '單體',
     RATE:  1.3, COUNTER: '無',
-    /* SKILLDMG RELATED */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') this.SKILLDMG = undefined;
+        for(let i=0; i<combat.offBUFFLIST.length; i++)
+            if(combat.offBUFFLIST[i].NAME == '魔人'){
+                this.SKILLDMG = 0.3;
+                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
+            }
+        this.SKILLDMG = undefined;
+        return false;
+    },
     DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的傷害，戰鬥前本部隊遭受所有傷害降低20%，持續1回合。如果處於[魔人]狀態下，則該技能傷害額外提升30%，遭受傷害額外降低20%，且成功消滅目標後，冷卻時間減少2回合。'
 },{
     NAME: '盾擊', COST: 2,
@@ -470,6 +493,7 @@ var skill = [{
     RATE:  1, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         run = combat.run;
         if(run == 0) return false;
         if(run >= 3) return [0, 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0];
@@ -496,13 +520,14 @@ var skill = [{
     NAME: '翡翠破風', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '2格', AREA: '單體',
     RATE:  1.3, COUNTER: '飛兵',
-    /* ??? */
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的戰鬥傷害。對「飛兵」有特效。戰前將敵軍2個強化狀態轉化為隨機弱化效果，每轉化1個強化狀態則獲得20%的傷害加成。戰後，使自己所處的地形視為“樹林”，持續1回合。'
+    /* 驅散增傷放在被動 */
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的戰鬥傷害。對「飛兵」有特效。戰前將敵軍2個強化狀態轉化為隨機弱化效果，每轉化1個強化狀態則獲得20%的傷害加成。戰後，使自己所處的地形視為“樹林”，持續1回合。(增傷放在被動)'
 },{
     NAME: '翡翠魔矢', COST: 2,
     TYPE: '物理傷害', CD: 3, RANGE: '2格', AREA: '單體',
     RATE:  1.3, COUNTER: '飛兵',
-    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的戰鬥傷害。對「飛兵」有特效。戰鬥前驅散自身最多3個異常狀態，每驅散1個弱化狀態，則獲得10%的傷害加成，並在戰後將驅散掉的所有異常狀態附加到目標身上。'
+    /* 驅散增傷放在被動 */
+    DISC: '[物理傷害]攻擊單個敵軍，造成1.3倍的戰鬥傷害。對「飛兵」有特效。戰鬥前驅散自身最多3個異常狀態，每驅散1個弱化狀態，則獲得10%的傷害加成，並在戰後將驅散掉的所有異常狀態附加到目標身上。(增傷放在被動)'
 },{
     NAME: '背摔', COST: 1,
     TYPE: '物理傷害', CD: 1, RANGE: '1格', AREA: '單體',
@@ -599,19 +624,22 @@ var skill = [{
     RATE:  1.7, COUNTER: '無',
     DISC: '[物理傷害]攻擊單個敵軍，造成1.7倍的傷害。戰鬥後，在行動結束時，對自身周圍1圈內的所有敵軍造成0.3倍範圍傷害，並造成[傳送]效果：令命中的敵軍位置發生變化，同時施加隨機的弱化效果。'
 },{
-/*
     NAME: '領戰迅擊', COST: 3,
     TYPE: '物理傷害', CD: 5, RANGE: '1格', AREA: '單體',
     RATE:  1.6, COUNTER: '無',
-    STREFF: '暴擊提升20%', WEAKEFF: '無', SOLDATK: '無',
-    DISC: ''
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') return false;
+        else return [0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0];
+    },
+    DISC: '[指揮]天賦的指揮範圍內的所有[混合部隊]友軍免疫屬性降低。[物理傷害]攻擊單個敵軍，造成1.6倍傷害，暴擊率提升20%。戰前驅散敵軍2個強化狀態。擊殺目標後，該技能冷卻時間減少4回合，如果未擊殺目標且發生暴擊，則該技能的冷卻時間減少3回合。'
 },{
-*/
     NAME: '黑靈丸', COST: 3,
     TYPE: '物理傷害', CD: 4, RANGE: '2格', AREA: '單體',
     RATE:  1.4, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         for(let i=0; i<combat.offBUFFLIST.length; i++)
             if(combat.offBUFFLIST[i].NAME == '魔人')
                 return [0, 0, 0, 0, 0, 0, 0, 0.3, 0, 0, 0];
@@ -624,6 +652,7 @@ var skill = [{
     RATE:  1.1, COUNTER: '無',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
+        if(side == 'defense') return false;
         run = combat.run;
         if(run == 0) return false;
         if(run >= 3) return [0, 0, 0, 0, 0, 0, 0, 0.6, 0, 0, 0];
@@ -633,12 +662,17 @@ var skill = [{
 },{
     NAME: '無雙鏖戰', COST: 3,
     TYPE: '物理傷害', CD: 6, RANGE: '1格', AREA: '單體',
-    RATE: 1.6, COUNTER: '無',
+    RATE: 1.5, COUNTER: '無',
     DISC: '[物理傷害]攻擊單個敵軍，造成1.5倍傷害。戰鬥後，  如果自身周圍1圈有2名及以上敵軍，可再次攻擊，但無法移動和再移動（此再行動效果不能在同一回合連續觸發2次以上）。成功消滅目標時，該技能的冷卻時間減少6回合。（[觸發冷卻]該效果需要間隔1回合才能再次觸發）'
 },{
     NAME: '迅隱殺機', COST: 3,
     TYPE: '物理傷害', CD: 4, RANGE: '2格', AREA: '單體',
     RATE: 1.4, COUNTER: '無',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') return false;
+        else return [0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0];
+    },
     DISC: '[物理傷害]無視護衛直接攻擊單個敵軍，造成1.4倍傷害，暴擊率提升20%。如果成功擊殺目標，戰後可以再移動2格。行動結束時，如果自身周圍2圈沒有敵軍，則獲得[隱匿]效果：「無法被敵軍普通攻擊及技能鎖定為目標，持續1回合。（不可驅散，遭受傷害或造成傷害後，或相鄰1格範圍內有敵軍時，該效果失效）'
 }];
 
