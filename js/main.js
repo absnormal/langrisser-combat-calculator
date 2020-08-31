@@ -37,11 +37,11 @@ var combat = {
     offsoldHP:undefined, offsoldFULLHP:undefined, offsoldHPRATE:undefined,
     offsoldATKRATE:undefined, offsoldDEFRATE:undefined, offsoldMDEFRATE:undefined,
     offsoldDMGRATE:undefined, offsoldCRITRATE:undefined, offsoldCRITDMG:undefined,
-    offsoldHEALED:undefined,
+    offsoldHEALED:undefined, offsoldDMGTYPE:undefined,
     defsoldHP:undefined, defsoldFULLHP:undefined, defsoldHPRATE:undefined,
     defsoldATKRATE:undefined, defsoldDEFRATE:undefined, defsoldMDEFRATE:undefined,
     defsoldDMGRATE:undefined, defsoldCRITRATE:undefined, defsoldCRITDMG:undefined,
-    defsoldHEALED:undefined,
+    defsoldHEALED:undefined, defsoldDMGTYPE:undefined,
 
         /* defense character info */
     defParty:undefined, defChar:undefined, defSkill:undefined, defSoldier:undefined,
@@ -1026,6 +1026,7 @@ window.addEventListener("click", function getSelected(){
         else if(selected[i].classList.contains('soldier')){
             combat.offSoldier = selected[i].id;
             combat.offSoldier = soldier.find(x => x.NAME === combat.offSoldier);
+            combat.offsoldDMGTYPE = combat.offSoldier.DMGTYPE;
         }
         else if(selected[i].classList.contains('terrain')){
             combat.offTerrain = selected[i].id;
@@ -1053,6 +1054,7 @@ window.addEventListener("click", function getSelected(){
         else if(selected[i].classList.contains('soldier')){
             combat.defSoldier = selected[i].id.slice(0, -1);
             combat.defSoldier = soldier.find(x => x.NAME === combat.defSoldier);
+            combat.defsoldDMGTYPE = combat.defSoldier.DMGTYPE;
         }
         else if(selected[i].classList.contains('terrain')){
             combat.defTerrain = selected[i].id.slice(0, -1);

@@ -462,7 +462,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
 
     if(side == 'offense'){
         SIDE = 'off';
-        skilltype = combat.offSoldier.DMGTYPE;
+        skilltype = combat.offsoldDMGTYPE;
         skillrate = 1;
         DEFNEG = combat.offDEFNEG;
         MDEFNEG = combat.offMDEFNEG;
@@ -476,7 +476,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
     }
     else if(side == 'defense'){
         SIDE = 'def';
-        skilltype = combat.defSoldier.DMGTYPE;
+        skilltype = combat.defsoldDMGTYPE;
         skillrate = 1;
         DEFNEG = combat.defDEFNEG;
         MDEFNEG = combat.defMDEFNEG;
