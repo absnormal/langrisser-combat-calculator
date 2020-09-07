@@ -470,7 +470,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
         mid = offMID, oppmid = defMID;
         rate = offRATE, opprate = defRATE;
         other = offOTHER, oppother = defOTHER;
-        counterRate = 1+cal_counter(combat.offSoldier.ARMY, combat.defSoldier.ARMY);
+        counterRate = combat.offSoldCounterRate;
         terrainRate = combat.defTerrainRate;
         commandDMGDEC = combat.defCOMMANDDMGDEC;
     }
@@ -483,7 +483,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
         otherside = 'offense';
         mid = defMID, oppmid = offMID;
         other = defOTHER, oppother = offOTHER;
-        counterRate = 1+cal_counter(combat.defSoldier.ARMY, combat.offSoldier.ARMY);
+        counterRate = combat.defSoldCounterRate;
         terrainRate = combat.offTerrainRate;
         commandDMGDEC = combat.offCOMMANDDMGDEC;
     }
@@ -517,7 +517,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
 
 
     /* offNUM*counterRate */
-    eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate;
+    eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate.toFixed(2);
     /* defNUM*(1-negNUM)*terrainRate */
     if(!negNUM) eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×"+terrainRate+")";
     else eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×(1-"+negNUM+")×"+terrainRate+")";

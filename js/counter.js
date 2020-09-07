@@ -63,6 +63,20 @@ function getCounterRATE(side){
     }
 };
 
+/* get side->otherside counter */
+function getSoldCounterRATE(side){
+    if(side == 'offense'){
+        combat.offSoldCounterRate += cal_counter(combat.offSoldier.ARMY, combat.defSoldier.ARMY);
+        combat.offSoldCounterRate += cal_skillCounter(combat.offSkill.COUNTER, combat.defSoldier.ARMY);
+        combat.offSoldCounterRate += combat.offELSECounterRate;
+    }
+    else if(side == 'defense'){
+        combat.defSoldCounterRate += cal_counter(combat.defSoldier.ARMY, combat.offSoldier.ARMY);
+        combat.defSoldCounterRate += cal_skillCounter(combat.defSkill.COUNTER, combat.offSoldier.ARMY);
+        combat.defSoldCounterRate += combat.defELSECounterRate;
+    }
+};
+
 /* 飛行>野戰>步行>水行>騎行 */
 function cal_MOVETYPE(side){
     charMOVETYPE = getMOVETYPE(side);

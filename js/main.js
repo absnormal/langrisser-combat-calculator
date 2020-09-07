@@ -10,6 +10,7 @@ var combat = {
     offATK:undefined, offINT:undefined, offDEF:undefined, offMDEF:undefined, offDEX:undefined,
     offHITS:undefined, offHEAL:undefined, offHEALED:undefined, range:undefined, run:undefined,
     offCounterRate: undefined, offELSECounterRate:undefined, offTerrainRate: undefined,
+    offSoldCounterRate: undefined,
     off1BFriend:undefined, off2BFriend:undefined, off3BFriend:undefined,
     off3BEnemy:undefined, off3CEnemy:undefined, offMOVETYPE:undefined,
     // character arena plus
@@ -54,6 +55,7 @@ var combat = {
     defATK:undefined, defINT:undefined, defDEF:undefined, defMDEF:undefined, defDEX:undefined,
     defHITS:undefined, defHEAL:undefined, defHEALED:undefined,
     defCounterRate: undefined, defELSECounterRate:undefined, defTerrainRate: undefined,
+    defSoldCounterRate: undefined,
     def1BFriend:undefined, def2BFriend:undefined, def3BFriend:undefined,
     def3BEnemy:undefined, def3CEnemy:undefined, defMOVETYPE:undefined,
     // character arena plus
@@ -82,6 +84,7 @@ function resetAllRATE(){
     combat.offCRITRATE = combat.baseCRITRATE;
     combat.offSKILLDMG = combat.baseRATE;
     combat.offCounterRate = combat.baseRATE;
+    combat.offSoldCounterRate = combat.baseRATE;
     combat.offELSECounterRate = combat.baseNUM;
     combat.offTerrainRate = combat.baseRATE;
     combat.offDEFNEG = combat.baseCombatNEG;
@@ -98,6 +101,7 @@ function resetAllRATE(){
     combat.defCRITDMG = combat.baseCRITDMG;
     combat.defCRITRATE = combat.baseCRITRATE;
     combat.defCounterRate = combat.baseRATE;
+    combat.defSoldCounterRate = combat.baseRATE;
     combat.defELSECounterRate = combat.baseNUM;
     combat.defTerrainRate = combat.baseRATE;
     combat.defDEFNEG = combat.baseCombatNEG;
@@ -1000,6 +1004,8 @@ function wholeCombat(){
     getAllSkill('PRE', 'offense');
     getCounterRATE('offense');
     getCounterRATE('defense');
+    getSoldCounterRATE('offense');
+    getSoldCounterRATE('defense');
     getAllSkill('MID', 'offense');
     displayMOVETYPE('offense');
     displayMOVETYPE('defense');
