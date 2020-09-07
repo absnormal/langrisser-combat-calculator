@@ -152,6 +152,7 @@ function createAllList(){
     createBUFFList('defense', 'defBUFFList');
     createDEBUFFList('offense', 'offDEBUFFList');
     createDEBUFFList('defense', 'defDEBUFFList');
+    createSkillList('offense', 'offSkillList');
     createWeaponList('offense', 'offWeaponList');
     createWeaponList('defense', 'defWeaponList');
     createArmorList('offense', 'offArmorList');

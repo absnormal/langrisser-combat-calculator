@@ -8,46 +8,6 @@ var defenseChar = '莉亞娜d';
 var defenseSkill = '冰凍d', defenseSoldier = '巫女d';
 var defenseTerrain = '道路d', defenseEnchant = '時鐘d';
 
-// skills depend on character
-function displaySkill(P_charName, side){
-    document.getElementById('普攻(物)').style = '';
-    document.getElementById('普攻(法)').style = '';
-    let skills = document.getElementsByClassName(P_charName + ' ' + side);
-    for(let i=0; i<skills.length; i++){
-        if(skills[i].classList.contains('skill')){
-            skills[i].style = '';
-        }
-    }
-};
-function hideSkill(side){
-    let skills = document.getElementsByClassName('skill ' + side);
-    for(let i=0; i<skills.length; i++){
-        skills[i].style = 'display: none;';
-    }
-};
-function selectSkill(skillName){
-    // defense
-    if(skillName.charAt(skillName.length - 1) == 'd'){
-        // de-select old skill
-        if(document.getElementById(defenseSkill).classList.contains('selected')){
-            document.getElementById(defenseSkill).classList.remove('selected');
-        }
-        // select new skill
-        document.getElementById(skillName).classList.add('selected');
-        defenseSkill = skillName;
-    }
-    // offense
-    else{
-        // de-select old skill
-        if(document.getElementById(offenseSkill).classList.contains('selected')){
-            document.getElementById(offenseSkill).classList.remove('selected');
-        }
-        // select new skill
-        document.getElementById(skillName).classList.add('selected');
-        offenseSkill = skillName;
-    }
-};
-
 // terrains are independent
 function selectTerrain(terrainName){
     // defense
@@ -153,10 +113,10 @@ function selectChar(charName){
         if(document.getElementById(offenseChar).classList.contains('selected')){
             document.getElementById(offenseChar).classList.remove('selected');
         }
+        combat.offChar = char.find(x => x.NAME === charName);
         // hide all skills and display skills in char
         hideSkill('offense');
         displaySkill(charName, 'offense');
-        combat.offChar = char.find(x => x.NAME === charName);
         // hide all soldiers and display soldiers in char
         hideSoldier('offense');
         displaySoldier('offense');
@@ -184,7 +144,7 @@ function selectChar(charName){
         // select new char & normal attack & first soldier
         document.getElementById(charName).classList.add('selected');
         offenseChar = charName;
-        selectSkill(document.getElementById('普攻(物)').id);
+        selectSkill('普攻(物)');
         selectTerrain(offenseTerrain);
         selectEnchant(offenseEnchant);
     }
