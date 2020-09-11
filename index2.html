@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+    <head>
+        <!-- local
+        -->
+        <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
+        <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
+        <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/char.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/talent.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/weapon.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/armor.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/helmet.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/accessory.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/data/enchant.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/talent.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/weapon.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/armor.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/helmet.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/accessory.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/function/enchant.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/char.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/weapon.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/armor.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/accessory.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/helmet.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/button2.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/main2.js"></script>
+        <!-- github
+        <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
+        <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/box.css">
+        <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
+        <script src="/langrisser-combat-calculator/data/char.js"></script>
+        <script src="/langrisser-combat-calculator/data/talent.js"></script>
+        <script src="/langrisser-combat-calculator/data/weapon.js"></script>
+        <script src="/langrisser-combat-calculator/data/armor.js"></script>
+        <script src="/langrisser-combat-calculator/data/helmet.js"></script>
+        <script src="/langrisser-combat-calculator/data/accessory.js"></script>
+        <script src="/langrisser-combat-calculator/data/enchant.js"></script>
+        <script src="/langrisser-combat-calculator/function/talent.js"></script>
+        <script src="/langrisser-combat-calculator/function/weapon.js"></script>
+        <script src="/langrisser-combat-calculator/function/armor.js"></script>
+        <script src="/langrisser-combat-calculator/function/helmet.js"></script>
+        <script src="/langrisser-combat-calculator/function/accessory.js"></script>
+        <script src="/langrisser-combat-calculator/function/enchant.js"></script>
+        <script src="/langrisser-combat-calculator/js/char.js"></script>
+        <script src="/langrisser-combat-calculator/js/weapon.js"></script>
+        <script src="/langrisser-combat-calculator/js/armor.js"></script>
+        <script src="/langrisser-combat-calculator/js/accessory.js"></script>
+        <script src="/langrisser-combat-calculator/js/helmet.js"></script>
+        <script src="/langrisser-combat-calculator/js/button2.js"></script>
+        <script src="/langrisser-combat-calculator/js/control.js"></script>
+        <script src="/langrisser-combat-calculator/js/main2.js"></script>
+        -->
+    </head>
+
+    <!-- change version / path to local/github -->
+    <body onload='display_version("1.0.3"), createAllList(), selectParty("主角光環")'>
+        <div class='topBox'>
+            <div class='pubMain'>
+                <a href='index.html'>
+                    <img class='icon' src='image/popteamppic.png'>
+                </a>
+                <div class='gameTitle'>
+                    <h2>夢戰戰鬥計算器</h2>
+                    <h3 id='version'></h3>
+                </div>
+                <div id='nav' class='nav'>
+                    <a href='https://github.com/absnormal/langrisser-combat-calculator' target='_blank'>github 程式碼</a>
+                    <a href='https://forum.gamer.com.tw/A.php?bsn=33596' target='_blank'>巴哈夢戰版</a>
+                    <a href='https://mz.game-beans.com/' target='_blank'>夢戰官網</a>
+                </div>
+            </div>
+        </div>
+
+        <div class='page2'>
+            <div class='calculators_main'>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <div class='cell offense'>
+                        <div class='banner'>
+                            <h2>你</h2>
+                        </div>
+                        <div class='partyList'>
+                            <ul>
+                                <li class='party imgbtn offense' id='主角光環' onclick='selectParty(this.id)'>
+                                    <img src='image/party/主角光環.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='光輝軍團' onclick='selectParty(this.id)'>
+                                    <img src='image/party/光輝軍團.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='光之起源' onclick='selectParty(this.id)'>
+                                    <img src='image/party/光之起源.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='帝國之輝' onclick='selectParty(this.id)'>
+                                    <img src='image/party/帝國之輝.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='黑暗輪迴' onclick='selectParty(this.id)'>
+                                    <img src='image/party/黑暗輪迴.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='公主聯盟' onclick='selectParty(this.id)'>
+                                    <img src='image/party/公主聯盟.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='戰略大師' onclick='selectParty(this.id)'>
+                                    <img src='image/party/戰略大師.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='流星直擊' onclick='selectParty(this.id)'>
+                                    <img src='image/party/流星直擊.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='傳說彼端' onclick='selectParty(this.id)'>
+                                    <img src='image/party/傳說彼端.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='時空樞紐' onclick='selectParty(this.id)'>
+                                    <img src='image/party/時空樞紐.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='超凡領域' onclick='selectParty(this.id)'>
+                                    <img src='image/party/超凡領域.png'/>
+                                </li>
+                                <li class='party imgbtn offense' id='夢幻轉生' onclick='selectParty(this.id)'>
+                                    <img src='image/party/夢幻轉生.png'/>
+                                </li>
+                                <li>
+                                    <button onclick='changeJob2("offense")'>換職業</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='charList'>
+                            <ul>
+                                <li class='character imgbtn offense 主角光環 光輝軍團 帝國之輝' id='艾爾文' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='艾爾文TALENT'>
+                                        <tr><th id='艾爾文TALENTNAME'></th></tr>
+                                        <tr><td id='艾爾文DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/艾爾文.png' onclick='selectChar("艾爾文")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 光輝軍團 公主聯盟' id='莉亞娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='莉亞娜TALENT'>
+                                        <tr><th id='莉亞娜TALENTNAME'></th></tr>
+                                        <tr><td id='莉亞娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/莉亞娜.png' onclick='selectChar("莉亞娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 黑暗輪迴' id='拉娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='拉娜TALENT'>
+                                        <tr><th id='拉娜TALENTNAME'></th></tr>
+                                        <tr><td id='拉娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/拉娜.png' onclick='selectChar("拉娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 光之起源 公主聯盟' id='蒂亞莉絲' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蒂亞莉絲TALENT'>
+                                        <tr><th id='蒂亞莉絲TALENTNAME'></th></tr>
+                                        <tr><td id='蒂亞莉絲DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蒂亞莉絲.png' onclick='selectChar("蒂亞莉絲")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 傳說彼端' id='蕾伽爾' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蕾伽爾TALENT'>
+                                        <tr><th id='蕾伽爾TALENTNAME'></th></tr>
+                                        <tr><td id='蕾伽爾DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蕾伽爾.png' onclick='selectChar("蕾伽爾")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 帝國之輝' id='艾米莉亞' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='艾米莉亞TALENT'>
+                                        <tr><th id='艾米莉亞TALENTNAME'></th></tr>
+                                        <tr><td id='艾米莉亞DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/艾米莉亞.png' onclick='selectChar("艾米莉亞")'/>
+                                </li>                               
+                                <li class='character imgbtn offense 傳說彼端 超凡領域' id='樹之賢者' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='樹之賢者TALENT'>
+                                        <tr><th id='樹之賢者TALENTNAME'></th></tr>
+                                        <tr><td id='樹之賢者DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/樹之賢者.png' onclick='selectChar("樹之賢者")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 光之起源 超凡領域' id='女神化身' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='女神化身TALENT'>
+                                        <tr><th id='女神化身TALENTNAME'></th></tr>
+                                        <tr><td id='女神化身DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/女神化身.png' onclick='selectChar("女神化身")'/>
+                                </li>
+                                <li class='character imgbtn offense 時空樞紐 傳說彼端 戰略大師' id='藏馬' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='藏馬TALENT'>
+                                        <tr><th id='藏馬TALENTNAME'></th></tr>
+                                        <tr><td id='藏馬DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/藏馬.png' onclick='selectChar("藏馬")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 傳說彼端' id='雪露法妮爾' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雪露法妮爾TALENT'>
+                                        <tr><th id='雪露法妮爾TALENTNAME'></th></tr>
+                                        <tr><td id='雪露法妮爾DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雪露法妮爾.png' onclick='selectChar("雪露法妮爾")'/>
+                                </li>
+                                <li class='character imgbtn offense 夢幻轉生 帝國之輝' id='梅雅' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='梅雅TALENT'>
+                                        <tr><th id='梅雅TALENTNAME'></th></tr>
+                                        <tr><td id='梅雅DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/梅雅.png' onclick='selectChar("梅雅")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 黑暗輪迴 時空樞紐' id='蕾恩' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蕾恩TALENT'>
+                                        <tr><th id='蕾恩TALENTNAME'></th></tr>
+                                        <tr><td id='蕾恩DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蕾恩.png' onclick='selectChar("蕾恩")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 黑暗輪迴' id='基扎洛夫' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='基扎洛夫TALENT'>
+                                        <tr><th id='基扎洛夫TALENTNAME'></th></tr>
+                                        <tr><td id='基扎洛夫DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/基扎洛夫.png' onclick='selectChar("基扎洛夫")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 傳說彼端 主角光環' id='拉姆達' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='拉姆達TALENT'>
+                                        <tr><th id='拉姆達TALENTNAME'></th></tr>
+                                        <tr><td id='拉姆達DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/拉姆達.png' onclick='selectChar("拉姆達")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 超凡領域' id='波贊魯' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='波贊魯TALENT'>
+                                        <tr><th id='波贊魯TALENTNAME'></th></tr>
+                                        <tr><td id='波贊魯DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/波贊魯.png' onclick='selectChar("波贊魯")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 光輝軍團 光之起源' id='阿卡婭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='阿卡婭TALENT'>
+                                        <tr><th id='阿卡婭TALENTNAME'></th></tr>
+                                        <tr><td id='阿卡婭DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/阿卡婭.png' onclick='selectChar("阿卡婭")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 傳說彼端' id='妮絲蒂爾' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='妮絲蒂爾TALENT'>
+                                        <tr><th id='妮絲蒂爾TALENTNAME'></th></tr>
+                                        <tr><td id='妮絲蒂爾DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/妮絲蒂爾.png' onclick='selectChar("妮絲蒂爾")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 戰略大師' id='謎之騎士' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='謎之騎士TALENT'>
+                                        <tr><th id='謎之騎士TALENTNAME'></th></tr>
+                                        <tr><td id='謎之騎士DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/謎之騎士.png' onclick='selectChar("謎之騎士")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 公主聯盟 超凡領域' id='尤莉婭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='尤莉婭TALENT'>
+                                        <tr><th id='尤莉婭TALENTNAME'></th></tr>
+                                        <tr><td id='尤莉婭DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/尤莉婭.png' onclick='selectChar("尤莉婭")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 公主聯盟 時空樞紐' id='蒂德莉特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蒂德莉特TALENT'>
+                                        <tr><th id='蒂德莉特TALENTNAME'></th></tr>
+                                        <tr><td id='蒂德莉特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蒂德莉特.png' onclick='selectChar("蒂德莉特")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 夢幻轉生' id='諾埃米' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='諾埃米TALENT'>
+                                        <tr><th id='諾埃米TALENTNAME'></th></tr>
+                                        <tr><td id='諾埃米DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/諾埃米.png' onclick='selectChar("諾埃米")'/>
+                                </li>
+                                <li class='character imgbtn offense 時空樞紐 超凡領域 夢幻轉生' id='雅里安洛德' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雅里安洛德TALENT'>
+                                        <tr><th id='雅里安洛德TALENTNAME'></th></tr>
+                                        <tr><td id='雅里安洛德DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雅里安洛德.png' onclick='selectChar("雅里安洛德")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 戰略大師' id='傑利奧魯&蕾拉' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='傑利奧魯&蕾拉TALENT'>
+                                        <tr><th id='傑利奧魯&蕾拉TALENTNAME'></th></tr>
+                                        <tr><td id='傑利奧魯&蕾拉DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/傑利奧魯&蕾拉.png' onclick='selectChar("傑利奧魯&蕾拉")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 超凡領域 時空樞紐' id='浦飯幽助' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='浦飯幽助TALENT'>
+                                        <tr><th id='浦飯幽助TALENTNAME'></th></tr>
+                                        <tr><td id='浦飯幽助DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/浦飯幽助.png' onclick='selectChar("浦飯幽助")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 流星直擊 超凡領域' id='古巨拉' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='古巨拉TALENT'>
+                                        <tr><th id='古巨拉TALENTNAME'></th></tr>
+                                        <tr><td id='古巨拉DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/古巨拉.png' onclick='selectChar("古巨拉")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 公主聯盟 時空樞紐' id='神崎堇' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='神崎堇TALENT'>
+                                        <tr><th id='神崎堇TALENTNAME'></th></tr>
+                                        <tr><td id='神崎堇DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/神崎堇.png' onclick='selectChar("神崎堇")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 傳說彼端 流星直擊' id='西格瑪' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='西格瑪TALENT'>
+                                        <tr><th id='西格瑪TALENTNAME'></th></tr>
+                                        <tr><td id='西格瑪DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/西格瑪.png' onclick='selectChar("西格瑪")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 光輝軍團 戰略大師' id='艾拉斯卓' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='艾拉斯卓TALENT'>
+                                        <tr><th id='艾拉斯卓TALENTNAME'></th></tr>
+                                        <tr><td id='艾拉斯卓DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/艾拉斯卓.png' onclick='selectChar("艾拉斯卓")'/>
+                                </li>
+                                <li class='character imgbtn offense 戰略大師 超凡領域 傳說彼端' id='雷因法魯斯' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雷因法魯斯TALENT'>
+                                        <tr><th id='雷因法魯斯TALENTNAME'></th></tr>
+                                        <tr><td id='雷因法魯斯DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雷因法魯斯.png' onclick='selectChar("雷因法魯斯")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 傳說彼端' id='維拉玖' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='維拉玖TALENT'>
+                                        <tr><th id='維拉玖TALENTNAME'></th></tr>
+                                        <tr><td id='維拉玖DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/維拉玖.png' onclick='selectChar("維拉玖")'/>
+                                </li>
+                                <li class='character imgbtn offense 夢幻轉生 帝國之輝 主角光環' id='阿雷斯' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='阿雷斯TALENT'>
+                                        <tr><th id='阿雷斯TALENTNAME'></th></tr>
+                                        <tr><td id='阿雷斯DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/阿雷斯.png' onclick='selectChar("阿雷斯")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 超凡領域 時空樞紐' id='黎恩' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='黎恩TALENT'>
+                                        <tr><th id='黎恩TALENTNAME'></th></tr>
+                                        <tr><td id='黎恩DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/黎恩.png' onclick='selectChar("黎恩")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 帝國之輝 時空樞紐' id='萊恩哈特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='萊恩哈特TALENT'>
+                                        <tr><th id='萊恩哈特TALENTNAME'></th></tr>
+                                        <tr><td id='萊恩哈特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/萊恩哈特.png' onclick='selectChar("萊恩哈特")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 帝國之輝 黑暗輪迴' id='巴恩哈特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='巴恩哈特TALENT'>
+                                        <tr><th id='巴恩哈特TALENTNAME'></th></tr>
+                                        <tr><td id='巴恩哈特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/巴恩哈特.png' onclick='selectChar("巴恩哈特")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 超凡領域' id='希琳卡' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='希琳卡TALENT'>
+                                        <tr><th id='希琳卡TALENTNAME'></th></tr>
+                                        <tr><td id='希琳卡DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/希琳卡.png' onclick='selectChar("希琳卡")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 主角光環 時空樞紐' id='真宮寺櫻' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='真宮寺櫻TALENT'>
+                                        <tr><th id='真宮寺櫻TALENTNAME'></th></tr>
+                                        <tr><td id='真宮寺櫻DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/真宮寺櫻.png' onclick='selectChar("真宮寺櫻")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 帝國之輝 黑暗輪迴' id='貝蒂' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='貝蒂TALENT'>
+                                        <tr><th id='貝蒂TALENTNAME'></th></tr>
+                                        <tr><td id='貝蒂DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/貝蒂.png' onclick='selectChar("貝蒂")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 主角光環' id='雷丁' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雷丁TALENT'>
+                                        <tr><th id='雷丁TALENTNAME'></th></tr>
+                                        <tr><td id='雷丁DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雷丁.png' onclick='selectChar("雷丁")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 流星直擊 時空樞紐' id='約書亞' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='約書亞TALENT'>
+                                        <tr><th id='約書亞TALENTNAME'></th></tr>
+                                        <tr><td id='約書亞DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/約書亞.png' onclick='selectChar("約書亞")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 流星直擊 黑暗輪迴' id='澤瑞達' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='澤瑞達TALENT'>
+                                        <tr><th id='澤瑞達TALENTNAME'></th></tr>
+                                        <tr><td id='澤瑞達DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/澤瑞達.png' onclick='selectChar("澤瑞達")'/>
+                                </li>
+                                <li class='character imgbtn offense 夢幻轉生 流星直擊' id='燕' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='燕TALENT'>
+                                        <tr><th id='燕TALENTNAME'></th></tr>
+                                        <tr><td id='燕DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/燕.png' onclick='selectChar("燕")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 流星直擊' id='歐米伽' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='歐米伽TALENT'>
+                                        <tr><th id='歐米伽TALENTNAME'></th></tr>
+                                        <tr><td id='歐米伽DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/歐米伽.png' onclick='selectChar("歐米伽")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 帝國之輝 時空樞紐' id='戶愚呂兄弟' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='戶愚呂兄弟TALENT'>
+                                        <tr><th id='戶愚呂兄弟TALENTNAME'></th></tr>
+                                        <tr><td id='戶愚呂兄弟DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/戶愚呂兄弟.png' onclick='selectChar("戶愚呂兄弟")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 戰略大師' id='伊露希亞' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='伊露希亞TALENT'>
+                                        <tr><th id='伊露希亞TALENTNAME'></th></tr>
+                                        <tr><td id='伊露希亞DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/伊露希亞.png' onclick='selectChar("伊露希亞")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 主角光環 時空樞紐' id='艾絲蒂爾' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='艾絲蒂爾TALENT'>
+                                        <tr><th id='艾絲蒂爾TALENTNAME'></th></tr>
+                                        <tr><td id='艾絲蒂爾DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/艾絲蒂爾.png' onclick='selectChar("艾絲蒂爾")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 公主聯盟 流星直擊' id='安潔麗娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='安潔麗娜TALENT'>
+                                        <tr><th id='安潔麗娜TALENTNAME'></th></tr>
+                                        <tr><td id='安潔麗娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/安潔麗娜.png' onclick='selectChar("安潔麗娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 光之起源 戰略大師' id='露娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='露娜TALENT'>
+                                        <tr><th id='露娜TALENTNAME'></th></tr>
+                                        <tr><td id='露娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/露娜.png' onclick='selectChar("露娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 流星直擊 主角光環' id='迪哈爾特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='迪哈爾特TALENT'>
+                                        <tr><th id='迪哈爾特TALENTNAME'></th></tr>
+                                        <tr><td id='迪哈爾特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/迪哈爾特.png' onclick='selectChar("迪哈爾特")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師' id='利昂' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='利昂TALENT'>
+                                        <tr><th id='利昂TALENTNAME'></th></tr>
+                                        <tr><td id='利昂DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/利昂.png' onclick='selectChar("利昂")'/>
+                                </li>
+                                <li class='character imgbtn offense 戰略大師 黑暗輪迴 時空樞紐' id='亞修拉姆' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='亞修拉姆TALENT'>
+                                        <tr><th id='亞修拉姆TALENTNAME'></th></tr>
+                                        <tr><td id='亞修拉姆DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/亞修拉姆.png' onclick='selectChar("亞修拉姆")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 帝國之輝' id='海倫娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='海倫娜TALENT'>
+                                        <tr><th id='海倫娜TALENTNAME'></th></tr>
+                                        <tr><td id='海倫娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/海倫娜.png' onclick='selectChar("海倫娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 戰略大師 傳說彼端' id='蘭芳特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蘭芳特TALENT'>
+                                        <tr><th id='蘭芳特TALENTNAME'></th></tr>
+                                        <tr><td id='蘭芳特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蘭芳特.png' onclick='selectChar("蘭芳特")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 傳說彼端' id='布琳達' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='布琳達TALENT'>
+                                        <tr><th id='布琳達TALENTNAME'></th></tr>
+                                        <tr><td id='布琳達DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/布琳達.png' onclick='selectChar("布琳達")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 夢幻轉生 公主聯盟' id='羅莎莉婭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='羅莎莉婭TALENT'>
+                                        <tr><th id='羅莎莉婭TALENTNAME'></th></tr>
+                                        <tr><td id='羅莎莉婭DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/羅莎莉婭.png' onclick='selectChar("羅莎莉婭")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 主角光環' id='蘭迪烏斯' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蘭迪烏斯TALENT'>
+                                        <tr><th id='蘭迪烏斯TALENTNAME'></th></tr>
+                                        <tr><td id='蘭迪烏斯DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蘭迪烏斯.png' onclick='selectChar("蘭迪烏斯")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 流星直擊 時空樞紐' id='飛影' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='飛影TALENT'>
+                                        <tr><th id='飛影TALENTNAME'></th></tr>
+                                        <tr><td id='飛影DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/飛影.png' onclick='selectChar("飛影")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師 黑暗輪迴' id='亞魯特繆拉' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='亞魯特繆拉TALENT'>
+                                        <tr><th id='亞魯特繆拉TALENTNAME'></th></tr>
+                                        <tr><td id='亞魯特繆拉DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/亞魯特繆拉.png' onclick='selectChar("亞魯特繆拉")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 流星直擊 傳說彼端' id='克拉蕾特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='克拉蕾特TALENT'>
+                                        <tr><th id='克拉蕾特TALENTNAME'></th></tr>
+                                        <tr><td id='克拉蕾特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/克拉蕾特.png' onclick='selectChar("克拉蕾特")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 光輝軍團 流星直擊' id='雪莉' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雪莉TALENT'>
+                                        <tr><th id='雪莉TALENTNAME'></th></tr>
+                                        <tr><td id='雪莉DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雪莉.png' onclick='selectChar("雪莉")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 夢幻轉生' id='蕾娜塔' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蕾娜塔TALENT'>
+                                        <tr><th id='蕾娜塔TALENTNAME'></th></tr>
+                                        <tr><td id='蕾娜塔DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蕾娜塔.png' onclick='selectChar("蕾娜塔")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 夢幻轉生 公主聯盟' id='麗可麗絲' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='麗可麗絲TALENT'>
+                                        <tr><th id='麗可麗絲TALENTNAME'></th></tr>
+                                        <tr><td id='麗可麗絲DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/麗可麗絲.png' onclick='selectChar("麗可麗絲")'/>
+                                </li>
+                                <li class='character imgbtn offense 戰略大師 傳說彼端' id='維拉' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='維拉TALENT'>
+                                        <tr><th id='維拉TALENTNAME'></th></tr>
+                                        <tr><td id='維拉DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/維拉.png' onclick='selectChar("維拉")'/>
+                                </li>
+                                <li class='character imgbtn offense 夢幻轉生 帝國之輝 戰略大師' id='弗洛朗蒂婭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='弗洛朗蒂婭TALENT'>
+                                        <tr><th id='弗洛朗蒂婭TALENTNAME'></th></tr>
+                                        <tr><td id='弗洛朗蒂婭DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/弗洛朗蒂婭.png' onclick='selectChar("弗洛朗蒂婭")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='比蘿蒂絲TALENT'>
+                                        <tr><th id='比蘿蒂絲TALENTNAME'></th></tr>
+                                        <tr><td id='比蘿蒂絲DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/比蘿蒂絲.png' onclick='selectChar("比蘿蒂絲")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 公主聯盟' id='芙蕾雅' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='芙蕾雅TALENT'>
+                                        <tr><th id='芙蕾雅TALENTNAME'></th></tr>
+                                        <tr><td id='芙蕾雅DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/芙蕾雅.png' onclick='selectChar("芙蕾雅")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 帝國之輝' id='海恩' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='海恩TALENT'>
+                                        <tr><th id='海恩TALENTNAME'></th></tr>
+                                        <tr><td id='海恩DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/海恩.png' onclick='selectChar("海恩")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 帝國之輝 戰略大師' id='埃格貝爾特' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='埃格貝爾特TALENT'>
+                                        <tr><th id='埃格貝爾特TALENTNAME'></th></tr>
+                                        <tr><td id='埃格貝爾特DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/埃格貝爾特.png' onclick='selectChar("埃格貝爾特")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 時空樞紐' id='安潔莉卡' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='安潔莉卡TALENT'>
+                                        <tr><th id='安潔莉卡TALENTNAME'></th></tr>
+                                        <tr><td id='安潔莉卡DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/安潔莉卡.png' onclick='selectChar("安潔莉卡")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 光之起源' id='莉法妮' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='莉法妮TALENT'>
+                                        <tr><th id='莉法妮TALENTNAME'></th></tr>
+                                        <tr><td id='莉法妮DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/莉法妮.png' onclick='selectChar("莉法妮")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師' id='伊梅爾達' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='伊梅爾達TALENT'>
+                                        <tr><th id='伊梅爾達TALENTNAME'></th></tr>
+                                        <tr><td id='伊梅爾達DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/伊梅爾達.png' onclick='selectChar("伊梅爾達")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 時空樞紐 帝國之輝' id='亞爾緹娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='亞爾緹娜TALENT'>
+                                        <tr><th id='亞爾緹娜TALENTNAME'></th></tr>
+                                        <tr><td id='亞爾緹娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/亞爾緹娜.png' onclick='selectChar("亞爾緹娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 公主聯盟 時空樞紐' id='克蘿賽' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='克蘿賽TALENT'>
+                                        <tr><th id='克蘿賽TALENTNAME'></th></tr>
+                                        <tr><td id='克蘿賽DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/克蘿賽.png' onclick='selectChar("克蘿賽")'/>
+                                </li>
+                                <li class='character imgbtn offense 超凡領域 光之起源 公主聯盟' id='索菲亞' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='索菲亞TALENT'>
+                                        <tr><th id='索菲亞TALENTNAME'></th></tr>
+                                        <tr><td id='索菲亞DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/索菲亞.png' onclick='selectChar("索菲亞")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 光輝軍團 時空樞紐' id='桑原和真' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='桑原和真TALENT'>
+                                        <tr><th id='桑原和真TALENTNAME'></th></tr>
+                                        <tr><td id='桑原和真DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/桑原和真.png' onclick='selectChar("桑原和真")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 公主聯盟 時空樞紐' id='愛麗絲' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='愛麗絲TALENT'>
+                                        <tr><th id='愛麗絲TALENTNAME'></th></tr>
+                                        <tr><td id='愛麗絲DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/愛麗絲.png' onclick='selectChar("愛麗絲")'/>
+                                </li>
+                                <li class='character imgbtn offense 傳說彼端 光輝軍團 公主聯盟' id='梅露帕妮' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='梅露帕妮TALENT'>
+                                        <tr><th id='梅露帕妮TALENTNAME'></th></tr>
+                                        <tr><td id='梅露帕妮DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/梅露帕妮.png' onclick='selectChar("梅露帕妮")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師' id='巴爾加斯' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='巴爾加斯TALENT'>
+                                        <tr><th id='巴爾加斯TALENTNAME'></th></tr>
+                                        <tr><td id='巴爾加斯DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/巴爾加斯.png' onclick='selectChar("巴爾加斯")'/>
+                                </li>
+                                <li class='character imgbtn offense 戰略大師 傳說彼端' id='塞蕾娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='塞蕾娜TALENT'>
+                                        <tr><th id='塞蕾娜TALENTNAME'></th></tr>
+                                        <tr><td id='塞蕾娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/塞蕾娜.png' onclick='selectChar("塞蕾娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 流星直擊 光輝軍團' id='娜姆' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='娜姆TALENT'>
+                                        <tr><th id='娜姆TALENTNAME'></th></tr>
+                                        <tr><td id='娜姆DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/娜姆.png' onclick='selectChar("娜姆")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 帝國之輝' id='法娜' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='法娜TALENT'>
+                                        <tr><th id='法娜TALENTNAME'></th></tr>
+                                        <tr><td id='法娜DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/法娜.png' onclick='selectChar("法娜")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師 時空樞紐' id='奧利維爾' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='奧利維爾TALENT'>
+                                        <tr><th id='奧利維爾TALENTNAME'></th></tr>
+                                        <tr><td id='奧利維爾DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/奧利維爾.png' onclick='selectChar("奧利維爾")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 公主聯盟 主角光環' id='克麗絲' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='克麗絲TALENT'>
+                                        <tr><th id='克麗絲TALENTNAME'></th></tr>
+                                        <tr><td id='克麗絲DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/克麗絲.png' onclick='selectChar("克麗絲")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 主角光環 時空樞紐' id='帕恩' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='帕恩TALENT'>
+                                        <tr><th id='帕恩TALENTNAME'></th></tr>
+                                        <tr><td id='帕恩DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/帕恩.png' onclick='selectChar("帕恩")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 黑暗輪迴' id='弗拉基亞' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='弗拉基亞TALENT'>
+                                        <tr><th id='弗拉基亞TALENTNAME'></th></tr>
+                                        <tr><td id='弗拉基亞DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/弗拉基亞.png' onclick='selectChar("弗拉基亞")'/>
+                                </li>
+                                <li class='character imgbtn offense 流星直擊 傳說彼端' id='阿爾弗雷德' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='阿爾弗雷德TALENT'>
+                                        <tr><th id='阿爾弗雷德TALENTNAME'></th></tr>
+                                        <tr><td id='阿爾弗雷德DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/阿爾弗雷德.png' onclick='selectChar("阿爾弗雷德")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 流星直擊' id='霧風' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='霧風TALENT'>
+                                        <tr><th id='霧風TALENTNAME'></th></tr>
+                                        <tr><td id='霧風DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/霧風.png' onclick='selectChar("霧風")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團 傳說彼端 流星直擊' id='奧利佛' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='奧利佛TALENT'>
+                                        <tr><th id='奧利佛TALENTNAME'></th></tr>
+                                        <tr><td id='奧利佛DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/奧利佛.png' onclick='selectChar("奧利佛")'/>
+                                </li>
+                                <li class='character imgbtn offense 光之起源 流星直擊' id='銀狼' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='銀狼TALENT'>
+                                        <tr><th id='銀狼TALENTNAME'></th></tr>
+                                        <tr><td id='銀狼DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/銀狼.png' onclick='selectChar("銀狼")'/>
+                                </li>
+                                <li class='character imgbtn offense 公主聯盟 帝國之輝 黑暗輪迴' id='索尼婭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='索尼婭TALENT'>
+                                        <tr><th id='索尼婭TALENTNAME'></th></tr>
+                                        <tr><td id='索尼婭DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/索尼婭.png' onclick='selectChar("索尼婭")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 戰略大師' id='艾馬林克' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='艾馬林克TALENT'>
+                                        <tr><th id='艾馬林克TALENTNAME'></th></tr>
+                                        <tr><td id='艾馬林克DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/艾馬林克.png' onclick='selectChar("艾馬林克")'/>
+                                </li>
+                                <li class='character imgbtn offense 帝國之輝 光輝軍團 戰略大師' id='蘭斯' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='蘭斯TALENT'>
+                                        <tr><th id='蘭斯TALENTNAME'></th></tr>
+                                        <tr><td id='蘭斯DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/蘭斯.png' onclick='selectChar("蘭斯")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 光輝軍團' id='馬修' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='馬修TALENT'>
+                                        <tr><th id='馬修TALENTNAME'></th></tr>
+                                        <tr><td id='馬修DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/馬修.png' onclick='selectChar("馬修")'/>
+                                </li>
+                                <li class='character imgbtn offense 主角光環 光輝軍團 超凡領域' id='艾梅達' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='艾梅達TALENT'>
+                                        <tr><th id='艾梅達TALENTNAME'></th></tr>
+                                        <tr><td id='艾梅達DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/艾梅達.png' onclick='selectChar("艾梅達")'/>
+                                </li>
+                                <li class='character imgbtn offense 光輝軍團' id='格尼爾' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                   <table class='talent' id='格尼爾TALENT'>
+                                        <tr><th id='格尼爾TALENTNAME'></th></tr>
+                                        <tr><td id='格尼爾DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/格尼爾.png' onclick='selectChar("格尼爾")'/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='weaponList' id='offWeaponList'>
+                        </div>
+                        <div class='armorList' id='offArmorList'>
+                        </div>
+                        <div class='helmetList' id='offHelmetList'>
+                        </div>
+                        <div class='accessoryList' id='offAccessoryList'>
+                        </div>
+                        <div class='enchantList'>
+                            <ul>
+                                <li class='enchant imgbtn offense' id='時鐘'>
+                                    <img style='width:80px' src='image/enchant/時鐘.png' onclick='selectEnchant("時鐘")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='魔術'>
+                                    <img style='width:80px' src='image/enchant/魔術.png' onclick='selectEnchant("魔術")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='滿月'>
+                                    <img style='width:80px' src='image/enchant/滿月.png' onclick='selectEnchant("滿月")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='怒濤'>
+                                    <img style='width:80px' src='image/enchant/怒濤.png' onclick='selectEnchant("怒濤")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='輕風'>
+                                    <img style='width:80px' src='image/enchant/輕風.png' onclick='selectEnchant("輕風")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='烈日'>
+                                    <img style='width:80px' src='image/enchant/烈日.png' onclick='selectEnchant("烈日")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='流星'>
+                                    <img style='width:80px' src='image/enchant/流星.png' onclick='selectEnchant("流星")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='鋼鐵'>
+                                    <img style='width:80px' src='image/enchant/鋼鐵.png' onclick='selectEnchant("鋼鐵")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='荊棘'>
+                                    <img style='width:80px' src='image/enchant/荊棘.png' onclick='selectEnchant("荊棘")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='大樹'>
+                                    <img style='width:80px' src='image/enchant/大樹.png' onclick='selectEnchant("大樹")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='頑石'>
+                                    <img style='width:80px' src='image/enchant/頑石.png' onclick='selectEnchant("頑石")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='寒冰'>
+                                    <img style='width:80px' src='image/enchant/寒冰.png' onclick='selectEnchant("寒冰")'/>
+                                </li>
+                                <li class='enchant imgbtn offense' id='水晶'>
+                                    <img style='width:80px' src='image/enchant/水晶.png' onclick='selectEnchant("水晶")'/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class='cell data'>
+                        <table>
+                            <tr>
+                                <td colspan=3 style='text-align: center;'><b>你</b></td>
+                                <td><button id='offKNOWNTEXT' onclick='changeBASEKNOWN("offense")'>已知基礎數字</button></td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=2>英雄生命:<input type='text' id='offHP' style='width:100px' value='1000/1000'></td>
+                                <td id='offcharJOB'>職業:NA</td>
+                                <td id='offcharARMY'>兵種:NA</td>
+                            </tr>
+                            <tr class='data'>
+                                <td>基礎生命: <input id='offBASEHPinput' type='text' style='width:40px' value=1000></td>
+                                <td>
+                                    <li class='NUM' id='offPREHP' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offPREHPDATA'>綠字生命:</p>
+                                        <table class='NUMDESC' id='offPREHPTABLE'>
+                                            <tr><td id='offPREHPDESC'>1000</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offPREHPinput' type='text' style='display:none;width:40px' value=1060>
+                                </td>
+                                <td>白字生命:<input type='text' id='off1BFriend' style='width:20px' value=0></td>
+                                <td>進場生命:<input type='text' id='off1BFriend' style='width:20px' value=0></td>
+                            </tr>
+                            <tr class='data'>
+                                <td>
+                                    <li class='NUM' id='offBASEATK' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offBASEATKDATA'>基礎攻擊:</p>
+                                        <table class='NUMDESC' id='offBASEATKTABLE'>
+                                            <tr><td id='offBASEATKDESC'>1000</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offBASEATKinput' type='text' style='width:40px' value=1000>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offPREATK' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offPREATKDATA'>綠字攻擊:</p>
+                                        <table class='NUMDESC' id='offPREATKTABLE'>
+                                            <tr><td id='offPREATKDESC'>1060</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offPREATKinput' type='text' style='display:none;width:40px' value=1060>
+                                </td>
+                                <td>白字攻擊:<input type='text' id='off1BFriend' style='width:20px' value=0></td>
+                                <td>競技攻擊:<input type='text' id='offAATK' style='width:40px' value=60></td>
+                            </tr>
+                            <tr class='data'>
+                                <td>
+                                    <li class='NUM' id='offBASEINT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offBASEINTDATA'>基礎智力:</p>
+                                        <table class='NUMDESC' id='offBASEINTTABLE'>
+                                            <tr><td id='offBASEINTDESC'>100</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offBASEINTinput' type='text' style='width:40px' value=100>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offPREINT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offPREINTDATA'>綠字智力:</p>
+                                        <table class='NUMDESC' id='offPREINTTABLE'>
+                                            <tr><td id='offPREINTDESC'>100</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offPREINTinput' type='text' style='display:none;width:40px' value=160>
+                                </td>
+                                <td>白字智力:<input type='text' id='off2BFriend' style='width:20px' value=0></td>
+                                <td>競技智力:<input type='text' id='offAINT' style='width:40px' value=0></td>
+                            </tr>
+                            <tr class='data'>
+                                <td>
+                                    <li class='NUM' id='offBASEDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offBASEDEFDATA'>基礎防禦:</p>
+                                        <table class='NUMDESC' id='offBASEDEFTABLE'>
+                                            <tr><td id='offBASEDEFDESC'>500</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offBASEDEFinput' type='text' style='width:40px' value=500>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offPREDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offPREDEFDATA'>綠字防禦:</p>
+                                        <table class='NUMDESC' id='offPREDEFTABLE'>
+                                            <tr><td id='offPREDEFDESC'>560</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offPREDEFinput' type='text' style='display:none;width:40px' value=560>
+                                </td>
+                                <td>白字防禦:<input type='text' id='off3BFriend' style='width:20px' value=0></td>
+                                <td>競技防禦:<input type='text' id='offADEF' style='width:40px' value=60></td>
+                            </tr>
+                            <tr class='data'>
+                                <td>
+                                    <li class='NUM' id='offBASEMDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offBASEMDEFDATA'>基礎魔防:</p>
+                                        <table class='NUMDESC' id='offBASEMDEFTABLE'>
+                                            <tr><td id='offBASEMDEFDESC'>400</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offBASEMDEFinput' type='text' style='width:40px' value=400>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offPREMDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offPREMDEFDATA'>綠字魔防:</p>
+                                        <table class='NUMDESC' id='offPREMDEFTABLE'>
+                                            <tr><td id='offPREMDEFDESC'>400</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offPREMDEFinput' type='text' style='display:none;width:40px' value=400>
+                                </td>
+                                <td>白字魔防:<input type='text' id='off2CEnemy' style='width:20px' value=0></td>
+                                <td>競技魔防:<input type='text' id='offAMDEF' style='width:40px' value=0></td>
+                            </tr>
+                            <tr class='data'>
+                                <td>
+                                    <li class='NUM' id='offBASEDEX' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offBASEDEXDATA'>基礎技巧:</p>
+                                        <table class='NUMDESC' id='offBASEDEXTABLE'>
+                                            <tr><td id='offBASEDEXDESC'>100</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offBASEDEXinput' type='text' style='width:40px' value=100>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offPREDEX' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offPREDEXDATA'>綠字技巧:</p>
+                                        <table class='NUMDESC' id='offPREDEXTABLE'>
+                                            <tr><td id='offPREDEXDESC'>160</td></tr>
+                                        </table>
+                                    </li>
+                                    <input id='offPREDEXinput' type='text' style='display:none;width:40px' value=160>
+                                </td>
+                                <td>白字技巧:<input type='text' id='off3BEnemy' style='width:20px' value=0></td>
+                                <td>競技技巧:<input type='text' id='offADEX' style='width:40px' value=60></td>
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr class='data'>
+                                <td colspan=4>綠字數值 = 白字數字×(1+天賦+武器+頭盔+盔甲+飾品+強化弱化+滿月)+競技精通</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=4>戰中數值 = 綠字數值+白字數字×(0+進戰天賦+進戰裝備技能+滿月+怒濤)</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=4>一段傷害 = {[戰中數值×剋制加成]-[戰中防禦×地形加成]}÷2×技能倍率×暴擊加成×一般增傷×技能增傷×近戰減免×乘算減傷天賦</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=4>士兵數字=((基礎屬性*[7.4]*(1+兵營百分比科技+兵種全屬性百分比)+兵營數值科技)*(1+兵種攻防趴數+兵營攻防科技+士兵全屬性提升+BUFFS))*英雄兵修</td>
+                            </tr>
+                            <tr class='data'>
+                                <td colspan=4>士兵傷害=(士兵攻擊*(1+克制倍率+科技克制)-士兵防禦*地形加成)/2*</td>
+                            </tr>
+                            <tr>
+                                <td colspan=4><br></td>
+                            </tr>
+                            <tr class='data'>
+                                <td id='ERROR' colspan=3>DEBUG LOG</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

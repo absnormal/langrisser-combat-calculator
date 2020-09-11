@@ -118,7 +118,7 @@ var training = [{
         if(side == 'defense') terrainRate = combat.defTerrainRate;
         if(side == 'offense') LV = getTrainingLV(this.NAME)-1;
         if(side == 'defense') LV = getTrainingLV(this.NAME+'d')-1;
-        if(terrainRate == 0) return [0, 0, this.DATA[LV], this.DATA[LV], 0, 0, 0, 0, 0, 0, 0];
+        if(terrainRate == 1) return [0, 0, this.DATA[LV], this.DATA[LV], 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '所有槍兵，在沒有「防禦增強」效果的地形上戰鬥時，雙防提升[DATA]%。'
@@ -239,7 +239,7 @@ var training = [{
         if(side == 'defense') terrainRate = combat.defTerrainRate;
         if(side == 'offense') LV = getTrainingLV(this.NAME)-1;
         if(side == 'defense') LV = getTrainingLV(this.NAME+'d')-1;
-        if(terrainRate > 0) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[LV]];
+        if(terrainRate > 1) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[LV]];
         else return false;
     },
     DESC: '所有飛兵，在擁有「防禦增強」效果的地形上戰鬥時，遭受傷害降低[DATA]%。'
@@ -293,7 +293,7 @@ var training = [{
         if(side == 'defense') terrainRate = combat.defTerrainRate;
         if(side == 'offense') LV = getTrainingLV(this.NAME)-1;
         if(side == 'defense') LV = getTrainingLV(this.NAME+'d')-1;
-        if(terrainRate > 0) return [this.DATA[LV], 0, this.DATA[LV], 0, 0, 0, 0, 0, 0, 0, 0];
+        if(terrainRate > 1) return [this.DATA[LV], 0, this.DATA[LV], 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '所有弓兵和刺客，在擁有「防禦增強」效果的地形上戰鬥時，攻防提升[DATA]%。'
@@ -323,7 +323,7 @@ var training = [{
         if(side == 'defense') LV = getTrainingLV(this.NAME+'d')-1;
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         if(oppArmy == '飛兵') midrate[ATK] += this.DATA[LV], midrate[DEF] += this.DATA[LV];
-        if(terrainRate > 0) midrate[DMGINC] += this.DATA[LV];
+        if(terrainRate > 1) midrate[DMGINC] += this.DATA[LV];
         return midrate;
     },
     DESC: '所有弓兵，對飛兵戰鬥時，攻防+[DATA]%。同時在擁有「防禦增強」效果的地形上戰鬥時，傷害提升[DATA]%。'

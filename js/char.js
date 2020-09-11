@@ -193,6 +193,32 @@ function changeJob(side){
     displayAccessory(side);
 };
 
+// change JOB and change equipments depends on JOB
+function changeJob2(side){
+    var eJobNo;
+    if(side == 'defense'){
+        eJobNo = combat.defJobNo + 1;
+        if(eJobNo > combat.defChar.JOBS) eJobNo = 1;
+        combat.defJobNo = eJobNo;
+    }
+    else if(side == 'offense'){
+        eJobNo = combat.offJobNo + 1;
+        if(eJobNo > combat.offChar.JOBS) eJobNo = 1;
+        combat.offJobNo = eJobNo;
+    }
+    // display job when changed
+    displayArmy(side);
+    displayJob(side);
+    hideWeapon(side);
+    displayWeapon(side);
+    hideArmor(side);
+    displayArmor(side);
+    hideHelmet(side);
+    displayHelmet(side);
+    hideAccessory(side);
+    displayAccessory(side);
+};
+
 function changeBASEKNOWN(side){
     if(side == 'defense') SIDE = 'def', KNOWN = combat.defBASEKNOWN;
     else if(side == 'offense') SIDE = 'off', KNOWN = combat.offBASEKNOWN;

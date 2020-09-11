@@ -52,7 +52,7 @@ function getTrainingDesc(trainOBJ, trainID){
     trainDESC = trainOBJ.DESC;
     trainLV = getTrainingLV(trainID);
     trainPERC = Math.round(trainOBJ.DATA[trainLV-1] * 1000) / 10;
-    return trainDESC.replaceAll('[DATA]', trainPERC);
+    return trainDESC.replace('[DATA]', trainPERC).replace('[DATA]', trainPERC);
 };
 
 function loadTrainingDesc(side, trainID){
