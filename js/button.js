@@ -91,6 +91,17 @@ function selectChar(charName){
         displayPassive('defense');
         hideBUFF('defense');
         displayBUFF('defense');
+        /* 預設超絕 */
+        selectBUFF('defense', '攻擊、智力+N％d');
+        selectBUFF('defense', '攻擊、智力+N％d');
+        selectBUFF('defense', '攻擊、智力+N％d');
+        selectBUFF('defense', '防禦+N％d');
+        selectBUFF('defense', '防禦+N％d');
+        selectBUFF('defense', '防禦+N％d');
+        selectBUFF('defense', '魔防+N％d');
+        selectBUFF('defense', '魔防+N％d');
+        selectBUFF('defense', '魔防+N％d');
+        selectBUFF('defense', '魔防+N％d');
         hideDEBUFF('defense');
         displayDEBUFF('defense');
         hideWeapon('defense');
@@ -136,6 +147,18 @@ function selectChar(charName){
         displayPassive('offense');
         hideBUFF('offense');
         displayBUFF('offense');
+        /* 預設超絕 */
+        selectBUFF('offense', '攻擊、智力+N％');
+        selectBUFF('offense', '攻擊、智力+N％');
+        selectBUFF('offense', '攻擊、智力+N％');
+        selectBUFF('offense', '防禦+N％');
+        selectBUFF('offense', '防禦+N％');
+        selectBUFF('offense', '防禦+N％');
+        selectBUFF('offense', '魔防+N％');
+        selectBUFF('offense', '魔防+N％');
+        selectBUFF('offense', '魔防+N％');
+        selectBUFF('offense', '魔防+N％');
+        hideDEBUFF('defense');
         hideDEBUFF('offense');
         displayDEBUFF('offense');
         hideWeapon('offense');
