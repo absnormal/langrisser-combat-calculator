@@ -70,6 +70,9 @@ var combat = {
         /* reset numbers */
     baseCRITRATE:0, baseCRITDMG:1.3, baseHITS:20, baseRATE:1, baseCombatNEG:0, baseNUM:0,
     baseHPRATE: 1.4,
+
+    offCharChange: false, offSoldChange: false,
+    defCharChange: false, defSoldChange: false
 };
 
 function resetAllRATE(){
@@ -1083,5 +1086,11 @@ window.addEventListener("click", function getSelected(){
     }
     /* combat */
     wholeCombat();
+    document.getElementById('ERROR').innerHTML =  combat.offCharChange+" "+combat.defCharChange+"  "+combat.offSoldChange+" "+combat.defSoldChange;
+    /* sold/char change */
+    combat.offCharChange = false;
+    combat.offSoldChange = false;
+    combat.defCharChange = false;
+    combat.defSoldChange = false;
 });
 

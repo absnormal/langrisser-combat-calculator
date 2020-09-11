@@ -75,6 +75,12 @@ body{background: url(https://mz.game-beans.com/images/page3.jpg); font-size:12px
             .page2-link .a-link:last-child{float: right;margin-right:0px;}
 
 /* 全域 */
+.offense{
+    background-color:#30305e;
+}
+.defense{
+    background-color:#111121;
+}
 ul > li{
     display: inline-block;
 }
@@ -92,10 +98,10 @@ tbody > p{
     border-bottom: 3px solid #82edff;
 }
 .cell{
-    height: 800px; width: 615px;
+    height: 1550px; width: 615px;
 }
 .cell.data{
-    height: 800px; width: 600px;
+    height: 1550px; width: 600px;
 }
 .banner{
     background-color: white;

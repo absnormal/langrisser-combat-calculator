@@ -103,6 +103,11 @@ function selectChar(charName){
         displayAccessory('defense');
         // select new char & first soldier
         document.getElementById(charName).classList.add('selected');
+        // detect char change
+        if(defenseChar != charName)
+            combat.defCharChange = true, combat.offCharChange = false;
+        else combat.defCharChange = false;
+
         defenseChar = charName;
         selectTerrain(defenseTerrain);
         selectEnchant(defenseEnchant);
@@ -143,6 +148,11 @@ function selectChar(charName){
         displayAccessory('offense');
         // select new char & normal attack & first soldier
         document.getElementById(charName).classList.add('selected');
+        // detect char change
+        if(offenseChar != charName)
+            combat.offCharChange = true, combat.defCharChange = false;
+        else combat.offCharChange = false;
+
         offenseChar = charName;
         selectSkill('普攻(物)');
         selectTerrain(offenseTerrain);

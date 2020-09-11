@@ -160,6 +160,10 @@ function selectSoldier(side, soldierName){
         if(document.getElementById(combat.defSoldier.NAME + 'd').classList.contains('selected')){
             document.getElementById(combat.defSoldier.NAME + 'd').classList.remove('selected')
         }
+        // detect soldier change
+        if(combat.defSoldier.NAME != soldierName)
+            combat.defSoldChange = true, combat.offSoldChange = false;
+        else combat.defSoldChange = false;
         // select new soldier
         document.getElementById(soldierName+'d').classList.add('selected');
         combat.defSoldier = soldier.find(x => x.NAME === soldierName);
@@ -172,6 +176,10 @@ function selectSoldier(side, soldierName){
         if(document.getElementById(combat.offSoldier.NAME).classList.contains('selected')){
             document.getElementById(combat.offSoldier.NAME).classList.remove('selected')
         }
+        // detect soldier change
+        if(combat.offSoldier.NAME != soldierName)
+            combat.offSoldChange = true, combat.defSoldChange = false;
+        else combat.offSoldChange = false;
         // select new soldier
         document.getElementById(soldierName).classList.add('selected');
         combat.offSoldier = soldier.find(x => x.NAME === soldierName);
@@ -266,7 +274,9 @@ function displaySoldHP(side, sideRate){
     // display HP/FULLHP
     eHP = document.getElementById(SIDE+SOLD+HP);
     eFULLHP = document.getElementById(SIDE+SOLD+FULLHP);
-    if(eHP.value > 10*(number*(1+charPLUS))) eHP.value = 10*(number*(1+charPLUS)).toFixed(0);
+    if((side == 'offense' && (combat.offCharChange || combat.offSoldChange)) ||
+       (side == 'defense' && (combat.defCharChange || combat.defSoldChange)))
+        eHP.value = 10*(number*(1+charPLUS)).toFixed(0);
     eFULLHP.innerHTML = "/"+10*(number*(1+charPLUS)).toFixed(0);
     // combat sold HP
     if(side == 'offense'){
