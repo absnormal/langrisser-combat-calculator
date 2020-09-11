@@ -81,8 +81,8 @@ function createBUFFList(side, listID){
 function holdBUFF(side){
     var holds = ['一般'];
     // add party name to type for char specials
-    if(side == 'offense') holds.push(combat.offParty/*.NAME*/);
-    else if(side == 'defense') holds.push(combat.defParty/*.NAME*/);
+    if(side == 'offense') holds = [...combat.offChar.PARTY, ...holds];
+    if(side == 'defense') holds = [...combat.defChar.PARTY, ...holds];
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);
     else if(side == 'defense') holds.push(combat.defChar.NAME);
