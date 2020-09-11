@@ -160,7 +160,7 @@ var helmet = [{
     NAME: '卡爾薩斯之冠', TYPE: '蘭斯',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        army = getArmy(side);
+        army = getNewArmy(side);
         if(side == 'offense') soldArmy = combat.offSoldier.ARMY;
         else if(side == 'defense') soldArmy = combat.defSoldier.ARMY;
         if(army != soldArmy) return [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0];
@@ -207,9 +207,10 @@ var helmet = [{
     HP: 0.05,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') army = getArmy('offense'), oppArmy = getArmy('defense');
-        else if(side == 'defense') army = getArmy('defense'), oppArmy = getArmy('offense');
-        if(cal_counter(army, oppArmy) > 0) return [0.2, 0, 0, 0, 0];
+        if(side == 'offense') army = getNewArmy('offense'), oppArmy = getNewArmy('defense');
+        if(side == 'defense') army = getNewArmy('defense'), oppArmy = getNewArmy('offense');
+        document.getElementById('ERROR').innerHTML = army+" "+oppArmy;
+        if(cal_counter(army, oppArmy) > 0) return [0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '生命+5%。與克制的部隊交戰時，攻擊額外提升20%。'

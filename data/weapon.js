@@ -10,7 +10,7 @@ var weapon = [{
     MIDRATE: function(side){
         if(side == 'offense') otherside = 'defense';
         else otherside = 'offense';
-        if(getArmy(otherside) == '龍'){
+        if(getNewArmy(otherside) == '龍'){
             return [0.1, 0, 0.1, 0.1, 0, 0, 0, 0, 0, 0, 0];
         }
         return false;

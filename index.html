@@ -158,7 +158,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("1.0.3"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("1.0.4"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -1525,7 +1525,20 @@
                             <tr class='data'>
                                 <td colspan=2>英雄生命:<input type='text' id='offHP' style='width:100px' value='1000/1000'></td>
                                 <td id='offcharJOB'>職業:NA</td>
-                                <td id='offcharARMY'>兵種:NA</td>
+                                <td>兵種:
+                                    <select id='offcharARMY'>
+                                        <option value='步兵'>步兵</option>
+                                        <option value='槍兵'>槍兵</option>
+                                        <option value='騎兵'>騎兵</option>
+                                        <option value='飛兵'>飛兵</option>
+                                        <option value='水兵'>水兵</option>
+                                        <option value='弓兵'>弓兵</option>
+                                        <option value='刺客'>刺客</option>
+                                        <option value='僧侶'>僧侶</option>
+                                        <option value='魔物'>魔物</option>
+                                        <option value='龍'>龍</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr class='data'>
                                 <td>攻擊距離:<input type='text' id='offRange' style='width:40px' value=1></td>
@@ -1983,7 +1996,20 @@
                             <tr class='data'>
                                 <td colspan=2>英雄生命:<input type='text' id='defHP' style='width:100px' value='1000/1000'></td>
                                 <td id='defcharJOB'>職業:NA</td>
-                                <td id='defcharARMY'>兵種:NA</td>
+                                <td>兵種:
+                                    <select id='defcharARMY'>
+                                        <option value='步兵'>步兵</option>
+                                        <option value='槍兵'>槍兵</option>
+                                        <option value='騎兵'>騎兵</option>
+                                        <option value='飛兵'>飛兵</option>
+                                        <option value='水兵'>水兵</option>
+                                        <option value='弓兵'>弓兵</option>
+                                        <option value='刺客'>刺客</option>
+                                        <option value='僧侶'>僧侶</option>
+                                        <option value='魔物'>魔物</option>
+                                        <option value='龍'>龍</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr class='data'>
                                 <td>反擊距離:<input type='text' id='defRange' style='width:40px' value=1></td>

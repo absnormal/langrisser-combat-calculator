@@ -28,8 +28,8 @@ var accessory = [{
     INT: 0.08,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') oppArmy = getArmy('defense');
-        else oppArmy = getArmy('offense');
+        if(side == 'offense') oppArmy = getNewArmy('defense');
+        else oppArmy = getNewArmy('offense');
         armyLIST = ['刺客', '弓兵'];
         if(armyLIST.includes(oppArmy)){
             return [0, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -50,8 +50,8 @@ var accessory = [{
     HEAL: 0.15,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') oppArmy = getArmy('defense');
-        else oppArmy = getArmy('offense');
+        if(side == 'offense') oppArmy = getNewArmy('defense');
+        else oppArmy = getNewArmy('offense');
         if(oppArmy == '魔物' || oppArmy == '法師') this.COUNTER = 0.2;
         else this.COUNTER = undefined;
     },
@@ -65,8 +65,8 @@ var accessory = [{
     ATK: 0.08,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') oppArmy = getArmy('defense');
-        else oppArmy = getArmy('offense');
+        if(side == 'offense') oppArmy = getNewArmy('defense');
+        else oppArmy = getNewArmy('offense');
         if(oppArmy == '僧侶') this.COUNTER = 0.12;
         else this.COUNTER = undefined;
     },
@@ -86,8 +86,8 @@ var accessory = [{
     ATK: 0.08,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') oppArmy = getArmy('defense');
-        else oppArmy = getArmy('offense');
+        if(side == 'offense') oppArmy = getNewArmy('defense');
+        else oppArmy = getNewArmy('offense');
         if(oppArmy == '飛兵') this.COUNTER = 0.12;
         else this.COUNTER = undefined;
     },

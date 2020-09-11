@@ -1003,7 +1003,7 @@ var buff = [{
     RATE: function(side){
         if(side == 'offense') otherside = 'defense';
         else if(side == 'defense') otherside = 'offense';
-        counterRate = cal_counter(getArmy(side), getArmy(otherside));
+        counterRate = cal_counter(getNewArmy(side), getNewArmy(otherside));
         if(counterRate > 0) this.COUNTER = 0.1;
         else this.COUNTER = undefined;
     },
@@ -1052,8 +1052,8 @@ var buff = [{
     TYPE: ['戰略大師'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') army = getArmy('offense'), soldArmy = combat.offSoldier.ARMY;
-        else if(side == 'defense') army = getArmy('defense'), soldArmy = combat.defSoldier.ARMY;
+        if(side == 'offense') army = getNewArmy('offense'), soldArmy = combat.offSoldier.ARMY;
+        else if(side == 'defense') army = getNewArmy('defense'), soldArmy = combat.defSoldier.ARMY;
         if(army != soldArmy) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
         else return false;
     },
@@ -1093,7 +1093,7 @@ var buff = [{
     RATE: function(side){
         if(side == 'offense') otherside = 'defense';
         else if(side == 'defense') otherside = 'offense';
-        counterRate = cal_counter(getArmy(side), getArmy(otherside));
+        counterRate = cal_counter(getNewArmy(side), getNewArmy(otherside));
         if(counterRate == 0) this.COUNTER = 0.08;
         else this.COUNTER = undefined;
     },

@@ -687,8 +687,8 @@ var soldier = [{
         return [0, 0, 0, 0.45, 0];
     },
     MIDRATE: function(side){
-        if(side == 'offense') oppArmy = getArmy('defense');
-        if(side == 'defense') oppArmy = getArmy('offense');
+        if(side == 'offense') oppArmy = getSoldArmy('defense');
+        if(side == 'defense') oppArmy = getSoldArmy('offense');
         if(oppArmy == '魔物') return [0.45, 0, 0.45, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
@@ -717,7 +717,7 @@ var soldier = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') return false;
-        oppArmy = getArmy('offense');
+        oppArmy = getSoldArmy('offense');
         if(oppArmy != '魔物' && oppArmy != '僧侶')
             return [0, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
@@ -738,7 +738,7 @@ var soldier = [{
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') return false;
-        oppArmy = getArmy('offense');
+        oppArmy = getSoldArmy('offense');
         if(oppArmy != '魔物' && oppArmy != '僧侶')
             return [0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;

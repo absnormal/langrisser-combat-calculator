@@ -37,12 +37,17 @@ function getArmy(side){
     else if(eJobNo == 5) return eChar.ARMY5;
 };
 
+function getNewArmy(side){
+    if(side == 'offense') return document.getElementById('offcharARMY').value;
+    if(side == 'defense') return document.getElementById('defcharARMY').value;
+};
+
 function displayArmy(side){
     if(side == 'defense'){
-        document.getElementById('defcharARMY').innerHTML = '兵種:' + getArmy(side);
+        document.getElementById('defcharARMY').value = getArmy(side);
     }
     else if(side == 'offense'){
-        document.getElementById('offcharARMY').innerHTML = '兵種:' + getArmy(side);
+        document.getElementById('offcharARMY').value = getArmy(side);
     }
 };
 

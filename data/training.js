@@ -249,8 +249,8 @@ var training = [{
     DATA: [0.05, 0.06, 0.07, 0.08, 0.09, 0.11, 0.13, 0.15, 0.17, 0.2],
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        if(side == 'offense') army = getArmy(side), soldArmy = combat.offSoldier.ARMY;
-        if(side == 'defense') army = getArmy(side), soldArmy = combat.defSoldier.ARMY;
+        if(side == 'offense') army = getNewArmy(side), soldArmy = combat.offSoldier.ARMY;
+        if(side == 'defense') army = getNewArmy(side), soldArmy = combat.defSoldier.ARMY;
         if(side == 'offense') LV = getTrainingLV(this.NAME)-1;
         if(side == 'defense') LV = getTrainingLV(this.NAME+'d')-1;
         if(army != soldArmy) return [0, 0, this.DATA[LV], this.DATA[LV], 0];
@@ -486,8 +486,8 @@ var training = [{
     DATA: [0.05, 0.06, 0.07, 0.08, 0.09, 0.11, 0.13, 0.15, 0.17, 0.2],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') oppArmy=getArmy('defense'), oppSoldArmy = combat.defSoldier.ARMY;
-        if(side == 'defense') oppArmy=getArmy('offense'), oppSoldArmy = combat.offSoldier.ARMY;
+        if(side == 'offense') oppArmy=getNewArmy('defense'), oppSoldArmy=getSoldArmy('defense');
+        if(side == 'defense') oppArmy=getNewArmy('offense'), oppSoldArmy=getSoldArmy('offense');
         if(side == 'offense') LV = getTrainingLV(this.NAME)-1;
         if(side == 'defense') LV = getTrainingLV(this.NAME+'d')-1;
         if(oppArmy != oppSoldArmy)

@@ -794,8 +794,8 @@ var talent = [{
     NAME: '空騎統帥',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') oppARMY = getArmy('defense');
-        else if(side == 'defense') oppARMY = getArmy('offense');
+        if(side == 'offense') oppARMY = getNewArmy('defense');
+        else if(side == 'defense') oppARMY = getNewArmy('offense');
         armyLIST = ['飛兵', '騎兵'];
         if(armyLIST.includes(oppARMY)) return [0.3, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
