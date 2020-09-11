@@ -27,10 +27,16 @@ function createWeaponList(side, listID){
 
         tr1 = document.createElement('tr');
         tr2 = document.createElement('tr');
+        tr3 = document.createElement('tr');
         th = document.createElement('th');
         th.id = li.id+'NAME';
-        td = document.createElement('td');
-        td.id = li.id+'DESC';
+        td1 = document.createElement('td');
+        td1.id = li.id+'DESC';
+        td1.colSpan = '2';
+        td2 = document.createElement('td');
+        td2.id = li.id+'BASE1';
+        td3 = document.createElement('td');
+        td3.id = li.id+'BASE2';
 
         img = document.createElement('img');
         img.id = li.id+'IMG'
@@ -52,8 +58,9 @@ function createWeaponList(side, listID){
         /*
          *  <li>
          *      <table>
-         *          <tr><th></th></tr>
-         *          <tr><td></td></tr>
+         *          <tr1><th></th></tr>
+         *          <tr3><td2><td3></tr>
+         *          <tr2><td1></tr>
          *      </table>
          *      <img/>
          *  </li>
@@ -64,9 +71,12 @@ function createWeaponList(side, listID){
         li.appendChild(table);
         li.appendChild(img);
         table.appendChild(tr1);
+        table.appendChild(tr3);
         table.appendChild(tr2);
         tr1.appendChild(th);
-        tr2.appendChild(td);
+        tr2.appendChild(td1);
+        tr3.appendChild(td2);
+        tr3.appendChild(td3);
     }
 };
 
@@ -242,15 +252,31 @@ function selectWeapon(side, weaponName){
     }
 };
 
+function getWeaponBase(weaponOBJ){
+    base = ['',''], index = 0;
+    nums = [0, 0, 0, 0, 0, 0];
+    text = ['生命','攻擊','智力','防禦','魔防','技巧'];
+    if(weaponOBJ.BASEHP != undefined) base[index] = text[0]+"+"+weaponOBJ.BASEHP, index++;
+    if(weaponOBJ.BASEATK != undefined) base[index] = text[1]+"+"+weaponOBJ.BASEATK, index++;
+    if(weaponOBJ.BASEINT != undefined) base[index] = text[2]+"+"+weaponOBJ.BASEINT, index++;
+    if(weaponOBJ.BASEDEF != undefined) base[index] = text[3]+"+"+weaponOBJ.BASEDEF, index++;
+    if(weaponOBJ.BASEMDEF != undefined) base[index] = text[4]+"+"+weaponOBJ.BASEMDEF, index++;
+    if(weaponOBJ.BASEDEX != undefined) base[index] = text[5]+"+"+weaponOBJ.BASEDEX, index++;
+    return base;
+};
+
 function loadWeaponDesc(side, weaponID){
 
     if(side == "offense") weaponNAME = weaponID;
     else if(side == 'defense') weaponNAME = weaponID.slice(0, -1);
 
     weaponOBJ = weapon.find(x => x.NAME === weaponNAME);
+    weaponbase = getWeaponBase(weaponOBJ);
     eWeapon = document.getElementById(weaponID);
     eWeaponbox = document.getElementById(weaponID+"TABLE");
     eWeaponname = document.getElementById(weaponID+"NAME");
+    eWeaponbase1 = document.getElementById(weaponID+"BASE1");
+    eWeaponbase2 = document.getElementById(weaponID+"BASE2");
     eWeapondesc = document.getElementById(weaponID+"DESC");
 
     // down shift 30px
@@ -259,6 +285,8 @@ function loadWeaponDesc(side, weaponID){
     x = eWeapon.getBoundingClientRect().left + 30;
 
     eWeaponname.innerHTML = weaponOBJ.NAME;
+    eWeaponbase1.innerHTML = weaponbase[0];
+    eWeaponbase2.innerHTML = weaponbase[1];
     eWeapondesc.innerHTML = weaponOBJ.DESC;
     eWeaponbox.style.top = y + 'px';
     eWeaponbox.style.left = x + 'px';

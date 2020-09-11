@@ -27,10 +27,16 @@ function createArmorList(side, listID){
 
         tr1 = document.createElement('tr');
         tr2 = document.createElement('tr');
+        tr3 = document.createElement('tr');
         th = document.createElement('th');
         th.id = li.id+'NAME';
-        td = document.createElement('td');
-        td.id = li.id+'DESC';
+        td1 = document.createElement('td');
+        td1.id = li.id+'DESC';
+        td1.colSpan = '2';
+        td2 = document.createElement('td');
+        td2.id = li.id+'BASE1';
+        td3 = document.createElement('td');
+        td3.id = li.id+'BASE2';
 
         img = document.createElement('img');
         img.id = li.id+'IMG'
@@ -64,9 +70,12 @@ function createArmorList(side, listID){
         li.appendChild(table);
         li.appendChild(img);
         table.appendChild(tr1);
+        table.appendChild(tr3);
         table.appendChild(tr2);
         tr1.appendChild(th);
-        tr2.appendChild(td);
+        tr2.appendChild(td1);
+        tr3.appendChild(td2);
+        tr3.appendChild(td3);
     }
 };
 
@@ -227,15 +236,31 @@ function selectArmor(side, armorName){
     }
 };
 
+function getArmorBase(armorOBJ){
+    base = ['',''], index = 0;
+    nums = [0, 0, 0, 0, 0, 0];
+    text = ['生命','攻擊','智力','防禦','魔防','技巧'];
+    if(armorOBJ.BASEHP != undefined) base[index] = text[0]+"+"+armorOBJ.BASEHP, index++;
+    if(armorOBJ.BASEATK != undefined) base[index] = text[1]+"+"+armorOBJ.BASEATK, index++;
+    if(armorOBJ.BASEINT != undefined) base[index] = text[2]+"+"+armorOBJ.BASEINT, index++;
+    if(armorOBJ.BASEDEF != undefined) base[index] = text[3]+"+"+armorOBJ.BASEDEF, index++;
+    if(armorOBJ.BASEMDEF != undefined) base[index] = text[4]+"+"+armorOBJ.BASEMDEF, index++;
+    if(armorOBJ.BASEDEX != undefined) base[index] = text[5]+"+"+armorOBJ.BASEDEX, index++;
+    return base;
+};
+
 function loadArmorDesc(side, armorID){
 
     if(side == "offense") armorNAME = armorID;
     else if(side == 'defense') armorNAME = armorID.slice(0, -1);
 
     armorOBJ = armor.find(x => x.NAME === armorNAME);
+    armorbase = getArmorBase(armorOBJ);
     eArmor = document.getElementById(armorID);
     eArmorbox = document.getElementById(armorID+"TABLE");
     eArmorname = document.getElementById(armorID+"NAME");
+    eArmorbase1 = document.getElementById(armorID+"BASE1");
+    eArmorbase2 = document.getElementById(armorID+"BASE2");
     eArmordesc = document.getElementById(armorID+"DESC");
 
     // down shift 30px
@@ -244,6 +269,8 @@ function loadArmorDesc(side, armorID){
     x = eArmor.getBoundingClientRect().left + 30;
 
     eArmorname.innerHTML = armorOBJ.NAME;
+    eArmorbase1.innerHTML = armorbase[0];
+    eArmorbase2.innerHTML = armorbase[1];
     eArmordesc.innerHTML = armorOBJ.DESC;
     eArmorbox.style.top = y + 'px';
     eArmorbox.style.left = x + 'px';

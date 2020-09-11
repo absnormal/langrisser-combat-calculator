@@ -27,10 +27,16 @@ function createAccessoryList(side, listID){
 
         tr1 = document.createElement('tr');
         tr2 = document.createElement('tr');
+        tr3 = document.createElement('tr');
         th = document.createElement('th');
         th.id = li.id+'NAME';
-        td = document.createElement('td');
-        td.id = li.id+'DESC';
+        td1 = document.createElement('td');
+        td1.id = li.id+'DESC';
+        td1.colSpan = '2';
+        td2 = document.createElement('td');
+        td2.id = li.id+'BASE1';
+        td3 = document.createElement('td');
+        td3.id = li.id+'BASE2';
 
         img = document.createElement('img');
         img.id = li.id+'IMG'
@@ -64,9 +70,12 @@ function createAccessoryList(side, listID){
         li.appendChild(table);
         li.appendChild(img);
         table.appendChild(tr1);
+        table.appendChild(tr3);
         table.appendChild(tr2);
         tr1.appendChild(th);
-        tr2.appendChild(td);
+        tr2.appendChild(td1);
+        tr3.appendChild(td2);
+        tr3.appendChild(td3);
     }
 };
 
@@ -199,15 +208,31 @@ function selectAccessory(side, accessoryName){
     }
 };
 
+function getAccessoryBase(accessoryOBJ){
+    base = ['',''], index = 0;
+    nums = [0, 0, 0, 0, 0, 0];
+    text = ['生命','攻擊','智力','防禦','魔防','技巧'];
+    if(accessoryOBJ.BASEHP != undefined) base[index] = text[0]+"+"+accessoryOBJ.BASEHP, index++;
+    if(accessoryOBJ.BASEATK != undefined) base[index] = text[1]+"+"+accessoryOBJ.BASEATK, index++;
+    if(accessoryOBJ.BASEINT != undefined) base[index] = text[2]+"+"+accessoryOBJ.BASEINT, index++;
+    if(accessoryOBJ.BASEDEF != undefined) base[index] = text[3]+"+"+accessoryOBJ.BASEDEF, index++;
+    if(accessoryOBJ.BASEMDEF != undefined) base[index] = text[4]+"+"+accessoryOBJ.BASEMDEF, index++;
+    if(accessoryOBJ.BASEDEX != undefined) base[index] = text[5]+"+"+accessoryOBJ.BASEDEX, index++;
+    return base;
+};
+
 function loadAccessoryDesc(side, accessoryID){
 
     if(side == "offense") accessoryNAME = accessoryID;
     else if(side == 'defense') accessoryNAME = accessoryID.slice(0, -1);
 
     accessoryOBJ = accessory.find(x => x.NAME === accessoryNAME);
+    accessorybase = getAccessoryBase(accessoryOBJ);
     eAccessory = document.getElementById(accessoryID);
     eAccessorybox = document.getElementById(accessoryID+"TABLE");
     eAccessoryname = document.getElementById(accessoryID+"NAME");
+    eAccessorybase1 = document.getElementById(accessoryID+"BASE1");
+    eAccessorybase2 = document.getElementById(accessoryID+"BASE2");
     eAccessorydesc = document.getElementById(accessoryID+"DESC");
 
     // down shift 30px
@@ -216,6 +241,8 @@ function loadAccessoryDesc(side, accessoryID){
     x = eAccessory.getBoundingClientRect().left + 30;
 
     eAccessoryname.innerHTML = accessoryOBJ.NAME;
+    eAccessorybase1.innerHTML = accessorybase[0];
+    eAccessorybase2.innerHTML = accessorybase[1];
     eAccessorydesc.innerHTML = accessoryOBJ.DESC;
     eAccessorybox.style.top = y + 'px';
     eAccessorybox.style.left = x + 'px';

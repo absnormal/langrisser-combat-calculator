@@ -27,10 +27,16 @@ function createHelmetList(side, listID){
 
         tr1 = document.createElement('tr');
         tr2 = document.createElement('tr');
+        tr3 = document.createElement('tr');
         th = document.createElement('th');
         th.id = li.id+'NAME';
-        td = document.createElement('td');
-        td.id = li.id+'DESC';
+        td1 = document.createElement('td');
+        td1.id = li.id+'DESC';
+        td1.colSpan = '2';
+        td2 = document.createElement('td');
+        td2.id = li.id+'BASE1';
+        td3 = document.createElement('td');
+        td3.id = li.id+'BASE2';
 
         img = document.createElement('img');
         img.id = li.id+'IMG'
@@ -64,9 +70,12 @@ function createHelmetList(side, listID){
         li.appendChild(table);
         li.appendChild(img);
         table.appendChild(tr1);
+        table.appendChild(tr3);
         table.appendChild(tr2);
         tr1.appendChild(th);
-        tr2.appendChild(td);
+        tr2.appendChild(td1);
+        tr3.appendChild(td2);
+        tr3.appendChild(td3);
     }
 };
 
@@ -200,15 +209,31 @@ function selectHelmet(side, helmetName){
     }
 };
 
+function getHelmetBase(helmetOBJ){
+    base = ['',''], index = 0;
+    nums = [0, 0, 0, 0, 0, 0];
+    text = ['生命','攻擊','智力','防禦','魔防','技巧'];
+    if(helmetOBJ.BASEHP != undefined) base[index] = text[0]+"+"+helmetOBJ.BASEHP, index++;
+    if(helmetOBJ.BASEATK != undefined) base[index] = text[1]+"+"+helmetOBJ.BASEATK, index++;
+    if(helmetOBJ.BASEINT != undefined) base[index] = text[2]+"+"+helmetOBJ.BASEINT, index++;
+    if(helmetOBJ.BASEDEF != undefined) base[index] = text[3]+"+"+helmetOBJ.BASEDEF, index++;
+    if(helmetOBJ.BASEMDEF != undefined) base[index] = text[4]+"+"+helmetOBJ.BASEMDEF, index++;
+    if(helmetOBJ.BASEDEX != undefined) base[index] = text[5]+"+"+helmetOBJ.BASEDEX, index++;
+    return base;
+};
+
 function loadHelmetDesc(side, helmetID){
 
     if(side == "offense") helmetNAME = helmetID;
     else if(side == 'defense') helmetNAME = helmetID.slice(0, -1);
 
     helmetOBJ = helmet.find(x => x.NAME === helmetNAME);
+    helmetbase = getHelmetBase(helmetOBJ);
     eHelmet = document.getElementById(helmetID);
     eHelmetbox = document.getElementById(helmetID+"TABLE");
     eHelmetname = document.getElementById(helmetID+"NAME");
+    eHelmetbase1 = document.getElementById(helmetID+"BASE1");
+    eHelmetbase2 = document.getElementById(helmetID+"BASE2");
     eHelmetdesc = document.getElementById(helmetID+"DESC");
 
     // down shift 30px
@@ -217,6 +242,8 @@ function loadHelmetDesc(side, helmetID){
     x = eHelmet.getBoundingClientRect().left + 30;
 
     eHelmetname.innerHTML = helmetOBJ.NAME;
+    eHelmetbase1.innerHTML = helmetbase[0];
+    eHelmetbase2.innerHTML = helmetbase[1];
     eHelmetdesc.innerHTML = helmetOBJ.DESC;
     eHelmetbox.style.top = y + 'px';
     eHelmetbox.style.left = x + 'px';
