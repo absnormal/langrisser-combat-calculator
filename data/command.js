@@ -37,7 +37,7 @@ var command = [{
     DESC: '[指揮]移動時所有可以通過的地形都視為「樹林」，且部隊不會受到地形導致的移動力下降影響。'
 },{
     NAME: '天御聖境(指揮)',
-    CRITDMGDEC: 0.15, TRUEDMGDEC: 0.2,
+    CRITDMGDEC: 0.30, TRUEDMGDEC: 0.2,
     DESC: '[指揮]遭受暴擊傷害降低30%，遭受固定傷害降低20%'
 },{
     NAME: '免疫「固定傷害」(指揮)',

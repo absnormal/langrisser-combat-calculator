@@ -208,10 +208,10 @@ function getCharData(side){
         combat.offADEF = Number(document.getElementById('offADEF').value);
         combat.offAMDEF = Number(document.getElementById('offAMDEF').value);
         combat.offADEX = Number(document.getElementById('offADEX').value);
-        combat.offACRITDMGINC = Number(document.getElementById('offACRITDMGINC').value.split("%")[0])/100;
-        combat.offACRITDMGDEC = Number(document.getElementById('offACRITDMGDEC').value.split("%")[0])/100;
-        combat.offACRITRATEINC = Number(document.getElementById('offACRITRATEINC').value.split("%")[0])/100;
-        combat.offACRITRATEDEC = Number(document.getElementById('offACRITRATEDEC').value.split("%")[0])/100;
+        combat.offACRITDMGINC = Number(document.getElementById('offACRITDMGINC').value.split("%")[0]/100);
+        combat.offACRITDMGDEC = Number(document.getElementById('offACRITDMGDEC').value.split("%")[0]/100);
+        combat.offACRITRATEINC = Number(document.getElementById('offACRITRATEINC').value.split("%")[0]/100);
+        combat.offACRITRATEDEC = Number(document.getElementById('offACRITRATEDEC').value.split("%")[0]/100);
         /* 移動/射程/敵軍/友軍/被護衛 */
         combat.range = Number(document.getElementById('offRange').value);
         combat.run = Number(document.getElementById('offRun').value);
@@ -250,10 +250,10 @@ function getCharData(side){
         combat.defADEF = Number(document.getElementById('defADEF').value);
         combat.defAMDEF = Number(document.getElementById('defAMDEF').value);
         combat.defADEX = Number(document.getElementById('defADEX').value);
-        combat.defACRITDMGINC = Number(document.getElementById('defACRITDMGINC').value.split("%")[0])/100;
-        combat.defACRITDMGDEC = Number(document.getElementById('defACRITDMGDEC').value.split("%")[0])/100;
-        combat.defACRITRATEINC = Number(document.getElementById('defACRITRATEINC').value.split("%")[0])/100;
-        combat.defACRITRATEDEC = Number(document.getElementById('defACRITRATEDEC').value.split("%")[0])/100;
+        combat.defACRITDMGINC = Number(document.getElementById('defACRITDMGINC').value.split("%")[0]/100);
+        combat.defACRITDMGDEC = Number(document.getElementById('defACRITDMGDEC').value.split("%")[0]/100);
+        combat.defACRITRATEINC = Number(document.getElementById('defACRITRATEINC').value.split("%")[0]/100);
+        combat.defACRITRATEDEC = Number(document.getElementById('defACRITRATEDEC').value.split("%")[0]/100);
         /* 敵軍/友軍 */
         combat.def1BFriend = Number(document.getElementById('def1BFriend').value);
         combat.def2BFriend = Number(document.getElementById('def2BFriend').value);
@@ -563,9 +563,10 @@ function displayMIDNUMS(side, sideRate, oppRate){
                 PREDEX = Number(ePREDEXDATA.innerHTML.split(":")[1]).toFixed(0);
                 baseCRIT = PREDEX/1000;
                 eDATA.innerHTML = text[i] + ":" + (baseCRIT+number).toFixed(2);
-                eMIDDESC.innerHTML = (baseCRIT+number).toFixed(2)+"="+baseCRIT.toFixed(2)+"[技巧]+"+arena[i]+"[競技精通]";
+                if(arena[i] >= 0) eMIDDESC.innerHTML = (baseCRIT+number).toFixed(2)+"="+baseCRIT.toFixed(2)+"[技巧]+"+arena[i]+"[競技精通]";
+                else eMIDDESC.innerHTML = (baseCRIT+number).toFixed(2)+"="+baseCRIT.toFixed(2)+"[技巧]"+arena[i].toFixed(2)+"[競技精通]";
             }
-            if(i == 6) eMIDDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITDMG+"+"+arena[i]+"[競技精通]";
+            if(i == 6) eMIDDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITDMG+"+"+arena[i].toFixed(2)+"[競技精通]";
             for(let j=0; j<sideRate.length; j++){
                 if(sideRate[j].SOLDONLY) continue;
                 if(sideRate[j].MIDRATE[i] > 0)
