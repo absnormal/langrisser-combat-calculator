@@ -949,6 +949,69 @@ var buff = [{
     /* PROBABILITY SKILL */
     CRITRATEDEC: 0.3,
     DESC: '遭受暴擊率降低30%，被攻擊進入戰鬥時30%概率觸發，部隊受到所有傷害降低50%(無法免疫不可驅散)(當前概率[DATA]%)'
+},{
+    NAME: '魔力精隨',
+    TYPE: ['安茲‧烏爾‧恭'],
+    ATK: 0.1, INT: 0.1,
+    DESC: '[魔力精隨]攻擊、智力提升10%'
+},{
+    NAME: '穿透提升',
+    TYPE: ['安茲‧烏爾‧恭'],
+    MDEFNEG: 0.1,
+    DESC: '[穿透提升]無視敵方10%魔防'
+},{
+    NAME: '魔法增幅',
+    TYPE: ['安茲‧烏爾‧恭'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') dmgtype = combat.offDMGTYPE;
+        if(side == 'defense') dmgtype = combat.defDMGTYPE;
+        if(dmgtype == '魔法傷害') return [0, 0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0];
+        else return false;
+    },
+    DESC: '[魔法增幅]魔法傷害提升10%'
+},{
+    NAME: '暴擊強化',
+    TYPE: ['安茲‧烏爾‧恭'],
+    CRITRATEINC: 0.1,
+    DESC: '[暴擊強化]暴擊機率提升10%'
+},{
+    NAME: '高階硬化',
+    TYPE: ['安茲‧烏爾‧恭'],
+    DEF: 0.1, MDEF: 0.1,
+    DESC: '[高階硬化]防禦、魔防提升10%'
+},{
+    NAME: '全屬性強化',
+    TYPE: ['安茲‧烏爾‧恭'],
+    ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05,
+    DESC: '[全屬性強化]除生命以外全屬性提升5%'
+},{
+    NAME: '高階抗性',
+    TYPE: ['安茲‧烏爾‧恭'],
+    DMGDEC: 0.1,
+    DESC: '[高階抗性]遭受所有傷害降低10%'
+},{
+    NAME: '高階幸運',
+    TYPE: ['安茲‧烏爾‧恭'],
+    CRITRATEDEC: 0.15,
+    DESC: '[高階硬化]遭受暴擊率降低15%'
+},{
+    NAME: '生命精隨',
+    TYPE: ['安茲‧烏爾‧恭'],
+    DESC: '[生命精隨]行動結束時恢復20%生命'
+},{
+    NAME: '飛行',
+    TYPE: ['安茲‧烏爾‧恭'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') combat.offMOVETYPE = '飛行';
+        if(side == 'defense') combat.defMOVETYPE = '飛行';
+    },
+    DESC: '[飛行]移動力+1,部隊的移動方式變為「飛行」'
+},{
+    NAME: '不死之身',
+    TYPE: ['安茲‧烏爾‧恭'],
+    DESC: '[不死之身]部隊最大生命增加15%'
 /*             */
 /* 超絕 分割線 */
 /*             */

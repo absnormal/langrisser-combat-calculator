@@ -159,6 +159,12 @@ function holdArmor(side, army, job){
         case '靈界偵探':
             holds.push('輕甲');
             break;
+        case '暗黑騎士':
+            holds.push('重甲');
+            break;
+        case '真祖':
+            holds.push('重甲');
+            break;
     }
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);

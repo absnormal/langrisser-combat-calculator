@@ -166,6 +166,15 @@ function holdWeapon(side, army, job){
         case '魔界王選':
             holds.push('錘');
             break;
+        case '暗黑騎士':
+            holds.push('匕首');
+            holds.push('錘');
+            holds.push('劍');
+            break;
+        case '真祖':
+            holds.push('槍');
+            holds.push('斧');
+            break;
     }
     // add hero name to type for char specials
     if(side == 'offense') holds.push(combat.offChar.NAME);

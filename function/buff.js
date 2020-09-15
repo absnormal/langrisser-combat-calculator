@@ -83,7 +83,7 @@ function getMIDBUFFSkill(side){
              * CRITRATE+, CRITDMG+, DMGRATE+,
              * CRITRATE-, CRITDMG-, DMGRATE- */
             MIDRATE: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            SKILLDMG: 0, CHARONLY: false,
+            SKILLDMG: 0, MDEFNEG: 0, CHARONLY: false,
         };
         if(buff.SKILLTYPE != undefined && buff.SKILLTYPE.includes('MIDRATE') && buff.MIDRATE(side)){
             display.MIDRATE = buff.MIDRATE(side);
@@ -124,6 +124,7 @@ function getMIDBUFFSkill(side){
         if(buff.CRITRATEDEC != undefined) display.MIDRATE[8] += buff.CRITRATEDEC;
         if(buff.CRITDMGDEC != undefined) display.MIDRATE[9] += buff.CRITDMGDEC;
         if(buff.DMGDEC != undefined) display.MIDRATE[10] += buff.DMGDEC;
+        if(buff.MDEFNEG != undefined) display.MDEFNEG += buff.MDEFNEG;
 
         // add to combat
         if(side == 'offense'){
@@ -140,6 +141,7 @@ function getMIDBUFFSkill(side){
             combat.defCRITDMG -= display.MIDRATE[9];
             combat.defDMGRATE -= display.MIDRATE[10];
             combat.offSKILLDMG += display.SKILLDMG;
+            combat.offMDEFNEG += display.MDEFNEG;
             /* soldier */
             if(!display.CHARONLY){
                 combat.offsoldATKRATE += display.MIDRATE[0];
@@ -168,6 +170,7 @@ function getMIDBUFFSkill(side){
             combat.offCRITRATE -= display.MIDRATE[8];
             combat.offCRITDMG -= display.MIDRATE[9];
             combat.offDMGRATE -= display.MIDRATE[10];
+            combat.defMDEFNEG += display.MDEFNEG;
             /* soldier */
             if(!display.CHARONLY){
                 combat.defsoldATKRATE += display.MIDRATE[0];
