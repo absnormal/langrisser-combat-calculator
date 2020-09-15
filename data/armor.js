@@ -19,11 +19,31 @@ var armor = [{
     HP: 0.05, DEF: 0.05,
     DESC: '生命、防禦+5%，被近戰攻擊前，對敵軍造成固定傷害，傷害值為英雄防禦的1.5倍'
 },{
-    NAME: '血紋魔鎧', TYPE: '重甲',
-    /* PROBABILITY SKILLS */
+    NAME: '血紋魔鎧', TYPE: '重甲', INDEX: 0,
+    DATA: [0, 1], MAX: 1, CHARONLY: false,
     BASEHP: 437, BASEDEF: 65,
     HP: 0.05, DEF: 0.05,
-    DESC: '生命、防禦+5%，被近戰攻擊時，有30%的概率發動，本次戰鬥部隊遭受傷害降低30%'
+    /* PROBABILITY SKILL */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(this.INDEX == 1 && side == 'defense' && combat.range == 1)
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+        else return false;
+    },
+    DESC: '生命、防禦+5%，被近戰攻擊時，有30%的概率發動(當前[DATA]%)，本次戰鬥部隊遭受傷害降低30%'
+},{
+    NAME: '風王戰甲', TYPE: '重甲', INDEX: 0,
+    DATA: [0, 1], MAX: 1, CHARONLY: false,
+    BASEHP: 437, BASEDEF: 65,
+    HP: 0.05, DEF: 0.05,
+    /* PROBABILITY SKILL */
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(this.INDEX == 1 && side == 'defense' && combat.range > 1)
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+        else return false;
+    },
+    DESC: '生命、防禦+5%，被遠程攻擊時，有30%的概率發動(當前[DATA]%)，本次戰鬥遭受傷害降低30%'
 },{
     NAME: '埃尼亞斯之甲', TYPE: '重甲',
     BASEHP: 437, BASEDEF: 65,
@@ -64,12 +84,6 @@ var armor = [{
         else return [0.08, 0, 0, 0, 0.08];
     },
     DESC: '部隊生命50%以上時，防禦、魔防提升8%，部隊生命50%以下時，攻擊、技巧提升8%'
-},{
-    NAME: '風王戰甲', TYPE: '重甲',
-    BASEHP: 437, BASEDEF: 65,
-    HP: 0.05, DEF: 0.05,
-    /* PROBABILITY SKILL */
-    DESC: '生命、防禦+5%，被遠程攻擊時，有30%的概率發動，本次戰鬥遭受傷害降低30% '
 },{
     NAME: '石像鬼外套', TYPE: '輕甲',
     BASEHP: 509, BASEDEF: 59,

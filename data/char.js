@@ -7,9 +7,13 @@ var char = [{
     SOLDIER: ['巫女', '驅魔師', '大精靈', '男巫', '高地勇士', '聖殿騎士', '神官'],
     SKILLS: ['冰凍','風刃'],
     JOB1:'先知', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3853, BASE1ATK: 321, BASE1INT: 408,
+    BASE1DEF: 275, BASE1MDEF: 408, BASE1DEX: 88,
     JOB1DISCA:'部隊生命低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'隱士', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 4026, BASE2ATK: 295, BASE2INT: 443,
+    BASE2DEF: 275, BASE2MDEF: 374, BASE2DEX: 103,
     JOB2DISCA:'受到遠程攻擊時，遭受魔法傷害降低10%。',
     JOB2DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。',
 },{
@@ -20,9 +24,13 @@ var char = [{
     SOLDIER: ['驅魔師', '重裝步兵', '重裝骷髏', '狂獸人', '狂熱者', '死靈騎士', '食人巨魔'],
     SKILLS: ['審判','靈丸','百烈拳','黑靈丸'],
     JOB1:'靈界偵探', ARMY1: '僧侶', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3788, BASE1ATK: 557, BASE1INT: 258,
+    BASE1DEF: 319, BASE1MDEF: 351, BASE1DEX: 165,
     JOB1DISCA:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'魔界王選', ARMY2: '魔物', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4177, BASE2ATK: 587, BASE2INT: 258,
+    BASE2DEF: 319, BASE2MDEF: 327, BASE2DEX: 165,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。'
 },{
@@ -33,9 +41,13 @@ var char = [{
     SOLDIER: ['魔女', '海怪', '神官', '吸血蝙蝠', '魔晶術士', '男巫', '潮汐精靈'],
     SKILLS: [],
     JOB1:'魔王化身', ARMY1: '魔物', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3920, BASE1ATK: 267, BASE1INT: 509,
+    BASE1DEF: 263, BASE1MDEF: 400, BASE1DEX: 117,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'影依聖女', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3606, BASE2ATK: 267, BASE2INT: 480,
+    BASE2DEF: 254, BASE2MDEF: 400, BASE2DEX: 117,
     JOB2DISCA:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'受到魔法攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -46,9 +58,13 @@ var char = [{
     SOLDIER: ['魔女','聖天馬','神官','暗精靈射手','火弩狙擊手','天空射手','天使','魔晶術士'],
     SKILLS: ['雷擊','暗鐮','聖言'],
     JOB1:'魔能核心', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '飛行',
+    BASE1HP: 3838, BASE1ATK: 267, BASE1INT: 516,
+    BASE1DEF: 239, BASE1MDEF: 423, BASE1DEX: 117,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提高10%。',
     JOB2:'神使', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3355, BASE2ATK: 321, BASE2INT: 487,
+    BASE2DEF: 248, BASE2MDEF: 423, BASE2DEX: 90,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'治療效果+10%。'
 },{
@@ -59,9 +75,13 @@ var char = [{
     SOLDIER: ['神官騎士', '神官', '突襲弩騎兵', '投石車', '旋風遊騎兵', '聖殿騎士', '魔女'],
     SKILLS: ['火球'],
     JOB1:'聖女騎士', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3327, BASE1ATK: 335, BASE1INT: 443,
+    BASE1DEF: 272, BASE1MDEF: 407, BASE1DEX: 96,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'獨角獸統帥', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '騎行',
+    BASE2HP: 3619, BASE2ATK: 308, BASE2INT: 481,
+    BASE2DEF: 304, BASE2MDEF: 348, BASE2DEX: 125,
     JOB2DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到魔法攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -72,12 +92,18 @@ var char = [{
     SOLDIER: ['骨犀','重裝骷髏','龍蝦巨獸','狂獸人','吸血蝙蝠','岩石巨人','蜥蜴刀客','地獄犬','死靈騎士','石像鬼','食人巨魔'],
     SKILLS: ['野獸震懾'],
     JOB1:'貝希摩斯', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '野戰',
+    BASE1HP: 5805, BASE1ATK: 503, BASE1INT: 271,
+    BASE1DEF: 293, BASE1MDEF: 325, BASE1DEX: 109,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'海德拉', ARMY2: '水兵', DMGTYPE2: '物理傷害', MOVETYPE2: '野戰',
+    BASE2HP: 5442, BASE2ATK: 412, BASE2INT: 247,
+    BASE2DEF: 317, BASE2MDEF: 285, BASE2DEX: 124,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB3:'巴哈姆特', ARMY3: '龍', DMGTYPE3: '物理傷害', MOVETYPE3: '野戰',
+    BASE3HP: 5442, BASE3ATK: 412, BASE3INT: 327,
+    BASE3DEF: 282, BASE3MDEF: 371, BASE3DEX: 124,
     JOB3DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB3DISCB:'受到攻擊時，士兵傷害提升20%。'
 },{
@@ -88,9 +114,13 @@ var char = [{
     SOLDIER: ['重裝步兵','姬武神','驅魔師','聖殿騎士','狂熱者','假面女僕','天琴親衛','獨角獸'],
     SKILLS: ['懲戒','聖裁','神威'],
     JOB1:'女神之刃', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 4615, BASE1ATK: 267, BASE1INT: 571,
+    BASE1DEF: 313, BASE1MDEF: 323, BASE1DEX: 175,
     JOB1DISCA:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2:'聖劍公主', ARMY2: '步兵', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 4288, BASE2ATK: 295, BASE2INT: 571,
+    BASE2DEF: 278, BASE2MDEF: 335, BASE2DEX: 175,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -101,9 +131,13 @@ var char = [{
     SOLDIER: ['岩石巨人', '狂獸人', '驅魔師', '近衛槍兵', '狂熱者', '食人巨魔', '樹人守衛'],
     SKILLS: ['正義'],
     JOB1:'聖槍統帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4584, BASE1ATK: 376, BASE1INT: 300,
+    BASE1DEF: 392, BASE1MDEF: 329, BASE1DEX: 90,
     JOB1DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'聖騎統帥', ARMY2: '僧侶', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4911, BASE2ATK: 376, BASE2INT: 300,
+    BASE2DEF: 370, BASE2MDEF: 356, BASE2DEX: 90,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -114,9 +148,13 @@ var char = [{
     SOLDIER: ['近衛騎兵','岩石巨人','重裝槍兵','大精靈','姬武神','聖殿騎士','天空射手'],
     SKILLS: ['穿甲'],
     JOB1:'光武·改', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4767, BASE1ATK: 566, BASE1INT: 233,
+    BASE1DEF: 331, BASE1MDEF: 245, BASE1DEX: 120,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於50%時，傷害提升10%。',
     JOB2:'鳳凰之舞(職業)', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5083, BASE2ATK: 566, BASE2INT: 233,
+    BASE2DEF: 378, BASE2MDEF: 193, BASE2DEX: 107,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'與血量百分比高於自身的部隊交戰時，進入戰鬥後傷害提升10%。'
 },{
@@ -127,9 +165,13 @@ var char = [{
     SOLDIER: ['近衛槍兵','姬武神','驅魔師','重裝騎兵','狂熱者','聖殿騎士','重戟百夫長'],
     SKILLS: ['審判','穿甲'],
     JOB1:'槍之聖女', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4846, BASE1ATK: 557, BASE1INT: 241,
+    BASE1DEF: 344, BASE1MDEF: 251, BASE1DEX: 159,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'鋼之聖女', ARMY2: '僧侶', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4207, BASE2ATK: 557, BASE2INT: 265,
+    BASE2DEF: 307, BASE2MDEF: 341, BASE2DEX: 159,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -140,9 +182,13 @@ var char = [{
     SOLDIER: ['重裝步兵','聖殿騎士','大精靈','男巫','獨角獸','森林祭司','魔晶術士'],
     SKILLS: ['風刃','風斬','精靈之息','精靈之舞'],
     JOB1:'精靈劍士', ARMY1: '步兵', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 4365, BASE1ATK: 267, BASE1INT: 567,
+    BASE1DEF: 318, BASE1MDEF: 325, BASE1DEX: 152,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'高等精靈', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3555, BASE2ATK: 267, BASE2INT: 539,
+    BASE2DEF: 260, BASE2MDEF: 384, BASE2DEX: 87,
     JOB2DISCA:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'治療效果+10%。'
 },{
@@ -153,9 +199,13 @@ var char = [{
     SOLDIER: ['神官','大精靈','男巫','投石車','巫女','狂熱者','高地勇士','森林祭司'],
     SKILLS: [],
     JOB1:'軍師', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 2844, BASE1ATK: 312, BASE1INT: 545,
+    BASE1DEF: 228, BASE1MDEF: 303, BASE1DEX: 80,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提升10%。',
     JOB2:'先知', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 2713, BASE2ATK: 312, BASE2INT: 504,
+    BASE2DEF: 211, BASE2MDEF: 310, BASE2DEX: 80,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -166,9 +216,13 @@ var char = [{
     SOLDIER: ['神官','驅魔師','男巫','大精靈','姬武神','天空射手','森林祭司'],
     SKILLS: [],
     JOB1:'軍師', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 2944, BASE1ATK: 312, BASE1INT: 557,
+    BASE1DEF: 228, BASE1MDEF: 295, BASE1DEX: 80,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提升10%。',
     JOB2:'帝國宰相', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 2813, BASE2ATK: 260, BASE2INT: 591,
+    BASE2DEF: 211, BASE2MDEF: 295, BASE2DEX: 80,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -179,9 +233,13 @@ var char = [{
     SOLDIER: ['重裝步兵','人魚統領','大精靈','暗精靈射手','火弩狙擊手','海怪','影侍','素體改造人'],
     SKILLS: ['壓制射擊','重擊','強風狙擊'],
     JOB1:'劍鬥統帥', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3419, BASE1ATK: 593, BASE1INT: 244,
+    BASE1DEF: 270, BASE1MDEF: 260, BASE1DEX: 185,
     JOB1DISCA:'受到遠程攻擊時，進入戰鬥後，遭受傷害降低10%。',
     JOB1DISCB:'近戰攻擊時，進入戰鬥後傷害提升10%。',
     JOB2:'遊俠', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3262, BASE2ATK: 564, BASE2INT: 244,
+    BASE2DEF: 250, BASE2MDEF: 315, BASE2DEX: 233,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -192,9 +250,13 @@ var char = [{
     SOLDIER: ['突襲弩騎兵','骨犀','暗精靈射手','聖天馬','投石車','龍騎兵','石像鬼'],
     SKILLS: ['疾突','壓制射擊','翡翠魔矢','翡翠破風'],
     JOB1:'狼騎統帥', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3418, BASE1ATK: 591, BASE1INT: 244,
+    BASE1DEF: 244, BASE1MDEF: 283, BASE1DEX: 233,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'遊俠', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3418, BASE2ATK: 563, BASE2INT: 244,
+    BASE2DEF: 253, BASE2MDEF: 319, BASE2DEX: 233,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -205,9 +267,13 @@ var char = [{
     SOLDIER: ['重裝步兵','驅魔師','暗殺者','大精靈','武士','狂戰士','火弩狙擊手','素體改造人'],
     SKILLS: ['氣刃'],
     JOB1:'劍聖', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4370, BASE1ATK: 588, BASE1INT: 294,
+    BASE1DEF: 305, BASE1MDEF: 293, BASE1DEX: 273,
     JOB1DISCA:'受到遠程攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，暴擊傷害提升10%。',
     JOB2:'異星王子', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4056, BASE2ATK: 530, BASE2INT: 294,
+    BASE2DEF: 293, BASE2MDEF: 273, BASE2DEX: 316,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊率提升10%。'
 },{
@@ -218,9 +284,13 @@ var char = [{
     SOLDIER: ['人魚統領','驅魔師','重裝步兵','近衛槍兵','蜥蜴刀客','狂戰士','姬武神'],
     SKILLS: ['大喝','水槍','背摔'],
     JOB1:'海鬥統帥', ARMY1: '水兵', DMGTYPE1: '物理傷害', MOVETYPE1: '水行',
+    BASE1HP: 4155, BASE1ATK: 614, BASE1INT: 259,
+    BASE1DEF: 310, BASE1MDEF: 252, BASE1DEX: 150,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'劍士統帥', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4472, BASE2ATK: 582, BASE2INT: 285,
+    BASE2DEF: 334, BASE2MDEF: 271, BASE2DEX: 150,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。'
 },{
@@ -231,9 +301,13 @@ var char = [{
     SOLDIER: ['鋼翼勇士','重裝騎兵','假面女僕','重裝步兵','狂戰士','天使','天琴親衛'],
     SKILLS: ['大喝','雷光','威風衝陣'],
     JOB1:'龍騎統帥', ARMY1: '飛兵', DMGTYPE1: '物理傷害', MOVETYPE1: '飛行',
+    BASE1HP: 4096, BASE1ATK: 599, BASE1INT: 228,
+    BASE1DEF: 305, BASE1MDEF: 321, BASE1DEX: 187,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2:'皇帝', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4415, BASE2ATK: 567, BASE2INT: 249,
+    BASE2DEF: 329, BASE2MDEF: 286, BASE2DEX: 168,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，暴擊傷害提升10%。'
 },{
@@ -244,9 +318,13 @@ var char = [{
     SOLDIER: ['重裝步兵','近衛騎兵','高地勇士','皇家獅鷲','暗黑衛隊','鋼翼勇士','狂戰士'],
     SKILLS: ['大喝','一閃'],
     JOB1:'劍聖', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4538, BASE1ATK: 585, BASE1INT: 283,
+    BASE1DEF: 320, BASE1MDEF: 289, BASE1DEX: 231,
     JOB1DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於50%時，傷害提升10%。',
     JOB2:'灰之英雄', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4538, BASE2ATK: 555, BASE2INT: 283,
+    BASE2DEF: 346, BASE2MDEF: 289, BASE2DEX: 159,
     JOB2DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。'
 },{
@@ -257,9 +335,13 @@ var char = [{
     SOLDIER: ['高地勇士','近衛槍兵','近衛步兵','近衛騎兵','暗黑衛隊','皇家騎兵','暗影百夫長'],
     SKILLS: ['氣刃','斬陽'],
     JOB1:'劍帝', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4754, BASE1ATK: 549, BASE1INT: 294,
+    BASE1DEF: 353, BASE1MDEF: 301, BASE1DEX: 116,
     JOB1DISCA:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2:'修羅', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4448, BASE2ATK: 579, BASE2INT: 294,
+    BASE2DEF: 327, BASE2MDEF: 280, BASE2DEX: 130,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊率提升10%。'
 },{
@@ -270,9 +352,13 @@ var char = [{
     SOLDIER: ['近衛步兵','岩石巨人','重裝骷髏','近衛騎兵','死靈騎士','暗黑衛隊','熔岩巨人', '魔蠍'],
     SKILLS: ['盾擊'],
     JOB1:'勇者', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5039, BASE1ATK: 519, BASE1INT: 265,
+    BASE1DEF: 403, BASE1MDEF: 281, BASE1DEX: 108,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'皇帝', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4723, BASE2ATK: 546, BASE2INT: 265,
+    BASE2DEF: 380, BASE2MDEF: 281, BASE2DEX: 143,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -283,9 +369,13 @@ var char = [{
     SOLDIER: ['大精靈','暗殺者','重裝步兵','重裝骷髏','天空射手','素體改造人','火弩狙擊手'],
     SKILLS: ['氣刃','狙擊','破夢','血腥之凜'],
     JOB1:'破滅之翼', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '飛行',
+    BASE1HP: 3676, BASE1ATK: 537, BASE1INT: 294,
+    BASE1DEF: 263, BASE1MDEF: 319, BASE1DEX: 224,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'劍聖', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4456, BASE2ATK: 595, BASE2INT: 294,
+    BASE2DEF: 295, BASE2MDEF: 283, BASE2DEX: 253,
     JOB2DISCA:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10 %。'
 },{
@@ -296,9 +386,13 @@ var char = [{
     SOLDIER: ['重裝步兵','近衛槍兵','重裝槍兵','近衛步兵','假面女僕','龍騎兵','暗影百夫長','鋼翼勇士'],
     SKILLS: ['大喝','斬陽','迎頭痛擊','劍魂'],
     JOB1:'英雄', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4822, BASE1ATK: 573, BASE1INT: 258,
+    BASE1DEF: 356, BASE1MDEF: 270, BASE1DEX: 154,
     JOB1DISCA:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，進入戰鬥後傷害提升10%。',
     JOB2:'大元帥', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5129, BASE2ATK: 544, BASE2INT: 235,
+    BASE2DEF: 378, BASE2MDEF: 217, BASE2DEX: 116,
     JOB2DISCA:'血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。'
 },{
@@ -309,9 +403,13 @@ var char = [{
     SOLDIER: ['狂獸人','岩石巨人','近衛步兵','近衛騎兵','暗影百夫長','龍騎兵','水晶塑型者','高地勇士'],
     SKILLS: ['重擊'],
     JOB1:'皇后', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4980, BASE1ATK: 527, BASE1INT: 249,
+    BASE1DEF: 387, BASE1MDEF: 305, BASE1DEX: 104,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'劍士統帥', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4665, BASE2ATK: 555, BASE2INT: 249,
+    BASE2DEF: 364, BASE2MDEF: 305, BASE2DEX: 137,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊傷害降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -322,9 +420,13 @@ var char = [{
     SOLDIER: ['重裝騎兵','骨犀','重裝步兵','驅魔師','暗黑衛隊','狂熱者','天琴親衛'],
     SKILLS: ['大喝','猛撞'],
     JOB1:'光武·改', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4487, BASE1ATK: 578, BASE1INT: 257,
+    BASE1DEF: 307, BASE1MDEF: 266, BASE1DEX: 144,
     JOB1DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'破邪劍征', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4487, BASE2ATK: 609, BASE2INT: 283,
+    BASE2DEF: 307, BASE2MDEF: 266, BASE2DEX: 251,
     JOB2DISCA:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到近戰攻擊時，傷害提升10%。'
 },{
@@ -335,9 +437,13 @@ var char = [{
     SOLDIER: ['驅魔師','人魚統領','重裝步兵','重裝槍兵','狂熱者','姬武神','水晶塑型者','假面女僕'],
     SKILLS: ['審判','斬陽','烈陽','正義對決'],
     JOB1:'聖騎統帥', ARMY1: '僧侶', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5291, BASE1ATK: 434, BASE1INT: 300,
+    BASE1DEF: 352, BASE1MDEF: 316, BASE1DEX: 102,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'受到具有“強化效果”的部隊攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'王者', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5607, BASE2ATK: 498, BASE2INT: 271,
+    BASE2DEF: 375, BASE2MDEF: 279, BASE2DEX: 117,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -348,9 +454,13 @@ var char = [{
     SOLDIER: ['暗殺者','近衛步兵','緋霧女侍','暗精靈射手','食人巨魔','火弩狙擊手','影侍'],
     SKILLS: ['雙連擊'],
     JOB1:'漆黑之牙', ARMY1: '魔物', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3819, BASE1ATK: 569, BASE1INT: 240,
+    BASE1DEF: 295, BASE1MDEF: 281, BASE1DEX: 231,
     JOB1DISCA:'部隊血量100%時，遭受暴擊率降低10%。',
     JOB1DISCB:'部隊血量100%時，暴擊率提升10%。',
     JOB2:'影', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3819, BASE2ATK: 540, BASE2INT: 240,
+    BASE2DEF: 283, BASE2MDEF: 260, BASE2DEX: 336,
     JOB2DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB2DISCB:'部隊血量100%時，傷害提升10%。'
 },{
@@ -361,9 +471,13 @@ var char = [{
     SOLDIER: ['火焰骷髏弓手','重裝骷髏','緋霧女侍','死靈騎士','投石車','地精騎士','暗殺者','暗精靈射手'],
     SKILLS: ['影襲','絕命一擊'],
     JOB1:'混沌化身', ARMY1: '魔物', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4026, BASE1ATK: 562, BASE1INT: 240,
+    BASE1DEF: 324, BASE1MDEF: 302, BASE1DEX: 206,
     JOB1DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'影', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3723, BASE2ATK: 534, BASE2INT: 240,
+    BASE2DEF: 288, BASE2MDEF: 281, BASE2DEX: 331,
     JOB2DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB2DISCB:'受到魔法攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -374,9 +488,13 @@ var char = [{
     SOLDIER: ['暗殺者','緋霧女侍','大精靈','突襲弩騎兵','影侍','地精騎士','投石車'],
     SKILLS: ['影襲','狙足','迅隱殺機'],
     JOB1:'影', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3891, BASE1ATK: 533, BASE1INT: 240,
+    BASE1DEF: 250, BASE1MDEF: 257, BASE1DEX: 336,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'遊俠', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3442, BASE2ATK: 533, BASE2INT: 240,
+    BASE2DEF: 230, BASE2MDEF: 313, BASE2DEX: 261,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊傷害提升10%。'
 },{
@@ -387,9 +505,13 @@ var char = [{
     SOLDIER: ['暗殺者','重裝骷髏','暗精靈射手','火焰骷髏弓手','影侍','海怪','旋風遊騎兵'],
     SKILLS: ['會心直擊','弱點狙擊'],
     JOB1:'大統帥', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4012, BASE1ATK: 548, BASE1INT: 244,
+    BASE1DEF: 275, BASE1MDEF: 267, BASE1DEX: 304,
     JOB1DISCA:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB1DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'遊俠', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3539, BASE2ATK: 548, BASE2INT: 244,
+    BASE2DEF: 255, BASE2MDEF: 323, BASE2DEX: 234,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊傷害提升10%。'
 },{
@@ -400,9 +522,13 @@ var char = [{
     SOLDIER: ['吸血蝙蝠','重裝骷髏','骨犀','狂獸人','龍騎兵','石像鬼','死靈騎士'],
     SKILLS: ['疾突','彈指'],
     JOB1:'力·100%', ARMY1: '魔物', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3914, BASE1ATK: 628, BASE1INT: 233,
+    BASE1DEF: 313, BASE1MDEF: 273, BASE1DEX: 121,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提升10%。',
     JOB2:'武態·劍', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4303, BASE2ATK: 596, BASE2INT: 233,
+    BASE2DEF: 313, BASE2MDEF: 262, BASE2DEX: 121,
     JOB2DISCA:'本部隊有10個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB2DISCB:'本部隊有10個以上的強化狀態時，戰鬥中傷害提升10%。'
 },{
@@ -413,9 +539,13 @@ var char = [{
     SOLDIER: ['岩石巨人','重裝騎兵','人魚統領','高地勇士','潮汐精靈','熔岩巨人','地獄犬'],
     SKILLS: ['激浪'],
     JOB1:'皇家衛士', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5372, BASE1ATK: 448, BASE1INT: 247,
+    BASE1DEF: 403, BASE1MDEF: 212, BASE1DEX: 88,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊時，士兵傷害提升20%。',
     JOB2:'海騎統帥', ARMY2: '水兵', DMGTYPE2: '物理傷害', MOVETYPE2: '水行',
+    BASE2HP: 4717, BASE2ATK: 504, BASE2INT: 247,
+    BASE2DEF: 371, BASE2MDEF: 267, BASE2DEX: 103,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'在水中時，物理傷害提升10%。'
 },{
@@ -426,9 +556,13 @@ var char = [{
     SOLDIER: ['天琴親衛','鋼翼勇士','魔女','旋風遊騎兵','聖天馬','地精騎士','獨角獸'],
     SKILLS: ['雷擊','虹吸','破滅之矛'],
     JOB1:'法騎統帥', ARMY1: '騎兵', DMGTYPE1: '魔法傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3762, BASE1ATK: 295, BASE1INT: 559,
+    BASE1DEF: 321, BASE1MDEF: 286, BASE1DEX: 127,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'獨角獸統帥', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '騎行',
+    BASE2HP: 3762, BASE2ATK: 295, BASE2INT: 502,
+    BASE2DEF: 321, BASE2MDEF: 306, BASE2DEX: 127,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -439,9 +573,13 @@ var char = [{
     SOLDIER: ['重裝槍兵','驅魔師','姬武神','重裝步兵','狂戰士','重戟百夫長','狂熱者'],
     SKILLS: ['穿甲'],
     JOB1:'櫻花無雙', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5352, BASE1ATK: 481, BASE1INT: 235,
+    BASE1DEF: 416, BASE1MDEF: 197, BASE1DEX: 96,
     JOB1DISCA:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，進入戰鬥後傷害提升10%。',
     JOB2:'烈波無雙', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5023, BASE2ATK: 540, BASE2INT: 235,
+    BASE2DEF: 404, BASE2MDEF: 220, BASE2DEX: 111,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -452,9 +590,13 @@ var char = [{
     SOLDIER: ['吸血蝙蝠','骨犀','重裝骷髏','岩石巨人','死靈騎士','熔岩巨人','石像鬼','樹人守衛'],
     SKILLS: ['虹吸'],
     JOB1:'魔神', ARMY1: '魔物', DMGTYPE1: '魔法傷害', MOVETYPE1: '飛行',
+    BASE1HP: 4506, BASE1ATK: 321, BASE1INT: 343,
+    BASE1DEF: 341, BASE1MDEF: 352, BASE1DEX: 102,
     JOB1DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於50%時，傷害提升10%。',
     JOB2:'血魔姬', ARMY2: '魔物', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 4185, BASE2ATK: 321, BASE2INT: 343,
+    BASE2DEF: 330, BASE2MDEF: 375, BASE2DEX: 117,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -465,9 +607,13 @@ var char = [{
     SOLDIER: ['男巫','岩石巨人','骨犀','吸血蝙蝠','蛛魔精靈','樹人守衛','魔蠍'],
     SKILLS: ['暗鐮','投槍'],
     JOB1:'西卡招魂師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3513, BASE1ATK: 455, BASE1INT: 532,
+    BASE1DEF: 267, BASE1MDEF: 337, BASE1DEX: 109,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'西卡聖女', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 3812, BASE2ATK: 552, BASE2INT: 464,
+    BASE2DEF: 287, BASE2MDEF: 281, BASE2DEX: 146,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -478,9 +624,13 @@ var char = [{
     SOLDIER: ['突襲弩騎兵','聖天馬','皇家獅鷲','天琴親衛','龍騎兵','狂戰士','天使','獨角獸'],
     SKILLS: ['撞擊','雷光'],
     JOB1:'海騎統帥', ARMY1: '水兵', DMGTYPE1: '物理傷害', MOVETYPE1: '水行',
+    BASE1HP: 4586, BASE1ATK: 547, BASE1INT: 247,
+    BASE1DEF: 339, BASE1MDEF: 283, BASE1DEX: 124,
     JOB1DISCA:'在水中時，遭受物理傷害降低10%。',
     JOB1DISCB:'在水中時，物理傷害提升10%。',
     JOB2:'龍騎統帥', ARMY2: '飛兵', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4265, BASE2ATK: 577, BASE2INT: 247,
+    BASE2DEF: 313, BASE2MDEF: 339, BASE2DEX: 178,
     JOB2DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。'
 },{
@@ -491,9 +641,13 @@ var char = [{
     SOLDIER: ['重裝騎兵','皇家獅鷲','聖天馬','突襲弩騎兵','天琴親衛','大精靈','旋風遊騎兵'],
     SKILLS: ['狙擊','奔雷'],
     JOB1:'弓騎統帥', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 4056, BASE1ATK: 483, BASE1INT: 295,
+    BASE1DEF: 264, BASE1MDEF: 366, BASE1DEX: 189,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'聖天馬統帥', ARMY2: '飛兵', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4683, BASE2ATK: 483, BASE2INT: 325,
+    BASE2DEF: 331, BASE2MDEF: 400, BASE2DEX: 146,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -504,9 +658,13 @@ var char = [{
     SOLDIER: ['重裝騎兵','皇家獅鷲','暗殺者','突襲弩騎兵','天琴親衛','龍騎兵','獨角獸','影侍'],
     SKILLS: ['疾突','千騎','浪子回頭'],
     JOB1:'皇家騎士', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 4326, BASE1ATK: 581, BASE1INT: 222,
+    BASE1DEF: 295, BASE1MDEF: 283, BASE1DEX: 154,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，暴擊傷害提升10%。',
     JOB2:'大統帥', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4016, BASE2ATK: 553, BASE2INT: 244,
+    BASE2DEF: 283, BASE2MDEF: 263, BASE2DEX: 301,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，暴擊傷害提升10%。'
 },{
@@ -517,9 +675,13 @@ var char = [{
     SOLDIER: ['骨犀','吸血蝙蝠','近衛騎兵','近衛步兵','天使','皇家騎兵','狂戰士', '魔蠍'],
     SKILLS: ['突擊','猛撞','千騎','青龍破陣'],
     JOB1:'突擊騎士', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 4369, BASE1ATK: 602, BASE1INT: 233,
+    BASE1DEF: 270, BASE1MDEF: 251, BASE1DEX: 130,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2:'皇家騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4690, BASE2ATK: 589, BASE2INT: 233,
+    BASE2DEF: 281, BASE2MDEF: 280, BASE2DEX: 130,
     JOB2DISCA:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -530,9 +692,13 @@ var char = [{
     SOLDIER: ['吸血蝙蝠','重裝骷髏','骨犀','狂獸人','石像鬼','龍騎兵','死靈騎士'],
     SKILLS: ['猛撞','暗影突擊','逆襲','絕戮'],
     JOB1:'龍騎統帥', ARMY1: '飛兵', DMGTYPE1: '物理傷害', MOVETYPE1: '飛行',
+    BASE1HP: 4139, BASE1ATK: 601, BASE1INT: 247,
+    BASE1DEF: 291, BASE1MDEF: 331, BASE1DEX: 166,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'範圍傷害提升10%。',
     JOB2:'皇家騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4460, BASE2ATK: 569, BASE2INT: 247,
+    BASE2DEF: 291, BASE2MDEF: 295, BASE2DEX: 126,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -543,9 +709,13 @@ var char = [{
     SOLDIER: ['骨犀','聖天馬','近衛騎兵','近衛步兵','天使','皇家騎兵','高地勇士'],
     SKILLS: ['撞擊','疾突','破陣','晶耀突襲','璨晶綻放'],
     JOB1:'突擊騎士', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3261, BASE1ATK: 436, BASE1INT: 167,
+    BASE1DEF: 216, BASE1MDEF: 202, BASE1DEX: 49,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'皇家騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4511, BASE2ATK: 578, BASE2INT: 233,
+    BASE2DEF: 287, BASE2MDEF: 283, BASE2DEX: 113,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -556,9 +726,13 @@ var char = [{
     SOLDIER: ['骨犀','吸血蝙蝠','男巫','暗精靈射手','神官騎士','魔女','死靈騎士','蛛魔精靈'],
     SKILLS: ['聖言','猛撞','疾突'],
     JOB1:'黑騎士', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3925, BASE1ATK: 531, BASE1INT: 417,
+    BASE1DEF: 302, BASE1MDEF: 280, BASE1DEX: 118,
     JOB1DISCA:'本部隊有5個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB1DISCB:'主動近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'皇家特使', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3455, BASE2ATK: 501, BASE2INT: 480,
+    BASE2DEF: 270, BASE2MDEF: 338, BASE2DEX: 91,
     JOB2DISCA:'本部隊有弱化狀態時，戰鬥中遭受傷害降低10%。',
     JOB2DISCB:'主動遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -569,9 +743,13 @@ var char = [{
     SOLDIER: ['近衛步兵','近衛槍兵','近衛騎兵','皇家獅鷲','天琴親衛','姬武神','狂戰士','鋼翼勇士'],
     SKILLS: ['大喝','投槍','連閃','領戰迅擊'],
     JOB1:'劍聖', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4691, BASE1ATK: 582, BASE1INT: 271,
+    BASE1DEF: 307, BASE1MDEF: 276, BASE1DEX: 251,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2:'騎士統帥', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4691, BASE2ATK: 551, BASE2INT: 247,
+    BASE2DEF: 307, BASE2MDEF: 276, BASE2DEX: 147,
     JOB2DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB2DISCB:'與血量百分比高於自身的部隊交戰時，進入戰鬥後傷害提升10%。'
 },{
@@ -582,9 +760,13 @@ var char = [{
     SOLDIER: ['重裝槍兵','狂戰士','近衛騎兵','石像鬼','龍騎兵','姬武神','高地勇士'],
     SKILLS: ['疾突','穿甲','迎頭痛擊','黑耀突擊'],
     JOB1:'鬥神', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4922, BASE1ATK: 590, BASE1INT: 233,
+    BASE1DEF: 346, BASE1MDEF: 217, BASE1DEX: 172,
     JOB1DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB1DISCB:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2:'皇家騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4610, BASE2ATK: 590, BASE2INT: 233,
+    BASE2DEF: 320, BASE2MDEF: 270, BASE2DEX: 130,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -595,9 +777,13 @@ var char = [{
     SOLDIER: ['重裝騎兵','驅魔師','近衛騎兵','皇家獅鷲','聖天馬','天琴親衛','聖殿騎士'],
     SKILLS: ['千騎','銀色之矛','最終審判'],
     JOB1:'銀騎統帥', ARMY1: '僧侶', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 4841, BASE1ATK: 578, BASE1INT: 271,
+    BASE1DEF: 263, BASE1MDEF: 308, BASE1DEX: 125,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'皇家騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4841, BASE2ATK: 578, BASE2INT: 247,
+    BASE2DEF: 274, BASE2MDEF: 297, BASE2DEX: 125,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -608,9 +794,13 @@ var char = [{
     SOLDIER: ['近衛槍兵','近衛步兵','近衛騎兵','聖殿騎士','皇家騎兵','暗黑衛隊','重戟百夫長','樹人守衛'],
     SKILLS: ['斬陽','破陣'],
     JOB1:'大元帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5344, BASE1ATK: 534, BASE1INT: 247,
+    BASE1DEF: 341, BASE1MDEF: 211, BASE1DEX: 118,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2:'皇家騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 5032, BASE2ATK: 563, BASE2INT: 247,
+    BASE2DEF: 295, BASE2MDEF: 265, BASE2DEX: 132,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -621,9 +811,13 @@ var char = [{
     SOLDIER: ['魔女','神官','男巫','大精靈','蛛魔精靈','矮人冒險者','火弩狙擊手'],
     SKILLS: ['火球','冰凍','淨化','火柱','冰槍'],
     JOB1:'織魔師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3503, BASE1ATK: 316, BASE1INT: 517,
+    BASE1DEF: 272, BASE1MDEF: 344, BASE1DEX: 125,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'受到魔法攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'巫師', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3340, BASE2ATK: 262, BASE2INT: 547,
+    BASE2DEF: 252, BASE2MDEF: 393, BASE2DEX: 96,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -634,9 +828,13 @@ var char = [{
     SOLDIER: ['重裝骷髏','男巫','暗精靈射手','岩石巨人','投石車','魔女','火焰骷髏弓手','魔晶術士'],
     SKILLS: ['火球','暗鐮'],
     JOB1:'死神領主', ARMY1: '魔物', DMGTYPE1: '魔法傷害', MOVETYPE1: '飛行',
+    BASE1HP: 4737, BASE1ATK: 287, BASE1INT: 407,
+    BASE1DEF: 309, BASE1MDEF: 387, BASE1DEX: 88,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'受到魔法攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'黑暗王子', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4096, BASE2ATK: 287, BASE2INT: 407,
+    BASE2DEF: 288, BASE2MDEF: 377, BASE2DEX: 88,
     JOB2DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -647,9 +845,13 @@ var char = [{
     SOLDIER: ['男巫','暗精靈射手','神官','大精靈','魔女','投石車','狂熱者','矮人冒險者'],
     SKILLS: ['冰凍','風刃'],
     JOB1:'巫師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3190, BASE1ATK: 256, BASE1INT: 551,
+    BASE1DEF: 225, BASE1MDEF: 417, BASE1DEX: 103,
     JOB1DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'木賢者', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3190, BASE2ATK: 307, BASE2INT: 551,
+    BASE2DEF: 225, BASE2MDEF: 394, BASE2DEX: 103,
     JOB2DISCA:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'部隊血量高於80%時，進入戰鬥後傷害提升10%。'
 },{
@@ -660,9 +862,13 @@ var char = [{
     SOLDIER: ['神官','岩石巨人','男巫','暗精靈射手','熔岩巨人','魔女','火焰骷髏弓手'],
     SKILLS: ['雷擊','冰凍','淨化','暗鐮','元素毀滅'],
     JOB1:'聖者', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3503, BASE1ATK: 316, BASE1INT: 523,
+    BASE1DEF: 265, BASE1MDEF: 401, BASE1DEX: 96,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'受到魔法攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'黑暗公主', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3340, BASE2ATK: 262, BASE2INT: 554,
+    BASE2DEF: 245, BASE2MDEF: 401, BASE2DEX: 96,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'受到物理攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -673,9 +879,13 @@ var char = [{
     SOLDIER: ['男巫','近衛槍兵','大精靈','驅魔師','狂熱者','魔晶術士','樹人守衛'],
     SKILLS: ['雷擊','淨化'],
     JOB1:'巫師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3279, BASE1ATK: 256, BASE1INT: 544,
+    BASE1DEF: 250, BASE1MDEF: 370, BASE1DEX: 92,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'大賢者', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3279, BASE2ATK: 307, BASE2INT: 544,
+    BASE2DEF: 250, BASE2MDEF: 348, BASE2DEX: 92,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'部隊血量高於80%時，進入戰鬥後傷害提升10%。'
 },{
@@ -686,9 +896,13 @@ var char = [{
     SOLDIER: ['火焰骷髏弓手','龍蝦巨獸','男巫','狂獸人','食人巨魔','海怪','死靈騎士','素體改造人'],
     SKILLS: ['火球','雷擊'],
     JOB1:'科學狂人', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3548, BASE1ATK: 310, BASE1INT: 484,
+    BASE1DEF: 285, BASE1MDEF: 315, BASE1DEX: 105,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2:'魔導元帥', ARMY2: '魔物', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3845, BASE2ATK: 258, BASE2INT: 514,
+    BASE2DEF: 265, BASE2MDEF: 361, BASE2DEX: 105,
     JOB2DISCA:'部隊血量100%時，遭受暴擊率降低10%。',
     JOB2DISCB:'部隊血量100%時，暴擊率提升10%。'
 },{
@@ -699,9 +913,13 @@ var char = [{
     SOLDIER: ['神官','大精靈','男巫','暗精靈射手','投石車','魔女','森林祭司'],
     SKILLS: ['火球','淨化'],
     JOB1:'聖者', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3379, BASE1ATK: 316, BASE1INT: 526,
+    BASE1DEF: 256, BASE1MDEF: 415, BASE1DEX: 96,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'巫師', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3218, BASE2ATK: 262, BASE2INT: 558,
+    BASE2DEF: 237, BASE2MDEF: 415, BASE2DEX: 96,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -712,9 +930,13 @@ var char = [{
     SOLDIER: ['男巫','岩石巨人','魔女','重裝骷髏','暗影百夫長','死靈騎士','火焰骷髏弓手'],
     SKILLS: ['火球','冰凍','風刃','暗影之矛','暗物質','蕾恩·殲滅'],
     JOB1:'巫師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3170, BASE1ATK: 262, BASE1INT: 552,
+    BASE1DEF: 267, BASE1MDEF: 378, BASE1DEX: 96,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害-10%',
     JOB1DISCB:'範圍傷害+10%',
     JOB2:'殲滅天使', ARMY2: '魔物', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3630, BASE2ATK: 262, BASE2INT: 581,
+    BASE2DEF: 287, BASE2MDEF: 378, BASE2DEX: 125,
     JOB2DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害-10%',
     JOB2DISCB:'部隊血量低於70%時，進入戰鬥後傷害+10%'
 },{
@@ -725,9 +947,13 @@ var char = [{
     SOLDIER: ['大精靈','驅魔師','男巫','假面女僕','矮人冒險者','狂熱者','武士'],
     SKILLS: ['冰凍','淨化'],
     JOB1:'聖者', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3443, BASE1ATK: 314, BASE1INT: 514,
+    BASE1DEF: 262, BASE1MDEF: 389, BASE1DEX: 104,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'皇家女僕', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3279, BASE2ATK: 263, BASE2INT: 544,
+    BASE2DEF: 242, BASE2MDEF: 389, BASE2DEX: 104,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -738,9 +964,13 @@ var char = [{
     SOLDIER: ['男巫','人魚統領','神官','大精靈','巫女','天空射手','海怪','潮汐精靈'],
     SKILLS: ['淨化'],
     JOB1:'王女', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3347, BASE1ATK: 307, BASE1INT: 537,
+    BASE1DEF: 228, BASE1MDEF: 402, BASE1DEX: 99,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，進入戰鬥後傷害提升10%。',
     JOB2:'巫師', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3347, BASE2ATK: 256, BASE2INT: 537,
+    BASE2DEF: 228, BASE2MDEF: 426, BASE2DEX: 99,
     JOB2DISCA:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -751,9 +981,13 @@ var char = [{
     SOLDIER: ['暗殺者','暗精靈射手','火焰骷髏弓手','龍蝦巨獸','影侍','海怪','投石車'],
     SKILLS: ['邪王炎殺劍','邪王炎殺煉獄焦'],
     JOB1:'邪眼師', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3439, BASE1ATK: 540, BASE1INT: 240,
+    BASE1DEF: 298, BASE1MDEF: 281, BASE1DEX: 322,
     JOB1DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1DISCB:'部隊血量高於80%時，暴擊率提升10%。',
     JOB2:'邪王炎殺', ARMY2: '魔物', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3821, BASE2ATK: 568, BASE2INT: 240,
+    BASE2DEF: 334, BASE2MDEF: 302, BASE2DEX: 197,
     JOB2DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -764,9 +998,13 @@ var char = [{
     SOLDIER: ['暗殺者','重裝骷髏','男巫','大精靈','魔女','武士','火焰骷髏弓手'],
     SKILLS: ['風刃','魔界植物'],
     JOB1:'前世之力', ARMY1: '魔物', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3502, BASE1ATK: 262, BASE1INT: 579,
+    BASE1DEF: 292, BASE1MDEF: 382, BASE1DEX: 115,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'範圍傷害提升10%。',
     JOB2:'魔薔薇之棘', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '飛行',
+    BASE2HP: 3489, BASE2ATK: 262, BASE2INT: 551,
+    BASE2DEF: 271, BASE2MDEF: 382, BASE2DEX: 88,
     JOB2DISCA:'到近戰攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -777,9 +1015,13 @@ var char = [{
     SOLDIER: ['重裝槍兵','近衛槍兵','皇家獅鷲','吸血蝙蝠','石像鬼','食人巨魔','暗影百夫長'],
     SKILLS: ['奔雷','無雙鏖戰'],
     JOB1:'大元帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4934, BASE1ATK: 531, BASE1INT: 268,
+    BASE1DEF: 361, BASE1MDEF: 255, BASE1DEX: 123,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2:'龍騎統帥', ARMY2: '飛兵', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4314, BASE2ATK: 588, BASE2INT: 268,
+    BASE2DEF: 312, BASE2MDEF: 348, BASE2DEX: 179,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -790,9 +1032,13 @@ var char = [{
     SOLDIER: ['皇家獅鷲','重裝騎兵','重裝步兵','假面女僕','聖天馬','天琴親衛','狂戰士','王女親衛'],
     SKILLS: ['大喝','雷閃'],
     JOB1:'龍騎統帥', ARMY1: '飛兵', DMGTYPE1: '物理傷害', MOVETYPE1: '飛行',
+    BASE1HP: 4100, BASE1ATK: 607, BASE1INT: 216,
+    BASE1DEF: 298, BASE1MDEF: 325, BASE1DEX: 182,
     JOB1DISCA:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。',
     JOB2:'劍姬', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4419, BASE2ATK: 607, BASE2INT: 237,
+    BASE2DEF: 298, BASE2MDEF: 290, BASE2DEX: 234,
     JOB2DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -803,9 +1049,13 @@ var char = [{
     SOLDIER: ['皇家獅鷲','重裝騎兵','暗殺者','大精靈','天使','緋霧女侍','龍騎兵','地精騎士'],
     SKILLS: ['雷光','迅雷','影襲','轟雷一閃'],
     JOB1:'龍騎統帥', ARMY1: '飛兵', DMGTYPE1: '物理傷害', MOVETYPE1: '飛行',
+    BASE1HP: 3763, BASE1ATK: 607, BASE1INT: 216,
+    BASE1DEF: 286, BASE1MDEF: 333, BASE1DEX: 211,
     JOB1DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'範圍傷害提升10%。',
     JOB2:'大統帥', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3763, BASE2ATK: 547, BASE2INT: 237,
+    BASE2DEF: 275, BASE2MDEF: 278, BASE2DEX: 314,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -816,11 +1066,67 @@ var char = [{
     SOLDIER: ['狂獸人','岩石巨人','吸血蝙蝠','近衛騎兵','石像鬼','魔蠍','熔岩巨人'],
     SKILLS: ['重擊','掠空折翼','疾霆閃襲'],
     JOB1:'鬥神', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4756, BASE1ATK: 576, BASE1INT: 233,
+    BASE1DEF: 326, BASE1MDEF: 237, BASE1DEX: 184,
     JOB1DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB1DISCB:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2:'龍族統帥', ARMY2: '龍', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4444, BASE2ATK: 607, BASE2INT: 233,
+    BASE2DEF: 326, BASE2MDEF: 301, BASE2DEX: 128,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
+},{
+    NAME: '雅兒貝德', JOBS: 2,
+    SOLDHPPLUS:0.35, SOLDATKPLUS:0.15, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.15,
+    TALENT: '護衛之主',
+    PARTY: ['黑暗輪迴','時空樞紐','夢幻轉生'],
+    SOLDIER: ['重裝槍兵','近衛騎兵','岩石巨人','近衛步兵','地獄犬','水晶塑型者','王女親衛'],
+    SKILLS: ['盾擊','漆黑之慾'],
+    JOB1:'暗黑騎士', ARMY1: '魔物', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5140, BASE1ATK: 506, BASE1INT: 265,
+    BASE1DEF: 419, BASE1MDEF: 255, BASE1DEX: 96,
+    JOB1DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。 ',
+    JOB1DISCB:'與具有「弱化效果」的部隊戰鬥時，傷害提升10%。',
+    JOB2:'護衛之主', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5140, BASE2ATK: 479, BASE2INT: 265,
+    BASE2DEF: 406, BASE2MDEF: 255, BASE2DEX: 96,
+    JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
+    JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
+},{
+    NAME: '夏提雅', JOBS: 2,
+    SOLDHPPLUS:0.30, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.20, SOLDMDEFPLUS:0.15,
+    TALENT: '朱紅新星',
+    PARTY: ['黑暗輪迴','流星直擊','時空樞紐'],
+    SOLDIER: ['近衛槍兵','岩石巨人','吸血蝙蝠','重裝骷髏','石像鬼','姬武神','死靈騎士'],
+    SKILLS: ['清淨投擲槍','穿甲','不淨衝擊盾','滴管長槍'],
+    JOB1:'真祖', ARMY1: '魔物', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4686, BASE1ATK: 600, BASE1INT: 233,
+    BASE1DEF: 353, BASE1MDEF: 248, BASE1DEX: 154,
+    JOB1DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
+    JOB1DISCB:'部隊血量100%時，傷害提升10%。 ',
+    JOB2:'詛咒騎士', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4686, BASE2ATK: 569, BASE2INT: 233,
+    BASE2DEF: 331, BASE2MDEF: 214, BASE2DEX: 154,
+    JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
+},{
+    NAME: '安茲‧烏爾‧恭', JOBS: 2,
+    SOLDHPPLUS:0.15, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.15, SOLDMDEFPLUS:0.35,
+    TALENT: '不死之王',
+    PARTY: ['黑暗輪迴','時空樞紐','夢幻轉生'],
+    SOLDIER: ['暗精靈射手','狂獸人','男巫','重裝骷髏','火焰骷髏弓手','死靈騎士','蛛魔精靈','蜥蜴刀客'],
+    SKILLS: ['雷擊','斷現','暗鐮'],
+    JOB1:'巔峰不死者', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3347, BASE1ATK: 256, BASE1INT: 552,
+    BASE1DEF: 227, BASE1MDEF: 378, BASE1DEX: 87,
+    JOB1DISCA:'受到具有「弱化效果」的部隊攻擊進入戰鬥時，遭受傷害降低10%。 ',
+    JOB1DISCB:'部隊血量低於50%時，傷害提升10%。 ',
+    JOB2:'死之統治者', ARMY2: '魔物', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3512, BASE2ATK: 256, BASE2INT: 552,
+    BASE2DEF: 257, BASE2MDEF: 387, BASE2DEX: 113,
+    JOB2DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
+    JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
+/* SSR 分界線 */
 },{
     NAME: '桑原和真', JOBS: 2,
     SOLDHPPLUS:0.4, SOLDATKPLUS:0.1, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.1,
@@ -829,9 +1135,13 @@ var char = [{
     SOLDIER: ['重裝步兵','重裝騎兵','近衛槍兵','近衛步兵','重戟百夫長','假面女僕'],
     SKILLS: ['次元斬'],
     JOB1:'靈劍鬥將', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4254, BASE1ATK: 536, BASE1INT: 235,
+    BASE1DEF: 337, BASE1MDEF: 263, BASE1DEX: 126,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'靈槍鬥士', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4638, BASE2ATK: 508, BASE2INT: 214,
+    BASE2DEF: 359, BASE2MDEF: 211, BASE2DEX: 95,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -842,9 +1152,13 @@ var char = [{
     SOLDIER: ['神官','男巫','魔女','突襲弩騎兵','神官騎士','旋風遊騎兵'],
     SKILLS: [],
     JOB1:'夢幻之吻', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3083, BASE1ATK: 313, BASE1INT: 441,
+    BASE1DEF: 247, BASE1MDEF: 378, BASE1DEX: 85,
     JOB1DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，士兵傷害提升20%。',
     JOB2:'光武·改', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3525, BASE2ATK: 288, BASE2INT: 477,
+    BASE2DEF: 277, BASE2MDEF: 314, BASE2DEX: 110,
     JOB2DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -855,9 +1169,13 @@ var char = [{
     SOLDIER: ['大精靈','男巫','神官','驅魔師','巫女','天空射手'],
     SKILLS: [],
     JOB1:'巫師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3171, BASE1ATK: 276, BASE1INT: 502,
+    BASE1DEF: 237, BASE1MDEF: 357, BASE1DEX: 83,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'公主', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3171, BASE2ATK: 332, BASE2INT: 474,
+    BASE2DEF: 237, BASE2MDEF: 366, BASE2DEX: 83,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'治療效果提升10%。'
 },{
@@ -868,9 +1186,13 @@ var char = [{
     SOLDIER: ['神官','大精靈','男巫','驅魔師','狂熱者','巫女'],
     SKILLS: ['聖言'],
     JOB1:'先知', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3152, BASE1ATK: 305, BASE1INT: 431,
+    BASE1DEF: 242, BASE1MDEF: 408, BASE1DEX: 77,
     JOB1DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1DISCB:'受到攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'聖者', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3305, BASE2ATK: 305, BASE2INT: 466,
+    BASE2DEF: 261, BASE2MDEF: 398, BASE2DEX: 77,
     JOB2DISCA:'部隊血量低於50%時，遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，士兵傷害提升20%。'
 },{
@@ -881,9 +1203,13 @@ var char = [{
     SOLDIER: ['重裝骷髏','緋霧女侍','暗殺者','暗精靈射手','火焰骷髏弓手','海怪','魔女'],
     SKILLS: ['狙足','掠奪','迴旋'],
     JOB1:'漆黑魅影', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '飛行',
+    BASE1HP: 3771, BASE1ATK: 496, BASE1INT: 299,
+    BASE1DEF: 262, BASE1MDEF: 250, BASE1DEX: 286,
     JOB1DISCA:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'幻影魔姬', ARMY2: '魔物', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4074, BASE2ATK: 496, BASE2INT: 299,
+    BASE2DEF: 272, BASE2MDEF: 270, BASE2DEX: 224,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -894,9 +1220,13 @@ var char = [{
     SOLDIER: ['驅魔師','近衛步兵','重裝槍兵','重裝騎兵','暗黑衛隊','重戟百夫長','聖殿騎士','王女親衛'],
     SKILLS: [],
     JOB1:'女武神', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 4550, BASE1ATK: 325, BASE1INT: 484,
+    BASE1DEF: 332, BASE1MDEF: 316, BASE1DEX: 94,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'受到攻擊時，士兵傷害提升20%。',
     JOB2:'皇家衛士', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5182, BASE2ATK: 408, BASE2INT: 312,
+    BASE2DEF: 387, BASE2MDEF: 207, BASE2DEX: 81,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'主動攻擊時，士兵傷害提升20%。'
 },{
@@ -907,9 +1237,13 @@ var char = [{
     SOLDIER: ['狂獸人','岩石巨人','近衛槍兵','熔岩巨人','食人巨魔','魔蠍','近衛步兵'],
     SKILLS: ['穿甲','力突'],
     JOB1:'勇者', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4496, BASE1ATK: 450, BASE1INT: 231,
+    BASE1DEF: 402, BASE1MDEF: 247, BASE1DEX: 90,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'皇家衛士', ARMY2: '槍兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5310, BASE2ATK: 424, BASE2INT: 210,
+    BASE2DEF: 412, BASE2MDEF: 179, BASE2DEX: 77,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -920,9 +1254,13 @@ var char = [{
     SOLDIER: ['重裝步兵','重裝騎兵','姬武神','驅魔師','暗影百夫長','龍騎兵','狂熱者'],
     SKILLS: ['撞擊','盾擊'],
     JOB1:'盾劍統帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4914, BASE1ATK: 465, BASE1INT: 244,
+    BASE1DEF: 390, BASE1MDEF: 268, BASE1DEX: 94,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'皇家衛士', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 5228, BASE2ATK: 438, BASE2INT: 222,
+    BASE2DEF: 399, BASE2MDEF: 196, BASE2DEX: 81,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'受到攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -933,9 +1271,13 @@ var char = [{
     SOLDIER: ['大精靈','突襲弩騎兵','聖天馬','重裝騎兵','天使','天空射手','旋風遊騎兵'],
     SKILLS: ['狙擊','神射'],
     JOB1:'遊俠', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3336, BASE1ATK: 488, BASE1INT: 244,
+    BASE1DEF: 242, BASE1MDEF: 341, BASE1DEX: 208,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，暴擊傷害提升10%。',
     JOB2:'聖天馬統帥', ARMY2: '飛兵', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 4042, BASE2ATK: 488, BASE2INT: 270,
+    BASE2DEF: 294, BASE2MDEF: 371, BASE2DEX: 163,
     JOB2DISCA:'受到遠程攻擊時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -946,9 +1288,13 @@ var char = [{
     SOLDIER: ['暗精靈射手','突襲弩騎兵','皇家獅鷲','吸血蝙蝠','天空射手','石像鬼','暗黑衛隊'],
     SKILLS: ['狙足'],
     JOB1:'遊俠', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3490, BASE1ATK: 503, BASE1INT: 271,
+    BASE1DEF: 234, BASE1MDEF: 315, BASE1DEX: 208,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提高10%。',
     JOB2:'龍騎統帥', ARMY2: '飛兵', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 3939, BASE2ATK: 556, BASE2INT: 247,
+    BASE2DEF: 262, BASE2MDEF: 315, BASE2DEX: 183,
     JOB2DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB2DISCB:'本部隊有5個以上的強化狀態時，戰鬥中傷害提升10%。'
 },{
@@ -959,9 +1305,13 @@ var char = [{
     SOLDIER: ['緋霧女侍','假面女僕','大精靈','魔女','天空射手','天使'],
     SKILLS: ['狙擊'],
     JOB1:'帝國皇子', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3485, BASE1ATK: 510, BASE1INT: 244,
+    BASE1DEF: 247, BASE1MDEF: 317, BASE1DEX: 192,
     JOB1DISCA:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'吟遊詩人', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3913, BASE2ATK: 481, BASE2INT: 244,
+    BASE2DEF: 276, BASE2MDEF: 317, BASE2DEX: 125,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -972,9 +1322,13 @@ var char = [{
     SOLDIER: ['驅魔師','重裝步兵','神官','大精靈','高地勇士','姬武神','狂熱者','王女親衛'],
     SKILLS: ['懲戒','救贖','神聖祈福'],
     JOB1:'女武神', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 4060, BASE1ATK: 305, BASE1INT: 506,
+    BASE1DEF: 300, BASE1MDEF: 351, BASE1DEX: 97,
     JOB1DISCA:'受到遠程攻擊時，遭受魔法傷害降低10%。',
     JOB1DISCB:'範圍傷害提升10%。',
     JOB2:'公主', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3343, BASE2ATK: 332, BASE2INT: 478,
+    BASE2DEF: 269, BASE2MDEF: 382, BASE2DEX: 83,
     JOB2DISCA:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -985,9 +1339,13 @@ var char = [{
     SOLDIER: ['驅魔師','重裝槍兵','重裝步兵','人魚統領','高地勇士','狂熱者'],
     SKILLS: ['懲戒'],
     JOB1:'女武神', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3987, BASE1ATK: 305, BASE1INT: 522,
+    BASE1DEF: 308, BASE1MDEF: 327, BASE1DEX: 101,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB1DISCB:'範圍傷害提升10%。',
     JOB2:'利貝爾女王', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3700, BASE2ATK: 305, BASE2INT: 548,
+    BASE2DEF: 297, BASE2MDEF: 303, BASE2DEX: 152,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -998,9 +1356,13 @@ var char = [{
     SOLDIER: ['重裝步兵','狂戰士','重裝騎兵','皇家獅鷲','高地勇士','龍騎兵','鋼翼勇士'],
     SKILLS: ['撞擊','大喝','破陣','自由之刃'],
     JOB1:'英雄', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4428, BASE1ATK: 550, BASE1INT: 254,
+    BASE1DEF: 319, BASE1MDEF: 255, BASE1DEX: 143,
     JOB1DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB1DISCB:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。',
     JOB2:'突擊騎士', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4116, BASE2ATK: 579, BASE2INT: 231,
+    BASE2DEF: 284, BASE2MDEF: 228, BASE2DEX: 121,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'部隊血量低於70%時，進入戰鬥後傷害提升10%。'
 },{
@@ -1011,9 +1373,13 @@ var char = [{
     SOLDIER: ['重裝步兵','重裝騎兵','人魚統領','近衛騎兵','高地勇士','聖殿騎士','蜥蜴刀客'],
     SKILLS: ['激浪','自由之刃'],
     JOB1:'劍士統帥', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4257, BASE1ATK: 523, BASE1INT: 249,
+    BASE1DEF: 346, BASE1MDEF: 282, BASE1DEX: 148,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'海騎統帥', ARMY2: '水兵', DMGTYPE2: '物理傷害', MOVETYPE2: '水行',
+    BASE2HP: 4257, BASE2ATK: 523, BASE2INT: 226,
+    BASE2DEF: 346, BASE2MDEF: 264, BASE2DEX: 113,
     JOB2DISCA:'在水中時，遭受魔法傷害降低10%。',
     JOB2DISCB:'在水中時，暴擊率提升10%。'
 },{
@@ -1024,9 +1390,13 @@ var char = [{
     SOLDIER: ['暗殺者','暗精靈射手','重裝步兵','重裝槍兵','武士','狂戰士','魔蠍'],
     SKILLS: ['大喝','一閃','氣刃'],
     JOB1:'影', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3747, BASE1ATK: 527, BASE1INT: 244,
+    BASE1DEF: 267, BASE1MDEF: 244, BASE1DEX: 290,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，暴擊傷害提升10%。',
     JOB2:'劍聖', ARMY2: '步兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4027, BASE2ATK: 585, BASE2INT: 244,
+    BASE2DEF: 277, BASE2MDEF: 263, BASE2DEX: 250,
     JOB2DISCA:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊傷害提升10%。'
 },{
@@ -1037,9 +1407,13 @@ var char = [{
     SOLDIER: ['暗殺者','大精靈','男巫','岩石巨人','地精騎士','海怪','天琴親衛'],
     SKILLS: ['回刺','掠奪','會心直擊'],
     JOB1:'大統帥', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3537, BASE1ATK: 503, BASE1INT: 233,
+    BASE1DEF: 262, BASE1MDEF: 250, BASE1DEX: 317,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，暴擊率提升10%。',
     JOB2:'閃擊統帥', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 3273, BASE2ATK: 503, BASE2INT: 233,
+    BASE2DEF: 262, BASE2MDEF: 281, BASE2DEX: 274,
     JOB2DISCA:'部隊血量100%時，遭受暴擊率降低10%。',
     JOB2DISCB:'本部隊有6個以上的強化狀態時，戰鬥中傷害提升10%。'
 },{
@@ -1050,9 +1424,13 @@ var char = [{
     SOLDIER: ['暗殺者','暗精靈射手','大精靈','突襲弩騎兵','緋霧女侍','投石車','武士'],
     SKILLS: ['狙足','回刺'],
     JOB1:'影', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3597, BASE1ATK: 516, BASE1INT: 233,
+    BASE1DEF: 252, BASE1MDEF: 258, BASE1DEX: 306,
     JOB1DISCA:'動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'受到攻擊進入戰鬥時，暴擊傷害提升10%。',
     JOB2:'遊俠', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3199, BASE2ATK: 516, BASE2INT: 233,
+    BASE2DEF: 235, BASE2MDEF: 316, BASE2DEX: 239,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊傷害提升10%。'
 },{
@@ -1063,9 +1441,13 @@ var char = [{
     SOLDIER: ['暗精靈射手','火焰骷髏弓手','緋霧女侍','重裝骷髏','影侍','海怪'],
     SKILLS: ['回刺','掠奪','詭狙'],
     JOB1:'遊俠', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 3275, BASE1ATK: 506, BASE1INT: 233,
+    BASE1DEF: 236, BASE1MDEF: 297, BASE1DEX: 252,
     JOB1DISCA:'本部隊有5個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB1DISCB:'本部隊有5個以上的強化狀態時，戰鬥中傷害提升10%。',
     JOB2:'黑妖刺客', ARMY2: '刺客', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 3700, BASE2ATK: 506, BASE2INT: 233,
+    BASE2DEF: 254, BASE2MDEF: 244, BASE2DEX: 325,
     JOB2DISCA:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
     JOB2DISCB:'部隊血量高於80%時，暴擊率提升10%。'
 },{
@@ -1076,9 +1458,13 @@ var char = [{
     SOLDIER: ['突襲弩騎兵','暗精靈射手','骨犀','吸血蝙蝠','死靈騎士','地獄犬','天琴親衛','蛛魔精靈'],
     SKILLS: ['突擊','破陣','混沌螺旋'],
     JOB1:'獨角獸統帥', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '騎行',
+    BASE1HP: 3523, BASE1ATK: 386, BASE1INT: 380,
+    BASE1DEF: 292, BASE1MDEF: 286, BASE1DEX: 118,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，傷害提升10%。',
     JOB2:'強襲統帥', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 3523, BASE2ATK: 562, BASE2INT: 259,
+    BASE2DEF: 281, BASE2MDEF: 258, BASE2DEX: 118,
     JOB2DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB2DISCB:'攻擊前每移動1格，傷害提升3%。（上限15%）'
 },{
@@ -1089,9 +1475,13 @@ var char = [{
     SOLDIER: ['近衛槍兵','狂獸人','近衛騎兵','皇家獅鷲','石像鬼','皇家騎兵','天使'],
     SKILLS: ['撞擊','疾突','破陣'],
     JOB1:'大元帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 5001, BASE1ATK: 458, BASE1INT: 251,
+    BASE1DEF: 368, BASE1MDEF: 208, BASE1DEX: 90,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，傷害提升10%。',
     JOB2:'騎士統帥', ARMY2: '騎兵', DMGTYPE2: '物理傷害', MOVETYPE2: '騎行',
+    BASE2HP: 4400, BASE2ATK: 483, BASE2INT: 251,
+    BASE2DEF: 320, BASE2MDEF: 239, BASE2DEX: 101,
     JOB2DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB2DISCB:'部隊血量低於70%時，傷害提升10%。'
 },{
@@ -1102,9 +1492,13 @@ var char = [{
     SOLDIER: ['男巫','大精靈','魔女','聖天馬','天空射手','石像鬼'],
     SKILLS: ['雷擊','淨化'],
     JOB1:'巫師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3025, BASE1ATK: 244, BASE1INT: 532,
+    BASE1DEF: 247, BASE1MDEF: 362, BASE1DEX: 83,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊血量百分比低於自身的部隊時，進入戰鬥後傷害提升10%。',
     JOB2:'帝國密使', ARMY2: '飛兵', DMGTYPE2: '魔法傷害', MOVETYPE2: '飛行',
+    BASE2HP: 3170, BASE2ATK: 270, BASE2INT: 532,
+    BASE2DEF: 247, BASE2MDEF: 340, BASE2DEX: 97,
     JOB2DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB2DISCB:'主動攻擊進入戰鬥時，士兵傷害提升20%。'
 },{
@@ -1115,9 +1509,13 @@ var char = [{
     SOLDIER: ['神官','突襲弩騎兵','男巫','暗精靈射手','神官騎士','火弩狙擊手','矮人冒險者'],
     SKILLS: ['冰凍'],
     JOB1:'神使', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3240, BASE1ATK: 340, BASE1INT: 474,
+    BASE1DEF: 243, BASE1MDEF: 371, BASE1DEX: 81,
     JOB1DISCA:'受到近戰攻擊時，遭受物理傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'女王', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3240, BASE2ATK: 283, BASE2INT: 503,
+    BASE2DEF: 243, BASE2MDEF: 363, BASE2DEX: 81,
     JOB2DISCA:'遭受範圍傷害降低10%。',
     JOB2DISCB:'範圍傷害提升10%。'
 },{
@@ -1128,9 +1526,13 @@ var char = [{
     SOLDIER: ['暗精靈射手','近衛步兵','男巫','大精靈','魔女','天空射手','矮人冒險者'],
     SKILLS: ['雷擊','風刃'],
     JOB1:'隱士', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3300, BASE1ATK: 282, BASE1INT: 475,
+    BASE1DEF: 242, BASE1MDEF: 350, BASE1DEX: 97,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'與具有“弱化效果”的部隊戰鬥時，傷害提升10%。',
     JOB2:'巫師', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3155, BASE2ATK: 256, BASE2INT: 505,
+    BASE2DEF: 242, BASE2MDEF: 372, BASE2DEX: 83,
     JOB2DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB2DISCB:'部隊血量100%時，傷害提高10%。'
 },{
@@ -1141,6 +1543,8 @@ var char = [{
     SOLDIER: ['男巫','重戟百夫長','緋霧女侍','熔岩巨人','魔晶術士'],
     SKILLS: ['風刃'],
     JOB1:'創造家', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3329, BASE1ATK: 319, BASE1INT: 450,
+    BASE1DEF: 275, BASE1MDEF: 320, BASE1DEX: 110,
     JOB1DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1DISCB:'受到攻擊時，士兵傷害提升20%。',
 
@@ -1152,9 +1556,13 @@ var char = [{
     SOLDIER: ['暗精靈射手','近衛步兵','男巫','重裝骷髏','火焰骷髏弓手','投石車','蛛魔精靈'],
     SKILLS: ['火球','雷擊','暗鐮'],
     JOB1:'黑暗統帥', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3490, BASE1ATK: 278, BASE1INT: 471,
+    BASE1DEF: 275, BASE1MDEF: 351, BASE1DEX: 74,
     JOB1DISCA:'受到具有“弱化效果”的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
     JOB1DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'隱士', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3651, BASE2ATK: 307, BASE2INT: 444,
+    BASE2DEF: 275, BASE2MDEF: 329, BASE2DEX: 86,
     JOB2DISCA:'部隊血量低於70%時，遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 },{
@@ -1165,9 +1573,13 @@ var char = [{
     SOLDIER: ['神官','重裝槍兵','男巫','大精靈','巫女','火弩狙擊手','矮人冒險者'],
     SKILLS: ['火球','雷擊','淨化'],
     JOB1:'聖者', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3301, BASE1ATK: 310, BASE1INT: 498,
+    BASE1DEF: 256, BASE1MDEF: 373, BASE1DEX: 80,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提高10%。',
     JOB2:'巫師', ARMY2: '法師', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3154, BASE2ATK: 258, BASE2INT: 527,
+    BASE2DEF: 237, BASE2MDEF: 373, BASE2DEX: 80,
     JOB2DISCA:'本部隊有7個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB2DISCB:'本部隊有7個以上的強化狀態時，進入戰鬥後傷害提升10%。'
 },{
@@ -1178,9 +1590,13 @@ var char = [{
     SOLDIER: ['重裝騎兵','近衛槍兵','皇家獅鷲','近衛騎兵','聖天馬','天琴親衛','魔蠍'],
     SKILLS: ['撞擊','雷光'],
     JOB1:'皇家騎士', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '騎行',
+    BASE1HP: 4176, BASE1ATK: 523, BASE1INT: 251,
+    BASE1DEF: 272, BASE1MDEF: 281, BASE1DEX: 132,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'部隊血量低於70%時，傷害提升10%。',
     JOB2:'龍騎統帥', ARMY2: '飛兵', DMGTYPE2: '物理傷害', MOVETYPE2: '飛行',
+    BASE2HP: 3884, BASE2ATK: 551, BASE2INT: 251,
+    BASE2DEF: 272, BASE2MDEF: 315, BASE2DEX: 171,
     JOB2DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB2DISCB:'部隊血量100%時，傷害提高10%。'
 },{
@@ -1188,72 +1604,96 @@ var char = [{
     NAME: '蕾蒂西亞', JOBS: 1,
     SOLDHPPLUS:0.1, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.1, SOLDMDEFPLUS:0.35,
     JOB1:'騎士統帥', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB1DISCB:'攻擊前每移動1格，傷害提升3%。（上限15%）',
 },{
     NAME: '安娜', JOBS: 1,
     SOLDHPPLUS:0.1, SOLDATKPLUS:0.1, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.35,
     JOB1:'神使', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'遭受範圍傷害降低10%。',
     JOB1DISCB:'治療效果+10%。',
 },{
     NAME: '阿倫', JOBS: 1,
     SOLDHPPLUS:0.1, SOLDATKPLUS:0.1, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.35,
     JOB1:'大元帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
 },{
     NAME: '皮耶魯', JOBS: 1,
     SOLDHPPLUS:0.35, SOLDATKPLUS:0.1, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.1,
     JOB1:'海騎統帥', ARMY1: '水兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'在水中時，遭受物理傷害降低10%。',
     JOB1DISCB:'在水中時，物理傷害提升10%。',
 },{
     NAME: '路因', JOBS: 1,
     SOLDHPPLUS:0.1, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.15, SOLDMDEFPLUS:0.3,
     JOB1:'劍士統帥', ARMY1: '步兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'本部隊有5個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB1DISCB:'本部隊有5個以上的強化狀態時，戰鬥中傷害提升10%。',
 },{
     NAME: '洛加', JOBS: 1,
     SOLDHPPLUS:0.35, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.1, SOLDMDEFPLUS:0.1,
     JOB1:'大統帥', ARMY1: '刺客', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'本部隊有5個以上的強化狀態時，戰鬥中遭受傷害降低10%。',
     JOB1DISCB:'本部隊有5個以上的強化狀態時，戰鬥中傷害提升10%。',
 },{
     NAME: '利斯塔', JOBS: 1,
     SOLDHPPLUS:0.35, SOLDATKPLUS:0.1, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.1,
     JOB1:'海騎統帥', ARMY1: '水兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'在水中時，遭受物理傷害降低10%。',
     JOB1DISCB:'在水中時，物理傷害提升10%。',
 },{
     NAME: '利亞特', JOBS: 1,
     SOLDHPPLUS:0.1, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.1,
     JOB1:'騎士統帥', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'攻擊前每移動1格，部隊遭受傷害降低3%。（上限15%）',
     JOB1DISCB:'攻擊前每移動1格，傷害提升3%。（上限15%）',
 },{
     NAME: '斯科特', JOBS: 1,
     SOLDHPPLUS:0.15, SOLDATKPLUS:0.3, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.1,
     JOB1:'騎士統帥', ARMY1: '騎兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'與血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB1DISCB:'部隊血量高於80%時，傷害提升10%。',
 },{
     NAME: '迪歐斯', JOBS: 1,
     SOLDHPPLUS:0.35, SOLDATKPLUS:0.35, SOLDDEFPLUS:0.1, SOLDMDEFPLUS:0.1,
     JOB1:'弓騎統帥', ARMY1: '弓兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提高10%。',
 },{
     NAME: '潔西卡', JOBS: 1,
     SOLDHPPLUS:0.15, SOLDATKPLUS:0.15, SOLDDEFPLUS:0.3, SOLDMDEFPLUS:0.3,
     JOB1:'巫師', ARMY1: '法師', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB1DISCB:'部隊血量100%時，傷害提高10%。',
 },{
     NAME: '基斯', JOBS: 1,
     SOLDHPPLUS:0.35, SOLDATKPLUS:0.1, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.1,
     JOB1:'龍騎統帥', ARMY1: '飛兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: , BASE1ATK: , BASE1INT: ,
+    BASE1DEF: , BASE1MDEF: , BASE1DEX: ,
     JOB1DISCA:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
     JOB1DISCB:'主動攻擊進入戰鬥時，傷害提升10%。',
 },{
@@ -1265,9 +1705,13 @@ var char = [{
     SOLDIER: ['男巫','聖殿騎士','神官','大精靈','天空射手','緋霧女侍','森林祭司'],
     SKILLS: ['聖言'],
     JOB1:'聖者', ARMY1: '僧侶', DMGTYPE1: '魔法傷害', MOVETYPE1: '步行',
+    BASE1HP: 3378, BASE1ATK: 311, BASE1INT: 491,
+    BASE1DEF: 250, BASE1MDEF: 399, BASE1DEX: 81,
     JOB1DISCA:'部隊血量高於80%時，遭受暴擊率降低10%。',
     JOB1DISCB:'範圍傷害提升10%。',
     JOB2:'神使', ARMY2: '僧侶', DMGTYPE2: '魔法傷害', MOVETYPE2: '步行',
+    BASE2HP: 3227, BASE2ATK: 311, BASE2INT: 491,
+    BASE2DEF: 230, BASE2MDEF: 408, BASE2DEX: 81,
     JOB2DISCA:'部隊血量100%時，遭受傷害降低10%。',
     JOB2DISCB:'主動攻擊進入戰鬥時，傷害提升10%。'
 },{
@@ -1278,9 +1722,13 @@ var char = [{
     SOLDIER: ['重裝槍兵','重裝步兵','旋風遊騎兵','重戟百夫長','姬武神','食人巨魔','水晶塑型者'],
     SKILLS: ['突擊','力突'],
     JOB1:'大元帥', ARMY1: '槍兵', DMGTYPE1: '物理傷害', MOVETYPE1: '步行',
+    BASE1HP: 4993, BASE1ATK: 495, BASE1INT: 227,
+    BASE1DEF: 376, BASE1MDEF: 220, BASE1DEX: 90,
     JOB1DISCA:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB1DISCB:'受到近戰攻擊進入戰鬥時，傷害提升10%。',
     JOB2:'弓騎統帥', ARMY2: '弓兵', DMGTYPE2: '物理傷害', MOVETYPE2: '步行',
+    BASE2HP: 4106, BASE2ATK: 495, BASE2INT: 250,
+    BASE2DEF: 287, BASE2MDEF: 308, BASE2DEX: 157,
     JOB2DISCA:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2DISCB:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{

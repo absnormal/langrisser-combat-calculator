@@ -58,6 +58,9 @@ function getMIDArmorSkill(side){
     if(armor.SKILLTYPE != undefined && armor.SKILLTYPE.includes('MIDRATE') && armor.MIDRATE(side)){
         display.MIDRATE = armor.MIDRATE(side);
     }
+    if(armor.CHARONLY != undefined && armor.CHARONLY == false){
+        display.CHARONLY = false;
+    }
     if(side == 'offense'){
         if(armor.OATK != undefined) display.MIDRATE[0] += armor.OATK;
         if(armor.OINT != undefined) display.MIDRATE[1] += armor.OINT;
@@ -93,6 +96,7 @@ function getMIDArmorSkill(side){
 
     // add to combat
     if(side == 'offense'){
+        // char
         combat.offATKRATE += display.MIDRATE[0];
         combat.offINTRATE += display.MIDRATE[1];
         combat.offDEFRATE += display.MIDRATE[2];
@@ -104,8 +108,15 @@ function getMIDArmorSkill(side){
         combat.defCRITRATE -= display.MIDRATE[8];
         combat.defCRITDMG -= display.MIDRATE[9];
         combat.defDMGRATE -= display.MIDRATE[10];
+        // soldier
+        if(display.CHARONLY == false){
+            combat.offsoldDMGRATE += display.MIDRATE[7];
+            combat.defsoldDMGRATE -= display.MIDRATE[10];
+        }
     }
+
     else if(side == 'defense'){
+        // char
         combat.defATKRATE += display.MIDRATE[0];
         combat.defINTRATE += display.MIDRATE[1];
         combat.defDEFRATE += display.MIDRATE[2];
@@ -117,6 +128,11 @@ function getMIDArmorSkill(side){
         combat.offCRITRATE -= display.MIDRATE[8];
         combat.offCRITDMG -= display.MIDRATE[9];
         combat.offDMGRATE -= display.MIDRATE[10];
+        // soldier
+        if(display.CHARONLY == false){
+            combat.defsoldDMGRATE += display.MIDRATE[7];
+            combat.offsoldDMGRATE -= display.MIDRATE[10];
+        }
     }
     return display;
 };

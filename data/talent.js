@@ -296,12 +296,18 @@ var talent = [{
     DESC: '替相鄰友軍承受物理攻擊。主動攻擊造成傷害後，獲得效果：攻擊、防禦提升15%，護衛範圍提升至2格，持續2回合。行動結束時，令周圍3格的4名其他友軍部隊“造成傷害”提升10%，持續2回合。',
 },{
     NAME: '鮮血女王',
-    SKILLTYPE: ['SUB', 'MIDSUB'],
+    SKILLTYPE: ['SUB', 'MIDSUB', 'MIDRATE'],
     SUB: function(side){
         return [0, 1.5, 0, 1, 0];
     },
     MIDSUB: function(side){
         return [0, 1.5, 0, 1, 0];
+    },
+    MIDRATE: function(side){
+        combat.offCounterRate = 1;
+        combat.offSoldCounterRate = 1;
+        combat.defCounterRate = 1;
+        combat.defSoldCounterRate = 1;
     },
     DESC: '將自身魔防的1.5倍代替智力。部隊無視兵種克制。對敵方部隊造成傷害後，施加“傷口詛咒”：被施加的治療直接轉變為治療量50%的傷害，持續1回合。',
 },{
@@ -586,6 +592,51 @@ var talent = [{
 },{
     NAME: '復仇龍印',
     DESC: '若周圍1圈有任意友軍被攻擊受到傷害，則自身獲得“移動力”+ 2，持續1回合。並對造成傷害的敵方目標施加[龍印]：“受到來自蕾娜塔的攻擊時，自身無法被護衛且遭受傷害增加40% ”，無法觸發“再移動”類效果，以及“被動技能無法生效”，持續1回合。',
+},{
+    NAME: '不死之王',
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        switch(perHP){
+            case 1:
+                return [0, 0.15, 0, 0, 0];
+            /*
+             DATA?
+             */
+            default:
+                return false;
+        }
+    },
+    DESC: '部隊血量越高時，智力提升越高，最多提升15%。行動結束時，自身獲得2個隨機強化效果，持續1回合。 '
+},{
+    NAME: '朱紅新星',
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP == 1) return [0.2, 0, 0, 0, 0];
+        else return false;
+    },
+    DESC: '部隊生命100%時，攻擊提升20%，移動力提升2。行動結束時，獲得[物理屏障]：「受到第1次物理傷害時，遭受傷害降低70%（在抵擋傷害後3回合之內不能再次獲得）」主動近戰攻擊進入戰鬥時，戰後恢復部隊生命值，恢復量為部隊造成傷害的30%。 '
+},{
+    NAME: '護衛之主',
+    SKILLTYPE: ['MIDRATE', 'MIDSUB'],
+    MIDRATE: function(side){
+        if(side == 'offense') friend = combat.off2BFriend;
+        if(side == 'defense') friend = combat.def2BFriend;
+        if(friend > 0) this.TALENTDMGDEC = 0.25;
+        else this.TALENTDMGDEC = undefined;
+        if(side == 'defense') return [0, 0, 0, 0, 0, 0, 0, 0.75, 0, 0, 0];
+        else return false;
+    },
+    MIDSUB: function(side){
+        return [1.6, 0, 1, 0, 0];
+    },
+    DESC: '自身2格範圍有友軍部隊時，遭受傷害降低25%。替自身1圈範圍內的友軍承受所有攻擊。被攻擊進入戰鬥前，用「防禦」的1.6倍來代替「攻擊」，且造成傷害提升75%。 '
+/*            */
+/* SSR 分界線 */
+/*            */
 },{
     NAME: '愛即正義',
     /* HEAL AFTER BATTLE */

@@ -289,7 +289,7 @@ var buff = [{
     DESC: '用“防禦”的1.6倍代替“攻擊”'
 },{
     NAME: '遭受暴擊率降低20％',
-    TYPE: ['雷丁','阿倫','賽蕾娜','巴爾加斯'],
+    TYPE: ['雷丁','阿倫','賽蕾娜','巴爾加斯','雅兒貝德'],
     CRITRATEDEC: 0.2,
     DESC: '遭受暴擊率降低20%'
 },{
@@ -820,15 +820,17 @@ var buff = [{
     DESC: '攻擊提升5%，傷害提升5%，遭受傷害降低5%，移動力+1，最高可以累積3個。(當前[DATA]個)'
 },{
     NAME: '物理屏障',
-    TYPE: ['雅里安洛德'],
-    SKILLTYPE: ['MIDRATE'],
+    TYPE: ['雅里安洛德', '夏提雅'],
+    SKILLTYPE: ['MIDRATE'], INDEX: 1,
+    DATA: [0, 0.7, 0.9], MAX: 2,
     MIDRATE: function(side){
         if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE;
         else if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE;
-        if(oppDMGTYPE == '物理傷害') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9];
+        if(oppDMGTYPE == '物理傷害')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.INDEX]];
         else return false;
     },
-    DESC: '受到第1次物理傷害時，遭受傷害降低90%'
+    DESC: '受到第1次物理傷害時，遭受傷害降低[DATA]%'
 },{
     NAME: '魔法屏障',
     TYPE: ['雅里安洛德'],
@@ -934,6 +936,22 @@ var buff = [{
     NAME: '魔人',
     TYPE: ['浦飯幽助'],
     DESC: '戰後可恢復生命，恢復量為部隊造成傷害的30%的生命'
+},{
+    NAME: '神鎧',
+    TYPE: ['雅兒貝德'], INDEX: 1,
+    DATA: [0, 0, 1], MAX: 2,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(this.INDEX == 2)
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
+        else return false;
+    },
+    /* PROBABILITY SKILL */
+    CRITRATEDEC: 0.3,
+    DESC: '遭受暴擊率降低30%，被攻擊進入戰鬥時30%概率觸發，部隊受到所有傷害降低50%(無法免疫不可驅散)(當前概率[DATA]%)'
+/*             */
+/* 超絕 分割線 */
+/*             */
 },{
     NAME: '光之傳承',
     TYPE: ['主角光環'],

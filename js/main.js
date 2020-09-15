@@ -1087,7 +1087,6 @@ window.addEventListener("click", function getSelected(){
     }
     /* combat */
     wholeCombat();
-    document.getElementById('ERROR').innerHTML =  combat.offCharChange+" "+combat.defCharChange+"  "+combat.offSoldChange+" "+combat.defSoldChange;
     /* sold/char change */
     combat.offCharChange = false;
     combat.offSoldChange = false;

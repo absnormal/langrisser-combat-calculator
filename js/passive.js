@@ -122,9 +122,13 @@ function hidePassive(side){
     var passiveList = document.getElementsByClassName('passive ' + side);
     for(var i=0; i<passiveList.length; i++){
         passiveList[i].style = 'display: none;';
+        epassiveINDEX = document.getElementById(passiveList[i].id+'INDEX');
+        epassiveINDEX.innerHTML = 0;
         if(passiveList[i].classList.contains('selected'))
             passiveList[i].classList.remove('selected');
     }
+    for(let i=0; i<passive.length; i++)
+        if(passive[i].INDEX != undefined) passive[i].INDEX = 1;
 };
 
 function selectPassive(side, passiveID){

@@ -28,6 +28,7 @@ function createArmorList(side, listID){
         tr1 = document.createElement('tr');
         tr2 = document.createElement('tr');
         tr3 = document.createElement('tr');
+        tr4 = document.createElement('tr');
         th = document.createElement('th');
         th.id = li.id+'NAME';
         td1 = document.createElement('td');
@@ -37,6 +38,10 @@ function createArmorList(side, listID){
         td2.id = li.id+'BASE1';
         td3 = document.createElement('td');
         td3.id = li.id+'BASE2';
+        td4 = document.createElement('td');
+        td4.id = li.id+'INDEX';
+        td4.style = 'display: none;';
+        td4.innerHTML = 0;
 
         img = document.createElement('img');
         img.id = li.id+'IMG'
@@ -72,10 +77,12 @@ function createArmorList(side, listID){
         table.appendChild(tr1);
         table.appendChild(tr3);
         table.appendChild(tr2);
+        table.appendChild(tr4);
         tr1.appendChild(th);
         tr2.appendChild(td1);
         tr3.appendChild(td2);
         tr3.appendChild(td3);
+        tr4.appendChild(td4);
     }
 };
 
@@ -214,25 +221,53 @@ function selectArmor(side, armorName){
     if(side == 'defense'){
         // remove d for defense
         armorName = armorName.slice(0, -1);
-        // de-select old armor
         if(document.getElementById(combat.defArmor.NAME + 'd').classList.contains('selected')){
-            document.getElementById(combat.defArmor.NAME + 'd').classList.remove('selected')
+            // armor prob skill
+            if(combat.defArmor.NAME == armorName){
+                combat.defArmor.INDEX += 1;
+                document.getElementById(combat.defArmor.NAME+'dINDEX').innerHTML = combat.defArmor.INDEX;
+                if(combat.defArmor.INDEX > combat.defArmor.MAX){
+                    combat.defArmor.INDEX = 0;
+                    document.getElementById(combat.defArmor.NAME+'dINDEX').innerHTML = 0;
+                }
+            }
+            else{
+                // de-select old armor
+                document.getElementById(combat.defArmor.NAME + 'd').classList.remove('selected')
+                combat.defArmor.INDEX = 0;
+                document.getElementById(combat.defArmor.NAME+'INDEX').innerHTML = 0;
+                // select new armor
+                document.getElementById(armorName+'d').classList.add('selected');
+            }
         }
-        // select new armor
-        document.getElementById(armorName+'d').classList.add('selected');
         combat.defArmor = armor.find(x => x.NAME === armorName);
-        //document.getElementById('defArmor').innerHTML = "盔甲:" + armorName;
+        // reload armor desc
+        loadArmorDesc(side, armorName+'d');
     }
     // offense
     else if(side == 'offense'){
-        // de-select old armor
         if(document.getElementById(combat.offArmor.NAME).classList.contains('selected')){
-            document.getElementById(combat.offArmor.NAME).classList.remove('selected')
+            // armor prob skill
+            if(combat.offArmor.NAME == armorName){
+                combat.offArmor.INDEX += 1;
+                document.getElementById(combat.offArmor.NAME+'INDEX').innerHTML = combat.offArmor.INDEX;
+                if(combat.offArmor.INDEX > combat.offArmor.MAX){
+                    combat.offArmor.INDEX = 0;
+                    document.getElementById(combat.offArmor.NAME+'INDEX').innerHTML = 0;
+                }
+            }
+            else{
+                // de-select old armor
+                document.getElementById(combat.offArmor.NAME).classList.remove('selected')
+                combat.offArmor.INDEX = 0;
+                document.getElementById(combat.offArmor.NAME+'INDEX').innerHTML = 0;
+                // select new armor
+                document.getElementById(armorName).classList.add('selected');
+            }
         }
-        // select new armor
-        document.getElementById(armorName).classList.add('selected');
         combat.offArmor = armor.find(x => x.NAME === armorName);
-        //document.getElementById('offArmor').innerHTML = "盔甲:" + armorName;
+        // reload armor desc
+        loadArmorDesc(side, armorName);
     }
 };
 
@@ -247,6 +282,19 @@ function getArmorBase(armorOBJ){
     if(armorOBJ.BASEMDEF != undefined) base[index] = text[4]+"+"+armorOBJ.BASEMDEF, index++;
     if(armorOBJ.BASEDEX != undefined) base[index] = text[5]+"+"+armorOBJ.BASEDEX, index++;
     return base;
+};
+
+function getArmorINDEX(armorID){
+    earmorINDEX = document.getElementById(armorID+'INDEX');
+    return Number(earmorINDEX.innerHTML);
+};
+
+function getArmorDesc(armorOBJ, armorID){
+    armorDESC = armorOBJ.DESC;
+    armorINDEX = getArmorINDEX(armorID);
+    // ex. 12.66% -> 0.1266*10000 = 1266 -> 1266/100 = 12.66%
+    armorPERC = Math.round(armorOBJ.DATA[armorINDEX] * 10000) / 100;
+    return armorDESC.replace('[DATA]', armorPERC);
 };
 
 function loadArmorDesc(side, armorID){
@@ -271,7 +319,10 @@ function loadArmorDesc(side, armorID){
     eArmorname.innerHTML = armorOBJ.NAME;
     eArmorbase1.innerHTML = armorbase[0];
     eArmorbase2.innerHTML = armorbase[1];
-    eArmordesc.innerHTML = armorOBJ.DESC;
+    if(armorOBJ.DATA != undefined)
+        eArmordesc.innerHTML = getArmorDesc(armorOBJ, armorID);
+    else
+        eArmordesc.innerHTML = armorOBJ.DESC;
     eArmorbox.style.top = y + 'px';
     eArmorbox.style.left = x + 'px';
 };

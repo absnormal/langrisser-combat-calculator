@@ -223,9 +223,18 @@ var passive = [{
     DESC: '[被動]戰鬥前每移動1格，部隊暴擊率提升5%，暴擊傷害提升5%。（最多提升15%）'
 },{
     NAME: '格擋',
-    TYPE: ['格尼爾','塞蕾娜','雷丁','雅兒貝德'],
+    TYPE: ['格尼爾','塞蕾娜','雷丁','雅兒貝德'], INDEX: 1,
+    DATA: [0, 0, 1], MAX: 2,
     /* PROBABILITY SKILL */
-    DESC: '[被動]被近戰攻擊，進入戰鬥時有30%概率觸發，部隊受到的物理傷害減少30%。'
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE, range = combat.range;
+        if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE, range = combat.range;
+        if(this.INDEX == 2 && oppDMGTYPE == '物理傷害' && range == 1)
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
+        else return false;
+    },
+    DESC: '[被動]被近戰攻擊，進入戰鬥時有30%概率觸發，部隊受到的物理傷害減少30%。(當前機率[DATA]%)'
 },{
     NAME: '死鬥',
     TYPE: ['真宮寺櫻','桑原和真','希琳卡','馬修','霧風','萊恩哈特','西格瑪'],
@@ -326,9 +335,30 @@ var passive = [{
     DESC: '[被動]進入戰鬥時，反彈部隊受到物理傷害的20%。並在戰鬥後，恢復最大生命百分比（此百分比為本次戰鬥反彈百分比的1倍）。'
 },{
     NAME: '重盾',
-    TYPE: ['桑原和真','伊露希亞','艾馬林克','艾絲蒂爾','巴恩哈特','巴爾加斯','芙蕾雅'],
+    TYPE: ['桑原和真','伊露希亞','艾馬林克','艾絲蒂爾','巴恩哈特','巴爾加斯','芙蕾雅'], INDEX:1,
+    DATA: [0, 0, 1], MAX: 2,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE, range = combat.range;
+        if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE, range = combat.range;
+        if(this.INDEX == 2 && oppDMGTYPE == '物理傷害' && range == 1)
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
+        else return false;
+    },
     /* PROBABILITY SKILL */
-    DESC: '[被動]被近戰攻擊，進入戰鬥時有25%概率觸發，部隊受到的傷害降低50%。'
+    DESC: '[被動]被近戰攻擊，進入戰鬥時有25%概率觸發，部隊受到的傷害降低50%。(當前[DATA]%)'
+},{
+    NAME: '光輝翠綠體',
+    TYPE: ['安茲‧烏爾‧恭'], INDEX: 1,
+    DATA: [0, 0, 1], MAX: 2,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(this.INDEX == 2 && side == 'defense')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9];
+        else return false;
+    },
+    /* PROBABILITY SKILL */
+    DESC: '[被動]被攻擊進入戰鬥時有30%概率觸發，使敵軍傷害降低90%。（[觸發冷卻]該效果觸發後，需要間隔2回合才能再次觸發）(當前[DATA]%)'
 },{
     NAME: '野戰',
     TYPE: ['燕','奧利佛','約書亞','索尼婭','馬修'],
@@ -380,9 +410,18 @@ var passive = [{
     DESC: '[被動]部隊生命高於90%時，防禦、魔防提升10%。'
 },{
     NAME: '鐵盔',
-    TYPE: ['神崎堇','蘭迪烏斯','艾米莉亞','貝蒂','格尼爾'],
+    TYPE: ['神崎堇','蘭迪烏斯','艾米莉亞','貝蒂','格尼爾'], INDEX: 1,
+    DATA: [0, 0, 1], MAX: 2,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') range = combat.range;
+        if(side == 'defense') range = combat.range;
+        if(this.INDEX == 2 && range > 1)
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
+        else return false;
+    },
     /* PROBABILITY SKILL */
-    DESC: '[被動]被遠程攻擊時25%概率觸發，部隊受到所有傷害降低50%。'
+    DESC: '[被動]被遠程攻擊時25%概率觸發，部隊受到所有傷害降低50%。(當前[DATA]%)'
 },{
     NAME: '鏡花',
     TYPE: ['希琳卡'],
@@ -422,6 +461,12 @@ var passive = [{
     DATA: [0, 0.01, 0.02], MAX: 2,
     DMGINC: 0.2,
     DESC: '每轉化一個強化狀態，則獲得20%的傷害加成。(當前[DATA]個)'
+},{
+    NAME: '漆黑之慾[增傷]',
+    TYPE: ['雅兒貝德'], ACC: true,
+    DATA: [0, 0.01, 0.02, 0.03], MAX: 3,
+    DMGINC: 0.1,
+    DESC: '每轉化一個強化狀態，則獲得10%的傷害加成。(當前[DATA]個)'
 },{
     NAME: '海衛(被動)',
     TYPE: ['伊露希亞', '古巨拉'],

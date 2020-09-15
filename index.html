@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hans-TW">
 
     <head>
         <!-- local
@@ -158,7 +158,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("1.0.4"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("1.0.5"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -674,6 +674,28 @@
                                     </table>
                                     <img src='image/character/弗洛朗蒂婭.png' onclick='selectChar("弗洛朗蒂婭")'/>
                                 </li>
+                                <li class='character imgbtn offense 黑暗輪迴 時空樞紐 夢幻轉生' id='安茲‧烏爾‧恭' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='安茲‧烏爾‧恭TALENT'>
+                                        <tr><th id='安茲‧烏爾‧恭TALENTNAME'></th></tr>
+                                        <tr><td id='安茲‧烏爾‧恭DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/安茲‧烏爾‧恭.png' onclick='selectChar("安茲‧烏爾‧恭")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 時空樞紐 夢幻轉生' id='雅兒貝德' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雅兒貝德TALENT'>
+                                        <tr><th id='雅兒貝德TALENTNAME'></th></tr>
+                                        <tr><td id='雅兒貝德DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雅兒貝德.png' onclick='selectChar("雅兒貝德")'/>
+                                </li>
+                                <li class='character imgbtn offense 黑暗輪迴 流星直擊 時空樞紐' id='夏提雅' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
+                                    <table class='talent' id='夏提雅TALENT'>
+                                        <tr><th id='夏提雅TALENTNAME'></th></tr>
+                                        <tr><td id='夏提雅DESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/夏提雅.png' onclick='selectChar("夏提雅")'/>
+                                </li>
+                                <!-- SSR 分界線 -->
                                 <li class='character imgbtn offense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲' onmouseover='loadTalent("offense", this.id)' style='display: none;'>
                                     <table class='talent' id='比蘿蒂絲TALENT'>
                                         <tr><th id='比蘿蒂絲TALENTNAME'></th></tr>
@@ -2709,6 +2731,28 @@
                                     </table>
                                     <img src='image/character/弗洛朗蒂婭.png' onclick='selectChar("弗洛朗蒂婭d")'/>
                                 </li>
+                                <li class='character imgbtn defense 黑暗輪迴 時空樞紐 夢幻轉生' id='安茲‧烏爾‧恭d' onmouseover='loadTalent("defense", this.id)' style='display: none;'>
+                                    <table class='talent' id='安茲‧烏爾‧恭dTALENT'>
+                                        <tr><th id='安茲‧烏爾‧恭dTALENTNAME'></th></tr>
+                                        <tr><td id='安茲‧烏爾‧恭dDESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/安茲‧烏爾‧恭.png' onclick='selectChar("安茲‧烏爾‧恭d")'/>
+                                </li>
+                                <li class='character imgbtn defense 黑暗輪迴 時空樞紐 夢幻轉生' id='雅兒貝德d' onmouseover='loadTalent("defense", this.id)' style='display: none;'>
+                                    <table class='talent' id='雅兒貝德dTALENT'>
+                                        <tr><th id='雅兒貝德dTALENTNAME'></th></tr>
+                                        <tr><td id='雅兒貝德dDESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/雅兒貝德.png' onclick='selectChar("雅兒貝德d")'/>
+                                </li>
+                                <li class='character imgbtn defense 黑暗輪迴 流星直擊 時空樞紐' id='夏提雅d' onmouseover='loadTalent("defense", this.id)' style='display: none;'>
+                                    <table class='talent' id='夏提雅dTALENT'>
+                                        <tr><th id='夏提雅dTALENTNAME'></th></tr>
+                                        <tr><td id='夏提雅dDESC'></td></tr>
+                                    </table>
+                                    <img src='image/character/夏提雅.png' onclick='selectChar("夏提雅d")'/>
+                                </li>
+                                <!-- SSR 分界線 -->
                                 <li class='character imgbtn defense 黑暗輪迴 流星直擊 時空樞紐' id='比蘿蒂絲d' onmouseover='loadTalent("defense", this.id)' style='display: none;'>
                                     <table class='talent' id='比蘿蒂絲dTALENT'>
                                         <tr><th id='比蘿蒂絲dTALENTNAME'></th></tr>
