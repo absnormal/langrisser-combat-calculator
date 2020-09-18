@@ -123,3 +123,137 @@ function getMIDEnchantSkill(side){
     return display;
 };
 
+function getEnchantBase(side){
+    var enchant;
+    if(side == 'offense') enchant = combat.offEnchant;
+
+    // collect display
+    var display = {
+        NAME: enchant.NAME,
+        BASE: enchant.BASE
+    };
+
+    // add to combat
+    combat.offHPRATE += display.BASE[0];
+    combat.offATKRATE += display.BASE[1];
+    combat.offINTRATE += display.BASE[2];
+    combat.offDEFRATE += display.BASE[3];
+    combat.offMDEFRATE += display.BASE[4];
+
+    return display;
+};
+
+function getEnchantBaseSkill(side){
+    part_text = ['weapon','armor','helmet','accessory'];
+    part_ch = ['武器+X','防具+X','頭盔+X','飾品+X'];
+    value_text = ['HPADD','ATKADD','INTADD','DEFADD','MDEFADD'];
+
+    // 4 parts, collect displayList
+    var displayList = [];
+    for(let i=0; i<4; i++){
+        // 3 enchant slot per. part
+        for(let j=0; j<3; j++){
+
+            // check value is XXADD
+            selectID = 'off'+part_text[i]+'enchant'+(j+1);
+            eSelect = document.getElementById(selectID);
+            if(value_text.indexOf(eSelect.value) == -1) continue;
+
+            // collect display
+            var display = {
+                NAME: part_ch[i],
+                BASE: [0, 0, 0, 0, 0, 0]
+            };
+            inputID = part_text[i]+'enchant'+(j+1);
+            eInput = document.getElementById(inputID);
+            display.BASE[value_text.indexOf(eSelect.value)] = Number(eInput.value);
+
+            // add to combat
+            combat.offADDHP += display.BASE[0];
+            combat.offADDATK += display.BASE[1];
+            combat.offADDINT += display.BASE[2];
+            combat.offADDDEF += display.BASE[3];
+            combat.offADDMDEF += display.BASE[4];
+
+            displayList.push(display);
+        }
+    }
+    return displayList;
+};
+
+function getEnchantRateSkill(side){
+    part_text = ['weapon','armor','helmet','accessory'];
+    part_ch = ['武器+%','防具+%','頭盔+%','飾品+%'];
+    value_text = ['HPPERC','ATKPERC','INTPERC','DEFPERC','MDEFPERC'];
+
+    // 4 parts, collect displayList
+    var displayList = [];
+    for(let i=0; i<4; i++){
+        // 3 enchant slot per. part
+        for(let j=0; j<3; j++){
+
+            // check value is XXADD
+            selectID = 'off'+part_text[i]+'enchant'+(j+1);
+            eSelect = document.getElementById(selectID);
+            if(value_text.indexOf(eSelect.value) == -1) continue;
+
+            // collect display
+            var display = {
+                NAME: part_ch[i],
+                RATE: [0, 0, 0, 0, 0]
+            };
+            inputID = part_text[i]+'enchant'+(j+1);
+            eInput = document.getElementById(inputID);
+            display.RATE[value_text.indexOf(eSelect.value)] = Number(eInput.value)/100;
+
+            // add to combat
+            combat.offHPRATE += display.RATE[0];
+            combat.offATKRATE += display.RATE[1];
+            combat.offINTRATE += display.RATE[2];
+            combat.offDEFRATE += display.RATE[3];
+            combat.offMDEFRATE += display.RATE[4];
+
+            displayList.push(display);
+        }
+    }
+    return displayList;
+};
+
+function getMasteryBaseSkill(side){
+    part_text = ['weapon','armor','helmet','accessory'];
+    part_ch = ['武器精通','防具精通','頭盔精通','飾品精通'];
+    value_text = ['HP','ATK','INT','DEF','MDEF','DEX'];
+
+    // 4 parts, collect displayList
+    var displayList = [];
+    for(let i=0; i<4; i++){
+        // 3 enchant slot per. part
+        for(let j=0; j<3; j++){
+
+            // check value is XXADD
+            selectID = 'off'+part_text[i]+'mastery'+(j+1);
+            eSelect = document.getElementById(selectID);
+            if(value_text.indexOf(eSelect.value) == -1) continue;
+
+            // collect display
+            var display = {
+                NAME: part_ch[i],
+                BASE: [0, 0, 0, 0, 0, 0]
+            };
+            inputID = part_text[i]+'mastery'+(j+1);
+            eInput = document.getElementById(inputID);
+            display.BASE[value_text.indexOf(eSelect.value)] = Number(eInput.value);
+
+            // add to combat
+            combat.offADDHP += display.BASE[0];
+            combat.offADDATK += display.BASE[1];
+            combat.offADDINT += display.BASE[2];
+            combat.offADDDEF += display.BASE[3];
+            combat.offADDMDEF += display.BASE[4];
+
+            displayList.push(display);
+        }
+    }
+    return displayList;
+};
+

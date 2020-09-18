@@ -103,6 +103,9 @@ tbody > p{
 .cell.data{
     height: 1550px; width: 600px;
 }
+.cell.data2{
+    height: 1550px; width: 1200px;
+}
 .banner{
     background-color: white;
     color: black;

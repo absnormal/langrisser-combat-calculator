@@ -99,7 +99,9 @@ function selectChar(charName){
             document.getElementById(offenseChar).classList.remove('selected');
         }
         combat.offChar = char.find(x => x.NAME === charName);
+        document.getElementById('offchar').innerHTML = '角色:'+combat.offChar.NAME;
         // hide and display equipments by JOB1
+        displayArmy('offense');
         displayJob('offense');
         hideWeapon('offense');
         displayWeapon('offense');

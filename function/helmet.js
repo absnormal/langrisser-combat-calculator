@@ -121,3 +121,30 @@ function getMIDHelmetSkill(side){
     return display;
 };
 
+function getHelmetBaseSkill(side){
+    var helmet;
+    if(side == 'offense') helmet = combat.offHelmet;
+
+    // collect display
+    var display = {
+        NAME: helmet.NAME,
+        BASE: [0, 0, 0, 0, 0, 0]
+    };
+    if(helmet.BASEHP != undefined) display.BASE[0] += helmet.BASEHP;
+    if(helmet.BASEATK != undefined) display.BASE[1] += helmet.BASEATK;
+    if(helmet.BASEINT != undefined) display.BASE[2] += helmet.BASEINT;
+    if(helmet.BASEDEF != undefined) display.BASE[3] += helmet.BASEDEF;
+    if(helmet.BASEMDEF != undefined) display.BASE[4] += helmet.BASEMDEF;
+    if(helmet.BASEDEX != undefined) display.BASE[5] += helmet.BASEDEX;
+
+    // add to combat
+    if(side == 'offense'){
+        combat.offADDHP += display.BASE[0];
+        combat.offADDATK += display.BASE[1];
+        combat.offADDINT += display.BASE[2];
+        combat.offADDDEF += display.BASE[3];
+        combat.offADDMDEF += display.BASE[4];
+        combat.offADDDEX += display.BASE[5];
+    }
+    return display;
+};

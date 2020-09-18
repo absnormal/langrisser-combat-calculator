@@ -39,7 +39,7 @@ function getArmy(side){
 
 function getNewArmy(side){
     if(side == 'offense') return document.getElementById('offcharARMY').value;
-    if(side == 'defense') return document.getElementById('defcharARMY').value;
+    else if(side == 'defense') return document.getElementById('defcharARMY').value;
 };
 
 function displayArmy(side){
@@ -131,6 +131,38 @@ function getDmgtype(side){
     else if(jobNo == 3) return char.DMGTYPE3;
     else if(jobNo == 4) return char.DMGTYPE4;
     else if(jobNo == 5) return char.DMGTYPE5;
+};
+
+function getNumByJob(side, num){
+    var eJobNo, eChar;
+    if(side == 'offense'){
+        eJobNo = combat.offJobNo;
+        eChar = combat.offChar;
+    }
+    if(eJobNo == 1){
+        if(num == 'HP')   return eChar.BASE1HP;
+        if(num == 'ATK')  return eChar.BASE1ATK;
+        if(num == 'INT')  return eChar.BASE1INT;
+        if(num == 'DEF')  return eChar.BASE1DEF;
+        if(num == 'MDEF') return eChar.BASE1MDEF;
+        if(num == 'DEX')  return eChar.BASE1DEX;
+    }
+    else if(eJobNo == 2){
+        if(num == 'HP')   return eChar.BASE2HP;
+        if(num == 'ATK')  return eChar.BASE2ATK;
+        if(num == 'INT')  return eChar.BASE2INT;
+        if(num == 'DEF')  return eChar.BASE2DEF;
+        if(num == 'MDEF') return eChar.BASE2MDEF;
+        if(num == 'DEX')  return eChar.BASE2DEX;
+    }
+    else if(eJobNo == 3){
+        if(num == 'HP')   return eChar.BASE3HP;
+        if(num == 'ATK')  return eChar.BASE3ATK;
+        if(num == 'INT')  return eChar.BASE3INT;
+        if(num == 'DEF')  return eChar.BASE3DEF;
+        if(num == 'MDEF') return eChar.BASE3MDEF;
+        if(num == 'DEX')  return eChar.BASE3DEX;
+    }
 };
 
 function getHeart(side, LV){

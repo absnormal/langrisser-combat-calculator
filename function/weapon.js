@@ -126,3 +126,30 @@ function getMIDWeaponSkill(side){
     return display;
 };
 
+function getWeaponBaseSkill(side){
+    var weapon;
+    if(side == 'offense') weapon = combat.offWeapon;
+
+    // collect display
+    var display = {
+        NAME: weapon.NAME,
+        BASE: [0, 0, 0, 0, 0, 0]
+    };
+    if(weapon.BASEHP != undefined) display.BASE[0] += weapon.BASEHP;
+    if(weapon.BASEATK != undefined) display.BASE[1] += weapon.BASEATK;
+    if(weapon.BASEINT != undefined) display.BASE[2] += weapon.BASEINT;
+    if(weapon.BASEDEF != undefined) display.BASE[3] += weapon.BASEDEF;
+    if(weapon.BASEMDEF != undefined) display.BASE[4] += weapon.BASEMDEF;
+    if(weapon.BASEDEX != undefined) display.BASE[5] += weapon.BASEDEX;
+
+    // add to combat
+    if(side == 'offense'){
+        combat.offADDHP += display.BASE[0];
+        combat.offADDATK += display.BASE[1];
+        combat.offADDINT += display.BASE[2];
+        combat.offADDDEF += display.BASE[3];
+        combat.offADDMDEF += display.BASE[4];
+        combat.offADDDEX += display.BASE[5];
+    }
+    return display;
+};

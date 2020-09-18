@@ -127,3 +127,30 @@ function getMIDAccessorySkill(side){
     return display;
 };
 
+function getAccessoryBaseSkill(side){
+    var accessory;
+    if(side == 'offense') accessory = combat.offAccessory;
+
+    // collect display
+    var display = {
+        NAME: accessory.NAME,
+        BASE: [0, 0, 0, 0, 0, 0]
+    };
+    if(accessory.BASEHP != undefined) display.BASE[0] += accessory.BASEHP;
+    if(accessory.BASEATK != undefined) display.BASE[1] += accessory.BASEATK;
+    if(accessory.BASEINT != undefined) display.BASE[2] += accessory.BASEINT;
+    if(accessory.BASEDEF != undefined) display.BASE[3] += accessory.BASEDEF;
+    if(accessory.BASEMDEF != undefined) display.BASE[4] += accessory.BASEMDEF;
+    if(accessory.BASEDEX != undefined) display.BASE[5] += accessory.BASEDEX;
+
+    // add to combat
+    if(side == 'offense'){
+        combat.offADDHP += display.BASE[0];
+        combat.offADDATK += display.BASE[1];
+        combat.offADDINT += display.BASE[2];
+        combat.offADDDEF += display.BASE[3];
+        combat.offADDMDEF += display.BASE[4];
+        combat.offADDDEX += display.BASE[5];
+    }
+    return display;
+};

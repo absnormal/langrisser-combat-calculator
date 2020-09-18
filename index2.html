@@ -3,7 +3,6 @@
 
     <head>
         <!-- local
-        -->
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="file:///home/absnormal/langrisser-combat-calculator/css/swiper.min.css">
@@ -25,10 +24,13 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/armor.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/accessory.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/helmet.js"></script>
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/enchant.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/button2.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/control.js"></script>
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/main2.js"></script>
+        -->
         <!-- github
+        -->
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/master.css">
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/box.css">
         <link rel="stylesheet" type="text/css" href="/langrisser-combat-calculator/css/swiper.min.css">
@@ -50,10 +52,10 @@
         <script src="/langrisser-combat-calculator/js/armor.js"></script>
         <script src="/langrisser-combat-calculator/js/accessory.js"></script>
         <script src="/langrisser-combat-calculator/js/helmet.js"></script>
+        <script src="/langrisser-combat-calculator/js/enchant.js"></script>
         <script src="/langrisser-combat-calculator/js/button2.js"></script>
         <script src="/langrisser-combat-calculator/js/control.js"></script>
         <script src="/langrisser-combat-calculator/js/main2.js"></script>
-        -->
     </head>
 
     <!-- change version / path to local/github -->
@@ -68,6 +70,8 @@
                     <h3 id='version'></h3>
                 </div>
                 <div id='nav' class='nav'>
+                    <a href='https://absnormal.github.io/langrisser-combat-calculator/index' target='_blank'>傷害模擬器</a>
+                    <a href='https://absnormal.github.io/langrisser-combat-calculator/index2' target='_blank'>戰前白字模擬器</a>
                     <a href='https://github.com/absnormal/langrisser-combat-calculator' target='_blank'>github 程式碼</a>
                     <a href='https://forum.gamer.com.tw/A.php?bsn=33596' target='_blank'>巴哈夢戰版</a>
                     <a href='https://mz.game-beans.com/' target='_blank'>夢戰官網</a>
@@ -83,7 +87,7 @@
         <table>
             <tr>
                 <td>
-                    <div class='cell offense'>
+                    <div class='cell offense' style='height: 700px'>
                         <div class='banner'>
                             <h2>你</h2>
                         </div>
@@ -846,168 +850,178 @@
                     </div>
                 </td>
                 <td>
-                    <div class='cell data'>
-                        <table>
-                            <tr>
-                                <td colspan=3 style='text-align: center;'><b>你</b></td>
+                    <div class='cell data' style='height: 250px'>
+                        <table style='width:1000px'>
+                            <tbody style='width:600px; display:inline-block'>
+                            <!-- STATUS -->
+                            <tr class='data'>
+                                <td id='offchar'>角色:NA</td>
+                                <td id='offcharJOB'>職業:NA</td>
+                                <td>兵種:
+                                    <select id='offcharARMY'>
+                                        <option value='步兵'>步兵</option>
+                                        <option value='槍兵'>槍兵</option>
+                                        <option value='騎兵'>騎兵</option>
+                                        <option value='飛兵'>飛兵</option>
+                                        <option value='水兵'>水兵</option>
+                                        <option value='弓兵'>弓兵</option>
+                                        <option value='刺客'>刺客</option>
+                                        <option value='僧侶'>僧侶</option>
+                                        <option value='法師'>法師</option>
+                                        <option value='魔物'>魔物</option>
+                                        <option value='龍'>龍</option>
+                                    </select>
+                                </td>
                                 <td></td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=2>英雄生命:<input type='text' id='offHP' style='width:100px' value='1000/1000'></td>
-                                <td id='offcharJOB'>職業:NA</td>
-                                <td id='offcharARMY'>兵種:NA</td>
-                            </tr>
-                            <tr class='data'>
-                                <td>基礎生命: <input id='offBASEHPinput' type='text' style='width:40px' value=1000></td>
+                                <td id='offBASEHP'>基礎生命:NA</td>
                                 <td>
-                                    <li class='NUM' id='offPREHP' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offPREHPDATA'>綠字生命:</p>
-                                        <table class='NUMDESC' id='offPREHPTABLE'>
-                                            <tr><td id='offPREHPDESC'>1000</td></tr>
+                                    <li class='NUM' id='offADDHP' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offADDHPDATA'>綠字生命:NA</p>
+                                        <table class='NUMDESC' id='offADDHPTABLE'>
+                                            <tr><td id='offADDHPDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offPREHPinput' type='text' style='display:none;width:40px' value=1060>
-                                </td>
-                                <td>白字生命:<input type='text' id='off1BFriend' style='width:20px' value=0></td>
-                                <td>進場生命:<input type='text' id='off1BFriend' style='width:20px' value=0></td>
-                            </tr>
-                            <tr class='data'>
-                                <td>
-                                    <li class='NUM' id='offBASEATK' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offBASEATKDATA'>基礎攻擊:</p>
-                                        <table class='NUMDESC' id='offBASEATKTABLE'>
-                                            <tr><td id='offBASEATKDESC'>1000</td></tr>
-                                        </table>
-                                    </li>
-                                    <input id='offBASEATKinput' type='text' style='width:40px' value=1000>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='offPREATK' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offPREATKDATA'>綠字攻擊:</p>
-                                        <table class='NUMDESC' id='offPREATKTABLE'>
-                                            <tr><td id='offPREATKDESC'>1060</td></tr>
+                                    <li class='NUM' id='offTOTALHP' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offTOTALHPDATA'>白字生命:NA</p>
+                                        <table class='NUMDESC' id='offTOTALHPTABLE'>
+                                            <tr><td id='offTOTALHPDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offPREATKinput' type='text' style='display:none;width:40px' value=1060>
-                                </td>
-                                <td>白字攻擊:<input type='text' id='off1BFriend' style='width:20px' value=0></td>
-                                <td>競技攻擊:<input type='text' id='offAATK' style='width:40px' value=60></td>
-                            </tr>
-                            <tr class='data'>
-                                <td>
-                                    <li class='NUM' id='offBASEINT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offBASEINTDATA'>基礎智力:</p>
-                                        <table class='NUMDESC' id='offBASEINTTABLE'>
-                                            <tr><td id='offBASEINTDESC'>100</td></tr>
-                                        </table>
-                                    </li>
-                                    <input id='offBASEINTinput' type='text' style='width:40px' value=100>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='offPREINT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offPREINTDATA'>綠字智力:</p>
-                                        <table class='NUMDESC' id='offPREINTTABLE'>
-                                            <tr><td id='offPREINTDESC'>100</td></tr>
+                                    <li class='NUM' id='offHP' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offHPDATA'>進場生命:NA</p>
+                                        <table class='NUMDESC' id='offHPTABLE'>
+                                            <tr><td id='offHPDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offPREINTinput' type='text' style='display:none;width:40px' value=160>
                                 </td>
-                                <td>白字智力:<input type='text' id='off2BFriend' style='width:20px' value=0></td>
-                                <td>競技智力:<input type='text' id='offAINT' style='width:40px' value=0></td>
                             </tr>
                             <tr class='data'>
+                                <td id='offBASEATK'>基礎攻擊:NA</td>
                                 <td>
-                                    <li class='NUM' id='offBASEDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offBASEDEFDATA'>基礎防禦:</p>
-                                        <table class='NUMDESC' id='offBASEDEFTABLE'>
-                                            <tr><td id='offBASEDEFDESC'>500</td></tr>
+                                    <li class='NUM' id='offADDATK' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offADDATKDATA'>綠字攻擊:NA</p>
+                                        <table class='NUMDESC' id='offADDATKTABLE'>
+                                            <tr><td id='offADDATKDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offBASEDEFinput' type='text' style='width:40px' value=500>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='offPREDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offPREDEFDATA'>綠字防禦:</p>
-                                        <table class='NUMDESC' id='offPREDEFTABLE'>
-                                            <tr><td id='offPREDEFDESC'>560</td></tr>
+                                    <li class='NUM' id='offTOTALATK' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offTOTALATKDATA'>白字攻擊:NA</p>
+                                        <table class='NUMDESC' id='offTOTALATKTABLE'>
+                                            <tr><td id='offTOTALATKDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offPREDEFinput' type='text' style='display:none;width:40px' value=560>
                                 </td>
-                                <td>白字防禦:<input type='text' id='off3BFriend' style='width:20px' value=0></td>
-                                <td>競技防禦:<input type='text' id='offADEF' style='width:40px' value=60></td>
+                                <td></td>
                             </tr>
                             <tr class='data'>
+                                <td id='offBASEINT'>基礎智力:NA</td>
                                 <td>
-                                    <li class='NUM' id='offBASEMDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offBASEMDEFDATA'>基礎魔防:</p>
-                                        <table class='NUMDESC' id='offBASEMDEFTABLE'>
-                                            <tr><td id='offBASEMDEFDESC'>400</td></tr>
+                                    <li class='NUM' id='offADDINT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offADDINTDATA'>綠字智力:NA</p>
+                                        <table class='NUMDESC' id='offADDINTTABLE'>
+                                            <tr><td id='offADDINTDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offBASEMDEFinput' type='text' style='width:40px' value=400>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='offPREMDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offPREMDEFDATA'>綠字魔防:</p>
-                                        <table class='NUMDESC' id='offPREMDEFTABLE'>
-                                            <tr><td id='offPREMDEFDESC'>400</td></tr>
+                                    <li class='NUM' id='offTOTALINT' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offTOTALINTDATA'>白字智力:NA</p>
+                                        <table class='NUMDESC' id='offTOTALINTTABLE'>
+                                            <tr><td id='offTOTALINTDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offPREMDEFinput' type='text' style='display:none;width:40px' value=400>
                                 </td>
-                                <td>白字魔防:<input type='text' id='off2CEnemy' style='width:20px' value=0></td>
-                                <td>競技魔防:<input type='text' id='offAMDEF' style='width:40px' value=0></td>
+                                <td></td>
                             </tr>
                             <tr class='data'>
+                                <td id='offBASEDEF'>基礎防禦:NA</td>
                                 <td>
-                                    <li class='NUM' id='offBASEDEX' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offBASEDEXDATA'>基礎技巧:</p>
-                                        <table class='NUMDESC' id='offBASEDEXTABLE'>
-                                            <tr><td id='offBASEDEXDESC'>100</td></tr>
+                                    <li class='NUM' id='offADDDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offADDDEFDATA'>綠字防禦:NA</p>
+                                        <table class='NUMDESC' id='offADDDEFTABLE'>
+                                            <tr><td id='offADDDEFDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offBASEDEXinput' type='text' style='width:40px' value=100>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='offPREDEX' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
-                                        <p id='offPREDEXDATA'>綠字技巧:</p>
-                                        <table class='NUMDESC' id='offPREDEXTABLE'>
-                                            <tr><td id='offPREDEXDESC'>160</td></tr>
+                                    <li class='NUM' id='offTOTALDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offTOTALDEFDATA'>白字防禦:NA</p>
+                                        <table class='NUMDESC' id='offTOTALDEFTABLE'>
+                                            <tr><td id='offTOTALDEFDESC'>400</td></tr>
                                         </table>
                                     </li>
-                                    <input id='offPREDEXinput' type='text' style='display:none;width:40px' value=160>
                                 </td>
-                                <td>白字技巧:<input type='text' id='off3BEnemy' style='width:20px' value=0></td>
-                                <td>競技技巧:<input type='text' id='offADEX' style='width:40px' value=60></td>
-                            </tr>
-                            <tr></tr>
-                            <tr></tr>
-                            <tr></tr>
-                            <tr></tr>
-                            <tr class='data'>
-                                <td colspan=4>綠字數值 = 白字數字×(1+天賦+武器+頭盔+盔甲+飾品+強化弱化+滿月)+競技精通</td>
+                                <td></td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=4>戰中數值 = 綠字數值+白字數字×(0+進戰天賦+進戰裝備技能+滿月+怒濤)</td>
+                                <td id='offBASEMDEF'>基礎魔防:NA</td>
+                                <td>
+                                    <li class='NUM' id='offADDMDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offADDMDEFDATA'>綠字魔防:NA</p>
+                                        <table class='NUMDESC' id='offADDMDEFTABLE'>
+                                            <tr><td id='offADDMDEFDESC'>400</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offTOTALMDEF' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offTOTALMDEFDATA'>白字魔防:NA</p>
+                                        <table class='NUMDESC' id='offTOTALMDEFTABLE'>
+                                            <tr><td id='offTOTALMDEFDESC'>400</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
                             </tr>
                             <tr class='data'>
-                                <td colspan=4>一段傷害 = {[戰中數值×剋制加成]-[戰中防禦×地形加成]}÷2×技能倍率×暴擊加成×一般增傷×技能增傷×近戰減免×乘算減傷天賦</td>
+                                <td id='offBASEDEX'>基礎技巧:NA</td>
+                                <td>
+                                    <li class='NUM' id='offADDDEX' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offADDDEXDATA'>綠字技巧:NA</p>
+                                        <table class='NUMDESC' id='offADDDEXTABLE'>
+                                            <tr><td id='offADDDEXDESC'>400</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offTOTALDEX' style='display:inline-block' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offTOTALDEXDATA'>白字技巧:NA</p>
+                                        <table class='NUMDESC' id='offTOTALDEXTABLE'>
+                                            <tr><td id='offTOTALDEXDESC'>400</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td></td>
                             </tr>
-                            <tr class='data'>
-                                <td colspan=4>士兵數字=((基礎屬性*[7.4]*(1+兵營百分比科技+兵種全屬性百分比)+兵營數值科技)*(1+兵種攻防趴數+兵營攻防科技+士兵全屬性提升+BUFFS))*英雄兵修</td>
-                            </tr>
-                            <tr class='data'>
-                                <td colspan=4>士兵傷害=(士兵攻擊*(1+克制倍率+科技克制)-士兵防禦*地形加成)/2*</td>
-                            </tr>
-                            <tr>
-                                <td colspan=4><br></td>
-                            </tr>
-                            <tr class='data'>
-                                <td id='ERROR' colspan=3>DEBUG LOG</td>
-                            </tr>
-                        </table>
+                        </tbody>
+                    </table>
+                </div>
+                <div class='cell data2' style='height:450px;'>
+                    <!-- WEAPON ENCHANT -->
+                    <div id='weaponEnchantList'>
                     </div>
+                    <!-- ARMOR ENCHANT -->
+                    <div id='armorEnchantList'>
+                    </div>
+                    <!-- HELMET ENCHANT -->
+                    <div id='helmetEnchantList'>
+                    </div>
+                    <!-- ACCESSORY ENCHANT -->
+                    <div id='accessoryEnchantList'>
+                    </div>
+                        
+                    <tr class='data'>
+                        <td id='ERROR' colspan=3>DEBUG LOG</td>
+                    </tr>
+                </div>
                 </td>
             </tr>
         </table>
