@@ -3791,7 +3791,7 @@ var heart = [{
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2B:'受到遠程攻擊進入戰鬥時，傷害提升10%。'
 },{
-    NAME: '馬修大心',
+    NAME: '馬修-突擊騎士大心',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         DMGINC = 7, DMGDEC = 10;
@@ -3814,47 +3814,149 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
-                if(BUFFNUM >= 5)
+                if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
-                if(BUFFNUM >= 5)
+                if(side == 'defense')
                     midrate[DMGINC] += 0.1;
                 break;
             case 2:
-                if(side == 'offense')
+                if(BUFFNUM >= 5)
                     midrate[DMGDEC] += 0.1;
-                if(side == 'defense')
-                    midrate[DMGINC] += 0.1;
-                break;
-            case 3:
-                if(side == 'offense')
-                    midrate[DMGDEC] += 0.1;
-                if(side == 'defense')
-                    midrate[DMGINC] += 0.1;
-                break;
-            case 4:
-                if(side == 'offense')
-                    midrate[DMGDEC] += 0.1;
-                if(side == 'defense')
-                    midrate[DMGINC] += 0.1;
-                break;
-            case 5:
-                if(side == 'offense')
-                    midrate[DMGDEC] += 0.1;
-                if(side == 'defense')
+                if(BUFFNUM >= 5)
                     midrate[DMGINC] += 0.1;
                 break;
         }
         return midrate;
     },
-    JOB1A:'本部隊有5個以上增益效果時，進入戰鬥後遭受傷害降低10%。',
-    JOB1B:'本部隊有5個以上增益效果時，進入戰鬥後傷害提升10%。',
-    JOB2A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
-    JOB2B:'受到攻擊進入戰鬥時，傷害提升10%。',
-    JOB3A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
-    JOB3B:'受到攻擊進入戰鬥時，傷害提升10%。',
-    JOB4A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
-    JOB4B:'受到攻擊進入戰鬥時，傷害提升10%。',
-    JOB5A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
-    JOB5B:'受到攻擊進入戰鬥時，傷害提升10%。'
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
+    JOB2A:'本部隊有5個以上增益效果時，進入戰鬥後遭受傷害降低10%。',
+    JOB2B:'本部隊有5個以上增益效果時，進入戰鬥後傷害提升10%。',
+},{
+    NAME: '馬修-影大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            BUFFNUM = combat.offBUFFLIST.length;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppDMGTYPE = combat.defDMGTYPE;
+            range = combat.range;
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            BUFFNUM = combat.defBUFFLIST.length;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppDMGTYPE = combat.offDMGTYPE;
+            range = combat.range;
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense')
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(BUFFNUM >= 5)
+                    midrate[DMGDEC] += 0.1;
+                if(BUFFNUM >= 5)
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
+    JOB2A:'本部隊有5個以上增益效果時，進入戰鬥後遭受傷害降低10%。',
+    JOB2B:'本部隊有5個以上增益效果時，進入戰鬥後傷害提升10%。',
+},{
+    NAME: '馬修-遊俠大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            BUFFNUM = combat.offBUFFLIST.length;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppDMGTYPE = combat.defDMGTYPE;
+            range = combat.range;
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            BUFFNUM = combat.defBUFFLIST.length;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppDMGTYPE = combat.offDMGTYPE;
+            range = combat.range;
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense')
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(BUFFNUM >= 5)
+                    midrate[DMGDEC] += 0.1;
+                if(BUFFNUM >= 5)
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
+    JOB2A:'本部隊有5個以上增益效果時，進入戰鬥後遭受傷害降低10%。',
+    JOB2B:'本部隊有5個以上增益效果時，進入戰鬥後傷害提升10%。',
+},{
+    NAME: '馬修-龍騎統帥大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            BUFFNUM = combat.offBUFFLIST.length;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppDMGTYPE = combat.defDMGTYPE;
+            range = combat.range;
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            BUFFNUM = combat.defBUFFLIST.length;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppDMGTYPE = combat.offDMGTYPE;
+            range = combat.range;
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense')
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(BUFFNUM >= 5)
+                    midrate[DMGDEC] += 0.1;
+                if(BUFFNUM >= 5)
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
+    JOB2A:'本部隊有5個以上增益效果時，進入戰鬥後遭受傷害降低10%。',
+    JOB2B:'本部隊有5個以上增益效果時，進入戰鬥後傷害提升10%。',
 }];
 
