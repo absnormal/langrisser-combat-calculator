@@ -263,7 +263,7 @@ function displaySoldHP(side, sideRate){
     /* 大算式 */
     let number=(soldBASE*7.4*(1+trainPERC+soldALLRATE)+trainPLUS)*rate;
     eDATA.innerHTML = text+":"+number.toFixed(0)+" + "+(number*charPLUS).toFixed(0);
-    eDESC.innerHTML = (number*(1+charPLUS)).toFixed(2)+"=("+soldBASE+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1.4";
+    eDESC.innerHTML = Math.round(number*(1+charPLUS))+"=("+soldBASE+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1.4";
 
     for(let j=0; j<sideRate.length; j++){
         if(sideRate[j].HP != 0)
@@ -342,12 +342,14 @@ function displaySoldNUMS(side, sideRate){
         /* 大算式 */
         let number=(soldBASE[i]*7.4*(1+trainPERC+soldALLRATE)+trainPLUS)*rate[i];
         eDATA.innerHTML = text[i]+":"+number.toFixed(0)+" + "+(number*charPLUS[i]).toFixed(0);
-        eDESC.innerHTML = (number*(1+charPLUS[i])).toFixed(2)+"=("+soldBASE[i]+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1";
+        eDESC.innerHTML = Math.round(number*(1+charPLUS[i]))+"=("+soldBASE[i]+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1";
 
         for(let j=0; j<sideRate.length; j++){
             if(sideRate[j].CHARONLY) continue;
-            if(sideRate[j].RATE[i] != 0)
+            if(sideRate[j].RATE[i] > 0)
                 eDESC.innerHTML += "+"+sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
+            if(sideRate[j].RATE[i] < 0)
+                eDESC.innerHTML += sideRate[j].RATE[i].toFixed(2)+"["+sideRate[j].NAME+"]";
         }
         eDESC.innerHTML += ")×"+(1+charPLUS[i]);
     }
@@ -411,7 +413,7 @@ function displayMIDSoldNUMS(side, sideRate, oppRate){
         if(NUMS[i] == 'CRITRATE' || NUMS[i] == 'CRITDMG'){
             let number = rate[i];
             eDATA.innerHTML = text[i]+":"+number.toFixed(2);
-            if(NUMS[i] == 'CRITRATE') eDESC.innerHTML=number.toFixed(2)+"="+combat.baseCRITRATE;
+            if(NUMS[i] == 'CRITRATE') eDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITRATE;
             if(NUMS[i] == 'CRITDMG') eDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITDMG;
             // side CRITRATE/DMG INC
             for(let j=0; j<sideRate.length; j++){
@@ -440,7 +442,7 @@ function displayMIDSoldNUMS(side, sideRate, oppRate){
             let number=(soldBASE[i]*7.4*(1+trainPERC+soldALLRATE)+trainPLUS)*rate[i];
             // display: "number + number*charPLUS"
             eDATA.innerHTML = text[i]+":"+(number*(1+charPLUS[i])).toFixed(0);
-            eDESC.innerHTML = (number*(1+charPLUS[i])).toFixed(2)+"=("+soldBASE[i]+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1+...";
+            eDESC.innerHTML = Math.round(number*(1+charPLUS[i]))+"=("+soldBASE[i]+"×7.4×(1+"+trainPERC+"+"+soldALLRATE+")+"+trainPLUS+")×(1+...";
 
             for(let j=0; j<sideRate.length; j++){
                 if(sideRate[j].CHARONLY) continue;
@@ -518,8 +520,8 @@ function displaySoldONEHIT(side, sideRate, oppRate){
     eDATA = document.getElementById(SIDE+SOLD+ONEHIT+DATA);
     eDESC = document.getElementById(SIDE+SOLD+ONEHIT+DESC);
     eTYPE.innerHTML = "["+skilltype+"]";
-    eDATA.innerHTML = text[0] + ":" + number.toFixed(2);
-    eDESC.innerHTML = number.toFixed(2) + "=";
+    eDATA.innerHTML = text[0] + ":" + Math.round(number);
+    eDESC.innerHTML = Math.round(number) + "=";
 
     /* display skilltype */
     if(skilltype == '物理傷害') offNUM = ATK, defNUM = DEF;
@@ -527,10 +529,10 @@ function displaySoldONEHIT(side, sideRate, oppRate){
 
 
     /* offNUM*counterRate */
-    eDESC.innerHTML += "("+mid[offNUM].toFixed(2)+"×"+counterRate.toFixed(2);
+    eDESC.innerHTML += "("+Math.round(mid[offNUM])+"×"+counterRate.toFixed(2);
     /* defNUM*(1-negNUM)*terrainRate */
-    if(!negNUM) eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×"+terrainRate+")";
-    else eDESC.innerHTML += " - "+oppmid[defNUM].toFixed(2)+"×(1-"+negNUM+")×"+terrainRate+")";
+    if(!negNUM) eDESC.innerHTML += " - "+Math.round(oppmid[defNUM])+"×"+terrainRate+")";
+    else eDESC.innerHTML += " - "+Math.round(oppmid[defNUM])+"×(1-"+negNUM+")×"+terrainRate+")";
     /* skillrate */
     eDESC.innerHTML += "÷2×"+skillrate;
     /* off DMGRATEINC */

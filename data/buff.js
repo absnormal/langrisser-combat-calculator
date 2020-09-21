@@ -1,55 +1,73 @@
 var buff = [{
     NAME: '攻擊、智力+N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.1266, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [this.DATA[this.INDEX], this.DATA[this.INDEX], 0, 0, 0];
+        if(side == 'offense')
+            return [this.DATA[this.offINDEX], this.DATA[this.offINDEX], 0, 0, 0];
+        if(side == 'defense')
+            return [this.DATA[this.defINDEX], this.DATA[this.defINDEX], 0, 0, 0];
     },
     DESC: '攻擊、智力+[DATA]%'
 },{
     NAME: '防禦+N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.1266, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, 0, this.DATA[this.INDEX], 0, 0];
+        if(side == 'offense')
+            return [0, 0, this.DATA[this.offINDEX], 0, 0];
+        if(side == 'defense')
+            return [0, 0, this.DATA[this.defINDEX], 0, 0];
     },
     DESC: '防禦+[DATA]%'
 },{
     NAME: '魔防+N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.1266, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, 0, 0, this.DATA[this.INDEX], 0];
+        if(side == 'offense')
+            return [0, 0, 0, this.DATA[this.offINDEX], 0];
+        if(side == 'defense')
+            return [0, 0, 0, this.DATA[this.defINDEX], 0];
     },
     DESC: '魔防+[DATA]%'
 },{
     NAME: '技巧+N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.1266, 0.20, 0.30], MAX: 3,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, 0, 0, 0, this.DATA[this.INDEX]];
+        if(side == 'offense')
+            return [0, 0, 0, 0, this.DATA[this.offINDEX]];
+        if(side == 'defense')
+            return [0, 0, 0, 0, this.DATA[this.defINDEX]];
     },
     DESC: '技巧+[DATA]%'
 },{
     NAME: '造成傷害提升N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.10, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, this.DATA[this.INDEX], 0, 0, 0];
+        if(side == 'offense')
+            return [0, 0, 0, 0, 0, 0, 0, this.DATA[this.offINDEX], 0, 0, 0];
+        if(side == 'defense')
+            return [0, 0, 0, 0, 0, 0, 0, this.DATA[this.defINDEX], 0, 0, 0];
     },
     DESC: '造成傷害提升[DATA]%'
 },{
     NAME: '受到傷害降低N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.10, 0.15, 0.20, 0.30], MAX: 4,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.INDEX]];
+        if(side == 'offense')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.offINDEX]];
+        if(side == 'defense')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.defINDEX]];
     },
     DESC: '受到傷害降低[DATA]%'
 },{
@@ -63,13 +81,13 @@ var buff = [{
 },{
     /* NOT PERCENTAGE */
     NAME: '移動力+N',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.01, 0.02, 0.03], MAX: 3,
     MOVE: 1,
     DESC: '移動力+[DATA]'
 },{
     NAME: '回合結束恢復N％生命',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.2, 0.5], MAX: 2,
     DESC: '回合結束恢復[DATA]%生命'
 },{
@@ -423,7 +441,7 @@ var buff = [{
     DESC: '移動力+2'
 },{
     NAME: '流浪的公主',
-    TYPE: ['克拉蕾特'], INDEX: 1,
+    TYPE: ['克拉蕾特'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.01, 0.02, 0.03, 0.04, 0.05], MAX: 5,
     DESC: '移動力加成[DATA]'
 },{
@@ -797,11 +815,14 @@ var buff = [{
 },{
 */
     NAME: '不歸之森的妖精',
-    TYPE: ['蒂德莉特'], INDEX: 1,
+    TYPE: ['蒂德莉特'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.08, 0.16, 0.24], MAX: 3,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, this.DATA[this.INDEX], this.DATA[this.INDEX], 0, 0];
+        if(side == 'offense')
+            return [0, this.DATA[this.offINDEX], this.DATA[this.offINDEX], 0, 0];
+        if(side == 'defense')
+            return [0, this.DATA[this.defINDEX], this.DATA[this.defINDEX], 0, 0];
     },
     DESC: '智力、防禦提升8%~24%(當前[DATA]%)'
 },{
@@ -821,13 +842,19 @@ var buff = [{
 },{
     NAME: '物理屏障',
     TYPE: ['雅里安洛德', '夏提雅'],
-    SKILLTYPE: ['MIDRATE'], INDEX: 1,
+    SKILLTYPE: ['MIDRATE'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0.7, 0.9], MAX: 2,
     MIDRATE: function(side){
-        if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE;
-        else if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE;
-        if(oppDMGTYPE == '物理傷害')
-            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.INDEX]];
+        if(side == 'offense'){
+            oppDMGTYPE = combat.defDMGTYPE;
+            if(oppDMGTYPE == '物理傷害')
+                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.offINDEX]];
+        }
+        else if(side == 'defense'){
+            oppDMGTYPE = combat.offDMGTYPE;
+            if(oppDMGTYPE == '物理傷害')
+                return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.defINDEX]];
+        }
         else return false;
     },
     DESC: '受到第1次物理傷害時，遭受傷害降低[DATA]%'
@@ -938,11 +965,11 @@ var buff = [{
     DESC: '戰後可恢復生命，恢復量為部隊造成傷害的30%的生命'
 },{
     NAME: '神鎧',
-    TYPE: ['雅兒貝德'], INDEX: 1,
+    TYPE: ['雅兒貝德'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0, 1], MAX: 2,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(this.INDEX == 2)
+        if(side == 'defense' && this.defINDEX == 2)
             return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
         else return false;
     },

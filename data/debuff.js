@@ -1,64 +1,85 @@
 var debuff = [{
     NAME: '攻擊、智力-N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.1, -0.15, -0.20, -0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [this.DATA[this.INDEX], this.DATA[this.INDEX], 0, 0, 0];
+        if(side == 'offense')
+            return [this.DATA[this.offINDEX], this.DATA[this.offINDEX], 0, 0, 0];
+        if(side == 'defense')
+            return [this.DATA[this.defINDEX], this.DATA[this.defINDEX], 0, 0, 0];
     },
     DESC: '攻擊、智力[DATA]％'
 },{
     NAME: '防禦-N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.1, -0.15, -0.20, -0.30], MAX: 4,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, 0, this.DATA[this.INDEX], 0, 0];
+        if(side == 'offense')
+            return [0, 0, this.DATA[this.offINDEX], 0, 0];
+        if(side == 'defense')
+            return [0, 0, this.DATA[this.defINDEX], 0, 0];
     },
     DESC: '防禦[DATA]％'
 },{
     NAME: '魔防-N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.15, -0.20, -0.30], MAX: 3,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, 0, 0, this.DATA[this.INDEX], 0];
+        if(side == 'offense')
+            return [0, 0, 0, this.DATA[this.offINDEX], 0];
+        if(side == 'defense')
+            return [0, 0, 0, this.DATA[this.defINDEX], 0];
     },
     DESC: '魔防[DATA]％'
 },{
     NAME: '技巧-N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.20, -0.30], MAX: 2,
     SKILLTYPE: ['RATE'],
     RATE: function(side){
-        return [0, 0, 0, 0, this.DATA[this.INDEX]];
+        if(side == 'offense')
+            return [0, 0, 0, 0, this.DATA[this.offINDEX]];
+        if(side == 'defense')
+            return [0, 0, 0, 0, this.DATA[this.defINDEX]];
     },
     DESC: '技巧[DATA]％'
 },{
     NAME: '造成傷害降低N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.15, -0.20, -0.30], MAX: 3,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, this.DATA[this.INDEX], 0, 0, 0];
+        if(side == 'offense')
+            return [0, 0, 0, 0, 0, 0, 0, this.DATA[this.offINDEX], 0, 0, 0];
+        if(side == 'defense')
+            return [0, 0, 0, 0, 0, 0, 0, this.DATA[this.defINDEX], 0, 0, 0];
     },
     DESC: '造成傷害降低[DATA]％'
 },{
     NAME: '受到傷害增加N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.15, -0.20, -0.30], MAX: 3,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.INDEX]];
+        if(side == 'offense')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.offINDEX]];
+        if(side == 'defense')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, this.DATA[this.defINDEX]];
     },
     DESC: '受到傷害增加[DATA]％'
 },{
     NAME: '暴擊率降低N％',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.2, -0.3], MAX: 2,
     SKILLTYPE:['MIDRATE'],
     MIDRATE: function(side){
-        return [0, 0, 0, 0, 0, this.DATA[this.INDEX], 0, 0, 0, 0, 0];
+        if(side == 'offense')
+            return [0, 0, 0, 0, 0, this.DATA[this.offINDEX], 0, 0, 0, 0, 0];
+        if(side == 'defense')
+            return [0, 0, 0, 0, 0, this.DATA[this.defINDEX], 0, 0, 0, 0, 0];
     },
     DESC: '暴擊率降低[DATA]％'
 },{
@@ -70,13 +91,13 @@ var debuff = [{
     /* NOT PERCENTAGE */
     /*狙足能不能疊沒有測，需要粉毛專武，應該是不行*/
     NAME: '移動力-N，且無法進行護衛',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.01, -0.02, -0.03], MAX: 3,
     DESC: '移動力[DATA]，且無法進行護衛'
 },{
     /* NOT PERCENTAGE */
     NAME: '移動力-N，且無法進行護衛(光環)',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.02, -0.03], MAX: 2,
     DESC: '移動力-2，且無法進行護衛(光環)'
 },{
@@ -134,7 +155,7 @@ var debuff = [{
     DESC: '無法遭受治療'
 },{
     NAME: '傷口詛咒（遭受治療轉化為N％傷害）',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.10, -0.20, -0.50], MAX: 3,
     DESC: '傷口詛咒（遭受治療轉化為[DATA]％傷害）'
 },{
@@ -273,7 +294,7 @@ var debuff = [{
     DESC: '回合結束時受到攻擊者1倍攻擊的固定傷害'
 },{
     NAME: '回合結束時受到最大生命值N％的傷害',
-    TYPE: ['一般'], INDEX: 1,
+    TYPE: ['一般'], offINDEX: 1, defINDEX: 1,
     DATA: [0, -0.20, -0.30], MAX: 2,
     DESC: '回合結束時受到最大生命值[DATA]％的傷害'
 },{

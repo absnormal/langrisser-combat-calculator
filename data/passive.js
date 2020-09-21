@@ -223,14 +223,14 @@ var passive = [{
     DESC: '[被動]戰鬥前每移動1格，部隊暴擊率提升5%，暴擊傷害提升5%。（最多提升15%）'
 },{
     NAME: '格擋',
-    TYPE: ['格尼爾','塞蕾娜','雷丁','雅兒貝德'], INDEX: 1,
+    TYPE: ['格尼爾','塞蕾娜','雷丁','雅兒貝德'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0, 1], MAX: 2,
     /* PROBABILITY SKILL */
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE, range = combat.range;
         if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE, range = combat.range;
-        if(this.INDEX == 2 && oppDMGTYPE == '物理傷害' && range == 1)
+        if(side == 'defense' && this.defINDEX == 2 && oppDMGTYPE == '物理傷害' && range == 1)
             return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3];
         else return false;
     },
@@ -335,13 +335,13 @@ var passive = [{
     DESC: '[被動]進入戰鬥時，反彈部隊受到物理傷害的20%。並在戰鬥後，恢復最大生命百分比（此百分比為本次戰鬥反彈百分比的1倍）。'
 },{
     NAME: '重盾',
-    TYPE: ['桑原和真','伊露希亞','艾馬林克','艾絲蒂爾','巴恩哈特','巴爾加斯','芙蕾雅'], INDEX:1,
+    TYPE: ['桑原和真','伊露希亞','艾馬林克','艾絲蒂爾','巴恩哈特','巴爾加斯','芙蕾雅'], offINDEX:1, defINDEX: 1,
     DATA: [0, 0, 1], MAX: 2,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') oppDMGTYPE = combat.defDMGTYPE, range = combat.range;
         if(side == 'defense') oppDMGTYPE = combat.offDMGTYPE, range = combat.range;
-        if(this.INDEX == 2 && oppDMGTYPE == '物理傷害' && range == 1)
+        if(side == 'defense' && this.defINDEX == 2 && oppDMGTYPE == '物理傷害' && range == 1)
             return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
         else return false;
     },
@@ -349,11 +349,11 @@ var passive = [{
     DESC: '[被動]被近戰攻擊，進入戰鬥時有25%概率觸發，部隊受到的傷害降低50%。(當前[DATA]%)'
 },{
     NAME: '光輝翠綠體',
-    TYPE: ['安茲‧烏爾‧恭'], INDEX: 1,
+    TYPE: ['安茲‧烏爾‧恭'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0, 1], MAX: 2,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(this.INDEX == 2 && side == 'defense')
+        if(side == 'defense' && this.defINDEX == 2 && side == 'defense')
             return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.9];
         else return false;
     },
@@ -410,13 +410,11 @@ var passive = [{
     DESC: '[被動]部隊生命高於90%時，防禦、魔防提升10%。'
 },{
     NAME: '鐵盔',
-    TYPE: ['神崎堇','蘭迪烏斯','艾米莉亞','貝蒂','格尼爾'], INDEX: 1,
+    TYPE: ['神崎堇','蘭迪烏斯','艾米莉亞','貝蒂','格尼爾'], offINDEX: 1, defINDEX: 1,
     DATA: [0, 0, 1], MAX: 2,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') range = combat.range;
-        if(side == 'defense') range = combat.range;
-        if(this.INDEX == 2 && range > 1)
+        if(side == 'defense' && this.defINDEX == 2 && combat.range > 1)
             return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5];
         else return false;
     },

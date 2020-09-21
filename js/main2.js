@@ -187,8 +187,10 @@ function displayPREHP(side){
             checks++;
         }
     }
-    eDATA.innerHTML = '進場生命:'+Math.round(totalHP*arenaHPRATE);
-    eDESC.innerHTML = Math.round(totalHP*arenaHPRATE)+"="+totalHP+"×(1.4";
+    arenaHP = Number(document.getElementById('offARENAHP').value);
+    combat.offHP = Math.round(totalHP*arenaHPRATE+arenaHP);
+    eDATA.innerHTML = '進場生命:'+Math.round(totalHP*arenaHPRATE+arenaHP);
+    eDESC.innerHTML = Math.round(totalHP*arenaHPRATE+arenaHP)+"="+totalHP+"×(1.4";
     for(let i=0; i<check.length; i++){
         if(checks == 0){
             eDESC.innerHTML = Math.round(totalHP*arenaHPRATE)+"="+totalHP+"×1.4";
@@ -197,6 +199,7 @@ function displayPREHP(side){
         if(check[i]) eDESC.innerHTML += "+"+checkOBJ[i].HP+"["+checkOBJ[i].NAME+"]";
     }
     if(checks != 0) eDESC.innerHTML += ")";
+    if(arenaHP > 0) eDESC.innerHTML += "+"+arenaHP+"[競技精通]";
 };
 
 /* collect RATES from skills */
@@ -255,6 +258,25 @@ function wholeCombat(){
     //getAllSkill('MID', 'offense');
 };
 
+function getCODE(){
+    partyNAME = combat.offParty;
+    charNAME = combat.offChar.NAME;
+    weaponNAME = combat.offWeapon.NAME;
+    armorNAME = combat.offArmor.NAME;
+    helmetNAME = combat.offHelmet.NAME;
+    accessoryNAME = combat.offAccessory.NAME;
+    enchantNAME = combat.offEnchant.NAME;
+    NUMS = [Math.round(combat.offHP),
+            Math.round(combat.offATK),
+            Math.round(combat.offINT),
+            Math.round(combat.offDEF),
+            Math.round(combat.offMDEF),
+            Math.round(combat.offDEX) ];
+
+    JSONstring = '{"party":"'+partyNAME+'", "char":"'+charNAME+'", "weapon":"'+weaponNAME+'", "armor":"'+armorNAME+'", "helmet":"'+helmetNAME+'", "accessory":"'+accessoryNAME+'", "enchant":"'+enchantNAME+'", "bases":['+NUMS+']}';
+    document.getElementById('JSON').value = JSONstring;
+};
+
 window.addEventListener("click", function getSelected(){
     // offense
     var selected = document.getElementsByClassName('offense selected');
@@ -268,21 +290,6 @@ window.addEventListener("click", function getSelected(){
             combat.offChar = char.find(x => x.NAME === combat.offChar);
             combat.offTalent = talent.find(x => x.NAME === combat.offChar.TALENT);
         }
-        else if(selected[i].classList.contains('skill')){
-            combat.offSkill = selected[i].id;
-            combat.offSkill = skill.find(x => x.NAME === combat.offSkill);
-            combat.offDMGTYPE = combat.offSkill.TYPE;
-            displaySkillInfo('offense');
-        }
-        else if(selected[i].classList.contains('soldier')){
-            combat.offSoldier = selected[i].id;
-            combat.offSoldier = soldier.find(x => x.NAME === combat.offSoldier);
-            combat.offsoldDMGTYPE = combat.offSoldier.DMGTYPE;
-        }
-        else if(selected[i].classList.contains('terrain')){
-            combat.offTerrain = selected[i].id;
-            //combat.offTerrain = terrain.find(x => x.NAME === combat.offTerrain);
-        }
         else if(selected[i].classList.contains('enchant')){
             combat.offEnchant = selected[i].id;
             combat.offEnchant = enchant.find(x => x.NAME === combat.offEnchant);
@@ -291,5 +298,6 @@ window.addEventListener("click", function getSelected(){
 
     /* combat */
     wholeCombat();
+    getCODE();
 });
 

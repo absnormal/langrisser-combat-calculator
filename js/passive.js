@@ -127,8 +127,10 @@ function hidePassive(side){
         if(passiveList[i].classList.contains('selected'))
             passiveList[i].classList.remove('selected');
     }
-    for(let i=0; i<passive.length; i++)
-        if(passive[i].INDEX != undefined) passive[i].INDEX = 1;
+    for(let i=0; i<passive.length; i++){
+        if(side == 'offense' && passive[i].offINDEX != undefined) passive[i].offINDEX = 1;
+        if(side == 'defense' && passive[i].defINDEX != undefined) passive[i].defINDEX = 1;
+    }
 };
 
 function selectPassive(side, passiveID){
@@ -158,7 +160,8 @@ function selectPassive(side, passiveID){
         if(passiveINDEX == passiveOBJ.MAX){
             ePassive.classList.remove('selected');
             epassiveINDEX.innerHTML = 0;
-            if(passiveOBJ.INDEX != undefined) passiveOBJ.INDEX = 1;
+            if(side == 'offense' && passiveOBJ.offINDEX != undefined) passiveOBJ.offINDEX = 1;
+            if(side == 'defense' && passiveOBJ.defINDEX != undefined) passiveOBJ.defINDEX = 1;
             while(passiveList.indexOf(passiveOBJ) != -1){
                 index = passiveList.indexOf(passiveOBJ);
                 passiveList.splice(index, 1);
@@ -168,7 +171,8 @@ function selectPassive(side, passiveID){
         else{
             epassiveINDEX.innerHTML = Number(epassiveINDEX.innerHTML)+1;
             if(passiveOBJ.ACC) passiveList.push(passiveOBJ);
-            if(passiveOBJ.INDEX != undefined) passiveOBJ.INDEX += 1;
+            if(side == 'offense' && passiveOBJ.offINDEX != undefined) passiveOBJ.offINDEX += 1;
+            if(side == 'defense' && passiveOBJ.defINDEX != undefined) passiveOBJ.defINDEX += 1;
         }
     }
     // de-select if passive have no DATA

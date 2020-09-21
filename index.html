@@ -158,7 +158,7 @@
     </head>
 
     <!-- change version / path to local/github -->
-    <body onload='display_version("1.0.5"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
+    <body onload='display_version("1.0.6"), createAllList(), selectParty("主角光環"), selectParty("主角光環d")'>
         <div class='topBox'>
             <div class='pubMain'>
                 <a href='index.html'>
@@ -1766,6 +1766,14 @@
                                 <td colspan=4 id='offHeart2'>LV7大心:</td>
                             </tr>
                             <tr>
+                                <td colspan=2>輸入代碼:
+                                    <input id='offJSON' style='width:150px;'>
+                                </td>
+                                <td colspan=2>
+                                    <button onclick='clearCODE("offense")'>清空代碼</button>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan=3><br></td>
                             </tr>
                         </table>
@@ -1809,7 +1817,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defMIDATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDATK' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDATKDATA'>當前攻擊:</p>
                                         <table class='NUMDESC' id='defMIDATKTABLE'>
                                             <tr><td id='defMIDATKDESC'></td></tr>
@@ -1829,7 +1837,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <li class='NUM' id='defMIDINT' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDINT' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDINTDATA'>當前智力:</p>
                                         <table class='NUMDESC' id='defMIDINTTABLE'>
                                             <tr><td id='defMIDINTDESC'></td></tr>
@@ -1863,7 +1871,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defMIDDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDDEF' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDDEFDATA'>當前防禦:</p>
                                         <table class='NUMDESC' id='defMIDDEFTABLE'>
                                             <tr><td id='defMIDDEFDESC'></td></tr>
@@ -1897,7 +1905,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defMIDMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDMDEF' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDMDEFDATA'>當前魔防:</p>
                                         <table class='NUMDESC' id='defMIDMDEFTABLE'>
                                             <tr><td id='defMIDMDEFDESC'></td></tr>
@@ -1917,7 +1925,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <li class='NUM' id='defMIDDEX' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDDEX' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDDEXDATA'>當前技巧:</p>
                                         <table class='NUMDESC' id='defMIDDEXTABLE'>
                                             <tr><td id='defMIDDEXDESC'></td></tr>
@@ -1951,7 +1959,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defMIDCRITRATE' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDCRITRATE' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDCRITRATEDATA'>暴擊率:</p>
                                         <table class='NUMDESC' id='defMIDCRITRATETABLE'>
                                             <tr><td id='defMIDCRITRATEDESC'></td></tr>
@@ -1985,7 +1993,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defMIDCRITDMG' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defMIDCRITDMG' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defMIDCRITDMGDATA'>暴擊傷害:</p>
                                         <table class='NUMDESC' id='defMIDCRITDMGTABLE'>
                                             <tr><td id='defMIDCRITDMGDESC'></td></tr>
@@ -2191,7 +2199,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <li class='NUM' id='defsoldPREHP' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defsoldPREHP' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defsoldPREHPDATA'>生命:</p>
                                         <table class='NUMDESC' id='defsoldPREHPTABLE'>
                                             <tr><td id='defsoldPREHPDESC'></td></tr>
@@ -2199,7 +2207,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defsoldPREDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defsoldPREDEF' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defsoldPREDEFDATA'>防禦:</p>
                                         <table class='NUMDESC' id='defsoldPREDEFTABLE'>
                                             <tr><td id='defsoldPREDEFDESC'></td></tr>
@@ -2211,7 +2219,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <li class='NUM' id='defsoldPREATK' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defsoldPREATK' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defsoldPREATKDATA'>攻擊:</p>
                                         <table class='NUMDESC' id='defsoldPREATKTABLE'>
                                             <tr><td id='defsoldPREATKDESC'></td></tr>
@@ -2219,7 +2227,7 @@
                                     </li>
                                 </td>
                                 <td>
-                                    <li class='NUM' id='defsoldPREMDEF' onmouseover='loadNUMDesc("offense", this.id)'>
+                                    <li class='NUM' id='defsoldPREMDEF' onmouseover='loadNUMDesc("defense", this.id)'>
                                         <p id='defsoldPREMDEFDATA'>魔防:</p>
                                         <table class='NUMDESC' id='defsoldPREMDEFTABLE'>
                                             <tr><td id='defsoldPREMDEFDESC'></td></tr>
@@ -2234,6 +2242,14 @@
                             </tr>
                             <tr>
                                 <td colspan=4 id='defHeart2'>LV7大心:</td>
+                            </tr>
+                            <tr>
+                                <td colspan=2>輸入代碼:
+                                    <input id='defJSON' style='width:150px;'>
+                                </td>
+                                <td colspan=2>
+                                    <button onclick='clearCODE('defense')'>清空代碼</button>
+                                </td>
                             </tr>
                             <tr>
                                 <td colspan=3><br></td>

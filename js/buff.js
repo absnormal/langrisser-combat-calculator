@@ -137,8 +137,10 @@ function hideBUFF(side){
         if(buffList[i].classList.contains('selected'))
             buffList[i].classList.remove('selected');
     }
-    for(let i=0; i<buff.length; i++)
-        if(buff[i].INDEX != undefined) buff[i].INDEX = 1;
+    for(let i=0; i<buff.length; i++){
+        if(side == 'offense' && buff[i].offINDEX != undefined) buff[i].offINDEX = 1;
+        if(side == 'defense' && buff[i].defINDEX != undefined) buff[i].defINDEX = 1;
+    }
 };
 
 function selectBUFF(side, buffID){
@@ -168,7 +170,8 @@ function selectBUFF(side, buffID){
         if(buffINDEX == buffOBJ.MAX){
             eBUFF.classList.remove('selected');
             ebuffINDEX.innerHTML = 0;
-            if(buffOBJ.INDEX != undefined) buffOBJ.INDEX = 1;
+            if(side == 'offense' && buffOBJ.offINDEX != undefined) buffOBJ.offINDEX = 1;
+            if(side == 'defense' && buffOBJ.defINDEX != undefined) buffOBJ.defINDEX = 1;
             while(buffList.indexOf(buffOBJ) != -1){
                 index = buffList.indexOf(buffOBJ);
                 buffList.splice(index, 1);
@@ -178,7 +181,8 @@ function selectBUFF(side, buffID){
         else{
             ebuffINDEX.innerHTML = Number(ebuffINDEX.innerHTML)+1;
             if(buffOBJ.ACC) buffList.push(buffOBJ);
-            if(buffOBJ.INDEX != undefined) buffOBJ.INDEX += 1;
+            if(side == 'offense' && buffOBJ.offINDEX != undefined) buffOBJ.offINDEX += 1;
+            if(side == 'defense' && buffOBJ.defINDEX != undefined) buffOBJ.defINDEX += 1;
         }
     }
     // de-select if buff have no DATA

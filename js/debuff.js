@@ -127,8 +127,10 @@ function hideDEBUFF(side){
         if(debuffList[i].classList.contains('selected'))
             debuffList[i].classList.remove('selected');
     }
-    for(let i=0; i<debuff.length; i++)
-        if(debuff[i].INDEX != undefined) debuff[i].INDEX = 1;
+    for(let i=0; i<debuff.length; i++){
+        if(side == 'offense' && debuff[i].offINDEX != undefined) debuff[i].offINDEX = 1;
+        if(side == 'defense' && debuff[i].defINDEX != undefined) debuff[i].defINDEX = 1;
+    }
 };
 
 function selectDEBUFF(side, debuffID){
@@ -158,7 +160,8 @@ function selectDEBUFF(side, debuffID){
         if(debuffINDEX == debuffOBJ.MAX){
             eDEBUFF.classList.remove('selected');
             edebuffINDEX.innerHTML = 0;
-            if(debuffOBJ.INDEX != undefined) debuffOBJ.INDEX = 1;
+            if(side == 'offense' && debuffOBJ.offINDEX != undefined) debuffOBJ.offINDEX = 1;
+            if(side == 'defense' && debuffOBJ.defINDEX != undefined) debuffOBJ.defINDEX = 1;
             while(debuffList.indexOf(debuffOBJ) != -1){
                 index = debuffList.indexOf(debuffOBJ);
                 debuffList.splice(index, 1);
@@ -168,7 +171,8 @@ function selectDEBUFF(side, debuffID){
         else{
             edebuffINDEX.innerHTML = Number(edebuffINDEX.innerHTML)+1;
             if(debuffOBJ.ACC) debuffList.push(debuffOBJ);
-            if(debuffOBJ.INDEX != undefined) debuffOBJ.INDEX += 1;
+            if(side == 'offense' && debuffOBJ.offINDEX != undefined) debuffOBJ.offINDEX += 1;
+            if(side == 'defense' && debuffOBJ.defINDEX != undefined) debuffOBJ.defINDEX += 1;
         }
     }
     // de-select if debuff have no DATA
