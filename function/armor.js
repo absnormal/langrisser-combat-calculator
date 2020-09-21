@@ -146,12 +146,12 @@ function getArmorBaseSkill(side){
         NAME: armor.NAME,
         BASE: [0, 0, 0, 0, 0, 0]
     };
-    if(armor.BASEHP != undefined) display.BASE[1] += armor.BASEHP;
-    if(armor.BASEATK != undefined) display.BASE[2] += armor.BASEATK;
-    if(armor.BASEINT != undefined) display.BASE[3] += armor.BASEINT;
-    if(armor.BASEDEF != undefined) display.BASE[4] += armor.BASEDEF;
-    if(armor.BASEMDEF != undefined) display.BASE[5] += armor.BASEMDEF;
-    if(armor.BASEDEX != undefined) display.BASE[6] += armor.BASEDEX;
+    if(armor.BASEHP != undefined) display.BASE[0] += armor.BASEHP;
+    if(armor.BASEATK != undefined) display.BASE[1] += armor.BASEATK;
+    if(armor.BASEINT != undefined) display.BASE[2] += armor.BASEINT;
+    if(armor.BASEDEF != undefined) display.BASE[3] += armor.BASEDEF;
+    if(armor.BASEMDEF != undefined) display.BASE[4] += armor.BASEMDEF;
+    if(armor.BASEDEX != undefined) display.BASE[5] += armor.BASEDEX;
 
     // add to combat
     if(side == 'offense'){

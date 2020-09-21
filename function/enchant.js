@@ -130,15 +130,15 @@ function getEnchantBase(side){
     // collect display
     var display = {
         NAME: enchant.NAME,
-        BASE: enchant.BASE
+        RATE: enchant.BASE
     };
 
     // add to combat
-    combat.offHPRATE += display.BASE[0];
-    combat.offATKRATE += display.BASE[1];
-    combat.offINTRATE += display.BASE[2];
-    combat.offDEFRATE += display.BASE[3];
-    combat.offMDEFRATE += display.BASE[4];
+    combat.offHPRATE += display.RATE[0];
+    combat.offATKRATE += display.RATE[1];
+    combat.offINTRATE += display.RATE[2];
+    combat.offDEFRATE += display.RATE[3];
+    combat.offMDEFRATE += display.RATE[4];
 
     return display;
 };

@@ -104,21 +104,6 @@ function getTOTALNUMS(side){
     }
 };
 
-function displayHEALS(side){
-    if(side == 'offense'){
-        var HEAL = document.getElementById('offHEAL');
-        var HEALED = document.getElementById('offHEALED');
-        HEAL.innerHTML = "治療效果:" + Math.round(combat.offHEAL*100) + "%";
-        HEALED.innerHTML = "遭受治療效果:" + Math.round(combat.offHEALED*100) + "%";
-    }
-    else if(side == 'defense'){
-        var HEAL = document.getElementById('defHEAL');
-        var HEALED = document.getElementById('defHEALED');
-        HEAL.innerHTML = "治療效果:" + Math.round(combat.defHEAL*100) + "%";
-        HEALED.innerHTML = "遭受治療效果:" + Math.round(combat.defHEALED*100) + "%";
-    }
-};
-
 function displayBASENUMS(side, sideRate){
     BASE = 'BASE';
     NUMS = ['HP','ATK','INT','DEF','MDEF','DEX'];
@@ -151,7 +136,7 @@ function displayADDNUMS(side, sideRate){
         let eDATA = document.getElementById(SIDE+ADD+NUMS[i]+DATA);
         let eDESC = document.getElementById(SIDE+ADD+NUMS[i]+DESC);
         let number = base[i]*(rate[i]-1)+add[i];
-        eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
+        eDATA.innerHTML = text[i] + ":" + Math.round(number);
         eDESC.innerHTML = base[i]+"×(0";
         for(let j=0; j<sideRate.length; j++){
             if(sideRate[j].RATE != undefined && sideRate[j].RATE[i] > 0)
@@ -166,6 +151,7 @@ function displayADDNUMS(side, sideRate){
 };
 
 function displayTOTALNUMS(side, sideRate){
+    BASE = 'BASE', ADD = 'ADD';
     NUMS = ['HP','ATK','INT','DEF','MDEF','DEX'], TOTAL='TOTAL';
     text = ["白字生命","白字攻擊", "白字智力", "白字防禦", "白字魔防", "白字技巧"];
 
@@ -175,11 +161,43 @@ function displayTOTALNUMS(side, sideRate){
     }
 
     for(let i=0; i<NUMS.length; i++){
-        let eBASE = document.getElementById(SIDE+TOTAL+NUMS[i]);
-        eBASE.innerHTML = text[i]+':'+Math.round(number[i]);
+        let nBASE = Number(document.getElementById(SIDE+BASE+NUMS[i]).innerHTML.split(":")[1]);
+        let nADD=Number(document.getElementById(SIDE+ADD+NUMS[i]+DATA).innerHTML.split(":")[1]);
+        let eDATA = document.getElementById(SIDE+TOTAL+NUMS[i]+DATA);
+        let eDESC = document.getElementById(SIDE+TOTAL+NUMS[i]+DESC);
+        eDATA.innerHTML = text[i]+':'+Math.round(number[i]);
+        eDESC.innerHTML = Math.round(number[i])+'='+nBASE+"+"+nADD;
     }
 };
 
+function displayPREHP(side){
+    // [talent, weapon, armor, helmet, accessory]
+    check = [false, false, false, false, false], checks = 0;
+    checkOBJ = [combat.offTalent, combat.offWeapon, combat.offArmor, combat.offHelmet, combat.offAccessory];
+    arenaHPRATE = 1.4;
+    totalHP = Number(document.getElementById('offTOTALHPDATA').innerHTML.split(':')[1]);
+    eHP = document.getElementById('offHP');
+    eDATA = document.getElementById('offHPDATA');
+    eDESC = document.getElementById('offHPDESC');
+
+    for(let i=0; i<check.length; i++){
+        if(checkOBJ[i].HP != undefined && checkOBJ[i].SOLDONLY != true){
+            arenaHPRATE += checkOBJ[i].HP;
+            check[i] = true;
+            checks++;
+        }
+    }
+    eDATA.innerHTML = '進場生命:'+Math.round(totalHP*arenaHPRATE);
+    eDESC.innerHTML = Math.round(totalHP*arenaHPRATE)+"="+totalHP+"×(1.4";
+    for(let i=0; i<check.length; i++){
+        if(checks == 0){
+            eDESC.innerHTML = Math.round(totalHP*arenaHPRATE)+"="+totalHP+"×1.4";
+            break;
+        }
+        if(check[i]) eDESC.innerHTML += "+"+checkOBJ[i].HP+"["+checkOBJ[i].NAME+"]";
+    }
+    if(checks != 0) eDESC.innerHTML += ")";
+};
 
 /* collect RATES from skills */
 function getAllSkill(stage, side){
@@ -212,6 +230,7 @@ function getAllSkill(stage, side){
         displayADDNUMS(side, sideRate);
         getTOTALNUMS(side);
         displayTOTALNUMS(side, sideRate);
+        displayPREHP(side);
     }
     /* MID STAGE */
     if(stage == 'MID'){
