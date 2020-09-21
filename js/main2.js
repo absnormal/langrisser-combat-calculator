@@ -266,6 +266,7 @@ function getCODE(){
     helmetNAME = combat.offHelmet.NAME;
     accessoryNAME = combat.offAccessory.NAME;
     enchantNAME = combat.offEnchant.NAME;
+    jobNUM = combat.offJobNo;
     NUMS = [Math.round(combat.offHP),
             Math.round(combat.offATK),
             Math.round(combat.offINT),
@@ -273,7 +274,7 @@ function getCODE(){
             Math.round(combat.offMDEF),
             Math.round(combat.offDEX) ];
 
-    JSONstring = '{"party":"'+partyNAME+'", "char":"'+charNAME+'", "weapon":"'+weaponNAME+'", "armor":"'+armorNAME+'", "helmet":"'+helmetNAME+'", "accessory":"'+accessoryNAME+'", "enchant":"'+enchantNAME+'", "bases":['+NUMS+']}';
+    JSONstring = '{"party":"'+partyNAME+'", "char":"'+charNAME+'", "weapon":"'+weaponNAME+'", "armor":"'+armorNAME+'", "helmet":"'+helmetNAME+'", "accessory":"'+accessoryNAME+'", "enchant":"'+enchantNAME+'", "jobNo":"'+combat.offJobNo+'", "bases":['+NUMS+']}';
     document.getElementById('JSON').value = JSONstring;
 };
 

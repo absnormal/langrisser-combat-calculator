@@ -77,6 +77,7 @@ function selectChar(charName){
             document.getElementById(defenseChar).classList.remove('selected');
         }
         combat.defChar = char.find(x => x.NAME === charName.slice(0, -1));
+        combat.defJobNo = 1;
         // hide all soldiers and display soldiers in char
         hideSoldier('defense');
         displaySoldier('defense');
@@ -130,6 +131,7 @@ function selectChar(charName){
             document.getElementById(offenseChar).classList.remove('selected');
         }
         combat.offChar = char.find(x => x.NAME === charName);
+        combat.offJobNo = 1;
         // hide all skills and display skills in char
         hideSkill('offense');
         displaySkill(charName, 'offense');

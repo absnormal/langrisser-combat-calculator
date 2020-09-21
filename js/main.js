@@ -1028,6 +1028,8 @@ function useCODE(side){
         let myOBJ = JSON.parse(myJSON);
         selectParty(myOBJ.party+d);
         selectChar(myOBJ.char+d);
+        for(let i=1; i<myOBJ.jobNo; i++)
+            changeJob(side);
         selectBUFF(side, '攻擊、智力+N％'+d);
         selectBUFF(side, '攻擊、智力+N％'+d);
         selectBUFF(side, '攻擊、智力+N％'+d);

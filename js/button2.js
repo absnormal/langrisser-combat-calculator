@@ -77,6 +77,7 @@ function selectChar(charName){
             document.getElementById(defenseChar).classList.remove('selected');
         }
         combat.defChar = char.find(x => x.NAME === charName.slice(0, -1));
+        combat.defJobNo = 1;
         // hide and display equipments by JOB1
         displayJob('defense');
         hideWeapon('defense');
@@ -100,6 +101,7 @@ function selectChar(charName){
         }
         combat.offChar = char.find(x => x.NAME === charName);
         document.getElementById('offchar').innerHTML = '角色:'+combat.offChar.NAME;
+        combat.offJobNo = 1;
         // hide and display equipments by JOB1
         displayArmy('offense');
         displayJob('offense');
