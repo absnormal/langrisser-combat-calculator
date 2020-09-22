@@ -553,11 +553,11 @@ function displayMIDNUMS(side, sideRate, oppRate){
             eMIDDESC.innerHTML += ")";
         }
         else{
-            /* CRITRATE FORMULA */
             let number = rate[i]+arena[i];
 
             eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
             eMIDDESC.innerHTML = number.toFixed(2);
+            /* CRITRATE */
             if(i == 5){
                 ePREDEXDATA = document.getElementById(SIDE+MID+'DEX'+DATA);
                 PREDEX = Number(ePREDEXDATA.innerHTML.split(":")[1]).toFixed(0);
@@ -566,6 +566,7 @@ function displayMIDNUMS(side, sideRate, oppRate){
                 if(arena[i] >= 0) eMIDDESC.innerHTML = (baseCRIT+number).toFixed(2)+"="+baseCRIT.toFixed(2)+"[技巧]+"+arena[i]+"[競技精通]";
                 else eMIDDESC.innerHTML = (baseCRIT+number).toFixed(2)+"="+baseCRIT.toFixed(2)+"[技巧]"+arena[i].toFixed(2)+"[競技精通]";
             }
+            /* CRITDMG */
             if(i == 6) eMIDDESC.innerHTML = number.toFixed(2)+"="+combat.baseCRITDMG+"+"+arena[i].toFixed(2)+"[競技精通]";
             for(let j=0; j<sideRate.length; j++){
                 if(sideRate[j].SOLDONLY) continue;
@@ -710,17 +711,21 @@ function displayMIDINTERACT(side, interact){
         }
 };
 
-/* ATK*(1+EQUIP+OEQUIP+TALENT+HEART+BUFF+DEBUFF+COMMAND+ENCHANT:MOON+ENCHENT:WAVE) */
-function displayONEHIT(side, sideRate, oppRate){
+function displayONEHIT(side, sideRate, oppRate, crit){
     ONEHIT='ONEHIT', MID='MID', DATA='DATA', DESC='DESC', DMGTYPE='DMGTYPE', text=['一段傷害'];
-    NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'/*, 'CRITRATE', 'CRITDMG'*/];
-    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITRATE = 0, CRITDMG = 1, DMGRATE = 2;
+    NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX', 'CRITDMG'];
+    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITDMG = 5, DMGRATE = 2;
     CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
     CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
     offMID = [], defMID = [],
     offOTHER = [combat.offCRITRATE, combat.offCRITDMG, combat.offDMGRATE];
     defOTHER = [combat.defCRITRATE, combat.defCRITDMG, combat.defDMGRATE];
 
+    // ONEHIT <-> ONECRIT
+    if(crit) ONEHIT = 'ONECRIT', text[0] = '一段暴擊';
+    else ONEHIT = 'ONEHIT', text[0] = '一段傷害';
+
+    // get MIDNUMS
     for(let i=0; i<NUMS.length; i++){
         eoffDATA = document.getElementById('off'+MID+NUMS[i]+DATA);
         edefDATA = document.getElementById('def'+MID+NUMS[i]+DATA);
@@ -737,7 +742,6 @@ function displayONEHIT(side, sideRate, oppRate){
         MDEFNEG = combat.offMDEFNEG;
         otherside = 'defense';
         mid = offMID, oppmid = defMID;
-        rate = offRATE, opprate = defRATE;
         other = offOTHER, oppother = defOTHER;
         counterRate = combat.offCounterRate;
         terrainRate = combat.defTerrainRate;
@@ -773,6 +777,9 @@ function displayONEHIT(side, sideRate, oppRate){
 
     /* ONEHIT MAIN FORMULA */
     number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*skilldmg*(1-talentDMGDEC)*(1-commandDMGDEC);
+    /* ONECRIT MAIN FORMULA */
+    if(crit) number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*skilldmg*(1-talentDMGDEC)*(1-commandDMGDEC)*mid[CRITDMG];
+    // min dmg = 1
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+DMGTYPE);
@@ -839,6 +846,9 @@ function displayONEHIT(side, sideRate, oppRate){
                eDESC.innerHTML+="-"+oppRate[j].COMMANDDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
         eDESC.innerHTML += ")";
     }
+
+    /* CRIT */
+    if(crit) eDESC.innerHTML += "×"+mid[CRITDMG];
 };
 
 /* collect RATES from skills */
@@ -989,11 +999,15 @@ function getAllSkill(stage, side){
         displayMIDSoldNUMS(side, sideRate, othersideRate);
         displayMIDSoldNUMS(otherside, othersideRate, sideRate);
         // display ONEHIT
-        displayONEHIT(side, sideRate, othersideRate);
-        displayONEHIT(otherside, othersideRate, sideRate);
+        displayONEHIT(side, sideRate, othersideRate, false);
+        displayONEHIT(side, sideRate, othersideRate, true);
+        displayONEHIT(otherside, othersideRate, sideRate, false);
+        displayONEHIT(otherside, othersideRate, sideRate, true);
         // display soldier ONEHIT
-        displaySoldONEHIT(side, sideRate, othersideRate);
-        displaySoldONEHIT(otherside, othersideRate, sideRate);
+        displaySoldONEHIT(side, sideRate, othersideRate, false);
+        displaySoldONEHIT(side, sideRate, othersideRate, true);
+        displaySoldONEHIT(otherside, othersideRate, sideRate, false);
+        displaySoldONEHIT(otherside, othersideRate, sideRate, true);
     }
 };
 

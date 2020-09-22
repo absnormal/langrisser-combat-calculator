@@ -36,24 +36,24 @@ function cal_counter(offenseArmy, defenseArmy){
     }
 };
 
-function cal_skillCounter(skillCounter, defenseArmy){
-    var counters = skillCounter.split(" ");
+function cal_skillCounter(skillOBJ, defenseArmy){
+    let counter = skillOBJ.COUNTER;
+    // normal counter rate
+    let counterRATE = 0.3;
+    // special counter rate
+    if(skillOBJ.COUNTERRATE != undefined) counterRATE = skillOBJ.COUNTERRATE;
 
-    if(counters.length == 1 && skillCounter == defenseArmy)
-        return 0.3;
-    else
-        for(var i=0; i<counters.length; i++){
-            if(counters[i] == defenseArmy)
-                return 0.3;
-        }
-    return 0;
+    if(counter.includes(defenseArmy)){
+        return counterRATE;
+    }
+    else return 0;
 };
 
 /* get side->otherside counter */
 function getCounterRATE(side){
     if(side == 'offense'){
         combat.offCounterRate += cal_counter(getNewArmy('offense'), getNewArmy('defense'));
-        if(combat.offSkill.TYPE == combat.offDMGTYPE) combat.offCounterRate += cal_skillCounter(combat.offSkill.COUNTER, getNewArmy('defense'));
+        if(combat.offSkill.TYPE == combat.offDMGTYPE) combat.offCounterRate += cal_skillCounter(combat.offSkill, getNewArmy('defense'));
         combat.offCounterRate += combat.offELSECounterRate;
     }
     else if(side == 'defense'){
@@ -66,7 +66,7 @@ function getCounterRATE(side){
 function getSoldCounterRATE(side){
     if(side == 'offense'){
         combat.offSoldCounterRate += cal_counter(combat.offSoldier.ARMY, combat.defSoldier.ARMY);
-        if(combat.offSkill.TYPE == combat.offsoldDMGTYPE) combat.offSoldCounterRate += cal_skillCounter(combat.offSkill.COUNTER, combat.defSoldier.ARMY);
+        if(combat.offSkill.TYPE == combat.offsoldDMGTYPE) combat.offSoldCounterRate += cal_skillCounter(combat.offSkill, combat.defSoldier.ARMY);
         combat.offSoldCounterRate += combat.offELSECounterRate;
     }
     else if(side == 'defense'){

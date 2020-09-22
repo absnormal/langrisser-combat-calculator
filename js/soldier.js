@@ -454,15 +454,19 @@ function displayMIDSoldNUMS(side, sideRate, oppRate){
     }
 };
 
-function displaySoldONEHIT(side, sideRate, oppRate){
+function displaySoldONEHIT(side, sideRate, oppRate, crit){
     ONEHIT='ONEHIT', MID='MID', DATA='DATA', DESC='DESC', DMGTYPE='DMGTYPE', SOLD='sold'
-    text=['一段傷害'], NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'/*, 'CRITRATE', 'CRITDMG'*/];
-    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITRATE = 0, CRITDMG = 1, DMGRATE = 2;
+    text=['一段傷害'], NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX', 'CRITDMG'];
+    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITDMG = 5, DMGRATE = 2;
     CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
     CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
     offMID = [], defMID = [],
     offOTHER = [combat.offsoldCRITRATE, combat.offsoldCRITDMG, combat.offsoldDMGRATE];
     defOTHER = [combat.defsoldCRITRATE, combat.defsoldCRITDMG, combat.defsoldDMGRATE];
+
+    // ONEHIT <-> ONECRIT
+    if(crit) ONEHIT = 'ONECRIT', text[0] = '一段暴擊';
+    else ONEHIT = 'ONEHIT', text[0] = '一段傷害';
 
     for(let i=0; i<NUMS.length; i++){
         if(NUMS[i] == 'INT' || NUMS[i] == 'DEX') continue;
@@ -514,6 +518,9 @@ function displaySoldONEHIT(side, sideRate, oppRate){
 
     /* ONEHIT MAIN FORMULA */
     number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*(1-commandDMGDEC);
+    /* ONECRIT MAIN FORMULA */
+    if(crit) number = (offNUM-defNUM*(1-negNUM))/2*skillrate*other[DMGRATE]*(1-commandDMGDEC)*mid[CRITDMG];
+    // min dmg = 1
     if(number <= 0) number = 1;
 
     eTYPE = document.getElementById(SIDE+SOLD+DMGTYPE);
@@ -561,5 +568,7 @@ function displaySoldONEHIT(side, sideRate, oppRate){
                 eDESC.innerHTML+="-"+oppRate[j].COMMANDDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
         eDESC.innerHTML += ")";
     }
+    /* CRITDMG */
+    if(crit) eDESC.innerHTML += "×"+mid[CRITDMG];
 };
 

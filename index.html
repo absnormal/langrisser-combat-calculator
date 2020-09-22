@@ -2007,7 +2007,7 @@
                                 <td id='defsoldDMGTYPE'>[傷害類型]</td>
                                 <td id='defDMGTYPE'>[傷害類型]</td>
                             </tr>
-                            <tr>
+                            <tr id='ONEHIT'>
                                 <td>
                                     <li class='NUM' id='offONEHIT' style='display:inline-block' style='text-align: center;' onmouseover='loadNUMDesc("offense", this.id)'>
                                         <p id='offONEHITDATA'>一段傷害: NA</p>
@@ -2041,6 +2041,40 @@
                                     </li>
                                 </td>
                             </tr>
+                            <tr id='ONECRIT'>
+                                <td>
+                                    <li class='NUM' id='offONECRIT' style='display:inline-block' style='text-align: center;' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offONECRITDATA'>一段暴擊: NA</p>
+                                        <table class='NUMDESC' id='offONECRITTABLE'>
+                                            <tr><td id='offONECRITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='offsoldONECRIT' style='display:inline-block' style='text-align: center;' onmouseover='loadNUMDesc("offense", this.id)'>
+                                        <p id='offsoldONECRITDATA'>一段暴擊: NA</p>
+                                        <table class='NUMDESC' id='offsoldONECRITTABLE'>
+                                            <tr><td id='offsoldONECRITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defsoldONECRIT' style='display:inline-block' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defsoldONECRITDATA'>一段暴擊: NA</p>
+                                        <table class='NUMDESC' id='defsoldONECRITTABLE'>
+                                            <tr><td id='defsoldONECRITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                                <td>
+                                    <li class='NUM' id='defONECRIT' style='display:inline-block' onmouseover='loadNUMDesc("defense", this.id)'>
+                                        <p id='defONECRITDATA'>一段暴擊: NA</p>
+                                        <table class='NUMDESC' id='defONECRITTABLE'>
+                                            <tr><td id='defONECRITDESC'>NA</td></tr>
+                                        </table>
+                                    </li>
+                                </td>
+                            </tr>
                             <tr>
                                 <td><br></td>
                             </tr>
@@ -2070,7 +2104,7 @@
                                 </td>
                             </tr>
                             <tr class='data'>
-                                <td>反擊距離:<input type='text' id='defRange' style='width:40px' value=1></td>
+                                <td></td>
                                 <td></td>
                                 <td id='defMOVETYPE'>部隊移動:NA</td>
                                 <td id='defsoldARMY'>士兵兵種:NA</td>
