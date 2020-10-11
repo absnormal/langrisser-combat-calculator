@@ -11,6 +11,7 @@ var enchant = [{
 },{
     NAME: '魔術',
     BASE: [0, 0.05, 0.05, 0, 0],
+    AOEDMGINC: 0.15,
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'defense') this.SKILLDMG = undefined;

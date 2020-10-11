@@ -153,6 +153,7 @@ var weapon = [{
 },{
     NAME: '奇蹟之杖', TYPE: '法杖',
     BASEHP: 437, BASEINT: 107,
+    AOEDMGINC: 0.15,
     DESC: '範圍技能傷害提升15%，主動造成傷害時，有30%機率使敵軍遭受1個強力弱化狀態'
 },{
     NAME: '女神的左手', TYPE: '法杖',

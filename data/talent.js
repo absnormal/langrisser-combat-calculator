@@ -195,6 +195,7 @@ var talent = [{
     DESC: '主動攻擊進入戰鬥時，傷害提升30%。戰鬥後，有100%概率恢復生命，恢復量為英雄造成傷害的30%。',
 },{
     NAME: '劍刃領域',
+    AOEDMGDEC: 0.3,
     DESC: '遭受範圍傷害降低30%。當周圍3格內的一名友軍被攻擊後，對攻擊者造成貝蒂攻擊1倍的[固定傷害]（該效果無法免疫），並有30%的概率對其施加1個隨機的弱化效果。之後提升自身20%攻擊和魔防，持續2回合。',
 },{
     NAME: '居合一閃',
@@ -475,6 +476,7 @@ var talent = [{
 },{
     NAME: '聖樹嘆息',
     SKILLTYPE: ['RATE'],
+    AOEDMGINC: 0.15,
     RATE: function(side){
         if(side == 'offense') friend = combat.off2BFriend;
         else if(side == 'defense') friend = combat.def2BFriend;
@@ -853,32 +855,125 @@ var talent = [{
     },
     DESC: '對戰“飛兵”與“騎兵”部隊時，攻擊和防禦提升30%。',
 },{
-/*
+    NAME: '愛的聲援',
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') friend = combat.off2BFriend;
+        else if(side == 'defense') friend = combat.def2BFriend;
+        if(friend > 0) return [0.15, 0, 0.15, 0, 0];
+        else return false;
+    },
     DESC: '如果自身2格範圍有友軍部隊，攻擊、防禦提升15%。行動結束時，使周圍2格以內4個其他友軍「移動力」提升1，持續1回合。',
 },{
+    NAME: '額外的祝福',
+    HP: 0.2,
     DESC: '自身部隊生命提升20%。對友軍釋放技能時都會附加1個額外的隨機強化效果。',
 },{
+    NAME: '老而彌堅',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        return false;
+        /* RATE UNKNOWN */
+    },
     DESC: '部隊血量越低時，減少遭受物理傷害越多，最多減少40%。',
 },{
+    NAME: '水軍教頭',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            oppDMGTYPE = combat.defDMGTYPE;
+            terrain = combat.offTerrain;
+        }
+        else if(side == 'defense'){
+            oppDMGTYPE = combat.offDMGTYPE;
+            terrain = combat.defTerrain;
+        }
+        if(terrain == '水') return [0.15, 0, 0.15, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
     DESC: '在水中戰鬥時，攻擊、防禦提升15%。行動結束時，如果部隊在水中，恢復自身部隊40%生命。',
 },{
+    NAME: '光之啟源',
     DESC: '主動攻擊進入戰鬥前，部隊攻擊、防禦提升15%，持續1回合，且戰後100%概率恢復部隊30%生命值。',
 },{
+    NAME: '剛猛',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        return [0, 0, 0, 0, 0.2, 0.2, 0, 0, 0, 0];
+    },
     DESC: '暴擊率提升20%，暴擊傷害提升20%。',
 },{
+    NAME: '水戰高手',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            oppDMGTYPE = combat.defDMGTYPE;
+            terrain = combat.offTerrain;
+        }
+        else if(side == 'defense'){
+            oppDMGTYPE = combat.offDMGTYPE;
+            terrain = combat.defTerrain;
+        }
+        if(terrain == '水') return [0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
     DESC: '本部隊在水中戰鬥時攻擊提升30%。',
 },{
+    NAME: '騎士的信念',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP >= 0.8 && side == 'offense') return [0.3, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
     DESC: '當生命80%以上主動進入戰鬥時本部隊攻擊和防禦各提升30%。',
 },{
+    NAME: '謹慎的戰術家',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP >= 0.5) this.TALENTDMGDEC = 0.3;
+        else this.TALENTDMGDEC = 0;
+    },
     DESC: '生命值50%以上時進入戰鬥，遭受傷害降低30%。',
 },{
+    NAME: '碎甲狙擊',
     DESC: '主動攻擊進入戰鬥前，100%概率使得敵軍的防禦力降低30%，持續1回合。',
 },{
+    NAME: '法術大師',
+    SKILLTYPE: ['RATE','ADD','MIDADD'],
+    ADD: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP == 1) return [0, 0.4, 0, 1, 0];
+        else return false;
+    },
+    MIDADD: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP == 1) return [0, 0.4, 0, 1, 0];
+        else return false;
+    },
+    RATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP == 1) return [0, 0.15, 0, 0, 0];
+        else return false;
+    },
     DESC: '部隊生命100%時，智力提升15%。自身智力的40%會額外附加到魔防上。',
 },{
+    NAME: '謹慎的守將',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense' && combat.offDMGTYPE == '物理傷害') this.TALENTDMGDEC = 0.3;
+        else this.TALENTDMGDEC = 0;
+    },
     DESC: '被攻擊時，遭受物理傷害降低30%。',
 },{
-*/
     NAME: '吐槽大師',
     DESC: '行動結束時，對4格以內的4個敵軍施加1個隨機的弱化效果。並為生命最低的其他友軍部隊恢復生命，恢復量為艾梅達智力的2.5倍。',
 },{

@@ -540,6 +540,8 @@ function displayMIDNUMS(side, sideRate, oppRate){
         if(i < 5){
             /* MIDNUM FORMULA */
             let number = base[i]*rate[i]+arena[i];
+            if(side == 'offense') combat.offCRITRATE = number.toFixed(2);
+            if(side == 'defense') combat.defCRITRATE = number.toFixed(2);
 
             eDATA.innerHTML = text[i] + ":" + Math.round(number);
             eMIDDESC.innerHTML = Math.round(number)+"="+pre[i]+"+"+base[i]+"×(0";
@@ -554,6 +556,8 @@ function displayMIDNUMS(side, sideRate, oppRate){
         }
         else{
             let number = rate[i]+arena[i];
+            if(side == 'offense') combat.offCRITDMG = number.toFixed(2);
+            if(side == 'defense') combat.defCRITDMG = number.toFixed(2);
 
             eDATA.innerHTML = text[i] + ":" + number.toFixed(2);
             eMIDDESC.innerHTML = number.toFixed(2);
@@ -851,6 +855,125 @@ function displayONEHIT(side, sideRate, oppRate, crit){
     if(crit) eDESC.innerHTML += "×"+mid[CRITDMG];
 };
 
+function displayAOE(side, sideRate, oppRate, crit){
+    AOE='AOE', PRE='PRE', DATA='DATA', DESC='DESC', text=['造成傷害'];
+    NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
+    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITDMG = 5, DMGRATE = 2;
+    CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
+    CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
+    offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
+    defPRE = [combat.defATK, combat.defINT, combat.defDEF, combat.defMDEF, combat.defDEX];
+    offOTHER = [combat.offCRITRATE, combat.offCRITDMG, combat.offDMGRATE];
+    defOTHER = [combat.defCRITRATE, combat.defCRITDMG, combat.defDMGRATE];
+
+    // AOE <->AOECRIT
+    if(crit) AOE = 'AOECRIT', text[0] = '造成暴擊';
+    else AOE = 'AOE', text[0] = '造成傷害';
+
+    if(side == 'offense'){
+        SIDE = 'off';
+        skilltype = combat.offSkill.TYPE;
+        skillrate = combat.offSkill.RATE;
+        skilldmg = combat.offSKILLDMG;
+        DEFNEG = combat.offDEFNEG;
+        MDEFNEG = combat.offMDEFNEG;
+        otherside = 'defense';
+        pre = offPRE, opppre = defPRE;
+        other = offOTHER, oppother = defOTHER;
+        counterRate = combat.offCounterRate;
+        terrainRate = combat.defTerrainRate;
+        talentDMGDEC = combat.defTALENTDMGDEC;
+        commandDMGDEC = combat.defCOMMANDDMGDEC;
+        critdmg = combat.offCRITDMG;
+    }
+
+    if(skilltype == '物理傷害'){
+        offNUM = pre[ATK]*counterRate;
+        defNUM = opppre[DEF]*terrainRate;
+        negNUM = DEFNEG;
+    }
+    else if(skilltype == '魔法傷害'){
+        offNUM = pre[INT]*counterRate;
+        defNUM = opppre[MDEF]*terrainRate;
+        negNUM = MDEFNEG;
+    }
+
+    /* AOE MAIN FORMULA */
+    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*20*other[DMGRATE]*skilldmg*(1-talentDMGDEC)*(1-commandDMGDEC);
+    /* AOECRIT MAIN FORMULA */
+    if(crit) number = (offNUM-defNUM*(1-negNUM))/2*skillrate*20*other[DMGRATE]*skilldmg*(1-talentDMGDEC)*(1-commandDMGDEC)*critdmg;
+    // min dmg = 1
+    if(number <= 0) number = 1;
+
+    eTYPE = document.getElementById(SIDE+AOE+DMGTYPE);
+    eDATA = document.getElementById(SIDE+AOE+DATA);
+    eDESC = document.getElementById(SIDE+AOE+DESC);
+    eTYPE.innerHTML = "["+skilltype+"]";
+    eDATA.innerHTML = text[0] + ":" + Math.round(number);
+    eDESC.innerHTML = Math.round(number) + "=";
+
+    /* display skilltype */
+    if(skilltype == '物理傷害') offNUM = ATK, defNUM = DEF;
+    else if(skilltype == '魔法傷害') offNUM = INT, defNUM = MDEF;
+
+
+    /* offNUM*counterRate */
+    eDESC.innerHTML += "("+Math.round(pre[offNUM])+"×"+counterRate.toFixed(2);
+    /* defNUM*(1-negNUM)*terrainRate */
+    if(!negNUM) eDESC.innerHTML += " - "+Math.round(opppre[defNUM])+"×"+terrainRate+")";
+    else eDESC.innerHTML += " - "+Math.round(opppre[defNUM])+"×(1-"+negNUM+")×"+terrainRate+")";
+    /* skillrate */
+    eDESC.innerHTML += "÷2×"+skillrate+"×20";
+    /* off DMGRATEINC */
+    eDESC.innerHTML += "×(1";
+    for(let j=0; j<sideRate.length; j++){
+      if(sideRate[j].SOLDONLY != undefined && sideRate[j].SOLDONLY == true) continue;
+      if(sideRate[j].MIDRATE[DMGRATEINC] > 0)
+       eDESC.innerHTML+="+"+sideRate[j].MIDRATE[DMGRATEINC].toFixed(2)+"["+sideRate[j].NAME+"]";
+      if(sideRate[j].MIDRATE[DMGRATEINC] < 0)
+       eDESC.innerHTML+=sideRate[j].MIDRATE[DMGRATEINC].toFixed(2)+"["+sideRate[j].NAME+"]";
+    }
+    /* def DMGRATEDEC */
+    for(let j=0; j<oppRate.length; j++){
+      if(oppRate[j].SOLDONLY != undefined && oppRate[j].SOLDONLY == true) continue;
+      if(oppRate[j].MIDRATE[DMGRATEDEC] > 0)
+       eDESC.innerHTML+="-"+oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
+      if(oppRate[j].MIDRATE[DMGRATEDEC] < 0)
+       eDESC.innerHTML+="+"+(oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
+    }
+    eDESC.innerHTML += ")";
+
+    /* skill dmg rate */
+    if(skilldmg != 1){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<sideRate.length; j++)
+            if(sideRate[j].SKILLDMG != undefined && sideRate[j].SKILLDMG != 0)
+                eDESC.innerHTML+="+"+sideRate[j].SKILLDMG.toFixed(2)+"["+sideRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
+
+    /* mulitply talent DMGDEC */
+    if(talentDMGDEC != 0){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<oppRate.length; j++)
+            if(oppRate[j].TALENTDMGDEC != undefined && oppRate[j].TALENTDMGDEC != 0)
+               eDESC.innerHTML+="-"+oppRate[j].TALENTDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
+
+    /* mulitply command DMGDEC */
+    if(commandDMGDEC != 0){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<oppRate.length; j++)
+            if(oppRate[j].COMMANDDMGDEC != undefined && oppRate[j].COMMANDDMGDEC != 0)
+               eDESC.innerHTML+="-"+oppRate[j].COMMANDDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
+
+    /* CRIT */
+    if(crit) eDESC.innerHTML += "×"+mid[CRITDMG];
+};
+
 /* collect RATES from skills */
 function getAllSkill(stage, side){
     var otherside;
@@ -859,12 +982,14 @@ function getAllSkill(stage, side){
         sideBASE = combat.offBASEKNOWN;
         othersideBASE = combat.defBASEKNOWN;
         charNAME = combat.offChar.NAME;
+        skillAREA = combat.offSkill.AREA;
     }
     else if(side == 'defense'){
         otherside = 'offense';
         sideBASE = combat.defBASEKNOWN;
         othersideBASE = combat.offBASEKNOWN;
         charNAME = combat.defChar.NAME;
+        skillAREA = combat.defSkill.AREA;
     }
     /* PRE STAGE */
     if(stage == 'PRE'){
@@ -989,25 +1114,38 @@ function getAllSkill(stage, side){
         // skill
         sideRate.push(getMIDSkillSkill(side));
         othersideRate.push(getMIDSkillSkill(otherside));
-        // display MIDNUMS
-        displayMIDNUMS(side, sideRate, othersideRate);
-        displayMIDNUMS(otherside, othersideRate, sideRate);
-        // display MIDINTERACT
-        displayMIDINTERACT(side, interact);
-        displayMIDINTERACT(otherside, oppinteract);
-        // display MID soldNUMS
-        displayMIDSoldNUMS(side, sideRate, othersideRate);
-        displayMIDSoldNUMS(otherside, othersideRate, sideRate);
-        // display ONEHIT
-        displayONEHIT(side, sideRate, othersideRate, false);
-        displayONEHIT(side, sideRate, othersideRate, true);
-        displayONEHIT(otherside, othersideRate, sideRate, false);
-        displayONEHIT(otherside, othersideRate, sideRate, true);
-        // display soldier ONEHIT
-        displaySoldONEHIT(side, sideRate, othersideRate, false);
-        displaySoldONEHIT(side, sideRate, othersideRate, true);
-        displaySoldONEHIT(otherside, othersideRate, sideRate, false);
-        displaySoldONEHIT(otherside, othersideRate, sideRate, true);
+        // single skill
+        if(skillAREA == '單體'){
+            hideResult(skillAREA);
+            // display MIDNUMS
+            displayMIDNUMS(side, sideRate, othersideRate);
+            displayMIDNUMS(otherside, othersideRate, sideRate);
+            // display MIDINTERACT
+            displayMIDINTERACT(side, interact);
+            displayMIDINTERACT(otherside, oppinteract);
+            // display MID soldNUMS
+            displayMIDSoldNUMS(side, sideRate, othersideRate);
+            displayMIDSoldNUMS(otherside, othersideRate, sideRate);
+            // display ONEHIT
+            displayONEHIT(side, sideRate, othersideRate, false);
+            displayONEHIT(side, sideRate, othersideRate, true);
+            displayONEHIT(otherside, othersideRate, sideRate, false);
+            displayONEHIT(otherside, othersideRate, sideRate, true);
+            // display soldier ONEHIT
+            displaySoldONEHIT(side, sideRate, othersideRate, false);
+            displaySoldONEHIT(side, sideRate, othersideRate, true);
+            displaySoldONEHIT(otherside, othersideRate, sideRate, false);
+            displaySoldONEHIT(otherside, othersideRate, sideRate, true);
+        }
+        // area skill
+        else{
+            hideResult(skillAREA);
+            // display AOE
+            // char -> char
+            displayAOE(side, sideRate, othersideRate, false);
+            // char -> sold
+            //displaySoldAOE(side, sideRate, othersideRate, false);
+        }
     }
 };
 
@@ -1074,6 +1212,19 @@ function clearCODE(side){
     if(side == 'offense') SIDE = 'off';
     if(side == 'defense') SIDE = 'def';
     document.getElementById(SIDE+'JSON').value = '';
+};
+
+function hideResult(type){
+    singleSKILLTABLE = document.getElementById('singleSKILLTABLE');
+    areaSKILLTABLE = document.getElementById('areaSKILLTABLE');
+    if(type == '單體'){
+        singleSKILLTABLE.style = 'width:600px;';
+        areaSKILLTABLE.style = 'width:600px;display:none;';
+    }
+    else{
+        singleSKILLTABLE.style = 'width:600px;display:none;';
+        areaSKILLTABLE.style = 'width:600px;';
+    }
 };
 
 window.addEventListener("click", function getSelected(){

@@ -572,3 +572,113 @@ function displaySoldONEHIT(side, sideRate, oppRate, crit){
     if(crit) eDESC.innerHTML += "×"+mid[CRITDMG];
 };
 
+/* char -> sold */
+function displaySoldAOE(side, sideRate, oppRate, crit){
+    AOE='AOE', PRE='PRE', DATA='DATA', DESC='DESC', DMGTYPE='DMGTYPE', SOLD='sold'
+    text=['造成傷害'], NUMS = ['ATK', 'INT', 'DEF', 'MDEF', 'DEX'];
+    ATK = 0, INT = 1, DEF = 2, MDEF = 3, DEX = 4, CRITDMG = 5, DMGRATE = 2;
+    CRITRATEINC = 5, CRITDMGINC = 6, DMGRATEINC = 7;
+    CRITRATEDEC = 8, CRITDMGDEC = 9, DMGRATEDEC = 10;
+    offPRE = [combat.offATK, combat.offINT, combat.offDEF, combat.offMDEF, combat.offDEX];
+    defPRE = [];
+    offOTHER = [combat.offCRITRATE, combat.offCRITDMG, combat.offDMGRATE];
+    defOTHER = [combat.defsoldCRITRATE, combat.defsoldCRITDMG, combat.defsoldDMGRATE];
+
+    // ONEHIT <-> ONECRIT
+    if(crit) ONEHIT = 'ONECRIT', text[0] = '造成暴擊';
+    else ONEHIT = 'ONEHIT', text[0] = '造成傷害';
+
+    for(let i=0; i<NUMS.length; i++){
+        if(NUMS[i] == 'INT' || NUMS[i] == 'DEX'){
+            defPRE[i] = 0;
+            continue;
+        }
+        edefDATA = document.getElementById('def'+SOLD+PRE+NUMS[i]+DATA);
+        sold2nums = edefDATA.innerHTML.split(':')[1];
+        defPRE[i] = Number(sold2nums.split("+")[0]) + Number(sold2nums.split("+")[1]);
+    }
+    document.getElementById('ERROR').innerHTML = defPRE;
+
+    if(side == 'offense'){
+        SIDE = 'off';
+        skilltype = combat.offDMGTYPE;
+        skillrate = combat.offSkill.RATE;
+        DEFNEG = combat.offDEFNEG;
+        MDEFNEG = combat.offMDEFNEG;
+        otherside = 'defense';
+        pre = offPRE, opppre = defPRE;
+        rate = offRATE, opprate = defRATE;
+        other = offOTHER, oppother = defOTHER;
+        counterRate = combat.offCounterRate;
+        terrainRate = combat.defTerrainRate;
+        commandDMGDEC = combat.defCOMMANDDMGDEC;
+        critdmg = combat.offCRITDMG;
+    }
+
+    if(skilltype == '物理傷害'){
+        offNUM = pre[ATK]*counterRate;
+        defNUM = opppre[DEF]*terrainRate;
+        negNUM = DEFNEG;
+    }
+    else if(skilltype == '魔法傷害'){
+        offNUM = pre[INT]*counterRate;
+        defNUM = opppre[MDEF]*terrainRate;
+        negNUM = MDEFNEG;
+    }
+
+    /* ONEHIT MAIN FORMULA */
+    number = (offNUM-defNUM*(1-negNUM))/2*skillrate*20*other[DMGRATE]*(1-commandDMGDEC);
+    /* ONECRIT MAIN FORMULA */
+    if(crit) number = (offNUM-defNUM*(1-negNUM))/2*skillrate*20*other[DMGRATE]*(1-commandDMGDEC)*critdmg;
+    // min dmg = 1
+    if(number <= 0) number = 1;
+
+    eTYPE = document.getElementById(SIDE+SOLD+AOE+DMGTYPE);
+    eDATA = document.getElementById(SIDE+SOLD+AOE+DATA);
+    eDESC = document.getElementById(SIDE+SOLD+AOE+DESC);
+    eTYPE.innerHTML = "["+skilltype+"]";
+    eDATA.innerHTML = text[0] + ":" + Math.round(number);
+    eDESC.innerHTML = Math.round(number) + "=";
+
+    /* display skilltype */
+    if(skilltype == '物理傷害') offNUM = ATK, defNUM = DEF;
+    else if(skilltype == '魔法傷害') offNUM = ATK, defNUM = MDEF;
+
+
+    /* offNUM*counterRate */
+    eDESC.innerHTML += "("+Math.round(pre[offNUM])+"×"+counterRate.toFixed(2);
+    /* defNUM*(1-negNUM)*terrainRate */
+    if(!negNUM) eDESC.innerHTML += " - "+Math.round(opppre[defNUM])+"×"+terrainRate+")";
+    else eDESC.innerHTML += " - "+Math.round(opppre[defNUM])+"×(1-"+negNUM+")×"+terrainRate+")";
+    /* skillrate */
+    eDESC.innerHTML += "÷2×"+skillrate+"×20";
+    /* off DMGRATEINC */
+    eDESC.innerHTML += "×(1";
+    for(let j=0; j<sideRate.length; j++){
+      if(sideRate[j].CHARONLY != undefined && sideRate[j].CHARONLY == false) continue;
+      if(sideRate[j].MIDRATE[DMGRATEINC] > 0)
+       eDESC.innerHTML+="+"+sideRate[j].MIDRATE[DMGRATEINC].toFixed(2)+"["+sideRate[j].NAME+"]";
+      if(sideRate[j].MIDRATE[DMGRATEINC] < 0)
+       eDESC.innerHTML+=sideRate[j].MIDRATE[DMGRATEINC].toFixed(2)+"["+sideRate[j].NAME+"]";
+    }
+    /* def DMGRATEDEC */
+    for(let j=0; j<oppRate.length; j++){
+      if(oppRate[j].CHARONLY != undefined && oppRate[j].CHARONLY == true) continue;
+      if(oppRate[j].MIDRATE[DMGRATEDEC] > 0)
+       eDESC.innerHTML+="-"+oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)+"["+oppRate[j].NAME+"]";
+      if(oppRate[j].MIDRATE[DMGRATEDEC] < 0)
+       eDESC.innerHTML+="+"+(oppRate[j].MIDRATE[DMGRATEDEC].toFixed(2)*-1)+"["+oppRate[j].NAME+"]";
+    }
+    eDESC.innerHTML += ")";
+    /* multiply command DMGDEC */
+    if(commandDMGDEC != 0){
+        eDESC.innerHTML += "×(1";
+        for(let j=0; j<oppRate.length; j++)
+            if(oppRate[j].COMMANDDMGDEC != undefined && oppRate[j].COMMANDDMGDEC != 0)
+                eDESC.innerHTML+="-"+oppRate[j].COMMANDDMGDEC.toFixed(2)+"["+oppRate[j].NAME+"]";
+        eDESC.innerHTML += ")";
+    }
+    /* CRITDMG */
+    if(crit) eDESC.innerHTML += "×"+critdmg;
+};
+
