@@ -621,7 +621,7 @@ var char = [{
     SOLDHPPLUS:0.2, SOLDATKPLUS:0.2, SOLDDEFPLUS:0.35, SOLDMDEFPLUS:0.25,
     TALENT: '戰爭女神',
     PARTY: ['公主聯盟','流星直擊','傳說彼端'],
-    SOLDIER: ['突襲弩騎兵','聖天馬','皇家獅鷲','天琴親衛','龍騎兵','狂戰士','天使','獨角獸'],
+    SOLDIER: ['人魚統領','龍蝦巨獸','皇家獅鷲','重裝騎兵','龍騎兵','狂戰士','天使','獨角獸'],
     SKILLS: ['撞擊','雷光'],
     JOB1:'海騎統帥', ARMY1: '水兵', DMGTYPE1: '物理傷害', MOVETYPE1: '水行',
     BASE1HP: 4586, BASE1ATK: 547, BASE1INT: 247,

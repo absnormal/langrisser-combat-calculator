@@ -890,7 +890,7 @@ var talent = [{
             oppDMGTYPE = combat.offDMGTYPE;
             terrain = combat.defTerrain;
         }
-        if(terrain == '水') return [0.15, 0, 0.15, 0, 0, 0, 0, 0, 0, 0];
+        if(terrain == '水') return [0.15, 0, 0.15, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '在水中戰鬥時，攻擊、防禦提升15%。行動結束時，如果部隊在水中，恢復自身部隊40%生命。',
@@ -901,7 +901,7 @@ var talent = [{
     NAME: '剛猛',
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        return [0, 0, 0, 0, 0.2, 0.2, 0, 0, 0, 0];
+        return [0, 0, 0, 0, 0, 0.2, 0.2, 0, 0, 0, 0];
     },
     DESC: '暴擊率提升20%，暴擊傷害提升20%。',
 },{
@@ -916,7 +916,7 @@ var talent = [{
             oppDMGTYPE = combat.offDMGTYPE;
             terrain = combat.defTerrain;
         }
-        if(terrain == '水') return [0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(terrain == '水') return [0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         else return false;
     },
     DESC: '本部隊在水中戰鬥時攻擊提升30%。',
