@@ -258,8 +258,8 @@ var weapon = [{
     /* TRUE DMG */
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
-        if(side == 'offense') oppPerHP = combat.defHP/combatdefFULLHP;
-        else if(side == 'defense') oppPerHP = combat.offHP/combatoffFULLHP;
+        if(side == 'offense') oppPerHP = combat.defHP/combat.defFULLHP;
+        else if(side == 'defense') oppPerHP = combat.offHP/combat.offFULLHP;
         if(oppPerHP < 1) return [0, 0, 0, 0, 0, 0, 0, 0.05, 0, 0, 0];
         else return false;
     },
