@@ -130,8 +130,18 @@ function holdHelmet(side, army, job){
             break;
     }
     // add hero name to type for char specials
-    if(side == 'offense') holds.push(combat.offChar.NAME);
-    else if(side == 'defense') holds.push(combat.defChar.NAME);
+    if(side == 'offense'){
+        if(combat.offChar.NAME[0] == 'S')
+            holds.push(combat.offChar.NAME.split('SP')[1]);
+        else
+            holds.push(combat.offChar.NAME);
+    }
+    else if(side == 'defense'){
+        if(combat.defChar.NAME[0] == 'S')
+            holds.push(combat.defChar.NAME.split('SP')[1]);
+        else
+            holds.push(combat.defChar.NAME);
+    }
 
     return holds;
 };

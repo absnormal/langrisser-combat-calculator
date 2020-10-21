@@ -85,6 +85,17 @@ var soldier = [{
     },
     DESC: '全屬性+30%<br>普通攻擊造成「魔法傷害」，英雄施加的治療效果提升15%。士兵生命>80時，防禦提升30%。'
 },{
+    NAME: '洗罪者',
+    HP: 48, ATK: 34, DEF: 22, MDEF: 22,
+    ARMY: '僧侶', RANGE: 2, DMGTYPE: '物理傷害', MOVETYPE: '步行',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2];
+        else return false;
+    },
+    DESC: '被攻擊進入戰鬥時遭受傷害降低20%自身沒有弱化效果時，部隊不會遭受致命一擊並恢復20%生命值，觸發後士兵最大生命降低20%(每場戰鬥最多觸發一次）。'
+},{
     NAME: '地精騎士',
     HP: 36, ATK: 43, DEF: 20, MDEF: 20,
     ARMY: '刺客', RANGE: 2, DMGTYPE: '物理傷害', MOVETYPE: '步行',
@@ -708,7 +719,18 @@ var soldier = [{
             midrate[DMGDEC] += 0.3;
         return midrate;
     },
-    DESC: '全屬性+30%<br>主動攻擊時，士兵攻擊提升15%，暴擊率提升30%。在「沙漠」、「沙丘」和「洞穴」戰鬥時遭受傷害降低30%。'
+},{
+    NAME: '機械騎士',
+    HP: 43, ATK: 43, DEF: 22, MDEF: 20,
+    ARMY: '騎兵', RANGE: 1, DMGTYPE: '物理傷害', MOVETYPE: '騎行',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense')
+            return [0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        else if(side == 'defense')
+            return [0, 0, 0.15, 0, 0, 0, 0, 0, 0, 0, 0];
+    },
+    DESC: '主動攻擊時，士兵攻擊提升30%，被攻擊時，士兵防禦提升15%。生命值大於等於80%時通過防禦地形時，部隊可以獲得2格免除移動力降低的機會。'
 },{
     NAME: '重裝骷髏',
     HP: 43, ATK: 40, DEF: 22, MDEF: 19,

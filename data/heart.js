@@ -925,6 +925,32 @@ var heart = [{
     JOB2A:'血量百分比低於自身的部隊交戰時，進入戰鬥後遭受傷害降低10%。',
     JOB2B:'與血量百分比低於自身的部隊交戰時，進入戰鬥後傷害提升10%。'
 },{
+    NAME: 'SP艾爾文大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(perHP < 0.7)
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'部隊血量低於70%時，傷害提升10%。',
+},{
     NAME: '貝蒂大心',
     SKILLTYPE: ['RATE','MIDRATE'],
     MIDRATE: function(side){
@@ -2922,6 +2948,31 @@ var heart = [{
     JOB1B:'受到攻擊時，士兵傷害提升20%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受物理傷害降低10%。',
     JOB2B:'主動攻擊時，士兵傷害提升20%。'
+},{
+    NAME: 'SP芙蕾雅大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(perHP > 0.8)
+                    midrate[DMGDEC] += 0.1;
+                /* SOLDIER RELATED */
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'部隊血量高於80%時，進入戰鬥後遭受傷害降低10%。',
+    JOB1B:'部隊血量高於80%時，士兵傷害提升20%。',
 },{
     NAME: '巴爾加斯大心',
     SKILLTYPE: ['MIDRATE'],
