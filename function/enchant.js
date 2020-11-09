@@ -250,6 +250,7 @@ function getMasteryBaseSkill(side){
             combat.offADDINT += display.BASE[2];
             combat.offADDDEF += display.BASE[3];
             combat.offADDMDEF += display.BASE[4];
+            combat.offADDDEX += display.BASE[5];
 
             displayList.push(display);
         }
