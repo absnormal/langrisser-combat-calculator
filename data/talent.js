@@ -641,6 +641,38 @@ var talent = [{
         return [1.6, 0, 1, 0, 0];
     },
     DESC: '自身2格範圍有友軍部隊時，遭受傷害降低25%。替自身1圈範圍內的友軍承受所有攻擊。被攻擊進入戰鬥前，用「防禦」的1.6倍來代替「攻擊」，且造成傷害提升75%。 '
+},{
+    NAME: '破滅的炎紋',
+    SKILLTYPE: ['ADD','MIDADD'],
+    ADD: function(side){
+        return [0.2, 1, 0, 0, 0];
+    },
+    MIDADD: function(side){
+        return [0.2, 1, 0, 0, 0];
+    },
+    DESC: '智力的20%會額外附加到攻擊上。對敵方部隊造成傷害後，施加「破滅的炎紋」:受到來自克洛泰爾的傷害時，防禦和魔防降低20%，受到暴擊率提升20%；並且無法觸發[抵擋致命傷害]的效果，持續2回合。（無法觸發[抵擋致命傷害]的效果只在競技模式中生效） ',
+},{
+    NAME: '水晶女王',
+    DESC: '遭受範圍傷害降低25%，對友軍釋放技能時，驅散1個弱化效果且額外附加3層[水晶屏障]:「免疫下1個遭受的弱化效果，可累積，最高可以累積5層，不可驅散。」周圍3格所有友軍行動結束時，恢復羅澤希爾智力2.5倍的生命，並獲得1層[水晶屏障]。',
+},{
+    NAME: '裁決威光',
+    DMGINC: 0.15,
+    DESC: '進入戰鬥時，造成傷害提升15%。技能造成傷害後冷卻時間減少，減少的數值為當前技能命中的敵軍數量（最大減少3回合）。進入戰鬥前和行動結束時，獲得[威光]:智力提升5%，可累積，最高可以累積4個，無法驅散。自身每擁有2個[威光]，部隊射程+1。 ',
+},{
+    NAME: '公義之冠冕',
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP >= 0.5){
+            this.TALENTDMGDEC = 0.3;
+            return [0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        }
+        else{
+            this.TALENTDMGDEC = 0;
+            return false;
+        }
+    },
+    DESC: '生命值50%以上時主動進入戰鬥，遭受傷害降低30%，攻擊提升20%。每場戰鬥開始時獲得[戒律]：「治療量提升50%，遭受所有傷害降低25%，造成傷害降低50%」。主動攻擊後，失去[戒律]效果，並可再次行動。',
 /*            */
 /* SSR 分界線 */
 /*            */

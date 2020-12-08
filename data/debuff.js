@@ -272,6 +272,19 @@ var debuff = [{
     },
     DESC: '受到來自西格瑪的傷害增加15％(無法驅散和免疫)'
 },{
+    NAME: '破滅的炎紋',
+    TYPE: ['一般'],
+    CRITRATEDEC: -0.2,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense' && combat.offChar.NAME == '克洛泰爾')
+            return [0, 0, -0.2, -0.2, 0, 0, 0, 0, 0, 0, 0];
+        else if(side == 'offense' && combat.defChar.NAME == '克洛泰爾')
+            return [0, 0, -0.2, -0.2, 0, 0, 0, 0, 0, 0, 0];
+        else return false;
+    },
+    DESC: '受到來自克洛泰爾的傷害時，防禦和魔防降低20%，受到暴擊率提升20%；並且無法觸發[抵擋致命傷害]的效果'
+},{
     NAME: '魔痕',
     TYPE: ['一般'], ACC: true,
     DATA: [0, 0.01, 0.02, 0.03], MAX: 3,
@@ -317,6 +330,10 @@ var debuff = [{
     TYPE: ['一般'], ACC: true,
     DATA: [0, 0.01, 0.02, 0.03, 0.04], MAX: 4,
     DESC: '行動結束時，受到黎恩攻擊力1倍的[固定傷害](該傷害無法免疫)(當前[DATA]個)'
+},{
+    NAME: '炎灼',
+    TYPE: ['一般'],
+    DESC: '下回合行動結束時，受到克洛泰爾"攻擊"+"智力"1倍的[固定傷害]'
 /*
 },{
     NAME: '血咒',

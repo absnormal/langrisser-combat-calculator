@@ -169,7 +169,7 @@ var buff = [{
 },{
     NAME: '進擊的加護(增傷)',
     TYPE: ['一般'],
-    ODMGINC: 0.3, ODMGDEC: 0,
+    ODMGINC: 0.3,
     DESC: '主動攻擊進入戰鬥時造成傷害提升30%'
 },{
     NAME: '進擊的加護(減傷)',
@@ -188,6 +188,17 @@ var buff = [{
     NAME: '吐槽',
     TYPE: ['一般'],
     DESC: '行動結束時，對4格以內的2個敵軍部隊施加1個隨機的弱化效果'
+},{
+    NAME: '聖盾',
+    TYPE: ['一般'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        else if(side == 'defense') perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(perHP == 1) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25];
+        else return false;
+    },
+    DESC: '生命值100%時，遭受傷害降低25%'
 },{
     NAME: '魔法新衣',
     TYPE: ['一般'],
@@ -1063,6 +1074,51 @@ var buff = [{
     NAME: '傳說之耀',
     TYPE: ['SP艾爾文','艾爾文'],
     DESC: '艾爾文專屬裝備效果觸發幾率變為100%'
+},{
+    NAME: '戒律',
+    TYPE: ['瑪麗埃爾'],
+    HEAL: 0.5, DMGDEC: 0.25, DMGINC: -0.5,
+    DESC: '治療量提升50%，遭受所有傷害降低25%，造成傷害降低50%'
+},{
+    NAME: '聖怒',
+    TYPE: ['瑪麗埃爾'],
+    DMGINC: 0.2,
+    DESC: '造成傷害提升20%，攻擊時無視護衛，使用技能造成傷害後使自身所有技能冷卻時間減少3回合（[聖怒]效果無法免疫和驅散）'
+},{
+    NAME: '炙炎',
+    TYPE: ['克洛泰爾'],
+    DESC: '主動攻擊造成傷害後，額外造成1次[固定傷害]，傷害值為克洛泰爾"智力"+"攻擊"的1倍'
+},{
+    NAME: '炎晶術',
+    TYPE: ['克洛泰爾'],
+    SKILLTYPE: ['ADD', 'MIDADD'],
+    ADD: function(side){
+        return [1, 0.15, 0, 0, 0];
+    },
+    MIDADD: function(side){
+        return [1, 0.15, 0, 0, 0];
+    },
+    DESC: '將"攻擊"的15%增加到"智力"上'
+},{
+    NAME: '水晶屏障',
+    TYPE: ['一般'], ACC: true,
+    DATA: [0, 0.01, 0.02, 0.03, 0.04, 0.05], MAX: 5,
+    DESC: '免疫下1個遭受的弱化效果，可累積，最高可以累積5層，不可驅散。(當前[DATA]層)'
+},{
+    NAME: '晶愈',
+    TYPE: ['羅澤希爾'],
+    DESC: '被攻擊受到傷害後恢復羅澤希爾1.5倍智力的生命'
+},{
+    NAME: '水晶結印',
+    TYPE: ['羅澤希爾'],
+    HEAL: 0.2, DMGDEC: 0.2,
+    DESC: '無法攻擊、移動、被位移和使用技能，治療量提升20%，遭受傷害降低20%，天賦的指揮效果範圍+1，抵擋一次致命傷害。行動結束時，恢復自身天賦範圍內其他友軍生命，恢復量為羅澤希爾智力的2倍，並附加2層[水晶屏障]'
+},{
+    NAME: '威光',
+    TYPE: ['降生之光'], ACC: true,
+    DATA: [0, 0.01, 0.02, 0.03, 0.04], MAX: 4,
+    INT: 0.05,
+    DESC: '智力提升5%，可累積，最高可以累積4個，無法驅散。自身每擁有2個[威光]，部隊射程+1。 (當前[DATA]層)'
 /*             */
 /* 超絕 分割線 */
 /*             */
@@ -1140,6 +1196,11 @@ var buff = [{
         else this.COUNTER = undefined;
     },
     DESC: '與克制的部隊交戰時，傷害額外提升20%(克制倍率+10%)'
+},{
+    NAME: '帝國晶燦',
+    TYPE: ['帝國之輝'],
+    ODMGINC: 0.12,
+    DESC: '主動攻擊進入戰鬥時傷害提升12%，被攻擊進入戰鬥前驅散敵軍1個強化效果。'
 },{
     NAME: '暗之輪舞',
     TYPE: ['黑暗輪迴'],

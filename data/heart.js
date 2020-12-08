@@ -422,12 +422,14 @@ var heart = [{
         midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         switch(jobNo){
             case 1:
+                this.HEAL = undefined;
                 if(side == 'offense')
                     midrate[DMGDEC] += 0.1;
                 if(side == 'defense')
                     midrate[DMGINC] += 0.1;
                 break;
             case 2:
+                this.HEAL = 0.1;
                 if(perHP > oppPerHP)
                     midrate[DMGDEC] += 0.1;
                 break;
@@ -2707,6 +2709,148 @@ var heart = [{
     JOB1B:'與具有「弱化效果」的部隊戰鬥時，傷害提升10%。',
     JOB2A:'受到攻擊進入戰鬥時，遭受魔法傷害降低10%。',
     JOB2B:'受到攻擊進入戰鬥時，傷害提升10%。'
+},{
+    NAME: '克洛泰爾大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense')
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(perHP < 0.7)
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'offense')
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'受到攻擊進入戰鬥時，傷害提升10%。',
+    JOB2A:'部隊血量低於70%時，進入戰鬥後遭受傷害降低10%。',
+    JOB2B:'主動攻擊進入戰鬥時，傷害提升10%。'
+},{
+    NAME: '羅澤希爾大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(perHP > 0.8)
+                    midrate[CRITRATEDEC] += 0.1;
+                if(oppDEBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(perHP == 1)
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'部隊血量高於80%時，遭受暴擊率降低10%。',
+    JOB1B:'與具有「弱化效果」的部隊戰鬥時，傷害提升10%。',
+    JOB2A:'遭受範圍傷害降低10%。',
+    JOB2B:'部隊血量100%時，傷害提高10%。'
+},{
+    NAME: '瑪麗埃爾大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                this.HEAL = undefined;
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(perHP == 1)
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                this.HEAL = 0.1;
+                if(side == 'defense' && oppPerHP > perHP)
+                    midrate[DMGDEC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B:'部隊血量100%時，傷害提升10%。',
+    JOB2A:'被血量百分比高於自身的部隊攻擊時，進入戰鬥後遭受傷害降低10%。',
+    JOB2B:'治療量+10%。'
+},{
+    NAME: '降生之光大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppDEBUFFNUM = combat.defDEBUFFLIST.length;
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+            oppPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+            oppDEBUFFNUM = combat.offDEBUFFLIST.length;
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'defense' && oppDEBUFFNUM > 0)
+                    midrate[DMGDEC] += 0.1;
+                if(oppDEBUFFNUM > 0)
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(perHP == 1)
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'offense' && perHP > oppPerHP)
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A:'受到具有「弱化效果」的部隊攻擊進入戰鬥時，遭受傷害降低10%。',
+    JOB1B:'與具有「弱化效果」的部隊戰鬥時，傷害提升10%。',
+    JOB2A:'部隊血量100%時，遭受傷害降低10%。',
+    JOB2B:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
 /*            */
 /* SSR 分界線 */
 /*            */
