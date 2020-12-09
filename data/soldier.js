@@ -145,6 +145,15 @@ var soldier = [{
     },
     DESC: '全屬性+30%<br>暴擊率提升30%，暴擊後對敵軍造成部隊生命上限20%的傷害。'
 },{
+    NAME: '無面者',
+    HP: 36, ATK: 43, DEF: 20, MDEF: 22,
+    ARMY: '刺客', RANGE: 2, DMGTYPE: '物理傷害', MOVETYPE: '步行',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        return [0.15, 0, 0, 0, 0, 0.15, 0, 0, 0, 0, 0];
+    },
+    DESC: '全屬性+30%<br>士兵攻擊、暴擊率提升15%。進入戰鬥前，使敵軍部隊遭受暴擊率提升15%。'
+},{
     NAME: '天空射手',
     HP: 36, ATK: 40, DEF: 17, MDEF: 23,
     ARMY: '弓兵', RANGE: 2, DMGTYPE: '物理傷害', MOVETYPE: '飛行',
@@ -325,12 +334,31 @@ var soldier = [{
     },
     DESC: '全屬性+30%<br>主動進入戰鬥時，士兵攻擊提升30%。被攻擊進入戰鬥時，士兵防禦提升30%。'
 },{
+    NAME: '方陣列兵',
+    HP: 43, ATK: 43, DEF: 23, MDEF: 17,
+    ARMY: '槍兵', RANGE: 1, DMGTYPE: '物理傷害', MOVETYPE: '步行',
+    SKILLTYPE: ['RATE','MIDRATE'],
+    RATE: function(side){
+        return [0.20, 0, 0.20, 0, 0];
+    },
+    MIDRATE: function(side){
+        if(side == 'defense') return false;
+        else{
+            combat.offSoldCounterRate = 1;
+            return [0, 0, 0, 0, 0, 0.20, 0, 0, 0, 0, 0];
+        }
+    },
+    DESC: '全屬性+30%<br>士兵攻擊、防禦提升20%。<br>主動攻擊時，士兵造成的傷害增加20%且無視職業克制。 '
+},{
     NAME: '狂戰士',
     HP: 40, ATK: 43, DEF: 22, MDEF: 19,
     ARMY: '步兵', RANGE: 1, DMGTYPE: '物理傷害', MOVETYPE: '步行',
-    SKILLTYPE: ['MIDRATE'],
+    SKILLTYPE: ['RATE','MIDRATE'],
+    RATE: function(side){
+        return [0.15, 0, 0, 0, 0];
+    },
     MIDRATE: function(side){
-        return [0.15, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0];
+        return [0, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0];
     },
     DESC: '全屬性+30%<br>暴擊率提升30%，攻擊提升15%。'
 },{
@@ -426,6 +454,20 @@ var soldier = [{
     },
     DESC: '全屬性+30%<br>士兵生命高於80%時攻擊提升45%。'
 },{
+    NAME: '蠻族勇士',
+    HP: 48, ATK: 43, DEF: 20, MDEF: 19,
+    ARMY: '步兵', RANGE: 1, DMGTYPE: '物理傷害', MOVETYPE: '步行',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        offPerHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        defPerHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        if(side == 'offense') perHP = offPerHP, oppPerHP = defPerHP;
+        else return false;
+        if(oppPerHP <= perHP) return [0.45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        else if(oppPerHP > perHP) return [0.3, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0];
+    },
+    DESC: '全屬性+30%<br>攻擊生命值百分比低於或等於本部隊的敵軍時，士兵攻擊提升45%<br>攻擊生命值百分比高於本部隊的敵軍時，士兵攻擊、防禦提升30% '
+},{
     NAME: '海怪',
     HP: 43, ATK: 40, DEF: 23, MDEF: 19,
     ARMY: '水兵', RANGE: 2, DMGTYPE: '物理傷害', MOVETYPE: '水行',
@@ -491,6 +533,24 @@ var soldier = [{
     },
     DESC: '全屬性+30%<br>在水中時，攻擊提升45%。'
 },{
+    NAME: '深洋海盜',
+    HP: 43, ATK: 40, DEF: 22, MDEF: 22,
+    ARMY: '水兵', RANGE: 1, DMGTYPE: '物理傷害', MOVETYPE: '水行',
+    SKILLTYPE: ['RATE','MIDRATE'],
+    RATE: function(side){
+        if(side == 'offense') terrainName = combat.offTerrain;
+        if(side == 'defense') terrainName = combat.defTerrain;
+        if(terrainName == '水') return [0.20, 0, 0, 0, 0];
+        else return false;
+    },
+    MIDRATE: function(side){
+        if(side == 'offense') terrainName = combat.offTerrain;
+        if(side == 'defense') terrainName = combat.defTerrain;
+        if(terrainName == '水') return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.30];
+        else return false;
+    },
+    DESC: '全屬性+30%<br>在水中時，部隊攻擊不受近戰傷害減免，士兵遭受所有傷害降低30%，攻擊提升20%。<br>主動對處於「水中」的敵軍造成傷害後，偷取1個強化效果。 '
+},{
     NAME: '魔女',
     HP: 34, ATK: 40, DEF: 17, MDEF: 28,
     ARMY: '法師', RANGE: 2, DMGTYPE: '魔法傷害', MOVETYPE: '飛行',
@@ -519,6 +579,18 @@ var soldier = [{
         return [0.3, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, 0];
     },
     DESC: '全屬性+30%<br>普通攻擊造成「魔法傷害」。主動攻擊時，攻擊、魔防提升30%。'
+},{
+    NAME: '禁忌煉金師',
+    HP: 40, ATK: 40, DEF: 20, MDEF: 19,
+    ARMY: '法師', RANGE: 2, DMGTYPE: '魔法傷害', MOVETYPE: '步行',
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') soldPerHP = combat.offsoldHP/combat.offsoldFULLHP;
+        if(side == 'defense') soldPerHP = combat.defsoldHP/combat.defsoldFULLHP;
+        if(soldPerHP > 0.8) return [0.30, 0, 0, 0, 0];
+        else return false;
+    },
+    DESC: '全屬性+30%<br>普通攻擊造成「魔法傷害」。<br>行動結束時，恢復士兵30%的生命。 士兵生命高於80%時，士兵射程+1，攻擊提升30%。'
 },{
     NAME: '皇家獅鷲',
     HP: 40, ATK: 45, DEF: 20, MDEF: 23,
@@ -592,6 +664,19 @@ var soldier = [{
         else return false;
     },
     DESC: '全屬性+30%<br>士兵生命大於50%時，主動攻擊進入戰鬥前，100%的概率遭受傷害降50%。'
+},{
+    NAME: '龍裔戰士',
+    HP: 43, ATK: 43, DEF: 23, MDEF: 22,
+    ARMY: '飛兵', RANGE: 1, DMGTYPE: '物理傷害', MOVETYPE: '飛行',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense') return false;
+        run = combat.run;
+        if(run == 0) return false;
+        else if(run >= 5) return [0.30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.30];
+        else return [0.06*run, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.06*run];
+    },
+    DESC: '全屬性+30%<br>攻擊前每移動一格，士兵攻擊提升6%（上限30%），遭受傷害降低6%（上限30%）。<br>被攻擊受到傷害後，部隊移動力+2，持續1回合。 '
 },{
     NAME: '地獄犬',
     HP: 40, ATK: 45, DEF: 20, MDEF: 19,

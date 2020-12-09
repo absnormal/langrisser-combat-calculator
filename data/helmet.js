@@ -314,6 +314,46 @@ var helmet = [{
     BASEHP: 364, BASEMDEF: 65,
     MDEF: 0.1,
     DESC: '魔防+10%。行動結束時，為全場生命最低的一個友軍召喚物恢復30%生命。'
+},{
+    NAME: '聖女禮讚', TYPE: '克麗絲',
+    BASEHP: 437, BASEMDEF: 59,
+    HP: 0.05, MDEF: 0.05,
+    DESC: '生命、魔防+5%。行動結束時，如果本回合造成過傷害，則天賦施加的隨機強化效果額外增加1個。擊殺魔物後，可額外行動1次。（[觸發冷卻]再行動效果需要間隔2回合才可以再次觸發。） '
+},{
+    NAME: '馭龍之冠', TYPE: '蕾娜塔',
+    BASEHP: 437, BASEMDEF: 59,
+    HP: 0.05, MDEF: 0.05,
+    DESC: '生命、魔防+5%。對敵方施加的弱化效果持續回合+1。每次觸發天賦時使自身獲得[御風]，且免疫:"攻擊、智力降低"、"無法使用主動技能"，持續2回合；可以享受[流星直擊]超絕效果。'
+},{
+    NAME: '逆羽的假面', TYPE: '希琳卡',
+    BASEHP: 583, BASEMDEF: 48,
+    DEF: 0.1,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') return [0, 0, 0, 0, 0, 0, 0, 0.12, 0, 0, 0];
+        else return false;
+    },
+    DESC: '防禦+10%。主動攻擊進入戰鬥，造成傷害提升+12%。 對自己施加的強化效果持續回合+1，在休眠狀態下身上的增益效果回合數不會減少。 '
+},{
+    NAME: '飛隱星兜', TYPE: '燕',
+    BASEHP: 437, BASEMDEF: 59,
+    HP: 0.1,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense'){
+            for(let i=0; i<combat.offBUFFLIST.length; i++)
+                if(combat.offBUFFLIST[i].NAME == '隱匿')
+                    return [0, 0, 0, 0, 0, 0, 0.15, 0.10, 0, 0, 0];
+            return [0, 0, 0, 0, 0, 0, 0, 0.10, 0, 0, 0];
+        }
+        else if(side == 'defense'){
+            for(let i=0; i<combat.defBUFFLIST.length; i++)
+                if(combat.defBUFFLIST[i].NAME == '隱匿')
+                    return [0, 0, 0, 0, 0, 0, 0.15, 0.10, 0, 0, 0];
+            return [0, 0, 0, 0, 0, 0, 0, 0.10, 0, 0, 0];
+        }
+    },
+    DESC: '生命+10%。造成傷害提升10%，遭受範圍傷害降低10% 自身擁有隱匿效果時，暴擊傷害提升15%，行動結束獲得[身輕如燕]：「移動力+1，可疊加2次"，持續2回合。 '
 }];
 
 

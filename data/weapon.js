@@ -312,6 +312,42 @@ var weapon = [{
     BASEHP: 583, BASEINT: 85,
     INT: 0.1,
     DESC: '智力+10%。主動攻擊造成傷害後，使敵軍「移動力」降低1格，且無法進行護衛，持續1回合'
+},{
+    NAME: '聖靈之觸', TYPE: '阿卡婭',
+    BASEATK: 107, BASEINT: 107,
+    ATK: 0.1, INT: 0.1,
+    DESC: '攻擊、智力+10%。行動結束時，在自己身邊召喚一個[狼魂]，此狼魂的屬性繼承自阿卡婭的當前屬性的75%。([狼魂]同時只能存在一隻，該效果每場戰鬥最多觸發1次)'
+},{
+    NAME: '絕命除塵令', TYPE: '梅雅',
+    BASEHP: 437, BASEINT: 107,
+    INT: 0.1,
+    SKILLTYPE: ['RATE'],
+    RATE: function(side){
+        if(side == 'offense') combat.offMOVETYPE = '飛行';
+        else if(side == 'defense') combat.defMOVETYPE = '飛行';
+    },
+    DESC: '智力+10%。部隊移動方式變為「飛行」。範圍技能可以清除命中區域的敵方地形效果。在行動結束時，驅散2格內所有友軍部隊1個弱化效果。 '
+},{
+    NAME: '盛夏的追憶', TYPE: '伊露希亞',
+    BASEHP: 583, BASEATK: 85,
+    DEF: 0.05, MDEF: 0.05,
+    DESC: '防禦、魔防+5%。被攻擊進入戰鬥前，給自己施加「馭水」效果，持續1回合。在水中時，替自身1圈範圍內的友軍承受所有攻擊。 '
+},{
+    NAME: '榮耀的傳承', TYPE: '艾米莉亞',
+    BASEHP: 583, BASEATK: 85,
+    DEF: 0.05, MDEF: 0.05,
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense' && combat.offDMGTYPE == '物理傷害')
+            return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.10];
+        else return false;
+    },
+    DESC: '防禦、魔防+5%。被攻擊進入戰鬥時，部隊遭受物理傷害降低10%。自身擁有[聖衛]或[高階聖衛]效果時，英雄可以對遠程攻擊進行反擊。'
+},{
+    NAME: '同心的守護', TYPE: '傑利奧魯&蕾拉',
+    BASEATK: 107, BASEINT: 107,
+    ATK: 0.1, INT: 0.1,
+    DESC: '攻擊、智力+10%。英雄的普通攻擊射程+1。英雄主動攻擊進入戰鬥，戰後為生命最低的友軍部隊恢復生命，恢復量為施法者攻擊+智力之和的1倍。觸發再行動時，身上攜帶的強化狀態回合數不會減少。'
 }];
 
 

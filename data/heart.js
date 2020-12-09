@@ -2851,6 +2851,74 @@ var heart = [{
     JOB1B:'與具有「弱化效果」的部隊戰鬥時，傷害提升10%。',
     JOB2A:'部隊血量100%時，遭受傷害降低10%。',
     JOB2B:'主動攻擊血量百分比高於自身的部隊時，進入戰鬥後傷害提升10%。'
+},{
+    NAME: '沃爾納大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            oppDMGTYPE = combat.defDMGTYPE;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            oppDMGTYPE = combat.offDMGTYPE;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(perHP < 0.7)
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense' && oppDMGTYPE == '物理傷害')
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A: '遭受範圍傷害降低10%。',
+    JOB1B: '部隊血量低於70%時，傷害提升10%。',
+    JOB2A: '主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB2B: '受到物理攻擊進入戰鬥時，傷害提升10%。'
+},{
+    NAME: '希爾達大心',
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        DMGINC = 7, CRITRATEDEC = 8, DMGDEC = 10;
+        if(side == 'offense'){
+            jobNo = combat.offJobNo;
+            perHP = (combat.offHP+combat.offsoldHP)/(combat.offFULLHP+combat.offsoldFULLHP);
+        }
+        else if(side == 'defense'){
+            jobNo = combat.defJobNo;
+            perHP = (combat.defHP+combat.defsoldHP)/(combat.defFULLHP+combat.defsoldFULLHP);
+        }
+        midrate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        switch(jobNo){
+            case 1:
+                if(side == 'offense')
+                    midrate[DMGDEC] += 0.1;
+                if(side == 'defense')
+                    midrate[DMGINC] += 0.1;
+                break;
+            case 2:
+                if(perHP > 0.8)
+                    midrate[CRITRATEDEC] += 0.1;
+                if(side == 'offense')
+                    midrate[DMGINC] += 0.1;
+                break;
+        }
+        return midrate;
+    },
+    JOB1A: '主動攻擊進入戰鬥時，部隊遭受傷害降低10%。',
+    JOB1B: '受到攻擊進入戰鬥時，傷害提升10%。',
+    JOB2A: '部隊血量高於80%時，遭受暴擊率降低10%。',
+    JOB2B: '主動攻擊進入戰鬥時，傷害提升10%。'
 /*            */
 /* SSR 分界線 */
 /*            */

@@ -285,7 +285,7 @@ var buff = [{
     DESC: '替相鄰2格友軍承受魔法攻擊'
 },{
     NAME: '槍陣',
-    TYPE: ['芙蕾雅','SP芙蕾雅','蘭迪烏斯','雷丁','格尼爾','斯科特'],
+    TYPE: ['芙蕾雅','SP芙蕾雅','蘭迪烏斯','雷丁','格尼爾','斯科特',' 	希爾達'],
     DESC: '近戰戰鬥結束後，必定觸發[倒刺]的[固定傷害]'
 },{
     NAME: '劍刃領域',
@@ -319,7 +319,7 @@ var buff = [{
     DESC: '用“防禦”的1.6倍代替“攻擊”'
 },{
     NAME: '遭受暴擊率降低20％',
-    TYPE: ['雷丁','阿倫','賽蕾娜','巴爾加斯','雅兒貝德'],
+    TYPE: ['雷丁','阿倫','賽蕾娜','巴爾加斯','雅兒貝德','希爾達'],
     CRITRATEDEC: 0.2,
     DESC: '遭受暴擊率降低20%'
 },{
@@ -464,7 +464,7 @@ var buff = [{
     DESC: '攻擊提升10%，遭受物理傷害降低5%，最高可以累積4層。(當前[DATA]層)'
 },{
     NAME: '[御風]',
-    TYPE: ['露娜','亞魯特繆拉','雪莉','安潔麗娜','亞修拉姆'],
+    TYPE: ['露娜','亞魯特繆拉','雪莉','安潔麗娜','亞修拉姆','蕾娜塔'],
     SKILLTYPE: ['MIDRATE'],
     MIDRATE: function(side){
         if(side == 'offense') perHP = combat.offHP/combatoffFULLHP;
@@ -531,7 +531,7 @@ var buff = [{
     DESC: '攻擊提升20%，並將攻擊的15%增加到防禦和魔防上'
 },{
     NAME: '替相鄰2格友軍承受所有攻擊',
-    TYPE: ['蘭迪烏斯','雷丁','神崎堇','艾米莉亞'],
+    TYPE: ['蘭迪烏斯','雷丁','神崎堇','艾米莉亞','希爾達'],
     DESC: '替相鄰2格友軍承受所有攻擊'
 },{
     NAME: '止水',
@@ -696,6 +696,12 @@ var buff = [{
     NAME: '戰鬥意志',
     TYPE: ['戶愚呂兄弟'],
     DESC: '進入戰鬥前，恢復英雄攻擊1倍的生命值，如果處於[120%]狀態下恢復量則提升為攻擊的1.5倍'
+},{
+    NAME: '身輕如燕',
+    TYPE: ['燕'], ACC: true,
+    DATA: [0, 0.01, 0.02], MAX: 2,
+    MOVE: 1,
+    DESC: '移動力+1，可疊加2層(當前[DATA]層)'
 },{
     NAME: '隱匿',
     TYPE: ['燕'],
@@ -1119,6 +1125,72 @@ var buff = [{
     DATA: [0, 0.01, 0.02, 0.03, 0.04], MAX: 4,
     INT: 0.05,
     DESC: '智力提升5%，可累積，最高可以累積4個，無法驅散。自身每擁有2個[威光]，部隊射程+1。 (當前[DATA]層)'
+},{
+    NAME: '越野',
+    TYPE: ['一般'],
+    DESC: '通過防禦地形時，部隊可以獲得1格免除移動力降低的機會'
+},{
+    NAME: '機動變形',
+    TYPE: ['沃爾納'], ACC: true,
+    DATA: [0, 0.01, 0.02, 0.03], MAX: 3,
+    ATK: 0.05, INT: 0.05, DEF: 0.05, MDEF: 0.05, DEX: 0.05, MOVE: 1,
+    DESC: '移動力+1，除生命以外全屬性+5%，可累積，最高累積3層，無法驅散。(當前[DATA]層)'
+},{
+    NAME: '急速型態',
+    TYPE: ['沃爾納'],
+    DESC: '使自身部隊移動力提升3，進入戰鬥前移動大於或等於4格時會先於敵軍進行攻擊。'
+},{
+    NAME: '強襲型態',
+    TYPE: ['沃爾納'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        run = combat.run;
+        if(run == 0) return false;
+        else if(run >= 5) return [0, 0, 0, 0, 0, 0, 0, 0.15, 0, 0, 0];
+        else return [0, 0, 0, 0, 0, 0, 0, run*0.03, 0, 0, 0];
+    },
+    DESC: '使自身部隊攻擊前每移動1格，傷害提升3%（最大15%）'
+},{
+    NAME: '防禦型態',
+    TYPE: ['沃爾納'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense'){
+            return [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0.15];
+        }
+        else return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.15];
+    },
+    DESC: '使自身部隊遭受傷害降低15%，無法被位移，反擊傷害提升20%，行動結束時，恢復自身部隊35%生命。'
+},{
+    NAME: '號令‧槍御',
+    TYPE: ['希爾達'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        run = combat.run;
+        if(run == 0 || side == 'offense') return false;
+        else if(run >= 5) return [0, 0, 0, 0, 0, 0, 0, 0.50, 0, 0, 0];
+        else return [0, 0, 0, 0, 0, 0, 0, run*0.10, 0, 0, 0];
+    },
+    DESC: '[槍御]被攻擊進入戰鬥前，敵軍每移動一格則使其遭受傷害提升10%（最大50%）'
+},{
+    NAME: '槍御',
+    TYPE: ['希爾達'],
+    DESC: '[槍御]自身英雄兵種變為[槍兵]'
+},{
+    NAME: '號令‧騎沖',
+    TYPE: ['希爾達'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'offense') oppSoldArmy = combat.defSoldier.ARMY;
+        else if(side == 'defense') oppSoldArmy = combat.offSoldier.ARMY;
+        if(oppSoldArmy != '步兵') return false;
+        else return [0, 0, 0, 0, 0, 0, 0, 0.20, 0, 0, 0];
+    },
+    DESC: '[騎沖]對戰步兵傷害額外提升20%'
+},{
+    NAME: '騎沖',
+    TYPE: ['希爾達'],
+    DESC: '[騎沖]自身英雄兵種變為[騎兵]'
 /*             */
 /* 超絕 分割線 */
 /*             */
@@ -1345,5 +1417,21 @@ var buff = [{
         else return [0, 0, 0, 0, 0, 0, 0, 0.05*enemy, 0, 0, 0];
     },
     DESC: '周圍3格內每有1名敵軍時，造成傷害提升5%（最高提升20%）'
+},{
+    NAME: '轉生的決意',
+    TYPE: ['夢幻轉生'],
+    SKILLTYPE: ['MIDRATE'],
+    MIDRATE: function(side){
+        if(side == 'defense'){
+            this.SKILLDMG = undefined;
+            return [0, 0, 0, 0, 0, 0, 0, 0.12, 0, 0, 0];
+        }
+        else if(side == 'offense' && combat.offSkill.NAME != "普攻(物)" && combat.offSkill.NAME != "普攻(法)"){
+            this.SKILLDMG = 0.12;
+            return false;
+        }
+        else this.SKILLDMG = undefined;
+    },
+    DESC: '單體技能傷害提升12%，反擊傷害提升12%'
 }];
 

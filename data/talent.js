@@ -673,6 +673,31 @@ var talent = [{
         }
     },
     DESC: '生命值50%以上時主動進入戰鬥，遭受傷害降低30%，攻擊提升20%。每場戰鬥開始時獲得[戒律]：「治療量提升50%，遭受所有傷害降低25%，造成傷害降低50%」。主動攻擊後，失去[戒律]效果，並可再次行動。',
+},{
+    NAME: '機械統帥',
+    DESC: '行動結束時，使周圍3格以內4個其他友軍部隊獲得「移動力」+1和[越野]：「通過防禦地形時，部隊可以獲得1格免除移動力降低的機會」，持續1回合。 '
+},{
+    NAME: '血色的復仇',
+    SKILLTYPE: ['MIDRATE', 'ADD', 'MIDADD'],
+    MIDRATE: function(side){
+        if(side == 'offense') buffList = combat.offBUFFLIST;
+        else if(side == 'defense') buffList = combat.defBUFFLIST;
+        if(buffList.length >= 2) return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.25];
+        else return false;
+    },
+    ADD: function(side){
+        if(side == 'offense') buffList = combat.offBUFFLIST;
+        else if(side == 'defense') buffList = combat.defBUFFLIST;
+        if(buffList.length >= 2) return [0.15, 0, 1, 1, 0];
+        else return false;
+    },
+    MIDADD: function(side){
+        if(side == 'offense') buffList = combat.offBUFFLIST;
+        else if(side == 'defense') buffList = combat.defBUFFLIST;
+        if(buffList.length >= 2) return [0.15, 0, 1, 1, 0];
+        else return false;
+    },
+    DESC: '受到致命傷害時不會死亡，之後生命值恢復50%，該效果每場戰鬥最多觸發1次。擁有2個或以上強化狀態時，遭受所有傷害降低25%，且攻擊的15%增加到防禦和魔防上。<br>當週圍3格內的1名友軍受到攻擊進入戰鬥，使攻擊者本次攻擊無法觸發暴擊。([觸發冷卻]該效果需要間隔1回合才可以再次觸發。） '
 /*            */
 /* SSR 分界線 */
 /*            */
