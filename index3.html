@@ -12,34 +12,35 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
         <!-- local js script
+        -->
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/main.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/chooseChar.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/skill.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/parse.js"></script> 
-        -->
         <!-- local json
+        -->
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/character.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/classs.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/skill.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/lists.json"></script> 
-        -->
         <!-- js script
-        -->
         <script src="/langrisser-combat-calculator/js/main.js"></script> 
         <script src="/langrisser-combat-calculator/js/chooseChar.js"></script> 
         <script src="/langrisser-combat-calculator/js/skill.js"></script> 
         <script src="/langrisser-combat-calculator/js/parse.js"></script> 
-        <!-- json
         -->
+        <!-- json
         <script type="application/json" src="/langrisser-combat-calculator/data/character.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/classs.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/skill.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/lists.json"></script> 
+        -->
         <!-- css -->
         <style>
         .popover {
             max-width: 75%;
             min-width: 75%;
+            transition: visibility .3s;
         }
         .popover-header {
             color: black;
@@ -66,7 +67,7 @@
                 <h2>Caster</h2>
                 <div class="row container p-1">
                     <div class="col-2">
-                        <img src="/langrisser-combat-calculator/image/icon/SP-Cavalry.png" class="rounded-circle" style="width: 100%;">
+                        <img id="ATK-type-IMG" src="/langrisser-combat-calculator/image/icon/SP-Cavalry.png" class="rounded-circle" style="width: 100%;">
                     </div>
                     <div class="col">
                         <select id="ATK-faction" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setFaction('ATK');">
@@ -103,7 +104,7 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col p-1">
-                                        <img src="/langrisser-combat-calculator/image/icon/HP.png" class="rounded" style="position:center;">
+                                        <img id="ATK-HP-IMG" class="rounded" style="position:center;">
                                     </div>
                                     <div class="col p-1">
                                         <p>HP:</p>
@@ -121,7 +122,7 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col p-1">
-                                        <img src="/langrisser-combat-calculator/image/icon/ATK.png" class="rounded" style="position:center;">
+                                        <img id="ATK-ATK-IMG" class="rounded" style="position:center;">
                                     </div>
                                     <div class="col p-1">
                                         <p>ATK:</p>
@@ -139,7 +140,7 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col p-1">
-                                        <img src="/langrisser-combat-calculator/image/icon/INT.png" class="rounded" style="position:center;">
+                                        <img id="ATK-INT-IMG" class="rounded" style="position:center;">
                                     </div>
                                     <div class="col p-1">
                                         <p>INT:</p>
@@ -157,7 +158,7 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col p-1">
-                                        <img src="/langrisser-combat-calculator/image/icon/DEF.png" class="rounded" style="position:center;">
+                                        <img id="ATK-DEF-IMG" class="rounded" style="position:center;">
                                     </div>
                                     <div class="col p-1">
                                         <p>DEF:</p>
@@ -175,7 +176,7 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col p-1">
-                                        <img src="/langrisser-combat-calculator/image/icon/MDEF.png" class="rounded" style="position:center;">
+                                        <img id="ATK-MDEF-IMG" class="rounded" style="position:center;">
                                     </div>
                                     <div class="col p-1">
                                         <p>MDEF:</p>
@@ -193,7 +194,7 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col p-1">
-                                        <img src="/langrisser-combat-calculator/image/icon/SKILL.png" class="rounded" style="position:center;">
+                                        <img id="ATK-SKILL-IMG" class="rounded" style="position:center;">
                                     </div>
                                     <div class="col p-1">
                                         <p>SKILL:</p>
@@ -210,7 +211,7 @@
                     </div>
                     <div class="col-1">
                             <button class="btn mastery bg-dark">
-                                <img src="/langrisser-combat-calculator/image/icon/mastery.png" class="rounded">
+                                <img id="ATK-mastery-IMG" class="rounded">
                             </button>
                     </div>
                 </div>
@@ -242,7 +243,7 @@
                             </div>
                             <div class="col">
                                 <button class="btn changeSkill bg-secondary" data-toggle="modal" data-target="#ATK-skillListModal" onclick="setSkillList('ATK')">
-                                    <img src="/langrisser-combat-calculator/image/icon/changeSkill.png" class="rounded" style="width: 80%;">
+                                    <img id="ATK-changeSkill-IMG" class="rounded" style="width: 80%;">
                                 </button>
                             </div>
                         </div>
@@ -295,7 +296,7 @@
                                     <h5>Skill List</h5>
                                 </div>
                             </div>
-                            <div class="row p-2">
+                            <div class="row p-3">
                                 <div class='col'>
                                     <button class="btn ATK-skillList-0 bg-white" data-toggle="popover">
                                     <img id="ATK-skillList-0" class="rounded-circle" style="width:90%">
@@ -312,7 +313,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="row p-2">
+                            <div class="row p-3">
                                 <div class='col'>
                                     <button class="btn ATK-skillList-3 bg-white" data-toggle="popover">
                                     <img id="ATK-skillList-3" class="rounded-circle" style="width:90%">
@@ -329,7 +330,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="row p-2">
+                            <div class="row p-3">
                                 <div class='col'>
                                     <button class="btn ATK-skillList-6 bg-white" data-toggle="popover">
                                     <img id="ATK-skillList-6" class="rounded-circle" style="width:90%">
@@ -346,7 +347,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="row p-2">
+                            <div class="row p-3">
                                 <div class='col'>
                                     <button class="btn ATK-skillList-9 bg-white" data-toggle="popover">
                                     <img id="ATK-skillList-9" class="rounded-circle" style="width:90%">
@@ -364,9 +365,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer" style="align-items:center; justify-content:center;">
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>

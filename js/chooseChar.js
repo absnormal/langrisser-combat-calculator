@@ -80,15 +80,27 @@ function listClass(side)
     // add every class to list
     page[side].selectedCharacter["class"].forEach(function(classs){
         createListByVar(side, "classs", null, false, true, false, "name", classs.name);
-        page[side].charClass = classs;
     });
+    setClass(side);
 }
 
 function setClass(side)
 {
     let selectclass = document.getElementById(side+"-classs");
     page[side].charClass = data.classs.find(x => x.name === selectclass.value);
+    loadTypeIMG(side);
     listStats(side);
+}
+
+function loadTypeIMG(side)
+{
+    let type = page[side].charClass.type;
+
+    if(page[side].charClass.SP != undefined) type = "SP-"+type;
+    else type = "type-"+type;
+
+    let img = document.getElementById(side+"-type-IMG");
+    img.setAttribute("src", imgLocal+"icon/"+type+png);
 }
 
 function listStats(side)

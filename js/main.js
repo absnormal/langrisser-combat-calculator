@@ -1,12 +1,13 @@
 var png = ".png";
 var LANG = "en"
-// let imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
-// var local = "file:///home/absnormal/langrisser-combat-calculator/";
-var imgLocal = "/langrisser-combat-calculator/image/";
-var local = "/langrisser-combat-calculator/";
+var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
+var local = "file:///home/absnormal/langrisser-combat-calculator/";
+// var imgLocal = "/langrisser-combat-calculator/image/";
+// var local = "/langrisser-combat-calculator/";
 
 function createAllList()
 {
+    loadIconIMG("ATK");
     createList("ATK", "faction", "party/");
     createList("ATK", "rarity", "icon/");
     createListByVar("ATK", "character", "character/card_"+LANG+"/", true, false, true);
@@ -73,3 +74,11 @@ function createListByVar(side, name, picDirName, listAll, appendList, image, fil
     $('.selectpicker').selectpicker('refresh');
 }
 
+function loadIconIMG(side)
+{
+    let iconList = ["HP","ATK","INT","DEF","MDEF","SKILL","mastery", "changeSkill"];
+    iconList.forEach(function(string){
+        let img = document.getElementById(side+"-"+string+"-IMG");
+        img.setAttribute("src", imgLocal+"icon/"+string+png);
+    });
+}
