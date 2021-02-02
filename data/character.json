@@ -1,0 +1,3190 @@
+{
+    "character": [
+        { "name":"Ainz", 
+          "talent":"Overlord",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["reincarnation-tensei", "dark-reincarnation", "heros-of-time"],
+          "soldier": ["Dark Elf Sniper", "Orc Berserker", "Wizard", "Skeleton Knight", "Hellfire Archer", "Undead Knight", "Spider Demon", "Lizardman"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Wish Upon a Star", "Reality Slash", "Body of Effulgent Beryl", "Lightning Strike", "Advanced Teleport", "Skyfall", "Dark Reaper", "MDEF Support", "Black Hole"],
+          "class": [
+              { "name":"Eclipse",
+                "HP": 3347, "ATK": 256, "INT": 552,
+                "DEF": 227, "MDEF": 378, "SKILL": 87,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF", "OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Master of Death",
+                "HP": 3512, "ATK": 256, "INT": 552,
+                "DEF": 257, "MDEF": 387, "SKILL": 113,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Aka", 
+          "talent":"Holy Protection",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "origins-of-light", "mythical-realm"],
+          "soldier": ["Bone Dino", "Vampire Bat", "Wizard", "Stone Colossus", "Spider Demon", "Treant Guardian", "Scorpion", "Steelmane Werewolf"],
+          "soldierHPBonus": 25, "soldierATKBonus": 25,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 25,
+          "skill": ["Dark Reaper", "Blood of the Shika", "Wild Power", "Death Howl", "Iron Wall", "Javelin", "Resist", "Bestial Outbreak"],
+          "class": [
+              { "name":"Shika Saintess",
+                "HP": 3812, "ATK": 552, "INT": 464,
+                "DEF": 287, "MDEF": 281, "SKILL": 146,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Shika Channeler",
+                "HP": 3513, "ATK": 455, "INT": 532,
+                "DEF": 267, "MDEF": 337, "SKILL": 109,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Albedo", 
+          "talent":"Overseer of the Guardians",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["reincarnation-tensei", "dark-reincarnation", "heros-of-time"],
+          "soldier": ["Stone Colossus", "Guardian Infantry", "Phalanx", "Guardian Cavalry", "Hellhound", "Crystal Molder", "Empress's Personal Guard"],
+          "soldierHPBonus": 35, "soldierATKBonus": 15,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Hermes Trismegistus", "Shield Bash", "Block", "Walls of Jericho", "ATK Intimidate", "Battlecry", "Black Guard Aegis", "Tenacity", "Impure Desire"],
+          "class": [
+              { "name":"Overseer of the Guardians",
+                "HP": 5140, "ATK": 479, "INT": 265,
+                "DEF": 409, "MDEF": 255, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dark Knight",
+                "HP": 5140, "ATK": 506, "INT": 265,
+                "DEF": 419, "MDEF": 255, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Altemuller", 
+          "talent":"Supreme Overlord",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["empires-honor", "strategic-masters", "dark-reincarnation"],
+          "soldier": ["Phalanx", "Vanguard Lancer", "Griffon Knight", "Vampire Bat", "Gargoyle", "Cyclops", "Dark Centurion", "Protostate", "Dragon Trooper"],
+          "soldierHPBonus": 40, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 10,
+          "skill": ["Supreme Battle", "Raging Thunder", "Reinforcement", "Endure", "Parry", "Defense Command", "Tactical Mastery", "Strong Arm", "Gale", "Dragon's Breath"],
+          "class": [
+              { "name":"Grand Marshal",
+                "HP": 4934, "ATK": 531, "INT": 268,
+                "DEF": 361, "MDEF": 255, "SKILL": 123,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dragon Master",
+                "HP": 4314, "ATK": 588, "INT": 268,
+                "DEF": 312, "MDEF": 348, "SKILL": 179,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Alustriel", 
+          "talent":"Forest Spring",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "origins-of-light", "strategic-masters"],
+          "soldier": ["Demon Hunter", "Bone Dino", "Dark Elf Sniper", "Holy Pegasus", "Catapult", "Dragoon", "Gargoyle", "Elven Wolf Rider"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 10,
+          "skill": ["Jade Storm", "Neutralizing Fire", "Endure", "Natural Warding", "Skill Command", "Onrush", "Roundabout", "Attack Support (S)", "Emerald Crusher"],
+          "class": [
+              { "name":"Wolf Rider Commander",
+                "HP": 3418, "ATK": 591, "INT": 244,
+                "DEF": 244, "MDEF": 283, "SKILL": 233,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF", "MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Ranger",
+                "HP": 3418, "ATK": 563, "INT": 244,
+                "DEF": 253, "MDEF": 319, "SKILL": 233,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Angelina",
+          "talent":"Battle Goddess",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["yeless-legends", "princess-alliance", "meteor-strike"],
+          "soldier": ["Griffin Knight", "Heavy Cavalry", "Tide Master", "Lobster Behemoth", "Dragoon", "Berserker", "Angel", "Unicorn"],
+          "soldierHPBonus": 20, "soldierATKBonus": 20,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 25,
+          "skill": ["Breath of the Tides", "Lightning", "Lonely Moon", "ATK Command", "Tidal Surge", "DEF Support (L)", "Ram", "Dragon's Breath", "Alternate", "ATK Intimidate"],
+          "class": [
+              { "name":"Serpent Master",
+                "HP": 4586, "ATK": 547, "INT": 247,
+                "DEF": 339, "MDEF": 283, "SKILL": 124,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["WATER"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["WATER"], "cNumber": null,
+                      "effect":"PHYINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dragon Master",
+                "HP": 4265, "ATK": 577, "INT": 247,
+                "DEF": 313, "MDEF": 339, "SKILL": 178,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Ares", 
+          "talent":"Fearless Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "reincarnation-tensei", "empires-honor"],
+          "soldier": ["Masked Maid", "Heavy Infantry", "Steel Wing Warrior", "Heavy Cavalry", "Berserker", "Angel", "Heavensguard"],
+          "soldierHPBonus": 15, "soldierATKBonus": 40,
+          "soldierDEFBonus": 30, "soldierMDEFBonus": 15,
+          "skill": ["Fearless Hurricane", "Roar", "Sun Shade", "Reinforcement", "Resurging Gale", "Resist", "Transmigration", "Noble Charge", "Wind Whisper", "Lightning"],
+          "class": [
+              { "name":"Emperor",
+                "HP": 4415, "ATK": 567, "INT": 249,
+                "DEF": 329, "MDEF": 286, "SKILL": 168,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dragon Master",
+                "HP": 4096, "ATK": 599, "INT": 228,
+                "DEF": 305, "MDEF": 221, "SKILL": 187,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Arianrhod", 
+          "talent":"Steel Maiden",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["reincarnation-tensei", "mythical-realm", "heros-of-time"],
+          "soldier": ["Vanguard Lancer", "Amazon Champion", "Exorcist", "Heavy Cavalry", "Templar Knight", "Heavy Centurion", "Zealot"],
+          "soldierHPBonus": 15, "soldierATKBonus": 20,
+          "soldierDEFBonus": 30, "soldierMDEFBonus": 35,
+          "skill": ["Grand Cross", "Sturmlanze", "Armor Pierce", "Hegemony", "Fair Fight", "Total Destruction", "Adversity", "Anglia Hammer", "Judgment"],
+          "class": [
+              { "name":"Lance Maiden",
+                "HP": 4846, "ATK": 557, "INT": 241,
+                "DEF": 344, "MDEF": 251, "SKILL": 159,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MELEE","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Steel Maiden",
+                "HP": 4207, "ATK": 557, "INT": 265,
+                "DEF": 307, "MDEF": 341, "SKILL": 159,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Ashram", 
+          "talent":"Black Knight",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["strategic-masters", "dark-reincarnation", "heros-of-time"],
+          "soldier": ["Vampire Bat", "Skeleton Knight", "Bone Dino", "Orc Berserker", "Gargoyle", "Dragoon", "Undead Knight", "Steelmane Werewolf", "Dragon Trooper"],
+          "soldierHPBonus": 40, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 10,
+          "skill": ["Brutal Slaying", "Shadow Assault", "Blast", "Reinforcement", "Smash", "Dragon's Breath", "Counterstrike", "ATK Break", "Decimate"],
+          "class": [
+              { "name":"Dragon Master",
+                "HP": 4139, "ATK": 601, "INT": 247,
+                "DEF": 291, "MDEF": 331, "SKILL": 166,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4460, "ATK": 569, "INT": 547,
+                "DEF": 291, "MDEF": 295, "SKILL": 126,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Bernhardt", 
+          "talent":"Lord's Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["empires-honor", "dark-reincarnation", "mythical-realm"],
+          "soldier": ["Guardian Infantry", "Stone Colossus", "Skeleton Knight", "Guardian Cavalry", "Dark Guard", "Lava Titan", "Undead Knight", "Scorpion", "Steelmane Werewolf", "Protostate"],
+          "soldierHPBonus": 35, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 15,
+          "skill": ["Iron Blooded Ambition", "Sword Dance", "Sun Shade", "Shield Bash", "Hegemony", "Iron Fist", "Parry", "Heavy Shield", "Imperial Power", "Rupture"],
+          "class": [
+              { "name":"Brave",
+                "HP": 5039, "ATK": 519, "INT": 265,
+                "DEF": 403, "MDEF": 281, "SKILL": 108,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Emperor",
+                "HP": 4723, "ATK": 549, "INT": 265,
+                "DEF": 380, "MDEF": 281, "SKILL": 143,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Betty", 
+          "talent":"Sword Realm",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "empires-honor", "dark-reincarnation"],
+          "soldier": ["Orc Berserker", "Stone Colossus", "Guardian Infantry", "Guardian Cavalry", "Highland Warrior", "Dark Centurion", "Dragoon", "Crystal Titan"],
+          "soldierHPBonus": 20, "soldierATKBonus": 25,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 20,
+          "skill": ["Blade Flurry", "Savage Attack", "Counterattack", "Iron Fist", "Sword's Breath", "Skill Support (S)", "Light Reflect", "Iron Helmet", "Solidarity", "Skill Intimidate"],
+          "class": [
+              { "name":"Queen",
+                "HP": 4980, "ATK": 527, "INT": 249,
+                "DEF": 387, "MDEF": 305, "SKILL": 104,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MELEE","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Sword Master",
+                "HP": 4665, "ATK": 555, "INT": 249,
+                "DEF": 364, "MDEF": 305, "SKILL": 137,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Bozel", 
+          "talent":"Ancient Evil",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["dark-reincarnation", "mythical-realm"],
+          "soldier": ["Skeleton Knight", "Wizard", "Dark Elf Sniper", "Stone Colossus", "Hellfire Archer", "Sorceress", "Catapult", "Crystal Warlock"],
+          "soldierHPBonus": 40, "soldierATKBonus": 10,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 40,
+          "skill": ["Sleep", "Fireball", "Decay", "Dark Reaper", "Summon Undead", "Seal", "Black Hole", "Dark Waltz", "Earthquake"],
+          "class": [
+              { "name":"Death Lord",
+                "HP": 4737, "ATK": 287, "INT": 407,
+                "DEF": 309, "MDEF": 387, "SKILL": 88,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MAGIC"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dark Prince",
+                "HP": 4096, "ATK": 287, "INT": 407,
+                "DEF": 288, "MDEF": 377, "SKILL": 88,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["RANGED"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","PHYSIC"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Brenda", 
+          "talent":"Paragon of Elegance",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["yeless-legends", "meteor-strike"],
+          "soldier": ["Guardian Cavalry", "Gargoyle", "Phalanx", "Berserker", "Dragoon", "Amazon Champion", "Highland Warrior"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Enchanting Shadow", "Onrush", "ATK Break", "Sneak", "Move Again", "Armor Pierce", "Strike", "Ashglow Strike", "Defense Support (S)", "Frontal Assault"],
+          "class": [
+              { "name":"Battle God",
+                "HP": 4922, "ATK": 590, "INT": 233,
+                "DEF": 346, "MDEF": 217, "SKILL": 172,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4610, "ATK": 590, "INT": 233,
+                "DEF": 320, "MDEF": 270, "SKILL": 130,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MELEE","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Cherie", 
+          "talent":"Wild Princess",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "princess-alliance", "meteor-strike"],
+          "soldier": ["Griffon Knight", "Heavy Cavalry", "Bandit", "High Elf", "Angel", "Mist Dancer", "Dragoon", "Goblin Knight", "Dragon Trooper"],
+          "soldierHPBonus": 10, "soldierATKBonus": 20,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 35,
+          "skill": ["Raging Storm", "Lightning", "Legion", "First Aid", "Reinforcement", "Sneak", "Wind Whisper", "Lightning Speed", "Shadow Raid", "Smoke"],
+          "class": [
+              { "name":"Dragon Master",
+                "HP": 3763, "ATK": 607, "INT": 216,
+                "DEF": 286, "MDEF": 333, "SKILL": 211,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"High Master",
+                "HP": 3763, "ATK": 547, "INT": 237,
+                "DEF": 275, "MDEF": 278, "SKILL": 314,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Clarett", 
+          "talent":"Wandering Princess",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["yeless-legends", "princess-alliance", "meteor-strike"],
+          "soldier": ["Griffon Master", "Guardian Cavalry", "Heavy Infantry", "Masked Maid", "Holy Pegasus", "Heavensguard", "Berserker", "Princess Guard"],
+          "soldierHPBonus": 10, "soldierATKBonus": 25,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 30,
+          "skill": ["Eye of the Storm", "Wind Whisper", "First Aid", "Ride the Wind", "Roar", "Blast", "Crush", "Lightning Flash", "Adversity", "Skill Command"],
+          "class": [
+              { "name":"Dragon Master",
+                "HP": 4100, "ATK": 607, "INT": 216,
+                "DEF": 298, "MDEF": 325, "SKILL": 182,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["MELEE","DEF"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Swordmaiden",
+                "HP": 4419, "ATK": 607, "INT": 237,
+                "DEF": 298, "MDEF": 290, "SKILL": 234,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Clotaire", 
+          "talent":"Shattered Flame",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["empires-honor", "strategic-masters"],
+          "soldier": ["Exorcist", "Vanguard Lancer", "Heavy Infantry", "Guardian Infantry", "Berserker", "Zealot", "Dark Guard"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Burning Illusion", "Pyromancy", "MDEF Break", "Immolation Crystallization", "Immolation", "Searing Void", "Meteor", "Incinerating Slash", "Sword Dance"],
+          "class": [
+              { "name":"Immolation Crystal Marshal",
+                "HP": 3654, "ATK": 495, "INT": 515,
+                "DEF": 306, "MDEF": 312, "SKILL": 113,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Infernal Blade Commander",
+                "HP": 4281, "ATK": 525, "INT": 485,
+                "DEF": 332, "MDEF": 301, "SKILL": 113,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Deedlit", 
+          "talent":"Fairy of the Forbidden Forest",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["origins-of-light", "princess-alliance", "heros-of-time"],
+          "soldier": ["Heavy Infantry", "Templar Knight", "High Elf", "Wizard", "Unicorn", "Forest Priest", "Crystal Warlock"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 35,
+          "skill": ["Spirit Dancer", "Wind Blade", "Gospel", "Wind Slash", "MDEF Break", "Last Stand", "Elven Breath", "Speed Support", "Sea of Miracles"],
+          "class": [
+              { "name":"Elven Swordsman",
+                "HP": 4365, "ATK": 267, "INT": 567,
+                "DEF": 318, "MDEF": 325, "SKILL": 152,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Greater Elf",
+                "HP": 3555, "ATK": 267, "INT": 539,
+                "DEF": 260, "MDEF": 384, "SKILL": 87,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"HEALINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Dieharte", 
+          "talent":"Free Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "origins-of-light", "meteor-strike"],
+          "soldier": ["Bandit", "Demon Hunter", "Heavy Cavalry", "Griffon Knight", "Dragoon", "Shinobi", "Heavensguard", "Unicorn", "Faceless", "Elven Wolf Rider"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 10,
+          "skill": ["Return of the Prodigal Son", "Onrush", "Move Again", "Sneak Attack", "Strike", "Detect", "Light of Hope", "Calamity", "Violent Dash", "Thousand Hooves"],
+          "class": [
+              { "name":"High Master",
+                "HP": 4016, "ATK": 553, "INT": 244,
+                "DEF": 283, "MDEF": 263, "SKILL": 301,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"CRITDMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4326, "ATK": 581, "INT": 222,
+                "DEF": 295, "MDEF": 283, "SKILL": 154,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"CRITDMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Elwin", 
+          "talent":"Brave's Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "legion-of-glory", "empires-honor"],
+          "soldier": ["Guardian Infantry", "Heavy Infantry", "Masked Maid", "Elite Lancer", "Phalanx", "Vanguard Lancer", "Dark Centurion", "Dragoon", "Unicorn", "Steel Wing Warrior"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["External Light", "Frontal Assault", "Roar", "Sun Slash", "Sword Soul", "Barb", "Crush", "DEF Break", "Detect", "Reign of Glory", "Force of Will"],
+          "class": [
+              { "name":"Hero",
+                "HP": 4822, "ATK": 573, "INT": 258,
+                "DEF": 356, "MDEF": 270, "SKILL": 154,
+                "bond": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Grand Marshal",
+                "HP": 5129, "ATK": 544, "INT": 235,
+                "DEF": 378, "MDEF": 217, "SKILL": 116,
+                "bond": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Elwin SP", 
+          "talent":"Holy Dragon's Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "legion-of-glory", "empires-honor"],
+          "soldier": ["Guardian Infantry", "Heavy Infantry", "Masked Maid", "Elite Lancer", "Phalanx", "Vanguard Lancer", "Dark Centurion", "Dragoon", "Unicorn", "Steel Wing Warrior"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["External Light", "Frontal Assault", "Roar", "Sun Slash", "Sword Soul", "Barb", "Crush", "DEF Break", "Detect", "Reign of Glory", "Force of Will"],
+          "class": [
+              { "name":"Holy Dragon Knight",
+                "HP": 5006, "ATK": 578, "INT": 235,
+                "DEF": 340, "MDEF": 270, "SKILL": 130,
+                "bond": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Emilia", 
+          "talent":"Inheritor of Divine Power",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["empires-honor", "princess-alliance"],
+          "soldier": ["Stone Colossus", "Orc Breaker", "Exorcist", "Vanguard Lancer", "Zealot", "Cyclops", "Treant Guardian"],
+          "soldierHPBonus": 40, "soldierATKBonus": 10,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 35,
+          "skill": ["Heavenly Sacred Ground", "Holy Guardian", "Fair Fight", "Holy Shield", "Iron Helmet", "Swordbreaker", "DEF Support (L)", "Consecrate", "Justice", "MDEF Support (S)"],
+          "class": [
+              { "name":"Royal Vanguard",
+                "HP": 4584, "ATK": 376, "INT": 300,
+                "DEF": 392, "MDEF": 329, "SKILL": 90,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect": "CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Templar",
+                "HP": 4911, "ATK": 376, "INT": 300,
+                "DEF": 370, "MDEF": 356, "SKILL": 90,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Estelle", 
+          "talent":"Bright Maiden",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["protagonist", "legion-of-glory", "heros-of-time"],
+          "soldier": ["Phalanx", "Exorcist", "Amazon Champion", "Heavy Infantry", "Berserker", "Heavy Centurion", "Zealots"],
+          "soldierHPBonus": 40, "soldierATKBonus": 10,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Enduring Hope", "Whirlwind Staff", "Steel Titan", "Cheer", "Skein Staff", "Heavy Shield", "Armor Pierce", "Detect", "Pheonix Wave"],
+          "class": [
+              { "name":"Divine Blossom",
+                "HP": 5352, "ATK": 481, "INT": 235,
+                "DEF": 413, "MDEF": 197, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Waveform Master",
+                "HP": 5023, "ATK": 540, "INT": 235,
+                "DEF": 404, "MDEF": 220, "SKILL": 111,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Florentia", 
+          "talent":"Imperial Conquest",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["reincarnation-tensei", "empires-honor", "strategic-masters"],
+          "soldier": ["Bishop", "Exorcist", "Wizard", "Elf Master", "Amazon Champion", "Sky Archer", "Forest Priest"],
+          "soldierHPBonus": 40, "soldierATKBonus": 15,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 20,
+          "skill": ["Resounding Might", "Heal", "Shield", "Mass Attack", "Winning Strategy", "Endure", "Iron Wall", "Strategic Regroup", "Mass Resist", "Chaotic Strategy"],
+          "class": [
+              { "name":"Tactician",
+                "HP": 2944, "ATK": 312, "INT": 557,
+                "DEF": 228, "MDEF": 295, "SKILL": 80,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Imperial Chancellor",
+                "HP": 2813, "ATK": 260, "INT": 591,
+                "DEF": 211, "MDEF": 295, "SKILL": 80,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Gerold&Layla", 
+          "talent":"Moonlit Oath",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["origins-of-light", "strategic-masters"],
+          "soldier": ["Bone Dino", "Vampire Bats", "Wizard", "Dark Elf Sniper", "Holy Knight", "Sorceress", "Undead Knight", "Spider Demon", "Dark Alchemist", "Mechanical Knight"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Leyla's Blessing", "Onrush", "Move Again", "Demonic Arts", "Augment", "Smash", "ATK Command", "Holy Word", "Meditation"],
+          "class": [
+              { "name":"Black Knight",
+                "HP": 3925, "ATK": 531, "INT": 417,
+                "DEF": 302, "MDEF": 280, "SKILL": 118,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","BUFF"], "cNumber": 5,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Envoy",
+                "HP": 3455, "ATK": 501, "INT": 480,
+                "DEF": 270, "MDEF": 338, "SKILL": 91,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","DEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Gizarof", 
+          "talent":"Dark Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["dark-reincarnation", "mythical-realm"],
+          "soldier": ["Hellfire Archer", "Lobster Behemoth", "Wizard", "Orc Berserker", "Cyclops", "Undead Knight", "Leviathan"],
+          "soldierHPBonus": 20, "soldierATKBonus": 10,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 35,
+          "skill": ["Ultimate Construct", "Summon Construct", "Lightning Strike", "Resist", "Thunder Storm", "Fireball", "Swan Song", "Dark Dragon Breath", "Forget", "Thunder Dragon Breath"],
+          "class": [
+              { "name":"Mad Scientist",
+                "HP": 3548, "ATK": 310, "INT": 484,
+                "DEF": 285, "MDEF": 315, "SKILL": 105,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Magic Marshal",
+                "HP": 3845, "ATK": 258, "INT": 514,
+                "DEF": 265, "MDEF": 261, "SKILL": 105,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Helena", 
+          "talent":"Crystal Knight",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "empires-honor"],
+          "soldier": ["Bone Dino", "Holy Pegasus", "Guardian Cavalry", "Guardian Infantry", "Angel", "Royal Cavalry", "Highland Warrior"],
+          "soldierHPBonus": 40, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 10,
+          "skill": ["Crystal Blossom", "Onrush", "Petal Storm", "Ram", "Rout", "Blast", "Scintillating Strike", "ATK Break", "Chivalry"],
+          "class": [
+              { "name":"Strike Master",
+                "HP": 4184, "ATK": 609, "INT": 233,
+                "DEF": 275, "MDEF": 254, "SKILL": 113,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4511, "ATK": 578, "INT": 233,
+                "DEF": 287, "MDEF": 283, "SKILL": 113,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Hiei", 
+          "talent":"Jagan Eye",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["origins-of-light", "meteor-strike", "heros-of-time"],
+          "soldier": ["Bandit", "Dark Elf Sniper", "Hellfire Archer", "Lobster Behemoth", "Shinobi", "Leviathan", "Catapult"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 25,
+          "skill": ["Rage of the Darkness Flame", "Sword of the Darkness Flame", "Sneak", "ATK Intimidate", "Fist of the Mortal Flame", "Detect", "Dragon of the Darkness Flame", "Adversity", "Backstab"],
+          "class": [
+              { "name":"Jagan Master",
+                "HP": 3439, "ATK": 540, "INT": 240,
+                "DEF": 298, "MDEF": 281, "SKILL": 322,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Darkness Flame",
+                "HP": 3821, "ATK": 568, "INT": 240,
+                "DEF": 334, "MDEF": 302, "SKILL": 197,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Hilda", 
+          "talent":"Bloody Vengeance",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["reincarnation-tensei", "empires-honor", "strategic-masters"],
+          "soldier": ["Phalanx", "Stone Colossus", "Guardian Cavalry", "Templar Knight", "Protostate", "Royal Cavalry", "Crystal Molders"],
+          "soldierHPBonus": 20, "soldierATKBonus": 30,
+          "soldierDEFBonus": 40, "soldierMDEFBonus": 10,
+          "skill": ["Scarlet Command", "Rout", "Ram", "Lance Phalanx", "Halberd Breaker", "Swordbreaker", "Heavy Shield", "Arrow Breaker", "Will of the Reincarnation", "Imperial Formation"],
+          "class": [
+              { "name":"Grand Marshal",
+                "HP": 5372, "ATK": 548, "INT": 247,
+                "DEF": 357, "MDEF": 207, "SKILL": 106,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 5057, "ATK": 577, "INT": 247,
+                "DEF": 311, "MDEF": 260, "SKILL": 118,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Himiko", 
+          "talent":"Ninjutsu - Substitution",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["yeless-legends", "meteor-strike", "heros-of-time"],
+          "soldier": ["Bandit", "Elf Master", "Mist Dancer", "Sorceress", "Earth Elf Knight", "Samurai", "Sky Archer"],
+          "soldierHPBonus": 20, "soldierATKBonus": 20,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 25,
+          "skill": ["Lightning Shuriken", "Shadow Raid", "Sneak Attack", "Plunder", "Riposte", "Ninjutsu - Hot Hot Hot! Technique", "Sealing Technique", "Sneak", "Ninjutsu - Sacred Cow"],
+          "class": [
+              { "name":"Head of Shinobibe",
+                "HP": 3838, "ATK": 533, "INT": 242,
+                "DEF": 293, "MDEF": 263, "SKILL": 326,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Genoumaru",
+                "HP": 3838, "ATK": 533, "INT": 242,
+                "DEF": 293, "MDEF": 263, "SKILL": 326,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPHLOWER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Ilucia", 
+          "talent":"Floating Petals",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "strategic-masters"],
+          "soldier": ["Tide Master", "Highland Warrior", "Stone Colossus", "Heavy Cavalry", "Tidal Elf", "Lava Titan", "Hellhound", "Pirate Raider"],
+          "soldierHPBonus": 40, "soldierATKBonus": 10,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Frozen Clutch", "Triton", "Enduring Journey", "Chain Hook", "Heavy Shield", "Surf's Up", "Ephemeral Illusion", "Tenacity", "Skill Swagger"],
+          "class": [
+              { "name":"Serpent Master",
+                "HP": 4717, "ATK": 504, "INT": 247,
+                "DEF": 371, "MDEF": 267, "SKILL": 103,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["WATER"], "cNumber": null,
+                      "effect":"PHYINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Vanguard",
+                "HP": 5372, "ATK": 448, "INT": 247,
+                "DEF": 403, "MDEF": 212, "SKILL": 88,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"SOLDDMGINC", "eNumber": 20
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Jessica(T)", 
+          "talent":"Authority of Judgment",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "origins-of-light", "reincarnation-tensei"],
+          "soldier": ["Wizard", "Dark Elf Sniper", "Bishop", "Elf Master", "Sorceress", "Dwarf Adventurer", "Catapult"],
+          "soldierHPBonus": 25, "soldierATKBonus": 40,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 20,
+          "skill": ["Embrace of the Holy Light", "Fireball", "Freeze Strike", "Strengthen", "Holy Light", "Lightning Strike", "Teleport", "Meteor", "Holy Glory", "Dragon Blow"],
+          "class": [
+              { "name":"Authority of Judgment",
+                "HP": 3308, "ATK": 262, "INT": 563,
+                "DEF": 245, "MDEF": 395, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Martyr",
+                "HP": 3471, "ATK": 316, "INT": 532,
+                "DEF": 265, "MDEF": 395, "SKILL": 95,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Jessica(Y)", 
+          "talent":"Goddess Incarnate",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "origins-of-light", "mythical-realm"],
+          "soldier": ["Bishop", "High Elf", "Wizard", "Dark Elf Sniper", "Catapult", "Sorceress", "Forest Priest"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 30,
+          "skill": ["Goddess's Baptism", "Fireball", "Strengthen", "Mass Heal", "Cleanse", "Mass Resist", "Avatar State", "Sigh of a Goddess", "Defense Support", "Meteor"],
+          "class": [
+              { "name":"Martyr",
+                "HP": 3379, "ATK": 316, "INT": 526,
+                "DEF": 256, "MDEF": 415, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Wizard",
+                "HP": 3218, "ATK": 262, "INT": 558,
+                "DEF": 237, "MDEF": 415, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Joshua", 
+          "talent":"Dark Initiate",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["princess-alliance", "meteor-strike", "heros-of-time"],
+          "soldier": ["Bandit", "Guardian Infantry", "Mist Dancer", "Dark Elf Sniper", "Cyclops", "Firebrand Sniper", "Shinobi"],
+          "soldierHPBonus": 20, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 30,
+          "skill": ["True Black Fang", "Double Tap", "Ruthless", "Dark Demise", "Ninjutsu", "Sneak", "Phantom Raid", "Starbright Sonata", "Magic Eye"],
+          "class": [
+              { "name":"Black Fang",
+                "HP": 3819, "ATK": 569, "INT": 240,
+                "DEF": 295, "MDEF": 281, "SKILL": 231,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Shadow",
+                "HP": 3819, "ATK": 540, "INT": 240,
+                "DEF": 283, "MDEF": 260, "SKILL": 336,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Jugler", 
+          "talent":"Sacred Beast Sanctuary",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["origins-of-light", "meteor-strike", "mythical-realm"],
+          "soldier": ["Bone Dino", "Skeleton Knight", "Lobster Behemoth", "Orc Berserker", "Vampire Bats", "Stone Colossus", "Cyclops", "Undead Knight", "Lizardman", "Gargoyles", "Hell Hound", "Steelmane Werewolf"],
+          "soldierHPBonus": 40, "soldierATKBonus": 15,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 10,
+          "skill": ["Hymn of the Sacred Beast", "Sacred Beast Aegis", "Defense Intimidate", "First Aid", "Triton", "Battlecry", "Mark of The Sacred Beast", "Beast Shock", "Precaution", "Master of Ice", "Great Dragon Barrier", "MDEF Command"],
+          "class": [
+              { "name":"Bahamut",
+                "HP": 5442, "ATK": 412, "INT": 327,
+                "DEF": 282, "MDEF": 371, "SKILL": 124,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"SOLDDMGINC", "eNumber": 20
+                    }
+                ]
+              },
+              { "name":"Behemoth",
+                "HP": 5805, "ATK": 503, "INT": 271,
+                "DEF": 293, "MDEF": 325, "SKILL": 109,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Hydra",
+                "HP": 5442, "ATK": 412, "INT": 247,
+                "DEF": 317, "MDEF": 285, "SKILL": 124,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Knight of Mystery", 
+          "talent":"Protector of the Kingdom",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["strategic-masters", "yeless-legends"],
+          "soldier": ["Heavensguard", "Steel Wing Warrior", "Sorceress", "Bolt Ranger", "Holy Pegasus", "Goblin Knight", "Unicorn"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 25,
+          "skill": ["Shattering Thunder Slash", "Siphon", "Hit and Run", "Forget", "Lightning Strike", "Shield", "Shattering Spear", "Holy Shield", "Thunderstorm Void"],
+          "class": [
+              { "name":"Magic Knight Master",
+                "HP": 3762, "ATK": 295, "INT": 559,
+                "DEF": 321, "MDEF": 286, "SKILL": 127,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Unicorn Master",
+                "HP": 3762, "ATK": 295, "INT": 502,
+                "DEF": 321, "MDEF": 306, "SKILL": 127,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Kreuger", 
+          "talent":"Dark God's Descent",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["dark-reincarnation", "mythical-realm"],
+          "soldier": ["Sorceress", "Skeleton Knight", "Wizard", "Stone Colossus", "Lava Titan", "Firebrand Archer", "Crystal Warlock"],
+          "soldierHPBonus": 30, "soldierATKBonus": 20,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Overwhelming Evil", "Lightning Strike", "Forget", "Dark Reaper", "Acid Burns", "Feast of the Night", "Dark Dragon Breath", "Dark Barrier", "Black Hole"],
+          "class": [
+              { "name":"Evil God",
+                "HP": 4170, "ATK": 262, "INT": 591,
+                "DEF": 272, "MDEF": 361, "SKILL": 113,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Shattered",
+                "HP": 3697, "ATK": 262, "INT": 562,
+                "DEF": 253, "MDEF": 361, "SKILL": 87,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Kurama", 
+          "talent":"Plant Manipulation",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["yeless-legends", "strategic-masters", "heros-of-time"],
+          "soldier": ["Bandit", "Skeleton Knight", "Wizard", "High Elf", "Sorceress", "Samurai", "Hellfire Archer", "Dark Alchemist"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 30,
+          "skill": ["Elegant Rose Formation", "Wind Blade", "Devil Plant", "Fruit of the Previous Life", "Resist", "Last Stand", "Acid Burns", "ATK Support", "Flower Dance"],
+          "class": [
+              { "name":"Power of the Previous Life",
+                "HP": 3502, "ATK": 262, "INT": 579,
+                "DEF": 292, "MDEF": 382, "SKILL": 115,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Thorn of the Demon Rose",
+                "HP": 3489, "ATK": 262, "INT": 551,
+                "DEF": 271, "MDEF": 382, "SKILL": 88,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["MELEE","DEF"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Lambda", 
+          "talent":"Sacred Tree's Sigh",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["protagonist", "yeless-legends", "mythical-realm"],
+          "soldier": ["Wizard", "Dark Elf Sniper", "Bishop", "High Elf", "Sorceress", "Catapult", "Zealot", "Dwarven Adventurer"],
+          "soldierHPBonus": 25, "soldierATKBonus": 15,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 40,
+          "skill": ["Sacred Tree's Breath", "Wind Blade", "Tornado", "Freeze Strike", "Sacred Tree Shield", "Holy Missile", "Shield", "Thunder Storm", "Ice Missile", "White Dragon's Breath"],
+          "class": [
+              { "name":"Wizard",
+                "HP": 3190, "ATK": 256, "INT": 551,
+                "DEF": 225, "MDEF": 417, "SKILL": 103,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 50,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Forest Sage",
+                "HP": 3190, "ATK": 307, "INT": 551,
+                "DEF": 225, "MDEF": 394, "SKILL": 103,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Lana", 
+          "talent":"Arcane Extension",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["princess-alliance", "dark-reincarnation"],
+          "soldier": ["Bishop", "Stone Colossus", "Wizard", "Dark Elf Sniper", "Sorceress", "Lava Titan", "Firebrand Archer", "Dark Alchemist"],
+          "soldierHPBonus": 10, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 40,
+          "skill": ["Elemental Destruction", "Dark Reaper", "Freeze Strike", "Lightning Strike", "Blizzard", "Summon Undead", "Cleanse", "Heaven's Sanction", "Black Hole", "MDEF Intimidate"],
+          "class": [
+              { "name":"Dark Princess",
+                "HP": 3340, "ATK": 262, "INT": 554,
+                "DEF": 245, "MDEF": 401, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","PHYSIC"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Martyr",
+                "HP": 3503, "ATK": 316, "INT": 523,
+                "DEF": 265, "MDEF": 401, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MAGIC"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Landius", 
+          "talent":"United Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "yeless-legends"],
+          "soldier": ["Vanguard Lancer", "Guardian Infantry", "Guardian Cavalry", "Templar Knight", "Royal Cavalry", "Dark Guard", "Heavy Centurion", "Treant Guardian"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 10,
+          "skill": ["Meikyo Shisui", "Move Again", "Rout", "Lance Phalanx", "Counterattack", "Sun Slash", "Iron Helmet", "Indomitable", "Resplendent Legend", "Tranquility"],
+          "class": [
+              { "name":"Grand Marshal",
+                "HP": 5344, "ATK": 534, "INT": 547,
+                "DEF": 341, "MDEF": 211, "SKILL": 118,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 5032, "ATK": 563, "INT": 247,
+                "DEF": 295, "MDEF": 265, "SKILL": 132,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Lanford", 
+          "talent":"Untarnished",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["yeless-legends", "strategic-masters"],
+          "soldier": ["Guardian Infantry", "Vanguard Lancer", "Guardian Cavalry", "Griffon Knight", "Heavensguard", "Amazon Champion", "Berserker", "Steel Wing Warrior", "Mechanical Knight"],
+          "soldierHPBonus": 40, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 10,
+          "skill": ["Fearless Strike", "Javelin", "Blast", "Roar", "Endure", "DEF Break", "Mind's Eye", "Chain Lightning", "Ace Tactics", "Chivalry", "Viking Braver"],
+          "class": [
+              { "name":"Knight Master",
+                "HP": 4691, "ATK": 551, "INT": 247,
+                "DEF": 307, "MDEF": 276, "SKILL": 147,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["MOVEMENT"], "cNumber": null,
+                      "effect":"DMGDEC", "eArray": [3, 15]
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Sword Saint",
+                "HP": 4691, "ATK": 582, "INT": 271,
+                "DEF": 307, "MDEF": 276, "SKILL": 251,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Ledin", 
+          "talent":"King's Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "legion-of-glory"],
+          "soldier": ["Exorcist", "Tide Master", "Heavy Infantry", "Phalanx", "Masked Maid", "Amazon Champion", "Crystal Titan", "Redeemer"],
+          "soldierHPBonus": 35, "soldierATKBonus": 10,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 20,
+          "skill": ["Righteous Duel", "Sun Slash", "Block", "Lance Phalanx", "Divine Guard", "Light Reflect", "Judgment", "Consecration", "Vindication", "Burning Sun", "Crystal Molder"],
+          "class": [
+              { "name":"Templar",
+                "HP": 5291, "ATK": 434, "INT": 300,
+                "DEF": 352, "MDEF": 316, "SKILL": 102,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","OPPBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"King",
+                "HP": 5607, "ATK": 498, "INT": 271,
+                "DEF": 375, "MDEF": 279, "SKILL": 117,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Leon", 
+          "talent":"Epic Knight",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["empires-honor", "strategic-masters"],
+          "soldier": ["Bone Dino", "Vampire Bat", "Guardian Cavalry", "Guardian Infantry", "Angel", "Royal Cavalry", "Berserker", "Scorpion", "Machine Rider"],
+          "soldierHPBonus": 40, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 10,
+          "skill": ["Blue Dragon Strike", "Assault", "Legion", "Smash", "ATK Break", "Crush", "Blast", "Chivalry", "Imperial Charge", "Thousand Hooves"],
+          "class": [
+              { "name":"Strike Master",
+                "HP": 4369, "ATK": 620, "INT": 233,
+                "DEF": 270, "MDEF": 251, "SKILL": 130,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4690, "ATK": 589, "INT": 233,
+                "DEF": 281, "MDEF": 280, "SKILL": 130,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Leonhardt", 
+          "talent":"Asura Sword",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["origins-of-light", "empires-honor", "heros-of-time"],
+          "soldier": ["Highland Warrior", "Vanguard Lancer", "Guardian Infantry", "Guardian Cavalry", "Dark Guard", "Royal Cavalry", "Dark Centurion"],
+          "soldierHPBonus": 20, "soldierATKBonus": 20,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 35,
+          "skill": ["Zero Storm", "Air Slash", "Detect", "Sun Slash", "Instant Transfer", "Ethereal Fire Machete", "Deathmatch", "Fusion - Dark Emperor Sword"],
+          "class": [
+              { "name":"Bladelord",
+                "HP": 4754, "ATK": 549, "INT": 294,
+                "DEF": 353, "MDEF": 301, "SKILL": 116,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Asura",
+                "HP": 4448, "ATK": 579, "INT": 294,
+                "DEF": 327, "MDEF": 280, "SKILL": 130,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Liana", 
+          "talent":"Holy Sister",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["protagonist", "legion-of-glory", "princess-alliance"],
+          "soldier": ["Bishop", "Exorcist", "High Elf", "Wizard", "Highland Warrior", "Templar Knight", "Shrine Maiden"],
+          "soldierHPBonus": 40, "soldierATKBonus": 10,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 40,
+          "skill": ["Heal", "Act Again", "Gospel", "Wind Blade", "Freeze Strike", "Mass Protect", "Prayer", "Meditation", "Summmon Sky Archer"],
+          "class": [
+              { "name":"Prophet",
+                "HP": 3853, "ATK": 321, "INT": 408,
+                "DEF": 275, "MDEF": 408, "SKILL": 88,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Hermit",
+                "HP": 4026, "ATK": 295, "INT": 443,
+                "DEF": 275, "MDEF": 374, "SKILL": 103,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["PHYSIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Licorice", 
+          "talent":"Might of the Demon God",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["reincarnation-tensei", "princess-alliance", "dark-reincarnation"],
+          "soldier": ["Wizard", "Leviathan", "Bishop", "Vampire Bat", "Crystal Warlock, Sorceress", "Tidal Elf"],
+          "soldierHPBonus": 15, "soldierATKBonus": 20,
+          "soldierDEFBonus": 30, "soldierMDEFBonus": 35,
+          "skill": ["Dark Despair", "Fireball", "Mass Heal", "Demonic Advent", "Retribution", "Mass Resist", "Force of Darkness", "Dark Dragon Breath", "Holy Shield", "Mass Protect"],
+          "class": [
+              { "name":"Devil Incarnate",
+                "HP": 3920, "ATK": 267, "INT": 509,
+                "DEF": 263, "MDEF": 400, "SKILL": 117,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["PHYSIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Shadow Martyr",
+                "HP": 3606, "ATK": 267, "INT": 480,
+                "DEF": 254, "MDEF": 400, "SKILL": 117,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MAGIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Listell", 
+          "talent":"Blood Queen",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["yeless-legends", "dark-reincarnation"],
+          "soldier": ["Vampire Bat", "Bone Dino", "Skeleton Knight", "Stone Colossus", "Undead Knight", "Lava Titan", "Gargoyle", "Treant Guard"],
+          "soldierHPBonus": 30, "soldierATKBonus": 10,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 40,
+          "skill": ["Demon God's Bulwark", "Siphon", "Demonic Guard", "Mind Bore", "Seal", "Bloody Deluge", "Blood Dance", "Last Stand", "Reaper's Touch"],
+          "class": [
+              { "name":"Demon God",
+                "HP": 4506, "ATK": 321, "INT": 343,
+                "DEF": 341, "MDEF": 352, "SKILL": 102,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Blood Empress",
+                "HP": 4182, "ATK": 321, "INT": 343,
+                "DEF": 330, "MDEF": 375, "SKILL": 117,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Luna", 
+          "talent":"Wind Protection",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["origins-of-light", "strategic-masters", "princess-alliance"],
+          "soldier": ["Demon Hunter", "Elf Master", "Griffin Knight", "Heavy Cavalry", "Bolt Ranger", "Holy Pegasus", "Heavensguard", "Elven Wolf Rider"],
+          "soldierHPBonus": 10, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 40,
+          "skill": ["Wind God Realm", "Raging Thunder", "Wind Spiral", "Move Again", "Wind Pressure", "Mass Resist", "Snipe", "DEF Command", "Queen's Ascension", "Gale"],
+          "class": [
+              { "name":"Bow Master",
+                "HP": 4056, "ATK": 483, "INT": 295,
+                "DEF": 264, "MDEF": 366, "SKILL": 189,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT", "HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Pegasus Master",
+                "HP": 4683, "ATK": 483, "INT": 325,
+                "DEF": 331, "MDEF": 400, "SKILL": 146,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF", "MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Maiya", 
+          "talent":"Super Maid",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["reincarnation-tensei", "princess-alliance"],
+          "soldier": ["Elf Master", "Exorcist", "Wizard", "Masked Maid", "Dwarf Adventurer", "Zealot", "Samurai", "Dark Alchemist"],
+          "soldierHPBonus": 40, "soldierATKBonus": 15,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 25,
+          "skill": ["Ultra Purge", "Freeze Strike", "MDEF Break", "Cleanse", "Decay", "Sneak", "Holy Shield", "Holy Missile", "Ultimate Training Regimen", "Ice Dragon's Breath"],
+          "class": [
+              { "name":"Martyr",
+                "HP": 3443, "ATK": 314, "INT": 514,
+                "DEF": 262, "MDEF": 389, "SKILL": 104,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Maid",
+                "HP": 3279, "ATK": 263, "INT": 544,
+                "DEF": 242, "MDEF": 389, "SKILL": 104,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Mariel", 
+          "talent":"Crown of Justice",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "reincarnation-tensei"],
+          "soldier": ["Heavy Infantry", "Vanguard Lancer", "Exorcist", "Amazon Champion", "Inquisitor", "Thaumaturge", "Redeemer"],
+          "soldierHPBonus": 25, "soldierATKBonus": 40,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 20,
+          "skill": ["Righteous Fury", "Savage Attack", "Boost", "ATK Command", "Rescue", "Mass Attack", "Consecration", "ATK Support (L)", "Pray", "Holy Lord Sanctuary"],
+          "class": [
+              { "name":"Heretical Adjudicator",
+                "HP": 4083, "ATK": 576, "INT": 290,
+                "DEF": 325, "MDEF": 339, "SKILL": 138,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Blessed Monk",
+                "HP": 4404, "ATK": 547, "INT": 290,
+                "DEF": 351, "MDEF": 339, "SKILL": 138,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"HEALINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Noemi", 
+          "talent":"Magic Tailor",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "reincarnation-tensei"],
+          "soldier": ["Wizard", "Elf Master", "Sorceress", "Bishop", "Spider Demon", "Dwarf Adventurer", "Firebrand Archer"],
+          "soldierHPBonus": 20, "soldierATKBonus": 40,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 25,
+          "skill": ["Strategist's Garb", "Fireball", "MDEF Intimidate", "Cleanse", "Freeze Strike", "Summon Arachnid", "Accelerated Aid", "Pillar of Flame", "Magical Stitch", "Ice Lance"],
+          "class": [
+              { "name":"Wizard",
+                "HP": 3340, "ATK": 262, "INT": 547,
+                "DEF": 252, "MDEF": 393, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["PHYSIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Spellweaver",
+                "HP": 3503, "ATK": 316, "INT": 517,
+                "DEF": 272, "MDEF": 344, "SKILL": 125,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MAGIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Omega", 
+          "talent":"Shadow Comet",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["meteor-strike", "dark-reincarnation"],
+          "soldier": ["Bandit", "Skeleton Knight", "Dark Elf Sniper", "Hellfire Archer", "Bolt Ranger", "Leviathan", "Shinobi"],
+          "soldierHPBonus": 15, "soldierATKBonus": 40,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 25,
+          "skill": ["Lone Shadow Strike", "Cold Blood", "Deadly", "Knowing Strike", "Adversity", "DEF Intimidate", "Smoke", "Surprise Attack", "Precaution", "Focused Snipe"],
+          "class": [
+              { "name":"High Master",
+                "HP": 4012, "ATK": 548, "INT": 244,
+                "DEF": 275, "MDEF": 267, "SKILL": 304,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["PHYSIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Ranger",
+                "HP": 3539, "ATK": 548, "INT": 244,
+                "DEF": 255, "MDEF": 323, "SKILL": 234,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Patsyr", 
+          "talent":"Shadow Seduction",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["reincarnation-tensei", "dark-reincarnation"],
+          "soldier": ["Sorceress", "Stone Colossus", "Dark Elf Sniper", "Mist Dancer", "Lava Titan", "Sky Archer", "Crystal Warlock", "Hellfire Archer"],
+          "soldierHPBonus": 30, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 20,
+          "skill": ["Shadow Curse of Annihilation", "Fireball", "Mind Bore", "MDEF Intimidate", "Addictive Dream", "Lightning Strike", "Dark Reaper", "Charm", "Succubus's Kiss", "Forget"],
+          "class": [
+              { "name":"Dreamseeker",
+                "HP": 4034, "ATK": 262, "INT": 579,
+                "DEF": 293, "MDEF": 354, "SKILL": 125,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Bloody Dreammaster",
+                "HP": 3731, "ATK": 290, "INT": 550,
+                "DEF": 273, "MDEF": 331, "SKILL": 111,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Rachel", 
+          "talent":"Arcane Vessel",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["protagonist", "yeless-legends"],
+          "soldier": ["Sorceress", "Holy Pegasus", "Bishop", "Dark Elf Sniper", "Firebrand Sniper", "Sky Archer", "Angel", "Crystal Warlock", "Dark Alchemist"],
+          "soldierHPBonus": 10, "soldierATKBonus": 30,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 40,
+          "skill": ["Runic Void", "Lighning Strike", "Holy Word", "Dark Reaper", "Demolish", "Meditation", "MDEF Support", "Arcane Blast", "Consecration", "Gospel"],
+          "class": [
+              { "name":"Arcane Core",
+                "HP": 3838, "ATK": 267, "INT": 516,
+                "DEF": 239, "MDEF": 423, "SKILL": 117,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Oracle",
+                "HP": 3355, "ATK": 321, "INT": 487,
+                "DEF": 248, "MDEF": 423, "SKILL": 90,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"HEALINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Rainforce", 
+          "talent":"Otherworldly Force",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["yeless-legends", "strategic-masters", "mythical-realm"],
+          "soldier": ["Heavy Infantry", "Exorcist", "Bandit", "Elf Master", "Samurai", "Berserker", "Firebrand Sniper", "Cyborg"],
+          "soldierHPBonus": 20, "soldierATKBonus": 20,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 25,
+          "skill": ["Lunar Flare", "Sonic Blade", "Sly Stride", "Air Slash", "Ruthless", "Legion", "Deadly", "Eclipse", "Skill Command", "Star Stab"],
+          "class": [
+              { "name":"Sword Saint",
+                "HP": 4370, "ATK": 588, "INT": 294,
+                "DEF": 305, "MDEF": 293, "SKILL": 273,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF", "RANGED"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Otherworldly Prince",
+                "HP": 4056, "ATK": 530, "INT": 294,
+                "DEF": 293, "MDEF": 273, "SKILL": 316,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Rean", 
+          "talent":"Ashen Chevalier",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "mythical-realm", "heros-of-time"],
+          "soldier": ["Heavy Infantry", "Guardian Cavalry", "Highland Warrio", " Griffin Knight", "Dark Guard", "Steel Wing Warrior", "Berserker"],
+          "soldierHPBonus": 15, "soldierATKBonus": 25,
+          "soldierDEFBonus": 30, "soldierMDEFBonus": 30,
+          "skill": ["Azure Flame Slash", "Autumn Leaf Cutter", "Roar", "Arc Slash", "Flash", "Light Reflect", "Spirit Unification", "Mind's Eye", "Gale EX"],
+          "class": [
+              { "name":"Sword Saint",
+                "HP": 4538, "ATK": 585, "INT": 283,
+                "DEF": 320, "MDEF": 289, "SKILL": 231,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Ashen Hero",
+                "HP": 4538, "ATK": 555, "INT": 283,
+                "DEF": 346, "MDEF": 289, "SKILL": 159,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Renata", 
+          "talent":"Vengeful Dragon Seal",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["dark-reincarnation", "reincarnation-tensei"],
+          "soldier": ["Orc Berserker", "Stone Colossus", "Vampire Bat", "Guardian Cavalry", "Gargoyle", "Scorpion", "Lava Titan", "Dragon Trooper"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 35,
+          "skill": ["Thunderous Flash", "Lightning", "Adversity", "Savage Attack", "Flaying Wing", "First Aid", "ATK Intimidate", "Last Stand", "Rage Scale", "Empowering Dragon"],
+          "class": [
+              { "name":"Battle God",
+                "HP": 4756, "ATK": 576, "INT": 233,
+                "DEF": 326, "MDEF": 237, "SKILL": 184,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT", "OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dragoncaller",
+                "HP": 4444, "ATK": 607, "INT": 233,
+                "DEF": 326, "MDEF": 301, "SKILL": 128,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Renne", 
+          "talent":"Angel of Death",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["yeless-legends", "dark-reincarnation", "heros-of-time"],
+          "soldier": ["Wizard", "Stone Colossus", "Sorceress", "Skeleton Knight", "Dark Centurion", "Hellfire Archer", "Undead Knight"],
+          "soldierHPBonus": 25, "soldierATKBonus": 30,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 25,
+          "skill": ["Pater Mater", "Shadow Spear", "Freeze Strike", "Calamity Throw", "Dark Matter", "Fireball", "Decay", "Wind Blade", "Renne - Annihilation"],
+          "class": [
+              { "name":"Wizard",
+                "HP": 3170, "ATK": 262, "INT": 552,
+                "DEF": 267, "MDEF": 378, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Angel of Death",
+                "HP": 3630, "ATK": 262, "INT": 581,
+                "DEF": 287, "MDEF": 378, "SKILL": 125,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Rozalia", 
+          "talent":"Glorious Faith",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "princess-alliance", "reincarnation-tensei"],
+          "soldier": ["Guardian Cavalry", "Griffin Knight", "Heavy Cavalry", "Exorcist", "Holy Pegasus", "Heavensguard", "Templar Knights"],
+          "soldierHPBonus": 20, "soldierATKBonus": 40,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 25,
+          "skill": ["Ultimate Judgment", "Smash", "Blast", "Chivalry", "Sword of Protection", "Boost", "Endure", "Thousand Hooves", "Silver Spear", "Sanctified Wrath"],
+          "class": [
+              { "name":"Silver Knight Commander",
+                "HP": 4841, "ATK": 578, "INT": 247,
+                "DEF": 274, "MDEF": 297, "SKILL": 125,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4841, "ATK": 578, "INT": 271,
+                "DEF": 263, "MDEF": 308, "SKILL": 125,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Rozenciel", 
+          "talent":"Crystal Queen",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["empires-honor", "princess-alliance", "mythical-realm"],
+          "soldier": ["Sorceress", "Elf Master", "Bishop", "Holy Pegasus", "Shrine Maiden", "Empress's Personal Guard", "Sky Archer"],
+          "soldierHPBonus": 20, "soldierATKBonus": 10,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 35,
+          "skill": ["Crystal Ward", "Freeze Strike", "MDEF Break", "DEF Support (L)", "Crystal Heal", "Brilliant Imperial Crystal", "Ice Dragon's Breath", "Mass Crystal Heal", "Miracle"],
+          "class": [
+              { "name":"Crystal Empress",
+                "HP": 3666, "ATK": 295, "INT": 447,
+                "DEF": 278, "MDEF": 317, "SKILL": 99,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Radiant Maiden",
+                "HP": 3497, "ATK": 321, "INT": 412,
+                "DEF": 278, "MDEF": 348, "SKILL": 85,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Sage of the Trees", 
+          "talent":"Guardian of the World",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["yeless-legends", "mythical-realm"],
+          "soldier": ["Wizard", "Vanguard Lancer", "Elf Master", "Exorcist", "Zealot", "Crystal Warlock", "Treant Guardian"],
+          "soldierHPBonus": 20, "soldierATKBonus": 15,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 30,
+          "skill": ["Wave Whisper", "Lightning Strike", "DEF Support", "Light Array", "Cleanse", "Divine Incarnation", "Thunder Dragon Breath", "Indomitable", "Memories of War"],
+          "class": [
+              { "name":"Wizard",
+                "HP": 3279, "ATK": 256, "INT": 544,
+                "DEF": 250, "MDEF": 370, "SKILL": 92,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Great Sage",
+                "HP": 3279, "ATK": 307, "INT": 544,
+                "DEF": 250, "MDEF": 348, "SKILL": 92,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Sakura", 
+          "talent":"Reiken - Arataka",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["protagonist", "empires-honor", "heros-of-time"],
+          "soldier": ["Heavy Cavalry", "Bone Dino", "Heavy Infantry", "Exorcist", "Dark Guard", "Zealot", "Heavensguard"],
+          "soldierHPBonus": 20, "soldierATKBonus": 35,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 20,
+          "skill": ["Sakura Rising", "Deathmatch", "Roar", "Smash", "Ouka Houshin", "Endure", "Hyakka Ryoran", "Sun Shade", "Bloodbath", "Viking Braver"],
+          "class": [
+              { "name":"Koubu - Kai",
+                "HP": 4487, "ATK": 578, "INT": 257,
+                "DEF": 307, "MDEF": 266, "SKILL": 144,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Evilslayer",
+                "HP": 4487, "ATK": 609, "INT": 283,
+                "DEF": 307, "MDEF": 266, "SKILL": 251,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Shalltear", 
+          "talent":"Vermillion Nova",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["dark-reincarnation", "heros-of-time", "meteor-strike"],
+          "soldier": ["Stone Colossus", "Vampire Bat", "Vanguard Lancer", "Skeleton Knight", "Undead Knight", "Amazon Champion", "Gargoyle", "Protostate", "Dragon Trooper", "Steelmane Werewolf"],
+          "soldierHPBonus": 30, "soldierATKBonus": 35,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 15,
+          "skill": ["Spuit Lance", "Purifying Javelin", "Accelerated Aid", "Skill Swagger", "Armor Pierce", "ATK Support (L)", "Blood Frenzy", "Impure Shockwave Shield", "Reinforcement"],
+          "class": [
+              { "name":"True Vampire",
+                "HP": 4686, "ATK": 600, "INT": 233,
+                "DEF": 353, "MDEF": 248, "SKILL": 154,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["MOVEMENT"], "cNumber": null,
+                      "effect":"DMGDEC", "eArray": [3, 15]
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Cursed Knight",
+                "HP": 4686, "ATK": 569, "INT": 233,
+                "DEF": 331, "MDEF": 213, "SKILL": 154,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Shelfaniel", 
+          "talent":"Magic Lineage",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["princess-alliance", "yeless-legends"],
+          "soldier": ["Wizard", "Tide Master", "Bishop", "Elf Master", "Shrine Maiden", "Leviathan", "Tidal Elf"],
+          "soldierHPBonus": 20, "soldierATKBonus": 20,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 35,
+          "skill": ["God's Judgment", "Cleanse", "MDEF Break", "Desiccate", "Demolish", "DEF Support", "Reinforcement", "ATK Support (L)", "Goddess Glow", "Heaven's Sanction"],
+          "class": [
+              { "name":"Wizard",
+                "HP": 3347, "ATK": 256, "INT": 537,
+                "DEF": 228, "MDEF": 426, "SKILL": 99,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT", "HPUP"], "cNumber": 80,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Empress",
+                "HP": 3347, "ATK": 307, "INT": 537,
+                "DEF": 228, "MDEF": 402, "SKILL": 99,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPUP"], "cNumber": 80,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Shilinka", 
+          "talent":"Eternal Loneliness",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["meteor-strike", "mythical-realm"],
+          "soldier": ["Heavy Infantry", "Skeleton Knight", "Elf Master", "Bandit", "Sky Archer", "Cyborg", "Firebrand Archer", "Faceless"],
+          "soldierHPBonus": 25, "soldierATKBonus": 35,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 15,
+          "skill": ["Bloody Grip", "Air Slash", "Ephemeral Flower", "Strengthen", "Snipe", "DEF Break", "Broken Dream", "Deathmatch", "Fleeting Flash"],
+          "class": [
+              { "name":"Sword Saint",
+                "HP": 4456, "ATK": 537, "INT": 294,
+                "DEF": 263, "MDEF": 319, "SKILL": 224,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Wings of Annihilation",
+                "HP": 3676, "ATK": 537, "INT": 294,
+                "DEF": 263, "MDEF": 319, "SKILL": 224,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Sigma", 
+          "talent":"Solitary Will",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "yeless-legends", "meteor-strike"],
+          "soldier": ["Heavy Infantry", "Tide Master", "High Elf", "Dark Elf Sniper", "Firebrand Sniper", "Leviathan", "Shinobi", "Cyborg", "Faceless"],
+          "soldierHPBonus": 30, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 20,
+          "skill": ["Ranger's Eye", "Neutralizing Fire", "Ranger's Heart", "Savage Attack", "Roundabout", "Sneak", "Legendary End", "ATK Break", "Deathmatch", "Strong Wind Snipe", "Hunting Shadow", "Shadow Killer's Duel"],
+          "class": [
+              { "name":"Vindicator",
+                "HP": 3419, "ATK": 593, "INT": 244,
+                "DEF": 270, "MDEF": 260, "SKILL": 185,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Ranger",
+                "HP": 3262, "ATK": 564, "INT": 244,
+                "DEF": 250, "MDEF": 315, "SKILL": 233,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Sigma SP", 
+          "talent":"Will of the Transcender",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "yeless-legends", "meteor-strike"],
+          "soldier": ["Heavy Infantry", "Tide Master", "High Elf", "Dark Elf Sniper", "Firebrand Sniper", "Leviathan", "Shinobi", "Cyborg", "Faceless"],
+          "soldierHPBonus": 30, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 20,
+          "skill": ["Ranger's Eye", "Neutralizing Fire", "Ranger's Heart", "Savage Attack", "Roundabout", "Sneak", "Legendary End", "ATK Break", "Deathmatch", "Strong Wind Snipe", "Hunting Shadow", "Shadow Killer's Duel"],
+          "class": [
+              { "name":"Blade of the Transcender",
+                "HP": 3069, "ATK": 600, "INT": 244,
+                "DEF": 263, "MDEF": 254, "SKILL": 259,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Sumire", 
+          "talent":"Gorgeous Solo",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["empires-honor", "princess-alliance", "heros-of-time"],
+          "soldier": ["Phalanx", "High Elf", "Guardian Cavalry", "Stone Colossus", "Amazon Champion", "Templar Knight", "Sky Archer", "Elven Wolf Rider"],
+          "soldierHPBonus": 35, "soldierATKBonus": 20,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 10,
+          "skill": ["Wyvern Dance", "Adversity", "Counterattack", "Strike", "Butterfly Dance", "Precaution", "Pheonix Dance", "Armor Pierce", "Iron Helmet"],
+          "class": [
+              { "name":"Koubu - Kai",
+                "HP": 4767, "ATK": 566, "INT": 233,
+                "DEF": 331, "MDEF": 245, "SKILL": 120,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Phoenix Dance",
+                "HP": 5083, "ATK": 566, "INT": 233,
+                "DEF": 378, "MDEF": 193, "SKILL": 107,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Tiaris", 
+          "talent":"Healing Light",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["protagonist", "origins-of-light", "princess-alliance"],
+          "soldier": ["Holy Knight", "Bishop", "Demon Hunter", "Catapult", "Bolt Ranger", "Templar Knight", "Sorceress"],
+          "soldierHPBonus": 10, "soldierATKBonus": 10,
+          "soldierDEFBonus": 40, "soldierMDEFBonus": 40,
+          "skill": ["Heal", "Shield", "Attack Support", "Mass Heal", "Mass Resist", "Attack Blessing", "Miracle", "Fireball", "Holy Missle"],
+          "class": [
+              { "name":"Maiden Knight",
+                "HP": 3327, "ATK": 335, "INT": 443,
+                "DEF": 272, "MDEF": 407, "SKILL": 96,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Unicorn Master",
+                "HP": 3619, "ATK": 308, "INT": 481,
+                "DEF": 304, "MDEF": 348, "SKILL": 125,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","RANGED"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MAGIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Towa", 
+          "talent":"Wandering Strategist",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["strategic-masters", "origins-of-light", "reincarnation-tensei"],
+          "soldier": ["Guardian Infantry", "Amazon Champion", "Griffin Knight", "Guardian Cavalry", "Holy Pegasus", "Protostate", "Dragoon", "Dragon Trooper"],
+          "soldierHPBonus": 30, "soldierATKBonus": 30,
+          "soldierDEFBonus": 40, "soldierMDEFBonus": 15,
+          "skill": ["Ancient Battle Formation", "Raging Thunder", "Tactical Advice", "Skill Command", "Blade of Freedom", "Gale", "Sword's Breath", "Savage Attack", "ATK Support (L)", "Dominant Strike"],
+          "class": [
+              { "name":"Wandering Swordsman",
+                "HP": 4696, "ATK": 560, "INT": 283,
+                "DEF": 356, "MDEF": 283, "SKILL": 159,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Pegasus Master",
+                "HP": 4375, "ATK": 560, "INT": 257,
+                "DEF": 322, "MDEF": 319, "SKILL": 176,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF","MELEE"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Toguro Brothers", 
+          "talent":"Body Manipulation",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["dark-reincarnation", "empires-honor", "heros-of-time"],
+          "soldier": ["Vampire Bat", "Skeleton Knight", "Bone Dino", "Orc Berserker", "Dragoon, Gargoyle", "Undead Knight", "Steelmane Werewolf"],
+          "soldierHPBonus": 40, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 10,
+          "skill": ["Flesh and Steel Blast", "Finger Shot", "Blast", "DEF Intimidate", "Ha!", "Boost", "120%", "Onrush", "Precaution"],
+          "class": [
+              { "name":"100% Power",
+                "HP": 3914, "ATK": 628, "INT": 233,
+                "DEF": 313, "MDEF": 273, "SKILL": 121,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Fighting Stance - Sword",
+                "HP": 4303, "ATK": 596, "INT": 233,
+                "DEF": 313, "MDEF": 262, "SKILL": 121,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","BUFF"], "cNumber": 10,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","BUFF"], "cNumber": 10,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Tsubame", 
+          "talent":"Silent Wing",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["meteor-strike", "reincarnation-tensei"],
+          "soldier": ["Bandit", "Mist Dancer", "Elf Master", "Demon Hunter", "Shinobi", "Earth Elf Knight", "Catapult", "Faceless"],
+          "soldierHPBonus": 10, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 40,
+          "skill": ["Killing Machine", "Shadow Raid", "Backstab", "Smoke", "Snare", "DEF Intimidate", "Instant Flash", "Shadow Steal", "Quick Step", "Ninjutsu"],
+          "class": [
+              { "name":"Shadow",
+                "HP": 3891, "ATK": 533, "INT": 240,
+                "DEF": 250, "MDEF": 257, "SKILL": 336,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Ranger",
+                "HP": 3442, "ATK": 533, "INT": 240,
+                "DEF": 230, "MDEF": 313, "SKILL": 261,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Vincent", 
+          "talent":"Wings of Destruction",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["meteor-strike", "empires-honor", "dark-reincarnation"],
+          "soldier": ["Griffin Knight", "Heavy Cavalry", "Vampire Bat", "Skeleton Knight", "Steelwing Warrior", "Undead Knight", "Hellhound"],
+          "soldierHPBonus": 20, "soldierATKBonus": 25,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 35,
+          "skill": ["Starfall Hurricane", "Throw Spear", "Windride", "Wind Whisper", "Ram", "ATK Intimidate", "Divebomb", "Detect", "Emerald Blast"],
+          "class": [
+              { "name":"Emerald Wing Commander",
+                "HP": 4034, "ATK": 589, "INT": 216,
+                "DEF": 267, "MDEF": 315, "SKILL": 179,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 80,
+                      "effect":"CRITDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Dark God's Wings",
+                "HP": 4348, "ATK": 589, "INT": 216,
+                "DEF": 291, "MDEF": 315, "SKILL": 179,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["SKY"], "cNumber": null,
+                      "effect":"PHYDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["SKY"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Virash", 
+          "talent":"Crimzonian Zeal",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["yeless-legends", "meteor-strike"],
+          "soldier": ["Tide Master", "Exorcist", "Heavy Infantry", "Vanguard Lancer", "Lizardman", "Berserker", "Amazon Champion"],
+          "soldierHPBonus": 35, "soldierATKBonus": 40,
+          "soldierDEFBonus": 15, "soldierMDEFBonus": 10,
+          "skill": ["Lunar Surge", "Tidal Surge", "Aqua Blast", "ATK Break", "Last Stand", "Backbreaker", "Skill Support (S)", "Defense Command", "Roar", "Precaution"],
+          "class": [
+              { "name":"Sealord Vindicator",
+                "HP": 4155, "ATK": 614, "INT": 259,
+                "DEF": 310, "MDEF": 252, "SKILL": 150,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Sword Master",
+                "HP": 4472, "ATK": 582, "INT": 285,
+                "DEF": 334, "MDEF": 271, "SKILL": 150,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Wataru", 
+          "talent":"Dragon's Power",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "yeless-legends", "heros-of-time"],
+          "soldier": ["Heavy Infantry", "Guardian Cavalry", "Guardian Infantry", "Griffin Knight", "Heavensguard", "Dragoon", "Angel", "Dragon Trooper"],
+          "soldierHPBonus": 25, "soldierATKBonus": 40,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 10,
+          "skill": ["Hisattsu Touryuuken", "Air Slash", "ATK Break", "ATK Command", "Touryuuken", "Here's Your Chance, Wataru!", "Sword Soul", "Hiryuuken", "Hougadan"],
+          "class": [
+              { "name":"Hero",
+                "HP": 4273, "ATK": 564, "INT": 258,
+                "DEF": 351, "MDEF": 283, "SKILL": 154,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Ryuuoumaru",
+                "HP": 4576, "ATK": 564, "INT": 258,
+                "DEF": 351, "MDEF": 283, "SKILL": 116,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","OPPDEBUFF"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Werner", 
+          "talent":"Machine General",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["empires-honor", "reincarnation-tensei"],
+          "soldier": ["Bone Dino", "Guardian Infantry", "Heavy Cavalry", "Guardian Cavalry", "Machine Rider", "Scorpion", "Royal Cavalry"],
+          "soldierHPBonus": 30, "soldierATKBonus": 35,
+          "soldierDEFBonus": 20, "soldierMDEFBonus": 15,
+          "skill": ["Mobile Transformation", "Smash", "Ram", "Assault", "Precaution", "Detect", "Drift", "Rush", "Onrush", "Sprint"],
+          "class": [
+              { "name":"Machine Commander",
+                "HP": 4311, "ATK": 572, "INT": 233,
+                "DEF": 288, "MDEF": 241, "SKILL": 122,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Royal Knight",
+                "HP": 4632, "ATK": 541, "INT": 233,
+                "DEF": 300, "MDEF": 270, "SKILL": 122,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["PHYSIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Wiler", 
+          "talent":"Tactical Genius",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["strategic-masters", "yeless-legends"],
+          "soldier": ["Bishop", "High Elf", "Wizard", "Catapult", "Shrine Maiden", "Zealot", "Highland Warrior", "Forest Priest"],
+          "soldierHPBonus": 40, "soldierATKBonus": 15,
+          "soldierDEFBonus": 25, "soldierMDEFBonus": 35,
+          "skill": ["High Stakes", "Dispel", "Strengthen", "Mass Heal", "Regroup", "Endure", "DEF Support (L)", "Tactical Retreat", "Last Stand", "Mass Attack"],
+          "class": [
+              { "name":"Tactician",
+                "HP": 2844, "ATK": 312, "INT": 545,
+                "DEF": 228, "MDEF": 303, "SKILL": 80,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Prophet",
+                "HP": 2713, "ATK": 312, "INT": 504,
+                "DEF": 211, "MDEF": 310, "SKILL": 80,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": null, "cNumber": null,
+                      "effect":"AOEDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Yulia", 
+          "talent":"Eternal Legend",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["legion-of-glory", "mythical-realm", "princess-alliance"],
+          "soldier": ["Heavy Infantry", "Amazon Champion", "Exorcist", "Templar Knight", "Masked Maid", "Heavensguard", "Zealot", "Unicorn"],
+          "soldierHPBonus": 15, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 35,
+          "skill": ["Blazing Light of the Holy Sword", "Discipline", "MDEF Break", "Tenacity", "Faith", "Consecration", "Holy Justice", "Endure", "Godly Menace"],
+          "class": [
+              { "name":"Blade of the Goddess",
+                "HP": 4615, "ATK": 267, "INT": 571,
+                "DEF": 313, "MDEF": 323, "SKILL": 175,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPHIGHER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Langrisser Princess",
+                "HP": 4288, "ATK": 295, "INT": 571,
+                "DEF": 278, "MDEF": 335, "SKILL": 175,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["ATK"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Yusuke", 
+          "talent":"Partner Power",
+          "rarity":["SSR"],
+          "nonfemale": true,
+          "faction": ["protagonist", "mythical-realm", "heros-of-time"],
+          "soldier": ["Exorcist", "Heavy Infantry", "Skeleton Knight", "Orc Berserker", "Undead Knight", "Zealot", "Cyclops"],
+          "soldierHPBonus": 15, "soldierATKBonus": 35,
+          "soldierDEFBonus": 35, "soldierMDEFBonus": 15,
+          "skill": ["Dark Tincture", "Psychic Eruption", "Spirit Gun", "Solidarity", "Hundred Strike Punch", "Judgment", "Bloodbath", "Demon Domination", "DEF Command"],
+          "class": [
+              { "name":"Spirit Detective",
+                "HP": 3788, "ATK": 557, "INT": 258,
+                "DEF": 319, "MDEF": 351, "SKILL": 165,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["ATK","HPLOWER%"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Demon King",
+                "HP": 4177, "ATK": 587, "INT": 258,
+                "DEF": 319, "MDEF": 327, "SKILL": 165,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["DEF"], "cNumber": null,
+                      "effect":"MAGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["COMBAT","HPDOWN"], "cNumber": 70,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+        { "name":"Zerida", 
+          "talent":"Hide and Seek",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["dark-reincarnation", "meteor-strike", "mythical-realm"],
+          "soldier": ["Bandit", "Dark Elf Sniper", "Firebrand Archer", "Skeleton Knight", "Mist Dancer", "Undead Knight", "Catapult", "Earth Elf Knight"],
+          "soldierHPBonus": 10, "soldierATKBonus": 40,
+          "soldierDEFBonus": 10, "soldierMDEFBonus": 40,
+          "skill": ["Heart of Alhazard", "Killing Blow", "Bloodbath", "Backstab", "Smoke", "Shadow Raid", "Sly Stride", "Obliterate", "Alhazard Bloodthirster"],
+          "class": [
+              { "name":"Shadow",
+                "HP": 3723, "ATK": 534, "INT": 240,
+                "DEF": 288, "MDEF": 281, "SKILL": 331,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPUP"], "cNumber": 100,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["MAGIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"Chaos' Chosen",
+                "HP": 4026, "ATK": 562, "INT": 240,
+                "DEF": 324, "MDEF": 302, "SKILL": 206,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": ["HPDOWN"], "cNumber": 50,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": ["PHYSIC","DEF"], "cNumber": null,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        }
+    ]
+}

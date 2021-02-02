@@ -1,0 +1,62 @@
+{
+    "faction": [
+	"protagonist", 
+ 	"legion-of-glory", 
+  	"origins-of-light",
+	"yeless-legends",
+	"reincarnation-tensei",
+	"empires-honor",
+	"strategic-masters",
+	"princess-alliance",
+	"meteor-strike",
+	"dark-reincarnation",
+	"mythical-realm",
+	"heros-of-time"
+    ],
+    "rarity": ["SSR", "SR", "R", "N"],
+    "type": [
+	"Infantry", 
+	"Lancer",
+	"Cavalry", 
+	"Flyer", 
+	"Archer",
+	"Holy",
+	"Demon",
+	"Assassin",
+	"Aquatic",
+	"Mage",
+	"Dragon"
+    ],
+    "weaponType": ["bow", "dagger", "sword", "axe", "lance", "hammer", "staff"],
+    "helmetType": ["cloth", "light", "heavy"],
+    "armorType": ["cloth", "light", "heavy"],
+    "moveType": ["foot", "mounted", "marine", "terrainMaster", "flying"],
+    "cond": [
+	"COMBAT", "AOE",
+	"ATK", "DEF",
+	"HPUP", "HPDOWN",
+	"HPHIGHER%", "HPLOWER%",
+	"HPHIGHER", "HPLOWER",
+	"OPPDEBUFF", "OPPBUFF",
+	"DEBUFF", "BUFF",
+	"MELEE", "RANGED",
+	"MAGIC", "PHYSIC",
+	"WATER", "SKY", "DEFTERRAIN", "NODEFTERRAIN", "MOVEMENT",
+	"HIGHERMORE", "LOWERMORE",
+	"ALLY", "ENEMY",
+	"HIGHER"
+    ],
+    "effect": [
+	"DMGINC", "DMGDEC", "TALENTDMGDEC",
+	"AOEINC", "AOEDEC",
+	"PHYDEC", "PSYDEC",
+	"MAGDEC", "MAGDEC",
+	"CRITINC", "CRITDEC",
+	"CRITDMGINC", "CRITDMGDEC",
+	"SOLDDMGINC", "SOLDDMGDEC",
+	"HEALINC",
+	"ATKINC", "INTINC", "DEFINC", "MDEFINC", "SKILLINC", "HPINC", "ALLINC",
+	"ATKDEC", "INTDEC", "DEFDEC", "MDEFDEC", "SKILLDEC",
+	"ATKFIRST"
+    ]
+}

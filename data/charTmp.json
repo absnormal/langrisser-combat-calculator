@@ -1,0 +1,89 @@
+// character template [y39]
+        { "name":"", 
+          "talent":"",
+          "rarity":["SSR"],
+          "nonfemale": false,
+          "faction": ["", "", ""],
+          "soldier": ["", "", ""],
+          "soldierHPBonus": , "soldierATKBonus": ,
+          "soldierDEFBonus": , "soldierMDEFBonus": ,
+          "skill": ["", "", "", "", "", "", "", "", "", "", ""],
+          "class": [
+              { "name":"",
+                "HP": , "ATK": , "INT": ,
+                "DEF": , "MDEF": , "SKILL": ,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": [""], "cNumber": ,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": [""], "cNumber": ,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              },
+              { "name":"",
+                "HP": , "ATK": , "INT": ,
+                "DEF": , "MDEF": , "SKILL": ,
+                "bonds": [
+                    { "name":"Bond LV4",
+                      "cond": [""], "cNumber": ,
+                      "effect":"DMGDEC", "eNumber": 10
+                    },
+                    { "name":"Bond LV7",
+                      "cond": [""], "cNumber": ,
+                      "effect":"DMGINC", "eNumber": 10
+                    }
+                ]
+              }
+          ]
+        },
+// talent template [y13]
+        { "name":"",
+          "id":"",
+          "description": "",
+          "condition": [
+              { "name":"",
+                "cond":"", "cArray":[],
+                "effect":"", "eArray":[] 
+              },
+              { "name":"",
+                "cond":"", "cNumber": ,
+                "effect":"", "eNumber": 
+              }
+          ]
+        },
+// class template [y9]
+        { "name":"",
+          "attack":"",
+          "type":"",
+          "move": 3,
+          "range": 1,
+          "moveType":"foot",
+          "weaponType":[""],
+          "helmetType":["heavy"],
+          "armorType":["heavy"]
+        },
+// class template [y10]
+        { "name":"",
+          "attack":"",
+          "type":"",
+          "SP": false(optional),
+          "move": 3,
+          "range": 1,
+          "moveType":"foot",
+          "weaponType":[""],
+          "helmetType":["heavy"],
+          "armorType":["heavy"]
+        },
+// skill template [y8]
+        { "name":"",
+          "type":"",
+          "action": [""],
+          "cost": ,
+          "CD":"",
+          "range":"",
+          "span":"",
+          "description":""
+        },

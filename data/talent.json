@@ -1,0 +1,136 @@
+{
+    "talent": [
+        { "name":"Overlord",
+          "id":"Ainz",
+          "description": "The higher the unit's HP, the more INT is increased, up to 15%. After taking action, gain 2 random buffs, lasts 1 turn.",
+          "condition": [
+              { "name":"Overlord",
+                "cond": ["HIGHERMORE"], "cArray": [0, 40, 70, 85],
+                "effect":"INTINC", "eArray": [0, 5, 10, 15] 
+              }
+          ]
+        },
+        { "name":"Holy Protection",
+          "id":"Aka",
+          "description": "Whenever a unit dies, summon a [Wolf Soul] adjacent to your location. The [Wolf Soul] gains the stats of the deceased unit but cannot exceed 150% of Akaya's stats (1 turn cooldown). Cannot exceed 1 [Wolf Soul] and cannot use the death of [Wolf Soul] to summon [Wolf Soul]. When [Wolf Soul] dies, Akaya gains 20% of the [Wolf Soul]'s non-HP stats & recover Akaya's health for 20% of the [Wolf Soul]'s max HP."
+        },
+        { "name":"Overseer of the Guardians",
+          "id":"Albedo",
+          "description": "When there are allies within 2 blocks, damage taken -25%. Take all attacks for allies within 1 ring. Before being attacked and entering battle, replace ATK with 1.6x DEF, and increase damage dealt by 75%.",
+          "condition": [
+              { "name":"Overseer of the Guardians",
+                "cond": ["ALLY"], "cString": "2B",
+                "effect":"TALENTDMGDEC", "eNumber": 25
+              },
+              { "name":"Overseer of the Guardians",
+                "cond": ["DEF"], "cNumber": null,
+                "effect":"REPLACE", "eNumber": 1.6, "eArray": ["ATK","DEF"]
+              },
+              { "name":"Overseer of the Guardians",
+                "cond": ["DEF"], "cNumber": null,
+                "effect":"DMGINC", "eNumber": 75
+              }
+          ]
+        },
+        { "name":"Supreme Overlord",
+          "id":"Alutemuller",
+          "description": "Before entering battle, ATK increases by 10%, Physical damage taken decreases by 5%. Lasts 4 turns. Can be stacked up to 4 times."
+        },
+        { "name":"Forest Spring",
+          "id":"Alustriel",
+          "description": "For every 1 block moved, damage and crit rate increased by 4%, up to 20%. When moving through defensive terrain, gain 4 0-cost movement spaces.",
+          "condition": [
+              { "name":"Forest Spring",
+                "cond": ["MOVEMENT"], "cNumber": null,
+                "effect":"DMGINC", "eArray": [4, 20]
+              },
+              { "name":"Forest Spring",
+                "cond": ["MOVEMENT"], "cNumber": null,
+                "effect":"CRITINC", "eArray": [4, 20]
+              }
+          ]
+        },
+        { "name":"Battle Goddess",
+          "id":"Angelina",
+          "description": "When on terrain with defensive effects, all damage taken is reduced by 20%. On all other terrain, ATK is increased by 20%.",
+          "condition": [
+              { "name":"Battle Goddess",
+                "cond": ["DEFTERRAIN"], "cNumber": null,
+                "effect":"TALENTDMGDEC", "eNumber": 20
+              },
+              { "name":"Battle Goddess",
+                "cond": ["NODEFTERRAIN"], "cNumber": null,
+                "effect":"ATKINC", "eNumber": 20
+              }
+          ]
+        },
+        { "name":"Fearless Will",
+          "id":"Ares",
+          "description": "For every enemy unit within a 3 ring radius, all stats except HP +5%, up to 20%. When moving, ignore enemy unit obstruction. Before dealing damage or when ending a turn, for every enemy walked through, gain 1 \"Sweep Formation\"\: \"Crit rate +8%. Can be Stacked (Up to 5).\" If a crit has occurred this turn, all \"Sweep Formation\" effects will be cleared at the end of the turn.",
+          "condition": [
+              { "name":"Fearless Will",
+                "cond": ["ENEMY"], "cString": "3R", "cNumber": null,
+                "effect":"ALLINC", "eArray": [5, 20]
+              }
+          ]
+        },
+        { "name":"Steel Maiden",
+          "id":"Arianrhod",
+          "description": "When unit HP is above 70%, damage taken is reduced by 15%. After taking damage or if ending turn within the Danger Zone, gain effect: ATK +5%, Damage Dealt +5%, Damage Taken -5%, Movement +1. Can be stacked up to 3 times. When ending a turn, if unit's HP is below 70%, may act again. (Cooldown on act again is 2 turns).",
+          "condition": [
+              { "name":"Steel Maiden",
+                "cond": ["HPUP"], "cNumber": 70,
+                "effect":"TALENTDMGDEC", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Black Knight",
+          "id":"Ashram",
+          "description": "For every square moved before battle, ATK is increased by 4%, up to 20%, and DEF by 20%, up to 100%. Before entering battle, if units ATK is higher than the enemy's, unit will attack first.",
+          "condition": [
+              { "name":"Black Knight",
+                "cond": ["MOVEMENT"], "cNumber": null,
+                "effect":"ATKINC", "eArray": [4, 20]
+              },
+              { "name":"Black Knight",
+                "cond": ["MOVEMENT"], "cNumber": null,
+                "effect":"DEFINC", "eArray": [20, 100]
+              },
+              { "name":"Black Knight",
+                "cond": ["HIGHER"], "cString":"ATK",
+                "effect":"ATKFIRST", "eNumber": null
+              }
+          ]
+        },
+        { "name":"Lord's Will",
+          "id":"Bernhardt",
+          "description": "When entering battle, damage is increased by 20%. All enemies within 2 blocks have ATK & DEF decreased by 15%",
+          "condition": [
+              { "name":"Lord's Will",
+                "cond": ["COMBAT"], "cNumber": null,
+                "effect":"TALENTDMGDEC", "eNumber": 20
+              }
+          ]
+        },
+        { "name":"Sword Realm",
+          "id":"Betty",
+          "description": "Damage from AOE attacks is reduced by 30%. After an ally within 3 blocks is attacked, the attacker will take fixed damage equal to 1x Betty's ATK (this cannot be nullified), and will also have a 30% chance to receive one random debuff. Afterwards, Betty's ATK and MDEF will increase by 20%. Lasts 2 turns.",
+          "condition": [
+              { "name":"Sword Realm",
+                "cond": null, "cNumber": null,
+                "effect":"AOEDEC", "eNumber": 30
+              }
+          ]
+        },
+        { "name":"Ancient Evil",
+          "id":"Bozel",
+          "description": "Replaces INT with 1.5x MDEF. After dealing damage to an enemy, 100% chance to deal 1 random debuff.",
+          "condition": [
+              { "name":"Ancient Evil",
+                "cond": null, "cNumber": null,
+                "effect":"REPLACE", "eNumber": 1.5, "eArray": ["INT", "MDEF"]
+              }
+          ]
+        }
+    ]
+}
