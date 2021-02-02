@@ -11,7 +11,7 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
         img.setAttribute("src", imgLocal+"skill/skill_"+LANG+"/"+skill.name+png);
         // skill popover
         $('.btn.'+side+"-skill"+pos+"-"+index).popover({
-            trigger: "hover focus",
+            trigger: "focus",
             container: "."+side+"-talent-skill-bar",
             placement: placement,
             html: true

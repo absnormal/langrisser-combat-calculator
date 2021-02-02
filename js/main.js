@@ -1,9 +1,11 @@
 var png = ".png";
 var LANG = "en"
-// var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
-// var local = "file:///home/absnormal/langrisser-combat-calculator/";
+var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
+var local = "file:///home/absnormal/langrisser-combat-calculator/";
+/*
 var imgLocal = "/langrisser-combat-calculator/image/";
 var local = "/langrisser-combat-calculator/";
+ */
 
 function createAllList()
 {

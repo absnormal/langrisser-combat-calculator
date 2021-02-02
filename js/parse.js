@@ -9,7 +9,8 @@ var lists = JSON.parse(request.responseText);
 // var data = {
 //     character: {},
 //     classs: {},
-//     skill: {}
+//     skill: {},
+//     talent: {}
 // };
 var data = {};
 
@@ -30,5 +31,11 @@ request.open("GET", local+"data/skill.json", false);
 request.send(null);
 var skill = JSON.parse(request.responseText);
 data = {...data, ...skill};
+
+var request = new XMLHttpRequest();
+request.open("GET", local+"data/talent.json", false);
+request.send(null);
+var talent = JSON.parse(request.responseText);
+data = {...data, ...talent};
 
 console.log(data);

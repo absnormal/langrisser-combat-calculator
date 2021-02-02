@@ -3,6 +3,7 @@ var page = {
         selectedFaction: undefined,
         selectedRarity: undefined,
         selectedCharacter: undefined,
+        charTalent: undefined,
         charClass: undefined,
         charBase: {
             HP: undefined,
@@ -59,12 +60,11 @@ function setCharacter(side)
     else{
         page[side].selectedCharacter = data.character.find(x=>x.name===selectcharacter.value);
         setCharacterIMG(side);
+        setTalent(side);
         listClass(side);
         listStats(side);
         setSkills(side);
     }
-
-    setTalent(side);
 }
 
 function setCharacterIMG(side)
@@ -113,8 +113,3 @@ function listStats(side)
     });
 }
 
-function setTalent(side)
-{
-    let talentimg = document.getElementById(side+"-talent");
-    talentimg.setAttribute("src", imgLocal+"talent/"+page[side].selectedCharacter.talent+png);
-}
