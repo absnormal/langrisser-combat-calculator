@@ -5,7 +5,6 @@ function setChoosenSkills(side)
 
 function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
 {
-    console.log(page[side][skillList]);
     page[side][skillList].forEach(function(skill, index){
         // skill img
         let img = document.getElementById(side+"-skill"+pos+"-"+index);

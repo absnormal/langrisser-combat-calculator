@@ -26,6 +26,8 @@ function setWeapon(side)
     let img = document.getElementById(side+"-weapon-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/weapon_"+LANG+"/"+page[side].charWeapon.name+png);
+    // weapon popover
+    displayEquipment(side, "weapon", "charWeapon");
 }
 
 function listArmor(side)
@@ -48,6 +50,8 @@ function setArmor(side)
     let img = document.getElementById(side+"-armor-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/armor_"+LANG+"/"+page[side].charArmor.name+png);
+    // armor popover
+    displayEquipment(side, "armor", "charArmor");
 }
 
 function listHelmet(side)
@@ -70,6 +74,8 @@ function setHelmet(side)
     let img = document.getElementById(side+"-helmet-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/helmet_"+LANG+"/"+page[side].charHelmet.name+png);
+    // helmet popover
+    displayEquipment(side, "helmet", "charHelmet");
 }
 
 function listAccessory(side)
@@ -87,5 +93,29 @@ function setAccessory(side)
     let img = document.getElementById(side+"-accessory-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/accessory_"+LANG+"/"+page[side].charAccessory.name+png);
+    // accessory popover
+    displayEquipment(side, "accessory", "charAccessory");
 }
 
+function displayEquipment(side, part, objName)
+{
+    let object = page[side][objName];
+    $('.btn.'+side+"-"+part).popover({
+        trigger: "focus",
+        container: "."+side+"-equipment-bar",
+        placement: "top",
+        html: true
+    });
+    let title ="<div class='row'>\
+                    <div class='col'>\
+                        <h5>"+object.name+"</h5>\
+                    </div>\
+                </div>\
+                <hr style='border-bottom:1px;margin-top:1px'>\
+                <div class='row'>\
+                    <div class='col popoverbody'>\
+                        <p>"+object.description+"</p>\
+                    </div>\
+                </div>";
+    $('.btn.'+side+"-"+part).attr('data-original-title', title);
+}
