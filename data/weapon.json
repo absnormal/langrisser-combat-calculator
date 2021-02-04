@@ -1,0 +1,470 @@
+{
+    "weapon":[
+        { "name":"Bloody Melody",
+          "type":"bow",
+          "description":"ATK +10% <br><br>DEF +5%",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 10},
+              {"effect":"DEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Extreme Magic Bow",
+          "type":"bow",
+          "description":"ATK +10% <br><br>Unit's damage is no longer reduced in melee battles.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 10},
+              {"effect":"CANMELEE"}
+          ]
+        },
+        { "name":"Hydra's Bow",
+          "type":"bow",
+          "description":"ATK +10% <br><br>Before Attacking, 50% chance to inflict \"-20% Damage Dealt\". Lasts 1 turn.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Ullr's Bow",
+          "type":"bow",
+          "description":"+1 Unit's Attack Range <br><br>-10% Physical Damage Dealt.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"PHYINC", "eNumber": -10},
+              {"effect":"RANGE+", "eNumber": 1},
+              {"effect":"SOLDRANGE+", "eNumber": 1}
+          ]
+        },
+        { "name":"Nighthawk",
+          "type":"dagger",
+          "description":"ATK +10% <br><br> MDEF +5%",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 96},
+              {"effect":"GSKILL+", "eNumber": 54},
+              {"effect":"ATKINC", "eNumber": 10},
+              {"effect":"MDEFINC+", "eNumber": 5}
+          ]
+        },
+        { "name":"Bathory, The Seductress",
+          "type":"dagger",
+          "description":"Crit Rate +10% <br><br>If unit lands a critical attack, deal 1.0x ATK fixed damage after battle.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 96},
+              {"effect":"GSKILL+", "eNumber": 54},
+              {"effect":"CRITINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Spirit Griever",
+          "type":"dagger",
+          "description":"When Attacking, Crit +15% and reduces damage taken by +30%.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 96},
+              {"effect":"GSKILL+", "eNumber": 54},
+              { "cond":["ATK"], 
+                "effect":"CRITINC", "eNumber": 15
+              },
+              { "cond":["ATK"], 
+                "effect":"DMGDEC", "eNumber": 30
+              }
+          ]
+        },
+        { "name":"Wind Cutter Dagger",
+          "type":"dagger",
+          "description":"ATK +10% <br><br>After battle, 50% chance to reduce enemy's Def by 20%. Lasts 1 turn.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 96},
+              {"effect":"GSKILL+", "eNumber": 54},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Crystal Stringer",
+          "type":"dagger",
+          "description":"Crit Rate and Crit Damage +10% <br><br>If skill is greater than enemy before entering battle, then ignore 20% of enemy's DEF.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 96},
+              {"effect":"GSKILL+", "eNumber": 54},
+              {"effect":"CRITINC", "eNumber": 10},
+              {"effect":"CRITDMG", "eNumber": 10},
+              { "cond":["SKILLHIGHER"],
+                "effect":"DEFIGN", "eNumber": 20
+              }
+          ]
+        },
+        { "name":"Seal Guardian",
+          "type":"sword",
+          "description":"ATK +10% <br><br>DEF +5%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"ATKINC", "eNumber": 10},
+              {"effect":"DEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Dragon Slayer Gram",
+          "type":"sword",
+          "description":"HP/ATK +8% <br><br>When battling against Dragons, ATK/DEF/MDEF +10%.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"HPINC", "eNumber": 8},
+              {"effect":"ATKINC", "eNumber": 8},
+              { "cond":["DRAGON"],
+                "effect":"ATKINC", "eNumber": 10
+              },
+              { "cond":["DRAGON"],
+                "effect":"DEFINC", "eNumber": 10
+              },
+              { "cond":["DRAGON"],
+                "effect":"MDEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Windslayer Knight",
+          "type":"sword",
+          "description":"ATK +10% <br><br>When actively attacking an enemy with 100% HP, after entering battle gain ATK/DEF/MDEF +5%.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"ATKINC", "eNumber": 10},
+              { "cond":["ATK","OPPHPUP"], "cNumber": 100,
+                "effect":"ATKINC", "eNumber": 5
+              },
+              { "cond":["ATK","OPPHPUP"], "cNumber": 100,
+                "effect":"DEFINC", "eNumber": 5
+              },
+              { "cond":["ATK","OPPHPUP"], "cNumber": 100,
+                "effect":"MDEFINC", "eNumber": 5
+              }
+          ]
+        },
+        { "name":"Balanced Blade",
+          "type":"sword",
+          "description":"DEF/MDEF +5% <br><br>AoE skill span +1, Line skill range +1",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"DEFINC", "eNumber": 5},
+              {"effect":"MDEFINC", "eNumber": 5},
+              {"effect":"AOESPAN+", "eNumber": 1},
+              {"effect":"LINERANGE+", "eNumber": 1}
+          ]
+        },
+        { "name":"Blood Sword Hrunting",
+          "type":"sword",
+          "description":"ATK +5% <br><br>After actively dealing damage, 50% chance to deal 1.0x ATK fixed damage",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Demonslayer",
+          "type":"sword",
+          "description":"ATK/SKILL +8%",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 8},
+              {"effect":"SKILLINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Frostend",
+          "type":"sword",
+          "description":"ATK +10% <br><br>When attacking, 50% to reduce enemy's mobility by 2. Lasts 1 turn.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 107},
+              {"effect":"GSKILL+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Throne Guardian",
+          "type":"axe",
+          "description":"ATK +10%, HP +5%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 364},
+              {"effect":"GATK+", "eNumber": 118},
+              {"effect":"ATKINC", "eNumber": 10},
+              {"effect":"HPINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Devil's Axe",
+          "type":"axe",
+          "description":"ATK/HP +5% <br><br> After attacking and entering battle, deal 1.0x ATK fixed damage.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 364},
+              {"effect":"GATK+", "eNumber": 118},
+              {"effect":"ATKINC", "eNumber": 5},
+              {"effect":"HPINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Peacemaker",
+          "type":"axe",
+          "description":"ATK +10% <br><br>Before attacking and entering battle, 50% chance to disable passives. Lasts 2 turns.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 364},
+              {"effect":"GATK+", "eNumber": 118},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Ragnarok",
+          "type":"axe",
+          "description":"ATK +10% <br><br>Before Attacking, deal 1.0x ATK fixed damage.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 364},
+              {"effect":"GATK+", "eNumber": 118},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Scarlet Reaper",
+          "type":"axe",
+          "description":"ATK +10% <br><br>Before actively dealing damage, if the enemy's HP is less than 100%, damage is increased by 5%, and after actively dealing damage, deal fixed damage equal to 0.5x ATK.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 364},
+              {"effect":"GATK+", "eNumber": 118},
+              {"effect":"ATKINC", "eNumber": 10},
+              { "cond":["ATK", "OPPHPDOWN"], "cNumber": 100,
+                "effect":"DMGINC", "eNumber": 5
+              }
+          ]
+        },
+        { "name":"Blue Star",
+          "type":"lance",
+          "description":"For every 1 square moved, ATK, DEF, and MDEF is increased by 5% (up to a maximum of 15%).",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              { "cond":["MOVEMENT"],
+                "effect":"ATKINC", "eArray":[5, 15] 
+              },
+              { "cond":["MOVEMENT"],
+                "effect":"DEFINC", "eArray":[5, 15] 
+              },
+              { "cond":["MOVEMENT"],
+                "effect":"MDEFINC", "eArray":[5, 15] 
+              }
+          ]
+        },
+        { "name":"Clothesline Pole",
+          "type":"lance",
+          "description":"Unit damage dealt -10% <br><br> Hero Unit Normal Attack Range +1",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"DMGINC", "eNumber": -10},
+              {"effect":"RANGE+", "eNumber": 1}
+          ]
+        },
+        { "name":"Cursed Lance",
+          "type":"lance",
+          "description":"When Attacking and Entering Battle, DEF/MDEF+15% <br><br>After battle, 50% chance to inflict silence and cannot be healed. Lasts 1 turn.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              { "cond":["ATK"],
+                "effect":"DEF", "eNumber": 15
+              },
+              { "cond":["ATK"],
+                "effect":"MDEF", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Last Knight",
+          "type":"lance",
+          "description":"ATK +10% <br><br> Before attacking and entering battle, 50% chance to reduce the enemy's ATK/INT by 20%. Lasts 1 turn.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Yggdrasil Branch",
+          "type":"lance",
+          "description":"DEF +10% <br><br>In battle, Ignore 15% of enemy's Def.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"DEFINC", "eNumber": 10},
+              { "cond":["COMBAT"],
+                "effect":"DEFIGN", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Broken Star",
+          "type":"hammer",
+          "description":"ATK +10%, DEF +5%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"ATKINC", "eNumber": 10},
+              {"effect":"DEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Mimir's War-Axe",
+          "type":"hammer",
+          "description":"ATK +10% <br><br>When attacking and killing an enemy or an ally dies, dispel 1 debuff and heals 20% max HP. Gains a buff \"Hero damage increased by 20%\" for 1 turn.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Mjolnir",
+          "type":"hammer",
+          "description":"ATK +10% <br><br>Before Attacking, Dispels 1 Buff",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"ATKINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Oath of Justice",
+          "type":"hammer",
+          "description":"DEF/MDEF +8%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GATK+", "eNumber": 85},
+              {"effect":"DEFINC", "eNumber": 8},
+              {"effect":"MDEFINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Gat of Truth",
+          "type":"hammer",
+          "description":"When Attacking, INT/DEF/MDEF +15%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GINT+", "eNumber": 85},
+              { "cond":["ATK"],
+                "effect":"INTINC", "eNumber": 15
+              },
+              { "cond":["ATK"],
+                "effect":"INTDEF", "eNumber": 15
+              },
+              { "cond":["ATK"],
+                "effect":"INTMDEF", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Gift of Eternal Life",
+          "type":"hammer",
+          "description":"INT +5% <br><br>After battle, Heal x3 INT to Ally with the Lowest HP",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GINT+", "eNumber": 85},
+              {"effect":"INTINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Storm Calories",
+          "type":"hammer",
+          "description":"When Unit's HP is >80%, +15% Int",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GINT+", "eNumber": 85},
+              { "cond":["HPUP"], "cNumber": 80,
+                "effect":"INTINC", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Blue Moon",
+          "type":"staff",
+          "description":"INT +10%, MDEF +5%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"INTINC", "eNumber": 10},
+              {"effect":"MDEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Red Moon",
+          "type":"staff",
+          "description":"INT +10%, HP +5%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"INTINC", "eNumber": 10},
+              {"effect":"HPINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Astaroth",
+          "type":"staff",
+          "description":"When Battling against Enemies with a debuff, +15% INT <br><br>After attacking, 30% chance to stun the enemy. Lasts 1 turn",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107}
+          ]
+        },
+        { "name":"Miracle Staff",
+          "type":"staff",
+          "description":"+15% AoE Damage <br><br>When dealing damage, 30% Chance to apply 1 Debuff       ",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"AOEINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Pale Staff",
+          "type":"staff",
+          "description":"+15% Single Target Damage <br><br>When Attacking, 50% chance to apply 1 Debuff",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"SINGLEINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Goddess's Left Hand",
+          "type":"staff",
+          "description":"Healing Effect +15% <br><br>After Attacking, 100% chance to reduce ene      my's mobility by 2.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"HEALINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Mistletoe",
+          "type":"staff",
+          "description":"Healing Effect +15% <br><br>After Attacking, 50% chance to apply debuff -20% Damage Dealt. Lasts 1 turn",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"HEALINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Olver's Staff",
+          "type":"staff",
+          "description":"Healing Effect +15% <br><br>After Attacking, 50% chance to apply debuff +20% Damage Taken. Lasts 1 turn",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"HEALINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Purgatory",
+          "type":"staff",
+          "description":"INT +5% <br><br>When Attacking, Apply 2x INT Fixed Damage Debuff after Action",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"INTINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Scepter of Divinity",
+          "type":"staff",
+          "description":"HP +5%. <br><br>When standing on non-defensive terrain and using a ranged skill that has a melee penalty, unit range +1.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 438},
+              {"effect":"GINT+", "eNumber": 107},
+              {"effect":"HPINC", "eNumber": 5},
+              { "cond":["NODEFTERRAIN", "ATK", "RANGEDSKILL"],
+                "effect":"RANGE+", "eNumber": 1
+              },
+              { "cond":["NODEFTERRAIN", "ATK", "RANGEDSKILL"],
+                "effect":"SOLDRANGE+", "eNumber": 1
+              }
+          ]
+        }
+    ]
+}

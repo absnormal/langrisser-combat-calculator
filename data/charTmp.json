@@ -82,8 +82,22 @@
           "type":"",
           "action": [""],
           "cost": ,
-          "CD":"",
+          "CD":   "",
           "range":"",
-          "span":"",
+          "span": "",
           "description":""
+        },
+// equipment template [y12]
+        { "name":"",
+          "type":"",
+          "description":"",
+          "condition": [
+              {"effect":"", "eNumber": },
+              {"effect":"", "eNumber": },
+              {"effect":"", "eNumber": },
+              {"effect":"", "eNumber": },
+              { "cond":[""], "cNumber": ,
+                "effect":"", "eNumber": 
+              }
+          ]
         },

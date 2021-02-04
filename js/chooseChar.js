@@ -1,27 +1,3 @@
-var page = {
-    ATK: {
-        selectedFaction: undefined,
-        selectedRarity: undefined,
-        selectedCharacter: undefined,
-        charTalent: undefined,
-        charClass: undefined,
-        charBase: {
-            HP: undefined,
-            ATK: undefined,
-            INT: undefined,
-            DEF: undefined,
-            MDEF: undefined,
-            SKILL: undefined
-        },
-        charSkills: undefined,
-        choosenSkills: undefined
-    },
-    DEF: {
-    }
-};
-
-var base = ["HP", "ATK", "INT", "DEF", "MDEF", "SKILL"];
-
 function setFaction(side)
 {
     let ignore = "All Faction";
@@ -55,16 +31,16 @@ function setCharacter(side)
     let ignore = "Not Selected";
     let selectcharacter = document.getElementById(side+"-character");
 
-    if(selectcharacter.value == ignore)
-        page[side].selectedCharacter = undefined;
-    else{
-        page[side].selectedCharacter = data.character.find(x=>x.name===selectcharacter.value);
-        setCharacterIMG(side);
-        setTalent(side);
-        listClass(side);
-        listStats(side);
-        setSkills(side);
-    }
+    // remove last character's skillList
+    if(page[side].selectedCharacter != undefined)
+        removeSkills(side, "charSkills", "List");
+    // select new character
+    page[side].selectedCharacter = data.character.find(x=>x.name===selectcharacter.value);
+    setCharacterIMG(side);
+    setTalent(side);
+    listClass(side);
+    listStats(side);
+    setSkills(side);
 }
 
 function setCharacterIMG(side)
@@ -88,8 +64,10 @@ function setClass(side)
 {
     let selectclass = document.getElementById(side+"-classs");
     page[side].charClass = data.classs.find(x => x.name === selectclass.value);
+
     loadTypeIMG(side);
     listStats(side);
+    listEquipment(side);
 }
 
 function loadTypeIMG(side)

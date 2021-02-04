@@ -14,6 +14,21 @@
 	"heros-of-time"
     ],
     "rarity": ["SSR", "SR", "R", "N"],
+    "enchant": [
+        "Breeze",
+        "Clock",
+        "Magic",
+        "Full Moon",
+        "Rough Sea",
+        "Blazing Sun",
+        "Meteor",
+        "Crystal",
+        "Hard Rock",
+        "Ice",
+        "Steel",
+        "Thorns",
+        "Tree of Life"
+    ],
     "type": [
 	"Infantry", 
 	"Lancer",
@@ -35,28 +50,36 @@
 	"COMBAT", "AOE",
 	"ATK", "DEF",
 	"HPUP", "HPDOWN",
+    "OPPHPUP", "OPPHPDOWN",
 	"HPHIGHER%", "HPLOWER%",
 	"HPHIGHER", "HPLOWER",
 	"OPPDEBUFF", "OPPBUFF",
 	"DEBUFF", "BUFF",
-	"MELEE", "RANGED",
+	"MELEE", "RANGED", "RANGEDSKILL",
 	"MAGIC", "PHYSIC",
 	"WATER", "SKY", "DEFTERRAIN", "NODEFTERRAIN", "MOVEMENT",
 	"HIGHERMORE", "LOWERMORE",
 	"ALLY", "ENEMY",
-	"HIGHER"
+	"HIGHER", "PROB",
+    "SKILLHIGHER", "DRAGON"
     ],
     "effect": [
+    "FIXDMGINC", "FIXDMGDEC",
 	"DMGINC", "DMGDEC", "TALENTDMGDEC",
 	"AOEINC", "AOEDEC",
-	"PHYDEC", "PSYDEC",
-	"MAGDEC", "MAGDEC",
+    "SINGLEINC",
+	"PHYINC", "PHYDEC",
+	"MAGINC", "MAGDEC",
 	"CRITINC", "CRITDEC",
 	"CRITDMGINC", "CRITDMGDEC",
 	"SOLDDMGINC", "SOLDDMGDEC",
-	"HEALINC",
+	"HEALINC", "HEALEDINC",
 	"ATKINC", "INTINC", "DEFINC", "MDEFINC", "SKILLINC", "HPINC", "ALLINC",
+	"GATKINC", "GINTINC", "GDEFINC", "GMDEFINC", "GSKILLINC", "GHPINC", "GALLINC",
+	"GATK+", "GINT+", "GDEF+", "GMDEF+", "GSKILL+", "GHP+", "GALL+",
 	"ATKDEC", "INTDEC", "DEFDEC", "MDEFDEC", "SKILLDEC",
-	"ATKFIRST"
+	"ATKFIRST", "CANMELEE", 
+    "RANGE+", "SOLDRANGE+",
+    "AOESPAN+", "LINERANGE+","DEFIGN"
     ]
 }

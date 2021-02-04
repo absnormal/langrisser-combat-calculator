@@ -9,6 +9,9 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
         // skill img
         let img = document.getElementById(side+"-skill"+pos+"-"+index);
         img.setAttribute("src", imgLocal+"skill/skill_"+LANG+"/"+skill.name+png);
+        // cost img
+        let cost = document.getElementById(side+"-skill"+pos+"-"+index+"-cost");
+        cost.setAttribute("src", imgLocal+"icon/"+skill.cost+" Cost"+png);
         // skill popover
         $('.btn.'+side+"-skill"+pos+"-"+index).popover({
             trigger: "focus",
@@ -27,6 +30,7 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
                             <h5>"+skill.name+"</h5>\
                         </div>\
                     </div>\
+                    <hr style='border-botton:1px;margin-top:1px;'>\
                     <div class='row'>\
                         <div class='col'>\
                             <div class='row'>\
@@ -71,6 +75,7 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
                             </div>\
                         </div>\
                     </div>\
+                    <hr style='border-botton:1px;margin-top:1px;'>\
                     <div class='row'>\
                         <div class='col popoverbody'>\
                             <p>"+skill.description+"</p>\
@@ -105,6 +110,8 @@ function removeSkills(side, skillList, pos = "")
     page[side][skillList].forEach(function(skill, index){
         // skill img
         document.getElementById(side+"-skill"+pos+"-"+index).removeAttribute("src");
+        // cost img
+        document.getElementById(side+"-skill"+pos+"-"+index+"-cost").removeAttribute("src");
         // skill popover
         $('.btn.'+side+"-skill"+pos+"-"+index).popover('hide');
         $('.btn.'+side+"-skill"+pos+"-"+index).popover('disable');

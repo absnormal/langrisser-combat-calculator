@@ -12,11 +12,12 @@ function setTalent(side)
         placement: "top",
         html: true
     });
-    let title = "<div class='row p-2'>\
+    let title = "<div class='row'>\
                     <div class='col'>\
                         <h5>"+page[side].charTalent.name+"</h5>\
                     </div>\
                  </div>\
+                 <hr style='border-botton:1px;margin-top:1px;'>\
                  <div class='row'>\
                     <div class='col popoverbody'>\
                         <p>"+page[side].charTalent.description+"</p>\

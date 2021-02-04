@@ -1,0 +1,313 @@
+{
+    "armor":[
+        { "name":"Tennyo's Robe",
+          "type":"cloth",
+          "description":"HP +10% <br><br>When attacked, 30% to dispel 1 enemy buff and apply 1 debuff on the enemy",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"HPINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Baldr's White Robe",
+          "type":"cloth",
+          "description":"MDEF +10% <br><br>When attacked with a  melee attack, 20% to negate melee penalty",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"MDEFINC", "eNumber": 10},
+              { "cond":["PROB","DEF","MELEE"], "cNumber": 20,
+                "effect":"CANMELEE"
+              }
+          ]
+        },
+        { "name":"Galaxy Cloak",
+          "type":"cloth",
+          "description":"MDEF +10% <br><br>HP +5%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"MDEFINC", "eNumber": 10},
+              {"effect":"HPINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Death's Robe",
+          "type":"cloth",
+          "description":"Chance of being critically hit is reduced by 40%. When attacked  30% chance to increase enemy's damage taken by 20%. Lasts 2 turns",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"CRITDEC", "eNumber": 40}
+          ]
+        },
+        { "name":"Dark Robe",
+          "type":"cloth",
+          "description":"HP +5% <br><br>When attacked with a ranged attack, Def and Mdef is increase by 15%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"HPINC", "eNumber": 5},
+              { "cond":["DEF","RANGE"],
+                "effect":"DEFINC", "eNumber": 15
+              },
+              { "cond":["DEF","RANGE"],
+                "effect":"MDEFINC", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Fujin's Wings",
+          "type":"cloth",
+          "description":"HP +5% <br><br>When attacked by melee, DEF/MDEF +15%.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"HPINC", "eNumber": 5},
+              { "cond":["DEF","MELEE"],
+                "effect":"DEFINC", "eNumber": 15
+              },
+              { "cond":["DEF","MELEE"],
+                "effect":"MDEFINC", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Goddess' Dress",
+          "type":"cloth",
+          "description":"DEF +10% <br><br> Received Healing +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"DEFINC", "eNumber": 10},
+              {"effect":"HEALEDINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Twilight Guard",
+          "type":"cloth",
+          "description":"MDEF +10% <br><br>Healing effects +10%.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 583},
+              {"effect":"GDEF+", "eNumber": 54},
+              {"effect":"MDEFINC", "eNumber": 10},
+              {"effect":"HEALINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Monkey King's Vest",
+          "type":"light",
+          "description":"When Attacked: ATK/CRIT +15%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              { "cond":["DEF"],
+                "effect":"ATKINC", "eNumber": 15
+              },
+              { "cond":["DEF"],
+                "effect":"CRITINC", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Gargoyle Jacket",
+          "type":"light",
+          "description":"HP +5% <br><br>When Attacked: DEF +15%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              {"effect":"HPINC", "eNumber": 5},
+              { "cond":["DEF"],
+                "effect":"DEFINC", "eNumber": 15
+              }
+          ]
+        },
+        { "name":"Last Rites",
+          "type":"light",
+          "description":"DEF +10%. <br><br>When unit's HP is 100%, reduce all damage taken by 40%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              {"effect":"DEFINC", "eNumber": 10},
+              { "cond":["HPUP"], "cNumber": 100,
+                "effect":"DMGDEC", "eNumber": 40
+              }
+          ]
+        },
+        { "name":"Azure Legend",
+          "type":"light",
+          "description":"HP+ 10%. <br><br>When HP is Above 50%, DEF +10%. When HP is Below 50%, MDEF +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              {"effect":"HPINC", "eNumber": 10},
+              { "cond":["HPUP"], "cNumber": 50,
+                "effect":"DEFINC", "eNumber": 10
+              },
+              { "cond":["HPDOWN"], "cNumber": 50,
+                "effect":"MDEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Twilight Armor",
+          "type":"light",
+          "description":"DEF/MDEF +8%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              {"effect":"DEFINC", "eNumber": 8},
+              {"effect":"MDEFINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Cloak of Defiance",
+          "type":"light",
+          "description":"DEF/MDEF +5% <br><br>Before being under ranged attack, deal 1.5x MDEF as Fixed Damage",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              {"effect":"DEFINC", "eNumber": 5},
+              {"effect":"MDEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Demon Lizard Skin",
+          "type":"light",
+          "description":"HP +10% <br><br>When attacked, 50% Chance to apply 1 random debuff",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              {"effect":"HPINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Assault Suit",
+          "type":"light",
+          "description":"HP +5% <br><br>When attacking, DEF/MDEF +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 59},
+              { "cond":["ATK"],
+                "effect":"DEFINC", "eNumber": 10
+              },
+              { "cond":["ATK"],
+                "effect":"MDEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Bloodline Magic Armor",
+          "type":"heavy",
+          "description":"HP/DEF +5% <br><br>When under melee attack, 30% change to reduce 30% incoming damage",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"HPINC", "eNumber": 5},
+              {"effect":"DEFINC", "eNumber": 5},
+              { "cond":["PROB","DEF","MELEE"], "cNumber": 30,
+                "effect":"DMGDEC", "eNumber": 30
+              }
+          ]
+        },
+        { "name":"Giant's Resistance",
+          "type":"heavy",
+          "description":"DEF +10% <br><br>Reduce the chance of being attacked with a critical strike by 20%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"DEFINC", "eNumber": 10},
+              {"effect":"CRITDEC", "eNumber": 20}
+          ]
+        },
+        { "name":"Carbon Fiber Armor",
+          "type":"heavy",
+          "description":"When unit's HP is greater than 50%, DEF/MDEF +8%  <br><br>When unit's HP is less than 50%, ATK/SKILL +8%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              { "cond":["HPUP"], "cNumber": 50,
+                "effect":"DEFINC", "eNumber": 8
+              },
+              { "cond":["HPUP"], "cNumber": 50,
+                "effect":"MDEFINC", "eNumber": 8
+              },
+              { "cond":["HPDOWN"], "cNumber": 50,
+                "effect":"ATKINC", "eNumber": 8
+              },
+              { "cond":["HPDOWN"], "cNumber": 50,
+                "effect":"SKILLINC", "eNumber": 8
+              }
+          ]
+        },
+        { "name":"Aeolus' Battle Armor",
+          "type":"heavy",
+          "description":"HP/DEF +5% <br><br>When under ranged attack, 30% to reduce incoming damage by 30%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"HPINC", "eNumber": 5},
+              {"effect":"DEFINC", "eNumber": 5},
+              { "cond":["DEF", "PROB","RANGE"], "cNumber": 30,
+                "effect":"DMGDEC", "eNumber": 30
+              }
+          ]
+        },
+        { "name":"Gaea's  Armor",
+          "type":"heavy",
+          "description":"When Attacked, DEF +15% <br><br>When Hero's life is Greater than 80%, Magic Damage Taken is Reduced by 10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              { "cond":["DEF"],
+                "effect":"DEFINC", "eNumber": 15
+              },
+              { "cond":["HPUP"], "cNumber": 80,
+                "effect":"MAGDEC", "eNumbier": 10
+              }
+          ]
+        },
+        { "name":"Aeneas' Armor",
+          "type":"heavy",
+          "description":"DEF +10% <br><br>Received Healing +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"DEFINC", "eNumber": 10},
+              {"effect":"HEALEDINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Arcane Battlegarb",
+          "type":"heavy",
+          "description":"HP/MDEF +5% <br><br>When attacking, deal 1.5x MDEF as Fixed Damage after combat.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"HPINC", "eNumber": 5},
+              {"effect":"MDEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Mirror Armor",
+          "type":"heavy",
+          "description":"HP/DEF +5% <br><br>When Attacked by Melee, 1.5x DEF as Fixed Damage before combat.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"HPINC", "eNumber": 5},
+              {"effect":"DEFINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Ancient Plate Armor",
+          "type":"heavy",
+          "description":"DEF +10% <br><br>Fixed Damage Taken -10%.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"DEFINC", "eNumber": 10},
+              {"effect":"FIXDMGDEC", "eNumber": 10}
+          ]
+        },
+        { "name":"Protector's Armor",
+          "type":"heavy",
+          "description":"DEF/MDEF+5% <br><br>When attacked in battle, 30% chance to reduce damage taken by 20%.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 437},
+              {"effect":"GDEF+", "eNumber": 65},
+              {"effect":"DEFINC", "eNumber": 5},
+              {"effect":"MDEFINC", "eNumber": 5},
+              { "cond":["PROB","DEF"], "cNumber": 30,
+                "effect":"DMGDEC", "eNumber": 20
+              }
+          ]
+        }
+    ]
+}

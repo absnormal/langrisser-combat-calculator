@@ -1,23 +1,51 @@
 var png = ".png";
 var LANG = "en"
-/*
+/* local
 var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
 var local = "file:///home/absnormal/langrisser-combat-calculator/";
  */
+/* github
+ */
 var imgLocal = "/langrisser-combat-calculator/image/";
 var local = "/langrisser-combat-calculator/";
+var page = {
+    ATK: {
+        selectedFaction: undefined,
+        selectedRarity: undefined,
+        selectedCharacter: undefined,
+        charTalent: undefined,
+        charClass: undefined,
+        charBase: {
+            HP: undefined,
+            ATK: undefined,
+            INT: undefined,
+            DEF: undefined,
+            MDEF: undefined,
+            SKILL: undefined
+        },
+        charSkills: undefined,
+        charEnchant: undefined,
+        charWeapon: undefined,
+        choosenSkills: undefined
+    },
+    DEF: {
+    }
+};
+
+var base = ["HP", "ATK", "INT", "DEF", "MDEF", "SKILL"];
 
 function createAllList()
 {
     loadIconIMG("ATK");
     createList("ATK", "faction", "party/");
     createList("ATK", "rarity", "icon/");
+    createList("ATK", "enchant", "icon/", "40%");
     createListByVar("ATK", "character", "character/card_"+LANG+"/", true, false, true);
     setCharacter("ATK");
 }
 
 // lists based on JSON files
-function createList(side, name, picDirName)
+function createList(side, name, picDirName, width = "100%")
 {
     if(lists[name] == null){
         console.log("'"+name+"' not found in lists");
@@ -28,7 +56,8 @@ function createList(side, name, picDirName)
 
     lists[name].forEach(function(string){
         let option = document.createElement('option');
-        option.setAttribute("data-content", "<img src='"+imgLocal+picDirName+string+png+"'>");
+        option.setAttribute("data-content",
+            "<img src='"+imgLocal+picDirName+string+png+"' style='width:"+width+"'>");
         option.setAttribute("value", string);
         list.appendChild(option);
     });
