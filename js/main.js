@@ -26,6 +26,9 @@ var page = {
         charSkills: undefined,
         charEnchant: undefined,
         charWeapon: undefined,
+        charArmor: undefined,
+        charHelmet: undefined,
+        charAccessory: undefined,
         choosenSkills: undefined
     },
     DEF: {

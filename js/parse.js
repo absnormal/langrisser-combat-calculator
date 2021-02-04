@@ -12,8 +12,9 @@ var lists = JSON.parse(request.responseText);
 //     skill: {},
 //     talent: {},
 //     weapon: {},
-//     armor: {}.
-//     helmet: {}
+//     armor: {},
+//     helmet: {},
+//     accessory: {}
 // };
 var data = {};
 
@@ -59,5 +60,11 @@ request.open("GET", local+"data/helmet.json", false);
 request.send(null);
 var helmet = JSON.parse(request.responseText);
 data = {...data, ...helmet};
+// accessory
+var request = new XMLHttpRequest();
+request.open("GET", local+"data/accessory.json", false);
+request.send(null);
+var accessory = JSON.parse(request.responseText);
+data = {...data, ...accessory};
 
 console.log(data);

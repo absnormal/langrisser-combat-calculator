@@ -1,0 +1,332 @@
+{
+    "accessory":[
+        { "name":"Twilight Star",
+          "description":"ATK/INT +5% <br><br>Before attacking, deals fixed damage equal to 1x of the unit's lower stat of either ATK or INT. If enemy is using mixed troops, this fixed damage cannot be immunized against.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"ATKINC", "eNumber": 5},
+              {"effect":"INTINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Star Earrings",
+          "description":"INT +8% <br><br>When Battling vs Assassins/Archers, DEF +30%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"INTINC", "eNumber": 8},
+              { "cond":["ASSASSIN","COMBAT"],
+                "effect":"DEFINC", "eNumber": 30
+              },
+              { "cond":["ARCHER","COMBAT"],
+                "effect":"DEFINC", "eNumber": 30
+              }
+          ]
+        },
+        { "name":"Goddess Tear",
+          "description":"Healing Effects +15% <br><br>After taking action, dispels 1 debuff from 3 allies within 2 squares (not including this unit)",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"HEALINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Eye of The Beholder",
+          "description":"INT +8% <br><br>After attacking, 50% chance to reduce the enemy's  damage dealt by 15%. Lasts 1 turn.",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"INTINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Draupnir",
+          "description":"INT +8% <br><br>When under ranged attack, reflect 30% of the damage taken.",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"INTINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Juglar Plushie",
+          "description":"Healing Effect+15% <br><br>When using a single target Assist skill, effect duration +1.",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"HEALINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Holy Ring",
+          "description":"INT +8% <br><br>Immune to silence",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"INTINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Holy Grail",
+          "description":"INT+5% <br><br>If this unit deals damage this turn, adjacent allies heal 15% of their max HP.",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"INTINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Angel Feather",
+          "description":"HP +10%/Healing Effect +10% <br><br>Grants immunity to stun.",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"HPINC", "eNumber": 10},
+              {"effect":"HEALINC", "eNumber": 10}
+          ]
+        },
+        { "name":"Vidar's Rose",
+          "description":"INT +8% <br><br>When attacking, 50% to dispel 1 buff from the enemy. Works with AoEs.",
+          "condition": [
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"INTINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Dimensional Jewel",
+          "description":"INT +8% <br><br>When attacking with a skill, 30% chance to reduce Cooldown by 1. Works with AoEs.",
+          "condition": [
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"INTINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Holy Cross",
+          "description":"Healing Effect +15%. <br><br>When fighting against Demons & Mage units, INT/MDEF/DEF +20%. (Real Effect: Effective against Demons/Mage 20%)",
+          "condition": [
+              {"effect":"GINT+", "eNumber": 75},
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"HEALINC", "eNumber": 15},
+              { "cond":["DEMON"],
+                "effect":"EFFECTIVE", "eNumber": 20
+              },
+              { "cond":["MAGE"],
+                "effect":"EFFECTIVE", "eNumber": 20
+              }
+          ]
+        },
+        { "name":"Thor's Necklace",
+          "description":"ATK +5% <br><br>After attacking, 50% chance to deal [1.0x Atk] as fixed damage after battle.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Elven Ring",
+          "description":"When Attacking, ATK/DEF +8%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GATK+", "eNumber": 75},
+              { "cond":["ATK"],
+                "effect":"ATKINC", "eNumber": 8
+              },
+              { "cond":["ATK"],
+                "effect":"DEFINC", "eNumber": 8
+              }
+          ]
+        },
+        { "name":"Apex Boots",
+          "description":"ATK +5% <br><br>Mobility +1",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 5},
+              {"effect":"MOVE+", "eNumber": 1}
+          ]
+        },
+        { "name":"Winged Shin Guards",
+          "description":"ATK +8% <br><br> When attacked, DEF +10%",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GDEF+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 8},
+              { "cond":["DEF"],
+                "effect":"DEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Lone Star Armlet",
+          "description":"When there are no allies within 2 squares, during battle ATK/DEF +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GATK+", "eNumber": 75},
+              { "cond":["NOALLY"], "cString": "2B",
+                "effect":"ATKINC", "eNumber": 10
+              },
+              { "cond":["NOALLY"], "cString": "2B",
+                "effect":"DEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Judge Talisman",
+          "description":"ATK +8% <br><br>When Battling Against Holy Units, ATK +12% (Real Effect: Effective against Holy +12%)",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GDEF+", "eNumber": 43},
+              {"effect":"ATKINC", "eNumber": 8},
+              { "cond":["HOLY"],
+                "effect":"EFFECTIVE", "eNumber": 12
+              }
+          ]
+        },
+        { "name":"Slayer's Emblem",
+          "description":"ATK +8% <br><br>When Battling Against Flying Units, ATK +12% (Real Effect: Effective against Flyer +12%)",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"ATKINC", "eNumber": 8},
+              { "cond":["FLYER"],
+                "effect":"EFFECTIVE", "eNumber": 12
+              }
+          ]
+        },
+        { "name":"Overlord's Badge",
+          "description":"All Stats +5%. <br><br>Immune to \"DEF/MDEF Reduction, \"ATK/INT Reduction\", and \"Mobility Down Reduction\".",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"ALLINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Insidious Pendant",
+          "description":"All Stats +5% <br><br>When entering battle, CRIT +5%.",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GSKILL+", "eNumber": 37},
+              {"effect":"ALLINC", "eNumber": 5},
+              { "cond":["COMBAT"],
+                "effect":"CRITINC", "eNumber": 5
+              }
+          ]
+        },
+        { "name":"Heart of Gaia",
+          "description":"All Stats +5% <br><br>Immune to \"Heal Reversal\" and \"Curse of Wounding\".",
+          "condition": [
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"GDEF+", "eNumber": 43},
+              {"effect":"ALLINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Prisoner's Gears",
+          "description":"ATK +8% <br><br>When battling against \"Cavalry\", ATK+12% (Real Effect: Effictive against Cavalry +12%)",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GATK+", "eNumber": 75},
+              {"effect":"ATKINC", "eNumber": 8},
+              { "cond":["CAVALRY"],
+                "effect":"EFFECTIVE", "eNumber": 12
+              }
+          ]
+        },
+        { "name":"Blood Pact",
+          "description":"HP+15% <br><br>Immune to \"Cannot be healed\" and \"Cannot Receive Buffs\"",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 1102},
+              {"effect":"HPINC", "eNumber": 15}
+          ]
+        },
+        { "name":"Swordsmith's Medal",
+          "description":"All Stats +5% <br><br>Immune to fixed damage and silencing effects",
+          "condition": [
+              {"effect":"GDEF+", "eNumber": 48},
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"ALLINC", "eNumber": 5}
+          ]
+        },
+        { "name":"Holy Ark",
+          "description":"HP +8% <br><br>When attacked by melee, 30% of Damage Returned as Fixed Damage",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GMDEF+", "eNumber": 43},
+              {"effect":"HPINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Giant Belt",
+          "description":"When Attacked by Melee, DEF/MDEF +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 48},
+              { "cond":["MELEE","DEF"],
+                "effect":"DEFINC", "eNumber": 10
+              },
+              { "cond":["MELEE","DEF"],
+                "effect":"MDEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Elven Belt",
+          "description":"When Attacked by Range, DEF/MDEF +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 48},
+              { "cond":["RANGE","DEF"],
+                "effect":"DEFINC", "eNumber": 10
+              },
+              { "cond":["RANGE","DEF"],
+                "effect":"MDEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Spirit Boots",
+          "description":"DEF+8% <br><br>Can move 2 Squares after dealing damage",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 48},
+              {"effect":"DEFINC", "eNumber": 8}
+          ]
+        },
+        { "name":"Divine Boots",
+          "description":"DEF +8% <br><br>Mobility +1",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 48},
+              {"effect":"DEFINC", "eNumber": 8},
+              {"effect":"MOVE+", "eNumber": 1}
+          ]
+        },
+        { "name":"Veil of Light",
+          "description":"MDEF+8% <br><br>Immune to \"DEF/MDEF Reduction\"",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GMDEF+", "eNumber": 48},
+              {"effect":"MDEFINC", "eNumber": 8}
+          ]
+        },
+        { "name":"King's Amulet",
+          "description":"When Ally is within 2 Squares, DEF/MDEF +10%",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 509},
+              {"effect":"GDEF+", "eNumber": 48},
+              { "cond":["ALLY"], "cString": "2B",
+                "effect":"DEFINC", "eNumber": 10
+              },
+              { "cond":["ALLY"], "cString": "2B",
+                "effect":"MDEFINC", "eNumber": 10
+              }
+          ]
+        },
+        { "name":"Speed Boots",
+          "description":"HP +5% <br><br> Moblility +1",
+          "condition": [
+              {"effect":"GHP+", "eNumber": 363},
+              {"effect":"GMDEF+", "eNumber": 32},
+              {"effect":"HPINC", "eNumber": 5},
+              {"effect":"MOVE+", "eNumber": 1}
+          ]
+        },
+        { "name":"Meditation Ring",
+          "description":"INT +5% <br><br>Immune to fixed damage",
+          "condition": [
+              {"effect":"GINT+", "eNumber": 49},
+              {"effect":"GMDEF+", "eNumber": 32},
+              {"effect":"INTINC", "eNumber": 5}
+          ]
+        }
+    ]
+}

@@ -464,7 +464,7 @@
                     }
                 ]
               },
-              { "name":"Dark Prince",
+              { "name":"Dark Prince ",
                 "HP": 4096, "ATK": 287, "INT": 407,
                 "DEF": 288, "MDEF": 377, "SKILL": 88,
                 "bonds": [

@@ -3,6 +3,7 @@ function listEquipment(side)
     listWeapon(side);
     listArmor(side);
     listHelmet(side);
+    listAccessory(side);
 }
 
 function listWeapon(side)
@@ -69,5 +70,22 @@ function setHelmet(side)
     let img = document.getElementById(side+"-helmet-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/helmet_"+LANG+"/"+page[side].charHelmet.name+png);
+}
+
+function listAccessory(side)
+{
+    createListByVar(side, "accessory", null, false, false, false);
+    setAccessory(side);
+}
+
+function setAccessory(side)
+{
+    let selectaccessory = document.getElementById(side+"-accessory");
+    page[side].charAccessory = data.accessory.find(x => x.name === selectaccessory.value);
+
+    // accessory IMG
+    let img = document.getElementById(side+"-accessory-IMG");
+    img.setAttribute("src",
+        imgLocal+"equipment/accessory_"+LANG+"/"+page[side].charAccessory.name+png);
 }
 

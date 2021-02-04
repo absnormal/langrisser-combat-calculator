@@ -31,15 +31,11 @@ function setCharacter(side)
     let ignore = "Not Selected";
     let selectcharacter = document.getElementById(side+"-character");
 
-    // remove last character's skillList
-    if(page[side].selectedCharacter != undefined)
-        removeSkills(side, "charSkills", "List");
     // select new character
     page[side].selectedCharacter = data.character.find(x=>x.name===selectcharacter.value);
     setCharacterIMG(side);
     setTalent(side);
     listClass(side);
-    listStats(side);
     setSkills(side);
 }
 

@@ -5,13 +5,16 @@ function setChoosenSkills(side)
 
 function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
 {
+    console.log(page[side][skillList]);
     page[side][skillList].forEach(function(skill, index){
         // skill img
         let img = document.getElementById(side+"-skill"+pos+"-"+index);
-        img.setAttribute("src", imgLocal+"skill/skill_"+LANG+"/"+skill.name+png);
+        if(skill == undefined) img.removeAttribute("src");
+        else img.setAttribute("src", imgLocal+"skill/skill_"+LANG+"/"+skill.name+png);
         // cost img
         let cost = document.getElementById(side+"-skill"+pos+"-"+index+"-cost");
-        cost.setAttribute("src", imgLocal+"icon/"+skill.cost+" Cost"+png);
+        if(skill == undefined) cost.removeAttribute("src");
+        else cost.setAttribute("src", imgLocal+"icon/"+skill.cost+" Cost"+png);
         // skill popover
         $('.btn.'+side+"-skill"+pos+"-"+index).popover({
             trigger: "focus",
@@ -19,6 +22,7 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
             placement: placement,
             html: true
         });
+        if(skill == undefined) return;
         let content =  '<div class="col text-dark text-center p-1">\
                             <button id="'+side+'-'+skillList+'-'+index+'"\
                                 onclick="'+equip+'Skill(this)"\
@@ -91,10 +95,15 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
 function setSkills(side)
 {
     page[side].charSkills = [];
+    // add exist skills
     page[side].selectedCharacter.skill.forEach(function(skill){
         let tmpskill = data.skill.find(x => x.name === skill);
         page[side].charSkills.push(tmpskill);
     });
+    // fill skills with empty until 12
+    for(let index=page[side].charSkills.length; index<12; index++)
+        page[side].charSkills.push(undefined);
+
     setChoosenSkills(side);
     displaySkills(side, "choosenSkills");
 }

@@ -1052,7 +1052,7 @@
           "helmetType":["cloth"],
           "armorType":["cloth"]
         },
-        { "name":"Dark Prince",
+        { "name":"Dark Prince ",
           "attack":"MAG",
           "type":"Mage",
           "move": 3,

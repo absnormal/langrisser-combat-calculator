@@ -28,6 +28,7 @@
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/weapon.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/armor.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/helmet.json"></script> 
+        <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/accessory.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/lists.json"></script> 
         -->
         <!-- js script
@@ -48,6 +49,7 @@
         <script type="application/json" src="/langrisser-combat-calculator/data/weapon.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/armor.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/helmet.json"></script> 
+        <script type="application/json" src="/langrisser-combat-calculator/data/accessory.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/lists.json"></script> 
         <!-- css -->
         <style>
@@ -85,7 +87,7 @@
                         <img id="ATK-type-IMG" src="/langrisser-combat-calculator/image/icon/SP-Cavalry.png" class="rounded-circle" style="width: 100%;">
                     </div>
                     <div class="col">
-                        <select id="ATK-faction" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setFaction('ATK');">
+                        <select id="ATK-faction" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setFaction('ATK');" data-width="fit">
                             <option>All Faction</option>
                         </select>
                     </div>
@@ -315,8 +317,10 @@
                             </div>
                             <div class="col-3 p-1">
                                 <button class="btn ATK-accessory bg-secondary" data-toggle="popover">
-                                <img id="ATK-accessory" class="rounded" style="width:100%">
+                                <img id="ATK-accessory-IMG" class="rounded" style="width:100%">
                                 </button>
+                                <select id="ATK-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('ATK')" data-width="100%;" data-size="10">
+                                </select>
                             </div>
                         </div>
                     </div>
