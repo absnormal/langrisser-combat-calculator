@@ -47,23 +47,22 @@
     "armorType": ["cloth", "light", "heavy"],
     "moveType": ["foot", "mounted", "marine", "terrainMaster", "flying"],
     "cond": [
-	"COMBAT", "AOE",
-	"ATK", "DEF",
-	"HPUP", "HPDOWN",
-    "OPPHPUP", "OPPHPDOWN",
-	"HPHIGHER%", "HPLOWER%",
-	"HPHIGHER", "HPLOWER",
-	"OPPDEBUFF", "OPPBUFF",
-	"DEBUFF", "BUFF",
-	"MELEE", "RANGED", "RANGEDSKILL",
-	"MAGIC", "PHYSIC",
-	"WATER", "SKY", "DEFTERRAIN", "NODEFTERRAIN", "MOVEMENT",
+	"COMBAT", "ATK", "DEF", "AOE",
+	"HPUP", "HPDOWN", "OPPHPUP", "OPPHPDOWN",
+	"HPHIGHER%", "HPLOWER%", 
+    "HPHIGHER", "HPLOWER",
+	"DEBUFF", "BUFF", "OPPDEBUFF", "OPPBUFF", "BUFFTWICE", "HAVEBUFF",
+	"MELEE", "RANGED",
+	"MAGIC", "PHYSIC", "RANGEDSKILL",
+	"WATER", "SKY", "DEFTERRAIN", "NODEFTERRAIN", "EFFECTTERRAIN",
+    "MOVEMENT",
 	"HIGHERMORE", "LOWERMORE",
-	"ALLY", "ENEMY","NOALLY",
+	"ALLY", "ENEMY", "NOALLY",
 	"HIGHER", "PROB",
     "SKILLHIGHER",
     "INFANTRY", "LANCER", "CAVALRY", "ARCHER", "FLYER", "HOLY", "DEMON",
-    "ASSASSIN", "AQUATIC", "MAGE", "DRAGON"
+    "ASSASSIN", "AQUATIC", "MAGE", "DRAGON", "EFFECTIVE",
+    "MIXFORCE"
     ],
     "effect": [
     "FIXDMGINC", "FIXDMGDEC",
@@ -81,7 +80,7 @@
 	"GATK+", "GINT+", "GDEF+", "GMDEF+", "GSKILL+", "GHP+", "GALL+",
 	"ATKDEC", "INTDEC", "DEFDEC", "MDEFDEC", "SKILLDEC",
 	"ATKFIRST", "CANMELEE", 
-    "RANGE+", "SOLDRANGE+", "MOVE+",
-    "AOESPAN+", "LINERANGE+","DEFIGN", "EFFECTIVE"
+    "RANGE+", "SOLDRANGE+", "MOVE+", "COMMAND+", "MOVETYPE",
+    "AOESPAN+", "LINERANGE+","DEFIGN", "EFFECTIVE","COSTIGN"
     ]
 }

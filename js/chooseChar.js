@@ -31,6 +31,11 @@ function setCharacter(side)
     let ignore = "Not Selected";
     let selectcharacter = document.getElementById(side+"-character");
 
+    // cache previous character's choosen skills
+    if(page[side].selectedCharacter != undefined){
+        let lastChar = data.character.find(x => x.name === page[side].selectedCharacter.name);
+        lastChar.choosenSkills = page[side].choosenSkills;
+    }
     // select new character
     page[side].selectedCharacter = data.character.find(x=>x.name===selectcharacter.value);
     setCharacterIMG(side);

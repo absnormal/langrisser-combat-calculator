@@ -14,7 +14,8 @@ var lists = JSON.parse(request.responseText);
 //     weapon: {},
 //     armor: {},
 //     helmet: {},
-//     accessory: {}
+//     accessory: {},
+//     exclusive: {}
 // };
 var data = {};
 
@@ -66,5 +67,11 @@ request.open("GET", local+"data/accessory.json", false);
 request.send(null);
 var accessory = JSON.parse(request.responseText);
 data = {...data, ...accessory};
+// exclusive
+var request = new XMLHttpRequest();
+request.open("GET", local+"data/exclusive.json", false);
+request.send(null);
+var exclusive = JSON.parse(request.responseText);
+data = {...data, ...exclusive};
 
 console.log(data);

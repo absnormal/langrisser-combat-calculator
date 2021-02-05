@@ -29,6 +29,7 @@
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/armor.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/helmet.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/accessory.json"></script> 
+        <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/exclusive.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/lists.json"></script> 
         -->
         <!-- js script
@@ -50,6 +51,7 @@
         <script type="application/json" src="/langrisser-combat-calculator/data/armor.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/helmet.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/accessory.json"></script> 
+        <script type="application/json" src="/langrisser-combat-calculator/data/exclusive.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/lists.json"></script> 
         <!-- css -->
         <style>
@@ -70,9 +72,6 @@
             top: 50px;
             left: 50px;
             height: 500px;
-        }
-        .modal-body {
-            overflow-y: auto;
         }
         </style>
     </head>
@@ -97,7 +96,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select id="ATK-character" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="10" onchange="setCharacter('ATK')">
+                        <select id="ATK-character" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="10" onchange="setCharacter('ATK')" data-live-search="true">
                             <option>Not Selected</option>
                         </select>
                     </div>
@@ -122,7 +121,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     <div class="col-4 p-1">
-                                        <img id="ATK-HP-IMG" class="rounded" style="position:center;">
+                                        <img class="rounded ATK-HP-IMG" style="position:center;">
                                     </div>
                                     <div class="col-5 p-1">
                                         <p>HP:</p>
@@ -140,7 +139,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     <div class="col-4 p-1">
-                                        <img id="ATK-ATK-IMG" class="rounded" style="position:center;">
+                                        <img class="rounded ATK-ATK-IMG" style="position:center;">
                                     </div>
                                     <div class="col-5 p-1">
                                         <p>ATK:</p>
@@ -158,7 +157,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     <div class="col-4 p-1">
-                                        <img id="ATK-INT-IMG" class="rounded" style="position:center;">
+                                        <img class="rounded ATK-INT-IMG" style="position:center;">
                                     </div>
                                     <div class="col-5 p-1">
                                         <p>INT:</p>
@@ -176,7 +175,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     <div class="col-4 p-1">
-                                        <img id="ATK-DEF-IMG" class="rounded" style="position:center;">
+                                        <img class="rounded ATK-DEF-IMG" style="position:center;">
                                     </div>
                                     <div class="col-5 p-1">
                                         <p>DEF:</p>
@@ -194,7 +193,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     <div class="col-4 p-1">
-                                        <img id="ATK-MDEF-IMG" class="rounded" style="position:center;">
+                                        <img class="rounded ATK-MDEF-IMG" style="position:center;">
                                     </div>
                                     <div class="col-5 p-1">
                                         <p>MDEF:</p>
@@ -212,7 +211,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     <div class="col-4 p-1">
-                                        <img id="ATK-SKILL-IMG" class="rounded" style="position:center;">
+                                        <img class="rounded ATK-SKILL-IMG" style="position:center;">
                                     </div>
                                     <div class="col-5 p-1">
                                         <p>SKILL:</p>
@@ -228,8 +227,8 @@
                         </div>
                     </div>
                     <div class="col-1">
-                            <button class="btn mastery bg-dark">
-                                <img id="ATK-mastery-IMG" class="rounded">
+                            <button class="btn mastery bg-dark" data-toggle="modal" data-target="#ATK-masteryModal">
+                                <img class="rounded ATK-mastery-IMG">
                             </button>
                     </div>
                 </div>
@@ -271,7 +270,7 @@
                             </div>
                             <div class="col">
                                 <button class="btn changeSkill bg-secondary" data-toggle="modal" data-target="#ATK-skillListModal" onclick="setSkillList('ATK')">
-                                    <img id="ATK-changeSkill-IMG" class="rounded" style="width: 80%;">
+                                    <img class="rounded ATK-changeSkill-IMG" style="width: 80%;">
                                 </button>
                             </div>
                         </div>
@@ -319,7 +318,7 @@
                                 <button class="btn ATK-accessory bg-secondary" data-toggle="popover">
                                 <img id="ATK-accessory-IMG" class="rounded" style="width:100%">
                                 </button>
-                                <select id="ATK-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('ATK')" data-width="100%;" data-size="10">
+                                <select id="ATK-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('ATK')" data-width="100%;" data-size="10" data-live-search="true">
                                 </select>
                             </div>
                         </div>
@@ -486,6 +485,101 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal-->
+        <!-- Mastery Modal-->
+        <div class="modal" id="ATK-masteryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class='col'>
+                            <div class='row'>
+                                <h4>Mastery</h4>
+                            </div>
+                            <div class='row'>
+                                <div class='col'>
+                                    <div class='row'>
+                                        <div class='col-3'>
+                                            <img class="rounded ATK-HP-IMG" style="position:center;">
+                                        </div>
+                                        <div class='col-3'>
+                                            <p>HP:</p>
+                                        </div>
+                                        <div class='col-6'>
+                                            <p id="ATK-MASTERYHP" style="text-align:right;">2000</p>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-3'>
+                                            <img class="rounded ATK-ATK-IMG" style="position:center;">
+                                        </div>
+                                        <div class='col-3'>
+                                            <p>ATK:</p>
+                                        </div>
+                                        <div class='col-6'>
+                                            <p id="ATK-MASTERYATK" style="text-align:right;">200</p>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-3'>
+                                            <img class="rounded ATK-INT-IMG" style="position:center;">
+                                        </div>
+                                        <div class='col-3'>
+                                            <p>INT:</p>
+                                        </div>
+                                        <div class='col-6'>
+                                            <p id="ATK-MASTERYINT" style="text-align:right;">200</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col'>
+                                    <div class='row'>
+                                        <div class='col-3'>
+                                            <img class="rounded ATK-DEF-IMG" style="position:center;">
+                                        </div>
+                                        <div class='col-3'>
+                                            <p>DEF:</p>
+                                        </div>
+                                        <div class='col-6'>
+                                            <p id="ATK-MASTERYDEF" style="text-align:right;">200</p>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-3'>
+                                            <img class="rounded ATK-MDEF-IMG" style="position:center;">
+                                        </div>
+                                        <div class='col-3'>
+                                            <p>MDEF:</p>
+                                        </div>
+                                        <div class='col-6'>
+                                            <p id="ATK-MASTERYMDEF" style="text-align:right;">200</p>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col-3'>
+                                            <img class="rounded ATK-SKILL-IMG" style="position:center;">
+                                        </div>
+                                        <div class='col-3'>
+                                            <p>SKILL:</p>
+                                        </div>
+                                        <div class='col-6'>
+                                            <p id="ATK-MASTERYSKILL" style="text-align:right;">200</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class='col'>
+                                <div class='row'>
+                                    <h5 style='text-align:center'>Arena Mastery</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
                     </div>
                 </div>
             </div>

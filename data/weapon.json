@@ -332,7 +332,7 @@
               {"effect":"MDEFINC", "eNumber": 8}
           ]
         },
-        { "name":"Gat of Truth",
+        { "name":"Gate of Truth",
           "type":"hammer",
           "description":"When Attacking, INT/DEF/MDEF +15%",
           "condition": [

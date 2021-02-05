@@ -1,6 +1,9 @@
 function setChoosenSkills(side)
 {
-    page[side].choosenSkills = page[side].charSkills.slice(0, 3);
+    if(page[side].selectedCharacter.choosenSkills == undefined)
+        page[side].choosenSkills = page[side].charSkills.slice(0, 3);
+    else
+        page[side].choosenSkills = page[side].selectedCharacter.choosenSkills;
 }
 
 function displaySkills(side, skillList, pos = "", placement = "top", equip = "")

@@ -1,5 +1,5 @@
 var png = ".png";
-var LANG = "en"
+var LANG = "en";
 /* local
 var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
 var local = "file:///home/absnormal/langrisser-combat-calculator/";
@@ -97,9 +97,10 @@ function createListByVar(side, name, picDirName, listAll, appendList, image, fil
         let option = document.createElement('option');
         if(image) option.setAttribute("data-content",
             "<img src='" + imgLocal + picDirName + object.name + png + "'>");
-        else option.innerHTML = object.name;
+        option.innerHTML = object.name;
 
         option.setAttribute("value", object.name);
+        option.setAttribute("data-tokens", object.name);
         list.appendChild(option);
     });
 
@@ -112,7 +113,8 @@ function loadIconIMG(side)
 {
     let iconList = ["HP","ATK","INT","DEF","MDEF","SKILL","mastery", "changeSkill"];
     iconList.forEach(function(string){
-        let img = document.getElementById(side+"-"+string+"-IMG");
-        img.setAttribute("src", imgLocal+"icon/"+string+png);
+        let imgList = document.getElementsByClassName(side+"-"+string+"-IMG");
+        for(let i=0; i<imgList.length; i++)
+            imgList[i].setAttribute("src", imgLocal+"icon/"+string+png);
     });
 }

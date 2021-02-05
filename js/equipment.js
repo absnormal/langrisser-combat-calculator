@@ -4,6 +4,7 @@ function listEquipment(side)
     listArmor(side);
     listHelmet(side);
     listAccessory(side);
+    listExclusive(side);
 }
 
 function listWeapon(side)
@@ -26,6 +27,10 @@ function setWeapon(side)
     let img = document.getElementById(side+"-weapon-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/weapon_"+LANG+"/"+page[side].charWeapon.name+png);
+    // exclusive IMG
+    if(page[side].charWeapon.part != undefined)
+        img.setAttribute("src",
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charWeapon.name+png);
     // weapon popover
     displayEquipment(side, "weapon", "charWeapon");
 }
@@ -50,6 +55,10 @@ function setArmor(side)
     let img = document.getElementById(side+"-armor-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/armor_"+LANG+"/"+page[side].charArmor.name+png);
+    // exclusive IMG
+    if(page[side].charArmor.part != undefined)
+        img.setAttribute("src",
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charArmor.name+png);
     // armor popover
     displayEquipment(side, "armor", "charArmor");
 }
@@ -74,6 +83,10 @@ function setHelmet(side)
     let img = document.getElementById(side+"-helmet-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/helmet_"+LANG+"/"+page[side].charHelmet.name+png);
+    // exclusive IMG
+    if(page[side].charHelmet.part != undefined)
+        img.setAttribute("src",
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charHelmet.name+png);
     // helmet popover
     displayEquipment(side, "helmet", "charHelmet");
 }
@@ -93,8 +106,23 @@ function setAccessory(side)
     let img = document.getElementById(side+"-accessory-IMG");
     img.setAttribute("src",
         imgLocal+"equipment/accessory_"+LANG+"/"+page[side].charAccessory.name+png);
+    // exclusive IMG
+    if(page[side].charAccessory.part != undefined)
+        img.setAttribute("src",
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charAccessory.name+png);
     // accessory popover
     displayEquipment(side, "accessory", "charAccessory");
+}
+
+function listExclusive(side)
+{
+    let charName = page[side].selectedCharacter.name;
+    let exclusiveObj = data.exclusive.find(x => x.type === charName);
+    if(exclusiveObj == undefined)
+        return;
+    // add exclusive equipment to the belonged part of data
+    data[exclusiveObj.part].push(exclusiveObj);
+    createListByVar(side, exclusiveObj.part, null, false, true, false, "type", charName);
 }
 
 function displayEquipment(side, part, objName)
