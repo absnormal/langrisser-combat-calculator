@@ -6,7 +6,7 @@ var local = "file:///home/absnormal/langrisser-combat-calculator/";
  */
 /* github
  */
-var imgLocal = "https://raw.githubusercontent.com/absnormal/langrisser-combat-calculator/asset/image/";
+var imgLocal = "https://raw.githubusercontent.com/absnormal/langrisser-combat-calculator/assets/image/";
 var local = "/langrisser-combat-calculator/";
 var page = {
     ATK: {
