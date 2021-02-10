@@ -63,7 +63,7 @@ function createAllList(side)
     createList(side, "faction", "party/");
     createList(side, "rarity", "icon/");
     createList(side, "enchant", "icon/", "40%");
-    createListByVar(side, "character", "character/card_"+LANG+"/", true, false, true);
+    createListByVar(side, "character", "character/card_"+LANG+"/", true, false, false);
     setCharacter(side);
 }
 

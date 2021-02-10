@@ -8,7 +8,7 @@ function setFaction(side)
     else
         page[side].selectedFaction = selectfaction.value;
 
-    createListByVar(side, "character", "character/card_"+LANG+"/", false, false, true, "faction", page[side].selectedFaction, "rarity", page[side].selectedRarity);
+    createListByVar(side, "character", "character/card_"+LANG+"/", false, false, false, "faction", page[side].selectedFaction, "rarity", page[side].selectedRarity);
     setCharacter(side);
 }
 
@@ -22,7 +22,7 @@ function setRarity(side)
     else
         page[side].selectedRarity = selectrarity.value;
 
-    createListByVar(side, "character", "character/card_"+LANG+"/", false, false, true, "faction", page[side].selectedFaction, "rarity", page[side].selectedRarity);
+    createListByVar(side, "character", "character/card_"+LANG+"/", false, false, false, "faction", page[side].selectedFaction, "rarity", page[side].selectedRarity);
     setCharacter(side);
 }
 
