@@ -1,6 +1,6 @@
 {
     "exclusive":[
-        { "name":"Errant Knight",
+        { "name":"Errant-Knight",
           "part":"weapon",
           "type":"Elwin",
           "description":"ATK +10% <br><br>When dealing skill damage, 30% chance to reduce skill's CD by 5.",
@@ -10,7 +10,7 @@
               {"effect":"ATKINC", "eNumber": 10}
           ]
         },
-        { "name":"Black Bride",
+        { "name":"Black-Bride",
           "part":"armor",
           "type":"Lana",
           "description":"HP +5% <br><br>Before entering battle, enemy obtains 1 random debuff.",
@@ -20,7 +20,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Golden Lion",
+        { "name":"Golden-Lion",
           "part":"helmet",
           "type":"Dieharte",
           "description":"MDEF +10% <br><br>After successfully defeating an enemy and ending turn, stun 1 enemy within 3 blocks.",
@@ -30,7 +30,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Kizuna Band",
+        { "name":"Kizuna-Band",
           "part":"accessory",
           "type":"Matthew",
           "description":"When an ally is within two blocks, ATK, DEF, and MDEF is increased by 10%",
@@ -48,7 +48,7 @@
               }
           ]
         },
-        { "name":"Gorgeous Red",
+        { "name":"Gorgeous-Red",
           "part":"helmet",
           "type":"Imelda",
           "description":"MDEF +10% <br><br>At the end of action, grant 4 allies within two blocks \"Immune to Fixed Damage\"",
@@ -58,7 +58,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Riguler Crown",
+        { "name":"Riguler-Crown",
           "part":"helmet",
           "type":"Altemuller",
           "description":"DEF/MDEF+5% <br><br>Self buffs lasts 1 extra turn.",
@@ -69,7 +69,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Dark Dawn",
+        { "name":"Dark-Dawn",
           "part":"weapon",
           "type":"Sonya",
           "description":"ATK/INT +10% <br><br>When attacking in melee, deal fixed damage equal to 2.0x unit's INT before battle. When attacking at range, deal fixed damage equal to 2.0x unit's ATK after battle.",
@@ -80,7 +80,7 @@
               {"effect":"INTINC", "eNumber": 10}
           ]
         },
-        { "name":"Jugler's Gift",
+        { "name":"Jugler's-Gift",
           "part":"helmet",
           "type":"Jugler",
           "description":"HP +5% <br><br>After battle, restore 10% max HP. Unit can ignore cost restriction on skills.",
@@ -91,7 +91,7 @@
               {"effect":"COSTIGN"}
           ]
         },
-        { "name":"Fairy Wings",
+        { "name":"Fairy-Wings",
           "part":"accessory",
           "type":"Liffany",
           "description":"INT +5% <br><br>After attacking, may move 2 blocks",
@@ -101,7 +101,7 @@
               {"effect":"INTINC", "eNumber": 5}
           ]
         },
-        { "name":"Protective Rune Suit",
+        { "name":"Protective-Rune-Suit",
           "part":"armor",
           "type":"Rachel",
           "description":"HP+ 5% <br><br>Before being attacked by melee, deal fixed damage equal to 1.0x Hero's INT 1 time to the enemy",
@@ -121,7 +121,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"My, my, my Princess?",
+        { "name":"My,-my,-my-Princess?",
           "part":"helmet",
           "type":"Hein",
           "description":"HP +5% <br><br>Talent stack max+1. May receive \"Princess Alliance\" Fusion Power.",
@@ -142,7 +142,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Caconsis's Crown",
+        { "name":"Caconsis's-Crown",
           "part":"helmet",
           "type":"Shelfaniel",
           "description":"MDEF +10% <br><br>30% chance after taking action to gain skill range +1 and skill span +1 for 1 turn",
@@ -152,7 +152,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Bamboo Hat",
+        { "name":"Bamboo-Hat",
           "part":"helmet",
           "type":"Kirikaze",
           "description":"DEF/MDEF +5% <br><br>When the unit's HP is 100%, skill is increased by 30%",
@@ -166,7 +166,7 @@
               }
           ]
         },
-        { "name":"Lanford's Second Election",
+        { "name":"Lanford's-Second-Election",
           "part":"helmet",
           "type":"Lanford",
           "description":"DEF+10% <br><br>Talent Range +1",
@@ -177,7 +177,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Crown of Thorns",
+        { "name":"Crown-of-Thorns",
           "part":"helmet",
           "type":"Freya",
           "description":"MDEF +10% <br><br>When attacked, enemy suffers fixed damage equal to 2.0x MDEF before battle",
@@ -187,7 +187,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Trial of Faith",
+        { "name":"Trial-of-Faith",
           "part":"weapon",
           "type":"Ledin",
           "description":"DEF/MDEF +5% <br><br>After killing an enemy, gains buff \"Block 1 instance of fatal damage and restore Hp to it's previous amount\" Lasts 1 turn. [2 CD].",
@@ -198,7 +198,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"■ ■ ■ ■",
+        { "name":"■-■-■-■",
           "part":"weapon",
           "type":"Almeda",
           "description":"INT +10% <br><br>When actively dealing damage, inflict \"Mobility -1\"",
@@ -208,7 +208,7 @@
               {"effect":"INTINC", "eNumber": 10}
           ]
         },
-        { "name":"Flower in the Wind",
+        { "name":"Flower-in-the-Wind",
           "part":"helmet",
           "type":"Angelina",
           "description":"DEF +10% <br><br>When unit acts again, duration of buffs is not reduced. [3 CD]",
@@ -218,7 +218,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Garb of Firewalking",
+        { "name":"Garb-of-Firewalking",
           "part":"armor",
           "type":"Egbert",
           "description":"HP/MDEF +5% <br><br>After Being Attacked/Taking Damage, +1 Skill Range/Span Buff",
@@ -229,7 +229,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Scarlet Embrace",
+        { "name":"Scarlet-Embrace",
           "part":"helmet",
           "type":"Zerida",
           "description":"HP +5% <br><br>After taking action, if there are no allies within 2 blocks , heals for 20% of unit's HP and dispels 1 debuff.",
@@ -239,7 +239,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Nightmare Casque",
+        { "name":"Nightmare-Casque",
           "part":"helmet",
           "type":"Feraquea",
           "description":"HP +5% <br><br>When battling units you have class advantage over, ATK+20%",
@@ -252,7 +252,7 @@
               }
           ]
         },
-        { "name":"Yggdrasil Blossom",
+        { "name":"Yggdrasil-Blossom",
           "part":"accessory",
           "type":"Lambda",
           "description":"INT +5% <br><br>When dealing damage with a skill, 10% chance per enemy hit to reduce skill cooldown by -5 (up to 50%).",
@@ -262,9 +262,9 @@
               {"effect":"INTINC", "eNumber": 5}
           ]
         },
-        { "name":"Mask of Righteousness",
+        { "name":"Mask-of-Righteousness",
           "part":"helmet",
-          "type":"Silver Wolf",
+          "type":"Silver-Wolf",
           "description":"MDEF +5% <br><br>When attacking, if you have twice or more buffs as the enemy, may attack first.",
           "condition": [
               {"effect":"GHP+", "eNumber": 437},
@@ -275,7 +275,7 @@
               }
           ]
         },
-        { "name":"Crown of Dreams",
+        { "name":"Crown-of-Dreams",
           "part":"helmet",
           "type":"Grenier",
           "description":"MDEF +10% <br><br>When unit has 7 or more buffs, gain +50% counterattack damage.",
@@ -288,7 +288,7 @@
               }
           ]
         },
-        { "name":"Wind Plume",
+        { "name":"Wind-Plume",
           "part":"helmet",
           "type":"Alustriel",
           "description":"MDEF +10% <br><br>When on a Forest, Mountain or Grasslands tile, unit can ignore guard and restore 20% of damage dealt as HP.",
@@ -298,7 +298,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Blue Dragon Carapace",
+        { "name":"Blue-Dragon-Carapace",
           "part":"armor",
           "type":"Leon",
           "description":"DEF +10% <br><br>After taking damage, unit can ignore terrain penalty for 1 turn.",
@@ -308,7 +308,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Crown of Kalxath",
+        { "name":"Crown-of-Kalxath",
           "part":"helmet",
           "type":"Lance",
           "description":"HP +5% <br><br>When in mixed forces, Damage Dealt +20%.",
@@ -321,7 +321,7 @@
               }
           ]
         },
-        { "name":"Scepter of Destruction",
+        { "name":"Scepter-of-Destruction",
           "part":"weapon",
           "type":"Gizarof",
           "description":"INT/HP +5% <br><br>After casting a skill, if a Construct is present, 1 Renovation is randomly added.",
@@ -342,7 +342,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Super Gadget Hat",
+        { "name":"Super-Gadget-Hat",
           "part":"helmet",
           "type":"Angelica",
           "description":"DEF/MDEF +5% <br><br>After taking action, restore 30% HP of the allied summon with the lowest health.",
@@ -355,7 +355,7 @@
         },
         { "name":"Scryer",
           "part":"helmet",
-          "type":"Jessica (Y)",
+          "type":"Jessica(Y)",
           "description":"HP +5% <br><br>If the unit has not moved or dealt damage this turn, may act again. [4 CD]",
           "condition": [
               {"effect":"GHP+", "eNumber": 364},
@@ -363,7 +363,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Precision Scope",
+        { "name":"Precision-Scope",
           "part":"helmet",
           "type":"Sigma",
           "description":"HP +5% <br><br>At the end of action, have a 25% chance to gain \"ATK/INT +20%\". Lasts 4 turns",
@@ -373,7 +373,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Heart of the Ocean",
+        { "name":"Heart-of-the-Ocean",
           "part":"accessory",
           "type":"Alfred",
           "description":"ATK +8% <br><br>When entering battle, if the enemy hero is not \"Aquatic\", then inflict \"In Water\", lasts 1 turn. If this unit's HP is 100%, then gain \"In Water\", lasts 1 turn. Gaining water for self has 2CD.",
@@ -383,7 +383,7 @@
               {"effect":"ATKINC", "eNumber": 8}
           ]
         },
-        { "name":"Overlord's Armor",
+        { "name":"Overlord's-Armor",
           "part":"armor",
           "type":"Bernhardt",
           "description":"HP +5% <br><br> Talent Range +1",
@@ -394,7 +394,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Wingstriker Helmet",
+        { "name":"Wingstriker-Helmet",
           "part":"helmet",
           "type":"Varna",
           "description":"MDEF +10% <br><br>When using an AoE attacking skill, effect span +1. If damage is dealt, CD4 on this effect.",
@@ -405,7 +405,7 @@
               {"effect":"AOESPAN+", "eNumber": 1}
           ]
         },
-        { "name":"Burning Meteor",
+        { "name":"Burning-Meteor",
           "part":"helmet",
           "type":"Betty",
           "description":"HP +10% <br><br>Boosts fixed damage dealt the lower the unit's HP is, up to 30%. (Range Unknown)",
@@ -415,7 +415,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Lost Light",
+        { "name":"Lost-Light",
           "part":"armor",
           "type":"Sophia",
           "description":"HP +5% <br><br>When using skills on allies, also add buffs: \"ATK/INT+15%\" and \"MDEF+20%\". Lasts 2 turns.",
@@ -425,7 +425,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Valkyrie Pulsar",
+        { "name":"Valkyrie-Pulsar",
           "part":"helmet",
           "type":"Narm",
           "description":"MDEF +10% <br><br> Hero Talent Cooldown -1",
@@ -435,7 +435,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Blitz Bulwark",
+        { "name":"Blitz-Bulwark",
           "part":"armor",
           "type":"Virash",
           "description":"DEF +10% <br><br>When the hero takes fatal damage and does not die, gain 1 random buff.",
@@ -445,7 +445,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Handicraft Hero Lesson",
+        { "name":"Handicraft-Hero-Lesson",
           "part":"helmet",
           "type":"Oliver",
           "description":"HP/MDEF +5% <br><br>After scoring a critical hit, inflict 1 debuff and steal 1 buff.",
@@ -456,7 +456,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Lunar Memories",
+        { "name":"Lunar-Memories",
           "part":"armor",
           "type":"Brenda",
           "description":"HP/DEF +5% <br><br>When an act again effect from talent is triggered, dispel 2 debuffs from self and gain Damage Dealt +10%, Damage Taken -10%. Lasts 1 turn.",
@@ -467,7 +467,7 @@
               {"effect":"DEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Holy Spirit's Grace",
+        { "name":"Holy-Spirit's-Grace",
           "part":"weapon",
           "type":"Aka",
           "description":"ATK/INT +10% <br><br>After taking action, summon one [Wolf Soul] adjacent to self. This Wolf Soul will inherit 75% of Aka's stats. (You may only have 1 Wolf Soul at once. This effect can only occur once per battle)",
@@ -478,7 +478,7 @@
               {"effect":"INTINC", "eNumber": 10}
           ]
         },
-        { "name":"Great Dragon's Glory",
+        { "name":"Great-Dragon's-Glory",
           "part":"armor",
           "type":"Vargas",
           "description":"DEF +10% <br><br>If this character is under the effect of [Power Stab], then may counterattack a ranged attack from 2 range (SOLD counterattack?)",
@@ -491,7 +491,7 @@
               }
           ]
         },
-        { "name":"Blessing of Chaos",
+        { "name":"Blessing-of-Chaos",
           "part":"armor",
           "type":"Bozel",
           "description":"MDEF +10% <br><br>After dealing damage to enemies, inflict 1 random debuff.",
@@ -501,7 +501,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Maiden's Praise",
+        { "name":"Maiden's-Praise",
           "part":"helmet",
           "type":"Chris",
           "description":"HP/MDEF +5% <br><br>After taking action, if damage was dealt this turn, then Talent will grant 1 extra buff to each target. After defeating a Demon, may act again. (Cooldown on Act Again is 2 turns)",
@@ -512,7 +512,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Midsummer Remembrance",
+        { "name":"Midsummer-Remembrance",
           "part":"weapon",
           "type":"Ilucia",
           "description":"DEF/MDEF +5% <br><br>Before being attacked in battle, give \"Tidal Surge\" effect to self. Lasts 1 turn. When in water, takes all attacks for allies within 1 ring.",
@@ -523,7 +523,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Desperate Duster",
+        { "name":"Desperate-Duster",
           "part":"weapon",
           "type":"Maiya",
           "description":"INT +10% <br><br>Unit movement type is considered [Flying]. AoE skills from this unit can clear enemy terrain effects. After ending action, dispel 1 debuff from allies within 2 spaces.",
@@ -534,7 +534,7 @@
               {"effect":"MOVETYPE", "eString":"flying"}
           ]
         },
-        { "name":"Dragonmaster's Crown",
+        { "name":"Dragonmaster's-Crown",
           "part":"helmet",
           "type":"Renata",
           "description":"HP/MDEF +5% <br><br>Duration of debuffs inflicted on enemies +1. Any time this unit's Talent is triggered, gain [Windride] and immunities to ATK/INT decreases and silence. Lasts 2 turns. This unit may receive [Meteor Strike] Fusion Power effects.",
@@ -545,7 +545,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Feathered Mask",
+        { "name":"Feathered-Mask",
           "part":"helmet",
           "type":"Shilinka",
           "description":"DEF +10% <br><br>When actively attacking and entering battle, damage dealt +12%. Buffs given to self have duration +1. When in Slumber status, buffs on this unit will not decrease in duration.",
@@ -558,7 +558,7 @@
               }
           ]
         },
-        { "name":"Crimzonian Heart",
+        { "name":"Crimzonian-Heart",
           "part":"accessory",
           "type":"Rainforce",
           "description":"ATK +5%, Movement +1 <br><br>When this unit has 4 or more stacks of [Otherworldly Force], then it may ignore enemy unit obstruction. When this unit has 7 stacks of [Otherworldly Force], then inflict 1 random debuff on enemies after dealing damage.",
@@ -568,7 +568,7 @@
               {"effect":"MOVE+", "eNumber": 1}
           ]
         },
-        { "name":"Glorious Inheritance",
+        { "name":"Glorious-Inheritance",
           "part":"weapon",
           "type":"Emilia",
           "description":"DEF/MDEF +5% <br><br>When attacked and entering battle, unit physical damage taken -10%. If this unit is under the effect of [Holy Guard] or [Divine Sanctuary], then the Hero may counter ranged attacks.",
@@ -588,7 +588,7 @@
               }
           ]
         },
-        { "name":"Hidden Star Kabuto",
+        { "name":"Hidden-Star-Kabuto",
           "part":"helmet",
           "type":"Tsubame",
           "description":"HP +10% <br><br>Damage dealt +10%, AoE damage taken -10%. When this unit       has [Hide], critical hit rate +15%, and after ending action, gain [Light as a Swallow]: \"Movement +1. Can be stacked up to 2 times.\" Lasts 2 turns.",
@@ -603,7 +603,7 @@
               }
           ]
         },
-        { "name":"United Heart Guardian",
+        { "name":"United-Heart-Guardian",
           "part":"weapon",
           "type":"Gerold&Layla",
           "description":"ATK/INT +10% <br><br>Hero's normal attack range +1. After actively attacking in battle, restore HP to the lowest HP ally for attacker's ATK+INTx1. When using act again effects, buffs on this unit will not decrease in duration.",
@@ -615,7 +615,7 @@
               {"effect":"RANGE+", "eNumber": 1}
           ]
         },
-        { "name":"Whimsical Hat",
+        { "name":"Whimsical-Hat",
           "part":"helmet",
           "type":"Noemi",
           "description":"HP +10% <br><br>All units with Magic Garments will have 1 debuff dispelled at the end of their turn and restore 5% HP. When using Strategist's Garb, gain 1 extra charge",
@@ -625,7 +625,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Vitality Summoner",
+        { "name":"Vitality-Summoner",
           "part":"weapon",
           "type":"Melania",
           "description":"Healing Effects +15% <br><br>Gain [Command]: \"Allies within 1 block are immune to 'Curse of Wounding' and 'Unable to be Healed'.\"(Command name unknown)",
@@ -635,7 +635,7 @@
               {"effect":"HEALINC", "eNumber": 15}
           ]
         },
-        { "name":"Windstrike Feathered Crown",
+        { "name":"Windstrike-Feathered-Crown",
           "part":"helmet",
           "type":"Luna",
           "description":"HP/MDEF +5% <br><br>Command range of talent and skills+1. After taking action, grants 2 allies within 1 block Damage Dealt+15%. Lasts 1 turn.",
@@ -647,7 +647,7 @@
               {"effect":"COMMAND+", "eNumber": 1}
           ]
         },
-        { "name":"Crystal Moon Armor",
+        { "name":"Crystal-Moon-Armor",
           "part":"armor",
           "type":"Helena",
           "description":"HP/DEF +5% <br><br>After taking action, create [Crystal Radiance] within 1 ring of self. When on allied [Crystal Radiance], damage taken-15%, and after being attacked and taking damage, restore 30% HP.",

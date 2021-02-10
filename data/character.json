@@ -41,7 +41,7 @@
           ]
         },
         { "name":"Aka", 
-          "talent":"Holy Protection",
+          "talent":"Holy-Protection",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "origins-of-light", "mythical-realm"],
@@ -81,7 +81,7 @@
           ]
         },
         { "name":"Albedo", 
-          "talent":"Overseer of the Guardians",
+          "talent":"Overseer-of-the-Guardians",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["reincarnation-tensei", "dark-reincarnation", "heros-of-time"],
@@ -121,7 +121,7 @@
           ]
         },
         { "name":"Altemuller", 
-          "talent":"Supreme Overlord",
+          "talent":"Supreme-Overlord",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["empires-honor", "strategic-masters", "dark-reincarnation"],
@@ -161,7 +161,7 @@
           ]
         },
         { "name":"Alustriel", 
-          "talent":"Forest Spring",
+          "talent":"Forest-Spring",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "origins-of-light", "strategic-masters"],
@@ -201,7 +201,7 @@
           ]
         },
         { "name":"Angelina",
-          "talent":"Battle Goddess",
+          "talent":"Battle-Goddess",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["yeless-legends", "princess-alliance", "meteor-strike"],
@@ -241,7 +241,7 @@
           ]
         },
         { "name":"Ares", 
-          "talent":"Fearless Will",
+          "talent":"Fearless-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "reincarnation-tensei", "empires-honor"],
@@ -281,7 +281,7 @@
           ]
         },
         { "name":"Arianrhod", 
-          "talent":"Steel Maiden",
+          "talent":"Steel-Maiden",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["reincarnation-tensei", "mythical-realm", "heros-of-time"],
@@ -321,7 +321,7 @@
           ]
         },
         { "name":"Ashram", 
-          "talent":"Black Knight",
+          "talent":"Black-Knight",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["strategic-masters", "dark-reincarnation", "heros-of-time"],
@@ -361,7 +361,7 @@
           ]
         },
         { "name":"Bernhardt", 
-          "talent":"Lord's Will",
+          "talent":"Lord's-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["empires-honor", "dark-reincarnation", "mythical-realm"],
@@ -401,7 +401,7 @@
           ]
         },
         { "name":"Betty", 
-          "talent":"Sword Realm",
+          "talent":"Sword-Realm",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "empires-honor", "dark-reincarnation"],
@@ -441,7 +441,7 @@
           ]
         },
         { "name":"Bozel", 
-          "talent":"Ancient Evil",
+          "talent":"Ancient-Evil",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["dark-reincarnation", "mythical-realm"],
@@ -481,7 +481,7 @@
           ]
         },
         { "name":"Brenda", 
-          "talent":"Paragon of Elegance",
+          "talent":"Paragon-of-Elegance",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["yeless-legends", "meteor-strike"],
@@ -521,7 +521,7 @@
           ]
         },
         { "name":"Cherie", 
-          "talent":"Wild Princess",
+          "talent":"Wild-Princess",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "princess-alliance", "meteor-strike"],
@@ -561,7 +561,7 @@
           ]
         },
         { "name":"Clarett", 
-          "talent":"Wandering Princess",
+          "talent":"Wandering-Princess",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["yeless-legends", "princess-alliance", "meteor-strike"],
@@ -601,7 +601,7 @@
           ]
         },
         { "name":"Clotaire", 
-          "talent":"Shattered Flame",
+          "talent":"Shattered-Flame",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["empires-honor", "strategic-masters"],
@@ -641,7 +641,7 @@
           ]
         },
         { "name":"Deedlit", 
-          "talent":"Fairy of the Forbidden Forest",
+          "talent":"Fairy-of-the-Forbidden-Forest",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["origins-of-light", "princess-alliance", "heros-of-time"],
@@ -681,7 +681,7 @@
           ]
         },
         { "name":"Dieharte", 
-          "talent":"Free Will",
+          "talent":"Free-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "origins-of-light", "meteor-strike"],
@@ -721,7 +721,7 @@
           ]
         },
         { "name":"Elwin", 
-          "talent":"Brave's Will",
+          "talent":"Brave's-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "legion-of-glory", "empires-honor"],
@@ -760,8 +760,8 @@
               }
           ]
         },
-        { "name":"Elwin SP", 
-          "talent":"Holy Dragon's Will",
+        { "name":"Elwin-SP", 
+          "talent":"Holy-Dragon's-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "legion-of-glory", "empires-honor"],
@@ -787,7 +787,7 @@
           ]
         },
         { "name":"Emilia", 
-          "talent":"Inheritor of Divine Power",
+          "talent":"Inheritor-of-Divine-Power",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["empires-honor", "princess-alliance"],
@@ -827,7 +827,7 @@
           ]
         },
         { "name":"Estelle", 
-          "talent":"Bright Maiden",
+          "talent":"Bright-Maiden",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["protagonist", "legion-of-glory", "heros-of-time"],
@@ -867,7 +867,7 @@
           ]
         },
         { "name":"Florentia", 
-          "talent":"Imperial Conquest",
+          "talent":"Imperial-Conquest",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["reincarnation-tensei", "empires-honor", "strategic-masters"],
@@ -907,7 +907,7 @@
           ]
         },
         { "name":"Gerold&Layla", 
-          "talent":"Moonlit Oath",
+          "talent":"Moonlit-Oath",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["origins-of-light", "strategic-masters"],
@@ -947,7 +947,7 @@
           ]
         },
         { "name":"Gizarof", 
-          "talent":"Dark Will",
+          "talent":"Dark-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["dark-reincarnation", "mythical-realm"],
@@ -987,7 +987,7 @@
           ]
         },
         { "name":"Helena", 
-          "talent":"Crystal Knight",
+          "talent":"Crystal-Knight",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "empires-honor"],
@@ -1010,7 +1010,7 @@
                     }
                 ]
               },
-              { "name":"Royal Knight",
+              { "name":"Royal-Knight",
                 "HP": 4511, "ATK": 578, "INT": 233,
                 "DEF": 287, "MDEF": 283, "SKILL": 113,
                 "bonds": [
@@ -1027,7 +1027,7 @@
           ]
         },
         { "name":"Hiei", 
-          "talent":"Jagan Eye",
+          "talent":"Jagan-Eye",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["origins-of-light", "meteor-strike", "heros-of-time"],
@@ -1067,7 +1067,7 @@
           ]
         },
         { "name":"Hilda", 
-          "talent":"Bloody Vengeance",
+          "talent":"Bloody-Vengeance",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["reincarnation-tensei", "empires-honor", "strategic-masters"],
@@ -1107,7 +1107,7 @@
           ]
         },
         { "name":"Himiko", 
-          "talent":"Ninjutsu - Substitution",
+          "talent":"Ninjutsu-Substitution",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["yeless-legends", "meteor-strike", "heros-of-time"],
@@ -1147,7 +1147,7 @@
           ]
         },
         { "name":"Ilucia", 
-          "talent":"Floating Petals",
+          "talent":"Floating-Petals",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "strategic-masters"],
@@ -1187,7 +1187,7 @@
           ]
         },
         { "name":"Jessica(T)", 
-          "talent":"Authority of Judgment",
+          "talent":"Authority-of-Judgment",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "origins-of-light", "reincarnation-tensei"],
@@ -1227,7 +1227,7 @@
           ]
         },
         { "name":"Jessica(Y)", 
-          "talent":"Goddess Incarnate",
+          "talent":"Goddess-Incarnate",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "origins-of-light", "mythical-realm"],
@@ -1267,7 +1267,7 @@
           ]
         },
         { "name":"Joshua", 
-          "talent":"Dark Initiate",
+          "talent":"Dark-Initiate",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["princess-alliance", "meteor-strike", "heros-of-time"],
@@ -1307,7 +1307,7 @@
           ]
         },
         { "name":"Jugler", 
-          "talent":"Sacred Beast Sanctuary",
+          "talent":"Sacred-Beast-Sanctuary",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["origins-of-light", "meteor-strike", "mythical-realm"],
@@ -1360,8 +1360,8 @@
               }
           ]
         },
-        { "name":"Knight of Mystery", 
-          "talent":"Protector of the Kingdom",
+        { "name":"Knight-of-Mystery", 
+          "talent":"Protector-of-the-Kingdom",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["strategic-masters", "yeless-legends"],
@@ -1384,7 +1384,7 @@
                     }
                 ]
               },
-              { "name":"Unicorn Master",
+              { "name":"Unicorn-Master",
                 "HP": 3762, "ATK": 295, "INT": 502,
                 "DEF": 321, "MDEF": 306, "SKILL": 127,
                 "bonds": [
@@ -1401,7 +1401,7 @@
           ]
         },
         { "name":"Kreuger", 
-          "talent":"Dark God's Descent",
+          "talent":"Dark-God's-Descent",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["dark-reincarnation", "mythical-realm"],
@@ -1441,7 +1441,7 @@
           ]
         },
         { "name":"Kurama", 
-          "talent":"Plant Manipulation",
+          "talent":"Plant-Manipulation",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["yeless-legends", "strategic-masters", "heros-of-time"],
@@ -1481,7 +1481,7 @@
           ]
         },
         { "name":"Lambda", 
-          "talent":"Sacred Tree's Sigh",
+          "talent":"Sacred-Tree's-Sigh",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["protagonist", "yeless-legends", "mythical-realm"],
@@ -1521,7 +1521,7 @@
           ]
         },
         { "name":"Lana", 
-          "talent":"Arcane Extension",
+          "talent":"Arcane-Extension",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["princess-alliance", "dark-reincarnation"],
@@ -1561,7 +1561,7 @@
           ]
         },
         { "name":"Landius", 
-          "talent":"United Will",
+          "talent":"United-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "yeless-legends"],
@@ -1641,7 +1641,7 @@
           ]
         },
         { "name":"Ledin", 
-          "talent":"King's Will",
+          "talent":"King's-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "legion-of-glory"],
@@ -1681,7 +1681,7 @@
           ]
         },
         { "name":"Leon", 
-          "talent":"Epic Knight",
+          "talent":"Epic-Knight",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["empires-honor", "strategic-masters"],
@@ -1721,7 +1721,7 @@
           ]
         },
         { "name":"Leonhardt", 
-          "talent":"Asura Sword",
+          "talent":"Asura-Sword",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["origins-of-light", "empires-honor", "heros-of-time"],
@@ -1761,7 +1761,7 @@
           ]
         },
         { "name":"Liana", 
-          "talent":"Holy Sister",
+          "talent":"Holy-Sister",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["protagonist", "legion-of-glory", "princess-alliance"],
@@ -1801,7 +1801,7 @@
           ]
         },
         { "name":"Licorice", 
-          "talent":"Might of the Demon God",
+          "talent":"Might-of-the-Demon-God",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["reincarnation-tensei", "princess-alliance", "dark-reincarnation"],
@@ -1841,7 +1841,7 @@
           ]
         },
         { "name":"Listell", 
-          "talent":"Blood Queen",
+          "talent":"Blood-Queen",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["yeless-legends", "dark-reincarnation"],
@@ -1881,7 +1881,7 @@
           ]
         },
         { "name":"Luna", 
-          "talent":"Wind Protection",
+          "talent":"Wind-Protection",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["origins-of-light", "strategic-masters", "princess-alliance"],
@@ -1921,7 +1921,7 @@
           ]
         },
         { "name":"Maiya", 
-          "talent":"Super Maid",
+          "talent":"Super-Maid",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["reincarnation-tensei", "princess-alliance"],
@@ -1961,7 +1961,7 @@
           ]
         },
         { "name":"Mariel", 
-          "talent":"Crown of Justice",
+          "talent":"Crown-of-Justice",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "reincarnation-tensei"],
@@ -2001,7 +2001,7 @@
           ]
         },
         { "name":"Noemi", 
-          "talent":"Magic Tailor",
+          "talent":"Magic-Tailor",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "reincarnation-tensei"],
@@ -2041,7 +2041,7 @@
           ]
         },
         { "name":"Omega", 
-          "talent":"Shadow Comet",
+          "talent":"Shadow-Comet",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["meteor-strike", "dark-reincarnation"],
@@ -2081,7 +2081,7 @@
           ]
         },
         { "name":"Patsyr", 
-          "talent":"Shadow Seduction",
+          "talent":"Shadow-Seduction",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["reincarnation-tensei", "dark-reincarnation"],
@@ -2121,7 +2121,7 @@
           ]
         },
         { "name":"Rachel", 
-          "talent":"Arcane Vessel",
+          "talent":"Arcane-Vessel",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["protagonist", "yeless-legends"],
@@ -2161,7 +2161,7 @@
           ]
         },
         { "name":"Rainforce", 
-          "talent":"Otherworldly Force",
+          "talent":"Otherworldly-Force",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["yeless-legends", "strategic-masters", "mythical-realm"],
@@ -2201,7 +2201,7 @@
           ]
         },
         { "name":"Rean", 
-          "talent":"Ashen Chevalier",
+          "talent":"Ashen-Chevalier",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "mythical-realm", "heros-of-time"],
@@ -2241,7 +2241,7 @@
           ]
         },
         { "name":"Renata", 
-          "talent":"Vengeful Dragon Seal",
+          "talent":"Vengeful-Dragon-Seal",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["dark-reincarnation", "reincarnation-tensei"],
@@ -2281,7 +2281,7 @@
           ]
         },
         { "name":"Renne", 
-          "talent":"Angel of Death",
+          "talent":"Angel-of-Death",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["yeless-legends", "dark-reincarnation", "heros-of-time"],
@@ -2321,7 +2321,7 @@
           ]
         },
         { "name":"Rozalia", 
-          "talent":"Glorious Faith",
+          "talent":"Glorious-Faith",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "princess-alliance", "reincarnation-tensei"],
@@ -2344,7 +2344,7 @@
                     }
                 ]
               },
-              { "name":"Royal Knight",
+              { "name":"Royal-Knight",
                 "HP": 4841, "ATK": 578, "INT": 271,
                 "DEF": 263, "MDEF": 308, "SKILL": 125,
                 "bonds": [
@@ -2361,7 +2361,7 @@
           ]
         },
         { "name":"Rozenciel", 
-          "talent":"Crystal Queen",
+          "talent":"Crystal-Queen",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["empires-honor", "princess-alliance", "mythical-realm"],
@@ -2400,8 +2400,8 @@
               }
           ]
         },
-        { "name":"Sage of the Trees", 
-          "talent":"Guardian of the World",
+        { "name":"Sage-of-the-Trees", 
+          "talent":"Guardian-of-the-World",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["yeless-legends", "mythical-realm"],
@@ -2441,7 +2441,7 @@
           ]
         },
         { "name":"Sakura", 
-          "talent":"Reiken - Arataka",
+          "talent":"Reiken-Arataka",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["protagonist", "empires-honor", "heros-of-time"],
@@ -2481,7 +2481,7 @@
           ]
         },
         { "name":"Shalltear", 
-          "talent":"Vermillion Nova",
+          "talent":"Vermillion-Nova",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["dark-reincarnation", "heros-of-time", "meteor-strike"],
@@ -2521,7 +2521,7 @@
           ]
         },
         { "name":"Shelfaniel", 
-          "talent":"Magic Lineage",
+          "talent":"Magic-Lineage",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["princess-alliance", "yeless-legends"],
@@ -2561,7 +2561,7 @@
           ]
         },
         { "name":"Shilinka", 
-          "talent":"Eternal Loneliness",
+          "talent":"Eternal-Loneliness",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["meteor-strike", "mythical-realm"],
@@ -2601,7 +2601,7 @@
           ]
         },
         { "name":"Sigma", 
-          "talent":"Solitary Will",
+          "talent":"Solitary-Will",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "yeless-legends", "meteor-strike"],
@@ -2640,8 +2640,8 @@
               }
           ]
         },
-        { "name":"Sigma SP", 
-          "talent":"Will of the Transcender",
+        { "name":"Sigma-SP", 
+          "talent":"Will-of-the-Transcender",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "yeless-legends", "meteor-strike"],
@@ -2667,7 +2667,7 @@
           ]
         },
         { "name":"Sumire", 
-          "talent":"Gorgeous Solo",
+          "talent":"Gorgeous-Solo",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["empires-honor", "princess-alliance", "heros-of-time"],
@@ -2707,7 +2707,7 @@
           ]
         },
         { "name":"Tiaris", 
-          "talent":"Healing Light",
+          "talent":"Healing-Light",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["protagonist", "origins-of-light", "princess-alliance"],
@@ -2747,7 +2747,7 @@
           ]
         },
         { "name":"Towa", 
-          "talent":"Wandering Strategist",
+          "talent":"Wandering-Strategist",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["strategic-masters", "origins-of-light", "reincarnation-tensei"],
@@ -2786,8 +2786,8 @@
               }
           ]
         },
-        { "name":"Toguro Brothers", 
-          "talent":"Body Manipulation",
+        { "name":"Toguro-Brothers", 
+          "talent":"Body-Manipulation",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["dark-reincarnation", "empires-honor", "heros-of-time"],
@@ -2827,7 +2827,7 @@
           ]
         },
         { "name":"Tsubame", 
-          "talent":"Silent Wing",
+          "talent":"Silent-Wing",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["meteor-strike", "reincarnation-tensei"],
@@ -2867,7 +2867,7 @@
           ]
         },
         { "name":"Vincent", 
-          "talent":"Wings of Destruction",
+          "talent":"Wings-of-Destruction",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["meteor-strike", "empires-honor", "dark-reincarnation"],
@@ -2907,7 +2907,7 @@
           ]
         },
         { "name":"Virash", 
-          "talent":"Crimzonian Zeal",
+          "talent":"Crimzonian-Zeal",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["yeless-legends", "meteor-strike"],
@@ -2947,7 +2947,7 @@
           ]
         },
         { "name":"Wataru", 
-          "talent":"Dragon's Power",
+          "talent":"Dragon's-Power",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "yeless-legends", "heros-of-time"],
@@ -2987,7 +2987,7 @@
           ]
         },
         { "name":"Werner", 
-          "talent":"Machine General",
+          "talent":"Machine-General",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["empires-honor", "reincarnation-tensei"],
@@ -3027,7 +3027,7 @@
           ]
         },
         { "name":"Wiler", 
-          "talent":"Tactical Genius",
+          "talent":"Tactical-Genius",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["strategic-masters", "yeless-legends"],
@@ -3067,7 +3067,7 @@
           ]
         },
         { "name":"Yulia", 
-          "talent":"Eternal Legend",
+          "talent":"Eternal-Legend",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["legion-of-glory", "mythical-realm", "princess-alliance"],
@@ -3107,7 +3107,7 @@
           ]
         },
         { "name":"Yusuke", 
-          "talent":"Partner Power",
+          "talent":"Partner-Power",
           "rarity":["SSR"],
           "nonfemale": true,
           "faction": ["protagonist", "mythical-realm", "heros-of-time"],
@@ -3147,7 +3147,7 @@
           ]
         },
         { "name":"Zerida", 
-          "talent":"Hide and Seek",
+          "talent":"Hide-and-Seek",
           "rarity":["SSR"],
           "nonfemale": false,
           "faction": ["dark-reincarnation", "meteor-strike", "mythical-realm"],

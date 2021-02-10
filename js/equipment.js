@@ -26,11 +26,11 @@ function setWeapon(side)
     // weapon IMG
     let img = document.getElementById(side+"-weapon-IMG");
     img.setAttribute("src",
-        imgLocal+"equipment/weapon_"+LANG+"/"+page[side].charWeapon.name+png);
+        imgLocal+"equipment/weapon_"+LANG+"/"+page[side].charWeapon.name+jpg);
     // exclusive IMG
     if(page[side].charWeapon.part != undefined)
         img.setAttribute("src",
-            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charWeapon.name+png);
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charWeapon.name+jpg);
     // weapon popover
     displayEquipment(side, "weapon", "charWeapon");
 }
@@ -54,11 +54,11 @@ function setArmor(side)
     // armor IMG
     let img = document.getElementById(side+"-armor-IMG");
     img.setAttribute("src",
-        imgLocal+"equipment/armor_"+LANG+"/"+page[side].charArmor.name+png);
+        imgLocal+"equipment/armor_"+LANG+"/"+page[side].charArmor.name+jpg);
     // exclusive IMG
     if(page[side].charArmor.part != undefined)
         img.setAttribute("src",
-            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charArmor.name+png);
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charArmor.name+jpg);
     // armor popover
     displayEquipment(side, "armor", "charArmor");
 }
@@ -82,11 +82,11 @@ function setHelmet(side)
     // helmet IMG
     let img = document.getElementById(side+"-helmet-IMG");
     img.setAttribute("src",
-        imgLocal+"equipment/helmet_"+LANG+"/"+page[side].charHelmet.name+png);
+        imgLocal+"equipment/helmet_"+LANG+"/"+page[side].charHelmet.name+jpg);
     // exclusive IMG
     if(page[side].charHelmet.part != undefined)
         img.setAttribute("src",
-            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charHelmet.name+png);
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charHelmet.name+jpg);
     // helmet popover
     displayEquipment(side, "helmet", "charHelmet");
 }
@@ -105,11 +105,11 @@ function setAccessory(side)
     // accessory IMG
     let img = document.getElementById(side+"-accessory-IMG");
     img.setAttribute("src",
-        imgLocal+"equipment/accessory_"+LANG+"/"+page[side].charAccessory.name+png);
+        imgLocal+"equipment/accessory_"+LANG+"/"+page[side].charAccessory.name+jpg);
     // exclusive IMG
     if(page[side].charAccessory.part != undefined)
         img.setAttribute("src",
-            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charAccessory.name+png);
+            imgLocal+"equipment/exclusive_"+LANG+"/"+page[side].charAccessory.name+jpg);
     // accessory popover
     displayEquipment(side, "accessory", "charAccessory");
 }

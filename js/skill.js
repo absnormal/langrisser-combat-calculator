@@ -12,11 +12,11 @@ function displaySkills(side, skillList, pos = "", placement = "top", equip = "")
         // skill img
         let img = document.getElementById(side+"-skill"+pos+"-"+index);
         if(skill == undefined) img.removeAttribute("src");
-        else img.setAttribute("src", imgLocal+"skill/skill_"+LANG+"/"+skill.name+png);
+        else img.setAttribute("src", imgLocal+"skill/skill_"+LANG+"/"+skill.name+jpg);
         // cost img
         let cost = document.getElementById(side+"-skill"+pos+"-"+index+"-cost");
         if(skill == undefined) cost.removeAttribute("src");
-        else cost.setAttribute("src", imgLocal+"icon/"+skill.cost+" Cost"+png);
+        else cost.setAttribute("src", imgLocal+"icon/"+skill.cost+" Cost"+jpg);
         // skill popover
         $('.btn.'+side+"-skill"+pos+"-"+index).popover({
             trigger: "focus",

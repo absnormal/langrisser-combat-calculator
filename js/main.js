@@ -1,4 +1,4 @@
-var png = ".png";
+var jpg = ".jpg";
 var LANG = "en";
 var imgLocal = "https://raw.githubusercontent.com/absnormal/langrisser-combat-calculator-img/main/image/";
 /* local
@@ -79,7 +79,7 @@ function createList(side, name, picDirName, width = "100%")
     lists[name].forEach(function(string){
         let option = document.createElement('option');
         option.setAttribute("data-content",
-            "<img src='"+imgLocal+picDirName+string+png+"' style='width:"+width+"'>");
+            "<img src='"+imgLocal+picDirName+string+jpg+"' style='width:"+width+"'>");
         option.setAttribute("value", string);
         list.appendChild(option);
     });
@@ -115,7 +115,7 @@ function createListByVar(side, name, picDirName, listAll, appendList, image, fil
         // add option
         let option = document.createElement('option');
         if(image) option.setAttribute("data-content",
-            "<img src='" + imgLocal + picDirName + object.name + png + "'>");
+            "<img src='" + imgLocal + picDirName + object.name + jpg + "'>");
         option.innerHTML = object.name;
 
         option.setAttribute("value", object.name);
@@ -134,6 +134,6 @@ function loadIconIMG(side)
     iconList.forEach(function(string){
         let imgList = document.getElementsByClassName(side+"-"+string+"-IMG");
         for(let i=0; i<imgList.length; i++)
-            imgList[i].setAttribute("src", imgLocal+"icon/"+string+png);
+            imgList[i].setAttribute("src", imgLocal+"icon/"+string+jpg);
     });
 }

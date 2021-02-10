@@ -9,7 +9,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Dark Crown",
+        { "name":"Dark-Crown",
           "type":"cloth",
           "description":"MDEF +10% <br><br>HP +5%",
           "condition": [
@@ -19,7 +19,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Odin's Battle Helm",
+        { "name":"Odin's-Battle-Helm",
           "type":"cloth",
           "description":"MDEF +10% <br><br>After killing an enemy, dispels 5 buffs from 1 enemy within 3 grids.",
           "condition": [
@@ -28,7 +28,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Soul Stealer Headdress",
+        { "name":"Soul-Stealer-Headdress",
           "type":"cloth",
           "description":"MDEF +10% <br><br>After taking action, 50% chance to silence active skills of one enemy within 3 grids.",
           "condition": [
@@ -37,7 +37,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Witch's Reminiscence",
+        { "name":"Witch's-Reminiscence",
           "type":"cloth",
           "description":"HP +10% <br><br>After taking action, an adjacent ally is granted skill increased by 20%, immunity to heal reversal (conversion from healing to damage) and unable to act again effects. Lasts 1 turn.",
           "condition": [
@@ -46,7 +46,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Tennyo's Headdress",
+        { "name":"Tennyo's-Headdress",
           "type":"cloth",
           "description":"HP +10% <br><br>After action, 100% chance to apply a random buff to an ally within 2 grids.",
           "condition": [
@@ -69,7 +69,7 @@
               }
           ]
         },
-        { "name":"Yggdrasil Wreath",
+        { "name":"Yggdrasil-Wreath",
           "type":"cloth",
           "description":"HP +10% <br><br>After action, give one adjacent ally \"Mdef +20%, immune to stun, movement reduction, and buff negation.\" Lasts 1 turn",
           "condition": [
@@ -78,7 +78,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Frostfire Crown",
+        { "name":"Frostfire-Crown",
           "type":"cloth",
           "description":"MDEF +10% <br><br>When attacking and entering battle, damage taken -10%.",
           "condition": [
@@ -90,7 +90,7 @@
               }
           ]
         },
-        { "name":"Mortal Light",
+        { "name":"Mortal-Light",
           "type":"cloth",
           "description":"HP +10% <br><br>Before being attacked in battle, if this unit is a [Mixed Troop], then heal 10% HP. Prevent death from fixed damage once (can occur once per battle).",
           "condition": [
@@ -99,7 +99,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Assault Headgear",
+        { "name":"Assault-Headgear",
           "type":"light",
           "description":"HP +5% <br><br> When attacking, Def and Mdef is increased by 10%",
           "condition": [
@@ -114,7 +114,7 @@
               }
           ]
         },
-        { "name":"Jormungandr's Eye",
+        { "name":"Jormungandr's-Eye",
           "type":"light",
           "description":"HP/DEF +5% <br><br>After action, 50% chance to reduce an enemy's damage by 15% within 2 grids. Lasts 1 turn",
           "condition": [
@@ -124,7 +124,7 @@
               {"effect":"DEFINC", "eNumber": 5}
           ]
         },
-        { "name":"King's Crown",
+        { "name":"King's-Crown",
           "type":"light",
           "description":"HP/MDEF +5% <br><br>After action, grant 1 adjacent ally +20% increase damage. Lasts 1 turn",
           "condition": [
@@ -134,7 +134,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Loki's Mask",
+        { "name":"Loki's-Mask",
           "type":"light",
           "description":"HP +5% <br><br>When under melee attack Def +15%",
           "condition": [
@@ -146,7 +146,7 @@
               }
           ]
         },
-        { "name":"Njord's Feathered Crown",
+        { "name":"Njord's-Feathered-Crown",
           "type":"light",
           "description":"HP +10% <br><br>When battling against units with less HP, Def & Mdef +15%.",
           "condition": [
@@ -161,7 +161,7 @@
               }
           ]
         },
-        { "name":"Flower Boon Bonnet",
+        { "name":"Flower-Boon-Bonnet",
           "type":"light",
           "description":"HP +10% <br><br>At the end of your turn, if the unit's life is less than 50%, restore 20% maximum HP.",
           "condition": [
@@ -170,7 +170,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Twilight Helmet",
+        { "name":"Twilight-Helmet",
           "type":"light",
           "description":"DEF/MDEF +8%",
           "condition": [
@@ -180,7 +180,7 @@
               {"effect":"MDEFINC", "eNumber": 8}
           ]
         },
-        { "name":"Doomsday Herald",
+        { "name":"Doomsday-Herald",
           "type":"light",
           "description":"MDEF +10% <br><br>After taking action, 50% chance to inflict \"Cannot be healed\" on an enemy within 2 blocks. Lasts 1 turn.",
           "condition": [
@@ -189,7 +189,7 @@
               {"effect":"MDEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Aeneas's Helmet",
+        { "name":"Aeneas's-Helmet",
           "type":"heavy",
           "description":"HP +10% <br><br> DEF +5%",
           "condition": [
@@ -199,7 +199,7 @@
               {"effect":"DEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Carbon Fiber Helmet",
+        { "name":"Carbon-Fiber-Helmet",
           "type":"heavy",
           "description":"When Units HP is greater than 50%, DEF/MDEF +8% <br><br>When Unit's HP is less than 50%, ATK/SKILL +8%",
           "condition": [
@@ -219,7 +219,7 @@
               }
           ]
         },
-        { "name":"Chief's Helmet",
+        { "name":"Chief's-Helmet",
           "type":"heavy",
           "description":"HP +10% <br><br>After taking action, grant 1 adjacent ally +20% DEF and prevent debuffs that prevents them from being healed. Lasts 1 turn",
           "condition": [
@@ -228,7 +228,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Gaea's Helmet",
+        { "name":"Gaea's-Helmet",
           "type":"heavy",
           "description":"When Attacked, MDEF+15% <br><br>When HP is over 80%, reduce incoming physical damage by 10%",
           "condition": [
@@ -242,7 +242,7 @@
               }
           ]
         },
-        { "name":"Reaper Breath",
+        { "name":"Reaper-Breath",
           "type":"heavy",
           "description":"HP +10% <br><br>When eliminating an enemy on this turn, after taking action, deals fixed damage once to all enemies within 2 blocks at the end of your next turn. Damage is 20% of Max HP",
           "condition": [
@@ -251,7 +251,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Fury of Tyr",
+        { "name":"Fury-of-Tyr",
           "type":"heavy",
           "description":"DEF +10% <br><br>At the end of the turn, if unit did not perform an attack, gain \"+10%  Skill Damage,\" and \"+10% Counter Damage\" for 1 turn.",
           "condition": [
@@ -260,7 +260,7 @@
               {"effect":"DEFINC", "eNumber": 10}
           ]
         },
-        { "name":"Vampire Mask",
+        { "name":"Vampire-Mask",
           "type":"heavy",
           "description":"DEF +10% <br><br>After action, 50% chance to reduce an enemy's Def by 20% within 2 grids. Lasts 1 turn",
           "condition": [

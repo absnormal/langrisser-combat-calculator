@@ -47,7 +47,7 @@ function setCharacter(side)
 function setCharacterIMG(side)
 {
     let characterIMG = document.getElementById(side+"-characterFULL");
-    characterIMG.setAttribute("src", imgLocal+"character/full/"+page[side].selectedCharacter.name+".png");
+    characterIMG.setAttribute("src", imgLocal+"character/full/"+page[side].selectedCharacter.name+".jpg");
 }
 
 function listClass(side)
@@ -79,7 +79,7 @@ function loadTypeIMG(side)
     else type = "type-"+type;
 
     let img = document.getElementById(side+"-type-IMG");
-    img.setAttribute("src", imgLocal+"icon/"+type+png);
+    img.setAttribute("src", imgLocal+"icon/"+type+jpg);
 }
 
 function listStats(side)

@@ -1,6 +1,6 @@
 {
     "armor":[
-        { "name":"Tennyo's Robe",
+        { "name":"Tennyo's-Robe",
           "type":"cloth",
           "description":"HP +10% <br><br>When attacked, 30% to dispel 1 enemy buff and apply 1 debuff on the enemy",
           "condition": [
@@ -9,7 +9,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Baldr's White Robe",
+        { "name":"Baldr's-White-Robe",
           "type":"cloth",
           "description":"MDEF +10% <br><br>When attacked with a  melee attack, 20% to negate melee penalty",
           "condition": [
@@ -21,7 +21,7 @@
               }
           ]
         },
-        { "name":"Galaxy Cloak",
+        { "name":"Galaxy-Cloak",
           "type":"cloth",
           "description":"MDEF +10% <br><br>HP +5%",
           "condition": [
@@ -31,7 +31,7 @@
               {"effect":"HPINC", "eNumber": 5}
           ]
         },
-        { "name":"Death's Robe",
+        { "name":"Death's-Robe",
           "type":"cloth",
           "description":"Chance of being critically hit is reduced by 40%. When attacked  30% chance to increase enemy's damage taken by 20%. Lasts 2 turns",
           "condition": [
@@ -40,7 +40,7 @@
               {"effect":"CRITDEC", "eNumber": 40}
           ]
         },
-        { "name":"Dark Robe",
+        { "name":"Dark-Robe",
           "type":"cloth",
           "description":"HP +5% <br><br>When attacked with a ranged attack, Def and Mdef is increase by 15%",
           "condition": [
@@ -55,7 +55,7 @@
               }
           ]
         },
-        { "name":"Fujin's Wings",
+        { "name":"Fujin's-Wings",
           "type":"cloth",
           "description":"HP +5% <br><br>When attacked by melee, DEF/MDEF +15%.",
           "condition": [
@@ -70,7 +70,7 @@
               }
           ]
         },
-        { "name":"Goddess' Dress",
+        { "name":"Goddess'-Dress",
           "type":"cloth",
           "description":"DEF +10% <br><br> Received Healing +10%",
           "condition": [
@@ -80,7 +80,7 @@
               {"effect":"HEALEDINC", "eNumber": 10}
           ]
         },
-        { "name":"Twilight Guard",
+        { "name":"Twilight-Guard",
           "type":"cloth",
           "description":"MDEF +10% <br><br>Healing effects +10%.",
           "condition": [
@@ -90,7 +90,7 @@
               {"effect":"HEALINC", "eNumber": 10}
           ]
         },
-        { "name":"Monkey King's Vest",
+        { "name":"Monkey-King's-Vest",
           "type":"light",
           "description":"When Attacked: ATK/CRIT +15%",
           "condition": [
@@ -104,7 +104,7 @@
               }
           ]
         },
-        { "name":"Gargoyle Jacket",
+        { "name":"Gargoyle-Jacket",
           "type":"light",
           "description":"HP +5% <br><br>When Attacked: DEF +15%",
           "condition": [
@@ -116,7 +116,7 @@
               }
           ]
         },
-        { "name":"Last Rites",
+        { "name":"Last-Rites",
           "type":"light",
           "description":"DEF +10%. <br><br>When unit's HP is 100%, reduce all damage taken by 40%",
           "condition": [
@@ -128,7 +128,7 @@
               }
           ]
         },
-        { "name":"Azure Legend",
+        { "name":"Azure-Legend",
           "type":"light",
           "description":"HP+ 10%. <br><br>When HP is Above 50%, DEF +10%. When HP is Below 50%, MDEF +10%",
           "condition": [
@@ -143,7 +143,7 @@
               }
           ]
         },
-        { "name":"Twilight Armor",
+        { "name":"Twilight-Armor",
           "type":"light",
           "description":"DEF/MDEF +8%",
           "condition": [
@@ -153,7 +153,7 @@
               {"effect":"MDEFINC", "eNumber": 8}
           ]
         },
-        { "name":"Cloak of Defiance",
+        { "name":"Cloak-of-Defiance",
           "type":"light",
           "description":"DEF/MDEF +5% <br><br>Before being under ranged attack, deal 1.5x MDEF as Fixed Damage",
           "condition": [
@@ -163,7 +163,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Demon Lizard Skin",
+        { "name":"Demon-Lizard-Skin",
           "type":"light",
           "description":"HP +10% <br><br>When attacked, 50% Chance to apply 1 random debuff",
           "condition": [
@@ -172,7 +172,7 @@
               {"effect":"HPINC", "eNumber": 10}
           ]
         },
-        { "name":"Assault Suit",
+        { "name":"Assault-Suit",
           "type":"light",
           "description":"HP +5% <br><br>When attacking, DEF/MDEF +10%",
           "condition": [
@@ -186,7 +186,7 @@
               }
           ]
         },
-        { "name":"Bloodline Magic Armor",
+        { "name":"Bloodline-Magic-Armor",
           "type":"heavy",
           "description":"HP/DEF +5% <br><br>When under melee attack, 30% change to reduce 30% incoming damage",
           "condition": [
@@ -199,7 +199,7 @@
               }
           ]
         },
-        { "name":"Giant's Resistance",
+        { "name":"Giant's-Resistance",
           "type":"heavy",
           "description":"DEF +10% <br><br>Reduce the chance of being attacked with a critical strike by 20%",
           "condition": [
@@ -209,7 +209,7 @@
               {"effect":"CRITDEC", "eNumber": 20}
           ]
         },
-        { "name":"Carbon Fiber Armor",
+        { "name":"Carbon-Fiber-Armor",
           "type":"heavy",
           "description":"When unit's HP is greater than 50%, DEF/MDEF +8%  <br><br>When unit's HP is less than 50%, ATK/SKILL +8%",
           "condition": [
@@ -229,7 +229,7 @@
               }
           ]
         },
-        { "name":"Aeolus' Battle Armor",
+        { "name":"Aeolus'-Battle-Armor",
           "type":"heavy",
           "description":"HP/DEF +5% <br><br>When under ranged attack, 30% to reduce incoming damage by 30%",
           "condition": [
@@ -242,7 +242,7 @@
               }
           ]
         },
-        { "name":"Gaea's  Armor",
+        { "name":"Gaea's-Armor",
           "type":"heavy",
           "description":"When Attacked, DEF +15% <br><br>When Hero's life is Greater than 80%, Magic Damage Taken is Reduced by 10%",
           "condition": [
@@ -256,7 +256,7 @@
               }
           ]
         },
-        { "name":"Aeneas' Armor",
+        { "name":"Aeneas'-Armor",
           "type":"heavy",
           "description":"DEF +10% <br><br>Received Healing +10%",
           "condition": [
@@ -266,7 +266,7 @@
               {"effect":"HEALEDINC", "eNumber": 10}
           ]
         },
-        { "name":"Arcane Battlegarb",
+        { "name":"Arcane-Battlegarb",
           "type":"heavy",
           "description":"HP/MDEF +5% <br><br>When attacking, deal 1.5x MDEF as Fixed Damage after combat.",
           "condition": [
@@ -276,7 +276,7 @@
               {"effect":"MDEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Mirror Armor",
+        { "name":"Mirror-Armor",
           "type":"heavy",
           "description":"HP/DEF +5% <br><br>When Attacked by Melee, 1.5x DEF as Fixed Damage before combat.",
           "condition": [
@@ -286,7 +286,7 @@
               {"effect":"DEFINC", "eNumber": 5}
           ]
         },
-        { "name":"Ancient Plate Armor",
+        { "name":"Ancient-Plate-Armor",
           "type":"heavy",
           "description":"DEF +10% <br><br>Fixed Damage Taken -10%.",
           "condition": [
@@ -296,7 +296,7 @@
               {"effect":"FIXDMGDEC", "eNumber": 10}
           ]
         },
-        { "name":"Protector's Armor",
+        { "name":"Protector's-Armor",
           "type":"heavy",
           "description":"DEF/MDEF+5% <br><br>When attacked in battle, 30% chance to reduce damage taken by 20%.",
           "condition": [

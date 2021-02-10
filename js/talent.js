@@ -4,7 +4,7 @@ function setTalent(side)
     page[side].charTalent = data.talent.find(x=>x.name===page[side].selectedCharacter.talent);
     // talent img
     let talentimg = document.getElementById(side+"-talent");
-    talentimg.setAttribute("src", imgLocal+"talent/"+page[side].charTalent.name+png);
+    talentimg.setAttribute("src", imgLocal+"talent/"+page[side].charTalent.name+jpg);
     // talent popover
     $(".btn."+side+"-talent").popover({
         trigger: "focus",
