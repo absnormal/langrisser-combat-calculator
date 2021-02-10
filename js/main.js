@@ -1,12 +1,11 @@
 var png = ".png";
 var LANG = "en";
+var imgLocal = "https://raw.githubusercontent.com/absnormal/langrisser-combat-calculator-img/main/image/";
 /* local
-var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
 var local = "file:///home/absnormal/langrisser-combat-calculator/";
  */
 /* github
  */
-var imgLocal = "https://raw.githubusercontent.com/absnormal/langrisser-combat-calculator-img/main/image/";
 var local = "/langrisser-combat-calculator/";
 var page = {
     ATK: {
@@ -63,7 +62,7 @@ function createAllList(side)
     createList(side, "faction", "party/");
     createList(side, "rarity", "icon/");
     createList(side, "enchant", "icon/", "40%");
-    createListByVar(side, "character", "character/card_"+LANG+"/", true, false, true);
+    createListByVar(side, "character", "character/card_"+LANG+"/", true, false, false);
     setCharacter(side);
 }
 
