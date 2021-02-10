@@ -173,7 +173,7 @@
               {"effect":"SKILLINC", "eNumber": 8}
           ]
         },
-        { "name":"Frostend",
+        { "name":"Frostrend",
           "type":"sword",
           "description":"ATK +10% <br><br>When attacking, 50% to reduce enemy's mobility by 2. Lasts 1 turn.",
           "condition": [

@@ -32,19 +32,39 @@ var page = {
         choosenSkills: undefined
     },
     DEF: {
+        selectedFaction: undefined,
+        selectedRarity: undefined,
+        selectedCharacter: undefined,
+        charTalent: undefined,
+        charClass: undefined,
+        charBase: {
+            HP: undefined,
+            ATK: undefined,
+            INT: undefined,
+            DEF: undefined,
+            MDEF: undefined,
+            SKILL: undefined
+        },
+        charSkills: undefined,
+        charEnchant: undefined,
+        charWeapon: undefined,
+        charArmor: undefined,
+        charHelmet: undefined,
+        charAccessory: undefined,
+        choosenSkills: undefined
     }
 };
 
 var base = ["HP", "ATK", "INT", "DEF", "MDEF", "SKILL"];
 
-function createAllList()
+function createAllList(side)
 {
-    loadIconIMG("ATK");
-    createList("ATK", "faction", "party/");
-    createList("ATK", "rarity", "icon/");
-    createList("ATK", "enchant", "icon/", "40%");
-    createListByVar("ATK", "character", "character/card_"+LANG+"/", true, false, true);
-    setCharacter("ATK");
+    loadIconIMG(side);
+    createList(side, "faction", "party/");
+    createList(side, "rarity", "icon/");
+    createList(side, "enchant", "icon/", "40%");
+    createListByVar(side, "character", "character/card_"+LANG+"/", true, false, true);
+    setCharacter(side);
 }
 
 // lists based on JSON files
