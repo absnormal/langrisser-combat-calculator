@@ -1,13 +1,13 @@
 var png = ".png";
 var LANG = "en";
 /* local
+ */
 var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
 var local = "file:///home/absnormal/langrisser-combat-calculator/";
- */
 /* github
- */
 var imgLocal = "https://raw.githubusercontent.com/absnormal/langrisser-combat-calculator/asset/image/";
 var local = "/langrisser-combat-calculator/";
+ */
 var page = {
     ATK: {
         selectedFaction: undefined,
