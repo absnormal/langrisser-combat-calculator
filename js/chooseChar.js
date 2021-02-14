@@ -82,13 +82,4 @@ function loadTypeIMG(side)
     img.setAttribute("src", imgLocal+"icon/"+type+png);
 }
 
-function listStats(side)
-{
-    let tmpclass = page[side].selectedCharacter["class"].find(x => x.name === page[side].charClass.name);
-    base.forEach(function(stat){
-        page[side].charBase[stat] = tmpclass[stat];
-        statElement = document.getElementById(side+"-BASE"+stat);
-        statElement.innerHTML = tmpclass[stat];
-    });
-}
 

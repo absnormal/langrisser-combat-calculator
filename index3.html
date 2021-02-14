@@ -18,6 +18,7 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/talent.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/enchant.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/equipment.js"></script> 
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/stat.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/parse.js"></script> 
         -->
         <!-- local json 
@@ -40,7 +41,9 @@
         <script src="/langrisser-combat-calculator/js/talent.js"></script> 
         <script src="/langrisser-combat-calculator/js/enchant.js"></script> 
         <script src="/langrisser-combat-calculator/js/equipment.js"></script> 
+        <script src="/langrisser-combat-calculator/js/stat.js"></script> 
         <script src="/langrisser-combat-calculator/js/parse.js"></script> 
+        -->
         <!-- json 
         -->
         <script type="application/json" src="/langrisser-combat-calculator/data/character.json"></script> 
@@ -53,6 +56,7 @@
         <script type="application/json" src="/langrisser-combat-calculator/data/accessory.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/exclusive.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/lists.json"></script> 
+        -->
         <!-- css -->
         <style>
         .popover {
@@ -144,7 +148,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+2000</p>
+                                    <p id="ATK-GHP" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -162,7 +166,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="ATK-GATK" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -180,7 +184,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="ATK-GINT" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -198,7 +202,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="ATK-GDEF" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -216,7 +220,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="ATK-GMDEF" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -234,7 +238,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="ATK-GSKILL" class="text-success"></p>
                                 </div>
                             </div>
                         </div>
@@ -335,6 +339,73 @@
                 <!-- Mastery & Enchantment -->
                 <div class="col container p-3 my-3 bg-light text-black">
                     <h2>Mastery & Enchantment</h2>
+                    <div class="row">
+                        <div class="col p-3 bg-dark text-light">
+                            <!-- ATK enchant -->
+                            <div class="row">
+                                <div id="ATK-ENCHANT" class="col"></div>
+                            </div>
+                            <!-- ATK mastery -->
+                            <div class="row">
+                                <div id="ATK-MASTERY" class="col"></div>
+                            </div>
+                            <!-- ATK arena -->
+                            <div class="row">
+                                <div id="ATK-ARENA" class="col"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('ATK','MID')" class="btn btn-secondary">Mid</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('ATK','HIGH')" class="btn btn-secondary">High</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('ATK','TOP')" class="btn btn-secondary">Top</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('ATK','FULL')" class="btn btn-secondary">Full</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3 bg-secondary text-light">
+                            <!-- DEF enchant -->
+                            <div class="row">
+                                <div id="DEF-ENCHANT" class="col"></div>
+                            </div>
+                            <!-- DEF mastery -->
+                            <div class="row">
+                                <div id="DEF-MASTERY" class="col"></div>
+                            </div>
+                            <!-- DEF arena -->
+                            <div class="row">
+                                <div id="DEF-ARENA" class="col"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('DEF','MID')" class="btn btn-dark">Mid</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('DEF','MID')" class="btn btn-dark">High</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('DEF','MID')" class="btn btn-dark">Top</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" onclick="setPower('DEF','MID')" class="btn btn-dark">Full</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="row p-3">
+                        <div class="col text-center">
+                            <button class="btn btn-primary">
+                                Confirm Changes
+                            </button>
+                        </div>
+                    </div>
+                    -->
                 </div>
                 <!-- Defense -->
                 <div class="col container p-3 my-3 bg-secondary text-white">
@@ -345,17 +416,17 @@
                             <img id="DEF-type-IMG" class="rounded-circle" style="width: 100%;">
                         </div>
                         <div class="col">
-                            <select id="DEF-faction" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setFaction('DEF');" data-width="fit">
+                            <select id="DEF-faction" class="selectpicker form-control show-tick" data-style="btn-dark" data-size="5" onchange="setFaction('DEF');" data-width="fit">
                                 <option>All Faction</option>
                             </select>
                         </div>
                         <div class="col">
-                            <select id="DEF-rarity" class="selectpicker form-control show-tick" data-style="btn-secondary" onchange="setRarity('DEF');">
+                            <select id="DEF-rarity" class="selectpicker form-control show-tick" data-style="btn-dark" onchange="setRarity('DEF');">
                                 <option>All Rarity</option>
                             </select>
                         </div>
                         <div class="col">
-                            <select id="DEF-character" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="10" onchange="setCharacter('DEF')" data-live-search="true">
+                            <select id="DEF-character" class="selectpicker form-control show-tick" data-style="btn-dark" data-size="10" onchange="setCharacter('DEF')" data-live-search="true">
                                 <option>Not Selected</option>
                             </select>
                         </div>
@@ -371,7 +442,7 @@
                                     <h5>JOB:</h5>
                                 </div>
                                 <div class="col-9 p-1">
-                                    <select id="DEF-classs" class="selectpicker form-control show-tick" data-style="btn-secondary" onchange="setClass('DEF');">
+                                    <select id="DEF-classs" class="selectpicker form-control show-tick" data-style="btn-dark" onchange="setClass('DEF');">
                                         <option>Not Selected</option>
                                     </select>
                                 </div>
@@ -391,7 +462,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+2000</p>
+                                    <p id="DEF-GHP" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -409,7 +480,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="DEF-GATK" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -427,7 +498,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="DEF-GINT" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -445,7 +516,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="DEF-GDEF" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -463,7 +534,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="DEF-GMDEF" class="text-success"></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -481,7 +552,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3 p-1">
-                                    <p class="text-success">+200</p>
+                                    <p id="DEF-GSKILL" class="text-success"></p>
                                 </div>
                             </div>
                         </div>
