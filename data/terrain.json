@@ -1,0 +1,68 @@
+{
+    "terrain":[
+        { "name":"plain",
+          "cost":[1, 1, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"grassland",
+          "cost":[1, 1, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"bridge",
+          "cost":[1, 1, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"mountain",
+          "cost":[2, 3, 3, 1, 1],
+          "DEF": 10 
+        },
+        { "name":"forest",
+          "cost":[1, 3, 2, 1, 1],
+          "DEF": 20 
+        },
+        { "name":"citywall",
+          "cost":[2, 3, 3, 1, 1],
+          "DEF": 30 
+        },
+        { "name":"swamp",
+          "cost":[1, 3, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"water",
+          "cost":[2, 3, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"depth",
+          "cost":[3, 3, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"desert",
+          "cost":[1, 2, 2, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"sanddunes",
+          "cost":[2, 3, 3, 1, 1],
+          "DEF": 10 
+        },
+        { "name":"sky",
+          "cost":[null, null, null, null, 1],
+          "DEF": 0 
+        },
+        { "name":"stonepillar",
+          "cost":[null, null, null, null, 1],
+          "DEF": 5 
+        },
+        { "name":"indoors",
+          "cost":[1, 1, 1, 1, 1],
+          "DEF": 0 
+        },
+        { "name":"cliff",
+          "cost":[null, null, null, null, 1],
+          "DEF": 0 
+        },
+        { "name":"cavewall",
+          "cost":[null, null, null, null, null],
+          "DEF": 0 
+        }
+    ]
+}

@@ -20,6 +20,7 @@
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/equipment.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/stat.js"></script> 
         <script src="file:///home/absnormal/langrisser-combat-calculator/js/parse.js"></script> 
+        <script src="file:///home/absnormal/langrisser-combat-calculator/js/map.js"></script> 
         -->
         <!-- local json 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/character.json"></script> 
@@ -31,6 +32,8 @@
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/helmet.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/accessory.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/exclusive.json"></script> 
+        <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/map.json"></script> 
+        <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/terrain.json"></script> 
         <script type="application/json" src="file:///home/absnormal/langrisser-combat-calculator/data/lists.json"></script> 
         -->
         <!-- js script 
@@ -43,7 +46,7 @@
         <script src="/langrisser-combat-calculator/js/equipment.js"></script> 
         <script src="/langrisser-combat-calculator/js/stat.js"></script> 
         <script src="/langrisser-combat-calculator/js/parse.js"></script> 
-        -->
+        <script src="/langrisser-combat-calculator/js/map.js"></script> 
         <!-- json 
         -->
         <script type="application/json" src="/langrisser-combat-calculator/data/character.json"></script> 
@@ -55,8 +58,9 @@
         <script type="application/json" src="/langrisser-combat-calculator/data/helmet.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/accessory.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/exclusive.json"></script> 
+        <script type="application/json" src="/langrisser-combat-calculator/data/map.json"></script> 
+        <script type="application/json" src="/langrisser-combat-calculator/data/terrain.json"></script> 
         <script type="application/json" src="/langrisser-combat-calculator/data/lists.json"></script> 
-        -->
         <!-- css -->
         <style>
         .popover {
@@ -77,892 +81,951 @@
             left: 50px;
             height: 500px;
         }
+        [draggable="true"]{
+            /* to prevent user selecting inside the drag src */
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
         </style>
     </head>
 
-    <body onload="createAllList('ATK');createAllList('DEF')">
+    <body onload="createAllList()">
         <ul class="nav nav-tabs fixed-top bg-light" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="hero-tab" data-toggle="tab" href="#hero" role="tab" aria-controls="home" aria-selected="true">Hero</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="soldier-tab" data-toggle="tab" href="#soldier" role="tab" aria-controls="profile" aria-selected="false">Soldier</a>
+                <a class="nav-link" id="soldier-tab" data-toggle="tab" href="#map" role="tab" aria-controls="profile" aria-selected="false">Map</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="combat-tab" data-toggle="tab" href="#combat" role="tab" aria-controls="contact" aria-selected="false">Combat</a>
             </li>
         </ul>
-        <div id="hero" class="tab-pane fade show active" role="tabpanel">
-            <div class="row">
-                <div class="col container p-3 my-3 bg-dark text-white">
-                    <h2>Attack</h2>
-                    <!-- Faction, Rarity and Char Select -->
-                    <div class="row container p-1">
-                        <div class="col-2">
-                            <img id="ATK-type-IMG" class="rounded-circle" style="width: 100%;">
-                        </div>
-                        <div class="col">
-                            <select id="ATK-faction" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setFaction('ATK');" data-width="fit">
-                                <option>All Faction</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="ATK-rarity" class="selectpicker form-control show-tick" data-style="btn-secondary" onchange="setRarity('ATK');">
-                                <option>All Rarity</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="ATK-character" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="10" onchange="setCharacter('ATK')" data-live-search="true">
-                                <option>Not Selected</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Hero Full IMG, Job and Stats -->
-                    <div class="row container p-1">
-                        <div class="col-7">
-                            <img id="ATK-characterFULL" style="max-width:100%;">
-                        </div>
-                        <div class="col-5 table table-striped text-light">
-                            <div class="row p-1">
-                                <div class="col-3 p-1">
-                                    <h5>JOB:</h5>
-                                </div>
-                                <div class="col-9 p-1">
-                                    <select id="ATK-classs" class="selectpicker form-control show-tick" data-style="btn-secondary" onchange="setClass('ATK');">
-                                        <option>Not Selected</option>
-                                    </select>
-                                </div>
+        <div class="tab-content" id="myTabContent">
+            <div id="hero" class="tab-pane fade show active" role="tabpanel" style="margin-top:1rem;margin-left:1rem">
+                <div class="row">
+                    <div class="col container p-3 my-3 bg-dark text-white">
+                        <h2>Attack</h2>
+                        <!-- Faction, Rarity and Char Select -->
+                        <div class="row container p-1">
+                            <div class="col-2">
+                                <img id="ATK-type-IMG" class="rounded-circle" style="width: 100%;">
                             </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded ATK-HP-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>HP:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="ATK-BASEHP" style="text-align:right;">2000</p>
-                                        </div>
+                            <div class="col">
+                                <select id="ATK-faction" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setFaction('ATK');" data-width="fit">
+                                    <option>All Faction</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="ATK-rarity" class="selectpicker form-control show-tick" data-style="btn-secondary" onchange="setRarity('ATK');">
+                                    <option>All Rarity</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="ATK-character" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="10" onchange="setCharacter('ATK')" data-live-search="true">
+                                    <option>Not Selected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Hero Full IMG, Job and Stats -->
+                        <div class="row container p-1">
+                            <div class="col-7">
+                                <img id="ATK-characterFULL" style="max-width:100%;">
+                            </div>
+                            <div class="col-5 table table-striped text-light">
+                                <div class="row p-1">
+                                    <div class="col-3 p-1">
+                                        <h5>JOB:</h5>
+                                    </div>
+                                    <div class="col-9 p-1">
+                                        <select id="ATK-classs" class="selectpicker form-control show-tick" data-style="btn-secondary" onchange="setClass('ATK');">
+                                            <option>Not Selected</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="ATK-GHP" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded ATK-ATK-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>ATK:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="ATK-BASEATK" style="text-align:right;">200</p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded ATK-HP-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>HP:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="ATK-BASEHP" style="text-align:right;">2000</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p id="ATK-GATK" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded ATK-INT-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>INT:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="ATK-BASEINT" style="text-align:right;">200</p>
-                                        </div>
+                                    <div class="col-3 p-1">
+                                        <p id="ATK-GHP" class="text-success"></p>
                                     </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="ATK-GINT" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded ATK-DEF-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>DEF:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="ATK-BASEDEF" style="text-align:right;">200</p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded ATK-ATK-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>ATK:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="ATK-BASEATK" style="text-align:right;">200</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p id="ATK-GDEF" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded ATK-MDEF-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>MDEF:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="ATK-BASEMDEF" style="text-align:right;">200</p>
-                                        </div>
+                                    <div class="col-3 p-1">
+                                        <p id="ATK-GATK" class="text-success"></p>
                                     </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="ATK-GMDEF" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded ATK-SKILL-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>SKILL:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="ATK-BASESKILL" style="text-align:right;">200</p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded ATK-INT-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>INT:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="ATK-BASEINT" style="text-align:right;">200</p>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-3 p-1">
+                                        <p id="ATK-GINT" class="text-success"></p>
+                                    </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="ATK-GSKILL" class="text-success"></p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded ATK-DEF-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>DEF:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="ATK-BASEDEF" style="text-align:right;">200</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <p id="ATK-GDEF" class="text-success"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded ATK-MDEF-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>MDEF:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="ATK-BASEMDEF" style="text-align:right;">200</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <p id="ATK-GMDEF" class="text-success"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded ATK-SKILL-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>SKILL:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="ATK-BASESKILL" style="text-align:right;">200</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <p id="ATK-GSKILL" class="text-success"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Talent Skill Bar -->
-                    <div class="row container p-1 bg-secondary ATK-talent-skill-bar">
-                        <div class="col">
-                            <div class="row p-1">
-                                <h4>Talent & Skill</h4>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn ATK-talent bg-secondary" data-toggle="popover">
-                                        <img id="ATK-talent" style="width: 140%;">
-                                    </button>
+                        <!-- Talent Skill Bar -->
+                        <div class="row container p-1 bg-secondary ATK-talent-skill-bar">
+                            <div class="col">
+                                <div class="row p-1">
+                                    <h4>Talent & Skill</h4>
                                 </div>
-                                <div class="col">
-                                    <button class="btn ATK-skill-0 bg-secondary" data-toggle="popover">
-                                        <img id="ATK-skill-0" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-20% 0px 0px 0px'>
-                                            <img id="ATK-skill-0-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn ATK-skill-1 bg-secondary" data-toggle="popover">
-                                        <img id="ATK-skill-1" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-20% 0px 0px 0px'>
-                                            <img id="ATK-skill-1-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn ATK-skill-2 bg-secondary" data-toggle="popover">
-                                        <img id="ATK-skill-2" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-20% 0px 0px 0px'>
-                                            <img id="ATK-skill-2-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn changeSkill bg-secondary" data-toggle="modal" data-target="#ATK-skillListModal" onclick="setSkillList('ATK')">
-                                        <img class="rounded ATK-changeSkill-IMG" style="width: 80%;">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br class="bg-dark">
-                    <!-- Equipment Bar -->
-                    <div class="row container p-1 bg-secondary ATK-equipment-bar">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Equipment</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h5 style='text-align:right;'>Enchant</h5>
-                                </div>
-                                <div class="col-4">
-                                    <select id="ATK-enchant" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setEnchant('ATK')" multiple data-max-options="2">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3 p-1">
-                                    <button class="btn ATK-weapon bg-secondary" data-toggle="popover">
-                                        <img id="ATK-weapon-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="ATK-weapon" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setWeapon('ATK')" data-width="100%;">
-                                    </select>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <button class="btn ATK-armor bg-secondary" data-toggle="popover">
-                                        <img id="ATK-armor-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="ATK-armor" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setArmor('ATK')" data-width="100%;">
-                                    </select>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <button class="btn ATK-helmet bg-secondary" data-toggle="popover">
-                                        <img id="ATK-helmet-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="ATK-helmet" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setHelmet('ATK')" data-width="100%;">
-                                    </select>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <button class="btn ATK-accessory bg-secondary" data-toggle="popover">
-                                        <img id="ATK-accessory-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="ATK-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('ATK')" data-width="100%;" data-size="10" data-live-search="true">
-                                    </select>
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn ATK-talent bg-secondary" data-toggle="popover">
+                                            <img id="ATK-talent" style="width: 140%;">
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn ATK-skill-0 bg-secondary" data-toggle="popover">
+                                            <img id="ATK-skill-0" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-20% 0px 0px 0px'>
+                                                <img id="ATK-skill-0-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn ATK-skill-1 bg-secondary" data-toggle="popover">
+                                            <img id="ATK-skill-1" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-20% 0px 0px 0px'>
+                                                <img id="ATK-skill-1-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn ATK-skill-2 bg-secondary" data-toggle="popover">
+                                            <img id="ATK-skill-2" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-20% 0px 0px 0px'>
+                                                <img id="ATK-skill-2-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn changeSkill bg-secondary" data-toggle="modal" data-target="#ATK-skillListModal" onclick="setSkillList('ATK')">
+                                            <img class="rounded ATK-changeSkill-IMG" style="width: 80%;">
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Mastery & Enchantment -->
-                <div class="col container p-3 my-3 bg-light text-black">
-                    <h2>Mastery & Enchantment</h2>
-                    <div class="row">
-                        <div class="col p-3 bg-dark text-light">
-                            <!-- ATK enchant -->
-                            <div class="row">
-                                <div id="ATK-ENCHANT" class="col"></div>
-                            </div>
-                            <!-- ATK mastery -->
-                            <div class="row">
-                                <div id="ATK-MASTERY" class="col"></div>
-                            </div>
-                            <!-- ATK arena -->
-                            <div class="row">
-                                <div id="ATK-ARENA" class="col"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('ATK','MID')" class="btn btn-secondary">Mid</button>
+                        <br class="bg-dark">
+                        <!-- Equipment Bar -->
+                        <div class="row container p-1 bg-secondary ATK-equipment-bar">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h4>Equipment</h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 style='text-align:right;'>Enchant</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <select id="ATK-enchant" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setEnchant('ATK')" multiple data-max-options="2">
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('ATK','HIGH')" class="btn btn-secondary">High</button>
-                                </div>
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('ATK','TOP')" class="btn btn-secondary">Top</button>
-                                </div>
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('ATK','FULL')" class="btn btn-secondary">Full</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col p-3 bg-secondary text-light">
-                            <!-- DEF enchant -->
-                            <div class="row">
-                                <div id="DEF-ENCHANT" class="col"></div>
-                            </div>
-                            <!-- DEF mastery -->
-                            <div class="row">
-                                <div id="DEF-MASTERY" class="col"></div>
-                            </div>
-                            <!-- DEF arena -->
-                            <div class="row">
-                                <div id="DEF-ARENA" class="col"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('DEF','MID')" class="btn btn-dark">Mid</button>
-                                </div>
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('DEF','HIGH')" class="btn btn-dark">High</button>
-                                </div>
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('DEF','TOP')" class="btn btn-dark">Top</button>
-                                </div>
-                                <div class="col-3">
-                                    <button type="button" onclick="setPower('DEF','FULL')" class="btn btn-dark">Full</button>
+                                <div class="row">
+                                    <div class="col-3 p-1">
+                                        <button class="btn ATK-weapon bg-secondary" data-toggle="popover">
+                                            <img id="ATK-weapon-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="ATK-weapon" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setWeapon('ATK')" data-width="100%;">
+                                        </select>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <button class="btn ATK-armor bg-secondary" data-toggle="popover">
+                                            <img id="ATK-armor-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="ATK-armor" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setArmor('ATK')" data-width="100%;">
+                                        </select>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <button class="btn ATK-helmet bg-secondary" data-toggle="popover">
+                                            <img id="ATK-helmet-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="ATK-helmet" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setHelmet('ATK')" data-width="100%;">
+                                        </select>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <button class="btn ATK-accessory bg-secondary" data-toggle="popover">
+                                            <img id="ATK-accessory-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="ATK-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('ATK')" data-width="100%;" data-size="10" data-live-search="true">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <div class="row p-3">
-                        <div class="col text-center">
+                    <!-- Mastery & Enchantment -->
+                    <div class="col container p-3 my-3 bg-light text-black">
+                        <h2>Mastery & Enchantment</h2>
+                        <div class="row">
+                            <div class="col p-3 bg-dark text-light">
+                                <!-- ATK enchant -->
+                                <div class="row">
+                                    <div id="ATK-ENCHANT" class="col"></div>
+                                </div>
+                                <!-- ATK mastery -->
+                                <div class="row">
+                                    <div id="ATK-MASTERY" class="col"></div>
+                                </div>
+                                <!-- ATK arena -->
+                                <div class="row">
+                                    <div id="ATK-ARENA" class="col"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('ATK','MID')" class="btn btn-secondary">Mid</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('ATK','HIGH')" class="btn btn-secondary">High</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('ATK','TOP')" class="btn btn-secondary">Top</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('ATK','FULL')" class="btn btn-secondary">Full</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col p-3 bg-secondary text-light">
+                                <!-- DEF enchant -->
+                                <div class="row">
+                                    <div id="DEF-ENCHANT" class="col"></div>
+                                </div>
+                                <!-- DEF mastery -->
+                                <div class="row">
+                                    <div id="DEF-MASTERY" class="col"></div>
+                                </div>
+                                <!-- DEF arena -->
+                                <div class="row">
+                                    <div id="DEF-ARENA" class="col"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('DEF','MID')" class="btn btn-dark">Mid</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('DEF','HIGH')" class="btn btn-dark">High</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('DEF','TOP')" class="btn btn-dark">Top</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" onclick="setPower('DEF','FULL')" class="btn btn-dark">Full</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
+                            <div class="row p-3">
+                            <div class="col text-center">
                             <button class="btn btn-primary">
-                                Confirm Changes
+                            Confirm Changes
                             </button>
-                        </div>
+                            </div>
+                            </div>
+                        -->
                     </div>
-                    -->
-                </div>
-                <!-- Defense -->
-                <div class="col container p-3 my-3 bg-secondary text-white">
-                    <h2>Defense</h2>
-                    <!-- Faction, Rarity and Char Select -->
-                    <div class="row container p-1">
-                        <div class="col-2">
-                            <img id="DEF-type-IMG" class="rounded-circle" style="width: 100%;">
-                        </div>
-                        <div class="col">
-                            <select id="DEF-faction" class="selectpicker form-control show-tick" data-style="btn-dark" data-size="5" onchange="setFaction('DEF');" data-width="fit">
-                                <option>All Faction</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="DEF-rarity" class="selectpicker form-control show-tick" data-style="btn-dark" onchange="setRarity('DEF');">
-                                <option>All Rarity</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <select id="DEF-character" class="selectpicker form-control show-tick" data-style="btn-dark" data-size="10" onchange="setCharacter('DEF')" data-live-search="true">
-                                <option>Not Selected</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Hero Full IMG, Job and Stats -->
-                    <div class="row container p-1">
-                        <div class="col-7">
-                            <img id="DEF-characterFULL" style="max-width:100%;">
-                        </div>
-                        <div class="col-5 table table-striped text-light">
-                            <div class="row p-1">
-                                <div class="col-3 p-1">
-                                    <h5>JOB:</h5>
-                                </div>
-                                <div class="col-9 p-1">
-                                    <select id="DEF-classs" class="selectpicker form-control show-tick" data-style="btn-dark" onchange="setClass('DEF');">
-                                        <option>Not Selected</option>
-                                    </select>
-                                </div>
+                    <!-- Defense -->
+                    <div class="col container p-3 my-3 bg-secondary text-white">
+                        <h2>Defense</h2>
+                        <!-- Faction, Rarity and Char Select -->
+                        <div class="row container p-1">
+                            <div class="col-2">
+                                <img id="DEF-type-IMG" class="rounded-circle" style="width: 100%;">
                             </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded DEF-HP-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>HP:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="DEF-BASEHP" style="text-align:right;">2000</p>
-                                        </div>
+                            <div class="col">
+                                <select id="DEF-faction" class="selectpicker form-control show-tick" data-style="btn-dark" data-size="5" onchange="setFaction('DEF');" data-width="fit">
+                                    <option>All Faction</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="DEF-rarity" class="selectpicker form-control show-tick" data-style="btn-dark" onchange="setRarity('DEF');">
+                                    <option>All Rarity</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="DEF-character" class="selectpicker form-control show-tick" data-style="btn-dark" data-size="10" onchange="setCharacter('DEF')" data-live-search="true">
+                                    <option>Not Selected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Hero Full IMG, Job and Stats -->
+                        <div class="row container p-1">
+                            <div class="col-7">
+                                <img id="DEF-characterFULL" style="max-width:100%;">
+                            </div>
+                            <div class="col-5 table table-striped text-light">
+                                <div class="row p-1">
+                                    <div class="col-3 p-1">
+                                        <h5>JOB:</h5>
+                                    </div>
+                                    <div class="col-9 p-1">
+                                        <select id="DEF-classs" class="selectpicker form-control show-tick" data-style="btn-dark" onchange="setClass('DEF');">
+                                            <option>Not Selected</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="DEF-GHP" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded DEF-ATK-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>ATK:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="DEF-BASEATK" style="text-align:right;">200</p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded DEF-HP-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>HP:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="DEF-BASEHP" style="text-align:right;">2000</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p id="DEF-GATK" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded DEF-INT-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>INT:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="DEF-BASEINT" style="text-align:right;">200</p>
-                                        </div>
+                                    <div class="col-3 p-1">
+                                        <p id="DEF-GHP" class="text-success"></p>
                                     </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="DEF-GINT" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded DEF-DEF-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>DEF:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="DEF-BASEDEF" style="text-align:right;">200</p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded DEF-ATK-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>ATK:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="DEF-BASEATK" style="text-align:right;">200</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <p id="DEF-GDEF" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded DEF-MDEF-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>MDEF:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="DEF-BASEMDEF" style="text-align:right;">200</p>
-                                        </div>
+                                    <div class="col-3 p-1">
+                                        <p id="DEF-GATK" class="text-success"></p>
                                     </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="DEF-GMDEF" class="text-success"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-4 p-1">
-                                            <img class="rounded DEF-SKILL-IMG" style="position:center;">
-                                        </div>
-                                        <div class="col-5 p-1">
-                                            <p>SKILL:</p>
-                                        </div>
-                                        <div class="col-3 p-1">
-                                            <p id="DEF-BASESKILL" style="text-align:right;">200</p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded DEF-INT-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>INT:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="DEF-BASEINT" style="text-align:right;">200</p>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-3 p-1">
+                                        <p id="DEF-GINT" class="text-success"></p>
+                                    </div>
                                 </div>
-                                <div class="col-3 p-1">
-                                    <p id="DEF-GSKILL" class="text-success"></p>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded DEF-DEF-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>DEF:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="DEF-BASEDEF" style="text-align:right;">200</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <p id="DEF-GDEF" class="text-success"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded DEF-MDEF-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>MDEF:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="DEF-BASEMDEF" style="text-align:right;">200</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <p id="DEF-GMDEF" class="text-success"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col-4 p-1">
+                                                <img class="rounded DEF-SKILL-IMG" style="position:center;">
+                                            </div>
+                                            <div class="col-5 p-1">
+                                                <p>SKILL:</p>
+                                            </div>
+                                            <div class="col-3 p-1">
+                                                <p id="DEF-BASESKILL" style="text-align:right;">200</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <p id="DEF-GSKILL" class="text-success"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Talent Skill Bar -->
-                    <div class="row container p-1 bg-dark DEF-talent-skill-bar">
-                        <div class="col">
-                            <div class="row p-1">
-                                <h4>Talent & Skill</h4>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn DEF-talent bg-dark" data-toggle="popover">
-                                        <img id="DEF-talent" style="width: 140%;">
-                                    </button>
+                        <!-- Talent Skill Bar -->
+                        <div class="row container p-1 bg-dark DEF-talent-skill-bar">
+                            <div class="col">
+                                <div class="row p-1">
+                                    <h4>Talent & Skill</h4>
                                 </div>
-                                <div class="col">
-                                    <button class="btn DEF-skill-0 bg-dark" data-toggle="popover">
-                                        <img id="DEF-skill-0" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-20% 0px 0px 0px'>
-                                            <img id="DEF-skill-0-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn DEF-skill-1 bg-dark" data-toggle="popover">
-                                        <img id="DEF-skill-1" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-20% 0px 0px 0px'>
-                                            <img id="DEF-skill-1-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn DEF-skill-2 bg-dark" data-toggle="popover">
-                                        <img id="DEF-skill-2" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-20% 0px 0px 0px'>
-                                            <img id="DEF-skill-2-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn changeSkill bg-dark" data-toggle="modal" data-target="#DEF-skillListModal" onclick="setSkillList('DEF')">
-                                        <img class="rounded DEF-changeSkill-IMG" style="width: 80%;">
-                                    </button>
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn DEF-talent bg-dark" data-toggle="popover">
+                                            <img id="DEF-talent" style="width: 140%;">
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn DEF-skill-0 bg-dark" data-toggle="popover">
+                                            <img id="DEF-skill-0" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-20% 0px 0px 0px'>
+                                                <img id="DEF-skill-0-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn DEF-skill-1 bg-dark" data-toggle="popover">
+                                            <img id="DEF-skill-1" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-20% 0px 0px 0px'>
+                                                <img id="DEF-skill-1-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn DEF-skill-2 bg-dark" data-toggle="popover">
+                                            <img id="DEF-skill-2" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-20% 0px 0px 0px'>
+                                                <img id="DEF-skill-2-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn changeSkill bg-dark" data-toggle="modal" data-target="#DEF-skillListModal" onclick="setSkillList('DEF')">
+                                            <img class="rounded DEF-changeSkill-IMG" style="width: 80%;">
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br class="bg-dark">
-                    <!-- Equipment Bar -->
-                    <div class="row container p-1 bg-dark DEF-equipment-bar">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Equipment</h4>
+                        <br class="bg-dark">
+                        <!-- Equipment Bar -->
+                        <div class="row container p-1 bg-dark DEF-equipment-bar">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h4>Equipment</h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 style='text-align:right;'>Enchant</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <select id="DEF-enchant" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setEnchant('DEF')" multiple data-max-options="2">
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-4">
-                                    <h5 style='text-align:right;'>Enchant</h5>
-                                </div>
-                                <div class="col-4">
-                                    <select id="DEF-enchant" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setEnchant('DEF')" multiple data-max-options="2">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3 p-1">
-                                    <button class="btn DEF-weapon bg-dark" data-toggle="popover">
-                                        <img id="DEF-weapon-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="DEF-weapon" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setWeapon('DEF')" data-width="100%;">
-                                    </select>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <button class="btn DEF-armor bg-dark" data-toggle="popover">
-                                        <img id="DEF-armor-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="DEF-armor" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setArmor('DEF')" data-width="100%;">
-                                    </select>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <button class="btn DEF-helmet bg-dark" data-toggle="popover">
-                                        <img id="DEF-helmet-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="DEF-helmet" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setHelmet('DEF')" data-width="100%;">
-                                    </select>
-                                </div>
-                                <div class="col-3 p-1">
-                                    <button class="btn DEF-accessory bg-dark" data-toggle="popover">
-                                        <img id="DEF-accessory-IMG" class="rounded" style="width:100%">
-                                    </button>
-                                    <select id="DEF-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('DEF')" data-width="100%;" data-size="10" data-live-search="true">
-                                    </select>
+                                <div class="row">
+                                    <div class="col-3 p-1">
+                                        <button class="btn DEF-weapon bg-dark" data-toggle="popover">
+                                            <img id="DEF-weapon-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="DEF-weapon" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setWeapon('DEF')" data-width="100%;">
+                                        </select>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <button class="btn DEF-armor bg-dark" data-toggle="popover">
+                                            <img id="DEF-armor-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="DEF-armor" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setArmor('DEF')" data-width="100%;">
+                                        </select>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <button class="btn DEF-helmet bg-dark" data-toggle="popover">
+                                            <img id="DEF-helmet-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="DEF-helmet" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setHelmet('DEF')" data-width="100%;">
+                                        </select>
+                                    </div>
+                                    <div class="col-3 p-1">
+                                        <button class="btn DEF-accessory bg-dark" data-toggle="popover">
+                                            <img id="DEF-accessory-IMG" class="rounded" style="width:100%">
+                                        </button>
+                                        <select id="DEF-accessory" class="selectpicker form-control show-tick" data-style="btn-light" onchange="setAccessory('DEF')" data-width="100%;" data-size="10" data-live-search="true">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Soldier Tab -->
-        <div id="soldier" class="tab-pane fade" role="tabpanel">
-        </div>
-        <!-- Combat Tab -->
-        <div id="combat" class="tab-pane fade" role="tabpanel">
-        </div>
+            <!-- Map Tab -->
+            <div id="map" class="tab-pane fade" role="tabpanel" style="margin-top:3rem;margin-left:1rem">
+                <div class="row bg-secondary" id="map-control-bar">
+                    <div class="col-1">
+                        <p id="ATK-terrain-display"></p>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-2">
+                        <select id="map-change" class="selectpicker form-control show-tick" data-style="btn-secondary" data-size="5" onchange="setMap();">
+                            <option>溪流秘谷</option>
+                            <option>沙漠之眼</option>
+                            <option>雙橋逆波</option>
+                            <option>凜冬棲地</option>
+                            <option>西風哨站</option>
+                            <option>破碎斷崖</option>
+                            <option>紛爭平原</option>
+                            <option>海角之淚</option>
+                            <option>空中庭院</option>
+                            <option>溶光洞窟</option>
+                        </select>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                    </div>
+                    <div class="col-1">
+                        <p id="DEF-terrain-display"></p>
+                    </div>
+                </div>
+                <div class="row no-gutters" id="map-terrainbox">
+                </div>
+                <div class="row" id="map-characterbox">
+                    <div class="col" id="map-ATK-hero">
+                    </div>
+                    <div class="col" id="map-ATK-soldier">
+                    </div>
+                    <div class="col" id="map-DEF-hero">
+                    </div>
+                    <div class="col" id="map-DEF-soldier">
+                    </div>
+                </div>
+            </div>
+            <!-- Combat Tab -->
+            <div id="combat" class="tab-pane fade" role="tabpanel">
+            </div>
 
-        <!-- Modal-->
-        <!-- Skill List Modal: ATK -->
-        <div class="modal" id="ATK-skillListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header ATK-skillList">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>Skill Choosen</h5>
+            <!-- Modal-->
+            <!-- Skill List Modal: ATK -->
+            <div class="modal" id="ATK-skillListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header ATK-skillList">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Skill Choosen</h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn ATK-skillListChoosen-0 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillListChoosen-0" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillListChoosen-0-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillListChoosen-1 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillListChoosen-1" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillListChoosen-1-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillListChoosen-2 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillListChoosen-2" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillListChoosen-2-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn ATK-skillListChoosen-0 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillListChoosen-0" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillListChoosen-0-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillListChoosen-1 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillListChoosen-1" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillListChoosen-1-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillListChoosen-2 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillListChoosen-2" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillListChoosen-2-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>Skill List</h5>
+                        <div class="modal-body">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Skill List</h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-0 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-0" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-0-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-0 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-0" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-0-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-1 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-1" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-1-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-2 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-2" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-2-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-1 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-1" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-1-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-3 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-3" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-3-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-4 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-4" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-4-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-5 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-5" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-5-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-2 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-2" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-2-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-6 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-6" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-6-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-7 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-7" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-7-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-8 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-8" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-8-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-3 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-3" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-3-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-4 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-4" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-4-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-5 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-5" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-5-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-6 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-6" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-6-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-7 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-7" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-7-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-8 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-8" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-8-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-9 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-9" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-9-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-10 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-10" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-10-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn ATK-skillList-11 bg-white" data-toggle="popover">
-                                        <img id="ATK-skillList-11" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="ATK-skillList-11-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-9 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-9" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-9-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-10 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-10" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-10-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn ATK-skillList-11 bg-white" data-toggle="popover">
+                                            <img id="ATK-skillList-11" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="ATK-skillList-11-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Skill List Modal: DEF -->
-        <div class="modal" id="DEF-skillListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header DEF-skillList">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>Skill Choosen</h5>
+            <!-- Skill List Modal: DEF -->
+            <div class="modal" id="DEF-skillListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header DEF-skillList">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Skill Choosen</h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn DEF-skillListChoosen-0 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillListChoosen-0" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillListChoosen-0-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillListChoosen-1 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillListChoosen-1" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillListChoosen-1-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillListChoosen-2 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillListChoosen-2" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillListChoosen-2-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn DEF-skillListChoosen-0 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillListChoosen-0" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillListChoosen-0-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillListChoosen-1 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillListChoosen-1" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillListChoosen-1-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillListChoosen-2 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillListChoosen-2" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillListChoosen-2-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>Skill List</h5>
+                        <div class="modal-body">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Skill List</h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-0 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-0" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-0-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-0 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-0" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-0-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-1 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-1" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-1-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-2 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-2" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-2-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-1 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-1" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-1-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-3 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-3" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-3-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-4 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-4" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-4-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-5 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-5" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-5-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-2 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-2" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-2-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-6 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-6" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-6-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-7 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-7" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-7-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-8 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-8" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-8-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-3 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-3" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-3-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-4 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-4" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-4-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-5 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-5" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-5-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-6 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-6" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-6-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-7 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-7" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-7-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-8 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-8" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-8-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row p-3">
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-9 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-9" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-9-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-10 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-10" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-10-cost">
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class='col'>
-                                    <button class="btn DEF-skillList-11 bg-white" data-toggle="popover">
-                                        <img id="DEF-skillList-11" class="rounded-circle" style="width:115%">
-                                        <div style='width:115%; margin:-15% 0% 0% 0%'>
-                                            <img id="DEF-skillList-11-cost">
-                                        </div>
-                                    </button>
+                                <div class="row p-3">
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-9 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-9" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-9-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-10 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-10" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-10-cost">
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class='col'>
+                                        <button class="btn DEF-skillList-11 bg-white" data-toggle="popover">
+                                            <img id="DEF-skillList-11" class="rounded-circle" style="width:115%">
+                                            <div style='width:115%; margin:-15% 0% 0% 0%'>
+                                                <img id="DEF-skillList-11-cost">
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

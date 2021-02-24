@@ -1,5 +1,6 @@
 var png = ".png";
 var LANG = "en";
+var map;
 /* local
 var imgLocal = "file:///home/absnormal/langrisser-combat-calculator/image/";
 var local = "file:///home/absnormal/langrisser-combat-calculator/";
@@ -73,7 +74,14 @@ var enchantNumList = ["50%+660", "35%+70", "35%+70", "40%+54", "40%+54", "15%"];
 var masteryNumList = ["750", "80", "80", "60", "60", "50"];
 var arenaNumList = ["500", "60", "60", "45", "45", "80", "11%", "21%", "-21%", "-31%"];
 
-function createAllList(side)
+function createAllList()
+{
+    createHeroHTML("ATK");
+    createHeroHTML("DEF");
+    createMapHTML();
+}
+
+function createHeroHTML(side)
 {
     createStatInputHTML(side, "ENCHANT", enchantList, enchantNumList, "Enchantment");
     createStatInputHTML(side, "MASTERY", masteryList, masteryNumList, "Mastery");
@@ -96,6 +104,7 @@ function refresh(side)
     getAllStat(side);
     getGreenStat(side);
     setGreenStat(side);
+    setMapChar(side);
 }
 
 // lists based on JSON files

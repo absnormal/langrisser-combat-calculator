@@ -15,7 +15,9 @@ var lists = JSON.parse(request.responseText);
 //     armor: {},
 //     helmet: {},
 //     accessory: {},
-//     exclusive: {}
+//     exclusive: {},
+//     map: {},
+//     terrain: {}
 // };
 var data = {};
 
@@ -73,5 +75,17 @@ request.open("GET", local+"data/exclusive.json", false);
 request.send(null);
 var exclusive = JSON.parse(request.responseText);
 data = {...data, ...exclusive};
+// map
+var request = new XMLHttpRequest();
+request.open("GET", local+"data/map.json", false);
+request.send(null);
+var map = JSON.parse(request.responseText);
+data = {...data, ...map};
+// terrain
+var request = new XMLHttpRequest();
+request.open("GET", local+"data/terrain.json", false);
+request.send(null);
+var terrain = JSON.parse(request.responseText);
+data = {...data, ...terrain};
 
 console.log(data);
